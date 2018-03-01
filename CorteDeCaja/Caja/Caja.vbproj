@@ -1,0 +1,404 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>7.0.9466</ProductVersion>
+    <SchemaVersion>1.0</SchemaVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>caja1.ico</ApplicationIcon>
+    <AssemblyKeyContainerName />
+    <AssemblyName>Caja</AssemblyName>
+    <AssemblyOriginatorKeyFile />
+    <AssemblyOriginatorKeyMode>None</AssemblyOriginatorKeyMode>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>WinExe</OutputType>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionStrict>Off</OptionStrict>
+    <RootNamespace>WindowsApplication1</RootNamespace>
+    <StartupObject>Sub Main</StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <MyType>WindowsFormsWithCustomSubMain</MyType>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <OldToolsVersion>0.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <ProjectGuid>{4B1B57A2-067A-40DD-8319-02F24C4C36B6}</ProjectGuid>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Caja.xml</DocumentationFile>
+    <BaseAddress>285212672</BaseAddress>
+    <ConfigurationOverrideFile />
+    <DefineConstants />
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>1</WarningLevel>
+    <NoWarn>42017,42018,42019,42032,42036,42353,42354,42355</NoWarn>
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Caja.xml</DocumentationFile>
+    <BaseAddress>285212672</BaseAddress>
+    <ConfigurationOverrideFile />
+    <DefineConstants />
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>1</WarningLevel>
+    <NoWarn>42017,42018,42019,42032,42036,42353,42354,42355</NoWarn>
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <BaseAddress>285212672</BaseAddress>
+    <DocumentationFile>Caja.xml</DocumentationFile>
+    <WarningLevel>1</WarningLevel>
+    <NoWarn>42017,42018,42019,42032,42036,42353,42354,42355</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <BaseAddress>285212672</BaseAddress>
+    <DocumentationFile>Caja.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <WarningLevel>1</WarningLevel>
+    <NoWarn>42017,42018,42019,42032,42036,42353,42354,42355</NoWarn>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+    </COMReference>
+    <Reference Include="AxInterop.MSMask, Version=1.1.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\AxInterop.MSMask.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\CrystalDecisions.ReportSource.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\CrystalDecisions.Shared.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\CrystalDecisions.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\CrystalDecisions.Windows.Forms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils">
+      <HintPath>bin\Release\DevExpress.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors">
+      <HintPath>bin\Release\DevExpress.XtraEditors.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.Core">
+      <HintPath>bin\Release\DevExpress.XtraEditors.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.Design">
+      <HintPath>bin\Release\DevExpress.XtraEditors.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid">
+      <HintPath>bin\Release\DevExpress.XtraGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.Design">
+      <HintPath>bin\Release\DevExpress.XtraGrid.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGridMenus">
+      <HintPath>bin\Release\DevExpress.XtraGridMenus.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraSideBar">
+      <HintPath>bin\Release\DevExpress.XtraSideBar.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList">
+      <HintPath>bin\Release\DevExpress.XtraTreeList.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.Design">
+      <HintPath>bin\Release\DevExpress.XtraTreeList.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.MSMask, Version=1.1.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\Interop.MSMask.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Autorizar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CatalogoTipoFicha.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cheques.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChequesPosfechados.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComprobanteServicio.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComprobanteServicio_ed.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultaCorte.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CorteCaja.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CorteCajaAbonoPres.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dmModulo.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FichaDeposito_ed.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFichaDepositoConfigurable.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gastos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gastos_ed.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Impresion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MovimientosCajaDesglozados.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ParametrosReportes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PorAutorizar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PosfecharCheques.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RelacionCheques.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="splash.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TipoFicha.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Content Include="caja1.ico" />
+    <Content Include="Calendar.ico" />
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Autorizar.resx">
+      <DependentUpon>Autorizar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CatalogoTipoFicha.resx">
+      <DependentUpon>CatalogoTipoFicha.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cheques.resx">
+      <DependentUpon>Cheques.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChequesPosfechados.resx">
+      <DependentUpon>ChequesPosfechados.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComprobanteServicio.resx">
+      <DependentUpon>ComprobanteServicio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComprobanteServicio_ed.resx">
+      <DependentUpon>ComprobanteServicio_ed.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultaCorte.resx">
+      <DependentUpon>ConsultaCorte.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CorteCaja.resx">
+      <DependentUpon>CorteCaja.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CorteCajaAbonoPres.resx">
+      <DependentUpon>CorteCajaAbonoPres.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FichaDeposito_ed.resx">
+      <DependentUpon>FichaDeposito_ed.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFichaDepositoConfigurable.resx">
+      <DependentUpon>frmFichaDepositoConfigurable.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gastos.resx">
+      <DependentUpon>Gastos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gastos_ed.resx">
+      <DependentUpon>Gastos_ed.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Impresion.resx">
+      <DependentUpon>Impresion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MovimientosCajaDesglozados.resx">
+      <DependentUpon>MovimientosCajaDesglozados.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParametrosReportes.resx">
+      <DependentUpon>ParametrosReportes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PorAutorizar.resx">
+      <DependentUpon>PorAutorizar.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PosfecharCheques.resx">
+      <DependentUpon>PosfecharCheques.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal.resx">
+      <DependentUpon>Principal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RelacionCheques.resx">
+      <DependentUpon>RelacionCheques.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="splash.resx">
+      <DependentUpon>splash.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TipoFicha.resx">
+      <DependentUpon>TipoFicha.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewReport.resx">
+      <DependentUpon>ViewReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="My Project\app.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{CF845C55-C321-4742-B673-E6212D061ED9}" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <PropertyGroup>
+    <PreBuildEvent />
+    <PostBuildEvent />
+  </PropertyGroup>
+</Project>
