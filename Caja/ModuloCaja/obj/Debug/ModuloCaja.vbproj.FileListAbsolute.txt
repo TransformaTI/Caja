@@ -1,0 +1,83 @@
+D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbprojResolveAssemblyReference.cache
+D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbproj.ResolveComReference.cache
+D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCambio.resources
+D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCapBanco.resources
+D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCapCaja.resources
+D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCapCobranza.resources
+D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCapCobranzaDoc.resources
+D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCapMovimiento.resources
+D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCapRazonDevCheque.resources
+D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCapTipoMovCaja.resources
+D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCatBanco.resources
+D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCatCaja.resources
+D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCatCuentaBan.resources
+D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCatDenominaciones.resources
+D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCatRazonDevCheque.resources
+D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCatTipoMov.resources
+D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmChequeTarjetaMovCaja.resources
+D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmConsultaCapCobranza.resources
+D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmConsultaCobranza.resources
+D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmConsultaDocumentosMovCaja.resources
+D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmConsultaOperador.resources
+D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmConsultaPreLiquidacion.resources
+D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmConsultaReporte.resources
+D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCorteCajaAlta.resources
+D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCorteCajaTipoAplicacion.resources
+D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmFiltroReporteEficiencia.resources
+D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmFiltroReporteMovCaja.resources
+D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmInfoUsuario.resources
+D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmMovimientos.resources
+D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmPreLiquidacionConsulta.resources
+D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmPrincipal.resources
+D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmSelTipoCobro.resources
+D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.CustomExceptionHandler.resources
+D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbproj.GenerateResource.Cache
+D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbproj.CoreCompileInputs.cache
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.exe.config
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.exe
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.pdb
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.xml
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\CrystalDecisions.ReportSource.dll
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\CrystalDecisions.Shared.dll
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\CrystalDecisions.Web.dll
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\CrystalDecisions.Windows.Forms.dll
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\stdole.dll
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbprojResolveAssemblyReference.cache
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbproj.ResolveComReference.cache
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCambio.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCapBanco.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCapCaja.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCapCobranza.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCapCobranzaDoc.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCapMovimiento.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCapRazonDevCheque.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCapTipoMovCaja.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCatBanco.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCatCaja.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCatCuentaBan.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCatDenominaciones.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCatRazonDevCheque.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCatTipoMov.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmChequeTarjetaMovCaja.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmConsultaCapCobranza.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmConsultaCobranza.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmConsultaDocumentosMovCaja.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmConsultaOperador.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmConsultaPreLiquidacion.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmConsultaReporte.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCorteCajaAlta.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCorteCajaTipoAplicacion.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmFiltroReporteEficiencia.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmFiltroReporteMovCaja.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmInfoUsuario.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmMovimientos.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmPreLiquidacionConsulta.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmPrincipal.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmSelTipoCobro.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.CustomExceptionHandler.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbproj.GenerateResource.Cache
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbproj.CoreCompileInputs.cache
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.exe
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.xml
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.pdb

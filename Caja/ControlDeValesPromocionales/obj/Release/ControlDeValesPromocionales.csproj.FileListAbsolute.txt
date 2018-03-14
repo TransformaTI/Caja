@@ -1,0 +1,10 @@
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionales\bin\Release\ControlDeValesPromocionales.dll
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionales\bin\Release\SGDAC.dll
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionales\bin\Release\SigaMetClasses.dll
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionales\bin\Release\stdole.dll
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionales\obj\Release\ControlDeValesPromocionales.frmCapturaPagosConVale.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionales\obj\Release\ControlDeValesPromocionales.RegistroValeCredito.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionales\obj\Release\ControlDeValesPromocionales.ValePromocional.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionales\obj\Release\ControlDeValesPromocionales.csproj.GenerateResource.Cache
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionales\obj\Release\ControlDeValesPromocionales.csproj.CoreCompileInputs.cache
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionales\obj\Release\ControlDeValesPromocionales.dll

@@ -1,0 +1,9 @@
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\FULLSoporte\ActualizacionCobranza\bin\Release\ActualizacionCobranza.dll
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\FULLSoporte\ActualizacionCobranza\bin\Release\Exporting.dll
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\FULLSoporte\ActualizacionCobranza\bin\Release\SGDAC.dll
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\FULLSoporte\ActualizacionCobranza\bin\Release\SVCC.dll
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\FULLSoporte\ActualizacionCobranza\obj\Release\ActualizacionCobranza.csprojResolveAssemblyReference.cache
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\FULLSoporte\ActualizacionCobranza\obj\Release\ActualizacionCobranza.ActualizacionCobranza.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\FULLSoporte\ActualizacionCobranza\obj\Release\ActualizacionCobranza.csproj.GenerateResource.Cache
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\FULLSoporte\ActualizacionCobranza\obj\Release\ActualizacionCobranza.csproj.CoreCompileInputs.cache
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\FULLSoporte\ActualizacionCobranza\obj\Release\ActualizacionCobranza.dll
