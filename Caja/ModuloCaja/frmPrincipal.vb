@@ -695,7 +695,16 @@ Public Class frmPrincipal
     End Sub
 
     Private Sub mnuTarjetaCredito_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnuTarjetaCredito.Click
-        Dim frmTarCred As New SigaMetClasses.frmConTarjetaCredito(GLOBAL_IDUsuario)
+        Dim lParametro As New SigaMetClasses.cConfig(16, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario)
+        Dim lURLGateway As String = CType(lParametro.Parametros.Item("URLGateway"), String)
+        lParametro.Dispose()
+
+        Dim frmTarCred As SigaMetClasses.frmConTarjetaCredito
+        If String.IsNullOrEmpty(lURLGateway) Then
+            frmTarCred = New SigaMetClasses.frmConTarjetaCredito(GLOBAL_IDUsuario)
+        Else
+            frmTarCred = New SigaMetClasses.frmConTarjetaCredito(lURLGateway, GLOBAL_IDUsuario)
+        End If
         frmTarCred.MdiParent = Me
         frmTarCred.Show()
     End Sub
