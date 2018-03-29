@@ -1701,10 +1701,21 @@ Public Class frmCapMovimiento
         'LIQUIDACION A OPERADORES
         '************************
 
+
+
+
+
         MyBase.New()
         InitializeComponent()
         Titulo = "Liquidación a Operadores"
         TipoOperacion = TipoOperacionMovimientoCaja.Liquidacion
+
+
+
+
+
+
+
 
         grdInfoPreLiq.DataSource = DatosMovimiento.Tables("InfoPreLiq")
 
@@ -1743,6 +1754,11 @@ Public Class frmCapMovimiento
             grdCheque.Visible = False
         Else
             dtCheques = DatosMovimiento.Tables("Cheques")
+
+
+            Dim lTransformadorCRM As New TransformadorCRM()
+            dtCheques = lTransformadorCRM.ConsultaChequesCRM(dtCheques)
+
             grdCheque.DataSource = dtCheques
             PorCobrarCheques = SumaColumna(dtCheques, "Total")
             AFavorOperadorCheques = SumaColumna(dtCheques, "Saldo")
