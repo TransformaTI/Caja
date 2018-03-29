@@ -266,12 +266,21 @@ Public Class frmConsultaOperador
     End Sub
 
     Private Sub Consulta()
+        Dim lParametro As New SigaMetClasses.cConfig(16, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario)
+        Dim lURLGateway As String = CType(lParametro.Parametros.Item("URLGateway"), String)
+        lParametro.Dispose()
+
         If _Cliente <> 0 Then
             Cursor = Cursors.WaitCursor
-            Dim frmConsultaDoc As New SigaMetClasses.frmConsultaCliente(_Cliente, permitecapturarnotas:=False)
+            Dim frmConsultaDoc As SigaMetClasses.frmConsultaCliente
+            If String.IsNullOrEmpty(lURLGateway) Then
+                frmConsultaDoc = New SigaMetClasses.frmConsultaCliente(_Cliente, PermiteCapturarNotas:=False)
+            Else
+                frmConsultaDoc = New SigaMetClasses.frmConsultaCliente(_Cliente, URLGateway:=lURLGateway, PermiteCapturarNotas:=False)
+            End If
             frmConsultaDoc.ShowDialog()
-            Cursor = Cursors.Default
-        End If
+                Cursor = Cursors.Default
+            End If
     End Sub
 
     Private Sub CapturaCobranza()
