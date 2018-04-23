@@ -983,7 +983,7 @@ Public Class frmCapMovimiento
         Me.CobroEfectivo.M500 = CType(0, Short)
         Me.CobroEfectivo.M50c = CType(0, Short)
         Me.CobroEfectivo.M5c = CType(0, Short)
-        Me.CobroEfectivo.Morralla = 0.0R
+        Me.CobroEfectivo.Morralla = 0R
         Me.CobroEfectivo.Name = "CobroEfectivo"
         Me.CobroEfectivo.Size = New System.Drawing.Size(136, 404)
         Me.CobroEfectivo.TabIndex = 50
@@ -1471,7 +1471,7 @@ Public Class frmCapMovimiento
         Me.LabelBase5.Name = "LabelBase5"
         Me.LabelBase5.Size = New System.Drawing.Size(31, 13)
         Me.LabelBase5.TabIndex = 51
-        Me.LabelBase5.Text = "E.V.:"
+        Me.LabelBase5.Text = "Efectivo:"
         '
         'LabelBase4
         '
