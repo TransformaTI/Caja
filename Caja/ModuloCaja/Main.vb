@@ -139,7 +139,6 @@ Module Main
             If updateSys.Desactualizado = True Then
                 'Necesita actualizarse
                 Application.Exit()
-                End
             End If
             'tmpConn.Dispose()
 

@@ -1469,7 +1469,7 @@ Public Class frmCapMovimiento
         Me.LabelBase5.AutoSize = True
         Me.LabelBase5.Location = New System.Drawing.Point(8, 520)
         Me.LabelBase5.Name = "LabelBase5"
-        Me.LabelBase5.Size = New System.Drawing.Size(31, 13)
+        Me.LabelBase5.Size = New System.Drawing.Size(50, 13)
         Me.LabelBase5.TabIndex = 51
         Me.LabelBase5.Text = "Efectivo:"
         '
