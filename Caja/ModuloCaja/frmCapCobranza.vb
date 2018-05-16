@@ -570,14 +570,26 @@ Public Class frmCapCobranza
     End Function
 
     Private Sub ValidarInformacionCaptura()
+        Dim oConfig As SigaMetClasses.cConfig = New SigaMetClasses.cConfig(16, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario)
+        Dim URLGateway As String = CType(oConfig.Parametros.Item("URLGateway"), String)
+        oConfig.Dispose()
+
         If _cEfectuarValidacion Is Nothing Then
             ValidacionInformacionComplementaria()
         End If
+
         If Not _cEfectuarValidacion Is Nothing Then
-            If _cEfectuarValidacion.ValidacionCaptura AndAlso _
-                _cEfectuarValidacion.EfectuarValidacion(Convert.ToInt32(txtCliente.Text)) Then
-                lblClienteNombre.Text = _cEfectuarValidacion.DescripcionValorValidacion
-                Return
+
+            If String.IsNullOrEmpty(URLGateway) Then
+                If _cEfectuarValidacion.ValidacionCaptura AndAlso _cEfectuarValidacion.EfectuarValidacion(Convert.ToInt32(txtCliente.Text)) Then
+                    lblClienteNombre.Text = _cEfectuarValidacion.DescripcionValorValidacion
+                    Return
+                End If
+            Else
+                If _cEfectuarValidacion.ValidacionCaptura AndAlso _cEfectuarValidacion.EfectuarValidacion(Convert.ToInt32(txtCliente.Text), URLGateway) Then
+                    lblClienteNombre.Text = _cEfectuarValidacion.DescripcionValorValidacion
+                    Return
+                End If
             End If
         End If
     End Sub
@@ -586,6 +598,10 @@ Public Class frmCapCobranza
         If ComboTipoMovCaja.TipoMovimientoCaja <> 0 Then
             ValidacionInformacionComplementaria()
         End If
+    End Sub
+
+    Private Sub txtCliente_MouseCaptureChanged(sender As Object, e As EventArgs) Handles txtCliente.MouseCaptureChanged
+
     End Sub
 End Class
 
