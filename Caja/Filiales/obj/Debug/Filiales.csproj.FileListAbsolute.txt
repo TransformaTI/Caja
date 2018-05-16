@@ -1,12 +1,3 @@
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\Filiales\bin\Debug\Filiales.exe.config
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\Filiales\bin\Debug\Filiales.exe
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\Filiales\bin\Debug\Filiales.pdb
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\Filiales\obj\Debug\Filiales.csprojResolveAssemblyReference.cache
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\Filiales\obj\Debug\Filiales.Form1.resources
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\Filiales\obj\Debug\Filiales.csproj.GenerateResource.Cache
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\Filiales\obj\Debug\Filiales.csproj.CoreCompileInputs.cache
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\Filiales\obj\Debug\Filiales.exe
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\Filiales\obj\Debug\Filiales.pdb
 C:\Users\elena\Documents\Caja\Caja\Filiales\bin\Debug\Filiales.exe.config
 C:\Users\elena\Documents\Caja\Caja\Filiales\bin\Debug\Filiales.exe
 C:\Users\elena\Documents\Caja\Caja\Filiales\bin\Debug\Filiales.pdb
@@ -16,3 +7,12 @@ C:\Users\elena\Documents\Caja\Caja\Filiales\obj\Debug\Filiales.csproj.CoreCompil
 C:\Users\elena\Documents\Caja\Caja\Filiales\obj\Debug\Filiales.exe
 C:\Users\elena\Documents\Caja\Caja\Filiales\obj\Debug\Filiales.pdb
 C:\Users\elena\Documents\Caja\Caja\Filiales\obj\Debug\Filiales.csprojResolveAssemblyReference.cache
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\Filiales\bin\Debug\Filiales.exe.config
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\Filiales\bin\Debug\Filiales.exe
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\Filiales\bin\Debug\Filiales.pdb
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\Filiales\obj\Debug\Filiales.Form1.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\Filiales\obj\Debug\Filiales.csproj.GenerateResource.cache
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\Filiales\obj\Debug\Filiales.csproj.CoreCompileInputs.cache
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\Filiales\obj\Debug\Filiales.exe
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\Filiales\obj\Debug\Filiales.pdb
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\Filiales\obj\Debug\Filiales.csprojAssemblyReference.cache

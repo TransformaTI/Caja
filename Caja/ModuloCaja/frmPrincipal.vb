@@ -703,7 +703,7 @@ Public Class frmPrincipal
         If String.IsNullOrEmpty(lURLGateway) Then
             frmTarCred = New SigaMetClasses.frmConTarjetaCredito(GLOBAL_IDUsuario)
         Else
-            frmTarCred = New SigaMetClasses.frmConTarjetaCredito(lURLGateway, GLOBAL_IDUsuario)
+            'frmTarCred = New SigaMetClasses.frmConTarjetaCredito(lURLGateway, GLOBAL_IDUsuario)
         End If
         frmTarCred.MdiParent = Me
         frmTarCred.Show()

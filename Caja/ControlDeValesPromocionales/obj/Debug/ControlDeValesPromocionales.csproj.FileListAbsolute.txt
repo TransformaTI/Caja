@@ -1,14 +1,3 @@
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionales\bin\Debug\ControlDeValesPromocionales.dll
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionales\bin\Debug\ControlDeValesPromocionales.pdb
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionales\bin\Debug\stdole.dll
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.csprojResolveAssemblyReference.cache
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.frmCapturaPagosConVale.resources
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.RegistroValeCredito.resources
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.ValePromocional.resources
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.csproj.GenerateResource.Cache
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.csproj.CoreCompileInputs.cache
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.dll
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.pdb
 C:\Users\elena\Documents\Caja\Caja\ControlDeValesPromocionales\bin\Debug\ControlDeValesPromocionales.dll
 C:\Users\elena\Documents\Caja\Caja\ControlDeValesPromocionales\bin\Debug\ControlDeValesPromocionales.pdb
 C:\Users\elena\Documents\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.frmCapturaPagosConVale.resources
@@ -20,3 +9,17 @@ C:\Users\elena\Documents\Caja\Caja\ControlDeValesPromocionales\obj\Debug\Control
 C:\Users\elena\Documents\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.dll
 C:\Users\elena\Documents\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.pdb
 C:\Users\elena\Documents\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.csprojResolveAssemblyReference.cache
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionales\bin\Debug\ControlDeValesPromocionales.dll
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionales\bin\Debug\ControlDeValesPromocionales.pdb
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionales\bin\Debug\FlashControlV71.dll
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionales\bin\Debug\stdole.dll
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionales\bin\Debug\ShockwaveFlashObjects.dll
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.frmCapturaPagosConVale.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.RegistroValeCredito.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.ValePromocional.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.csproj.GenerateResource.cache
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.csproj.CoreCompileInputs.cache
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.csproj.CopyComplete
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.dll
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.pdb
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.csprojAssemblyReference.cache
