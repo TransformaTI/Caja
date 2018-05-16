@@ -183,6 +183,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\ReporteDinamicoOaxaca.dll</HintPath>
     </Reference>
+    <Reference Include="RTGMGateway, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\RTGMGateway.dll</HintPath>
+    </Reference>
     <Reference Include="SGDAC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\SGDAC.dll</HintPath>
@@ -344,6 +348,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Settings.vb" />
+    <Compile Include="TransformadorCRM.vb" />
     <Content Include="ModuloCaja.ico" />
     <EmbeddedResource Include="frmCambio.resx">
       <DependentUpon>frmCambio.vb</DependentUpon>
