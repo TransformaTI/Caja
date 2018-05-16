@@ -1452,10 +1452,53 @@ Public Class frmSelTipoCobro
         dr.Close()
     End Sub
 
+    Private Sub ConsultaTarjetaCredito(ByVal Cliente As Integer, ByVal URLGateway As String)
+        Dim lSolicitud As RTGMGateway.SolicitudGateway = New RTGMGateway.SolicitudGateway()
+        Dim lRemoteGateway As RTGMGateway.RTGMGateway = New RTGMGateway.RTGMGateway()
+        lRemoteGateway.URLServicio = URLGateway
+
+
+        Dim oTC As New SigaMetClasses.cTarjetaCredito()
+        Dim dr As SqlDataReader
+        Try
+            dr = oTC.ConsultaActiva(Cliente)
+            Do While dr.Read
+                'lblClienteNombre.Text = CType(dr("ClienteNombre"), String)
+                lblTitular.Text = CType(dr("Titular"), String)
+                lblTarjetaCredito.Text = CType(dr("TarjetaCredito"), String)
+                lblBanco.Text = CType(dr("Banco"), String)
+                lblBancoNombre.Text = CType(dr("BancoNombre"), String)
+                lblTipoTarjetaCredito.Text = CType(dr("TipoTarjetaCreditoDescripcion"), String)
+                lblVigencia.Text = CType(dr("MesVigencia"), String) & " / " & CType(dr("AñoVigencia"), String)
+            Loop
+            If dr.HasRows Then
+                lSolicitud.Fuente = RTGMCore.Fuente.CRM
+                lSolicitud.Sucursal = GLOBAL_SucursalUsuario
+                lSolicitud.IDCliente = Cliente
+                Dim lDireccionEntrega As RTGMCore.DireccionEntrega = lRemoteGateway.buscarDireccionEntrega(lSolicitud)
+                lblClienteNombre.Text = lDireccionEntrega.Nombre
+            End If
+            dr.Close()
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Sub
+
     Private Sub btnBuscarClienteTC_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarClienteTC.Click
+        Dim lParametro As New SigaMetClasses.cConfig(16, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario)
+        Dim lURLGateway As String = CType(lParametro.Parametros.Item("URLGateway"), String)
+        lParametro.Dispose()
+
+
         If txtClienteTC.Text <> "" And IsNumeric(txtClienteTC.Text) Then
             LimpiaInfoTarjetaCredito()
-            ConsultaTarjetaCredito(CType(txtClienteTC.Text, Integer))
+
+            If String.IsNullOrEmpty(lURLGateway) Then
+                ConsultaTarjetaCredito(CType(txtClienteTC.Text, Integer))
+            Else
+                ConsultaTarjetaCredito(CType(txtClienteTC.Text, Integer), lURLGateway)
+            End If
+
             If lblTarjetaCredito.Text = "" Then
                 MessageBox.Show("No existen tarjetas de crédito del cliente especificado.", Titulo, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Else
@@ -1503,10 +1546,22 @@ Public Class frmSelTipoCobro
     End Sub
 
     Private Sub btnBuscarCliente_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarCliente.Click
+
+        Dim lParametro As New SigaMetClasses.cConfig(16, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario)
+        Dim lURLGateway As String = CType(lParametro.Parametros.Item("URLGateway"), String)
+        lParametro.Dispose()
+
         If Trim(txtClienteCheque.Text) <> "" Then
-            Dim frmConCliente As New SigaMetClasses.frmConsultaCliente(CType(txtClienteCheque.Text, Integer))
+            Dim frmConCliente As SigaMetClasses.frmConsultaCliente
+            If String.IsNullOrEmpty(lURLGateway) Then
+                frmConCliente = New SigaMetClasses.frmConsultaCliente(CType(txtClienteCheque.Text, Integer))
+            Else
+                frmConCliente = New SigaMetClasses.frmConsultaCliente(CType(txtClienteCheque.Text, Integer), lURLGateway)
+            End If
+
             frmConCliente.ShowDialog()
-        End If
+            End If
+
     End Sub
 
     Private Sub txtClienteCheque_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtClienteCheque.Leave
