@@ -917,16 +917,17 @@ Public Class frmConsultaCapCobranza
     Private Function ConsultaMovimientoPorClave(ByVal strClave As String) As DataTable
         '20 de febrero del 2003
         Dim strQuery As String = "Select Caja, FOperacion, Consecutivo, Folio, TipoMovimientoCaja, Status, FAlta From MovimientoCaja Where Clave = '" & strClave & "'"
+        Dim dt As New DataTable("MovCaja")
         'Dim da As New Data.SqlClient.SqlDataAdapter(strQuery, ConString)
         Dim da As New Data.SqlClient.SqlDataAdapter(strQuery, GLOBAL_Connection)
         Try
-            Dim dt As New DataTable("MovCaja")
             da.Fill(dt)
             Return dt
         Catch ex As Exception
             MessageBox.Show(ex.Message, Titulo, MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
+        Return dt
     End Function
 
     Private Sub ConsultaMovimientoCaja(ByVal Caja As Byte, _

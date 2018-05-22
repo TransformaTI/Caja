@@ -72,3 +72,41 @@ C:\Users\Iván Trujillo\Documents\Proyectos\Caja\CorteDeCaja\Caja\obj\Debug\Caja
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\CorteDeCaja\Caja\obj\Debug\Caja.exe
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\CorteDeCaja\Caja\obj\Debug\Caja.xml
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\CorteDeCaja\Caja\obj\Debug\Caja.pdb
+C:\Users\elena\Documents\Caja\CorteDeCaja\Caja\bin\Debug\Caja.exe.config
+C:\Users\elena\Documents\Caja\CorteDeCaja\Caja\bin\Debug\Caja.exe
+C:\Users\elena\Documents\Caja\CorteDeCaja\Caja\bin\Debug\Caja.pdb
+C:\Users\elena\Documents\Caja\CorteDeCaja\Caja\bin\Debug\Caja.xml
+C:\Users\elena\Documents\Caja\CorteDeCaja\Caja\bin\Debug\stdole.dll
+C:\Users\elena\Documents\Caja\CorteDeCaja\Caja\obj\Debug\Caja.vbprojResolveAssemblyReference.cache
+C:\Users\elena\Documents\Caja\CorteDeCaja\Caja\obj\Debug\Caja.vbproj.ResolveComReference.cache
+C:\Users\elena\Documents\Caja\CorteDeCaja\Caja\obj\Debug\WindowsApplication1.About.resources
+C:\Users\elena\Documents\Caja\CorteDeCaja\Caja\obj\Debug\WindowsApplication1.Autorizar.resources
+C:\Users\elena\Documents\Caja\CorteDeCaja\Caja\obj\Debug\WindowsApplication1.CatalogoTipoFicha.resources
+C:\Users\elena\Documents\Caja\CorteDeCaja\Caja\obj\Debug\WindowsApplication1.CambioCheques.resources
+C:\Users\elena\Documents\Caja\CorteDeCaja\Caja\obj\Debug\WindowsApplication1.ChequesPosfechados.resources
+C:\Users\elena\Documents\Caja\CorteDeCaja\Caja\obj\Debug\WindowsApplication1.ComprobanteServicio.resources
+C:\Users\elena\Documents\Caja\CorteDeCaja\Caja\obj\Debug\WindowsApplication1.ComprobanteServicio_ed.resources
+C:\Users\elena\Documents\Caja\CorteDeCaja\Caja\obj\Debug\WindowsApplication1.ConsultaCorte.resources
+C:\Users\elena\Documents\Caja\CorteDeCaja\Caja\obj\Debug\WindowsApplication1.CorteCaja.resources
+C:\Users\elena\Documents\Caja\CorteDeCaja\Caja\obj\Debug\WindowsApplication1.CorteCajaAbonoPres.resources
+C:\Users\elena\Documents\Caja\CorteDeCaja\Caja\obj\Debug\WindowsApplication1.FichaDeposito_ed.resources
+C:\Users\elena\Documents\Caja\CorteDeCaja\Caja\obj\Debug\WindowsApplication1.frmFichaDepositoConfigurable.resources
+C:\Users\elena\Documents\Caja\CorteDeCaja\Caja\obj\Debug\WindowsApplication1.Gastos.resources
+C:\Users\elena\Documents\Caja\CorteDeCaja\Caja\obj\Debug\WindowsApplication1.Gastos_ed.resources
+C:\Users\elena\Documents\Caja\CorteDeCaja\Caja\obj\Debug\WindowsApplication1.Impresion.resources
+C:\Users\elena\Documents\Caja\CorteDeCaja\Caja\obj\Debug\WindowsApplication1.Login.resources
+C:\Users\elena\Documents\Caja\CorteDeCaja\Caja\obj\Debug\WindowsApplication1.MovimientosCajaDesglozados.resources
+C:\Users\elena\Documents\Caja\CorteDeCaja\Caja\obj\Debug\WindowsApplication1.ParametrosReportes.resources
+C:\Users\elena\Documents\Caja\CorteDeCaja\Caja\obj\Debug\WindowsApplication1.PorAutorizar.resources
+C:\Users\elena\Documents\Caja\CorteDeCaja\Caja\obj\Debug\WindowsApplication1.PosfecharCheques.resources
+C:\Users\elena\Documents\Caja\CorteDeCaja\Caja\obj\Debug\WindowsApplication1.Principal.resources
+C:\Users\elena\Documents\Caja\CorteDeCaja\Caja\obj\Debug\WindowsApplication1.RelacionCheques.resources
+C:\Users\elena\Documents\Caja\CorteDeCaja\Caja\obj\Debug\WindowsApplication1.splash.resources
+C:\Users\elena\Documents\Caja\CorteDeCaja\Caja\obj\Debug\WindowsApplication1.TipoFicha.resources
+C:\Users\elena\Documents\Caja\CorteDeCaja\Caja\obj\Debug\WindowsApplication1.ViewReport.resources
+C:\Users\elena\Documents\Caja\CorteDeCaja\Caja\obj\Debug\Caja.vbproj.GenerateResource.cache
+C:\Users\elena\Documents\Caja\CorteDeCaja\Caja\obj\Debug\Caja.vbproj.CoreCompileInputs.cache
+C:\Users\elena\Documents\Caja\CorteDeCaja\Caja\obj\Debug\Caja.vbproj.CopyComplete
+C:\Users\elena\Documents\Caja\CorteDeCaja\Caja\obj\Debug\Caja.exe
+C:\Users\elena\Documents\Caja\CorteDeCaja\Caja\obj\Debug\Caja.xml
+C:\Users\elena\Documents\Caja\CorteDeCaja\Caja\obj\Debug\Caja.pdb

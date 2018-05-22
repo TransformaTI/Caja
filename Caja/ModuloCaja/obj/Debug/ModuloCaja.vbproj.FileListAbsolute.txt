@@ -33,17 +33,9 @@ D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmSelTipoCobro.resources
 D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.CustomExceptionHandler.resources
 D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbproj.GenerateResource.Cache
 D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbproj.CoreCompileInputs.cache
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.exe.config
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.exe
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.pdb
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.xml
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\CrystalDecisions.CrystalReports.Engine.dll
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\CrystalDecisions.ReportSource.dll
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\CrystalDecisions.Shared.dll
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\CrystalDecisions.Web.dll
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\CrystalDecisions.Windows.Forms.dll
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\stdole.dll
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbprojResolveAssemblyReference.cache
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbproj.ResolveComReference.cache
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCambio.resources
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCapBanco.resources
@@ -78,6 +70,55 @@ C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\Modul
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.CustomExceptionHandler.resources
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbproj.GenerateResource.Cache
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbproj.CoreCompileInputs.cache
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.exe
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.xml
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.pdb
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\bin\ModuloCaja.pdb
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\bin\ModuloCaja.xml
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbproj.ResolveComReference.cache
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCambio.resources
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCapBanco.resources
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCapCaja.resources
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCapCobranza.resources
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCapCobranzaDoc.resources
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCapMovimiento.resources
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCapRazonDevCheque.resources
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCapTipoMovCaja.resources
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCatBanco.resources
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCatCaja.resources
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCatCuentaBan.resources
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCatDenominaciones.resources
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCatRazonDevCheque.resources
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCatTipoMov.resources
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmChequeTarjetaMovCaja.resources
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmConsultaCapCobranza.resources
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmConsultaCobranza.resources
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmConsultaDocumentosMovCaja.resources
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmConsultaOperador.resources
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmConsultaPreLiquidacion.resources
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmConsultaReporte.resources
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCorteCajaAlta.resources
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCorteCajaTipoAplicacion.resources
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmFiltroReporteEficiencia.resources
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmFiltroReporteMovCaja.resources
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmInfoUsuario.resources
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmMovimientos.resources
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmPreLiquidacionConsulta.resources
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmPrincipal.resources
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmSelTipoCobro.resources
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.CustomExceptionHandler.resources
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbproj.GenerateResource.cache
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbproj.CoreCompileInputs.cache
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbproj.CopyComplete
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.xml
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.pdb
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\bin\ModuloCaja.dll.config
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\bin\ModuloCaja.dll
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.dll
+C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbprojResolveAssemblyReference.cache
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.dll.config
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.dll
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\FlashControlV71.dll
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ShockwaveFlashObjects.dll
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbprojAssemblyReference.cache
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbproj.CopyComplete
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.dll
