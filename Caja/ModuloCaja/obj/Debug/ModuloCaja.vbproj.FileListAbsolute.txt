@@ -33,8 +33,6 @@ D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmSelTipoCobro.resources
 D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.CustomExceptionHandler.resources
 D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbproj.GenerateResource.Cache
 D:\TFSGM\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbproj.CoreCompileInputs.cache
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.exe.config
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.exe
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.pdb
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.xml
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\stdole.dll
@@ -72,7 +70,6 @@ C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\Modul
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.CustomExceptionHandler.resources
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbproj.GenerateResource.Cache
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbproj.CoreCompileInputs.cache
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.exe
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.xml
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.pdb
 C:\Users\elena\Documents\Caja\Caja\ModuloCaja\bin\ModuloCaja.pdb
@@ -118,3 +115,10 @@ C:\Users\elena\Documents\Caja\Caja\ModuloCaja\bin\ModuloCaja.dll.config
 C:\Users\elena\Documents\Caja\Caja\ModuloCaja\bin\ModuloCaja.dll
 C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.dll
 C:\Users\elena\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbprojResolveAssemblyReference.cache
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.dll.config
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.dll
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\FlashControlV71.dll
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ShockwaveFlashObjects.dll
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbprojAssemblyReference.cache
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbproj.CopyComplete
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.dll

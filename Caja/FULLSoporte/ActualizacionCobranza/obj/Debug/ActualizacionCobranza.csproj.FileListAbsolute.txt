@@ -17,3 +17,5 @@ C:\Users\elena\Documents\Caja\Caja\FULLSoporte\ActualizacionCobranza\obj\Debug\A
 C:\Users\elena\Documents\Caja\Caja\FULLSoporte\ActualizacionCobranza\obj\Debug\ActualizacionCobranza.dll
 C:\Users\elena\Documents\Caja\Caja\FULLSoporte\ActualizacionCobranza\obj\Debug\ActualizacionCobranza.pdb
 C:\Users\elena\Documents\Caja\Caja\FULLSoporte\ActualizacionCobranza\obj\Debug\ActualizacionCobranza.csprojResolveAssemblyReference.cache
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\FULLSoporte\ActualizacionCobranza\obj\Debug\ActualizacionCobranza.csprojAssemblyReference.cache
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\FULLSoporte\ActualizacionCobranza\obj\Debug\ActualizacionCobranza.csproj.CopyComplete
