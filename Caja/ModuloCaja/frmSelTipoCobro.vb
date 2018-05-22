@@ -1560,7 +1560,7 @@ Public Class frmSelTipoCobro
             End If
 
             frmConCliente.ShowDialog()
-            End If
+        End If
 
     End Sub
 
@@ -1571,5 +1571,35 @@ Public Class frmSelTipoCobro
         oCliente = Nothing
     End Sub
 
+    Private Sub BotonBase1_Click(sender As Object, e As EventArgs) Handles BotonBase1.Click
+        Dim insertaCobro As New SigaMetClasses.CobroDetalladoDatos()
+        Dim AñoCobro, Banco As Short
+        Dim Cobro As Integer
+        Dim Importe, Impuesto, Total As Decimal
+        Dim Referencia, Status, NumeroCheque As Char
+        Dim FAlta, FCheque As Date
+        Dim TipoCobro As Byte
 
+
+        'NumeroCuenta As Char,
+        '                    Observaciones As String,
+        '                    FDevolucion As Date,
+        '                    RazonDevCheque As Char,
+        '                    Cliente As Integer,
+        '                    Saldo As Decimal,
+        '                    Usuario As Char,
+        '                    FActualizacion As Date,
+        '                    Folio As Integer,
+        '                    FDeposito As Date,
+        '                    FolioAtt As Integer,
+        '                    AñoAtt As Int16,
+        '                    NumeroCuentaDestino As Char,
+        '                    BancoOrigen As Int16,
+        '                    SaldoAFavor As Boolean,
+        '                    StatusSaldoAFavor As Char,
+        '                    AñoCobroOrigen As Int16,
+        '                    CobroOrigen As Integer,
+        '                    TPV As Boolean
+        'insertaCobro.insertaCobro()
+    End Sub
 End Class
