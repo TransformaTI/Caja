@@ -55,6 +55,7 @@ Public Class frmSelTipoCobro
     Friend WithEvents BotonBase2 As ControlesBase.BotonBase
     Friend WithEvents BotonBase3 As ControlesBase.BotonBase
     Private DetalleCobro As SigaMetClasses.sCobro
+    Private TipoCobroliquidacion As Integer
 
     Enum FormaPago
         Efectivo = 0
@@ -82,6 +83,7 @@ Public Class frmSelTipoCobro
             'btnAceptarVale.Enabled = False
         End If
         _CapturaDetalle = CapturaDetalle
+        TipoCobroliquidacion = DetalleCobro
     End Sub
 
 #Region " Windows Form Designer generated code "
@@ -1411,11 +1413,11 @@ Public Class frmSelTipoCobro
 
     Private Sub frmSelTipoCobro_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
         ComboBanco.CargaDatos(True)
-
         If CapturaEfectivoVales = True Then
             btnAceptarEfectivoVales.Enabled = False
             tabTipoCobro.SelectedTab = tbChequeFicha
         End If
+        SeleccionarTipocobro()
         AddHandler txtImporteTC.KeyDown, AddressOf ManejaFlechas
     End Sub
 
@@ -1601,5 +1603,31 @@ Public Class frmSelTipoCobro
         '                    CobroOrigen As Integer,
         '                    TPV As Boolean
         'insertaCobro.insertaCobro()
+    End Sub
+    Public Sub SeleccionarTipocobro()
+        If FormadePago.Cheque = TipoCobroliquidacion Then
+            tabTipoCobro.SelectedIndex = 3
+
+        End If
+        If FormadePago.Tarjeta = TipoCobroliquidacion Then
+            tabTipoCobro.SelectedIndex = 2
+
+        End If
+        If FormadePago.Transferencia = TipoCobroliquidacion Then
+            tabTipoCobro.SelectedIndex = 4
+
+        End If
+        If FormadePago.ValesDespensa = TipoCobroliquidacion Then
+            tabTipoCobro.SelectedIndex = 1
+
+        End If
+        If FormadePago.AplicacionAnticipo = TipoCobroliquidacion Then
+            tabTipoCobro.SelectedIndex = 5
+
+        End If
+        If FormadePago.Efectivo = TipoCobroliquidacion Then
+            tabTipoCobro.SelectedIndex = 0
+
+        End If
     End Sub
 End Class
