@@ -6,7 +6,7 @@ Public Class frmCapCobranzaDoc
     Private Titulo As String = "Captura de cobranza"
     Public ListaCobroPedido As New ArrayList()
     Private _Cliente As Integer
-
+    Public ConString As String
 
 #Region "Variables y propiedades"
     Dim decImporteTotalCobranza As Decimal
@@ -15,7 +15,7 @@ Public Class frmCapCobranzaDoc
     Dim objPedido As SigaMetClasses.sPedido
     Private _TipoCobro As SigaMetClasses.Enumeradores.enumTipoCobro
     Private _ImporteCobro As Decimal 'Indica el importe total del cobro (e,v o ch.)
-    Private _ImporteRestante As Decimal 'Indica cuanto hace falta por aplicar del documento (efectivo, vale o cheque)
+    Private _ImporteRestante As Decimal 'Indica cuanto hace falta por aplicar del documento (efectivo, vale o cheque)    
 
     Public Property TipoCobro() As SigaMetClasses.Enumeradores.enumTipoCobro
         Get
@@ -354,7 +354,7 @@ Public Class frmCapCobranzaDoc
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(424, 32)
         Me.Label8.TabIndex = 0
-        Me.Label8.Text = "Lista de documentos agregados a la cobranza.  Dé doble clic en los registros de l" & _
+        Me.Label8.Text = "Lista de documentos agregados a la cobranza.  Dé doble clic en los registros de l" &
         "a lista para desplegar más información acerca de los documentos."
         '
         'btnBuscarCliente
@@ -422,15 +422,58 @@ Public Class frmCapCobranzaDoc
 #End Region
 
 #Region "Funciones"
+    Private Function ConsultaPedido(ByVal PedidoReferencia As String, TipoCargo As Integer, ByVal pConString As String) As Boolean
+        Main.ConString = ConString
+        Dim strQuery As String =
+            "SELECT p.Celula, p.AñoPed, p.Pedido, p.Total, p.Saldo, p.Cliente, c.Nombre, p.PedidoReferencia, p.CyC " &
+            "FROM Pedido p " &
+            "JOIN Cliente c ON p.Cliente = c.Cliente " &
+            "WHERE p.TipoCargo = " & TipoCargo.ToString() &
+            " AND p.PedidoReferencia = '" & PedidoReferencia & "'"
+
+        Dim cn As New SqlConnection(Main.ConString)
+        If cn.State = ConnectionState.Closed Then
+            cn.Open()
+        End If
+        Dim cmd As New SqlCommand(strQuery)
+        cmd.Connection = cn
+        Dim dr As SqlDataReader = cmd.ExecuteReader(CommandBehavior.CloseConnection)
+
+        Try
+            LimpiaPedido()
+            Do While dr.Read
+                objPedido.Celula = CType(dr("Celula"), Byte)
+                objPedido.AnoPed = CType(dr("AñoPed"), Short)
+                objPedido.Pedido = CType(dr("Pedido"), Integer)
+                objPedido.Importe = CType(dr("Total"), Decimal)
+                objPedido.ImporteAbono = 0
+                objPedido.Cliente = CType(dr("Cliente"), Integer)
+                objPedido.Nombre = Trim(CType(dr("Nombre"), String))
+                objPedido.PedidoReferencia = Trim(CType(dr("PedidoReferencia"), String))
+            Loop
+            If objPedido.PedidoReferencia <> "" Then
+                Return True
+            Else
+                Return False
+            End If
+        Catch ex As Exception
+            Return False
+            MessageBox.Show(ex.Message)
+        Finally
+            dr.Close()
+            cn.Close()
+        End Try
+    End Function
+
     Private Function ConsultaPedido(ByVal PedidoReferencia As String) As Boolean
         'Modificado el 3 de febrero del 2003
         'Para no tener dependencia en la vista de los cargos, porque se usa en los reportes
         'y puede ser muy cambiable.
-        Dim strQuery As String = _
-        "SELECT p.Celula, p.AñoPed, p.Pedido, p.Total, p.Saldo, p.Cliente, c.Nombre, p.PedidoReferencia, p.CyC " & _
-        "FROM Pedido p " & _
-        "JOIN Cliente c ON p.Cliente = c.Cliente " & _
-        "WHERE p.TipoCargo = 4 " & _
+        Dim strQuery As String =
+        "SELECT p.Celula, p.AñoPed, p.Pedido, p.Total, p.Saldo, p.Cliente, c.Nombre, p.PedidoReferencia, p.CyC " &
+        "FROM Pedido p " &
+        "JOIN Cliente c ON p.Cliente = c.Cliente " &
+        "WHERE p.TipoCargo = 4 " &
         "AND p.PedidoReferencia = '" & PedidoReferencia & "'"
 
 
@@ -553,7 +596,7 @@ Public Class frmCapCobranzaDoc
 #End Region
 
     Private Sub btnAceptar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAceptar.Click
-        If lstDocumento.Items.Count > 0 Then
+        If lstDocumento.Items.Count > 0 Then 'CAJA
             If _ImporteRestante <= 0 Then
                 If MessageBox.Show(M_ESTAN_CORRECTOS, Titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) = DialogResult.Yes Then
                     Dim s As SigaMetClasses.sPedido
@@ -585,7 +628,9 @@ Public Class frmCapCobranzaDoc
         If e.KeyCode = Keys.Enter Then
             Dim i As Integer = BuscaPedido(UCase(Trim(txtPedidoReferencia.Text)))
             If i = -1 Then
-                If ConsultaPedido(UCase(Trim(txtPedidoReferencia.Text))) = True Then
+                'If ConsultaPedido(UCase(Trim(txtPedidoReferencia.Text))) = True Then
+                'TipoCargo 1	Suministro de gas   
+                If ConsultaPedido(UCase(Trim(txtPedidoReferencia.Text)), 1, ConString) = True Then
                     lblPedidoReferenciaImporte.Text = objPedido.Importe.ToString("N")
                     If ImporteRestante > objPedido.Importe Then
                         txtImporteAbono.Text = objPedido.Importe.ToString("N")

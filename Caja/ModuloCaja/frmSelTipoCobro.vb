@@ -1,5 +1,6 @@
 Option Strict On
-Option Explicit On 
+Option Explicit On
+Imports System.Collections.Generic
 Imports System.Data.SqlClient
 
 Public Class frmSelTipoCobro
@@ -55,6 +56,9 @@ Public Class frmSelTipoCobro
     Friend WithEvents BotonBase2 As ControlesBase.BotonBase
     Friend WithEvents BotonBase3 As ControlesBase.BotonBase
     Private DetalleCobro As SigaMetClasses.sCobro
+
+    Public CargoTarjetaSeleccionado As SigaMetClasses.CargoTarjeta
+    Public ConString As String
 
     Enum FormaPago
         Efectivo = 0
@@ -1272,6 +1276,7 @@ Public Class frmSelTipoCobro
                     Dim frmCaptura As New frmCapCobranzaDoc()
                     frmCaptura.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.TarjetaCredito
                     frmCaptura.ImporteCobro = CType(txtImporteTC.Text, Decimal)
+                    frmCaptura.ConString = ConString
 
                     If frmCaptura.ShowDialog = DialogResult.OK Then
                         With Cobro
@@ -1489,6 +1494,23 @@ Public Class frmSelTipoCobro
         Dim lURLGateway As String = CType(lParametro.Parametros.Item("URLGateway"), String)
         lParametro.Dispose()
 
+        Dim CargosTarjetas As List(Of SigaMetClasses.CargoTarjeta)
+        Dim objCargoTarjetaDatos As New SigaMetClasses.CargoTarjetaDatos
+        CargosTarjetas = objCargoTarjetaDatos.consultarCargoTarjeta(txtClienteTC.Text)
+        If CargosTarjetas.Count > 0 Then
+            Dim frmConsultaCargo As SigaMetClasses.frmConsultaCargoTarjetaCliente
+            frmConsultaCargo = New SigaMetClasses.frmConsultaCargoTarjetaCliente
+            frmConsultaCargo.Cliente = txtClienteTC.Text
+            If frmConsultaCargo.ShowDialog() = DialogResult.OK Then
+                lblTarjetaCredito.Text = frmConsultaCargo.CargoTarjeta.NumeroTarjeta
+                lblBancoNombre.Text = frmConsultaCargo.CargoTarjeta.NombreBanco
+                lblTipoTarjetaCredito.Text = frmConsultaCargo.CargoTarjeta.TipoCobroDescripcion
+                txtImporteTC.Text = CType(frmConsultaCargo.CargoTarjeta.Importe, String)
+
+                CargoTarjetaSeleccionado = frmConsultaCargo.CargoTarjeta
+
+            End If
+        End If
 
         If txtClienteTC.Text <> "" And IsNumeric(txtClienteTC.Text) Then
             LimpiaInfoTarjetaCredito()
@@ -1560,7 +1582,7 @@ Public Class frmSelTipoCobro
             End If
 
             frmConCliente.ShowDialog()
-            End If
+        End If
 
     End Sub
 
