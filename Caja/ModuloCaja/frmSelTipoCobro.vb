@@ -1274,7 +1274,7 @@ Public Class frmSelTipoCobro
                     Dim frmCaptura As New frmCapCobranzaDoc()
                     frmCaptura.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.TarjetaCredito
                     frmCaptura.ImporteCobro = CType(txtImporteTC.Text, Decimal)
-
+                    AltaCheque()
                     If frmCaptura.ShowDialog = DialogResult.OK Then
                         With Cobro
                             .Consecutivo = Consecutivo
@@ -1318,6 +1318,7 @@ Public Class frmSelTipoCobro
             If _CapturaDetalle = True Then
                 Dim frmCaptura As New frmCapCobranzaDoc()
                 frmCaptura.TipoCobro = _TipoCobro
+                '                AltaCheque()
                 frmCaptura.ImporteCobro = CType(txtImporteDocumento.Text, Decimal)
                 If frmCaptura.ShowDialog() = DialogResult.OK Then
                     With Cobro
@@ -1550,7 +1551,8 @@ Public Class frmSelTipoCobro
     Private Sub btnBuscarCliente_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarCliente.Click
 
         Dim lParametro As New SigaMetClasses.cConfig(16, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario)
-        Dim lURLGateway As String = CType(lParametro.Parametros.Item("URLGateway"), String)
+        'Dim lURLGateway As String = CType(lParametro.Parametros.Item("URLGateway"), String)
+        Dim lURLGateway As String = ""
         lParametro.Dispose()
 
         If Trim(txtClienteCheque.Text) <> "" Then
@@ -1567,10 +1569,13 @@ Public Class frmSelTipoCobro
     End Sub
 
     Private Sub txtClienteCheque_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtClienteCheque.Leave
-        Dim oCliente As New SigaMetClasses.cCliente()
-        oCliente.Consulta(CType(txtClienteCheque.Text, Integer))
-        lblNombre.Text = oCliente.Nombre
-        oCliente = Nothing
+        If txtClienteCheque.Text <> "" Then
+            Dim oCliente As New SigaMetClasses.cCliente()
+            oCliente.Consulta(CType(txtClienteCheque.Text, Integer))
+            lblNombre.Text = oCliente.Nombre
+            oCliente = Nothing
+        End If
+
     End Sub
 
     Private Sub BotonBase1_Click(sender As Object, e As EventArgs) Handles BotonBase1.Click
@@ -1662,6 +1667,65 @@ Public Class frmSelTipoCobro
                             Folio, FDeposito, FolioAtt, AñoAtt, NumeroCuentaDestino, BancoOrigen, SaldoAFavor, StatusSaldoAFavor,
                             AñoCobroOrigen, CobroOrigen, TPV)
         MessageBox.Show("Pago efectivo ¡exitoso!")
+        TxtNumeroDecimal1.Clear()
+    End Sub
+
+    Public Sub AltaCheque()
+        Dim insertaCobro As New SigaMetClasses.CobroDetalladoDatos()
+        Dim AñoCobro, Banco, AñoAtt, BancoOrigen, AñoCobroOrigen As Short
+        Dim Cobro, Cliente, Folio, FolioAtt, CobroOrigen As Integer
+        Dim Importe, Impuesto, Total, Saldo As Decimal
+        Dim Referencia, Status, NumeroCheque, NumeroCuenta, RazonDevCheque, Usuario, NumeroCuentaDestino, StatusSaldoAFavor As String
+        Dim FAlta, FCheque, FDevolucion, FActualizacion, FDeposito As Date
+        Dim TipoCobro As Byte
+        Dim Observaciones As String
+        Dim SaldoAFavor, TPV As Boolean
+        SaldoAFavor = False
+        AñoCobro = CShort(DateTime.Now.Year)
+        Cobro = 8
+        Importe = CDec(txtImporteDocumento.Text)
+        Impuesto = 10
+        Total = 100
+
+        If Total < Importe Then
+            If MessageBox.Show("Se generará un saldo a favor ¿está de acuerdo?", "Captura cobros",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) _
+                    = DialogResult.Yes Then
+                SaldoAFavor = True
+            Else
+                SaldoAFavor = False
+            End If
+        End If
+        Referencia = "NULL" ' puede ser vacio
+        Banco = CShort(ComboBanco.SelectedValue)
+        FAlta = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+        Status = "EMITIDO"
+        TipoCobro = 3 ' el tipo cobro para che que es el numero 3
+        NumeroCheque = "NULL" ' puede ser vacio
+        FCheque = dtpFechaCheque.Value
+        NumeroCuenta = txtNumeroCuenta.Text
+        Observaciones = txtObservaciones.Text
+        FDevolucion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+        RazonDevCheque = "01"
+        Cliente = CInt(txtClienteCheque.Text)
+        Saldo = 0
+        Usuario = GLOBAL_IDUsuario
+        FActualizacion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+        Folio = 0
+        FDeposito = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+        FolioAtt = 0
+        AñoAtt = CShort("0")
+        NumeroCuentaDestino = "NULL"
+        BancoOrigen = CShort("0")
+        StatusSaldoAFavor = "NULL"
+        AñoCobroOrigen = CShort("0")
+        CobroOrigen = 0
+        TPV = False
+        insertaCobro.insertaCobro(AñoCobro, Cobro, Importe, Impuesto, Total, Referencia, Banco, FAlta, Status, TipoCobro, NumeroCheque,
+                            FCheque, NumeroCuenta, Observaciones, FDevolucion, RazonDevCheque, Cliente, Saldo, Usuario, FActualizacion,
+                            Folio, FDeposito, FolioAtt, AñoAtt, NumeroCuentaDestino, BancoOrigen, SaldoAFavor, StatusSaldoAFavor,
+                            AñoCobroOrigen, CobroOrigen, TPV)
+        MessageBox.Show("Pago cheque ¡exitoso!")
         TxtNumeroDecimal1.Clear()
     End Sub
 End Class
