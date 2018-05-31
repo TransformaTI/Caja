@@ -1911,5 +1911,6 @@ Public Class frmSelTipoCobro
 
     Private Sub BotonBase3_Click(sender As Object, e As EventArgs) Handles BotonBase3.Click
         AltaDacionPago()
+
     End Sub
 End Class
