@@ -67,6 +67,15 @@ Public Class frmSelTipoCobro
         Transferencia = 6
     End Enum
 
+    Private _MostrarDacion As Boolean
+    Public Property MostrarDacion() As Boolean
+        Get
+            Return _MostrarDacion
+        End Get
+        Set(ByVal value As Boolean)
+            _MostrarDacion = value
+        End Set
+    End Property
 
     Public Sub New(ByVal intConsecutivo As Integer,
           Optional ByVal CapturaDetalle As Boolean = True, Optional ByVal DetalleCobro As Integer = 0)
@@ -282,6 +291,7 @@ Public Class frmSelTipoCobro
         Me.tabTipoCobro.Controls.Add(Me.tbDacionPagos)
         Me.tabTipoCobro.Dock = System.Windows.Forms.DockStyle.Fill
         Me.tabTipoCobro.HotTrack = True
+        Me.tabTipoCobro.ImeMode = System.Windows.Forms.ImeMode.Off
         Me.tabTipoCobro.Location = New System.Drawing.Point(0, 0)
         Me.tabTipoCobro.Multiline = True
         Me.tabTipoCobro.Name = "tabTipoCobro"
@@ -347,7 +357,7 @@ Public Class frmSelTipoCobro
         Me.tbValesDespensa.ImageIndex = 0
         Me.tbValesDespensa.Location = New System.Drawing.Point(4, 4)
         Me.tbValesDespensa.Name = "tbValesDespensa"
-        Me.tbValesDespensa.Size = New System.Drawing.Size(603, 325)
+        Me.tbValesDespensa.Size = New System.Drawing.Size(603, 307)
         Me.tbValesDespensa.TabIndex = 3
         Me.tbValesDespensa.Text = "Vales Despensa"
         '
@@ -399,7 +409,7 @@ Public Class frmSelTipoCobro
         Me.tbTarjetaCredito.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbTarjetaCredito.Location = New System.Drawing.Point(4, 4)
         Me.tbTarjetaCredito.Name = "tbTarjetaCredito"
-        Me.tbTarjetaCredito.Size = New System.Drawing.Size(603, 325)
+        Me.tbTarjetaCredito.Size = New System.Drawing.Size(603, 307)
         Me.tbTarjetaCredito.TabIndex = 0
         Me.tbTarjetaCredito.Text = "Tarjeta "
         '
@@ -607,7 +617,7 @@ Public Class frmSelTipoCobro
         Me.tbChequeFicha.Controls.Add(Me.grpChequeFicha)
         Me.tbChequeFicha.Location = New System.Drawing.Point(4, 4)
         Me.tbChequeFicha.Name = "tbChequeFicha"
-        Me.tbChequeFicha.Size = New System.Drawing.Size(603, 325)
+        Me.tbChequeFicha.Size = New System.Drawing.Size(603, 307)
         Me.tbChequeFicha.TabIndex = 2
         Me.tbChequeFicha.Text = "Cheque / Ficha de deposito"
         '
@@ -1391,7 +1401,12 @@ Public Class frmSelTipoCobro
     End Sub
 
     Private Sub frmSelTipoCobro_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        If Not _MostrarDacion Then
+            tabTipoCobro.TabPages.Remove(tbDacionPagos)
+        End If
+
         ComboBanco.CargaDatos(True)
+
         ComboBancoTransferencia.CargaDatos(True)
         If CapturaEfectivoVales = True Then
             btnAceptarEfectivoVales.Enabled = False
@@ -1565,6 +1580,7 @@ Public Class frmSelTipoCobro
     End Sub
 
     Public Sub SeleccionarTipocobro()
+
         If FormadePago.Cheque = TipoCobroliquidacion Then
             tabTipoCobro.SelectedIndex = 3
 
@@ -1587,7 +1603,6 @@ Public Class frmSelTipoCobro
         End If
         If FormadePago.Efectivo = TipoCobroliquidacion Then
             tabTipoCobro.SelectedIndex = 0
-
         End If
     End Sub
 
@@ -1709,7 +1724,7 @@ Public Class frmSelTipoCobro
         TxtNumeroDecimal1.Clear()
     End Sub
 
-    Public Sub Transferencia()
+    Public Sub AltaTransferencia()
         Dim insertaCobro As New SigaMetClasses.CobroDetalladoDatos()
         Dim AñoCobro, Banco, AñoAtt, BancoOrigen, AñoCobroOrigen As Short
         Dim Cobro, Cliente, Folio, FolioAtt, CobroOrigen As Integer
@@ -1770,7 +1785,7 @@ Public Class frmSelTipoCobro
     End Sub
 
     Private Sub BotonBase2_Click(sender As Object, e As EventArgs) Handles BotonBase2.Click
-        Transferencia()
+        AltaTransferencia()
         Close()
     End Sub
 
@@ -1845,72 +1860,6 @@ Public Class frmSelTipoCobro
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-
-    End Sub
-
-    Public Sub AltaDacionPago()
-        Dim insertaCobro As New SigaMetClasses.CobroDetalladoDatos()
-        Dim AñoCobro, Banco, AñoAtt, BancoOrigen, AñoCobroOrigen As Short
-        Dim Cobro, Cliente, Folio, FolioAtt, CobroOrigen As Integer
-        Dim Importe, Impuesto, Total, Saldo As Decimal
-        Dim Referencia, Status, NumeroCheque, NumeroCuenta, RazonDevCheque, Usuario, NumeroCuentaDestino, StatusSaldoAFavor As String
-        Dim FAlta, FCheque, FDevolucion, FActualizacion, FDeposito As Date
-        Dim TipoCobro As Byte
-        Dim Observaciones As String
-        Dim SaldoAFavor, TPV As Boolean
-        TPV = False
-        SaldoAFavor = False
-        AñoCobro = CShort(DateTime.Now.Year)
-        Cobro = 0
-        Importe = CDec(TxtMontoDacionPago.Text)
-        Cliente = CInt(TxtClienteDacionPago.Text)
-        FCheque = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
-        NumeroCuenta = "NULL"
-        Banco = CShort(lblBanco.Text)
-        Observaciones = TexObservacionDacionPAGO.Text
-        TipoCobro = 6
-        'credito = 6 en tipocobro
-        ' debito =19 en tipo de cobro
-        FAlta = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
-        Status = "EMITIDO"
-        Usuario = GLOBAL_IDUsuario
-        'empieza valores hardcode
-        Impuesto = 10
-        Total = 100
-        If Total < Importe Then
-            If MessageBox.Show("Se generará un saldo a favor ¿está de acuerdo?", "Captura cobros",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) _
-                    = DialogResult.Yes Then
-                SaldoAFavor = True
-            Else
-                SaldoAFavor = False
-            End If
-        End If
-        Referencia = "NULL" ' puede ser vacio
-        NumeroCheque = "NULL" ' puede ser vacio
-        FDevolucion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
-        RazonDevCheque = "01"
-        Saldo = 0
-        FActualizacion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
-        Folio = 0
-        FDeposito = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
-        FolioAtt = 0
-        AñoAtt = CShort("0")
-        NumeroCuentaDestino = "NULL"
-        BancoOrigen = CShort("0")
-        StatusSaldoAFavor = "NULL"
-        AñoCobroOrigen = CShort("0")
-        CobroOrigen = 0
-
-        insertaCobro.insertaCobro(AñoCobro, Cobro, Importe, Impuesto, Total, Referencia, Banco, FAlta, Status, TipoCobro, NumeroCheque,
-                            FCheque, NumeroCuenta, Observaciones, FDevolucion, RazonDevCheque, Cliente, Saldo, Usuario, FActualizacion,
-                            Folio, FDeposito, FolioAtt, AñoAtt, NumeroCuentaDestino, BancoOrigen, SaldoAFavor, StatusSaldoAFavor,
-                            AñoCobroOrigen, CobroOrigen, TPV)
-        MessageBox.Show("Pago tarjeta ¡exitoso!")
-    End Sub
-
-    Private Sub BotonBase3_Click(sender As Object, e As EventArgs) Handles BotonBase3.Click
-        AltaDacionPago()
 
     End Sub
 End Class
