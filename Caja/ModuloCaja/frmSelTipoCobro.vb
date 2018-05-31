@@ -38,18 +38,18 @@ Public Class frmSelTipoCobro
     Friend WithEvents LabelBase12 As ControlesBase.LabelBase
     Friend WithEvents tbDacionPagos As TabPage
     Friend WithEvents GroupBox3 As GroupBox
-    Friend WithEvents DateTimePicker3 As DateTimePicker
+    Friend WithEvents DTPFAplicacion As DateTimePicker
     Friend WithEvents Button2 As Button
-    Friend WithEvents TxtNumeroEntero4 As SigaMetClasses.Controles.txtNumeroEntero
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TxtNumeroDecimal2 As SigaMetClasses.Controles.txtNumeroDecimal
-    Friend WithEvents DateTimePicker2 As DateTimePicker
+    Friend WithEvents TxtClienteDacionPago As SigaMetClasses.Controles.txtNumeroEntero
+    Friend WithEvents TexObservacionDacionPAGO As TextBox
+    Friend WithEvents TxtMontoDacionPago As SigaMetClasses.Controles.txtNumeroDecimal
+    Friend WithEvents DTPFechaConvenioDacionPago As DateTimePicker
     Friend WithEvents LabelBase17 As ControlesBase.LabelBase
     Friend WithEvents LabelBase18 As ControlesBase.LabelBase
     Friend WithEvents LabelBase21 As ControlesBase.LabelBase
     Friend WithEvents LabelBase22 As ControlesBase.LabelBase
     Friend WithEvents LabelBase23 As ControlesBase.LabelBase
-    Friend WithEvents TxtNumeroDecimal5 As SigaMetClasses.Controles.txtNumeroDecimal
+    Friend WithEvents TxtNombreDacioPago As SigaMetClasses.Controles.txtNumeroDecimal
     Friend WithEvents LabelBase24 As ControlesBase.LabelBase
     Friend WithEvents BotonBase1 As ControlesBase.BotonBase
     Friend WithEvents BotonBase2 As ControlesBase.BotonBase
@@ -132,10 +132,10 @@ Public Class frmSelTipoCobro
     Friend WithEvents btnAceptarTarjetaCredito As ControlesBase.BotonBase
     Friend WithEvents Label21 As ControlesBase.LabelBase
     Friend WithEvents lblTarjetaCredito As System.Windows.Forms.Label
-    Friend WithEvents lblTitular As System.Windows.Forms.Label
+    Friend WithEvents lblTitularTC As System.Windows.Forms.Label
     Friend WithEvents lblTipoTarjetaCredito As System.Windows.Forms.Label
     Friend WithEvents LabelBase4 As ControlesBase.LabelBase
-    Friend WithEvents lblVigencia As System.Windows.Forms.Label
+    Friend WithEvents lblVigenciaTC As System.Windows.Forms.Label
     Friend WithEvents LabelBase5 As ControlesBase.LabelBase
     Friend WithEvents btnBuscarClienteTC As System.Windows.Forms.Button
     Friend WithEvents LabelBase6 As ControlesBase.LabelBase
@@ -183,7 +183,7 @@ Public Class frmSelTipoCobro
         Me.LabelBase7 = New ControlesBase.LabelBase()
         Me.lblClienteNombre = New System.Windows.Forms.Label()
         Me.LabelBase6 = New ControlesBase.LabelBase()
-        Me.lblVigencia = New System.Windows.Forms.Label()
+        Me.lblVigenciaTC = New System.Windows.Forms.Label()
         Me.LabelBase5 = New ControlesBase.LabelBase()
         Me.lblTipoTarjetaCredito = New System.Windows.Forms.Label()
         Me.LabelBase4 = New ControlesBase.LabelBase()
@@ -193,7 +193,7 @@ Public Class frmSelTipoCobro
         Me.LabelBase2 = New ControlesBase.LabelBase()
         Me.LabelBase1 = New ControlesBase.LabelBase()
         Me.Label20 = New ControlesBase.LabelBase()
-        Me.lblTitular = New System.Windows.Forms.Label()
+        Me.lblTitularTC = New System.Windows.Forms.Label()
         Me.btnBuscarClienteTC = New System.Windows.Forms.Button()
         Me.tbChequeFicha = New System.Windows.Forms.TabPage()
         Me.btnAceptarChequeFicha = New ControlesBase.BotonBase()
@@ -241,18 +241,18 @@ Public Class frmSelTipoCobro
         Me.tbDacionPagos = New System.Windows.Forms.TabPage()
         Me.BotonBase3 = New ControlesBase.BotonBase()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.DateTimePicker3 = New System.Windows.Forms.DateTimePicker()
+        Me.DTPFAplicacion = New System.Windows.Forms.DateTimePicker()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.TxtNumeroEntero4 = New SigaMetClasses.Controles.txtNumeroEntero()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TxtNumeroDecimal2 = New SigaMetClasses.Controles.txtNumeroDecimal()
-        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
+        Me.TxtClienteDacionPago = New SigaMetClasses.Controles.txtNumeroEntero()
+        Me.TexObservacionDacionPAGO = New System.Windows.Forms.TextBox()
+        Me.TxtMontoDacionPago = New SigaMetClasses.Controles.txtNumeroDecimal()
+        Me.DTPFechaConvenioDacionPago = New System.Windows.Forms.DateTimePicker()
         Me.LabelBase17 = New ControlesBase.LabelBase()
         Me.LabelBase18 = New ControlesBase.LabelBase()
         Me.LabelBase21 = New ControlesBase.LabelBase()
         Me.LabelBase22 = New ControlesBase.LabelBase()
         Me.LabelBase23 = New ControlesBase.LabelBase()
-        Me.TxtNumeroDecimal5 = New SigaMetClasses.Controles.txtNumeroDecimal()
+        Me.TxtNombreDacioPago = New SigaMetClasses.Controles.txtNumeroDecimal()
         Me.LabelBase24 = New ControlesBase.LabelBase()
         Me.imgLista = New System.Windows.Forms.ImageList(Me.components)
         Me.tabTipoCobro.SuspendLayout()
@@ -347,7 +347,7 @@ Public Class frmSelTipoCobro
         Me.tbValesDespensa.ImageIndex = 0
         Me.tbValesDespensa.Location = New System.Drawing.Point(4, 4)
         Me.tbValesDespensa.Name = "tbValesDespensa"
-        Me.tbValesDespensa.Size = New System.Drawing.Size(603, 307)
+        Me.tbValesDespensa.Size = New System.Drawing.Size(603, 325)
         Me.tbValesDespensa.TabIndex = 3
         Me.tbValesDespensa.Text = "Vales Despensa"
         '
@@ -399,7 +399,7 @@ Public Class frmSelTipoCobro
         Me.tbTarjetaCredito.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbTarjetaCredito.Location = New System.Drawing.Point(4, 4)
         Me.tbTarjetaCredito.Name = "tbTarjetaCredito"
-        Me.tbTarjetaCredito.Size = New System.Drawing.Size(603, 307)
+        Me.tbTarjetaCredito.Size = New System.Drawing.Size(603, 325)
         Me.tbTarjetaCredito.TabIndex = 0
         Me.tbTarjetaCredito.Text = "Tarjeta "
         '
@@ -423,7 +423,7 @@ Public Class frmSelTipoCobro
         Me.grpTarjetaCredito.Controls.Add(Me.LabelBase7)
         Me.grpTarjetaCredito.Controls.Add(Me.lblClienteNombre)
         Me.grpTarjetaCredito.Controls.Add(Me.LabelBase6)
-        Me.grpTarjetaCredito.Controls.Add(Me.lblVigencia)
+        Me.grpTarjetaCredito.Controls.Add(Me.lblVigenciaTC)
         Me.grpTarjetaCredito.Controls.Add(Me.LabelBase5)
         Me.grpTarjetaCredito.Controls.Add(Me.lblTipoTarjetaCredito)
         Me.grpTarjetaCredito.Controls.Add(Me.LabelBase4)
@@ -433,7 +433,7 @@ Public Class frmSelTipoCobro
         Me.grpTarjetaCredito.Controls.Add(Me.LabelBase2)
         Me.grpTarjetaCredito.Controls.Add(Me.LabelBase1)
         Me.grpTarjetaCredito.Controls.Add(Me.Label20)
-        Me.grpTarjetaCredito.Controls.Add(Me.lblTitular)
+        Me.grpTarjetaCredito.Controls.Add(Me.lblTitularTC)
         Me.grpTarjetaCredito.Controls.Add(Me.btnBuscarClienteTC)
         Me.grpTarjetaCredito.Location = New System.Drawing.Point(48, 36)
         Me.grpTarjetaCredito.Name = "grpTarjetaCredito"
@@ -493,14 +493,14 @@ Public Class frmSelTipoCobro
         Me.LabelBase6.TabIndex = 39
         Me.LabelBase6.Text = "Importe:"
         '
-        'lblVigencia
+        'lblVigenciaTC
         '
-        Me.lblVigencia.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblVigencia.Location = New System.Drawing.Point(104, 192)
-        Me.lblVigencia.Name = "lblVigencia"
-        Me.lblVigencia.Size = New System.Drawing.Size(160, 21)
-        Me.lblVigencia.TabIndex = 38
-        Me.lblVigencia.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lblVigenciaTC.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.lblVigenciaTC.Location = New System.Drawing.Point(104, 192)
+        Me.lblVigenciaTC.Name = "lblVigenciaTC"
+        Me.lblVigenciaTC.Size = New System.Drawing.Size(160, 21)
+        Me.lblVigenciaTC.TabIndex = 38
+        Me.lblVigenciaTC.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'LabelBase5
         '
@@ -532,6 +532,7 @@ Public Class frmSelTipoCobro
         'lblBancoNombre
         '
         Me.lblBancoNombre.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.lblBancoNombre.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.lblBancoNombre.Location = New System.Drawing.Point(104, 144)
         Me.lblBancoNombre.Name = "lblBancoNombre"
         Me.lblBancoNombre.Size = New System.Drawing.Size(160, 21)
@@ -583,14 +584,14 @@ Public Class frmSelTipoCobro
         Me.Label20.TabIndex = 22
         Me.Label20.Text = "Cliente:"
         '
-        'lblTitular
+        'lblTitularTC
         '
-        Me.lblTitular.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblTitular.Location = New System.Drawing.Point(104, 96)
-        Me.lblTitular.Name = "lblTitular"
-        Me.lblTitular.Size = New System.Drawing.Size(160, 21)
-        Me.lblTitular.TabIndex = 31
-        Me.lblTitular.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lblTitularTC.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.lblTitularTC.Location = New System.Drawing.Point(104, 96)
+        Me.lblTitularTC.Name = "lblTitularTC"
+        Me.lblTitularTC.Size = New System.Drawing.Size(160, 21)
+        Me.lblTitularTC.TabIndex = 31
+        Me.lblTitularTC.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'btnBuscarClienteTC
         '
@@ -1006,7 +1007,7 @@ Public Class frmSelTipoCobro
         Me.tbAplicAnticipo.Location = New System.Drawing.Point(4, 4)
         Me.tbAplicAnticipo.Name = "tbAplicAnticipo"
         Me.tbAplicAnticipo.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbAplicAnticipo.Size = New System.Drawing.Size(603, 307)
+        Me.tbAplicAnticipo.Size = New System.Drawing.Size(603, 325)
         Me.tbAplicAnticipo.TabIndex = 5
         Me.tbAplicAnticipo.Text = "Aplicación Anticipo"
         '
@@ -1018,7 +1019,7 @@ Public Class frmSelTipoCobro
         Me.tbDacionPagos.Location = New System.Drawing.Point(4, 4)
         Me.tbDacionPagos.Name = "tbDacionPagos"
         Me.tbDacionPagos.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbDacionPagos.Size = New System.Drawing.Size(603, 307)
+        Me.tbDacionPagos.Size = New System.Drawing.Size(603, 325)
         Me.tbDacionPagos.TabIndex = 7
         Me.tbDacionPagos.Text = "Dación de Pagos"
         '
@@ -1036,18 +1037,18 @@ Public Class frmSelTipoCobro
         '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.DateTimePicker3)
+        Me.GroupBox3.Controls.Add(Me.DTPFAplicacion)
         Me.GroupBox3.Controls.Add(Me.Button2)
-        Me.GroupBox3.Controls.Add(Me.TxtNumeroEntero4)
-        Me.GroupBox3.Controls.Add(Me.TextBox2)
-        Me.GroupBox3.Controls.Add(Me.TxtNumeroDecimal2)
-        Me.GroupBox3.Controls.Add(Me.DateTimePicker2)
+        Me.GroupBox3.Controls.Add(Me.TxtClienteDacionPago)
+        Me.GroupBox3.Controls.Add(Me.TexObservacionDacionPAGO)
+        Me.GroupBox3.Controls.Add(Me.TxtMontoDacionPago)
+        Me.GroupBox3.Controls.Add(Me.DTPFechaConvenioDacionPago)
         Me.GroupBox3.Controls.Add(Me.LabelBase17)
         Me.GroupBox3.Controls.Add(Me.LabelBase18)
         Me.GroupBox3.Controls.Add(Me.LabelBase21)
         Me.GroupBox3.Controls.Add(Me.LabelBase22)
         Me.GroupBox3.Controls.Add(Me.LabelBase23)
-        Me.GroupBox3.Controls.Add(Me.TxtNumeroDecimal5)
+        Me.GroupBox3.Controls.Add(Me.TxtNombreDacioPago)
         Me.GroupBox3.Controls.Add(Me.LabelBase24)
         Me.GroupBox3.Location = New System.Drawing.Point(60, 24)
         Me.GroupBox3.Name = "GroupBox3"
@@ -1056,13 +1057,13 @@ Public Class frmSelTipoCobro
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Dacion de Pagos"
         '
-        'DateTimePicker3
+        'DTPFAplicacion
         '
-        Me.DateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker3.Location = New System.Drawing.Point(160, 106)
-        Me.DateTimePicker3.Name = "DateTimePicker3"
-        Me.DateTimePicker3.Size = New System.Drawing.Size(192, 21)
-        Me.DateTimePicker3.TabIndex = 45
+        Me.DTPFAplicacion.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DTPFAplicacion.Location = New System.Drawing.Point(160, 106)
+        Me.DTPFAplicacion.Name = "DTPFAplicacion"
+        Me.DTPFAplicacion.Size = New System.Drawing.Size(192, 21)
+        Me.DTPFAplicacion.TabIndex = 45
         '
         'Button2
         '
@@ -1072,35 +1073,35 @@ Public Class frmSelTipoCobro
         Me.Button2.Size = New System.Drawing.Size(48, 21)
         Me.Button2.TabIndex = 44
         '
-        'TxtNumeroEntero4
+        'TxtClienteDacionPago
         '
-        Me.TxtNumeroEntero4.Location = New System.Drawing.Point(160, 34)
-        Me.TxtNumeroEntero4.Name = "TxtNumeroEntero4"
-        Me.TxtNumeroEntero4.Size = New System.Drawing.Size(88, 21)
-        Me.TxtNumeroEntero4.TabIndex = 43
+        Me.TxtClienteDacionPago.Location = New System.Drawing.Point(171, 30)
+        Me.TxtClienteDacionPago.Name = "TxtClienteDacionPago"
+        Me.TxtClienteDacionPago.Size = New System.Drawing.Size(88, 21)
+        Me.TxtClienteDacionPago.TabIndex = 43
         '
-        'TextBox2
+        'TexObservacionDacionPAGO
         '
-        Me.TextBox2.Location = New System.Drawing.Point(162, 167)
-        Me.TextBox2.Multiline = True
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(192, 48)
-        Me.TextBox2.TabIndex = 42
+        Me.TexObservacionDacionPAGO.Location = New System.Drawing.Point(162, 167)
+        Me.TexObservacionDacionPAGO.Multiline = True
+        Me.TexObservacionDacionPAGO.Name = "TexObservacionDacionPAGO"
+        Me.TexObservacionDacionPAGO.Size = New System.Drawing.Size(192, 48)
+        Me.TexObservacionDacionPAGO.TabIndex = 42
         '
-        'TxtNumeroDecimal2
+        'TxtMontoDacionPago
         '
-        Me.TxtNumeroDecimal2.Location = New System.Drawing.Point(162, 141)
-        Me.TxtNumeroDecimal2.Name = "TxtNumeroDecimal2"
-        Me.TxtNumeroDecimal2.Size = New System.Drawing.Size(192, 21)
-        Me.TxtNumeroDecimal2.TabIndex = 41
+        Me.TxtMontoDacionPago.Location = New System.Drawing.Point(162, 141)
+        Me.TxtMontoDacionPago.Name = "TxtMontoDacionPago"
+        Me.TxtMontoDacionPago.Size = New System.Drawing.Size(192, 21)
+        Me.TxtMontoDacionPago.TabIndex = 41
         '
-        'DateTimePicker2
+        'DTPFechaConvenioDacionPago
         '
-        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker2.Location = New System.Drawing.Point(160, 79)
-        Me.DateTimePicker2.Name = "DateTimePicker2"
-        Me.DateTimePicker2.Size = New System.Drawing.Size(192, 21)
-        Me.DateTimePicker2.TabIndex = 37
+        Me.DTPFechaConvenioDacionPago.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DTPFechaConvenioDacionPago.Location = New System.Drawing.Point(160, 79)
+        Me.DTPFechaConvenioDacionPago.Name = "DTPFechaConvenioDacionPago"
+        Me.DTPFechaConvenioDacionPago.Size = New System.Drawing.Size(192, 21)
+        Me.DTPFechaConvenioDacionPago.TabIndex = 37
         '
         'LabelBase17
         '
@@ -1147,12 +1148,12 @@ Public Class frmSelTipoCobro
         Me.LabelBase23.TabIndex = 30
         Me.LabelBase23.Text = "Nombre:"
         '
-        'TxtNumeroDecimal5
+        'TxtNombreDacioPago
         '
-        Me.TxtNumeroDecimal5.Location = New System.Drawing.Point(160, 57)
-        Me.TxtNumeroDecimal5.Name = "TxtNumeroDecimal5"
-        Me.TxtNumeroDecimal5.Size = New System.Drawing.Size(286, 21)
-        Me.TxtNumeroDecimal5.TabIndex = 29
+        Me.TxtNombreDacioPago.Location = New System.Drawing.Point(160, 57)
+        Me.TxtNombreDacioPago.Name = "TxtNombreDacioPago"
+        Me.TxtNombreDacioPago.Size = New System.Drawing.Size(286, 21)
+        Me.TxtNombreDacioPago.TabIndex = 29
         '
         'LabelBase24
         '
@@ -1274,32 +1275,9 @@ Public Class frmSelTipoCobro
                     Dim frmCaptura As New frmCapCobranzaDoc()
                     frmCaptura.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.TarjetaCredito
                     frmCaptura.ImporteCobro = CType(txtImporteTC.Text, Decimal)
-                    AltaCheque()
-                    If frmCaptura.ShowDialog = DialogResult.OK Then
-                        With Cobro
-                            .Consecutivo = Consecutivo
-                            .AnoCobro = CType(Year(Today), Short)
-                            .TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.TarjetaCredito
-                            .Total = CType(txtImporteTC.Text, Decimal)
-                            .Cliente = CType(txtClienteTC.Text, Integer)
-                            .Banco = CType(lblBanco.Text, Short)
-                            .NoCuenta = lblTarjetaCredito.Text
-                            .ListaPedidos = frmCaptura.ListaCobroPedido
-                            ImporteTotalCobro = .Total
-                        End With
-                    End If
-                Else
-                    With Cobro
-                        .Consecutivo = Consecutivo
-                        .AnoCobro = CType(Year(Today), Short)
-                        .TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.TarjetaCredito
-                        .Total = CType(txtImporteTC.Text, Decimal)
-                        .Cliente = CType(txtClienteTC.Text, Integer)
-                        .Banco = CType(lblBanco.Text, Short)
-                        .NoCuenta = lblTarjetaCredito.Text
-                        .ListaPedidos = Nothing
-                        ImporteTotalCobro = .Total
-                    End With
+
+                    AltaTarjeta()
+
                 End If
                 DialogResult = DialogResult.OK
             Else
@@ -1433,11 +1411,11 @@ Public Class frmSelTipoCobro
 
     Private Sub LimpiaInfoTarjetaCredito()
         lblClienteNombre.Text = ""
-        lblTitular.Text = ""
+        lblTitularTC.Text = ""
         lblTarjetaCredito.Text = ""
         lblBancoNombre.Text = ""
         lblTipoTarjetaCredito.Text = ""
-        lblVigencia.Text = ""
+        lblVigenciaTC.Text = ""
     End Sub
 
     Private Sub ConsultaTarjetaCredito(ByVal Cliente As Integer)
@@ -1446,12 +1424,12 @@ Public Class frmSelTipoCobro
         dr = oTC.ConsultaActiva(Cliente)
         Do While dr.Read
             lblClienteNombre.Text = CType(dr("ClienteNombre"), String)
-            lblTitular.Text = CType(dr("Titular"), String)
+            lblTitularTC.Text = CType(dr("Titular"), String)
             lblTarjetaCredito.Text = CType(dr("TarjetaCredito"), String)
             lblBanco.Text = CType(dr("Banco"), String)
             lblBancoNombre.Text = CType(dr("BancoNombre"), String)
             lblTipoTarjetaCredito.Text = CType(dr("TipoTarjetaCreditoDescripcion"), String)
-            lblVigencia.Text = CType(dr("MesVigencia"), String) & " / " & CType(dr("AñoVigencia"), String)
+            lblVigenciaTC.Text = CType(dr("MesVigencia"), String) & " / " & CType(dr("AñoVigencia"), String)
         Loop
         dr.Close()
     End Sub
@@ -1468,12 +1446,12 @@ Public Class frmSelTipoCobro
             dr = oTC.ConsultaActiva(Cliente)
             Do While dr.Read
                 'lblClienteNombre.Text = CType(dr("ClienteNombre"), String)
-                lblTitular.Text = CType(dr("Titular"), String)
+                lblTitularTC.Text = CType(dr("Titular"), String)
                 lblTarjetaCredito.Text = CType(dr("TarjetaCredito"), String)
                 lblBanco.Text = CType(dr("Banco"), String)
                 lblBancoNombre.Text = CType(dr("BancoNombre"), String)
                 lblTipoTarjetaCredito.Text = CType(dr("TipoTarjetaCreditoDescripcion"), String)
-                lblVigencia.Text = CType(dr("MesVigencia"), String) & " / " & CType(dr("AñoVigencia"), String)
+                lblVigenciaTC.Text = CType(dr("MesVigencia"), String) & " / " & CType(dr("AñoVigencia"), String)
             Loop
             If dr.HasRows Then
                 lSolicitud.Fuente = RTGMCore.Fuente.CRM
@@ -1490,7 +1468,8 @@ Public Class frmSelTipoCobro
 
     Private Sub btnBuscarClienteTC_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarClienteTC.Click
         Dim lParametro As New SigaMetClasses.cConfig(16, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario)
-        Dim lURLGateway As String = CType(lParametro.Parametros.Item("URLGateway"), String)
+        Dim lURLGateway As String = ""
+        'Dim lURLGateway As String = CType(lParametro.Parametros.Item("URLGateway"), String)
         lParametro.Dispose()
 
 
@@ -1750,7 +1729,7 @@ Public Class frmSelTipoCobro
         NumeroCuenta = TxtNumeroCuentaTransferencia.Text
         Banco = CShort(ComboBancoTransferencia.SelectedValue)
         Observaciones = txtbObservacionesTranferencias.Text
-        TipoCobro = 10 ' el tipo cobro para transferencia que es el numero 10
+        TipoCobro = 10
         FAlta = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
         Status = "EMITIDO"
         Usuario = GLOBAL_IDUsuario
@@ -1793,5 +1772,144 @@ Public Class frmSelTipoCobro
     Private Sub BotonBase2_Click(sender As Object, e As EventArgs) Handles BotonBase2.Click
         Transferencia()
         Close()
+    End Sub
+
+    Public Sub AltaTarjeta()
+        Dim insertaCobro As New SigaMetClasses.CobroDetalladoDatos()
+        Dim AñoCobro, Banco, AñoAtt, BancoOrigen, AñoCobroOrigen As Short
+        Dim Cobro, Cliente, Folio, FolioAtt, CobroOrigen As Integer
+        Dim Importe, Impuesto, Total, Saldo As Decimal
+        Dim Referencia, Status, NumeroCheque, NumeroCuenta, RazonDevCheque, Usuario, NumeroCuentaDestino, StatusSaldoAFavor As String
+        Dim FAlta, FCheque, FDevolucion, FActualizacion, FDeposito As Date
+        Dim TipoCobro As Byte
+        Dim Observaciones As String
+        Dim SaldoAFavor, TPV As Boolean
+        '  	Tipo de TPV de CREDITO o DEBITO
+        '•	Cliente
+        '•	Ruta
+        '•	Número de tarjeta, solo 4 últimos dígitos
+        '•	Folio de la liquidación
+        '•	Clave de liquidación
+        'Datos reales
+        TPV = True
+        SaldoAFavor = False
+        AñoCobro = CShort(DateTime.Now.Year)
+        Cobro = 0
+        Importe = CDec(txtImporteTC.Text)
+        Cliente = CInt(txtClienteTC.Text)
+        FCheque = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+        NumeroCuenta = "NULL"
+        Banco = CShort(lblBanco.Text)
+        Observaciones = "NULL"
+        TipoCobro = 6
+        'credito = 6 en tipocobro
+        ' debito =19 en tipo de cobro
+        FAlta = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+        Status = "EMITIDO"
+        Usuario = GLOBAL_IDUsuario
+        'empieza valores hardcode
+        Impuesto = 10
+        Total = 100
+        If Total < Importe Then
+            If MessageBox.Show("Se generará un saldo a favor ¿está de acuerdo?", "Captura cobros",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) _
+                    = DialogResult.Yes Then
+                SaldoAFavor = True
+            Else
+                SaldoAFavor = False
+            End If
+        End If
+        Referencia = "NULL" ' puede ser vacio
+        NumeroCheque = "NULL" ' puede ser vacio
+        FDevolucion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+        RazonDevCheque = "01"
+        Saldo = 0
+        FActualizacion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+        Folio = 0
+        FDeposito = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+        FolioAtt = 0
+        AñoAtt = CShort("0")
+        NumeroCuentaDestino = "NULL"
+        BancoOrigen = CShort("0")
+        StatusSaldoAFavor = "NULL"
+        AñoCobroOrigen = CShort("0")
+        CobroOrigen = 0
+
+        insertaCobro.insertaCobro(AñoCobro, Cobro, Importe, Impuesto, Total, Referencia, Banco, FAlta, Status, TipoCobro, NumeroCheque,
+                            FCheque, NumeroCuenta, Observaciones, FDevolucion, RazonDevCheque, Cliente, Saldo, Usuario, FActualizacion,
+                            Folio, FDeposito, FolioAtt, AñoAtt, NumeroCuentaDestino, BancoOrigen, SaldoAFavor, StatusSaldoAFavor,
+                            AñoCobroOrigen, CobroOrigen, TPV)
+        MessageBox.Show("Pago tarjeta ¡exitoso!")
+
+
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+
+    End Sub
+
+    Public Sub AltaDacionPago()
+        Dim insertaCobro As New SigaMetClasses.CobroDetalladoDatos()
+        Dim AñoCobro, Banco, AñoAtt, BancoOrigen, AñoCobroOrigen As Short
+        Dim Cobro, Cliente, Folio, FolioAtt, CobroOrigen As Integer
+        Dim Importe, Impuesto, Total, Saldo As Decimal
+        Dim Referencia, Status, NumeroCheque, NumeroCuenta, RazonDevCheque, Usuario, NumeroCuentaDestino, StatusSaldoAFavor As String
+        Dim FAlta, FCheque, FDevolucion, FActualizacion, FDeposito As Date
+        Dim TipoCobro As Byte
+        Dim Observaciones As String
+        Dim SaldoAFavor, TPV As Boolean
+        TPV = False
+        SaldoAFavor = False
+        AñoCobro = CShort(DateTime.Now.Year)
+        Cobro = 0
+        Importe = CDec(TxtMontoDacionPago.Text)
+        Cliente = CInt(TxtClienteDacionPago.Text)
+        FCheque = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+        NumeroCuenta = "NULL"
+        Banco = CShort(lblBanco.Text)
+        Observaciones = TexObservacionDacionPAGO.Text
+        TipoCobro = 6
+        'credito = 6 en tipocobro
+        ' debito =19 en tipo de cobro
+        FAlta = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+        Status = "EMITIDO"
+        Usuario = GLOBAL_IDUsuario
+        'empieza valores hardcode
+        Impuesto = 10
+        Total = 100
+        If Total < Importe Then
+            If MessageBox.Show("Se generará un saldo a favor ¿está de acuerdo?", "Captura cobros",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) _
+                    = DialogResult.Yes Then
+                SaldoAFavor = True
+            Else
+                SaldoAFavor = False
+            End If
+        End If
+        Referencia = "NULL" ' puede ser vacio
+        NumeroCheque = "NULL" ' puede ser vacio
+        FDevolucion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+        RazonDevCheque = "01"
+        Saldo = 0
+        FActualizacion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+        Folio = 0
+        FDeposito = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+        FolioAtt = 0
+        AñoAtt = CShort("0")
+        NumeroCuentaDestino = "NULL"
+        BancoOrigen = CShort("0")
+        StatusSaldoAFavor = "NULL"
+        AñoCobroOrigen = CShort("0")
+        CobroOrigen = 0
+
+        insertaCobro.insertaCobro(AñoCobro, Cobro, Importe, Impuesto, Total, Referencia, Banco, FAlta, Status, TipoCobro, NumeroCheque,
+                            FCheque, NumeroCuenta, Observaciones, FDevolucion, RazonDevCheque, Cliente, Saldo, Usuario, FActualizacion,
+                            Folio, FDeposito, FolioAtt, AñoAtt, NumeroCuentaDestino, BancoOrigen, SaldoAFavor, StatusSaldoAFavor,
+                            AñoCobroOrigen, CobroOrigen, TPV)
+        MessageBox.Show("Pago tarjeta ¡exitoso!")
+    End Sub
+
+    Private Sub BotonBase3_Click(sender As Object, e As EventArgs) Handles BotonBase3.Click
+        AltaDacionPago()
     End Sub
 End Class
