@@ -335,7 +335,7 @@ Public Class frmSelTipoCobro
         '
         'TxtNumeroDecimal1
         '
-        Me.TxtNumeroDecimal1.Location = New System.Drawing.Point(136, 16)
+        Me.TxtNumeroDecimal1.Location = New System.Drawing.Point(146, 16)
         Me.TxtNumeroDecimal1.Name = "TxtNumeroDecimal1"
         Me.TxtNumeroDecimal1.Size = New System.Drawing.Size(120, 21)
         Me.TxtNumeroDecimal1.TabIndex = 0
@@ -409,7 +409,7 @@ Public Class frmSelTipoCobro
         Me.tbTarjetaCredito.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbTarjetaCredito.Location = New System.Drawing.Point(4, 4)
         Me.tbTarjetaCredito.Name = "tbTarjetaCredito"
-        Me.tbTarjetaCredito.Size = New System.Drawing.Size(603, 307)
+        Me.tbTarjetaCredito.Size = New System.Drawing.Size(603, 325)
         Me.tbTarjetaCredito.TabIndex = 0
         Me.tbTarjetaCredito.Text = "Tarjeta "
         '
@@ -617,7 +617,7 @@ Public Class frmSelTipoCobro
         Me.tbChequeFicha.Controls.Add(Me.grpChequeFicha)
         Me.tbChequeFicha.Location = New System.Drawing.Point(4, 4)
         Me.tbChequeFicha.Name = "tbChequeFicha"
-        Me.tbChequeFicha.Size = New System.Drawing.Size(603, 307)
+        Me.tbChequeFicha.Size = New System.Drawing.Size(603, 325)
         Me.tbChequeFicha.TabIndex = 2
         Me.tbChequeFicha.Text = "Cheque / Ficha de deposito"
         '
@@ -1017,7 +1017,7 @@ Public Class frmSelTipoCobro
         Me.tbAplicAnticipo.Location = New System.Drawing.Point(4, 4)
         Me.tbAplicAnticipo.Name = "tbAplicAnticipo"
         Me.tbAplicAnticipo.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbAplicAnticipo.Size = New System.Drawing.Size(603, 325)
+        Me.tbAplicAnticipo.Size = New System.Drawing.Size(603, 307)
         Me.tbAplicAnticipo.TabIndex = 5
         Me.tbAplicAnticipo.Text = "Aplicación Anticipo"
         '
@@ -1029,7 +1029,7 @@ Public Class frmSelTipoCobro
         Me.tbDacionPagos.Location = New System.Drawing.Point(4, 4)
         Me.tbDacionPagos.Name = "tbDacionPagos"
         Me.tbDacionPagos.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbDacionPagos.Size = New System.Drawing.Size(603, 325)
+        Me.tbDacionPagos.Size = New System.Drawing.Size(603, 307)
         Me.tbDacionPagos.TabIndex = 7
         Me.tbDacionPagos.Text = "Dación de Pagos"
         '
@@ -1285,11 +1285,9 @@ Public Class frmSelTipoCobro
                     Dim frmCaptura As New frmCapCobranzaDoc()
                     frmCaptura.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.TarjetaCredito
                     frmCaptura.ImporteCobro = CType(txtImporteTC.Text, Decimal)
-
                     AltaTarjeta()
-
+                    LimpiarTarjeta()
                 End If
-                DialogResult = DialogResult.OK
             Else
                 MessageBox.Show("Debe teclear el importe del cobro.", Titulo, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End If
@@ -1298,49 +1296,13 @@ Public Class frmSelTipoCobro
         End If
     End Sub
 
-
-
     'CHEQUE Y FICHA DE DEPOSITO
     Private Sub btnAceptarChequeFicha_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAceptarChequeFicha.Click
         If ValidaCapturaChequeFicha() Then
             If _CapturaDetalle = True Then
-                Dim frmCaptura As New frmCapCobranzaDoc()
-                frmCaptura.TipoCobro = _TipoCobro
                 AltaCheque()
-                frmCaptura.ImporteCobro = CType(txtImporteDocumento.Text, Decimal)
-                If frmCaptura.ShowDialog() = DialogResult.OK Then
-                    With Cobro
-                        .Consecutivo = Consecutivo
-                        .AnoCobro = CType(Year(Today), Short)
-                        .TipoCobro = _TipoCobro
-                        .Total = CType(txtImporteDocumento.Text, Decimal)
-                        .NoCheque = Trim(txtDocumento.Text)
-                        .FechaCheque = CType(dtpFechaCheque.Value.ToShortDateString, Date)
-                        .NoCuenta = Trim(txtNumeroCuenta.Text)
-                        .Cliente = CType(txtClienteCheque.Text, Integer)
-                        .Banco = CType(ComboBanco.SelectedValue, Short)
-                        .Observaciones = Trim(txtObservaciones.Text)
-                        .ListaPedidos = frmCaptura.ListaCobroPedido
-                        ImporteTotalCobro = .Total
-                    End With
-                End If
-            Else
-                With Cobro
-                    .Consecutivo = Consecutivo
-                    .AnoCobro = CType(Year(Today), Short)
-                    .TipoCobro = _TipoCobro
-                    .Total = CType(txtImporteDocumento.Text, Decimal)
-                    .NoCheque = Trim(txtDocumento.Text)
-                    .FechaCheque = CType(dtpFechaCheque.Value.ToShortDateString, Date)
-                    .NoCuenta = Trim(txtNumeroCuenta.Text)
-                    .Cliente = CType(txtClienteCheque.Text, Integer)
-                    .Banco = CType(ComboBanco.SelectedValue, Short)
-                    .Observaciones = Trim(txtObservaciones.Text)
-                    .ListaPedidos = Nothing
-                    ImporteTotalCobro = .Total
-                End With
+                LimpiarCheque()
             End If
-            DialogResult = DialogResult.OK
         End If
     End Sub
 
@@ -1675,13 +1637,25 @@ Public Class frmSelTipoCobro
         Dim TipoCobro As Byte
         Dim Observaciones As String
         Dim SaldoAFavor, TPV As Boolean
-        SaldoAFavor = False
-        AñoCobro = CShort(DateTime.Now.Year)
-        Cobro = 0
-        Importe = CDec(txtImporteDocumento.Text)
         Impuesto = 10
         Total = 100
-
+        ' datos reales
+        SaldoAFavor = False
+        Cobro = 0
+        Importe = CDec(txtImporteDocumento.Text)
+        AñoCobro = CShort(DateTime.Now.Year)
+        Banco = CShort(ComboBanco.SelectedValue)
+        FAlta = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+        Status = "EMITIDO"
+        TipoCobro = 3 ' el tipo cobro para che que es el numero 3
+        NumeroCheque = txtNumeroCuenta.Text
+        FCheque = dtpFechaCheque.Value
+        NumeroCuenta = txtNumeroCuenta.Text
+        Observaciones = txtObservaciones.Text
+        Cliente = CInt(txtClienteCheque.Text)
+        RazonDevCheque = "27"
+        Usuario = GLOBAL_IDUsuario
+        'datos hardcord
         If Total < Importe Then
             If MessageBox.Show("Se generará un saldo a favor ¿está de acuerdo?", "Captura cobros",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) _
@@ -1692,26 +1666,15 @@ Public Class frmSelTipoCobro
             End If
         End If
         Referencia = "NULL" ' puede ser vacio
-        Banco = CShort(ComboBanco.SelectedValue)
-        FAlta = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
-        Status = "EMITIDO"
-        TipoCobro = 3 ' el tipo cobro para che que es el numero 3
-        NumeroCheque = "NULL" ' puede ser vacio
-        FCheque = dtpFechaCheque.Value
-        NumeroCuenta = txtNumeroCuenta.Text
-        Observaciones = txtObservaciones.Text
-        FDevolucion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
-        RazonDevCheque = "01"
-        Cliente = CInt(txtClienteCheque.Text)
+        FDevolucion = Date.MinValue
         Saldo = 0
-        Usuario = GLOBAL_IDUsuario
         FActualizacion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
         Folio = 0
-        FDeposito = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+        FDeposito = Date.MinValue
         FolioAtt = 0
         AñoAtt = CShort("0")
         NumeroCuentaDestino = "NULL"
-        BancoOrigen = CShort("0")
+        BancoOrigen = CShort("0") 'cual es banco origen
         StatusSaldoAFavor = "NULL"
         AñoCobroOrigen = CShort("0")
         CobroOrigen = 0
@@ -1786,7 +1749,8 @@ Public Class frmSelTipoCobro
 
     Private Sub BotonBase2_Click(sender As Object, e As EventArgs) Handles BotonBase2.Click
         AltaTransferencia()
-        Close()
+        LimpiarTransferencia()
+
     End Sub
 
     Public Sub AltaTarjeta()
@@ -1855,11 +1819,60 @@ Public Class frmSelTipoCobro
                             Folio, FDeposito, FolioAtt, AñoAtt, NumeroCuentaDestino, BancoOrigen, SaldoAFavor, StatusSaldoAFavor,
                             AñoCobroOrigen, CobroOrigen, TPV)
         MessageBox.Show("Pago tarjeta ¡exitoso!")
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+
+    End Sub
+
+    Public Sub LimpiarCheque()
+        txtDocumento.Clear()
+        txtNumeroCuenta.Clear()
+        txtClienteCheque.Clear()
+        lblNombre.Text = ""
+        ComboBanco.SelectedItem = 1
+        txtImporteDocumento.Clear()
+        txtObservaciones.Clear()
+
+    End Sub
+
+    Public Sub LimpiarTarjeta()
+        txtClienteTC.Clear()
+        lblClienteNombre.Text = ""
+        lblTitularTC.Text = ""
+        lblTarjetaCredito.Text = ""
+        lblBancoNombre.Text = ""
+        lblTipoTarjetaCredito.Text = ""
+        lblVigenciaTC.Text = ""
+        txtImporteTC.Clear()
 
 
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Public Sub LimpiarTransferencia()
+        TxtClienteTransferencia.Clear()
+        TxtNombreTransferencia.Clear()
+        TxtNumeroCuentaTransferencia.Clear()
+        TxtNumeroDocumentoTransferencia.Clear()
+        ComboBancoTransferencia.SelectedIndex = 0
+        TxtImporteTransferencia.Clear()
+        txtbObservacionesTranferencias.Clear()
+    End Sub
+
+    Private Sub TxtClienteTransferencia_Leave(sender As Object, e As EventArgs) Handles TxtClienteTransferencia.Leave
+        If TxtClienteTransferencia.Text <> "" Then
+            Dim oCliente As New SigaMetClasses.cCliente()
+            oCliente.Consulta(CType(TxtClienteTransferencia.Text, Integer))
+            TxtNombreTransferencia.Text = oCliente.Nombre
+            oCliente = Nothing
+        End If
+    End Sub
+
+    Private Sub TxtClienteTransferencia_TextChanged(sender As Object, e As EventArgs) Handles TxtClienteTransferencia.TextChanged
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
     End Sub
 End Class
