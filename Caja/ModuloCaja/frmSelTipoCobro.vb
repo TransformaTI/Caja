@@ -1538,6 +1538,7 @@ Public Class frmSelTipoCobro
     Private Sub BotonBase1_Click(sender As Object, e As EventArgs) Handles BotonBase1.Click
         If TxtNumeroDecimal1.Text <> "" Then
             AltaPagoEfectivo()
+            TxtNumeroDecimal1.Clear()
         End If
     End Sub
 
@@ -1581,9 +1582,9 @@ Public Class frmSelTipoCobro
         SaldoAFavor = False
         AñoCobro = CShort(DateTime.Now.Year)
         Cobro = 7
-        Importe = CDec(TxtNumeroDecimal1.Text)
         Impuesto = 10
-        Total = 100
+        Importe = 200 + Impuesto
+        Total = CDec(TxtNumeroDecimal1.Text)
 
         If Total < Importe Then
             If MessageBox.Show("Se generará un saldo a favor ¿está de acuerdo?", "Captura cobros",
@@ -1591,7 +1592,8 @@ Public Class frmSelTipoCobro
                     = DialogResult.Yes Then
                 SaldoAFavor = True
             Else
-                SaldoAFavor = False
+                MessageBox.Show("Pago efectivo ¡cancelado!")
+                Exit Sub
             End If
         End If
         Referencia = "NULL" ' puede ser vacio
@@ -1606,7 +1608,7 @@ Public Class frmSelTipoCobro
         FDevolucion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
         RazonDevCheque = "01"
         Cliente = 0
-        Saldo = 0
+        Saldo = 10
         Usuario = GLOBAL_IDUsuario
         FActualizacion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
         Folio = 0
@@ -1624,7 +1626,6 @@ Public Class frmSelTipoCobro
                             Folio, FDeposito, FolioAtt, AñoAtt, NumeroCuentaDestino, BancoOrigen, SaldoAFavor, StatusSaldoAFavor,
                             AñoCobroOrigen, CobroOrigen, TPV)
         MessageBox.Show("Pago efectivo ¡exitoso!")
-        TxtNumeroDecimal1.Clear()
     End Sub
 
     Public Sub AltaCheque()
@@ -1637,12 +1638,10 @@ Public Class frmSelTipoCobro
         Dim TipoCobro As Byte
         Dim Observaciones As String
         Dim SaldoAFavor, TPV As Boolean
-        Impuesto = 10
-        Total = 100
+
         ' datos reales
         SaldoAFavor = False
         Cobro = 0
-        Importe = CDec(txtImporteDocumento.Text)
         AñoCobro = CShort(DateTime.Now.Year)
         Banco = CShort(ComboBanco.SelectedValue)
         FAlta = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
@@ -1655,6 +1654,9 @@ Public Class frmSelTipoCobro
         Cliente = CInt(txtClienteCheque.Text)
         RazonDevCheque = "27"
         Usuario = GLOBAL_IDUsuario
+        Impuesto = 10
+        Importe = 100 + Impuesto
+        Total = CDec(txtImporteDocumento.Text)
         'datos hardcord
         If Total < Importe Then
             If MessageBox.Show("Se generará un saldo a favor ¿está de acuerdo?", "Captura cobros",
@@ -1662,12 +1664,13 @@ Public Class frmSelTipoCobro
                     = DialogResult.Yes Then
                 SaldoAFavor = True
             Else
-                SaldoAFavor = False
+                MessageBox.Show("Pago cheque ¡cancelado!")
+                Exit Sub
             End If
         End If
         Referencia = "NULL" ' puede ser vacio
         FDevolucion = Date.MinValue
-        Saldo = 0
+        Saldo = 10
         FActualizacion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
         Folio = 0
         FDeposito = Date.MinValue
@@ -1701,7 +1704,7 @@ Public Class frmSelTipoCobro
         AñoCobro = CShort(DateTime.Now.Year)
         Cobro = 0
         'Datos reales
-        Importe = CDec(TxtImporteTransferencia.Text)
+
         Cliente = CInt(TxtClienteTransferencia.Text)
         FCheque = CDate(DTPFechaTransferencia.Text)
         NumeroCuenta = TxtNumeroCuentaTransferencia.Text
@@ -1711,23 +1714,26 @@ Public Class frmSelTipoCobro
         FAlta = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
         Status = "EMITIDO"
         Usuario = GLOBAL_IDUsuario
+        Total = CDec(TxtImporteTransferencia.Text)
         'empieza valores hardcode
         Impuesto = 10
-        Total = 100
+        Importe = 100 + Impuesto
         If Total < Importe Then
             If MessageBox.Show("Se generará un saldo a favor ¿está de acuerdo?", "Captura cobros",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) _
                     = DialogResult.Yes Then
                 SaldoAFavor = True
             Else
+                MessageBox.Show("Pago Transferencia ¡cancelado!")
                 SaldoAFavor = False
+                Exit Sub
             End If
         End If
         Referencia = "NULL" ' puede ser vacio
         NumeroCheque = "NULL" ' puede ser vacio
         FDevolucion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
         RazonDevCheque = "01"
-        Saldo = 0
+        Saldo = 10
         FActualizacion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
         Folio = 0
         FDeposito = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
@@ -1774,7 +1780,6 @@ Public Class frmSelTipoCobro
         SaldoAFavor = False
         AñoCobro = CShort(DateTime.Now.Year)
         Cobro = 0
-        Importe = CDec(txtImporteTC.Text)
         Cliente = CInt(txtClienteTC.Text)
         FCheque = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
         NumeroCuenta = "NULL"
@@ -1788,21 +1793,23 @@ Public Class frmSelTipoCobro
         Usuario = GLOBAL_IDUsuario
         'empieza valores hardcode
         Impuesto = 10
-        Total = 100
+        Total = CDec(txtImporteTC.Text)
+        Importe = 100 + Impuesto
         If Total < Importe Then
             If MessageBox.Show("Se generará un saldo a favor ¿está de acuerdo?", "Captura cobros",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) _
                     = DialogResult.Yes Then
                 SaldoAFavor = True
             Else
-                SaldoAFavor = False
+                MessageBox.Show("Pago tarjeta ¡cancelado!")
+                Exit Sub
             End If
         End If
         Referencia = "NULL" ' puede ser vacio
         NumeroCheque = "NULL" ' puede ser vacio
         FDevolucion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
         RazonDevCheque = "01"
-        Saldo = 0
+        Saldo = 10
         FActualizacion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
         Folio = 0
         FDeposito = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
