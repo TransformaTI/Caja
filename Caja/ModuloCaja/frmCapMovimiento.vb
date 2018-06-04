@@ -1,5 +1,6 @@
 Option Strict On
-Option Explicit On 
+Option Explicit On
+Imports RTGMCore
 
 Public Class frmCapMovimiento
     Inherits System.Windows.Forms.Form
@@ -1710,19 +1711,20 @@ Public Class frmCapMovimiento
         Titulo = "Liquidación a Operadores"
         TipoOperacion = TipoOperacionMovimientoCaja.Liquidacion
 
-
-
-
-
-
-
-
         grdInfoPreLiq.DataSource = DatosMovimiento.Tables("InfoPreLiq")
 
         Dim _Celula As Byte = CType(DatosMovimiento.Tables("InfoPreLiq").Rows(0).Item("Celula"), Byte)
 
         dtCobro = DatosMovimiento.Tables("Cobro")
         dtCobroPedidoLiq = DatosMovimiento.Tables("CobroPedido")
+
+        dtCobroPedidoLiq.Columns.Add("IdZona", GetType(Integer))
+        Dim objDireccionEntrega As DireccionEntrega
+
+        For Each row As DataRow In dtCobroPedidoLiq.Rows
+            objDireccionEntrega = obtenDireccionEntrega(CInt(row("Cliente")))
+            row("IdZona") = objDireccionEntrega.ZonaEconomica.IDZonaEconomomica
+        Next row
 
         'Importe total del movimiento
         decImporteTotalMovimiento = SumaColumna(dtCobroPedidoLiq, "CobroPedidoTotal")
@@ -1789,7 +1791,7 @@ Public Class frmCapMovimiento
         'Parametrización del saldo a favor:
         If GLOBAL_SaldoAFavor And (Not (dtCheques Is Nothing) _
             AndAlso dtCheques.Rows.Count > 0) Then
-            saldoAFavor = CType(IIf(dtCheques.Compute("SUM(Saldo)", "SaldoAFavor = 1") Is DBNull.Value, _
+            saldoAFavor = CType(IIf(dtCheques.Compute("SUM(Saldo)", "SaldoAFavor = 1") Is DBNull.Value,
             0, dtCheques.Compute("SUM(Saldo)", "SaldoAFavor = 1")), Decimal)
         End If
 
@@ -1848,8 +1850,8 @@ Public Class frmCapMovimiento
             'Fin
 
             If CType(DatosMovimiento.Tables("InfoPreliq").Rows(0).Item("ImporteContado"), Decimal) <> decImporteTotalMovimiento Then
-                MessageBox.Show("El movimiento tiene cifras incongruentes entre los documentos y la báscula." & Chr(13) & _
-                                "El movimiento no podra ser dado de alta." & Chr(13) & _
+                MessageBox.Show("El movimiento tiene cifras incongruentes entre los documentos y la báscula." & Chr(13) &
+                                "El movimiento no podra ser dado de alta." & Chr(13) &
                                 "Reporte este problema al administrador del sistema.", Titulo, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 grpDatosMovimiento.BackColor = Color.Red
                 btnAceptar.Enabled = False
@@ -1857,7 +1859,7 @@ Public Class frmCapMovimiento
 
 
             If Not IsDBNull(DatosMovimiento.Tables("InfoPreLiq").Rows(0).Item("TipoPagoEficiencia")) Then
-                If CType(DatosMovimiento.Tables("InfoPreLiq").Rows(0).Item("TipoPagoEficiencia"), Byte) = 1 Or _
+                If CType(DatosMovimiento.Tables("InfoPreLiq").Rows(0).Item("TipoPagoEficiencia"), Byte) = 1 Or
                    CType(DatosMovimiento.Tables("InfoPreLiq").Rows(0).Item("TipoPagoEficiencia"), Byte) = 2 Then
                     ImporteEficiencia = CType(DatosMovimiento.Tables("InfoPreLiq").Rows(0).Item("ImporteEficiencia"), Decimal)
                 End If
@@ -1891,6 +1893,32 @@ Public Class frmCapMovimiento
         lnkConsultaIVA.Visible = True
     End Sub
 
+    Private Function obtenDireccionEntrega(idCliente As Integer) As DireccionEntrega
+        Dim NombreCliente As String
+        Dim ObjDireccionEntrega As New DireccionEntrega
+
+        Try
+            Dim objGateway As New RTGMGateway.RTGMGateway
+            objGateway.URLServicio = "http://192.168.1.30:88/GasMetropolitanoRuntimeService.svc"
+
+            Dim objRequest As New RTGMGateway.SolicitudGateway()
+
+            objRequest.IDCliente = idCliente
+
+            Dim horaActual As New DateTime
+            horaActual = DateTime.Now
+
+            ObjDireccionEntrega = objGateway.buscarDireccionEntrega(objRequest)
+
+            NombreCliente = ObjDireccionEntrega.Nombre
+
+        Catch ex As Exception
+            ObjDireccionEntrega.Nombre = "Error: " + ex.Message
+        End Try
+        Return ObjDireccionEntrega
+
+    End Function
+
 
     Public Sub New(ByVal Tipo As TipoOperacionMovimientoCaja, _
                    ByVal DatosMovimiento As DataSet, _
@@ -1908,6 +1936,22 @@ Public Class frmCapMovimiento
 
         TipoOperacion = Tipo
         dtCobroPedido = CType(DatosMovimiento.Tables("Cobro"), MiDataTable)
+
+        dtCobroPedido.Columns.Add("Nombre", GetType(String))
+        dtCobroPedido.Columns.Add("IdZona", GetType(Integer))
+        Dim objDireccionEntrega As DireccionEntrega
+
+        For Each row As DataRow In dtCobroPedido.Rows
+
+            objDireccionEntrega = obtenDireccionEntrega(CInt(row("Cliente")))
+            row("Nombre") = objDireccionEntrega.Nombre
+            row("IdZona") = objDireccionEntrega.ZonaEconomica.IDZonaEconomomica
+        Next row
+
+
+
+
+
         dtDenominacion = DatosMovimiento.Tables("Denominacion")
         dtCambio = CType(DatosMovimiento.Tables("Cambio"), MiDataTableCambio)
         bytCaja = Caja
@@ -2316,28 +2360,27 @@ Public Class frmCapMovimiento
                     Else
                         'se suma el valor de saldoAFavor en el argumento Total
                         'arrDenomValesPromocion, _
-                        objMov.AltaLiquidacion(Main.GLOBAL_CajaUsuario, _
-                                    Main.FechaOperacion, _
-                                    Main.ConsecutivoInicioDeSesion, _
-                                    dtpFMovimiento.Value, _
-                                    (Me.decImporteTotalMovimiento + Me.saldoAFavor), _
-                                    Main.GLOBAL_IDUsuario, _
-                                    Main.GLOBAL_IDEmpleado, _
-                                    RutaMovimiento, _
-                                    CType(ComboTipoMovimientoCaja.TipoMovimientoCaja, Byte), _
-                                    dtCobro, _
-                                    AutotanqueTurno_AnoAtt, _
-                                    AutotanqueTurno_Folio, _
-                                    arrDenomEfectivo, _
-                                    arrDenomVales, _
-                                    arrCheques, _
-                                    arrTarjetas, _
-                                    arrFichas, _
-                                    arrCambio, _
-                                    dtCobroPedidoLiq, _
-                                    frmConsultaValePromocion.ListaVales, _
+                        objMov.AltaLiquidacion(Main.GLOBAL_CajaUsuario,
+                                    Main.FechaOperacion,
+                                    Main.ConsecutivoInicioDeSesion,
+                                    dtpFMovimiento.Value,
+                                    (Me.decImporteTotalMovimiento + Me.saldoAFavor),
+                                    Main.GLOBAL_IDUsuario,
+                                    Main.GLOBAL_IDEmpleado,
+                                    RutaMovimiento,
+                                    CType(ComboTipoMovimientoCaja.TipoMovimientoCaja, Byte),
+                                    dtCobro,
+                                    AutotanqueTurno_AnoAtt,
+                                    AutotanqueTurno_Folio,
+                                    arrDenomEfectivo,
+                                    arrDenomVales,
+                                    arrCheques,
+                                    arrTarjetas,
+                                    arrFichas,
+                                    arrCambio,
+                                    dtCobroPedidoLiq,
+                                    frmConsultaValePromocion.ListaVales,
                                     saldoAFavor)
-
                         '**********************************
                         'Tranferencia inmediata de cargos
                         '05 de Julio del 2004
