@@ -1583,8 +1583,8 @@ Public Class frmSelTipoCobro
         AñoCobro = CShort(DateTime.Now.Year)
         Cobro = 7
         Impuesto = 10
-        Importe = 200 + Impuesto
-        Total = CDec(TxtNumeroDecimal1.Text)
+        Importe = CDec(TxtNumeroDecimal1.Text)
+        Total = 200 + Impuesto
 
         If Total < Importe Then
             If MessageBox.Show("Se generará un saldo a favor ¿está de acuerdo?", "Captura cobros",
@@ -1655,8 +1655,8 @@ Public Class frmSelTipoCobro
         RazonDevCheque = "27"
         Usuario = GLOBAL_IDUsuario
         Impuesto = 10
-        Importe = 100 + Impuesto
-        Total = CDec(txtImporteDocumento.Text)
+        Importe = CDec(txtImporteDocumento.Text)
+        Total = 100 + Impuesto
         'datos hardcord
         If Total < Importe Then
             If MessageBox.Show("Se generará un saldo a favor ¿está de acuerdo?", "Captura cobros",
@@ -1714,10 +1714,11 @@ Public Class frmSelTipoCobro
         FAlta = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
         Status = "EMITIDO"
         Usuario = GLOBAL_IDUsuario
-        Total = CDec(TxtImporteTransferencia.Text)
+
         'empieza valores hardcode
         Impuesto = 10
-        Importe = 100 + Impuesto
+        Total = 100 + Impuesto
+        Importe = CDec(TxtImporteTransferencia.Text)
         If Total < Importe Then
             If MessageBox.Show("Se generará un saldo a favor ¿está de acuerdo?", "Captura cobros",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) _
@@ -1793,8 +1794,8 @@ Public Class frmSelTipoCobro
         Usuario = GLOBAL_IDUsuario
         'empieza valores hardcode
         Impuesto = 10
-        Total = CDec(txtImporteTC.Text)
-        Importe = 100 + Impuesto
+        Total = 100 + Impuesto
+        Importe = CDec(txtImporteTC.Text)
         If Total < Importe Then
             If MessageBox.Show("Se generará un saldo a favor ¿está de acuerdo?", "Captura cobros",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) _
