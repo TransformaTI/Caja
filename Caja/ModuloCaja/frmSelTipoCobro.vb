@@ -2147,7 +2147,7 @@ Public Class frmSelTipoCobro
         txtImporteTC.Clear()
 
 
-<<<<<<< HEAD
+
     End Sub
 
     Public Sub LimpiarTransferencia()
@@ -2173,11 +2173,6 @@ Public Class frmSelTipoCobro
 
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-
-=======
-
-
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
@@ -2202,9 +2197,7 @@ Public Class frmSelTipoCobro
         End If
     End Sub
 
-    Private Sub BotonBase2_Click(sender As Object, e As EventArgs) Handles BotonBase2.Click
 
-    End Sub
 
     Private Sub BotonBuscarClienteApAnticipo_Click(sender As Object, e As EventArgs) Handles BotonBuscarClienteApAnticipo.Click
         Dim lParametro As New SigaMetClasses.cConfig(16, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario)
@@ -2237,6 +2230,6 @@ Public Class frmSelTipoCobro
         oCliente.Consulta(CType(TxtClienteAplicAntic.Text, Integer))
         LabelNombreApAntic.Text = oCliente.Nombre
         oCliente = Nothing
->>>>>>> Feature_FormasPagoPendientes
+
     End Sub
 End Class
