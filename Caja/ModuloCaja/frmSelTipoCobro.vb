@@ -35,7 +35,6 @@ Public Class frmSelTipoCobro
     Friend WithEvents LabelBase15 As ControlesBase.LabelBase
     Friend WithEvents LabelBase14 As ControlesBase.LabelBase
     Friend WithEvents LabelBase13 As ControlesBase.LabelBase
-    Friend WithEvents LabelBase12 As ControlesBase.LabelBase
     Friend WithEvents tbDacionPagos As TabPage
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents DTPFAplicacion As DateTimePicker
@@ -54,6 +53,35 @@ Public Class frmSelTipoCobro
     Friend WithEvents BotonBase1 As ControlesBase.BotonBase
     Friend WithEvents BotonBase2 As ControlesBase.BotonBase
     Friend WithEvents BotonBase3 As ControlesBase.BotonBase
+    Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents TextObservacionesVales As TextBox
+    Friend WithEvents TxtMontoVales As SigaMetClasses.Controles.txtNumeroDecimal
+    Friend WithEvents LabelBase20 As ControlesBase.LabelBase
+    Friend WithEvents LabelBase25 As ControlesBase.LabelBase
+    Friend WithEvents ComboTipoVale As SigaMetClasses.Combos.ComboBanco
+    Friend WithEvents ComboProveedor As SigaMetClasses.Combos.ComboBanco
+    Friend WithEvents LabelBase28 As ControlesBase.LabelBase
+    Friend WithEvents FechaDocumentoVales As DateTimePicker
+    Friend WithEvents LabelBase29 As ControlesBase.LabelBase
+    Friend WithEvents txtClienteVales As SigaMetClasses.Controles.txtNumeroEntero
+    Friend WithEvents LabelBase19 As ControlesBase.LabelBase
+    Friend WithEvents LabelNombreVales As Label
+    Friend WithEvents LabelBase27 As ControlesBase.LabelBase
+    Friend WithEvents LabelBase30 As ControlesBase.LabelBase
+    Friend WithEvents BtnBuscarClienteVales As Button
+    Friend WithEvents LabelBase12 As ControlesBase.LabelBase
+    Friend WithEvents GroupBox5 As GroupBox
+    Friend WithEvents TxtNumeroDecimal7 As SigaMetClasses.Controles.txtNumeroDecimal
+    Friend WithEvents LabelBase32 As ControlesBase.LabelBase
+    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents TxtNumeroDecimal6 As SigaMetClasses.Controles.txtNumeroDecimal
+    Friend WithEvents LabelBase26 As ControlesBase.LabelBase
+    Friend WithEvents LabelBase31 As ControlesBase.LabelBase
+    Friend WithEvents TxtClienteAplicAntic As SigaMetClasses.Controles.txtNumeroEntero
+    Friend WithEvents LabelBase34 As ControlesBase.LabelBase
+    Friend WithEvents LabelNombreApAntic As Label
+    Friend WithEvents LabelBase36 As ControlesBase.LabelBase
+    Friend WithEvents BotonBuscarClienteApAnticipo As Button
     Private DetalleCobro As SigaMetClasses.sCobro
     Private TipoCobroliquidacion As Integer
 
@@ -85,7 +113,7 @@ Public Class frmSelTipoCobro
         Consecutivo = intConsecutivo
 
         If CapturaEfectivoVales = True Then
-            btnAceptarEfectivoVales.Enabled = False
+            btnAceptarVales.Enabled = False
         End If
         If CapturaMixtaEfectivoVales = True Then
             'btnAceptarEfectivo.Enabled = False
@@ -128,9 +156,7 @@ Public Class frmSelTipoCobro
     Friend WithEvents lblImporte As ControlesBase.LabelBase
     Friend WithEvents lblCliente As ControlesBase.LabelBase
     Friend WithEvents tbValesDespensa As System.Windows.Forms.TabPage
-    Friend WithEvents btnAceptarEfectivoVales As ControlesBase.BotonBase
-    Friend WithEvents grpEfectivoVales As System.Windows.Forms.GroupBox
-    Friend WithEvents lblTotalEfectivoVales As ControlesBase.LabelBase
+    Friend WithEvents btnAceptarVales As ControlesBase.BotonBase
     Friend WithEvents imgLista As System.Windows.Forms.ImageList
     Friend WithEvents tbTarjetaCredito As System.Windows.Forms.TabPage
     Friend WithEvents grpTarjetaCredito As System.Windows.Forms.GroupBox
@@ -154,7 +180,6 @@ Public Class frmSelTipoCobro
     Friend WithEvents lblBanco As System.Windows.Forms.Label
     Friend WithEvents ComboBanco As SigaMetClasses.Combos.ComboBanco
     Friend WithEvents txtObservaciones As System.Windows.Forms.TextBox
-    Friend WithEvents txtTotalEfectivoVales As SigaMetClasses.Controles.txtNumeroDecimal
     Friend WithEvents txtNumeroCuenta As SigaMetClasses.Controles.txtNumeroEntero
     Friend WithEvents txtClienteCheque As SigaMetClasses.Controles.txtNumeroEntero
     Friend WithEvents txtClienteTC As SigaMetClasses.Controles.txtNumeroEntero
@@ -179,10 +204,23 @@ Public Class frmSelTipoCobro
         Me.TxtNumeroDecimal1 = New SigaMetClasses.Controles.txtNumeroDecimal()
         Me.LabelBase8 = New ControlesBase.LabelBase()
         Me.tbValesDespensa = New System.Windows.Forms.TabPage()
-        Me.grpEfectivoVales = New System.Windows.Forms.GroupBox()
-        Me.txtTotalEfectivoVales = New SigaMetClasses.Controles.txtNumeroDecimal()
-        Me.lblTotalEfectivoVales = New ControlesBase.LabelBase()
-        Me.btnAceptarEfectivoVales = New ControlesBase.BotonBase()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.TextObservacionesVales = New System.Windows.Forms.TextBox()
+        Me.TxtMontoVales = New SigaMetClasses.Controles.txtNumeroDecimal()
+        Me.LabelBase20 = New ControlesBase.LabelBase()
+        Me.LabelBase25 = New ControlesBase.LabelBase()
+        Me.ComboTipoVale = New SigaMetClasses.Combos.ComboBanco()
+        Me.ComboProveedor = New SigaMetClasses.Combos.ComboBanco()
+        Me.LabelBase28 = New ControlesBase.LabelBase()
+        Me.FechaDocumentoVales = New System.Windows.Forms.DateTimePicker()
+        Me.LabelBase29 = New ControlesBase.LabelBase()
+        Me.txtClienteVales = New SigaMetClasses.Controles.txtNumeroEntero()
+        Me.LabelBase19 = New ControlesBase.LabelBase()
+        Me.LabelNombreVales = New System.Windows.Forms.Label()
+        Me.LabelBase27 = New ControlesBase.LabelBase()
+        Me.LabelBase30 = New ControlesBase.LabelBase()
+        Me.BtnBuscarClienteVales = New System.Windows.Forms.Button()
+        Me.btnAceptarVales = New ControlesBase.BotonBase()
         Me.tbTarjetaCredito = New System.Windows.Forms.TabPage()
         Me.btnAceptarTarjetaCredito = New ControlesBase.BotonBase()
         Me.grpTarjetaCredito = New System.Windows.Forms.GroupBox()
@@ -247,6 +285,18 @@ Public Class frmSelTipoCobro
         Me.TxtNombreTransferencia = New SigaMetClasses.Controles.txtNumeroDecimal()
         Me.LabelBase9 = New ControlesBase.LabelBase()
         Me.tbAplicAnticipo = New System.Windows.Forms.TabPage()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.TxtNumeroDecimal7 = New SigaMetClasses.Controles.txtNumeroDecimal()
+        Me.LabelBase32 = New ControlesBase.LabelBase()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.TxtNumeroDecimal6 = New SigaMetClasses.Controles.txtNumeroDecimal()
+        Me.LabelBase26 = New ControlesBase.LabelBase()
+        Me.LabelBase31 = New ControlesBase.LabelBase()
+        Me.TxtClienteAplicAntic = New SigaMetClasses.Controles.txtNumeroEntero()
+        Me.LabelBase34 = New ControlesBase.LabelBase()
+        Me.LabelNombreApAntic = New System.Windows.Forms.Label()
+        Me.LabelBase36 = New ControlesBase.LabelBase()
+        Me.BotonBuscarClienteApAnticipo = New System.Windows.Forms.Button()
         Me.tbDacionPagos = New System.Windows.Forms.TabPage()
         Me.BotonBase3 = New ControlesBase.BotonBase()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
@@ -268,13 +318,15 @@ Public Class frmSelTipoCobro
         Me.tbEfectivo.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.tbValesDespensa.SuspendLayout()
-        Me.grpEfectivoVales.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
         Me.tbTarjetaCredito.SuspendLayout()
         Me.grpTarjetaCredito.SuspendLayout()
         Me.tbChequeFicha.SuspendLayout()
         Me.grpChequeFicha.SuspendLayout()
         Me.tbTransferencias.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        Me.tbAplicAnticipo.SuspendLayout()
+        Me.GroupBox5.SuspendLayout()
         Me.tbDacionPagos.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.SuspendLayout()
@@ -352,8 +404,8 @@ Public Class frmSelTipoCobro
         'tbValesDespensa
         '
         Me.tbValesDespensa.BackColor = System.Drawing.SystemColors.Control
-        Me.tbValesDespensa.Controls.Add(Me.grpEfectivoVales)
-        Me.tbValesDespensa.Controls.Add(Me.btnAceptarEfectivoVales)
+        Me.tbValesDespensa.Controls.Add(Me.GroupBox4)
+        Me.tbValesDespensa.Controls.Add(Me.btnAceptarVales)
         Me.tbValesDespensa.ImageIndex = 0
         Me.tbValesDespensa.Location = New System.Drawing.Point(4, 4)
         Me.tbValesDespensa.Name = "tbValesDespensa"
@@ -361,46 +413,171 @@ Public Class frmSelTipoCobro
         Me.tbValesDespensa.TabIndex = 3
         Me.tbValesDespensa.Text = "Vales Despensa"
         '
-        'grpEfectivoVales
+        'GroupBox4
         '
-        Me.grpEfectivoVales.Controls.Add(Me.txtTotalEfectivoVales)
-        Me.grpEfectivoVales.Controls.Add(Me.lblTotalEfectivoVales)
-        Me.grpEfectivoVales.Location = New System.Drawing.Point(48, 138)
-        Me.grpEfectivoVales.Name = "grpEfectivoVales"
-        Me.grpEfectivoVales.Size = New System.Drawing.Size(272, 48)
-        Me.grpEfectivoVales.TabIndex = 32
-        Me.grpEfectivoVales.TabStop = False
-        Me.grpEfectivoVales.Text = "Datos del efectivo o vales de despensa"
+        Me.GroupBox4.Controls.Add(Me.TextObservacionesVales)
+        Me.GroupBox4.Controls.Add(Me.TxtMontoVales)
+        Me.GroupBox4.Controls.Add(Me.LabelBase20)
+        Me.GroupBox4.Controls.Add(Me.LabelBase25)
+        Me.GroupBox4.Controls.Add(Me.ComboTipoVale)
+        Me.GroupBox4.Controls.Add(Me.ComboProveedor)
+        Me.GroupBox4.Controls.Add(Me.LabelBase28)
+        Me.GroupBox4.Controls.Add(Me.FechaDocumentoVales)
+        Me.GroupBox4.Controls.Add(Me.LabelBase29)
+        Me.GroupBox4.Controls.Add(Me.txtClienteVales)
+        Me.GroupBox4.Controls.Add(Me.LabelBase19)
+        Me.GroupBox4.Controls.Add(Me.LabelNombreVales)
+        Me.GroupBox4.Controls.Add(Me.LabelBase27)
+        Me.GroupBox4.Controls.Add(Me.LabelBase30)
+        Me.GroupBox4.Controls.Add(Me.BtnBuscarClienteVales)
+        Me.GroupBox4.Location = New System.Drawing.Point(65, 29)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(333, 253)
+        Me.GroupBox4.TabIndex = 31
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "Datos de los vales de Despensa"
         '
-        'txtTotalEfectivoVales
+        'TextObservacionesVales
         '
-        Me.txtTotalEfectivoVales.Location = New System.Drawing.Point(136, 16)
-        Me.txtTotalEfectivoVales.Name = "txtTotalEfectivoVales"
-        Me.txtTotalEfectivoVales.Size = New System.Drawing.Size(120, 21)
-        Me.txtTotalEfectivoVales.TabIndex = 0
+        Me.TextObservacionesVales.Location = New System.Drawing.Point(121, 197)
+        Me.TextObservacionesVales.Multiline = True
+        Me.TextObservacionesVales.Name = "TextObservacionesVales"
+        Me.TextObservacionesVales.Size = New System.Drawing.Size(192, 48)
+        Me.TextObservacionesVales.TabIndex = 52
         '
-        'lblTotalEfectivoVales
+        'TxtMontoVales
         '
-        Me.lblTotalEfectivoVales.AutoSize = True
-        Me.lblTotalEfectivoVales.Location = New System.Drawing.Point(16, 19)
-        Me.lblTotalEfectivoVales.Name = "lblTotalEfectivoVales"
-        Me.lblTotalEfectivoVales.Size = New System.Drawing.Size(74, 13)
-        Me.lblTotalEfectivoVales.TabIndex = 28
-        Me.lblTotalEfectivoVales.Text = "Importe total:"
+        Me.TxtMontoVales.Location = New System.Drawing.Point(121, 171)
+        Me.TxtMontoVales.Name = "TxtMontoVales"
+        Me.TxtMontoVales.Size = New System.Drawing.Size(192, 21)
+        Me.TxtMontoVales.TabIndex = 51
         '
-        'btnAceptarEfectivoVales
+        'LabelBase20
         '
-        Me.btnAceptarEfectivoVales.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnAceptarEfectivoVales.BackColor = System.Drawing.SystemColors.Control
-        Me.btnAceptarEfectivoVales.Image = CType(resources.GetObject("btnAceptarEfectivoVales.Image"), System.Drawing.Image)
-        Me.btnAceptarEfectivoVales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAceptarEfectivoVales.Location = New System.Drawing.Point(505, 150)
-        Me.btnAceptarEfectivoVales.Name = "btnAceptarEfectivoVales"
-        Me.btnAceptarEfectivoVales.Size = New System.Drawing.Size(80, 24)
-        Me.btnAceptarEfectivoVales.TabIndex = 1
-        Me.btnAceptarEfectivoVales.Text = "&Aceptar"
-        Me.btnAceptarEfectivoVales.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnAceptarEfectivoVales.UseVisualStyleBackColor = False
+        Me.LabelBase20.AutoSize = True
+        Me.LabelBase20.Location = New System.Drawing.Point(17, 201)
+        Me.LabelBase20.Name = "LabelBase20"
+        Me.LabelBase20.Size = New System.Drawing.Size(78, 13)
+        Me.LabelBase20.TabIndex = 50
+        Me.LabelBase20.Text = "Observaciones"
+        '
+        'LabelBase25
+        '
+        Me.LabelBase25.AutoSize = True
+        Me.LabelBase25.Location = New System.Drawing.Point(17, 179)
+        Me.LabelBase25.Name = "LabelBase25"
+        Me.LabelBase25.Size = New System.Drawing.Size(37, 13)
+        Me.LabelBase25.TabIndex = 49
+        Me.LabelBase25.Text = "Monto"
+        '
+        'ComboTipoVale
+        '
+        Me.ComboTipoVale.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboTipoVale.DropDownWidth = 200
+        Me.ComboTipoVale.Location = New System.Drawing.Point(120, 144)
+        Me.ComboTipoVale.Name = "ComboTipoVale"
+        Me.ComboTipoVale.Size = New System.Drawing.Size(192, 21)
+        Me.ComboTipoVale.TabIndex = 48
+        '
+        'ComboProveedor
+        '
+        Me.ComboProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboProveedor.DropDownWidth = 200
+        Me.ComboProveedor.Location = New System.Drawing.Point(120, 119)
+        Me.ComboProveedor.Name = "ComboProveedor"
+        Me.ComboProveedor.Size = New System.Drawing.Size(192, 21)
+        Me.ComboProveedor.TabIndex = 46
+        '
+        'LabelBase28
+        '
+        Me.LabelBase28.AutoSize = True
+        Me.LabelBase28.Location = New System.Drawing.Point(17, 122)
+        Me.LabelBase28.Name = "LabelBase28"
+        Me.LabelBase28.Size = New System.Drawing.Size(57, 13)
+        Me.LabelBase28.TabIndex = 45
+        Me.LabelBase28.Text = "Proveedor"
+        '
+        'FechaDocumentoVales
+        '
+        Me.FechaDocumentoVales.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.FechaDocumentoVales.Location = New System.Drawing.Point(120, 94)
+        Me.FechaDocumentoVales.Name = "FechaDocumentoVales"
+        Me.FechaDocumentoVales.Size = New System.Drawing.Size(192, 21)
+        Me.FechaDocumentoVales.TabIndex = 43
+        '
+        'LabelBase29
+        '
+        Me.LabelBase29.AutoSize = True
+        Me.LabelBase29.Location = New System.Drawing.Point(16, 97)
+        Me.LabelBase29.Name = "LabelBase29"
+        Me.LabelBase29.Size = New System.Drawing.Size(96, 13)
+        Me.LabelBase29.TabIndex = 44
+        Me.LabelBase29.Text = "Fecha documento:"
+        '
+        'txtClienteVales
+        '
+        Me.txtClienteVales.Location = New System.Drawing.Point(104, 32)
+        Me.txtClienteVales.Name = "txtClienteVales"
+        Me.txtClienteVales.Size = New System.Drawing.Size(154, 21)
+        Me.txtClienteVales.TabIndex = 0
+        '
+        'LabelBase19
+        '
+        Me.LabelBase19.AutoSize = True
+        Me.LabelBase19.Location = New System.Drawing.Point(16, 65)
+        Me.LabelBase19.Name = "LabelBase19"
+        Me.LabelBase19.Size = New System.Drawing.Size(48, 13)
+        Me.LabelBase19.TabIndex = 40
+        Me.LabelBase19.Text = "Nombre:"
+        '
+        'LabelNombreVales
+        '
+        Me.LabelNombreVales.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.LabelNombreVales.Location = New System.Drawing.Point(104, 56)
+        Me.LabelNombreVales.Name = "LabelNombreVales"
+        Me.LabelNombreVales.Size = New System.Drawing.Size(208, 32)
+        Me.LabelNombreVales.TabIndex = 41
+        Me.LabelNombreVales.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'LabelBase27
+        '
+        Me.LabelBase27.AutoSize = True
+        Me.LabelBase27.Location = New System.Drawing.Point(16, 147)
+        Me.LabelBase27.Name = "LabelBase27"
+        Me.LabelBase27.Size = New System.Drawing.Size(65, 13)
+        Me.LabelBase27.TabIndex = 33
+        Me.LabelBase27.Text = "Tipo de Vale"
+        '
+        'LabelBase30
+        '
+        Me.LabelBase30.AutoSize = True
+        Me.LabelBase30.Location = New System.Drawing.Point(16, 35)
+        Me.LabelBase30.Name = "LabelBase30"
+        Me.LabelBase30.Size = New System.Drawing.Size(44, 13)
+        Me.LabelBase30.TabIndex = 22
+        Me.LabelBase30.Text = "Cliente:"
+        '
+        'BtnBuscarClienteVales
+        '
+        Me.BtnBuscarClienteVales.Image = CType(resources.GetObject("BtnBuscarClienteVales.Image"), System.Drawing.Image)
+        Me.BtnBuscarClienteVales.Location = New System.Drawing.Point(264, 32)
+        Me.BtnBuscarClienteVales.Name = "BtnBuscarClienteVales"
+        Me.BtnBuscarClienteVales.Size = New System.Drawing.Size(48, 21)
+        Me.BtnBuscarClienteVales.TabIndex = 1
+        '
+        'btnAceptarVales
+        '
+        Me.btnAceptarVales.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnAceptarVales.BackColor = System.Drawing.SystemColors.Control
+        Me.btnAceptarVales.Image = CType(resources.GetObject("btnAceptarVales.Image"), System.Drawing.Image)
+        Me.btnAceptarVales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnAceptarVales.Location = New System.Drawing.Point(505, 150)
+        Me.btnAceptarVales.Name = "btnAceptarVales"
+        Me.btnAceptarVales.Size = New System.Drawing.Size(80, 24)
+        Me.btnAceptarVales.TabIndex = 1
+        Me.btnAceptarVales.Text = "&Aceptar"
+        Me.btnAceptarVales.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnAceptarVales.UseVisualStyleBackColor = False
         '
         'tbTarjetaCredito
         '
@@ -1014,12 +1191,124 @@ Public Class frmSelTipoCobro
         'tbAplicAnticipo
         '
         Me.tbAplicAnticipo.BackColor = System.Drawing.SystemColors.Control
+        Me.tbAplicAnticipo.Controls.Add(Me.GroupBox5)
         Me.tbAplicAnticipo.Location = New System.Drawing.Point(4, 4)
         Me.tbAplicAnticipo.Name = "tbAplicAnticipo"
         Me.tbAplicAnticipo.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbAplicAnticipo.Size = New System.Drawing.Size(603, 307)
+        Me.tbAplicAnticipo.Size = New System.Drawing.Size(603, 325)
         Me.tbAplicAnticipo.TabIndex = 5
         Me.tbAplicAnticipo.Text = "Aplicación Anticipo"
+        '
+        'GroupBox5
+        '
+        Me.GroupBox5.Controls.Add(Me.TxtNumeroDecimal7)
+        Me.GroupBox5.Controls.Add(Me.LabelBase32)
+        Me.GroupBox5.Controls.Add(Me.TextBox3)
+        Me.GroupBox5.Controls.Add(Me.TxtNumeroDecimal6)
+        Me.GroupBox5.Controls.Add(Me.LabelBase26)
+        Me.GroupBox5.Controls.Add(Me.LabelBase31)
+        Me.GroupBox5.Controls.Add(Me.TxtClienteAplicAntic)
+        Me.GroupBox5.Controls.Add(Me.LabelBase34)
+        Me.GroupBox5.Controls.Add(Me.LabelNombreApAntic)
+        Me.GroupBox5.Controls.Add(Me.LabelBase36)
+        Me.GroupBox5.Controls.Add(Me.BotonBuscarClienteApAnticipo)
+        Me.GroupBox5.Location = New System.Drawing.Point(56, 32)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(333, 253)
+        Me.GroupBox5.TabIndex = 32
+        Me.GroupBox5.TabStop = False
+        Me.GroupBox5.Text = "Datos de los vales de Despensa"
+        '
+        'TxtNumeroDecimal7
+        '
+        Me.TxtNumeroDecimal7.Location = New System.Drawing.Point(121, 103)
+        Me.TxtNumeroDecimal7.Name = "TxtNumeroDecimal7"
+        Me.TxtNumeroDecimal7.Size = New System.Drawing.Size(192, 21)
+        Me.TxtNumeroDecimal7.TabIndex = 54
+        '
+        'LabelBase32
+        '
+        Me.LabelBase32.AutoSize = True
+        Me.LabelBase32.Location = New System.Drawing.Point(17, 106)
+        Me.LabelBase32.Name = "LabelBase32"
+        Me.LabelBase32.Size = New System.Drawing.Size(37, 13)
+        Me.LabelBase32.TabIndex = 53
+        Me.LabelBase32.Text = "Saldo:"
+        '
+        'TextBox3
+        '
+        Me.TextBox3.Location = New System.Drawing.Point(121, 168)
+        Me.TextBox3.Multiline = True
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(192, 48)
+        Me.TextBox3.TabIndex = 52
+        '
+        'TxtNumeroDecimal6
+        '
+        Me.TxtNumeroDecimal6.Location = New System.Drawing.Point(121, 133)
+        Me.TxtNumeroDecimal6.Name = "TxtNumeroDecimal6"
+        Me.TxtNumeroDecimal6.Size = New System.Drawing.Size(192, 21)
+        Me.TxtNumeroDecimal6.TabIndex = 51
+        '
+        'LabelBase26
+        '
+        Me.LabelBase26.AutoSize = True
+        Me.LabelBase26.Location = New System.Drawing.Point(17, 171)
+        Me.LabelBase26.Name = "LabelBase26"
+        Me.LabelBase26.Size = New System.Drawing.Size(78, 13)
+        Me.LabelBase26.TabIndex = 50
+        Me.LabelBase26.Text = "Observaciones"
+        '
+        'LabelBase31
+        '
+        Me.LabelBase31.AutoSize = True
+        Me.LabelBase31.Location = New System.Drawing.Point(17, 141)
+        Me.LabelBase31.Name = "LabelBase31"
+        Me.LabelBase31.Size = New System.Drawing.Size(37, 13)
+        Me.LabelBase31.TabIndex = 49
+        Me.LabelBase31.Text = "Monto"
+        '
+        'TxtClienteAplicAntic
+        '
+        Me.TxtClienteAplicAntic.Location = New System.Drawing.Point(104, 32)
+        Me.TxtClienteAplicAntic.Name = "TxtClienteAplicAntic"
+        Me.TxtClienteAplicAntic.Size = New System.Drawing.Size(154, 21)
+        Me.TxtClienteAplicAntic.TabIndex = 0
+        '
+        'LabelBase34
+        '
+        Me.LabelBase34.AutoSize = True
+        Me.LabelBase34.Location = New System.Drawing.Point(16, 65)
+        Me.LabelBase34.Name = "LabelBase34"
+        Me.LabelBase34.Size = New System.Drawing.Size(48, 13)
+        Me.LabelBase34.TabIndex = 40
+        Me.LabelBase34.Text = "Nombre:"
+        '
+        'LabelNombreApAntic
+        '
+        Me.LabelNombreApAntic.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.LabelNombreApAntic.Location = New System.Drawing.Point(104, 56)
+        Me.LabelNombreApAntic.Name = "LabelNombreApAntic"
+        Me.LabelNombreApAntic.Size = New System.Drawing.Size(208, 32)
+        Me.LabelNombreApAntic.TabIndex = 41
+        Me.LabelNombreApAntic.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'LabelBase36
+        '
+        Me.LabelBase36.AutoSize = True
+        Me.LabelBase36.Location = New System.Drawing.Point(16, 35)
+        Me.LabelBase36.Name = "LabelBase36"
+        Me.LabelBase36.Size = New System.Drawing.Size(44, 13)
+        Me.LabelBase36.TabIndex = 22
+        Me.LabelBase36.Text = "Cliente:"
+        '
+        'BotonBuscarClienteApAnticipo
+        '
+        Me.BotonBuscarClienteApAnticipo.Image = CType(resources.GetObject("BotonBuscarClienteApAnticipo.Image"), System.Drawing.Image)
+        Me.BotonBuscarClienteApAnticipo.Location = New System.Drawing.Point(264, 32)
+        Me.BotonBuscarClienteApAnticipo.Name = "BotonBuscarClienteApAnticipo"
+        Me.BotonBuscarClienteApAnticipo.Size = New System.Drawing.Size(48, 21)
+        Me.BotonBuscarClienteApAnticipo.TabIndex = 1
         '
         'tbDacionPagos
         '
@@ -1182,7 +1471,7 @@ Public Class frmSelTipoCobro
         '
         'frmSelTipoCobro
         '
-        Me.AcceptButton = Me.btnAceptarEfectivoVales
+        Me.AcceptButton = Me.btnAceptarVales
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 14)
         Me.ClientSize = New System.Drawing.Size(611, 351)
         Me.Controls.Add(Me.tabTipoCobro)
@@ -1198,8 +1487,8 @@ Public Class frmSelTipoCobro
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.tbValesDespensa.ResumeLayout(False)
-        Me.grpEfectivoVales.ResumeLayout(False)
-        Me.grpEfectivoVales.PerformLayout()
+        Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox4.PerformLayout()
         Me.tbTarjetaCredito.ResumeLayout(False)
         Me.grpTarjetaCredito.ResumeLayout(False)
         Me.grpTarjetaCredito.PerformLayout()
@@ -1209,6 +1498,9 @@ Public Class frmSelTipoCobro
         Me.tbTransferencias.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        Me.tbAplicAnticipo.ResumeLayout(False)
+        Me.GroupBox5.ResumeLayout(False)
+        Me.GroupBox5.PerformLayout()
         Me.tbDacionPagos.ResumeLayout(False)
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
@@ -1238,23 +1530,21 @@ Public Class frmSelTipoCobro
     End Sub
 
 
-
-
     'EFECTIVO Y / O VALES
-    Private Sub btnAceptarEfectivoVales_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAceptarEfectivoVales.Click
+    Private Sub btnAceptarVales_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAceptarVales.Click
         If CapturaEfectivoVales = False Then
-            If txtTotalEfectivoVales.Text <> "" And IsNumeric(txtTotalEfectivoVales.Text) Then
+            If TxtMontoVales.Text <> "" And IsNumeric(TxtMontoVales.Text) Then
                 If _CapturaDetalle = True Then
                     Dim frmCaptura As New frmCapCobranzaDoc()
-                    frmCaptura.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.EfectivoVales
-                    frmCaptura.ImporteCobro = CType(txtTotalEfectivoVales.Text, Decimal)
+                    frmCaptura.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.Vales
+                    frmCaptura.ImporteCobro = CType(TxtMontoVales.Text, Decimal)
 
                     If frmCaptura.ShowDialog = DialogResult.OK Then
                         With Cobro
                             .Consecutivo = Consecutivo
                             .AnoCobro = CType(Year(Today), Short)
-                            .TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.EfectivoVales
-                            .Total = CType(txtTotalEfectivoVales.Text, Decimal)
+                            .TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.Vales
+                            .Total = CType(TxtMontoVales.Text, Decimal)
                             .ListaPedidos = frmCaptura.ListaCobroPedido
                             ImporteTotalCobro = .Total
                         End With
@@ -1264,7 +1554,7 @@ Public Class frmSelTipoCobro
                         .Consecutivo = Consecutivo
                         .AnoCobro = CType(Year(Today), Short)
                         .TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.EfectivoVales
-                        .Total = CType(txtTotalEfectivoVales.Text, Decimal)
+                        .Total = CType(TxtMontoVales.Text, Decimal)
                         .ListaPedidos = Nothing
                         ImporteTotalCobro = .Total
                     End With
@@ -1351,8 +1641,8 @@ Public Class frmSelTipoCobro
     Private Sub tabTipoCobro_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles tabTipoCobro.SelectedIndexChanged
         Select Case tabTipoCobro.SelectedTab.Name
             Case Is = "tbEfectivoVales"
-                AcceptButton = btnAceptarEfectivoVales
-                txtTotalEfectivoVales.Focus()
+                AcceptButton = btnAceptarVales
+                TxtMontoVales.Focus()
             Case Is = "tbChequeFicha"
                 AcceptButton = btnAceptarChequeFicha
                 txtDocumento.Focus()
@@ -1368,10 +1658,12 @@ Public Class frmSelTipoCobro
         End If
 
         ComboBanco.CargaDatos(True)
+        ComboProveedor.CargaDatos(True)
+        ComboTipoVale.CargaDatos(True)
 
         ComboBancoTransferencia.CargaDatos(True)
         If CapturaEfectivoVales = True Then
-            btnAceptarEfectivoVales.Enabled = False
+            btnAceptarVales.Enabled = False
             tabTipoCobro.SelectedTab = tbChequeFicha
         End If
         SeleccionarTipocobro()
@@ -1855,6 +2147,7 @@ Public Class frmSelTipoCobro
         txtImporteTC.Clear()
 
 
+<<<<<<< HEAD
     End Sub
 
     Public Sub LimpiarTransferencia()
@@ -1882,5 +2175,68 @@ Public Class frmSelTipoCobro
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
+=======
+
+
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+    End Sub
+
+
+
+    Private Sub BtnBuscarClienteVales_Click(sender As Object, e As EventArgs) Handles BtnBuscarClienteVales.Click
+        Dim lParametro As New SigaMetClasses.cConfig(16, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario)
+        Dim lURLGateway As String = CType(lParametro.Parametros.Item("URLGateway"), String)
+        lParametro.Dispose()
+
+        If Trim(txtClienteVales.Text) <> "" Then
+            Dim frmConCliente As SigaMetClasses.frmConsultaCliente
+            If String.IsNullOrEmpty(lURLGateway) Then
+                frmConCliente = New SigaMetClasses.frmConsultaCliente(CType(txtClienteVales.Text, Integer))
+            Else
+                frmConCliente = New SigaMetClasses.frmConsultaCliente(CType(txtClienteVales.Text, Integer), lURLGateway)
+            End If
+
+            frmConCliente.ShowDialog()
+        End If
+    End Sub
+
+    Private Sub BotonBase2_Click(sender As Object, e As EventArgs) Handles BotonBase2.Click
+
+    End Sub
+
+    Private Sub BotonBuscarClienteApAnticipo_Click(sender As Object, e As EventArgs) Handles BotonBuscarClienteApAnticipo.Click
+        Dim lParametro As New SigaMetClasses.cConfig(16, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario)
+        Dim lURLGateway As String = CType(lParametro.Parametros.Item("URLGateway"), String)
+        lParametro.Dispose()
+
+        If Trim(txtClienteVales.Text) <> "" Then
+            Dim frmConCliente As SigaMetClasses.frmConsultaCliente
+            If String.IsNullOrEmpty(lURLGateway) Then
+                frmConCliente = New SigaMetClasses.frmConsultaCliente(CType(TxtClienteAplicAntic.Text, Integer))
+            Else
+                frmConCliente = New SigaMetClasses.frmConsultaCliente(CType(TxtClienteAplicAntic.Text, Integer), lURLGateway)
+            End If
+
+            frmConCliente.ShowDialog()
+        End If
+
+
+    End Sub
+
+    Private Sub txtClienteVales_Leave(sender As Object, e As EventArgs) Handles txtClienteVales.Leave
+        Dim oCliente As New SigaMetClasses.cCliente()
+        oCliente.Consulta(CType(txtClienteVales.Text, Integer))
+        LabelNombreVales.Text = oCliente.Nombre
+        oCliente = Nothing
+    End Sub
+
+    Private Sub TxtClienteAplicAntic_Leave(sender As Object, e As EventArgs) Handles TxtClienteAplicAntic.Leave
+        Dim oCliente As New SigaMetClasses.cCliente()
+        oCliente.Consulta(CType(TxtClienteAplicAntic.Text, Integer))
+        LabelNombreApAntic.Text = oCliente.Nombre
+        oCliente = Nothing
+>>>>>>> Feature_FormasPagoPendientes
     End Sub
 End Class
