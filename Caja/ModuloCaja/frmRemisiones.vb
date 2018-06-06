@@ -12,5 +12,7 @@
         i = grdRemisiones.CurrentRowIndex
         lbl_saldo.Text = "$" + CType(Val(grdRemisiones.Item(i, 7)), String)
         lbl_Total.Text = "$" + CType(grdRemisiones.Item(i, 6), String)
+
+
     End Sub
 End Class
