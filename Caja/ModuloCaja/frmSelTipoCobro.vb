@@ -113,7 +113,7 @@ Public Class frmSelTipoCobro
         Consecutivo = intConsecutivo
 
         If CapturaEfectivoVales = True Then
-            btnAceptarVales.Enabled = False
+            btnAceptarVales1.Enabled = False
         End If
         If CapturaMixtaEfectivoVales = True Then
             'btnAceptarEfectivo.Enabled = False
@@ -156,7 +156,7 @@ Public Class frmSelTipoCobro
     Friend WithEvents lblImporte As ControlesBase.LabelBase
     Friend WithEvents lblCliente As ControlesBase.LabelBase
     Friend WithEvents tbValesDespensa As System.Windows.Forms.TabPage
-    Friend WithEvents btnAceptarVales As ControlesBase.BotonBase
+    Friend WithEvents btnAceptarVales1 As ControlesBase.BotonBase
     Friend WithEvents imgLista As System.Windows.Forms.ImageList
     Friend WithEvents tbTarjetaCredito As System.Windows.Forms.TabPage
     Friend WithEvents grpTarjetaCredito As System.Windows.Forms.GroupBox
@@ -220,7 +220,7 @@ Public Class frmSelTipoCobro
         Me.LabelBase27 = New ControlesBase.LabelBase()
         Me.LabelBase30 = New ControlesBase.LabelBase()
         Me.BtnBuscarClienteVales = New System.Windows.Forms.Button()
-        Me.btnAceptarVales = New ControlesBase.BotonBase()
+        Me.btnAceptarVales1 = New ControlesBase.BotonBase()
         Me.tbTarjetaCredito = New System.Windows.Forms.TabPage()
         Me.btnAceptarTarjetaCredito = New ControlesBase.BotonBase()
         Me.grpTarjetaCredito = New System.Windows.Forms.GroupBox()
@@ -405,11 +405,11 @@ Public Class frmSelTipoCobro
         '
         Me.tbValesDespensa.BackColor = System.Drawing.SystemColors.Control
         Me.tbValesDespensa.Controls.Add(Me.GroupBox4)
-        Me.tbValesDespensa.Controls.Add(Me.btnAceptarVales)
+        Me.tbValesDespensa.Controls.Add(Me.btnAceptarVales1)
         Me.tbValesDespensa.ImageIndex = 0
         Me.tbValesDespensa.Location = New System.Drawing.Point(4, 4)
         Me.tbValesDespensa.Name = "tbValesDespensa"
-        Me.tbValesDespensa.Size = New System.Drawing.Size(603, 307)
+        Me.tbValesDespensa.Size = New System.Drawing.Size(603, 325)
         Me.tbValesDespensa.TabIndex = 3
         Me.tbValesDespensa.Text = "Vales Despensa"
         '
@@ -565,19 +565,19 @@ Public Class frmSelTipoCobro
         Me.BtnBuscarClienteVales.Size = New System.Drawing.Size(48, 21)
         Me.BtnBuscarClienteVales.TabIndex = 1
         '
-        'btnAceptarVales
+        'btnAceptarVales1
         '
-        Me.btnAceptarVales.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnAceptarVales.BackColor = System.Drawing.SystemColors.Control
-        Me.btnAceptarVales.Image = CType(resources.GetObject("btnAceptarVales.Image"), System.Drawing.Image)
-        Me.btnAceptarVales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAceptarVales.Location = New System.Drawing.Point(505, 150)
-        Me.btnAceptarVales.Name = "btnAceptarVales"
-        Me.btnAceptarVales.Size = New System.Drawing.Size(80, 24)
-        Me.btnAceptarVales.TabIndex = 1
-        Me.btnAceptarVales.Text = "&Aceptar"
-        Me.btnAceptarVales.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnAceptarVales.UseVisualStyleBackColor = False
+        Me.btnAceptarVales1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnAceptarVales1.BackColor = System.Drawing.SystemColors.Control
+        Me.btnAceptarVales1.Image = CType(resources.GetObject("btnAceptarVales1.Image"), System.Drawing.Image)
+        Me.btnAceptarVales1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnAceptarVales1.Location = New System.Drawing.Point(505, 150)
+        Me.btnAceptarVales1.Name = "btnAceptarVales1"
+        Me.btnAceptarVales1.Size = New System.Drawing.Size(80, 24)
+        Me.btnAceptarVales1.TabIndex = 1
+        Me.btnAceptarVales1.Text = "&Aceptar"
+        Me.btnAceptarVales1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnAceptarVales1.UseVisualStyleBackColor = False
         '
         'tbTarjetaCredito
         '
@@ -586,7 +586,7 @@ Public Class frmSelTipoCobro
         Me.tbTarjetaCredito.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbTarjetaCredito.Location = New System.Drawing.Point(4, 4)
         Me.tbTarjetaCredito.Name = "tbTarjetaCredito"
-        Me.tbTarjetaCredito.Size = New System.Drawing.Size(603, 325)
+        Me.tbTarjetaCredito.Size = New System.Drawing.Size(603, 307)
         Me.tbTarjetaCredito.TabIndex = 0
         Me.tbTarjetaCredito.Text = "Tarjeta "
         '
@@ -794,7 +794,7 @@ Public Class frmSelTipoCobro
         Me.tbChequeFicha.Controls.Add(Me.grpChequeFicha)
         Me.tbChequeFicha.Location = New System.Drawing.Point(4, 4)
         Me.tbChequeFicha.Name = "tbChequeFicha"
-        Me.tbChequeFicha.Size = New System.Drawing.Size(603, 325)
+        Me.tbChequeFicha.Size = New System.Drawing.Size(603, 307)
         Me.tbChequeFicha.TabIndex = 2
         Me.tbChequeFicha.Text = "Cheque / Ficha de deposito"
         '
@@ -1005,7 +1005,7 @@ Public Class frmSelTipoCobro
         Me.tbTransferencias.Location = New System.Drawing.Point(4, 4)
         Me.tbTransferencias.Name = "tbTransferencias"
         Me.tbTransferencias.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbTransferencias.Size = New System.Drawing.Size(603, 325)
+        Me.tbTransferencias.Size = New System.Drawing.Size(603, 307)
         Me.tbTransferencias.TabIndex = 4
         Me.tbTransferencias.Text = "Transferencias"
         '
@@ -1195,7 +1195,7 @@ Public Class frmSelTipoCobro
         Me.tbAplicAnticipo.Location = New System.Drawing.Point(4, 4)
         Me.tbAplicAnticipo.Name = "tbAplicAnticipo"
         Me.tbAplicAnticipo.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbAplicAnticipo.Size = New System.Drawing.Size(603, 325)
+        Me.tbAplicAnticipo.Size = New System.Drawing.Size(603, 307)
         Me.tbAplicAnticipo.TabIndex = 5
         Me.tbAplicAnticipo.Text = "Aplicación Anticipo"
         '
@@ -1471,7 +1471,7 @@ Public Class frmSelTipoCobro
         '
         'frmSelTipoCobro
         '
-        Me.AcceptButton = Me.btnAceptarVales
+        Me.AcceptButton = Me.btnAceptarVales1
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 14)
         Me.ClientSize = New System.Drawing.Size(611, 351)
         Me.Controls.Add(Me.tabTipoCobro)
@@ -1531,7 +1531,7 @@ Public Class frmSelTipoCobro
 
 
     'EFECTIVO Y / O VALES
-    Private Sub btnAceptarVales_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAceptarVales.Click
+    Private Sub btnAceptarVales_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAceptarVales1.Click
         If CapturaEfectivoVales = False Then
             If TxtMontoVales.Text <> "" And IsNumeric(TxtMontoVales.Text) Then
                 If _CapturaDetalle = True Then
@@ -1641,7 +1641,7 @@ Public Class frmSelTipoCobro
     Private Sub tabTipoCobro_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles tabTipoCobro.SelectedIndexChanged
         Select Case tabTipoCobro.SelectedTab.Name
             Case Is = "tbEfectivoVales"
-                AcceptButton = btnAceptarVales
+                AcceptButton = btnAceptarVales1
                 TxtMontoVales.Focus()
             Case Is = "tbChequeFicha"
                 AcceptButton = btnAceptarChequeFicha
@@ -1663,7 +1663,7 @@ Public Class frmSelTipoCobro
 
         ComboBancoTransferencia.CargaDatos(True)
         If CapturaEfectivoVales = True Then
-            btnAceptarVales.Enabled = False
+            btnAceptarVales1.Enabled = False
             tabTipoCobro.SelectedTab = tbChequeFicha
         End If
         SeleccionarTipocobro()
