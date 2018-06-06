@@ -15,3 +15,11 @@ C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\Filiales\obj\Debug\Filiale
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\Filiales\obj\Debug\Filiales.csproj.CoreCompileInputs.cache
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\Filiales\obj\Debug\Filiales.exe
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\Filiales\obj\Debug\Filiales.pdb
+C:\Users\Transforma1\Source\Repos\Caja\Caja\Filiales\bin\Debug\Filiales.exe.config
+C:\Users\Transforma1\Source\Repos\Caja\Caja\Filiales\bin\Debug\Filiales.exe
+C:\Users\Transforma1\Source\Repos\Caja\Caja\Filiales\bin\Debug\Filiales.pdb
+C:\Users\Transforma1\Source\Repos\Caja\Caja\Filiales\obj\Debug\Filiales.csprojResolveAssemblyReference.cache
+C:\Users\Transforma1\Source\Repos\Caja\Caja\Filiales\obj\Debug\Filiales.Form1.resources
+C:\Users\Transforma1\Source\Repos\Caja\Caja\Filiales\obj\Debug\Filiales.csproj.GenerateResource.Cache
+C:\Users\Transforma1\Source\Repos\Caja\Caja\Filiales\obj\Debug\Filiales.exe
+C:\Users\Transforma1\Source\Repos\Caja\Caja\Filiales\obj\Debug\Filiales.pdb

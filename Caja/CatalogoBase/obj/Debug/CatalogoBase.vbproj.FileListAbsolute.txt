@@ -19,3 +19,12 @@ C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\CatalogoBase\obj\Debug\Cat
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\CatalogoBase\obj\Debug\CatalogoBase.dll
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\CatalogoBase\obj\Debug\CatalogoBase.xml
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\CatalogoBase\obj\Debug\CatalogoBase.pdb
+C:\Users\Transforma1\Source\Repos\Caja\Caja\CatalogoBase\bin\CatalogoBase.dll
+C:\Users\Transforma1\Source\Repos\Caja\Caja\CatalogoBase\bin\CatalogoBase.pdb
+C:\Users\Transforma1\Source\Repos\Caja\Caja\CatalogoBase\bin\CatalogoBase.xml
+C:\Users\Transforma1\Source\Repos\Caja\Caja\CatalogoBase\obj\Debug\CatalogoBase.vbprojResolveAssemblyReference.cache
+C:\Users\Transforma1\Source\Repos\Caja\Caja\CatalogoBase\obj\Debug\CatalogoBase.frmCatalogo.resources
+C:\Users\Transforma1\Source\Repos\Caja\Caja\CatalogoBase\obj\Debug\CatalogoBase.vbproj.GenerateResource.Cache
+C:\Users\Transforma1\Source\Repos\Caja\Caja\CatalogoBase\obj\Debug\CatalogoBase.dll
+C:\Users\Transforma1\Source\Repos\Caja\Caja\CatalogoBase\obj\Debug\CatalogoBase.xml
+C:\Users\Transforma1\Source\Repos\Caja\Caja\CatalogoBase\obj\Debug\CatalogoBase.pdb

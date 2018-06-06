@@ -1536,9 +1536,17 @@ Public Class frmSelTipoCobro
     End Sub
 
     Private Sub BotonBase1_Click(sender As Object, e As EventArgs) Handles BotonBase1.Click
+        Dim frmRemisiones As New frmRemisiones
+        If frmRemisiones.ShowDialog() = DialogResult.OK Then
+            Cursor = Cursors.WaitCursor
+            Cursor = Cursors.Default
+        End If
         If TxtNumeroDecimal1.Text <> "" Then
             AltaPagoEfectivo()
             TxtNumeroDecimal1.Clear()
+
+
+
         End If
     End Sub
 

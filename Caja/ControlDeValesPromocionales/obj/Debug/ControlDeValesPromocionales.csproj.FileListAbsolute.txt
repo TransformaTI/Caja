@@ -23,3 +23,13 @@ C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionale
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.dll
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.pdb
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.csprojAssemblyReference.cache
+C:\Users\Transforma1\Source\Repos\Caja\Caja\ControlDeValesPromocionales\bin\Debug\ControlDeValesPromocionales.dll
+C:\Users\Transforma1\Source\Repos\Caja\Caja\ControlDeValesPromocionales\bin\Debug\ControlDeValesPromocionales.pdb
+C:\Users\Transforma1\Source\Repos\Caja\Caja\ControlDeValesPromocionales\bin\Debug\stdole.dll
+C:\Users\Transforma1\Source\Repos\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.csprojResolveAssemblyReference.cache
+C:\Users\Transforma1\Source\Repos\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.frmCapturaPagosConVale.resources
+C:\Users\Transforma1\Source\Repos\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.RegistroValeCredito.resources
+C:\Users\Transforma1\Source\Repos\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.ValePromocional.resources
+C:\Users\Transforma1\Source\Repos\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.csproj.GenerateResource.Cache
+C:\Users\Transforma1\Source\Repos\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.dll
+C:\Users\Transforma1\Source\Repos\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.pdb
