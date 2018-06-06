@@ -77,11 +77,11 @@ Public Class frmSelTipoCobro
     Friend WithEvents TxtNumeroDecimal6 As SigaMetClasses.Controles.txtNumeroDecimal
     Friend WithEvents LabelBase26 As ControlesBase.LabelBase
     Friend WithEvents LabelBase31 As ControlesBase.LabelBase
-    Friend WithEvents TxtNumeroEntero5 As SigaMetClasses.Controles.txtNumeroEntero
+    Friend WithEvents TxtClienteAplicAntic As SigaMetClasses.Controles.txtNumeroEntero
     Friend WithEvents LabelBase34 As ControlesBase.LabelBase
-    Friend WithEvents Label1 As Label
+    Friend WithEvents LabelNombreApAntic As Label
     Friend WithEvents LabelBase36 As ControlesBase.LabelBase
-    Friend WithEvents Button4 As Button
+    Friend WithEvents BotonBuscarClienteApAnticipo As Button
     Private DetalleCobro As SigaMetClasses.sCobro
 
     Enum FormaPago
@@ -281,11 +281,11 @@ Public Class frmSelTipoCobro
         Me.TxtNumeroDecimal6 = New SigaMetClasses.Controles.txtNumeroDecimal()
         Me.LabelBase26 = New ControlesBase.LabelBase()
         Me.LabelBase31 = New ControlesBase.LabelBase()
-        Me.TxtNumeroEntero5 = New SigaMetClasses.Controles.txtNumeroEntero()
+        Me.TxtClienteAplicAntic = New SigaMetClasses.Controles.txtNumeroEntero()
         Me.LabelBase34 = New ControlesBase.LabelBase()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.LabelNombreApAntic = New System.Windows.Forms.Label()
         Me.LabelBase36 = New ControlesBase.LabelBase()
-        Me.Button4 = New System.Windows.Forms.Button()
+        Me.BotonBuscarClienteApAnticipo = New System.Windows.Forms.Button()
         Me.tbDacionPagos = New System.Windows.Forms.TabPage()
         Me.BotonBase3 = New ControlesBase.BotonBase()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
@@ -397,7 +397,7 @@ Public Class frmSelTipoCobro
         Me.tbValesDespensa.ImageIndex = 0
         Me.tbValesDespensa.Location = New System.Drawing.Point(4, 4)
         Me.tbValesDespensa.Name = "tbValesDespensa"
-        Me.tbValesDespensa.Size = New System.Drawing.Size(603, 325)
+        Me.tbValesDespensa.Size = New System.Drawing.Size(603, 307)
         Me.tbValesDespensa.TabIndex = 3
         Me.tbValesDespensa.Text = "Vales Despensa"
         '
@@ -1182,7 +1182,7 @@ Public Class frmSelTipoCobro
         Me.tbAplicAnticipo.Location = New System.Drawing.Point(4, 4)
         Me.tbAplicAnticipo.Name = "tbAplicAnticipo"
         Me.tbAplicAnticipo.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbAplicAnticipo.Size = New System.Drawing.Size(603, 307)
+        Me.tbAplicAnticipo.Size = New System.Drawing.Size(603, 325)
         Me.tbAplicAnticipo.TabIndex = 5
         Me.tbAplicAnticipo.Text = "Aplicación Anticipo"
         '
@@ -1194,11 +1194,11 @@ Public Class frmSelTipoCobro
         Me.GroupBox5.Controls.Add(Me.TxtNumeroDecimal6)
         Me.GroupBox5.Controls.Add(Me.LabelBase26)
         Me.GroupBox5.Controls.Add(Me.LabelBase31)
-        Me.GroupBox5.Controls.Add(Me.TxtNumeroEntero5)
+        Me.GroupBox5.Controls.Add(Me.TxtClienteAplicAntic)
         Me.GroupBox5.Controls.Add(Me.LabelBase34)
-        Me.GroupBox5.Controls.Add(Me.Label1)
+        Me.GroupBox5.Controls.Add(Me.LabelNombreApAntic)
         Me.GroupBox5.Controls.Add(Me.LabelBase36)
-        Me.GroupBox5.Controls.Add(Me.Button4)
+        Me.GroupBox5.Controls.Add(Me.BotonBuscarClienteApAnticipo)
         Me.GroupBox5.Location = New System.Drawing.Point(56, 32)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Size = New System.Drawing.Size(333, 253)
@@ -1255,12 +1255,12 @@ Public Class frmSelTipoCobro
         Me.LabelBase31.TabIndex = 49
         Me.LabelBase31.Text = "Monto"
         '
-        'TxtNumeroEntero5
+        'TxtClienteAplicAntic
         '
-        Me.TxtNumeroEntero5.Location = New System.Drawing.Point(104, 32)
-        Me.TxtNumeroEntero5.Name = "TxtNumeroEntero5"
-        Me.TxtNumeroEntero5.Size = New System.Drawing.Size(154, 21)
-        Me.TxtNumeroEntero5.TabIndex = 0
+        Me.TxtClienteAplicAntic.Location = New System.Drawing.Point(104, 32)
+        Me.TxtClienteAplicAntic.Name = "TxtClienteAplicAntic"
+        Me.TxtClienteAplicAntic.Size = New System.Drawing.Size(154, 21)
+        Me.TxtClienteAplicAntic.TabIndex = 0
         '
         'LabelBase34
         '
@@ -1271,14 +1271,14 @@ Public Class frmSelTipoCobro
         Me.LabelBase34.TabIndex = 40
         Me.LabelBase34.Text = "Nombre:"
         '
-        'Label1
+        'LabelNombreApAntic
         '
-        Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Label1.Location = New System.Drawing.Point(104, 56)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(208, 32)
-        Me.Label1.TabIndex = 41
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LabelNombreApAntic.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.LabelNombreApAntic.Location = New System.Drawing.Point(104, 56)
+        Me.LabelNombreApAntic.Name = "LabelNombreApAntic"
+        Me.LabelNombreApAntic.Size = New System.Drawing.Size(208, 32)
+        Me.LabelNombreApAntic.TabIndex = 41
+        Me.LabelNombreApAntic.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'LabelBase36
         '
@@ -1289,13 +1289,13 @@ Public Class frmSelTipoCobro
         Me.LabelBase36.TabIndex = 22
         Me.LabelBase36.Text = "Cliente:"
         '
-        'Button4
+        'BotonBuscarClienteApAnticipo
         '
-        Me.Button4.Image = CType(resources.GetObject("Button4.Image"), System.Drawing.Image)
-        Me.Button4.Location = New System.Drawing.Point(264, 32)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(48, 21)
-        Me.Button4.TabIndex = 1
+        Me.BotonBuscarClienteApAnticipo.Image = CType(resources.GetObject("BotonBuscarClienteApAnticipo.Image"), System.Drawing.Image)
+        Me.BotonBuscarClienteApAnticipo.Location = New System.Drawing.Point(264, 32)
+        Me.BotonBuscarClienteApAnticipo.Name = "BotonBuscarClienteApAnticipo"
+        Me.BotonBuscarClienteApAnticipo.Size = New System.Drawing.Size(48, 21)
+        Me.BotonBuscarClienteApAnticipo.TabIndex = 1
         '
         'tbDacionPagos
         '
@@ -1517,8 +1517,6 @@ Public Class frmSelTipoCobro
     End Sub
 
 
-
-
     'EFECTIVO Y / O VALES
     Private Sub btnAceptarVales_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAceptarVales.Click
         If CapturaEfectivoVales = False Then
@@ -1703,6 +1701,8 @@ Public Class frmSelTipoCobro
 
     Private Sub frmSelTipoCobro_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
         ComboBanco.CargaDatos(True)
+        ComboProveedor.CargaDatos(True)
+        ComboTipoVale.CargaDatos(True)
 
         If CapturaEfectivoVales = True Then
             btnAceptarVales.Enabled = False
@@ -1865,13 +1865,13 @@ Public Class frmSelTipoCobro
 
 
 
+
+
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
 
-    End Sub
 
     Private Sub BtnBuscarClienteVales_Click(sender As Object, e As EventArgs) Handles BtnBuscarClienteVales.Click
         Dim lParametro As New SigaMetClasses.cConfig(16, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario)
@@ -1892,5 +1892,38 @@ Public Class frmSelTipoCobro
 
     Private Sub BotonBase2_Click(sender As Object, e As EventArgs) Handles BotonBase2.Click
 
+    End Sub
+
+    Private Sub BotonBuscarClienteApAnticipo_Click(sender As Object, e As EventArgs) Handles BotonBuscarClienteApAnticipo.Click
+        Dim lParametro As New SigaMetClasses.cConfig(16, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario)
+        Dim lURLGateway As String = CType(lParametro.Parametros.Item("URLGateway"), String)
+        lParametro.Dispose()
+
+        If Trim(txtClienteVales.Text) <> "" Then
+            Dim frmConCliente As SigaMetClasses.frmConsultaCliente
+            If String.IsNullOrEmpty(lURLGateway) Then
+                frmConCliente = New SigaMetClasses.frmConsultaCliente(CType(TxtClienteAplicAntic.Text, Integer))
+            Else
+                frmConCliente = New SigaMetClasses.frmConsultaCliente(CType(TxtClienteAplicAntic.Text, Integer), lURLGateway)
+            End If
+
+            frmConCliente.ShowDialog()
+        End If
+
+
+    End Sub
+
+    Private Sub txtClienteVales_Leave(sender As Object, e As EventArgs) Handles txtClienteVales.Leave
+        Dim oCliente As New SigaMetClasses.cCliente()
+        oCliente.Consulta(CType(txtClienteVales.Text, Integer))
+        LabelNombreVales.Text = oCliente.Nombre
+        oCliente = Nothing
+    End Sub
+
+    Private Sub TxtClienteAplicAntic_Leave(sender As Object, e As EventArgs) Handles TxtClienteAplicAntic.Leave
+        Dim oCliente As New SigaMetClasses.cCliente()
+        oCliente.Consulta(CType(TxtClienteAplicAntic.Text, Integer))
+        LabelNombreApAntic.Text = oCliente.Nombre
+        oCliente = Nothing
     End Sub
 End Class
