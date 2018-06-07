@@ -2264,4 +2264,13 @@ Public Class frmSelTipoCobro
         oCliente = Nothing
 
     End Sub
+
+    Public Sub Remisiones()
+        Dim frmRemisiones As New frmRemisiones
+        If frmRemisiones.ShowDialog() = DialogResult.OK Then
+            Cursor = Cursors.WaitCursor
+            Cursor = Cursors.Default
+        End If
+    End Sub
+
 End Class
