@@ -107,7 +107,7 @@ Public Class frmSelTipoCobro
         End Set
     End Property
 
-    Private _listaCobros As List(Of SigaMetClasses.CobroDetalladoDatos)
+    Private _listaCobros As New List(Of SigaMetClasses.CobroDetalladoDatos)
     Public Property Cobros() As List(Of SigaMetClasses.CobroDetalladoDatos)
         Get
             Return _listaCobros
@@ -2088,14 +2088,14 @@ Public Class frmSelTipoCobro
 
     Public Sub AltaTarjeta()
         Dim insertaCobro As New SigaMetClasses.CobroDetalladoDatos()
-        Dim AñoCobro, Banco, AñoAtt, BancoOrigen, AñoCobroOrigen As Short
-        Dim Cobro, Cliente, Folio, FolioAtt, CobroOrigen As Integer
-        Dim Importe, Impuesto, Total, Saldo As Decimal
-        Dim Referencia, Status, NumeroCheque, NumeroCuenta, RazonDevCheque, Usuario, NumeroCuentaDestino, StatusSaldoAFavor As String
-        Dim FAlta, FCheque, FDevolucion, FActualizacion, FDeposito As Date
-        Dim TipoCobro As Byte
-        Dim Observaciones As String
-        Dim SaldoAFavor, TPV As Boolean
+        'Dim AñoCobro, Banco, AñoAtt, BancoOrigen, AñoCobroOrigen As Short
+        'Dim Cobro, Cliente, Folio, FolioAtt, CobroOrigen As Integer
+        'Dim Importe, Impuesto, Total, Saldo As Decimal
+        'Dim Referencia, Status, NumeroCheque, NumeroCuenta, RazonDevCheque, Usuario, NumeroCuentaDestino, StatusSaldoAFavor As String
+        'Dim FAlta, FCheque, FDevolucion, FActualizacion, FDeposito As Date
+        'Dim TipoCobro As Byte
+        'Dim Observaciones As String
+        'Dim SaldoAFavor, TPV As Boolean
         '  	Tipo de TPV de CREDITO o DEBITO
         '•	Cliente
         '•	Ruta
@@ -2103,55 +2103,60 @@ Public Class frmSelTipoCobro
         '•	Folio de la liquidación
         '•	Clave de liquidación
         'Datos reales
-        TPV = True
-        SaldoAFavor = False
-        AñoCobro = CShort(DateTime.Now.Year)
-        Cobro = 0
-        Cliente = CInt(txtClienteTC.Text)
-        FCheque = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
-        NumeroCuenta = "NULL"
-        Banco = CShort(lblBanco.Text)
-        Observaciones = "NULL"
-        TipoCobro = 6
-        'credito = 6 en tipocobro
-        ' debito =19 en tipo de cobro
-        FAlta = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
-        Status = "EMITIDO"
-        Usuario = GLOBAL_IDUsuario
-        'empieza valores hardcode
-        Impuesto = 10
-        Total = 100 + Impuesto
-        Importe = CDec(txtImporteTC.Text)
-        If Total < Importe Then
-            If MessageBox.Show("Se generará un saldo a favor ¿está de acuerdo?", "Captura cobros",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) _
-                    = DialogResult.Yes Then
-                SaldoAFavor = True
-            Else
-                MessageBox.Show("Pago tarjeta ¡cancelado!")
-                Exit Sub
+        With insertaCobro
+            .TPV = True
+            .SaldoAFavor = False
+            .AñoCobro = CShort(DateTime.Now.Year)
+            .Cobro = 0
+            .Cliente = CInt(txtClienteTC.Text)
+            .FCheque = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+            .NumeroCuenta = "NULL"
+            .Banco = CShort(lblBanco.Text)
+            .Observaciones = "NULL"
+            .TipoCobro = 6
+            'credito = 6 en tipocobro
+            ' debito =19 en tipo de cobro
+            .FAlta = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+            .Status = "EMITIDO"
+            .Usuario = GLOBAL_IDUsuario
+            'empieza valores hardcode
+            .Impuesto = 10
+            .Total = 100 + .Impuesto
+            .Importe = CDec(txtImporteTC.Text)
+            If .Total < .Importe Then
+                If MessageBox.Show("Se generará un saldo a favor ¿está de acuerdo?", "Captura cobros",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question) _
+                        = DialogResult.Yes Then
+                    .SaldoAFavor = True
+                Else
+                    MessageBox.Show("Pago tarjeta ¡cancelado!")
+                    Exit Sub
+                End If
             End If
-        End If
-        Referencia = "NULL" ' puede ser vacio
-        NumeroCheque = "NULL" ' puede ser vacio
-        FDevolucion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
-        RazonDevCheque = "01"
-        Saldo = 10
-        FActualizacion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
-        Folio = 0
-        FDeposito = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
-        FolioAtt = 0
-        AñoAtt = CShort("0")
-        NumeroCuentaDestino = "NULL"
-        BancoOrigen = CShort("0")
-        StatusSaldoAFavor = "NULL"
-        AñoCobroOrigen = CShort("0")
-        CobroOrigen = 0
+            .Referencia = "NULL" ' puede ser vacio
+            .NumeroCheque = "NULL" ' puede ser vacio
+            .FDevolucion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+            .RazonDevCheque = "01"
+            .Saldo = 10
+            .FActualizacion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+            .Folio = 0
+            .FDeposito = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+            .FolioAtt = 0
+            .AñoAtt = CShort("0")
+            .NumeroCuentaDestino = "NULL"
+            .BancoOrigen = CShort("0")
+            .StatusSaldoAFavor = "NULL"
+            .AñoCobroOrigen = CShort("0")
+            .CobroOrigen = 0
+        End With
+        'insertaCobro.insertaCobro(AñoCobro, Cobro, Importe, Impuesto, Total, Referencia, Banco, FAlta, Status, TipoCobro, NumeroCheque,
+        '                    FCheque, NumeroCuenta, Observaciones, FDevolucion, RazonDevCheque, Cliente, Saldo, Usuario, FActualizacion,
+        '                    Folio, FDeposito, FolioAtt, AñoAtt, NumeroCuentaDestino, BancoOrigen, SaldoAFavor, StatusSaldoAFavor,
+        '                    AñoCobroOrigen, CobroOrigen, TPV)
 
-        insertaCobro.insertaCobro(AñoCobro, Cobro, Importe, Impuesto, Total, Referencia, Banco, FAlta, Status, TipoCobro, NumeroCheque,
-                            FCheque, NumeroCuenta, Observaciones, FDevolucion, RazonDevCheque, Cliente, Saldo, Usuario, FActualizacion,
-                            Folio, FDeposito, FolioAtt, AñoAtt, NumeroCuentaDestino, BancoOrigen, SaldoAFavor, StatusSaldoAFavor,
-                            AñoCobroOrigen, CobroOrigen, TPV)
+
+        _listaCobros.Add(insertaCobro)
+
         MessageBox.Show("Pago tarjeta ¡exitoso!")
     End Sub
 
