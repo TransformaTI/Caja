@@ -1843,6 +1843,8 @@ Public Class frmSelTipoCobro
         If TxtNumeroDecimal1.Text <> "" Then
             AltaPagoEfectivo()
             TxtNumeroDecimal1.Clear()
+            Remisiones()
+
         End If
     End Sub
 
