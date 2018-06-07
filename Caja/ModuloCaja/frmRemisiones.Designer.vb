@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmRemisiones
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmRemisiones
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.btn_Aceptar = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -36,10 +36,11 @@ Partial Class frmRemisiones
         Me.lblImporteAbobo = New System.Windows.Forms.Label()
         Me.btn_aceptarAbonos = New System.Windows.Forms.Button()
         Me.btn_cancelar = New System.Windows.Forms.Button()
-        Me.grdRemisiones = New System.Windows.Forms.DataGrid()
         Me.grdAbonos = New System.Windows.Forms.DataGrid()
-        CType(Me.grdRemisiones, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Btn_Borrar = New System.Windows.Forms.Button()
+        Me.grdRemision = New System.Windows.Forms.DataGrid()
         CType(Me.grdAbonos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grdRemision, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btn_Aceptar
@@ -168,25 +169,6 @@ Partial Class frmRemisiones
         Me.btn_cancelar.Text = "Cancelar"
         Me.btn_cancelar.UseVisualStyleBackColor = True
         '
-        'grdRemisiones
-        '
-        Me.grdRemisiones.AccessibleName = ""
-        Me.grdRemisiones.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.grdRemisiones.BackgroundColor = System.Drawing.Color.Gainsboro
-        Me.grdRemisiones.CaptionBackColor = System.Drawing.SystemColors.ScrollBar
-        Me.grdRemisiones.CaptionText = "Remisiones"
-        Me.grdRemisiones.DataMember = ""
-        Me.grdRemisiones.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grdRemisiones.HeaderFont = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grdRemisiones.HeaderForeColor = System.Drawing.SystemColors.ControlText
-        Me.grdRemisiones.Location = New System.Drawing.Point(36, 12)
-        Me.grdRemisiones.Name = "grdRemisiones"
-        Me.grdRemisiones.ReadOnly = True
-        Me.grdRemisiones.Size = New System.Drawing.Size(809, 149)
-        Me.grdRemisiones.TabIndex = 43
-        '
         'grdAbonos
         '
         Me.grdAbonos.AccessibleName = ""
@@ -203,16 +185,46 @@ Partial Class frmRemisiones
         Me.grdAbonos.Location = New System.Drawing.Point(441, 230)
         Me.grdAbonos.Name = "grdAbonos"
         Me.grdAbonos.ReadOnly = True
-        Me.grdAbonos.Size = New System.Drawing.Size(196, 62)
+        Me.grdAbonos.Size = New System.Drawing.Size(293, 93)
         Me.grdAbonos.TabIndex = 44
+        '
+        'Btn_Borrar
+        '
+        Me.Btn_Borrar.Location = New System.Drawing.Point(749, 230)
+        Me.Btn_Borrar.Name = "Btn_Borrar"
+        Me.Btn_Borrar.Size = New System.Drawing.Size(75, 23)
+        Me.Btn_Borrar.TabIndex = 45
+        Me.Btn_Borrar.Text = "Borrar"
+        Me.Btn_Borrar.UseVisualStyleBackColor = True
+        '
+        'grdRemision
+        '
+        Me.grdRemision.AccessibleName = ""
+        Me.grdRemision.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.grdRemision.BackgroundColor = System.Drawing.Color.Gainsboro
+        Me.grdRemision.CaptionBackColor = System.Drawing.SystemColors.ScrollBar
+        Me.grdRemision.CaptionText = "Remisiones"
+        Me.grdRemision.DataMember = ""
+        Me.grdRemision.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grdRemision.HeaderFont = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grdRemision.HeaderForeColor = System.Drawing.SystemColors.ControlText
+        Me.grdRemision.Location = New System.Drawing.Point(26, 12)
+        Me.grdRemision.Name = "grdRemision"
+        Me.grdRemision.ReadOnly = True
+        Me.grdRemision.Size = New System.Drawing.Size(798, 156)
+        Me.grdRemision.TabIndex = 46
         '
         'frmRemisiones
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(857, 441)
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.ClientSize = New System.Drawing.Size(860, 441)
+        Me.Controls.Add(Me.grdRemision)
+        Me.Controls.Add(Me.Btn_Borrar)
         Me.Controls.Add(Me.grdAbonos)
-        Me.Controls.Add(Me.grdRemisiones)
         Me.Controls.Add(Me.btn_cancelar)
         Me.Controls.Add(Me.btn_aceptarAbonos)
         Me.Controls.Add(Me.lblImporteAbobo)
@@ -227,10 +239,13 @@ Partial Class frmRemisiones
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btn_Aceptar)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "frmRemisiones"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Remisiones"
-        CType(Me.grdRemisiones, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grdAbonos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grdRemision, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -249,6 +264,7 @@ Partial Class frmRemisiones
     Friend WithEvents lblImporteAbobo As Label
     Friend WithEvents btn_aceptarAbonos As Button
     Friend WithEvents btn_cancelar As Button
-    Friend WithEvents grdRemisiones As DataGrid
     Friend WithEvents grdAbonos As DataGrid
+    Friend WithEvents Btn_Borrar As Button
+    Friend WithEvents grdRemision As DataGrid
 End Class

@@ -1285,8 +1285,9 @@ Public Class frmSelTipoCobro
                     Dim frmCaptura As New frmCapCobranzaDoc()
                     frmCaptura.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.TarjetaCredito
                     frmCaptura.ImporteCobro = CType(txtImporteTC.Text, Decimal)
-                    AltaTarjeta()
+                    ' AltaTarjeta()
                     LimpiarTarjeta()
+                    Remisiones()
                 End If
             Else
                 MessageBox.Show("Debe teclear el importe del cobro.", Titulo, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -1300,8 +1301,10 @@ Public Class frmSelTipoCobro
     Private Sub btnAceptarChequeFicha_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAceptarChequeFicha.Click
         If ValidaCapturaChequeFicha() Then
             If _CapturaDetalle = True Then
-                AltaCheque()
+                'AltaCheque()
                 LimpiarCheque()
+                Remisiones()
+
             End If
         End If
     End Sub
@@ -1536,18 +1539,13 @@ Public Class frmSelTipoCobro
     End Sub
 
     Private Sub BotonBase1_Click(sender As Object, e As EventArgs) Handles BotonBase1.Click
-        Dim frmRemisiones As New frmRemisiones
-        If frmRemisiones.ShowDialog() = DialogResult.OK Then
-            Cursor = Cursors.WaitCursor
-            Cursor = Cursors.Default
-        End If
+
         If TxtNumeroDecimal1.Text <> "" Then
-            AltaPagoEfectivo()
             TxtNumeroDecimal1.Clear()
-
-
-
+            Remisiones()
         End If
+
+
     End Sub
 
     Public Sub SeleccionarTipocobro()
@@ -1763,8 +1761,9 @@ Public Class frmSelTipoCobro
     End Sub
 
     Private Sub BotonBase2_Click(sender As Object, e As EventArgs) Handles BotonBase2.Click
-        AltaTransferencia()
+        'AltaTransferencia()
         LimpiarTransferencia()
+        Remisiones()
 
     End Sub
 
@@ -1890,5 +1889,12 @@ Public Class frmSelTipoCobro
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
+    End Sub
+    Public Sub Remisiones()
+        Dim frmRemisiones As New frmRemisiones
+        If frmRemisiones.ShowDialog() = DialogResult.OK Then
+            Cursor = Cursors.WaitCursor
+            Cursor = Cursors.Default
+        End If
     End Sub
 End Class
