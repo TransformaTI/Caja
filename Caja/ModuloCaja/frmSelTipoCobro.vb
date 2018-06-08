@@ -73,10 +73,10 @@ Public Class frmSelTipoCobro
     Friend WithEvents BtnBuscarClienteVales As Button
     Friend WithEvents LabelBase12 As ControlesBase.LabelBase
     Friend WithEvents GroupBox5 As GroupBox
-    Friend WithEvents TxtNumeroDecimal7 As SigaMetClasses.Controles.txtNumeroDecimal
+    Friend WithEvents TxtSaldoAnticipo As SigaMetClasses.Controles.txtNumeroDecimal
     Friend WithEvents LabelBase32 As ControlesBase.LabelBase
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TxtNumeroDecimal6 As SigaMetClasses.Controles.txtNumeroDecimal
+    Friend WithEvents TextObservacionesAnticipo As TextBox
+    Friend WithEvents TxtMontoAnticipo As SigaMetClasses.Controles.txtNumeroDecimal
     Friend WithEvents LabelBase26 As ControlesBase.LabelBase
     Friend WithEvents LabelBase31 As ControlesBase.LabelBase
     Friend WithEvents TxtClienteAplicAntic As SigaMetClasses.Controles.txtNumeroEntero
@@ -98,6 +98,8 @@ Public Class frmSelTipoCobro
     End Enum
 
     Private _MostrarDacion As Boolean
+    Friend WithEvents btn_AnticipoAceptar As ControlesBase.BotonBase
+
     Public Property MostrarDacion() As Boolean
         Get
             Return _MostrarDacion
@@ -298,10 +300,10 @@ Public Class frmSelTipoCobro
         Me.LabelBase9 = New ControlesBase.LabelBase()
         Me.tbAplicAnticipo = New System.Windows.Forms.TabPage()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.TxtNumeroDecimal7 = New SigaMetClasses.Controles.txtNumeroDecimal()
+        Me.TxtSaldoAnticipo = New SigaMetClasses.Controles.txtNumeroDecimal()
         Me.LabelBase32 = New ControlesBase.LabelBase()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TxtNumeroDecimal6 = New SigaMetClasses.Controles.txtNumeroDecimal()
+        Me.TextObservacionesAnticipo = New System.Windows.Forms.TextBox()
+        Me.TxtMontoAnticipo = New SigaMetClasses.Controles.txtNumeroDecimal()
         Me.LabelBase26 = New ControlesBase.LabelBase()
         Me.LabelBase31 = New ControlesBase.LabelBase()
         Me.TxtClienteAplicAntic = New SigaMetClasses.Controles.txtNumeroEntero()
@@ -326,6 +328,7 @@ Public Class frmSelTipoCobro
         Me.TxtNombreDacioPago = New SigaMetClasses.Controles.txtNumeroDecimal()
         Me.LabelBase24 = New ControlesBase.LabelBase()
         Me.imgLista = New System.Windows.Forms.ImageList(Me.components)
+        Me.btn_AnticipoAceptar = New ControlesBase.BotonBase()
         Me.tabTipoCobro.SuspendLayout()
         Me.tbEfectivo.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -581,7 +584,6 @@ Public Class frmSelTipoCobro
         '
         Me.btnAceptarVales1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnAceptarVales1.BackColor = System.Drawing.SystemColors.Control
-        Me.btnAceptarVales1.Image = CType(resources.GetObject("btnAceptarVales1.Image"), System.Drawing.Image)
         Me.btnAceptarVales1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnAceptarVales1.Location = New System.Drawing.Point(505, 150)
         Me.btnAceptarVales1.Name = "btnAceptarVales1"
@@ -1203,20 +1205,21 @@ Public Class frmSelTipoCobro
         'tbAplicAnticipo
         '
         Me.tbAplicAnticipo.BackColor = System.Drawing.SystemColors.Control
+        Me.tbAplicAnticipo.Controls.Add(Me.btn_AnticipoAceptar)
         Me.tbAplicAnticipo.Controls.Add(Me.GroupBox5)
         Me.tbAplicAnticipo.Location = New System.Drawing.Point(4, 4)
         Me.tbAplicAnticipo.Name = "tbAplicAnticipo"
         Me.tbAplicAnticipo.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbAplicAnticipo.Size = New System.Drawing.Size(603, 307)
+        Me.tbAplicAnticipo.Size = New System.Drawing.Size(603, 325)
         Me.tbAplicAnticipo.TabIndex = 5
         Me.tbAplicAnticipo.Text = "Aplicación Anticipo"
         '
         'GroupBox5
         '
-        Me.GroupBox5.Controls.Add(Me.TxtNumeroDecimal7)
+        Me.GroupBox5.Controls.Add(Me.TxtSaldoAnticipo)
         Me.GroupBox5.Controls.Add(Me.LabelBase32)
-        Me.GroupBox5.Controls.Add(Me.TextBox3)
-        Me.GroupBox5.Controls.Add(Me.TxtNumeroDecimal6)
+        Me.GroupBox5.Controls.Add(Me.TextObservacionesAnticipo)
+        Me.GroupBox5.Controls.Add(Me.TxtMontoAnticipo)
         Me.GroupBox5.Controls.Add(Me.LabelBase26)
         Me.GroupBox5.Controls.Add(Me.LabelBase31)
         Me.GroupBox5.Controls.Add(Me.TxtClienteAplicAntic)
@@ -1231,12 +1234,12 @@ Public Class frmSelTipoCobro
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Datos de los vales de Despensa"
         '
-        'TxtNumeroDecimal7
+        'TxtSaldoAnticipo
         '
-        Me.TxtNumeroDecimal7.Location = New System.Drawing.Point(121, 103)
-        Me.TxtNumeroDecimal7.Name = "TxtNumeroDecimal7"
-        Me.TxtNumeroDecimal7.Size = New System.Drawing.Size(192, 21)
-        Me.TxtNumeroDecimal7.TabIndex = 54
+        Me.TxtSaldoAnticipo.Location = New System.Drawing.Point(121, 103)
+        Me.TxtSaldoAnticipo.Name = "TxtSaldoAnticipo"
+        Me.TxtSaldoAnticipo.Size = New System.Drawing.Size(192, 21)
+        Me.TxtSaldoAnticipo.TabIndex = 54
         '
         'LabelBase32
         '
@@ -1247,20 +1250,20 @@ Public Class frmSelTipoCobro
         Me.LabelBase32.TabIndex = 53
         Me.LabelBase32.Text = "Saldo:"
         '
-        'TextBox3
+        'TextObservacionesAnticipo
         '
-        Me.TextBox3.Location = New System.Drawing.Point(121, 168)
-        Me.TextBox3.Multiline = True
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(192, 48)
-        Me.TextBox3.TabIndex = 52
+        Me.TextObservacionesAnticipo.Location = New System.Drawing.Point(121, 168)
+        Me.TextObservacionesAnticipo.Multiline = True
+        Me.TextObservacionesAnticipo.Name = "TextObservacionesAnticipo"
+        Me.TextObservacionesAnticipo.Size = New System.Drawing.Size(192, 48)
+        Me.TextObservacionesAnticipo.TabIndex = 52
         '
-        'TxtNumeroDecimal6
+        'TxtMontoAnticipo
         '
-        Me.TxtNumeroDecimal6.Location = New System.Drawing.Point(121, 133)
-        Me.TxtNumeroDecimal6.Name = "TxtNumeroDecimal6"
-        Me.TxtNumeroDecimal6.Size = New System.Drawing.Size(192, 21)
-        Me.TxtNumeroDecimal6.TabIndex = 51
+        Me.TxtMontoAnticipo.Location = New System.Drawing.Point(121, 133)
+        Me.TxtMontoAnticipo.Name = "TxtMontoAnticipo"
+        Me.TxtMontoAnticipo.Size = New System.Drawing.Size(192, 21)
+        Me.TxtMontoAnticipo.TabIndex = 51
         '
         'LabelBase26
         '
@@ -1481,6 +1484,18 @@ Public Class frmSelTipoCobro
         Me.imgLista.ImageSize = New System.Drawing.Size(16, 16)
         Me.imgLista.TransparentColor = System.Drawing.Color.Transparent
         '
+        'btn_AnticipoAceptar
+        '
+        Me.btn_AnticipoAceptar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btn_AnticipoAceptar.Image = CType(resources.GetObject("btn_AnticipoAceptar.Image"), System.Drawing.Image)
+        Me.btn_AnticipoAceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_AnticipoAceptar.Location = New System.Drawing.Point(485, 135)
+        Me.btn_AnticipoAceptar.Name = "btn_AnticipoAceptar"
+        Me.btn_AnticipoAceptar.Size = New System.Drawing.Size(80, 24)
+        Me.btn_AnticipoAceptar.TabIndex = 55
+        Me.btn_AnticipoAceptar.Text = "&Aceptar"
+        Me.btn_AnticipoAceptar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
         'frmSelTipoCobro
         '
         Me.AcceptButton = Me.btnAceptarVales1
@@ -1540,38 +1555,40 @@ Public Class frmSelTipoCobro
 
 
     End Sub
-
-
     'EFECTIVO Y / O VALES
     Private Sub btnAceptarVales_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAceptarVales1.Click
         If CapturaEfectivoVales = False Then
             If TxtMontoVales.Text <> "" And IsNumeric(TxtMontoVales.Text) Then
                 If _CapturaDetalle = True Then
-                    Dim frmCaptura As New frmCapCobranzaDoc()
-                    frmCaptura.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.Vales
-                    frmCaptura.ImporteCobro = CType(TxtMontoVales.Text, Decimal)
+                    AltaVales()
+                    LimpiarVales()
+                    Remisiones()
 
-                    If frmCaptura.ShowDialog = DialogResult.OK Then
-                        With Cobro
-                            .Consecutivo = Consecutivo
-                            .AnoCobro = CType(Year(Today), Short)
-                            .TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.Vales
-                            .Total = CType(TxtMontoVales.Text, Decimal)
-                            .ListaPedidos = frmCaptura.ListaCobroPedido
-                            ImporteTotalCobro = .Total
-                        End With
-                    End If
-                Else
-                    With Cobro
-                        .Consecutivo = Consecutivo
-                        .AnoCobro = CType(Year(Today), Short)
-                        .TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.EfectivoVales
-                        .Total = CType(TxtMontoVales.Text, Decimal)
-                        .ListaPedidos = Nothing
-                        ImporteTotalCobro = .Total
-                    End With
+                    'Dim frmCaptura As New frmCapCobranzaDoc()
+                    'frmCaptura.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.Vales
+                    'frmCaptura.ImporteCobro = CType(TxtMontoVales.Text, Decimal)
+
+                    'If frmCaptura.ShowDialog = DialogResult.OK Then
+                    '    With Cobro
+                    '        .Consecutivo = Consecutivo
+                    '        .AnoCobro = CType(Year(Today), Short)
+                    '        .TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.Vales
+                    '        .Total = CType(TxtMontoVales.Text, Decimal)
+                    '        .ListaPedidos = frmCaptura.ListaCobroPedido
+                    '        ImporteTotalCobro = .Total
+                    '    End With
+                    'End If
+                    '  Else
+                    'With Cobro
+                    '.Consecutivo = Consecutivo
+                    '.AnoCobro = CType(Year(Today), Short)
+                    '.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.EfectivoVales
+                    '.Total = CType(TxtMontoVales.Text, Decimal)
+                    '.ListaPedidos = Nothing
+                    'ImporteTotalCobro = .Total
+                    ' End With
                 End If
-                DialogResult = DialogResult.OK
+                ' DialogResult = DialogResult.OK
 
             End If
         Else
@@ -1589,6 +1606,8 @@ Public Class frmSelTipoCobro
                     frmCaptura.ImporteCobro = CType(txtImporteTC.Text, Decimal)
                     AltaTarjeta()
                     LimpiarTarjeta()
+                    Remisiones()
+
                 End If
             Else
                 MessageBox.Show("Debe teclear el importe del cobro.", Titulo, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -1604,6 +1623,7 @@ Public Class frmSelTipoCobro
             If _CapturaDetalle = True Then
                 AltaCheque()
                 LimpiarCheque()
+                Remisiones()
             End If
         End If
     End Sub
@@ -2081,8 +2101,11 @@ Public Class frmSelTipoCobro
     End Sub
 
     Private Sub BotonBase2_Click(sender As Object, e As EventArgs) Handles BotonBase2.Click
-        AltaTransferencia()
-        LimpiarTransferencia()
+        If TxtImporteTransferencia.Text <> "" And ComboBancoTransferencia.Text <> "" Then
+            AltaTransferencia()
+            LimpiarTransferencia()
+        Remisiones()
+            End If 
 
     End Sub
 
@@ -2279,5 +2302,136 @@ Public Class frmSelTipoCobro
             Cursor = Cursors.Default
         End If
     End Sub
+
+
+
+    Public Sub AltaVales()
+        Dim insertaCobro As New SigaMetClasses.CobroDetalladoDatos()
+
+        With insertaCobro
+            .TPV = True
+            .SaldoAFavor = False
+            .AñoCobro = CShort(DateTime.Now.Year)
+            .Cobro = 0
+            .Cliente = CInt(txtClienteVales.Text)
+            .FCheque = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+            .NumeroCuenta = "NULL"
+            .Banco = CShort(ComboProveedor.SelectedValue)
+            .Observaciones = TextObservacionesVales.Text
+            .TipoCobro = CByte(SigaMetClasses.Enumeradores.enumTipoCobro.Vales)
+            .FAlta = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+            .Status = "EMITIDO"
+            .Usuario = GLOBAL_IDUsuario
+            .Impuesto = 10
+            .Total = 100 + .Impuesto
+            .Importe = CDec(TxtMontoVales.Text)
+            If .Total < .Importe Then
+                If MessageBox.Show("Se generará un saldo a favor ¿está de acuerdo?", "Captura cobros",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question) _
+                        = DialogResult.Yes Then
+                    .SaldoAFavor = True
+                Else
+                    MessageBox.Show("Pago tarjeta ¡cancelado!")
+                    Exit Sub
+                End If
+            End If
+            .Referencia = "NULL" ' puede ser vacio
+            .NumeroCheque = "NULL" ' puede ser vacio
+            .FDevolucion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+            .RazonDevCheque = "NULL"
+            .Saldo = 10
+            .FActualizacion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+            .Folio = 0
+            .FDeposito = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+            .FolioAtt = 0
+            .AñoAtt = CShort("0")
+            .NumeroCuentaDestino = "NULL"
+            .BancoOrigen = CShort("0")
+            .StatusSaldoAFavor = "NULL"
+            .AñoCobroOrigen = CShort("0")
+            .CobroOrigen = 0
+        End With
+        _listaCobros.Add(insertaCobro)
+    End Sub
+
+    Public Sub AltaAnticipo()
+        Dim insertaCobro As New SigaMetClasses.CobroDetalladoDatos()
+
+        With insertaCobro
+            .TPV = True
+            .SaldoAFavor = False
+            .AñoCobro = CShort(DateTime.Now.Year)
+            .Cobro = 0
+            .Cliente = CInt(TxtClienteAplicAntic.Text)
+            .FCheque = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+            .NumeroCuenta = "NULL"
+            .Banco = CShort(ComboProveedor.SelectedValue)
+            .Observaciones = TextObservacionesAnticipo.Text
+            .TipoCobro = 30
+            .FAlta = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+            .Status = "EMITIDO"
+            .Usuario = GLOBAL_IDUsuario
+            .Impuesto = 10
+            .Total = 100 + .Impuesto
+            .Importe = CDec(TxtMontoAnticipo.Text)
+            If .Total < .Importe Then
+                If MessageBox.Show("Se generará un saldo a favor ¿está de acuerdo?", "Captura cobros",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question) _
+                        = DialogResult.Yes Then
+                    .SaldoAFavor = True
+                Else
+                    MessageBox.Show("Pago tarjeta ¡cancelado!")
+                    Exit Sub
+                End If
+            End If
+            .Referencia = "NULL" ' puede ser vacio
+            .NumeroCheque = "NULL" ' puede ser vacio
+            .FDevolucion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+            .RazonDevCheque = "NULL"
+            .Saldo = CDec(TxtSaldoAnticipo.Text)
+            .FActualizacion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+            .Folio = 0
+            .FDeposito = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+            .FolioAtt = 0
+            .AñoAtt = CShort("0")
+            .NumeroCuentaDestino = "NULL"
+            .BancoOrigen = CShort("0")
+            .StatusSaldoAFavor = "NULL"
+            .AñoCobroOrigen = CShort("0")
+            .CobroOrigen = 0
+        End With
+        _listaCobros.Add(insertaCobro)
+    End Sub
+
+    Private Sub btn_AnticipoAceptar_Click(sender As Object, e As EventArgs) Handles btn_AnticipoAceptar.Click
+        If TxtSaldoAnticipo.Text <> "" And TxtMontoAnticipo.Text <> "" Then
+            AltaAnticipo()
+            Remisiones()
+            LimpiarAnticipo()
+        Else
+            MessageBox.Show("Falta agregar saldo y monto")
+        End If
+    End Sub
+
+    Public Sub LimpiarVales()
+        txtClienteVales.Clear()
+        LabelNombreVales.Text = ""
+        FechaDocumentoVales.Text = ""
+        ComboProveedor.SelectedIndex = 0
+        ComboTipoVale.SelectedIndex = 0
+        TxtMontoVales.Clear()
+        TextObservacionesVales.Clear()
+
+    End Sub
+
+    Public Sub LimpiarAnticipo()
+        TxtClienteAplicAntic.Clear()
+        LabelNombreApAntic.Text = ""
+        TxtSaldoAnticipo.Clear()
+        TxtMontoAnticipo.Clear()
+        TextObservacionesAnticipo.Clear()
+
+    End Sub
+
 
 End Class
