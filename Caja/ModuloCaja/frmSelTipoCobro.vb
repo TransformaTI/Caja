@@ -299,6 +299,7 @@ Public Class frmSelTipoCobro
         Me.TxtNombreTransferencia = New SigaMetClasses.Controles.txtNumeroDecimal()
         Me.LabelBase9 = New ControlesBase.LabelBase()
         Me.tbAplicAnticipo = New System.Windows.Forms.TabPage()
+        Me.btn_AnticipoAceptar = New ControlesBase.BotonBase()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.TxtSaldoAnticipo = New SigaMetClasses.Controles.txtNumeroDecimal()
         Me.LabelBase32 = New ControlesBase.LabelBase()
@@ -328,7 +329,6 @@ Public Class frmSelTipoCobro
         Me.TxtNombreDacioPago = New SigaMetClasses.Controles.txtNumeroDecimal()
         Me.LabelBase24 = New ControlesBase.LabelBase()
         Me.imgLista = New System.Windows.Forms.ImageList(Me.components)
-        Me.btn_AnticipoAceptar = New ControlesBase.BotonBase()
         Me.tabTipoCobro.SuspendLayout()
         Me.tbEfectivo.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -424,7 +424,7 @@ Public Class frmSelTipoCobro
         Me.tbValesDespensa.ImageIndex = 0
         Me.tbValesDespensa.Location = New System.Drawing.Point(4, 4)
         Me.tbValesDespensa.Name = "tbValesDespensa"
-        Me.tbValesDespensa.Size = New System.Drawing.Size(603, 325)
+        Me.tbValesDespensa.Size = New System.Drawing.Size(603, 307)
         Me.tbValesDespensa.TabIndex = 3
         Me.tbValesDespensa.Text = "Vales Despensa"
         '
@@ -1214,6 +1214,18 @@ Public Class frmSelTipoCobro
         Me.tbAplicAnticipo.TabIndex = 5
         Me.tbAplicAnticipo.Text = "Aplicación Anticipo"
         '
+        'btn_AnticipoAceptar
+        '
+        Me.btn_AnticipoAceptar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btn_AnticipoAceptar.Image = CType(resources.GetObject("btn_AnticipoAceptar.Image"), System.Drawing.Image)
+        Me.btn_AnticipoAceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_AnticipoAceptar.Location = New System.Drawing.Point(485, 135)
+        Me.btn_AnticipoAceptar.Name = "btn_AnticipoAceptar"
+        Me.btn_AnticipoAceptar.Size = New System.Drawing.Size(80, 24)
+        Me.btn_AnticipoAceptar.TabIndex = 55
+        Me.btn_AnticipoAceptar.Text = "&Aceptar"
+        Me.btn_AnticipoAceptar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
         'GroupBox5
         '
         Me.GroupBox5.Controls.Add(Me.TxtSaldoAnticipo)
@@ -1483,18 +1495,6 @@ Public Class frmSelTipoCobro
         Me.imgLista.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit
         Me.imgLista.ImageSize = New System.Drawing.Size(16, 16)
         Me.imgLista.TransparentColor = System.Drawing.Color.Transparent
-        '
-        'btn_AnticipoAceptar
-        '
-        Me.btn_AnticipoAceptar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btn_AnticipoAceptar.Image = CType(resources.GetObject("btn_AnticipoAceptar.Image"), System.Drawing.Image)
-        Me.btn_AnticipoAceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_AnticipoAceptar.Location = New System.Drawing.Point(485, 135)
-        Me.btn_AnticipoAceptar.Name = "btn_AnticipoAceptar"
-        Me.btn_AnticipoAceptar.Size = New System.Drawing.Size(80, 24)
-        Me.btn_AnticipoAceptar.TabIndex = 55
-        Me.btn_AnticipoAceptar.Text = "&Aceptar"
-        Me.btn_AnticipoAceptar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'frmSelTipoCobro
         '
@@ -2104,8 +2104,8 @@ Public Class frmSelTipoCobro
         If TxtImporteTransferencia.Text <> "" And ComboBancoTransferencia.Text <> "" Then
             AltaTransferencia()
             LimpiarTransferencia()
-        Remisiones()
-            End If 
+            Remisiones()
+        End If
 
     End Sub
 
@@ -2289,10 +2289,11 @@ Public Class frmSelTipoCobro
 
     Private Sub TxtClienteAplicAntic_Leave(sender As Object, e As EventArgs) Handles TxtClienteAplicAntic.Leave
         Dim oCliente As New SigaMetClasses.cCliente()
-        oCliente.Consulta(CType(TxtClienteAplicAntic.Text, Integer))
-        LabelNombreApAntic.Text = oCliente.Nombre
-        oCliente = Nothing
-
+        If TxtClienteAplicAntic.Text.Trim.Length <> 0 Then
+            oCliente.Consulta(CType(TxtClienteAplicAntic.Text, Integer))
+            LabelNombreApAntic.Text = oCliente.Nombre
+            oCliente = Nothing
+        End If
     End Sub
 
     Public Sub Remisiones()
@@ -2433,5 +2434,19 @@ Public Class frmSelTipoCobro
 
     End Sub
 
+    Private Sub TxtClienteAplicAntic_TextChanged(sender As Object, e As EventArgs) Handles TxtClienteAplicAntic.TextChanged
 
+    End Sub
+
+    Private Sub TxtClienteAplicAntic_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtClienteAplicAntic.KeyPress
+        '97 - 122 = Ascii MINÚSCULAS
+        '65 - 90  = Ascii MAYÚSCULAS
+        '48 - 57  = Ascii NÚMEROS
+
+        If Asc(e.KeyChar) <> 8 Then
+            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+                e.Handled = True
+            End If
+        End If
+    End Sub
 End Class
