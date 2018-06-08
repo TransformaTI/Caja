@@ -1860,7 +1860,7 @@ Public Class frmSelTipoCobro
     End Sub
 
     Private Sub BotonBase1_Click(sender As Object, e As EventArgs) Handles BotonBase1.Click
-        If TxtNumeroDecimal1.Text <> "" Then
+        If TxtNumeroDecimal1.Text.Trim <> "" Then
             AltaPagoEfectivo()
             TxtNumeroDecimal1.Clear()
             Remisiones()
