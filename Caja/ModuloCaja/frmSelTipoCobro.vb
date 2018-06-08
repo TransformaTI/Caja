@@ -424,7 +424,7 @@ Public Class frmSelTipoCobro
         Me.tbValesDespensa.ImageIndex = 0
         Me.tbValesDespensa.Location = New System.Drawing.Point(4, 4)
         Me.tbValesDespensa.Name = "tbValesDespensa"
-        Me.tbValesDespensa.Size = New System.Drawing.Size(603, 307)
+        Me.tbValesDespensa.Size = New System.Drawing.Size(603, 325)
         Me.tbValesDespensa.TabIndex = 3
         Me.tbValesDespensa.Text = "Vales Despensa"
         '
@@ -600,7 +600,7 @@ Public Class frmSelTipoCobro
         Me.tbTarjetaCredito.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbTarjetaCredito.Location = New System.Drawing.Point(4, 4)
         Me.tbTarjetaCredito.Name = "tbTarjetaCredito"
-        Me.tbTarjetaCredito.Size = New System.Drawing.Size(603, 307)
+        Me.tbTarjetaCredito.Size = New System.Drawing.Size(603, 325)
         Me.tbTarjetaCredito.TabIndex = 0
         Me.tbTarjetaCredito.Text = "Tarjeta "
         '
@@ -808,7 +808,7 @@ Public Class frmSelTipoCobro
         Me.tbChequeFicha.Controls.Add(Me.grpChequeFicha)
         Me.tbChequeFicha.Location = New System.Drawing.Point(4, 4)
         Me.tbChequeFicha.Name = "tbChequeFicha"
-        Me.tbChequeFicha.Size = New System.Drawing.Size(603, 307)
+        Me.tbChequeFicha.Size = New System.Drawing.Size(603, 325)
         Me.tbChequeFicha.TabIndex = 2
         Me.tbChequeFicha.Text = "Cheque / Ficha de deposito"
         '
@@ -1019,7 +1019,7 @@ Public Class frmSelTipoCobro
         Me.tbTransferencias.Location = New System.Drawing.Point(4, 4)
         Me.tbTransferencias.Name = "tbTransferencias"
         Me.tbTransferencias.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbTransferencias.Size = New System.Drawing.Size(603, 307)
+        Me.tbTransferencias.Size = New System.Drawing.Size(603, 325)
         Me.tbTransferencias.TabIndex = 4
         Me.tbTransferencias.Text = "Transferencias"
         '
@@ -1345,7 +1345,7 @@ Public Class frmSelTipoCobro
         Me.tbDacionPagos.Location = New System.Drawing.Point(4, 4)
         Me.tbDacionPagos.Name = "tbDacionPagos"
         Me.tbDacionPagos.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbDacionPagos.Size = New System.Drawing.Size(603, 307)
+        Me.tbDacionPagos.Size = New System.Drawing.Size(603, 325)
         Me.tbDacionPagos.TabIndex = 7
         Me.tbDacionPagos.Text = "Dación de Pagos"
         '
@@ -1563,30 +1563,6 @@ Public Class frmSelTipoCobro
                     AltaVales()
                     LimpiarVales()
                     Remisiones()
-
-                    'Dim frmCaptura As New frmCapCobranzaDoc()
-                    'frmCaptura.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.Vales
-                    'frmCaptura.ImporteCobro = CType(TxtMontoVales.Text, Decimal)
-
-                    'If frmCaptura.ShowDialog = DialogResult.OK Then
-                    '    With Cobro
-                    '        .Consecutivo = Consecutivo
-                    '        .AnoCobro = CType(Year(Today), Short)
-                    '        .TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.Vales
-                    '        .Total = CType(TxtMontoVales.Text, Decimal)
-                    '        .ListaPedidos = frmCaptura.ListaCobroPedido
-                    '        ImporteTotalCobro = .Total
-                    '    End With
-                    'End If
-                    '  Else
-                    'With Cobro
-                    '.Consecutivo = Consecutivo
-                    '.AnoCobro = CType(Year(Today), Short)
-                    '.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.EfectivoVales
-                    '.Total = CType(TxtMontoVales.Text, Decimal)
-                    '.ListaPedidos = Nothing
-                    'ImporteTotalCobro = .Total
-                    ' End With
                 End If
                 DialogResult = DialogResult.OK
 
@@ -1607,7 +1583,7 @@ Public Class frmSelTipoCobro
                     AltaTarjeta()
                     LimpiarTarjeta()
                     Remisiones()
-
+                    DialogResult = DialogResult.OK
                 End If
             Else
                 MessageBox.Show("Debe teclear el importe del cobro.", Titulo, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -1624,6 +1600,7 @@ Public Class frmSelTipoCobro
                 AltaCheque()
                 LimpiarCheque()
                 Remisiones()
+                DialogResult = DialogResult.OK
             End If
         End If
     End Sub
@@ -1864,7 +1841,7 @@ Public Class frmSelTipoCobro
             AltaPagoEfectivo()
             TxtNumeroDecimal1.Clear()
             Remisiones()
-
+            DialogResult = DialogResult.OK
         End If
     End Sub
 
@@ -2091,6 +2068,7 @@ Public Class frmSelTipoCobro
             AltaTransferencia()
             LimpiarTransferencia()
             Remisiones()
+            DialogResult = DialogResult.OK
         End If
 
     End Sub
@@ -2395,6 +2373,7 @@ Public Class frmSelTipoCobro
             AltaAnticipo()
             Remisiones()
             LimpiarAnticipo()
+            DialogResult = DialogResult.OK
         Else
             MessageBox.Show("Falta agregar saldo y monto")
         End If
@@ -2434,5 +2413,9 @@ Public Class frmSelTipoCobro
                 e.Handled = True
             End If
         End If
+    End Sub
+
+    Private Sub BotonBase3_Click(sender As Object, e As EventArgs) Handles BotonBase3.Click
+        DialogResult = DialogResult.OK
     End Sub
 End Class
