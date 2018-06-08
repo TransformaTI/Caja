@@ -1588,7 +1588,7 @@ Public Class frmSelTipoCobro
                     'ImporteTotalCobro = .Total
                     ' End With
                 End If
-                ' DialogResult = DialogResult.OK
+                DialogResult = DialogResult.OK
 
             End If
         Else
@@ -1897,15 +1897,6 @@ Public Class frmSelTipoCobro
 
     Public Sub AltaPagoEfectivo()
         Dim insertaCobro As New SigaMetClasses.CobroDetalladoDatos()
-        'Dim AñoCobro, Banco, AñoAtt, BancoOrigen, AñoCobroOrigen As Short
-        'Dim Cobro, Cliente, Folio, FolioAtt, CobroOrigen As Integer
-        'Dim Importe, Impuesto, Total, Saldo As Decimal
-        'Dim Referencia, Status, NumeroCheque, NumeroCuenta, RazonDevCheque, Usuario, NumeroCuentaDestino, StatusSaldoAFavor As String
-        'Dim FAlta, FCheque, FDevolucion, FActualizacion, FDeposito As Date
-        'Dim TipoCobro As Byte
-        'Dim Observaciones As String
-        'Dim SaldoAFavor, TPV As Boolean
-
 
         With insertaCobro
 
@@ -1955,11 +1946,6 @@ Public Class frmSelTipoCobro
             .AñoCobroOrigen = CShort("0")
             .CobroOrigen = 0
             .TPV = False
-
-            'insertaCobro.insertaCobro(.AñoCobro, .Cobro, .Importe, .Impuesto, .Total, .Referencia, .Banco, .FAlta, .Status, .TipoCobro, .NumeroCheque,
-            '                .FCheque, .NumeroCuenta, .Observaciones, .FDevolucion, .RazonDevCheque, .Cliente, .Saldo, .Usuario, .FActualizacion,
-            '                .Folio, .FDeposito, .FolioAtt, .AñoAtt, .NumeroCuentaDestino, .BancoOrigen, .SaldoAFavor, .StatusSaldoAFavor,
-            '                .AñoCobroOrigen, .CobroOrigen, .TPV)
         End With
         _listaCobros.Add(insertaCobro)
         MessageBox.Show("Pago efectivo ¡exitoso!")
