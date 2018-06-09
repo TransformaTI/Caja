@@ -60,8 +60,8 @@ Public Class frmSelTipoCobro
     Friend WithEvents TxtMontoVales As SigaMetClasses.Controles.txtNumeroDecimal
     Friend WithEvents LabelBase20 As ControlesBase.LabelBase
     Friend WithEvents LabelBase25 As ControlesBase.LabelBase
-    Friend WithEvents ComboTipoVale As SigaMetClasses.Combos.ComboBanco
-    Friend WithEvents ComboProveedor As SigaMetClasses.Combos.ComboBanco
+    Friend WithEvents ComboTipoVale As SigaMetClasses.Combos.ComboValeTipo
+    Friend WithEvents ComboProveedor As SigaMetClasses.Combos.ComboProveedor
     Friend WithEvents LabelBase28 As ControlesBase.LabelBase
     Friend WithEvents FechaDocumentoVales As DateTimePicker
     Friend WithEvents LabelBase29 As ControlesBase.LabelBase
@@ -223,8 +223,8 @@ Public Class frmSelTipoCobro
         Me.TxtMontoVales = New SigaMetClasses.Controles.txtNumeroDecimal()
         Me.LabelBase20 = New ControlesBase.LabelBase()
         Me.LabelBase25 = New ControlesBase.LabelBase()
-        Me.ComboTipoVale = New SigaMetClasses.Combos.ComboBanco()
-        Me.ComboProveedor = New SigaMetClasses.Combos.ComboBanco()
+        Me.ComboTipoVale = New SigaMetClasses.Combos.ComboValeTipo()
+        Me.ComboProveedor = New SigaMetClasses.Combos.ComboProveedor()
         Me.LabelBase28 = New ControlesBase.LabelBase()
         Me.FechaDocumentoVales = New System.Windows.Forms.DateTimePicker()
         Me.LabelBase29 = New ControlesBase.LabelBase()
@@ -424,7 +424,7 @@ Public Class frmSelTipoCobro
         Me.tbValesDespensa.ImageIndex = 0
         Me.tbValesDespensa.Location = New System.Drawing.Point(4, 4)
         Me.tbValesDespensa.Name = "tbValesDespensa"
-        Me.tbValesDespensa.Size = New System.Drawing.Size(603, 307)
+        Me.tbValesDespensa.Size = New System.Drawing.Size(603, 325)
         Me.tbValesDespensa.TabIndex = 3
         Me.tbValesDespensa.Text = "Vales Despensa"
         '
@@ -487,12 +487,15 @@ Public Class frmSelTipoCobro
         '
         'ComboTipoVale
         '
+        Me.ComboTipoVale.Descripcion = Nothing
         Me.ComboTipoVale.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboTipoVale.DropDownWidth = 200
         Me.ComboTipoVale.Location = New System.Drawing.Point(120, 144)
         Me.ComboTipoVale.Name = "ComboTipoVale"
         Me.ComboTipoVale.Size = New System.Drawing.Size(192, 21)
+        Me.ComboTipoVale.Status = Nothing
         Me.ComboTipoVale.TabIndex = 48
+        Me.ComboTipoVale.ValeTipo = 0
         '
         'ComboProveedor
         '
@@ -500,8 +503,11 @@ Public Class frmSelTipoCobro
         Me.ComboProveedor.DropDownWidth = 200
         Me.ComboProveedor.Location = New System.Drawing.Point(120, 119)
         Me.ComboProveedor.Name = "ComboProveedor"
+        Me.ComboProveedor.Nombre = Nothing
         Me.ComboProveedor.Size = New System.Drawing.Size(192, 21)
+        Me.ComboProveedor.Status = Nothing
         Me.ComboProveedor.TabIndex = 46
+        Me.ComboProveedor.ValeProveedor = 0
         '
         'LabelBase28
         '
@@ -1210,7 +1216,7 @@ Public Class frmSelTipoCobro
         Me.tbAplicAnticipo.Location = New System.Drawing.Point(4, 4)
         Me.tbAplicAnticipo.Name = "tbAplicAnticipo"
         Me.tbAplicAnticipo.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbAplicAnticipo.Size = New System.Drawing.Size(603, 325)
+        Me.tbAplicAnticipo.Size = New System.Drawing.Size(603, 307)
         Me.tbAplicAnticipo.TabIndex = 5
         Me.tbAplicAnticipo.Text = "Aplicación Anticipo"
         '
@@ -1668,8 +1674,8 @@ Public Class frmSelTipoCobro
         End If
 
         ComboBanco.CargaDatos(True)
-        ComboProveedor.CargaDatos(True)
-        ComboTipoVale.CargaDatos(True)
+        ComboProveedor.CargaDatos()
+        ComboTipoVale.CargaDatos()
 
         ComboBancoTransferencia.CargaDatos(True)
         If CapturaEfectivoVales = True Then
@@ -1931,8 +1937,16 @@ Public Class frmSelTipoCobro
 
     Public Sub AltaCheque()
         Dim insertaCobro As New SigaMetClasses.CobroDetalladoDatos()
+        'Dim AñoCobro, Banco, AñoAtt, BancoOrigen, AñoCobroOrigen As Short
+        'Dim Cobro, Cliente, Folio, FolioAtt, CobroOrigen As Integer
+        'Dim Importe, Impuesto, Total, Saldo As Decimal
+        'Dim Referencia, Status, NumeroCheque, NumeroCuenta, RazonDevCheque, Usuario, NumeroCuentaDestino, StatusSaldoAFavor As String
+        'Dim FAlta, FCheque, FDevolucion, FActualizacion, FDeposito As Date
+        'Dim TipoCobro As Byte
+        'Dim Observaciones As String
+        'Dim SaldoAFavor, TPV As Boolean
 
-
+        ' datos reales
         With insertaCobro
             .SaldoAFavor = False
             .Cobro = 0
@@ -1979,17 +1993,31 @@ Public Class frmSelTipoCobro
 
         End With
         _listaCobros.Add(insertaCobro)
+        'insertaCobro.insertaCobro(AñoCobro, Cobro, Importe, Impuesto, Total, Referencia, Banco, FAlta, Status, TipoCobro, NumeroCheque,
+        '                    FCheque, NumeroCuenta, Observaciones, FDevolucion, RazonDevCheque, Cliente, Saldo, Usuario, FActualizacion,
+        '                    Folio, FDeposito, FolioAtt, AñoAtt, NumeroCuentaDestino, BancoOrigen, SaldoAFavor, StatusSaldoAFavor,
+        '                    AñoCobroOrigen, CobroOrigen, TPV)
         MessageBox.Show("Pago cheque ¡exitoso!")
         TxtNumeroDecimal1.Clear()
     End Sub
 
     Public Sub AltaTransferencia()
         Dim insertaCobro As New SigaMetClasses.CobroDetalladoDatos()
+        'Dim AñoCobro, Banco, AñoAtt, BancoOrigen, AñoCobroOrigen As Short
+        'Dim Cobro, Cliente, Folio, FolioAtt, CobroOrigen As Integer
+        'Dim Importe, Impuesto, Total, Saldo As Decimal
+        'Dim Referencia, Status, NumeroCheque, NumeroCuenta, RazonDevCheque, Usuario, NumeroCuentaDestino, StatusSaldoAFavor As String
+        'Dim FAlta, FCheque, FDevolucion, FActualizacion, FDeposito As Date
+        'Dim TipoCobro As Byte
+        'Dim Observaciones As String
+        'Dim SaldoAFavor, TPV As Boolean
+
 
         With insertaCobro
             .SaldoAFavor = False
             .AñoCobro = CShort(DateTime.Now.Year)
             .Cobro = 0
+            'Datos reales
 
             .Cliente = CInt(TxtClienteTransferencia.Text)
             .FCheque = CDate(DTPFechaTransferencia.Text)
@@ -2054,7 +2082,21 @@ Public Class frmSelTipoCobro
 
     Public Sub AltaTarjeta()
         Dim insertaCobro As New SigaMetClasses.CobroDetalladoDatos()
-
+        'Dim AñoCobro, Banco, AñoAtt, BancoOrigen, AñoCobroOrigen As Short
+        'Dim Cobro, Cliente, Folio, FolioAtt, CobroOrigen As Integer
+        'Dim Importe, Impuesto, Total, Saldo As Decimal
+        'Dim Referencia, Status, NumeroCheque, NumeroCuenta, RazonDevCheque, Usuario, NumeroCuentaDestino, StatusSaldoAFavor As String
+        'Dim FAlta, FCheque, FDevolucion, FActualizacion, FDeposito As Date
+        'Dim TipoCobro As Byte
+        'Dim Observaciones As String
+        'Dim SaldoAFavor, TPV As Boolean
+        '  	Tipo de TPV de CREDITO o DEBITO
+        '•	Cliente
+        '•	Ruta
+        '•	Número de tarjeta, solo 4 últimos dígitos
+        '•	Folio de la liquidación
+        '•	Clave de liquidación
+        'Datos reales
         With insertaCobro
             .TPV = True
             .SaldoAFavor = False
@@ -2192,7 +2234,8 @@ Public Class frmSelTipoCobro
 
     Private Sub BotonBuscarClienteApAnticipo_Click(sender As Object, e As EventArgs) Handles BotonBuscarClienteApAnticipo.Click
         Dim lParametro As New SigaMetClasses.cConfig(16, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario)
-        Dim lURLGateway As String = "" 'CType(lParametro.Parametros.Item("URLGateway"), String)
+        Dim lURLGateway As String = ""
+        '= CType(lParametro.Parametros.Item("URLGateway"), String)
         lParametro.Dispose()
 
         If Trim(txtClienteVales.Text) <> "" Then
@@ -2215,12 +2258,17 @@ Public Class frmSelTipoCobro
         Dim oMvtoConciliarCobro As New SigaMetClasses.cMovimientoAConciliarCobro()
         Dim dt As New DataTable()
         dt = oMvtoConciliarCobro.ConsultarSaldoAnticipo(Cliente, Status, Folio, Anio)
+        Dim TextoSaldo As String = ""
 
         If dt.Rows.Count = 0 Then
             MessageBox.Show(" El Cliente " + Cliente.ToString() + " no dispone de anticipos.")
         Else
+            For Each row As DataRow In dt.Rows
+                TextoSaldo = TextoSaldo + row.Item("Saldo").ToString() + Environment.NewLine
+            Next row
 
-            TxtSaldoAnticipo.DataBindings.Add("Text", dt, "Saldo")
+            TxtSaldoAnticipo.Text = TextoSaldo
+            '  TxtSaldoAnticipo.DataBindings.Add("Text", dt, "Saldo")
 
         End If
 
@@ -2339,7 +2387,7 @@ Public Class frmSelTipoCobro
             .NumeroCheque = "NULL" ' puede ser vacio
             .FDevolucion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
             .RazonDevCheque = "NULL"
-            .Saldo = CDec(TxtSaldoAnticipo.Text)
+            .Saldo = 0
             .FActualizacion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
             .Folio = 0
             .FDeposito = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
