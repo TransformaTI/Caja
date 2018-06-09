@@ -424,7 +424,7 @@ Public Class frmSelTipoCobro
         Me.tbValesDespensa.ImageIndex = 0
         Me.tbValesDespensa.Location = New System.Drawing.Point(4, 4)
         Me.tbValesDespensa.Name = "tbValesDespensa"
-        Me.tbValesDespensa.Size = New System.Drawing.Size(603, 325)
+        Me.tbValesDespensa.Size = New System.Drawing.Size(603, 307)
         Me.tbValesDespensa.TabIndex = 3
         Me.tbValesDespensa.Text = "Vales Despensa"
         '
@@ -600,7 +600,7 @@ Public Class frmSelTipoCobro
         Me.tbTarjetaCredito.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbTarjetaCredito.Location = New System.Drawing.Point(4, 4)
         Me.tbTarjetaCredito.Name = "tbTarjetaCredito"
-        Me.tbTarjetaCredito.Size = New System.Drawing.Size(603, 325)
+        Me.tbTarjetaCredito.Size = New System.Drawing.Size(603, 307)
         Me.tbTarjetaCredito.TabIndex = 0
         Me.tbTarjetaCredito.Text = "Tarjeta "
         '
@@ -808,7 +808,7 @@ Public Class frmSelTipoCobro
         Me.tbChequeFicha.Controls.Add(Me.grpChequeFicha)
         Me.tbChequeFicha.Location = New System.Drawing.Point(4, 4)
         Me.tbChequeFicha.Name = "tbChequeFicha"
-        Me.tbChequeFicha.Size = New System.Drawing.Size(603, 325)
+        Me.tbChequeFicha.Size = New System.Drawing.Size(603, 307)
         Me.tbChequeFicha.TabIndex = 2
         Me.tbChequeFicha.Text = "Cheque / Ficha de deposito"
         '
@@ -1019,7 +1019,7 @@ Public Class frmSelTipoCobro
         Me.tbTransferencias.Location = New System.Drawing.Point(4, 4)
         Me.tbTransferencias.Name = "tbTransferencias"
         Me.tbTransferencias.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbTransferencias.Size = New System.Drawing.Size(603, 325)
+        Me.tbTransferencias.Size = New System.Drawing.Size(603, 307)
         Me.tbTransferencias.TabIndex = 4
         Me.tbTransferencias.Text = "Transferencias"
         '
@@ -1241,7 +1241,7 @@ Public Class frmSelTipoCobro
         Me.GroupBox5.Controls.Add(Me.BotonBuscarClienteApAnticipo)
         Me.GroupBox5.Location = New System.Drawing.Point(56, 32)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(333, 253)
+        Me.GroupBox5.Size = New System.Drawing.Size(333, 287)
         Me.GroupBox5.TabIndex = 32
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Datos de los vales de Despensa"
@@ -1249,14 +1249,15 @@ Public Class frmSelTipoCobro
         'TxtSaldoAnticipo
         '
         Me.TxtSaldoAnticipo.Location = New System.Drawing.Point(121, 103)
+        Me.TxtSaldoAnticipo.Multiline = True
         Me.TxtSaldoAnticipo.Name = "TxtSaldoAnticipo"
-        Me.TxtSaldoAnticipo.Size = New System.Drawing.Size(192, 21)
+        Me.TxtSaldoAnticipo.Size = New System.Drawing.Size(192, 114)
         Me.TxtSaldoAnticipo.TabIndex = 54
         '
         'LabelBase32
         '
         Me.LabelBase32.AutoSize = True
-        Me.LabelBase32.Location = New System.Drawing.Point(17, 106)
+        Me.LabelBase32.Location = New System.Drawing.Point(17, 103)
         Me.LabelBase32.Name = "LabelBase32"
         Me.LabelBase32.Size = New System.Drawing.Size(37, 13)
         Me.LabelBase32.TabIndex = 53
@@ -1264,15 +1265,15 @@ Public Class frmSelTipoCobro
         '
         'TextObservacionesAnticipo
         '
-        Me.TextObservacionesAnticipo.Location = New System.Drawing.Point(121, 168)
+        Me.TextObservacionesAnticipo.Location = New System.Drawing.Point(121, 250)
         Me.TextObservacionesAnticipo.Multiline = True
         Me.TextObservacionesAnticipo.Name = "TextObservacionesAnticipo"
-        Me.TextObservacionesAnticipo.Size = New System.Drawing.Size(192, 48)
+        Me.TextObservacionesAnticipo.Size = New System.Drawing.Size(192, 21)
         Me.TextObservacionesAnticipo.TabIndex = 52
         '
         'TxtMontoAnticipo
         '
-        Me.TxtMontoAnticipo.Location = New System.Drawing.Point(121, 133)
+        Me.TxtMontoAnticipo.Location = New System.Drawing.Point(121, 223)
         Me.TxtMontoAnticipo.Name = "TxtMontoAnticipo"
         Me.TxtMontoAnticipo.Size = New System.Drawing.Size(192, 21)
         Me.TxtMontoAnticipo.TabIndex = 51
@@ -1280,7 +1281,7 @@ Public Class frmSelTipoCobro
         'LabelBase26
         '
         Me.LabelBase26.AutoSize = True
-        Me.LabelBase26.Location = New System.Drawing.Point(17, 171)
+        Me.LabelBase26.Location = New System.Drawing.Point(16, 258)
         Me.LabelBase26.Name = "LabelBase26"
         Me.LabelBase26.Size = New System.Drawing.Size(78, 13)
         Me.LabelBase26.TabIndex = 50
@@ -1289,7 +1290,7 @@ Public Class frmSelTipoCobro
         'LabelBase31
         '
         Me.LabelBase31.AutoSize = True
-        Me.LabelBase31.Location = New System.Drawing.Point(17, 141)
+        Me.LabelBase31.Location = New System.Drawing.Point(17, 231)
         Me.LabelBase31.Name = "LabelBase31"
         Me.LabelBase31.Size = New System.Drawing.Size(37, 13)
         Me.LabelBase31.TabIndex = 49
@@ -1345,7 +1346,7 @@ Public Class frmSelTipoCobro
         Me.tbDacionPagos.Location = New System.Drawing.Point(4, 4)
         Me.tbDacionPagos.Name = "tbDacionPagos"
         Me.tbDacionPagos.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbDacionPagos.Size = New System.Drawing.Size(603, 325)
+        Me.tbDacionPagos.Size = New System.Drawing.Size(603, 307)
         Me.tbDacionPagos.TabIndex = 7
         Me.tbDacionPagos.Text = "Dación de Pagos"
         '
@@ -2241,8 +2242,29 @@ Public Class frmSelTipoCobro
             frmConCliente.ShowDialog()
         End If
 
+        BuscarAnticipos(CType(TxtClienteAplicAntic.Text, Integer), "0", 0, 0)
+
 
     End Sub
+
+    Private Sub BuscarAnticipos(ByVal Cliente As Integer, ByVal Status As String, ByVal Folio As Integer, ByVal Anio As Integer)
+        Dim oMvtoConciliarCobro As New SigaMetClasses.cMovimientoAConciliarCobro()
+        Dim dt As New DataTable()
+        dt = oMvtoConciliarCobro.ConsultarSaldoAnticipo(Cliente, Status, Folio, Anio)
+
+        If dt.Rows.Count = 0 Then
+            MessageBox.Show(" El Cliente " + Cliente.ToString() + " no dispone de anticipos.")
+        Else
+
+            TxtSaldoAnticipo.DataBindings.Add("Text", dt, "Saldo")
+
+        End If
+
+
+
+
+    End Sub
+
 
     Private Sub txtClienteVales_Leave(sender As Object, e As EventArgs) Handles txtClienteVales.Leave
         Dim oCliente As New SigaMetClasses.cCliente()
