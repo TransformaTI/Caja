@@ -2228,7 +2228,7 @@ Public Class frmSelTipoCobro
 
     Private Sub BotonBuscarClienteApAnticipo_Click(sender As Object, e As EventArgs) Handles BotonBuscarClienteApAnticipo.Click
         Dim lParametro As New SigaMetClasses.cConfig(16, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario)
-        Dim lURLGateway As String = CType(lParametro.Parametros.Item("URLGateway"), String)
+        Dim lURLGateway As String = "" 'CType(lParametro.Parametros.Item("URLGateway"), String)
         lParametro.Dispose()
 
         If Trim(txtClienteVales.Text) <> "" Then
