@@ -24,3 +24,4 @@ C:\Users\lenav_000\Documents\Caja\Caja\Filiales\obj\Debug\Filiales.csproj.Genera
 C:\Users\lenav_000\Documents\Caja\Caja\Filiales\obj\Debug\Filiales.csproj.CoreCompileInputs.cache
 C:\Users\lenav_000\Documents\Caja\Caja\Filiales\obj\Debug\Filiales.exe
 C:\Users\lenav_000\Documents\Caja\Caja\Filiales\obj\Debug\Filiales.pdb
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\Filiales\obj\Debug\Filiales.csprojAssemblyReference.cache

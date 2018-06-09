@@ -1931,16 +1931,8 @@ Public Class frmSelTipoCobro
 
     Public Sub AltaCheque()
         Dim insertaCobro As New SigaMetClasses.CobroDetalladoDatos()
-        'Dim AñoCobro, Banco, AñoAtt, BancoOrigen, AñoCobroOrigen As Short
-        'Dim Cobro, Cliente, Folio, FolioAtt, CobroOrigen As Integer
-        'Dim Importe, Impuesto, Total, Saldo As Decimal
-        'Dim Referencia, Status, NumeroCheque, NumeroCuenta, RazonDevCheque, Usuario, NumeroCuentaDestino, StatusSaldoAFavor As String
-        'Dim FAlta, FCheque, FDevolucion, FActualizacion, FDeposito As Date
-        'Dim TipoCobro As Byte
-        'Dim Observaciones As String
-        'Dim SaldoAFavor, TPV As Boolean
 
-        ' datos reales
+
         With insertaCobro
             .SaldoAFavor = False
             .Cobro = 0
@@ -1987,31 +1979,17 @@ Public Class frmSelTipoCobro
 
         End With
         _listaCobros.Add(insertaCobro)
-        'insertaCobro.insertaCobro(AñoCobro, Cobro, Importe, Impuesto, Total, Referencia, Banco, FAlta, Status, TipoCobro, NumeroCheque,
-        '                    FCheque, NumeroCuenta, Observaciones, FDevolucion, RazonDevCheque, Cliente, Saldo, Usuario, FActualizacion,
-        '                    Folio, FDeposito, FolioAtt, AñoAtt, NumeroCuentaDestino, BancoOrigen, SaldoAFavor, StatusSaldoAFavor,
-        '                    AñoCobroOrigen, CobroOrigen, TPV)
         MessageBox.Show("Pago cheque ¡exitoso!")
         TxtNumeroDecimal1.Clear()
     End Sub
 
     Public Sub AltaTransferencia()
         Dim insertaCobro As New SigaMetClasses.CobroDetalladoDatos()
-        'Dim AñoCobro, Banco, AñoAtt, BancoOrigen, AñoCobroOrigen As Short
-        'Dim Cobro, Cliente, Folio, FolioAtt, CobroOrigen As Integer
-        'Dim Importe, Impuesto, Total, Saldo As Decimal
-        'Dim Referencia, Status, NumeroCheque, NumeroCuenta, RazonDevCheque, Usuario, NumeroCuentaDestino, StatusSaldoAFavor As String
-        'Dim FAlta, FCheque, FDevolucion, FActualizacion, FDeposito As Date
-        'Dim TipoCobro As Byte
-        'Dim Observaciones As String
-        'Dim SaldoAFavor, TPV As Boolean
-
 
         With insertaCobro
             .SaldoAFavor = False
             .AñoCobro = CShort(DateTime.Now.Year)
             .Cobro = 0
-            'Datos reales
 
             .Cliente = CInt(TxtClienteTransferencia.Text)
             .FCheque = CDate(DTPFechaTransferencia.Text)
@@ -2076,21 +2054,7 @@ Public Class frmSelTipoCobro
 
     Public Sub AltaTarjeta()
         Dim insertaCobro As New SigaMetClasses.CobroDetalladoDatos()
-        'Dim AñoCobro, Banco, AñoAtt, BancoOrigen, AñoCobroOrigen As Short
-        'Dim Cobro, Cliente, Folio, FolioAtt, CobroOrigen As Integer
-        'Dim Importe, Impuesto, Total, Saldo As Decimal
-        'Dim Referencia, Status, NumeroCheque, NumeroCuenta, RazonDevCheque, Usuario, NumeroCuentaDestino, StatusSaldoAFavor As String
-        'Dim FAlta, FCheque, FDevolucion, FActualizacion, FDeposito As Date
-        'Dim TipoCobro As Byte
-        'Dim Observaciones As String
-        'Dim SaldoAFavor, TPV As Boolean
-        '  	Tipo de TPV de CREDITO o DEBITO
-        '•	Cliente
-        '•	Ruta
-        '•	Número de tarjeta, solo 4 últimos dígitos
-        '•	Folio de la liquidación
-        '•	Clave de liquidación
-        'Datos reales
+
         With insertaCobro
             .TPV = True
             .SaldoAFavor = False

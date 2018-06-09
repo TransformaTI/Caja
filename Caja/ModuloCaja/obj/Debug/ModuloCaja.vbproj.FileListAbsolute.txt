@@ -110,8 +110,6 @@ C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\Modul
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.CustomExceptionHandler.resources
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbproj.GenerateResource.cache
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbproj.CoreCompileInputs.cache
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbprojAssemblyReference.cache
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.dll.config
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.pdb
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.xml
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ProgramacionCobranza.dll
@@ -126,7 +124,6 @@ C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\VbPowerPack
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\RegularValidations.dll
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\stdole.dll
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ContactosDL.dll
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\RTGMGateway.dll.config
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\SigaMetClasses.pdb
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\SigaMetClasses.xml
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbproj.CopyComplete
@@ -196,9 +193,13 @@ C:\Users\lenav_000\Documents\Caja\Caja\ModuloCaja\bin\SigaMetClasses.xml
 C:\Users\lenav_000\Documents\Caja\Caja\ModuloCaja\bin\ModuloCaja.dll.config
 C:\Users\lenav_000\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbproj.CopyComplete
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmRemisiones.resources
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.exe
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.exe.config
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.exe
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\SigaMetClasses.dll
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbprojAssemblyReference.cache
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.dll
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\LiquidacionPortatil.pdb
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\LiquidacionPortatil.xml
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.dll.config
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.exe
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.exe
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\LiquidacionPortatil.dll
