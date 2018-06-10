@@ -201,13 +201,10 @@ Public Class frmSelTipoCobro
     Friend WithEvents btnAceptarChequeFicha As ControlesBase.BotonBase
     Friend WithEvents tbChequeFicha As System.Windows.Forms.TabPage
     Friend WithEvents grpChequeFicha As System.Windows.Forms.GroupBox
-    Friend WithEvents rbCheque As System.Windows.Forms.RadioButton
-    Friend WithEvents rbFicha As System.Windows.Forms.RadioButton
     Friend WithEvents txtDocumento As SigaMetClasses.Controles.txtNumeroEntero
     Friend WithEvents txtImporteDocumento As SigaMetClasses.Controles.txtNumeroDecimal
     Friend WithEvents btnBuscarCliente As System.Windows.Forms.Button
     Friend WithEvents lblNombre As System.Windows.Forms.Label
-    Friend WithEvents rbNotaCredito As System.Windows.Forms.RadioButton
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSelTipoCobro))
@@ -259,7 +256,6 @@ Public Class frmSelTipoCobro
         Me.tbChequeFicha = New System.Windows.Forms.TabPage()
         Me.btnAceptarChequeFicha = New ControlesBase.BotonBase()
         Me.grpChequeFicha = New System.Windows.Forms.GroupBox()
-        Me.rbNotaCredito = New System.Windows.Forms.RadioButton()
         Me.lblNombre = New System.Windows.Forms.Label()
         Me.btnBuscarCliente = New System.Windows.Forms.Button()
         Me.txtImporteDocumento = New SigaMetClasses.Controles.txtNumeroDecimal()
@@ -276,8 +272,6 @@ Public Class frmSelTipoCobro
         Me.lblNoCuenta = New ControlesBase.LabelBase()
         Me.lblImporte = New ControlesBase.LabelBase()
         Me.lblCliente = New ControlesBase.LabelBase()
-        Me.rbCheque = New System.Windows.Forms.RadioButton()
-        Me.rbFicha = New System.Windows.Forms.RadioButton()
         Me.tbTransferencias = New System.Windows.Forms.TabPage()
         Me.BotonBase2 = New ControlesBase.BotonBase()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -398,7 +392,7 @@ Public Class frmSelTipoCobro
         Me.GroupBox1.Size = New System.Drawing.Size(272, 48)
         Me.GroupBox1.TabIndex = 33
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Datos del efectivo o vales de despensa"
+        Me.GroupBox1.Text = "Datos del efectivo"
         '
         'TxtNumeroDecimal1
         '
@@ -539,7 +533,7 @@ Public Class frmSelTipoCobro
         '
         Me.txtClienteVales.Location = New System.Drawing.Point(104, 32)
         Me.txtClienteVales.Name = "txtClienteVales"
-        Me.txtClienteVales.Size = New System.Drawing.Size(154, 21)
+        Me.txtClienteVales.Size = New System.Drawing.Size(160, 21)
         Me.txtClienteVales.TabIndex = 0
         '
         'LabelBase19
@@ -581,9 +575,9 @@ Public Class frmSelTipoCobro
         'BtnBuscarClienteVales
         '
         Me.BtnBuscarClienteVales.Image = CType(resources.GetObject("BtnBuscarClienteVales.Image"), System.Drawing.Image)
-        Me.BtnBuscarClienteVales.Location = New System.Drawing.Point(264, 32)
+        Me.BtnBuscarClienteVales.Location = New System.Drawing.Point(269, 32)
         Me.BtnBuscarClienteVales.Name = "BtnBuscarClienteVales"
-        Me.BtnBuscarClienteVales.Size = New System.Drawing.Size(48, 21)
+        Me.BtnBuscarClienteVales.Size = New System.Drawing.Size(44, 21)
         Me.BtnBuscarClienteVales.TabIndex = 1
         '
         'btnAceptarVales1
@@ -606,7 +600,7 @@ Public Class frmSelTipoCobro
         Me.tbTarjetaCredito.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbTarjetaCredito.Location = New System.Drawing.Point(4, 4)
         Me.tbTarjetaCredito.Name = "tbTarjetaCredito"
-        Me.tbTarjetaCredito.Size = New System.Drawing.Size(603, 307)
+        Me.tbTarjetaCredito.Size = New System.Drawing.Size(603, 325)
         Me.tbTarjetaCredito.TabIndex = 0
         Me.tbTarjetaCredito.Text = "Tarjeta "
         '
@@ -644,10 +638,10 @@ Public Class frmSelTipoCobro
         Me.grpTarjetaCredito.Controls.Add(Me.btnBuscarClienteTC)
         Me.grpTarjetaCredito.Location = New System.Drawing.Point(48, 36)
         Me.grpTarjetaCredito.Name = "grpTarjetaCredito"
-        Me.grpTarjetaCredito.Size = New System.Drawing.Size(280, 253)
+        Me.grpTarjetaCredito.Size = New System.Drawing.Size(372, 253)
         Me.grpTarjetaCredito.TabIndex = 30
         Me.grpTarjetaCredito.TabStop = False
-        Me.grpTarjetaCredito.Text = "Datos de la tarjeta de crédito"
+        Me.grpTarjetaCredito.Text = "Datos de la tarjeta de crédito o débito"
         '
         'txtImporteTC
         '
@@ -660,7 +654,7 @@ Public Class frmSelTipoCobro
         '
         Me.txtClienteTC.Location = New System.Drawing.Point(104, 32)
         Me.txtClienteTC.Name = "txtClienteTC"
-        Me.txtClienteTC.Size = New System.Drawing.Size(100, 21)
+        Me.txtClienteTC.Size = New System.Drawing.Size(160, 21)
         Me.txtClienteTC.TabIndex = 0
         '
         'lblBanco
@@ -803,7 +797,7 @@ Public Class frmSelTipoCobro
         'btnBuscarClienteTC
         '
         Me.btnBuscarClienteTC.Image = CType(resources.GetObject("btnBuscarClienteTC.Image"), System.Drawing.Image)
-        Me.btnBuscarClienteTC.Location = New System.Drawing.Point(216, 32)
+        Me.btnBuscarClienteTC.Location = New System.Drawing.Point(269, 32)
         Me.btnBuscarClienteTC.Name = "btnBuscarClienteTC"
         Me.btnBuscarClienteTC.Size = New System.Drawing.Size(48, 21)
         Me.btnBuscarClienteTC.TabIndex = 1
@@ -814,7 +808,7 @@ Public Class frmSelTipoCobro
         Me.tbChequeFicha.Controls.Add(Me.grpChequeFicha)
         Me.tbChequeFicha.Location = New System.Drawing.Point(4, 4)
         Me.tbChequeFicha.Name = "tbChequeFicha"
-        Me.tbChequeFicha.Size = New System.Drawing.Size(603, 307)
+        Me.tbChequeFicha.Size = New System.Drawing.Size(603, 325)
         Me.tbChequeFicha.TabIndex = 2
         Me.tbChequeFicha.Text = "Cheque / Ficha de deposito"
         '
@@ -832,7 +826,6 @@ Public Class frmSelTipoCobro
         '
         'grpChequeFicha
         '
-        Me.grpChequeFicha.Controls.Add(Me.rbNotaCredito)
         Me.grpChequeFicha.Controls.Add(Me.lblNombre)
         Me.grpChequeFicha.Controls.Add(Me.btnBuscarCliente)
         Me.grpChequeFicha.Controls.Add(Me.txtImporteDocumento)
@@ -849,21 +842,12 @@ Public Class frmSelTipoCobro
         Me.grpChequeFicha.Controls.Add(Me.lblNoCuenta)
         Me.grpChequeFicha.Controls.Add(Me.lblImporte)
         Me.grpChequeFicha.Controls.Add(Me.lblCliente)
-        Me.grpChequeFicha.Controls.Add(Me.rbCheque)
-        Me.grpChequeFicha.Controls.Add(Me.rbFicha)
         Me.grpChequeFicha.Location = New System.Drawing.Point(24, 27)
         Me.grpChequeFicha.Name = "grpChequeFicha"
         Me.grpChequeFicha.Size = New System.Drawing.Size(328, 270)
         Me.grpChequeFicha.TabIndex = 28
         Me.grpChequeFicha.TabStop = False
-        '
-        'rbNotaCredito
-        '
-        Me.rbNotaCredito.Location = New System.Drawing.Point(208, 0)
-        Me.rbNotaCredito.Name = "rbNotaCredito"
-        Me.rbNotaCredito.Size = New System.Drawing.Size(104, 16)
-        Me.rbNotaCredito.TabIndex = 35
-        Me.rbNotaCredito.Text = "&Nota de crédito"
+        Me.grpChequeFicha.Text = "Datos del cheque"
         '
         'lblNombre
         '
@@ -877,9 +861,9 @@ Public Class frmSelTipoCobro
         'btnBuscarCliente
         '
         Me.btnBuscarCliente.Image = CType(resources.GetObject("btnBuscarCliente.Image"), System.Drawing.Image)
-        Me.btnBuscarCliente.Location = New System.Drawing.Point(264, 104)
+        Me.btnBuscarCliente.Location = New System.Drawing.Point(286, 104)
         Me.btnBuscarCliente.Name = "btnBuscarCliente"
-        Me.btnBuscarCliente.Size = New System.Drawing.Size(48, 21)
+        Me.btnBuscarCliente.Size = New System.Drawing.Size(26, 21)
         Me.btnBuscarCliente.TabIndex = 31
         '
         'txtImporteDocumento
@@ -893,7 +877,7 @@ Public Class frmSelTipoCobro
         '
         Me.txtClienteCheque.Location = New System.Drawing.Point(120, 104)
         Me.txtClienteCheque.Name = "txtClienteCheque"
-        Me.txtClienteCheque.Size = New System.Drawing.Size(88, 21)
+        Me.txtClienteCheque.Size = New System.Drawing.Size(160, 21)
         Me.txtClienteCheque.TabIndex = 3
         '
         'txtNumeroCuenta
@@ -999,24 +983,6 @@ Public Class frmSelTipoCobro
         Me.lblCliente.TabIndex = 13
         Me.lblCliente.Text = "Cliente:"
         '
-        'rbCheque
-        '
-        Me.rbCheque.Checked = True
-        Me.rbCheque.Location = New System.Drawing.Point(16, 0)
-        Me.rbCheque.Name = "rbCheque"
-        Me.rbCheque.Size = New System.Drawing.Size(64, 16)
-        Me.rbCheque.TabIndex = 29
-        Me.rbCheque.TabStop = True
-        Me.rbCheque.Text = "&Cheque"
-        '
-        'rbFicha
-        '
-        Me.rbFicha.Location = New System.Drawing.Point(88, 0)
-        Me.rbFicha.Name = "rbFicha"
-        Me.rbFicha.Size = New System.Drawing.Size(112, 16)
-        Me.rbFicha.TabIndex = 30
-        Me.rbFicha.Text = "&Ficha de depósito"
-        '
         'tbTransferencias
         '
         Me.tbTransferencias.BackColor = System.Drawing.SystemColors.Control
@@ -1025,7 +991,7 @@ Public Class frmSelTipoCobro
         Me.tbTransferencias.Location = New System.Drawing.Point(4, 4)
         Me.tbTransferencias.Name = "tbTransferencias"
         Me.tbTransferencias.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbTransferencias.Size = New System.Drawing.Size(603, 307)
+        Me.tbTransferencias.Size = New System.Drawing.Size(603, 325)
         Me.tbTransferencias.TabIndex = 4
         Me.tbTransferencias.Text = "Transferencias"
         '
@@ -1070,16 +1036,16 @@ Public Class frmSelTipoCobro
         'Button1
         '
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.Location = New System.Drawing.Point(280, 34)
+        Me.Button1.Location = New System.Drawing.Point(302, 33)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(48, 21)
+        Me.Button1.Size = New System.Drawing.Size(42, 21)
         Me.Button1.TabIndex = 44
         '
         'TxtClienteTransferencia
         '
         Me.TxtClienteTransferencia.Location = New System.Drawing.Point(136, 33)
         Me.TxtClienteTransferencia.Name = "TxtClienteTransferencia"
-        Me.TxtClienteTransferencia.Size = New System.Drawing.Size(88, 21)
+        Me.TxtClienteTransferencia.Size = New System.Drawing.Size(160, 21)
         Me.TxtClienteTransferencia.TabIndex = 43
         '
         'txtbObservacionesTranferencias
@@ -1087,14 +1053,14 @@ Public Class frmSelTipoCobro
         Me.txtbObservacionesTranferencias.Location = New System.Drawing.Point(136, 208)
         Me.txtbObservacionesTranferencias.Multiline = True
         Me.txtbObservacionesTranferencias.Name = "txtbObservacionesTranferencias"
-        Me.txtbObservacionesTranferencias.Size = New System.Drawing.Size(192, 48)
+        Me.txtbObservacionesTranferencias.Size = New System.Drawing.Size(208, 48)
         Me.txtbObservacionesTranferencias.TabIndex = 42
         '
         'TxtImporteTransferencia
         '
         Me.TxtImporteTransferencia.Location = New System.Drawing.Point(136, 182)
         Me.TxtImporteTransferencia.Name = "TxtImporteTransferencia"
-        Me.TxtImporteTransferencia.Size = New System.Drawing.Size(192, 21)
+        Me.TxtImporteTransferencia.Size = New System.Drawing.Size(208, 21)
         Me.TxtImporteTransferencia.TabIndex = 41
         '
         'ComboBancoTransferencia
@@ -1103,7 +1069,7 @@ Public Class frmSelTipoCobro
         Me.ComboBancoTransferencia.DropDownWidth = 200
         Me.ComboBancoTransferencia.Location = New System.Drawing.Point(136, 156)
         Me.ComboBancoTransferencia.Name = "ComboBancoTransferencia"
-        Me.ComboBancoTransferencia.Size = New System.Drawing.Size(192, 21)
+        Me.ComboBancoTransferencia.Size = New System.Drawing.Size(208, 21)
         Me.ComboBancoTransferencia.TabIndex = 40
         '
         'TxtNumeroDocumentoTransferencia
@@ -1111,14 +1077,14 @@ Public Class frmSelTipoCobro
         Me.TxtNumeroDocumentoTransferencia.Location = New System.Drawing.Point(136, 130)
         Me.TxtNumeroDocumentoTransferencia.MaxLength = 7
         Me.TxtNumeroDocumentoTransferencia.Name = "TxtNumeroDocumentoTransferencia"
-        Me.TxtNumeroDocumentoTransferencia.Size = New System.Drawing.Size(192, 21)
+        Me.TxtNumeroDocumentoTransferencia.Size = New System.Drawing.Size(208, 21)
         Me.TxtNumeroDocumentoTransferencia.TabIndex = 39
         '
         'TxtNumeroCuentaTransferencia
         '
         Me.TxtNumeroCuentaTransferencia.Location = New System.Drawing.Point(136, 105)
         Me.TxtNumeroCuentaTransferencia.Name = "TxtNumeroCuentaTransferencia"
-        Me.TxtNumeroCuentaTransferencia.Size = New System.Drawing.Size(192, 21)
+        Me.TxtNumeroCuentaTransferencia.Size = New System.Drawing.Size(208, 21)
         Me.TxtNumeroCuentaTransferencia.TabIndex = 38
         '
         'DTPFechaTransferencia
@@ -1194,6 +1160,8 @@ Public Class frmSelTipoCobro
         '
         'TxtNombreTransferencia
         '
+        Me.TxtNombreTransferencia.BackColor = System.Drawing.SystemColors.Control
+        Me.TxtNombreTransferencia.Enabled = False
         Me.TxtNombreTransferencia.Location = New System.Drawing.Point(136, 57)
         Me.TxtNombreTransferencia.Name = "TxtNombreTransferencia"
         Me.TxtNombreTransferencia.Size = New System.Drawing.Size(294, 21)
@@ -1216,7 +1184,7 @@ Public Class frmSelTipoCobro
         Me.tbAplicAnticipo.Location = New System.Drawing.Point(4, 4)
         Me.tbAplicAnticipo.Name = "tbAplicAnticipo"
         Me.tbAplicAnticipo.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbAplicAnticipo.Size = New System.Drawing.Size(603, 307)
+        Me.tbAplicAnticipo.Size = New System.Drawing.Size(603, 325)
         Me.tbAplicAnticipo.TabIndex = 5
         Me.tbAplicAnticipo.Text = "Aplicación Anticipo"
         '
@@ -1321,6 +1289,7 @@ Public Class frmSelTipoCobro
         'LabelNombreApAntic
         '
         Me.LabelNombreApAntic.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.LabelNombreApAntic.Enabled = False
         Me.LabelNombreApAntic.Location = New System.Drawing.Point(104, 56)
         Me.LabelNombreApAntic.Name = "LabelNombreApAntic"
         Me.LabelNombreApAntic.Size = New System.Drawing.Size(208, 32)
@@ -1352,7 +1321,7 @@ Public Class frmSelTipoCobro
         Me.tbDacionPagos.Location = New System.Drawing.Point(4, 4)
         Me.tbDacionPagos.Name = "tbDacionPagos"
         Me.tbDacionPagos.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbDacionPagos.Size = New System.Drawing.Size(603, 307)
+        Me.tbDacionPagos.Size = New System.Drawing.Size(603, 325)
         Me.tbDacionPagos.TabIndex = 7
         Me.tbDacionPagos.Text = "Dación de Pagos"
         '
@@ -1393,7 +1362,7 @@ Public Class frmSelTipoCobro
         'DTPFAplicacion
         '
         Me.DTPFAplicacion.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DTPFAplicacion.Location = New System.Drawing.Point(160, 106)
+        Me.DTPFAplicacion.Location = New System.Drawing.Point(160, 111)
         Me.DTPFAplicacion.Name = "DTPFAplicacion"
         Me.DTPFAplicacion.Size = New System.Drawing.Size(192, 21)
         Me.DTPFAplicacion.TabIndex = 45
@@ -1401,29 +1370,29 @@ Public Class frmSelTipoCobro
         'Button2
         '
         Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
-        Me.Button2.Location = New System.Drawing.Point(304, 33)
+        Me.Button2.Location = New System.Drawing.Point(326, 29)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(48, 21)
         Me.Button2.TabIndex = 44
         '
         'TxtClienteDacionPago
         '
-        Me.TxtClienteDacionPago.Location = New System.Drawing.Point(171, 30)
+        Me.TxtClienteDacionPago.Location = New System.Drawing.Point(160, 30)
         Me.TxtClienteDacionPago.Name = "TxtClienteDacionPago"
-        Me.TxtClienteDacionPago.Size = New System.Drawing.Size(88, 21)
+        Me.TxtClienteDacionPago.Size = New System.Drawing.Size(160, 21)
         Me.TxtClienteDacionPago.TabIndex = 43
         '
         'TexObservacionDacionPAGO
         '
-        Me.TexObservacionDacionPAGO.Location = New System.Drawing.Point(162, 167)
+        Me.TexObservacionDacionPAGO.Location = New System.Drawing.Point(160, 165)
         Me.TexObservacionDacionPAGO.Multiline = True
         Me.TexObservacionDacionPAGO.Name = "TexObservacionDacionPAGO"
-        Me.TexObservacionDacionPAGO.Size = New System.Drawing.Size(192, 48)
+        Me.TexObservacionDacionPAGO.Size = New System.Drawing.Size(273, 48)
         Me.TexObservacionDacionPAGO.TabIndex = 42
         '
         'TxtMontoDacionPago
         '
-        Me.TxtMontoDacionPago.Location = New System.Drawing.Point(162, 141)
+        Me.TxtMontoDacionPago.Location = New System.Drawing.Point(160, 138)
         Me.TxtMontoDacionPago.Name = "TxtMontoDacionPago"
         Me.TxtMontoDacionPago.Size = New System.Drawing.Size(192, 21)
         Me.TxtMontoDacionPago.TabIndex = 41
@@ -1431,7 +1400,7 @@ Public Class frmSelTipoCobro
         'DTPFechaConvenioDacionPago
         '
         Me.DTPFechaConvenioDacionPago.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DTPFechaConvenioDacionPago.Location = New System.Drawing.Point(160, 79)
+        Me.DTPFechaConvenioDacionPago.Location = New System.Drawing.Point(160, 84)
         Me.DTPFechaConvenioDacionPago.Name = "DTPFechaConvenioDacionPago"
         Me.DTPFechaConvenioDacionPago.Size = New System.Drawing.Size(192, 21)
         Me.DTPFechaConvenioDacionPago.TabIndex = 37
@@ -1439,7 +1408,7 @@ Public Class frmSelTipoCobro
         'LabelBase17
         '
         Me.LabelBase17.AutoSize = True
-        Me.LabelBase17.Location = New System.Drawing.Point(30, 169)
+        Me.LabelBase17.Location = New System.Drawing.Point(30, 168)
         Me.LabelBase17.Name = "LabelBase17"
         Me.LabelBase17.Size = New System.Drawing.Size(71, 13)
         Me.LabelBase17.TabIndex = 36
@@ -1448,7 +1417,7 @@ Public Class frmSelTipoCobro
         'LabelBase18
         '
         Me.LabelBase18.AutoSize = True
-        Me.LabelBase18.Location = New System.Drawing.Point(30, 147)
+        Me.LabelBase18.Location = New System.Drawing.Point(30, 141)
         Me.LabelBase18.Name = "LabelBase18"
         Me.LabelBase18.Size = New System.Drawing.Size(41, 13)
         Me.LabelBase18.TabIndex = 35
@@ -1466,7 +1435,7 @@ Public Class frmSelTipoCobro
         'LabelBase22
         '
         Me.LabelBase22.AutoSize = True
-        Me.LabelBase22.Location = New System.Drawing.Point(30, 87)
+        Me.LabelBase22.Location = New System.Drawing.Point(30, 90)
         Me.LabelBase22.Name = "LabelBase22"
         Me.LabelBase22.Size = New System.Drawing.Size(103, 13)
         Me.LabelBase22.TabIndex = 31
@@ -1475,7 +1444,7 @@ Public Class frmSelTipoCobro
         'LabelBase23
         '
         Me.LabelBase23.AutoSize = True
-        Me.LabelBase23.Location = New System.Drawing.Point(30, 65)
+        Me.LabelBase23.Location = New System.Drawing.Point(30, 60)
         Me.LabelBase23.Name = "LabelBase23"
         Me.LabelBase23.Size = New System.Drawing.Size(48, 13)
         Me.LabelBase23.TabIndex = 30
@@ -1483,15 +1452,17 @@ Public Class frmSelTipoCobro
         '
         'TxtNombreDacioPago
         '
+        Me.TxtNombreDacioPago.BackColor = System.Drawing.SystemColors.Control
+        Me.TxtNombreDacioPago.Enabled = False
         Me.TxtNombreDacioPago.Location = New System.Drawing.Point(160, 57)
         Me.TxtNombreDacioPago.Name = "TxtNombreDacioPago"
-        Me.TxtNombreDacioPago.Size = New System.Drawing.Size(286, 21)
+        Me.TxtNombreDacioPago.Size = New System.Drawing.Size(275, 21)
         Me.TxtNombreDacioPago.TabIndex = 29
         '
         'LabelBase24
         '
         Me.LabelBase24.AutoSize = True
-        Me.LabelBase24.Location = New System.Drawing.Point(30, 41)
+        Me.LabelBase24.Location = New System.Drawing.Point(30, 33)
         Me.LabelBase24.Name = "LabelBase24"
         Me.LabelBase24.Size = New System.Drawing.Size(44, 13)
         Me.LabelBase24.TabIndex = 28
@@ -1805,11 +1776,11 @@ Public Class frmSelTipoCobro
         End If
     End Sub
 
-    Private Sub rbCheque_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbCheque.CheckedChanged
+    Private Sub rbCheque_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
         _TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.Cheque
     End Sub
 
-    Private Sub rbFicha_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rbFicha.CheckedChanged
+    Private Sub rbFicha_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
         _TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.FichaDeposito
     End Sub
 
@@ -2406,5 +2377,161 @@ Public Class frmSelTipoCobro
 
     Private Sub BotonBase3_Click(sender As Object, e As EventArgs) Handles BotonBase3.Click
         DialogResult = DialogResult.OK
+    End Sub
+
+    Private Sub TxtNumeroDecimal1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtNumeroDecimal1.KeyPress
+        '97 - 122 = Ascii MINÚSCULAS
+        '65 - 90  = Ascii MAYÚSCULAS
+        '48 - 57  = Ascii NÚMEROS
+
+        If Asc(e.KeyChar) <> 8 Then
+            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+                e.Handled = True
+            End If
+        End If
+    End Sub
+
+    Private Sub txtClienteVales_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtClienteVales.KeyPress
+        '97 - 122 = Ascii MINÚSCULAS
+        '65 - 90  = Ascii MAYÚSCULAS
+        '48 - 57  = Ascii NÚMEROS
+
+        If Asc(e.KeyChar) <> 8 Then
+            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+                e.Handled = True
+            End If
+        End If
+    End Sub
+
+    Private Sub TxtMontoVales_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtMontoVales.KeyPress
+        '97 - 122 = Ascii MINÚSCULAS
+        '65 - 90  = Ascii MAYÚSCULAS
+        '48 - 57  = Ascii NÚMEROS
+
+        If Asc(e.KeyChar) <> 8 Then
+            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+                e.Handled = True
+            End If
+        End If
+    End Sub
+
+    Private Sub txtClienteTC_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtClienteTC.KeyPress
+        '97 - 122 = Ascii MINÚSCULAS
+        '65 - 90  = Ascii MAYÚSCULAS
+        '48 - 57  = Ascii NÚMEROS
+
+        If Asc(e.KeyChar) <> 8 Then
+            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+                e.Handled = True
+            End If
+        End If
+    End Sub
+
+    Private Sub txtImporteTC_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtImporteTC.KeyPress
+        '97 - 122 = Ascii MINÚSCULAS
+        '65 - 90  = Ascii MAYÚSCULAS
+        '48 - 57  = Ascii NÚMEROS
+
+        If Asc(e.KeyChar) <> 8 Then
+            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+                e.Handled = True
+            End If
+        End If
+    End Sub
+
+    Private Sub txtDocumento_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtDocumento.KeyPress
+        '97 - 122 = Ascii MINÚSCULAS
+        '65 - 90  = Ascii MAYÚSCULAS
+        '48 - 57  = Ascii NÚMEROS
+
+        If Asc(e.KeyChar) <> 8 Then
+            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+                e.Handled = True
+            End If
+        End If
+    End Sub
+
+    Private Sub txtClienteCheque_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtClienteCheque.KeyPress
+        '97 - 122 = Ascii MINÚSCULAS
+        '65 - 90  = Ascii MAYÚSCULAS
+        '48 - 57  = Ascii NÚMEROS
+
+        If Asc(e.KeyChar) <> 8 Then
+            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+                e.Handled = True
+            End If
+        End If
+    End Sub
+
+    Private Sub txtImporteDocumento_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtImporteDocumento.KeyPress
+        '97 - 122 = Ascii MINÚSCULAS
+        '65 - 90  = Ascii MAYÚSCULAS
+        '48 - 57  = Ascii NÚMEROS
+
+        If Asc(e.KeyChar) <> 8 Then
+            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+                e.Handled = True
+            End If
+        End If
+    End Sub
+
+    Private Sub TxtClienteTransferencia_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtClienteTransferencia.KeyPress
+        '97 - 122 = Ascii MINÚSCULAS
+        '65 - 90  = Ascii MAYÚSCULAS
+        '48 - 57  = Ascii NÚMEROS
+
+        If Asc(e.KeyChar) <> 8 Then
+            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+                e.Handled = True
+            End If
+        End If
+    End Sub
+
+    Private Sub TxtImporteTransferencia_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtImporteTransferencia.KeyPress
+        '97 - 122 = Ascii MINÚSCULAS
+        '65 - 90  = Ascii MAYÚSCULAS
+        '48 - 57  = Ascii NÚMEROS
+
+        If Asc(e.KeyChar) <> 8 Then
+            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+                e.Handled = True
+            End If
+        End If
+    End Sub
+
+    Private Sub TxtMontoAnticipo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtMontoAnticipo.KeyPress
+        '97 - 122 = Ascii MINÚSCULAS
+        '65 - 90  = Ascii MAYÚSCULAS
+        '48 - 57  = Ascii NÚMEROS
+
+        If Asc(e.KeyChar) <> 8 Then
+            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+                e.Handled = True
+            End If
+        End If
+    End Sub
+
+    Private Sub TxtClienteDacionPago_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtClienteDacionPago.KeyPress
+        '97 - 122 = Ascii MINÚSCULAS
+        '65 - 90  = Ascii MAYÚSCULAS
+        '48 - 57  = Ascii NÚMEROS
+
+        If Asc(e.KeyChar) <> 8 Then
+            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+                e.Handled = True
+            End If
+        End If
+    End Sub
+
+    Private Sub TxtMontoDacionPago_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtMontoDacionPago.KeyPress
+        '97 - 122 = Ascii MINÚSCULAS
+        '65 - 90  = Ascii MAYÚSCULAS
+        '48 - 57  = Ascii NÚMEROS
+
+        If Asc(e.KeyChar) <> 8 Then
+            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+                e.Handled = True
+            End If
+        End If
     End Sub
 End Class
