@@ -1891,8 +1891,6 @@ Public Class frmSelTipoCobro
             .Importe = CDec(TxtNumeroDecimal1.Text)
             .Total = 200 + .Impuesto
 
-
-
             If .Total < .Importe Then
                 If MessageBox.Show("Se generará un saldo a favor ¿está de acuerdo?", "Captura cobros",
                         MessageBoxButtons.YesNo, MessageBoxIcon.Question) _
@@ -2337,7 +2335,7 @@ Public Class frmSelTipoCobro
             .Referencia = "NULL" ' puede ser vacio
             .NumeroCheque = "NULL" ' puede ser vacio
             .FDevolucion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
-            .RazonDevCheque = "NULL"
+            .RazonDevCheque = "01"
             .Saldo = 10
             .FActualizacion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
             .Folio = 0
@@ -2386,7 +2384,7 @@ Public Class frmSelTipoCobro
             .Referencia = "NULL" ' puede ser vacio
             .NumeroCheque = "NULL" ' puede ser vacio
             .FDevolucion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
-            .RazonDevCheque = "NULL"
+            .RazonDevCheque = "01"
             .Saldo = 0
             .FActualizacion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
             .Folio = 0
