@@ -111,13 +111,11 @@ Public Class frmSelTipoCobro
     End Property
 
     Private _listaCobros As New List(Of SigaMetClasses.CobroDetalladoDatos)
-    Friend WithEvents Saldo As DataGridViewTextBoxColumn
-
-    Friend WithEvents MontoSaldo As DataGridViewTextBoxColumn
-
     Friend WithEvents año As DataGridViewTextBoxColumn
 
     Friend WithEvents folio As DataGridViewTextBoxColumn
+
+    Friend WithEvents MontoSaldo As DataGridViewTextBoxColumn
 
     Public Property Cobros() As List(Of SigaMetClasses.CobroDetalladoDatos)
         Get
@@ -161,6 +159,7 @@ Public Class frmSelTipoCobro
     Public Sub New()
         MyBase.New()
         InitializeComponent()
+        dgvSaldoAnticipo.AutoGenerateColumns = False
     End Sub
 
 
@@ -315,10 +314,6 @@ Public Class frmSelTipoCobro
         Me.btn_AnticipoAceptar = New ControlesBase.BotonBase()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.dgvSaldoAnticipo = New System.Windows.Forms.DataGridView()
-        Me.Saldo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.MontoSaldo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.año = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.folio = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LabelBase32 = New ControlesBase.LabelBase()
         Me.TextObservacionesAnticipo = New System.Windows.Forms.TextBox()
         Me.TxtMontoAnticipo = New SigaMetClasses.Controles.txtNumeroDecimal()
@@ -346,6 +341,9 @@ Public Class frmSelTipoCobro
         Me.TxtNombreDacioPago = New SigaMetClasses.Controles.txtNumeroDecimal()
         Me.LabelBase24 = New ControlesBase.LabelBase()
         Me.imgLista = New System.Windows.Forms.ImageList(Me.components)
+        Me.año = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.folio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MontoSaldo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tabTipoCobro.SuspendLayout()
         Me.tbEfectivo.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -624,7 +622,7 @@ Public Class frmSelTipoCobro
         Me.tbTarjetaCredito.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbTarjetaCredito.Location = New System.Drawing.Point(4, 4)
         Me.tbTarjetaCredito.Name = "tbTarjetaCredito"
-        Me.tbTarjetaCredito.Size = New System.Drawing.Size(603, 325)
+        Me.tbTarjetaCredito.Size = New System.Drawing.Size(603, 307)
         Me.tbTarjetaCredito.TabIndex = 0
         Me.tbTarjetaCredito.Text = "Tarjeta "
         '
@@ -832,7 +830,7 @@ Public Class frmSelTipoCobro
         Me.tbChequeFicha.Controls.Add(Me.grpChequeFicha)
         Me.tbChequeFicha.Location = New System.Drawing.Point(4, 4)
         Me.tbChequeFicha.Name = "tbChequeFicha"
-        Me.tbChequeFicha.Size = New System.Drawing.Size(603, 325)
+        Me.tbChequeFicha.Size = New System.Drawing.Size(603, 307)
         Me.tbChequeFicha.TabIndex = 2
         Me.tbChequeFicha.Text = "Cheque / Ficha de deposito"
         '
@@ -1015,7 +1013,7 @@ Public Class frmSelTipoCobro
         Me.tbTransferencias.Location = New System.Drawing.Point(4, 4)
         Me.tbTransferencias.Name = "tbTransferencias"
         Me.tbTransferencias.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbTransferencias.Size = New System.Drawing.Size(603, 325)
+        Me.tbTransferencias.Size = New System.Drawing.Size(603, 307)
         Me.tbTransferencias.TabIndex = 4
         Me.tbTransferencias.Text = "Transferencias"
         '
@@ -1246,40 +1244,16 @@ Public Class frmSelTipoCobro
         '
         'dgvSaldoAnticipo
         '
+        Me.dgvSaldoAnticipo.AllowUserToAddRows = False
+        Me.dgvSaldoAnticipo.AllowUserToDeleteRows = False
         Me.dgvSaldoAnticipo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvSaldoAnticipo.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Saldo, Me.MontoSaldo, Me.año, Me.folio})
+        Me.dgvSaldoAnticipo.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.año, Me.folio, Me.MontoSaldo})
         Me.dgvSaldoAnticipo.DataMember = "añomovimiento"
         Me.dgvSaldoAnticipo.Location = New System.Drawing.Point(104, 91)
         Me.dgvSaldoAnticipo.Name = "dgvSaldoAnticipo"
+        Me.dgvSaldoAnticipo.ReadOnly = True
         Me.dgvSaldoAnticipo.Size = New System.Drawing.Size(313, 126)
         Me.dgvSaldoAnticipo.TabIndex = 54
-        '
-        'Saldo
-        '
-        Me.Saldo.DataPropertyName = "Saldo"
-        Me.Saldo.HeaderText = "Saldo"
-        Me.Saldo.Name = "Saldo"
-        Me.Saldo.ReadOnly = True
-        '
-        'MontoSaldo
-        '
-        Me.MontoSaldo.DataPropertyName = "MontoSaldo"
-        Me.MontoSaldo.HeaderText = "MontoSaldo"
-        Me.MontoSaldo.Name = "MontoSaldo"
-        Me.MontoSaldo.ReadOnly = True
-        Me.MontoSaldo.Visible = False
-        '
-        'año
-        '
-        Me.año.HeaderText = "año"
-        Me.año.Name = "año"
-        Me.año.Visible = False
-        '
-        'folio
-        '
-        Me.folio.HeaderText = "folio"
-        Me.folio.Name = "folio"
-        Me.folio.Visible = False
         '
         'LabelBase32
         '
@@ -1374,7 +1348,7 @@ Public Class frmSelTipoCobro
         Me.tbDacionPagos.Location = New System.Drawing.Point(4, 4)
         Me.tbDacionPagos.Name = "tbDacionPagos"
         Me.tbDacionPagos.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbDacionPagos.Size = New System.Drawing.Size(603, 325)
+        Me.tbDacionPagos.Size = New System.Drawing.Size(603, 307)
         Me.tbDacionPagos.TabIndex = 7
         Me.tbDacionPagos.Text = "Dación de Pagos"
         '
@@ -1526,6 +1500,27 @@ Public Class frmSelTipoCobro
         Me.imgLista.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit
         Me.imgLista.ImageSize = New System.Drawing.Size(16, 16)
         Me.imgLista.TransparentColor = System.Drawing.Color.Transparent
+        '
+        'año
+        '
+        Me.año.DataPropertyName = "AñoMovimiento"
+        Me.año.HeaderText = "Año"
+        Me.año.Name = "año"
+        Me.año.ReadOnly = True
+        '
+        'folio
+        '
+        Me.folio.DataPropertyName = "FolioMovimiento"
+        Me.folio.HeaderText = "Folio"
+        Me.folio.Name = "folio"
+        Me.folio.ReadOnly = True
+        '
+        'MontoSaldo
+        '
+        Me.MontoSaldo.DataPropertyName = "MontoSaldo"
+        Me.MontoSaldo.HeaderText = "Saldo"
+        Me.MontoSaldo.Name = "MontoSaldo"
+        Me.MontoSaldo.ReadOnly = True
         '
         'frmSelTipoCobro
         '
@@ -2243,8 +2238,9 @@ Public Class frmSelTipoCobro
         If dt.Rows.Count = 0 Then
             MessageBox.Show(" El Cliente " + Cliente.ToString() + " no dispone de anticipos.")
         Else
-
+            dgvSaldoAnticipo.AutoGenerateColumns = False
             dgvSaldoAnticipo.DataSource = dt
+            dgvSaldoAnticipo.AutoGenerateColumns = False
             'For Each row As DataRow In dt.Rows
             '    TextoSaldo = TextoSaldo + row.Item("Saldo").ToString() + Environment.NewLine
             'Next row
@@ -2353,7 +2349,7 @@ Public Class frmSelTipoCobro
             .Status = "EMITIDO"
             .Usuario = GLOBAL_IDUsuario
             .Impuesto = 10
-            .Total = 100 + .Impuesto
+            .Total = Convert.ToDecimal(TxtMontoAnticipo.Text.Trim) + .Impuesto
             .Importe = CDec(TxtMontoAnticipo.Text)
             If .Total < .Importe Then
                 If MessageBox.Show("Se generará un saldo a favor ¿está de acuerdo?", "Captura cobros",
@@ -2388,59 +2384,47 @@ Public Class frmSelTipoCobro
     Private Sub btn_AnticipoAceptar_Click(sender As Object, e As EventArgs) Handles btn_AnticipoAceptar.Click
 
         Dim visibleSelectedRowCount As Boolean = False
-        Dim Saldo As Decimal
-        Dim anio As String = ""
-        Dim folio As String = ""
+        Dim Año As String = ""
+        Dim Folio As String = ""
+        Dim Saldo As Decimal = 0
+        Dim Col As Integer = Me.dgvSaldoAnticipo.CurrentCell.ColumnIndex
 
-        For Each row As DataGridViewRow In dgvSaldoAnticipo.Rows
-            If visibleSelectedRowCount = False Then
-                ''   Saldo = Convert.ToDecimal(row.Cells(1).Value.ToString())
-                Dim dtr As New DataTable
-
-                Dim dr As DataRow = dtr.NewRow()
-
-                For i As Integer = 1 To row.Cells.Count
-                    '' dr.Item(i) = row.Cells(i).Value
-                Next
-
-                '' anio = row.Cells(2).Value.ToString()
-                '' folio = row.Cells(3).Value.ToString()
+        For Each fila As DataGridViewRow In Me.dgvSaldoAnticipo.Rows
+            If fila.Selected Then
+                Año = Convert.ToString(fila.Cells(0).Value)
+                Folio = Convert.ToString(fila.Cells(1).Value)
+                Saldo = Convert.ToDecimal(fila.Cells(2).Value)
+                visibleSelectedRowCount = True
             End If
-        Next row
+        Next
 
-        If visibleSelectedRowCount = True And TxtMontoAnticipo.Text <> "" Then
-
+        If visibleSelectedRowCount = True And TxtMontoAnticipo.Text.Trim <> "" Then
             If Saldo >= Convert.ToDecimal(TxtMontoAnticipo.Text) Then
 
                 AltaAnticipo()
 
                 Dim listaDebito As New List(Of DebitoAnticipo)
                 Dim nuevodebitoanticipo As New DebitoAnticipo
-                nuevodebitoanticipo.folio = folio
-                nuevodebitoanticipo.anio = anio
+                nuevodebitoanticipo.folio = Folio
+                nuevodebitoanticipo.anio = Año
                 nuevodebitoanticipo.montodebitado = Convert.ToDecimal(TxtMontoAnticipo.Text)
                 listaDebito.Add(nuevodebitoanticipo)
                 _ListaDebitoAnticipos.Add(nuevodebitoanticipo)
                 Remisiones()
                 LimpiarAnticipo()
                 DialogResult = DialogResult.OK
-
+            Else
+                MessageBox.Show("El monto a debitar debe ser menor o igual que el saldo del anticipo elegido, verifique.", Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End If
-
-
         Else
-            If Saldo < Convert.ToDecimal(TxtMontoAnticipo.Text) Then
-                MessageBox.Show("El monto a debitar debe ser menor que el saldo.Verifique.")
+            If TxtMontoAnticipo.Text.Trim = "" Then
+                TxtMontoAnticipo.Text = "0"
+                MessageBox.Show("Por favor ingrese un monto para el pago", Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End If
-
             If visibleSelectedRowCount = False Or TxtMontoAnticipo.Text = "" Then
-                MessageBox.Show("Debe seleccionar un saldo y escribir el monto.Verifique.")
+                MessageBox.Show("Debe seleccionar un anticipo y escribir el monto, verifique.", Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End If
-
         End If
-
-
-
     End Sub
 
     Public Sub LimpiarVales()
@@ -2473,7 +2457,7 @@ Public Class frmSelTipoCobro
         '48 - 57  = Ascii NÚMEROS
 
         If Asc(e.KeyChar) <> 8 Then
-            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+            If Asc(e.KeyChar) < 46 Or Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
                 e.Handled = True
             End If
         End If
@@ -2490,7 +2474,7 @@ Public Class frmSelTipoCobro
         '48 - 57  = Ascii NÚMEROS
 
         If Asc(e.KeyChar) <> 8 Then
-            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+            If Asc(e.KeyChar) < 46 Or Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
                 e.Handled = True
             End If
         End If
@@ -2502,7 +2486,7 @@ Public Class frmSelTipoCobro
         '48 - 57  = Ascii NÚMEROS
 
         If Asc(e.KeyChar) <> 8 Then
-            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+            If Asc(e.KeyChar) < 46 Or Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
                 e.Handled = True
             End If
         End If
@@ -2514,7 +2498,7 @@ Public Class frmSelTipoCobro
         '48 - 57  = Ascii NÚMEROS
 
         If Asc(e.KeyChar) <> 8 Then
-            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+            If Asc(e.KeyChar) < 46 Or Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
                 e.Handled = True
             End If
         End If
@@ -2526,7 +2510,7 @@ Public Class frmSelTipoCobro
         '48 - 57  = Ascii NÚMEROS
 
         If Asc(e.KeyChar) <> 8 Then
-            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+            If Asc(e.KeyChar) < 46 Or Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
                 e.Handled = True
             End If
         End If
@@ -2538,7 +2522,7 @@ Public Class frmSelTipoCobro
         '48 - 57  = Ascii NÚMEROS
 
         If Asc(e.KeyChar) <> 8 Then
-            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+            If Asc(e.KeyChar) < 46 Or Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
                 e.Handled = True
             End If
         End If
@@ -2550,7 +2534,7 @@ Public Class frmSelTipoCobro
         '48 - 57  = Ascii NÚMEROS
 
         If Asc(e.KeyChar) <> 8 Then
-            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+            If Asc(e.KeyChar) < 46 Or Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
                 e.Handled = True
             End If
         End If
@@ -2562,7 +2546,7 @@ Public Class frmSelTipoCobro
         '48 - 57  = Ascii NÚMEROS
 
         If Asc(e.KeyChar) <> 8 Then
-            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+            If Asc(e.KeyChar) < 46 Or Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
                 e.Handled = True
             End If
         End If
@@ -2574,7 +2558,7 @@ Public Class frmSelTipoCobro
         '48 - 57  = Ascii NÚMEROS
 
         If Asc(e.KeyChar) <> 8 Then
-            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+            If Asc(e.KeyChar) < 46 Or Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
                 e.Handled = True
             End If
         End If
@@ -2586,7 +2570,7 @@ Public Class frmSelTipoCobro
         '48 - 57  = Ascii NÚMEROS
 
         If Asc(e.KeyChar) <> 8 Then
-            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+            If Asc(e.KeyChar) < 46 Or Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
                 e.Handled = True
             End If
         End If
@@ -2598,7 +2582,7 @@ Public Class frmSelTipoCobro
         '48 - 57  = Ascii NÚMEROS
 
         If Asc(e.KeyChar) <> 8 Then
-            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+            If Asc(e.KeyChar) < 46 Or Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
                 e.Handled = True
             End If
         End If
@@ -2610,7 +2594,7 @@ Public Class frmSelTipoCobro
         '48 - 57  = Ascii NÚMEROS
 
         If Asc(e.KeyChar) <> 8 Then
-            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+            If Asc(e.KeyChar) < 46 Or Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
                 e.Handled = True
             End If
         End If
@@ -2622,7 +2606,7 @@ Public Class frmSelTipoCobro
         '48 - 57  = Ascii NÚMEROS
 
         If Asc(e.KeyChar) <> 8 Then
-            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+            If Asc(e.KeyChar) < 46 Or Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
                 e.Handled = True
             End If
         End If
@@ -2634,7 +2618,7 @@ Public Class frmSelTipoCobro
         '48 - 57  = Ascii NÚMEROS
 
         If Asc(e.KeyChar) <> 8 Then
-            If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+            If Asc(e.KeyChar) < 46 Or Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
                 e.Handled = True
             End If
         End If
@@ -2642,27 +2626,16 @@ Public Class frmSelTipoCobro
 
     Private Sub dgvSaldoAnticipo_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSaldoAnticipo.CellContentClick
 
-    ' get selected DataGridView row index
-    Dim selectedRowIndex As Integer
-
-    selectedRowIndex = e.RowIndex
-
-    Dim row As New DataGridViewRow()
-
-    row = dgvSaldoAnticipo.Rows(selectedRowIndex)
-
-    ' get the data from the row
-    Dim id As String
-    id = row.Cells(0).Value.ToString()
-
-    Dim fn As String
-    fn = row.Cells(1).Value.ToString()
-
-    Dim ln As String
-    ln = row.Cells(2).Value.ToString()
-
-
-End Sub
+        Dim Año, Folio, Saldo As String
+        Dim Col As Integer = Me.dgvSaldoAnticipo.CurrentCell.ColumnIndex
+        For Each fila As DataGridViewRow In Me.dgvSaldoAnticipo.Rows
+            If fila.Selected Then
+                Año = Convert.ToString(fila.Cells(0).Value)
+                Folio = Convert.ToString(fila.Cells(1).Value)
+                Saldo = Convert.ToString(fila.Cells(2).Value)
+            End If
+        Next
+    End Sub
 End Class
 
 Public Class DebitoAnticipo
