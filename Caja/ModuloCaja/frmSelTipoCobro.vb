@@ -7,6 +7,7 @@ Imports System.Data.SqlClient
 Public Class frmSelTipoCobro
     Inherits System.Windows.Forms.Form
     Private Titulo As String = "Captura de cobranza"
+    Private _ListaDebitoAnticipos As New List(Of DebitoAnticipo)
     Private Consecutivo As Integer
     Public Cobro As SigaMetClasses.sCobro
     Public ImporteTotalCobro As Decimal = 0
@@ -73,7 +74,6 @@ Public Class frmSelTipoCobro
     Friend WithEvents BtnBuscarClienteVales As Button
     Friend WithEvents LabelBase12 As ControlesBase.LabelBase
     Friend WithEvents GroupBox5 As GroupBox
-    Friend WithEvents TxtSaldoAnticipo As SigaMetClasses.Controles.txtNumeroDecimal
     Friend WithEvents LabelBase32 As ControlesBase.LabelBase
     Friend WithEvents TextObservacionesAnticipo As TextBox
     Friend WithEvents TxtMontoAnticipo As SigaMetClasses.Controles.txtNumeroDecimal
@@ -99,6 +99,7 @@ Public Class frmSelTipoCobro
 
     Private _MostrarDacion As Boolean
     Friend WithEvents btn_AnticipoAceptar As ControlesBase.BotonBase
+    Friend WithEvents dgvSaldoAnticipo As DataGridView
 
     Public Property MostrarDacion() As Boolean
         Get
@@ -110,12 +111,30 @@ Public Class frmSelTipoCobro
     End Property
 
     Private _listaCobros As New List(Of SigaMetClasses.CobroDetalladoDatos)
+    Friend WithEvents Saldo As DataGridViewTextBoxColumn
+
+    Friend WithEvents MontoSaldo As DataGridViewTextBoxColumn
+
+    Friend WithEvents año As DataGridViewTextBoxColumn
+
+    Friend WithEvents folio As DataGridViewTextBoxColumn
+
     Public Property Cobros() As List(Of SigaMetClasses.CobroDetalladoDatos)
         Get
             Return _listaCobros
         End Get
         Set(ByVal value As List(Of SigaMetClasses.CobroDetalladoDatos))
             _listaCobros = value
+        End Set
+    End Property
+
+    Private _DebitoAnticipos As List(Of DebitoAnticipo)
+    Public Property DebitoAnticipos() As List(Of DebitoAnticipo)
+        Get
+            Return _DebitoAnticipos
+        End Get
+        Set(ByVal value As List(Of DebitoAnticipo))
+            _DebitoAnticipos = value
         End Set
     End Property
 
@@ -295,7 +314,11 @@ Public Class frmSelTipoCobro
         Me.tbAplicAnticipo = New System.Windows.Forms.TabPage()
         Me.btn_AnticipoAceptar = New ControlesBase.BotonBase()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.TxtSaldoAnticipo = New SigaMetClasses.Controles.txtNumeroDecimal()
+        Me.dgvSaldoAnticipo = New System.Windows.Forms.DataGridView()
+        Me.Saldo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MontoSaldo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.año = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.folio = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LabelBase32 = New ControlesBase.LabelBase()
         Me.TextObservacionesAnticipo = New System.Windows.Forms.TextBox()
         Me.TxtMontoAnticipo = New SigaMetClasses.Controles.txtNumeroDecimal()
@@ -336,6 +359,7 @@ Public Class frmSelTipoCobro
         Me.GroupBox2.SuspendLayout()
         Me.tbAplicAnticipo.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
+        CType(Me.dgvSaldoAnticipo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tbDacionPagos.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.SuspendLayout()
@@ -418,7 +442,7 @@ Public Class frmSelTipoCobro
         Me.tbValesDespensa.ImageIndex = 0
         Me.tbValesDespensa.Location = New System.Drawing.Point(4, 4)
         Me.tbValesDespensa.Name = "tbValesDespensa"
-        Me.tbValesDespensa.Size = New System.Drawing.Size(603, 325)
+        Me.tbValesDespensa.Size = New System.Drawing.Size(603, 307)
         Me.tbValesDespensa.TabIndex = 3
         Me.tbValesDespensa.Text = "Vales Despensa"
         '
@@ -1202,7 +1226,7 @@ Public Class frmSelTipoCobro
         '
         'GroupBox5
         '
-        Me.GroupBox5.Controls.Add(Me.TxtSaldoAnticipo)
+        Me.GroupBox5.Controls.Add(Me.dgvSaldoAnticipo)
         Me.GroupBox5.Controls.Add(Me.LabelBase32)
         Me.GroupBox5.Controls.Add(Me.TextObservacionesAnticipo)
         Me.GroupBox5.Controls.Add(Me.TxtMontoAnticipo)
@@ -1215,18 +1239,47 @@ Public Class frmSelTipoCobro
         Me.GroupBox5.Controls.Add(Me.BotonBuscarClienteApAnticipo)
         Me.GroupBox5.Location = New System.Drawing.Point(56, 32)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(333, 287)
+        Me.GroupBox5.Size = New System.Drawing.Size(423, 287)
         Me.GroupBox5.TabIndex = 32
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Datos de los vales de Despensa"
         '
-        'TxtSaldoAnticipo
+        'dgvSaldoAnticipo
         '
-        Me.TxtSaldoAnticipo.Location = New System.Drawing.Point(121, 103)
-        Me.TxtSaldoAnticipo.Multiline = True
-        Me.TxtSaldoAnticipo.Name = "TxtSaldoAnticipo"
-        Me.TxtSaldoAnticipo.Size = New System.Drawing.Size(192, 114)
-        Me.TxtSaldoAnticipo.TabIndex = 54
+        Me.dgvSaldoAnticipo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvSaldoAnticipo.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Saldo, Me.MontoSaldo, Me.año, Me.folio})
+        Me.dgvSaldoAnticipo.DataMember = "añomovimiento"
+        Me.dgvSaldoAnticipo.Location = New System.Drawing.Point(104, 91)
+        Me.dgvSaldoAnticipo.Name = "dgvSaldoAnticipo"
+        Me.dgvSaldoAnticipo.Size = New System.Drawing.Size(313, 126)
+        Me.dgvSaldoAnticipo.TabIndex = 54
+        '
+        'Saldo
+        '
+        Me.Saldo.DataPropertyName = "Saldo"
+        Me.Saldo.HeaderText = "Saldo"
+        Me.Saldo.Name = "Saldo"
+        Me.Saldo.ReadOnly = True
+        '
+        'MontoSaldo
+        '
+        Me.MontoSaldo.DataPropertyName = "MontoSaldo"
+        Me.MontoSaldo.HeaderText = "MontoSaldo"
+        Me.MontoSaldo.Name = "MontoSaldo"
+        Me.MontoSaldo.ReadOnly = True
+        Me.MontoSaldo.Visible = False
+        '
+        'año
+        '
+        Me.año.HeaderText = "año"
+        Me.año.Name = "año"
+        Me.año.Visible = False
+        '
+        'folio
+        '
+        Me.folio.HeaderText = "folio"
+        Me.folio.Name = "folio"
+        Me.folio.Visible = False
         '
         'LabelBase32
         '
@@ -1239,17 +1292,17 @@ Public Class frmSelTipoCobro
         '
         'TextObservacionesAnticipo
         '
-        Me.TextObservacionesAnticipo.Location = New System.Drawing.Point(121, 250)
+        Me.TextObservacionesAnticipo.Location = New System.Drawing.Point(104, 250)
         Me.TextObservacionesAnticipo.Multiline = True
         Me.TextObservacionesAnticipo.Name = "TextObservacionesAnticipo"
-        Me.TextObservacionesAnticipo.Size = New System.Drawing.Size(192, 21)
+        Me.TextObservacionesAnticipo.Size = New System.Drawing.Size(313, 21)
         Me.TextObservacionesAnticipo.TabIndex = 52
         '
         'TxtMontoAnticipo
         '
-        Me.TxtMontoAnticipo.Location = New System.Drawing.Point(121, 223)
+        Me.TxtMontoAnticipo.Location = New System.Drawing.Point(104, 223)
         Me.TxtMontoAnticipo.Name = "TxtMontoAnticipo"
-        Me.TxtMontoAnticipo.Size = New System.Drawing.Size(192, 21)
+        Me.TxtMontoAnticipo.Size = New System.Drawing.Size(154, 21)
         Me.TxtMontoAnticipo.TabIndex = 51
         '
         'LabelBase26
@@ -1292,7 +1345,7 @@ Public Class frmSelTipoCobro
         Me.LabelNombreApAntic.Enabled = False
         Me.LabelNombreApAntic.Location = New System.Drawing.Point(104, 56)
         Me.LabelNombreApAntic.Name = "LabelNombreApAntic"
-        Me.LabelNombreApAntic.Size = New System.Drawing.Size(208, 32)
+        Me.LabelNombreApAntic.Size = New System.Drawing.Size(313, 32)
         Me.LabelNombreApAntic.TabIndex = 41
         Me.LabelNombreApAntic.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
@@ -1308,7 +1361,7 @@ Public Class frmSelTipoCobro
         'BotonBuscarClienteApAnticipo
         '
         Me.BotonBuscarClienteApAnticipo.Image = CType(resources.GetObject("BotonBuscarClienteApAnticipo.Image"), System.Drawing.Image)
-        Me.BotonBuscarClienteApAnticipo.Location = New System.Drawing.Point(264, 32)
+        Me.BotonBuscarClienteApAnticipo.Location = New System.Drawing.Point(273, 32)
         Me.BotonBuscarClienteApAnticipo.Name = "BotonBuscarClienteApAnticipo"
         Me.BotonBuscarClienteApAnticipo.Size = New System.Drawing.Size(48, 21)
         Me.BotonBuscarClienteApAnticipo.TabIndex = 1
@@ -1506,6 +1559,7 @@ Public Class frmSelTipoCobro
         Me.tbAplicAnticipo.ResumeLayout(False)
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
+        CType(Me.dgvSaldoAnticipo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tbDacionPagos.ResumeLayout(False)
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
@@ -2189,12 +2243,14 @@ Public Class frmSelTipoCobro
         If dt.Rows.Count = 0 Then
             MessageBox.Show(" El Cliente " + Cliente.ToString() + " no dispone de anticipos.")
         Else
-            For Each row As DataRow In dt.Rows
-                TextoSaldo = TextoSaldo + row.Item("Saldo").ToString() + Environment.NewLine
-            Next row
 
-            TxtSaldoAnticipo.Text = TextoSaldo
-            '  TxtSaldoAnticipo.DataBindings.Add("Text", dt, "Saldo")
+            dgvSaldoAnticipo.DataSource = dt
+            'For Each row As DataRow In dt.Rows
+            '    TextoSaldo = TextoSaldo + row.Item("Saldo").ToString() + Environment.NewLine
+            'Next row
+
+            'TxtSaldoAnticipo.Text = TextoSaldo
+            ''  TxtSaldoAnticipo.DataBindings.Add("Text", dt, "Saldo")
 
         End If
 
@@ -2328,15 +2384,63 @@ Public Class frmSelTipoCobro
         _listaCobros.Add(insertaCobro)
     End Sub
 
+
     Private Sub btn_AnticipoAceptar_Click(sender As Object, e As EventArgs) Handles btn_AnticipoAceptar.Click
-        If TxtSaldoAnticipo.Text <> "" And TxtMontoAnticipo.Text <> "" Then
-            AltaAnticipo()
-            Remisiones()
-            LimpiarAnticipo()
-            DialogResult = DialogResult.OK
+
+        Dim visibleSelectedRowCount As Boolean = False
+        Dim Saldo As Decimal
+        Dim anio As String = ""
+        Dim folio As String = ""
+
+        For Each row As DataGridViewRow In dgvSaldoAnticipo.Rows
+            If visibleSelectedRowCount = False Then
+                ''   Saldo = Convert.ToDecimal(row.Cells(1).Value.ToString())
+                Dim dtr As New DataTable
+
+                Dim dr As DataRow = dtr.NewRow()
+
+                For i As Integer = 1 To row.Cells.Count
+                    '' dr.Item(i) = row.Cells(i).Value
+                Next
+
+                '' anio = row.Cells(2).Value.ToString()
+                '' folio = row.Cells(3).Value.ToString()
+            End If
+        Next row
+
+        If visibleSelectedRowCount = True And TxtMontoAnticipo.Text <> "" Then
+
+            If Saldo >= Convert.ToDecimal(TxtMontoAnticipo.Text) Then
+
+                AltaAnticipo()
+
+                Dim listaDebito As New List(Of DebitoAnticipo)
+                Dim nuevodebitoanticipo As New DebitoAnticipo
+                nuevodebitoanticipo.folio = folio
+                nuevodebitoanticipo.anio = anio
+                nuevodebitoanticipo.montodebitado = Convert.ToDecimal(TxtMontoAnticipo.Text)
+                listaDebito.Add(nuevodebitoanticipo)
+                _ListaDebitoAnticipos.Add(nuevodebitoanticipo)
+                Remisiones()
+                LimpiarAnticipo()
+                DialogResult = DialogResult.OK
+
+            End If
+
+
         Else
-            MessageBox.Show("Falta agregar saldo y monto")
+            If Saldo < Convert.ToDecimal(TxtMontoAnticipo.Text) Then
+                MessageBox.Show("El monto a debitar debe ser menor que el saldo.Verifique.")
+            End If
+
+            If visibleSelectedRowCount = False Or TxtMontoAnticipo.Text = "" Then
+                MessageBox.Show("Debe seleccionar un saldo y escribir el monto.Verifique.")
+            End If
+
         End If
+
+
+
     End Sub
 
     Public Sub LimpiarVales()
@@ -2353,7 +2457,7 @@ Public Class frmSelTipoCobro
     Public Sub LimpiarAnticipo()
         TxtClienteAplicAntic.Clear()
         LabelNombreApAntic.Text = ""
-        TxtSaldoAnticipo.Clear()
+        dgvSaldoAnticipo.DataSource = Nothing
         TxtMontoAnticipo.Clear()
         TextObservacionesAnticipo.Clear()
 
@@ -2378,6 +2482,7 @@ Public Class frmSelTipoCobro
     Private Sub BotonBase3_Click(sender As Object, e As EventArgs) Handles BotonBase3.Click
         DialogResult = DialogResult.OK
     End Sub
+
 
     Private Sub TxtNumeroDecimal1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtNumeroDecimal1.KeyPress
         '97 - 122 = Ascii MINÚSCULAS
@@ -2534,4 +2639,65 @@ Public Class frmSelTipoCobro
             End If
         End If
     End Sub
+
+    Private Sub dgvSaldoAnticipo_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSaldoAnticipo.CellContentClick
+
+    ' get selected DataGridView row index
+    Dim selectedRowIndex As Integer
+
+    selectedRowIndex = e.RowIndex
+
+    Dim row As New DataGridViewRow()
+
+    row = dgvSaldoAnticipo.Rows(selectedRowIndex)
+
+    ' get the data from the row
+    Dim id As String
+    id = row.Cells(0).Value.ToString()
+
+    Dim fn As String
+    fn = row.Cells(1).Value.ToString()
+
+    Dim ln As String
+    ln = row.Cells(2).Value.ToString()
+
+
+End Sub
 End Class
+
+Public Class DebitoAnticipo
+    Public _anio As String
+    Public _folio As String
+    Public _montodebitado As Decimal
+
+    Property anio() As String
+        Get
+            Return _anio
+        End Get
+        Set(ByVal Value As String)
+            _anio = Value
+        End Set
+    End Property
+
+    Property folio() As String
+        Get
+            Return _folio
+        End Get
+        Set(ByVal Value As String)
+            _folio = Value
+        End Set
+    End Property
+
+    Property montodebitado() As Decimal
+        Get
+            Return _montodebitado
+        End Get
+        Set(ByVal Value As Decimal)
+            _montodebitado = Value
+        End Set
+    End Property
+
+
+End Class
+
+
