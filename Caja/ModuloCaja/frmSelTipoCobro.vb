@@ -2,12 +2,14 @@ Option Strict On
 Option Explicit On
 Imports System.Collections.Generic
 Imports System.Data.SqlClient
+Imports System.Linq
+
 
 
 Public Class frmSelTipoCobro
     Inherits System.Windows.Forms.Form
     Private Titulo As String = "Captura de cobranza"
-    Private _ListaDebitoAnticipos As New List(Of DebitoAnticipo)
+
     Private Consecutivo As Integer
     Public Cobro As SigaMetClasses.sCobro
     Public ImporteTotalCobro As Decimal = 0
@@ -126,13 +128,13 @@ Public Class frmSelTipoCobro
         End Set
     End Property
 
-    Private _DebitoAnticipos As List(Of DebitoAnticipo)
+    Private _ListaDebitoAnticipos As New List(Of DebitoAnticipo)
     Public Property DebitoAnticipos() As List(Of DebitoAnticipo)
         Get
-            Return _DebitoAnticipos
+            Return _ListaDebitoAnticipos
         End Get
         Set(ByVal value As List(Of DebitoAnticipo))
-            _DebitoAnticipos = value
+            _ListaDebitoAnticipos = value
         End Set
     End Property
 
@@ -2225,6 +2227,12 @@ Public Class frmSelTipoCobro
         End If
 
         BuscarAnticipos(CType(TxtClienteAplicAntic.Text, Integer), "0", 0, 0)
+
+
+
+        'Dim oResult As List(Of DebitoAnticipo) = _ListaDebitoAnticipos.GroupBy(Function(v) New With {v.anio, v.folio}).ToList(Of DebitoAnticipo)
+
+
 
 
     End Sub
