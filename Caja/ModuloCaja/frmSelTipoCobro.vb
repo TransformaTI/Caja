@@ -1913,7 +1913,7 @@ Public Class frmSelTipoCobro
             .NumeroCuenta = "NULL"
             .Observaciones = "NULL"
             .FDevolucion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
-            .RazonDevCheque = "01"
+            .RazonDevCheque = Nothing
             .Cliente = 0
             .Saldo = 10
             .Usuario = GLOBAL_IDUsuario
@@ -1949,7 +1949,7 @@ Public Class frmSelTipoCobro
             .NumeroCuenta = txtNumeroCuenta.Text
             .Observaciones = txtObservaciones.Text
             .Cliente = CInt(txtClienteCheque.Text)
-            .RazonDevCheque = "27"
+            .RazonDevCheque = Nothing
             .Usuario = GLOBAL_IDUsuario
             .Impuesto = 10
             .Importe = CDec(txtImporteDocumento.Text)
@@ -2024,7 +2024,7 @@ Public Class frmSelTipoCobro
             .Referencia = "NULL" ' puede ser vacio
             .NumeroCheque = "NULL" ' puede ser vacio
             .FDevolucion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
-            .RazonDevCheque = "01"
+            .RazonDevCheque = Nothing
             .Saldo = 10
             .FActualizacion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
             .Folio = 0
@@ -2090,7 +2090,7 @@ Public Class frmSelTipoCobro
             .Referencia = "NULL" ' puede ser vacio
             .NumeroCheque = "NULL" ' puede ser vacio
             .FDevolucion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
-            .RazonDevCheque = "01"
+            .RazonDevCheque = Nothing
             .Saldo = 10
             .FActualizacion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
             .Folio = 0
@@ -2292,7 +2292,7 @@ Public Class frmSelTipoCobro
             .Referencia = "NULL" ' puede ser vacio
             .NumeroCheque = "NULL" ' puede ser vacio
             .FDevolucion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
-            .RazonDevCheque = "01"
+            .RazonDevCheque = Nothing
             .Saldo = 10
             .FActualizacion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
             .Folio = 0
@@ -2341,7 +2341,7 @@ Public Class frmSelTipoCobro
             .Referencia = "NULL" ' puede ser vacio
             .NumeroCheque = "NULL" ' puede ser vacio
             .FDevolucion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
-            .RazonDevCheque = "01"
+            .RazonDevCheque = Nothing
             .Saldo = 0
             .FActualizacion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
             .Folio = 0
