@@ -2278,6 +2278,7 @@ Public Class frmSelTipoCobro
             LabelNombreApAntic.Text = oCliente.Nombre
             oCliente = Nothing
         End If
+        BuscarAnticipos(CType(TxtClienteAplicAntic.Text, Integer), "0", 0, 0)
     End Sub
 
     Public Sub Remisiones()
