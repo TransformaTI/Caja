@@ -1,4 +1,14 @@
 ﻿Public Class frmRemisiones
+    Private _Total As Decimal
+
+    Public Sub New(Total As Decimal)
+
+        ' This call is required by the designer.
+        InitializeComponent()
+        _Total = Total
+        ' Add any initialization after the InitializeComponent() call.
+
+    End Sub
     Private i As Integer
 
     Private Sub frmRemisiones_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -30,7 +40,8 @@
             'grdRemision.Columns(9).HeaderText = "Forma Pago"
             'grdRemision.Columns(9).Width = 150
             grdRemision.DataSource = DetalleGrid
-
+            lbl_Total.Text = "$" + _Total.ToString
+            lbl_saldo.Text = "$" + _Total.ToString
         Catch ex As Exception
             MessageBox.Show(ex.Message + "Error al cargar los datos")
         End Try
@@ -71,6 +82,19 @@
                 table.Rows.Add(row)
                 ' Set to DataGrid.DataSource property to the table.
                 grdAbonos.DataSource = table
+
+                i = grdRemision.CurrentRowIndex
+                lbl_saldo.Text = CType(_Total - CType(Val(grdRemision.Item(i, 7)), Decimal), String)
+                '  lbl_Total.Text = "$" + CType(Val(grdRemision.Item(i, 6)), String)
+                lbl_importeDocumento.Text = "$" + CType(Val(grdRemision.Item(i, 6)), String)
+                lblSaloMovimiento.Text = "$" + CType(Val(grdRemision.Item(i, 7)), String)
+                If _Total > CDec(grdRemision.Item(i, 7)) Then
+                    lblImporteAbobo.Text = "$" + CType((grdRemision.Item(i, 7)), String)
+                ElseIf _Total < CDec(grdRemision.Item(i, 7)) Then
+
+                    lblImporteAbobo.Text = "$" + CType(CDec(grdRemision.Item(i, 7)) - _Total, String)
+                End If
+
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
@@ -85,9 +109,8 @@
     End Sub
 
     Private Sub grdRemision_MouseClick(sender As Object, e As MouseEventArgs) Handles grdRemision.MouseClick
-        i = grdRemision.CurrentRowIndex
-        lbl_saldo.Text = "$" + CType(Val(grdRemision.Item(i, 7)), String)
-        lbl_Total.Text = "$" + CType(Val(grdRemision.Item(i, 6)), String)
+
+
     End Sub
 
     Private Sub btn_cancelar_Click(sender As Object, e As EventArgs) Handles btn_cancelar.Click

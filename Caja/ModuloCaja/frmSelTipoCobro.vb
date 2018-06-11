@@ -18,7 +18,7 @@ Public Class frmSelTipoCobro
     Friend WithEvents tbAplicAnticipo As TabPage
     Friend WithEvents tbEfectivo As TabPage
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents TxtNumeroDecimal1 As SigaMetClasses.Controles.txtNumeroDecimal
+    Friend WithEvents TxtimportetotalEfectivo As SigaMetClasses.Controles.txtNumeroDecimal
     Friend WithEvents LabelBase8 As ControlesBase.LabelBase
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents LabelBase11 As ControlesBase.LabelBase
@@ -215,7 +215,7 @@ Public Class frmSelTipoCobro
         Me.tbEfectivo = New System.Windows.Forms.TabPage()
         Me.BotonBase1 = New ControlesBase.BotonBase()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.TxtNumeroDecimal1 = New SigaMetClasses.Controles.txtNumeroDecimal()
+        Me.TxtimportetotalEfectivo = New SigaMetClasses.Controles.txtNumeroDecimal()
         Me.LabelBase8 = New ControlesBase.LabelBase()
         Me.tbValesDespensa = New System.Windows.Forms.TabPage()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
@@ -391,7 +391,7 @@ Public Class frmSelTipoCobro
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.TxtNumeroDecimal1)
+        Me.GroupBox1.Controls.Add(Me.TxtimportetotalEfectivo)
         Me.GroupBox1.Controls.Add(Me.LabelBase8)
         Me.GroupBox1.Location = New System.Drawing.Point(62, 139)
         Me.GroupBox1.Name = "GroupBox1"
@@ -400,12 +400,12 @@ Public Class frmSelTipoCobro
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos del efectivo o vales de despensa"
         '
-        'TxtNumeroDecimal1
+        'TxtimportetotalEfectivo
         '
-        Me.TxtNumeroDecimal1.Location = New System.Drawing.Point(146, 16)
-        Me.TxtNumeroDecimal1.Name = "TxtNumeroDecimal1"
-        Me.TxtNumeroDecimal1.Size = New System.Drawing.Size(120, 21)
-        Me.TxtNumeroDecimal1.TabIndex = 0
+        Me.TxtimportetotalEfectivo.Location = New System.Drawing.Point(146, 16)
+        Me.TxtimportetotalEfectivo.Name = "TxtimportetotalEfectivo"
+        Me.TxtimportetotalEfectivo.Size = New System.Drawing.Size(120, 21)
+        Me.TxtimportetotalEfectivo.TabIndex = 0
         '
         'LabelBase8
         '
@@ -1210,7 +1210,7 @@ Public Class frmSelTipoCobro
         Me.tbAplicAnticipo.Location = New System.Drawing.Point(4, 4)
         Me.tbAplicAnticipo.Name = "tbAplicAnticipo"
         Me.tbAplicAnticipo.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbAplicAnticipo.Size = New System.Drawing.Size(603, 325)
+        Me.tbAplicAnticipo.Size = New System.Drawing.Size(603, 307)
         Me.tbAplicAnticipo.TabIndex = 5
         Me.tbAplicAnticipo.Text = "Aplicación Anticipo"
         '
@@ -1860,11 +1860,10 @@ Public Class frmSelTipoCobro
     End Sub
 
     Private Sub BotonBase1_Click(sender As Object, e As EventArgs) Handles BotonBase1.Click
-        If TxtNumeroDecimal1.Text <> "" Then
+        If TxtimportetotalEfectivo.Text <> "" Then
             AltaPagoEfectivo()
-            TxtNumeroDecimal1.Clear()
             Remisiones()
-
+            TxtimportetotalEfectivo.Clear()
         End If
     End Sub
 
@@ -1913,21 +1912,21 @@ Public Class frmSelTipoCobro
             .AñoCobro = CShort(DateTime.Now.Year)
             .Cobro = 7
             .Impuesto = 10
-            .Importe = CDec(TxtNumeroDecimal1.Text)
+            .Importe = CDec(TxtimportetotalEfectivo.Text)
             .Total = 200 + .Impuesto
 
 
 
-            If .Total < .Importe Then
-                If MessageBox.Show("Se generará un saldo a favor ¿está de acuerdo?", "Captura cobros",
-                        MessageBoxButtons.YesNo, MessageBoxIcon.Question) _
-                        = DialogResult.Yes Then
-                    .SaldoAFavor = True
-                Else
-                    MessageBox.Show("Pago efectivo ¡cancelado!")
-                    Exit Sub
-                End If
-            End If
+            'If .Total < .Importe Then
+            '    If MessageBox.Show("Se generará un saldo a favor ¿está de acuerdo?", "Captura cobros",
+            '            MessageBoxButtons.YesNo, MessageBoxIcon.Question) _
+            '            = DialogResult.Yes Then
+            '        .SaldoAFavor = True
+            '    Else
+            '        MessageBox.Show("Pago efectivo ¡cancelado!")
+            '        Exit Sub
+            '    End If
+            'End If
 
 
             .Referencia = "NULL" ' puede ser vacio
@@ -1962,7 +1961,7 @@ Public Class frmSelTipoCobro
             '                .AñoCobroOrigen, .CobroOrigen, .TPV)
         End With
         _listaCobros.Add(insertaCobro)
-        MessageBox.Show("Pago efectivo ¡exitoso!")
+
     End Sub
 
     Public Sub AltaCheque()
@@ -2028,7 +2027,7 @@ Public Class frmSelTipoCobro
         '                    Folio, FDeposito, FolioAtt, AñoAtt, NumeroCuentaDestino, BancoOrigen, SaldoAFavor, StatusSaldoAFavor,
         '                    AñoCobroOrigen, CobroOrigen, TPV)
         MessageBox.Show("Pago cheque ¡exitoso!")
-        TxtNumeroDecimal1.Clear()
+        TxtimportetotalEfectivo.Clear()
     End Sub
 
     Public Sub AltaTransferencia()
@@ -2097,7 +2096,7 @@ Public Class frmSelTipoCobro
         '                    Folio, FDeposito, FolioAtt, AñoAtt, NumeroCuentaDestino, BancoOrigen, SaldoAFavor, StatusSaldoAFavor,
         '                    AñoCobroOrigen, CobroOrigen, TPV)
         MessageBox.Show("Pago Transferencia ¡exitoso!")
-        TxtNumeroDecimal1.Clear()
+        TxtimportetotalEfectivo.Clear()
     End Sub
 
     Private Sub BotonBase2_Click(sender As Object, e As EventArgs) Handles BotonBase2.Click
@@ -2297,7 +2296,8 @@ Public Class frmSelTipoCobro
     End Sub
 
     Public Sub Remisiones()
-        Dim frmRemisiones As New frmRemisiones
+        Dim Total As Decimal = CDec(TxtimportetotalEfectivo.Text)
+        Dim frmRemisiones As New frmRemisiones(Total)
         If frmRemisiones.ShowDialog() = DialogResult.OK Then
             Cursor = Cursors.WaitCursor
             Cursor = Cursors.Default
