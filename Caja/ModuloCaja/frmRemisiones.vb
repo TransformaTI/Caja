@@ -5,6 +5,13 @@
     Private _TablaRemisiones As DataTable
     Private _FilaSaldo As Integer
     Public AceptarAbono As Boolean
+
+    Public ReadOnly Property ObtenerRemisiones() As DataTable
+        Get
+            Return _TablaRemisiones
+        End Get
+    End Property
+
     Public Sub New(Total As Decimal)
 
         ' This call is required by the designer.
@@ -38,14 +45,17 @@
 
     Private Sub btn_Aceptar_Click(sender As Object, e As EventArgs) Handles btn_Aceptar.Click
         Dim SaldoAbonado As Decimal
-
         SaldoAbonado = CDec(grdRemision.Item(i, 7))
         If SaldoAbonado > 0 Then
             If _Saldo > 0 Then
-                MessageBox.Show(AceptarAbono.ToString)
                 Try
                     If grdRemision.VisibleRowCount > 0 Then
                         Dim table As New DataTable
+                        Dim fila As DataRow
+
+
+
+
 
                         ' Declare DataColumn and DataRow variables.
                         Dim column As DataColumn
@@ -72,7 +82,11 @@
                         row = table.NewRow
                         row("Serie") = grdRemision.Item(i, 0)
                         row("Remisión") = grdRemision.Item(i, 1)
-                        row("Importe abonado") = grdRemision.Item(i, 5)
+                        If _Saldo > CDec(grdRemision.Item(i, 7)) Then
+                            row("Importe abonado") = grdRemision.Item(i, 7)
+                        Else
+                            row("Importe abonado") = CDec(grdRemision.Item(i, 7)) - _Saldo
+                        End If
                         table.Rows.Add(row)
                         ' Set to DataGrid.DataSource property to the table.
                         grdAbonos.DataSource = table
@@ -97,7 +111,7 @@
                 MessageBox.Show("saldo insuficiente")
             End If
         Else
-            MessageBox.Show("Ya no se permite hacer un abono el saldo ya es de cero")
+            MessageBox.Show("Ya no se permite hacer un abono, el saldo ya es de cero")
         End If
     End Sub
 
@@ -148,29 +162,6 @@
     Function Valorcero() As String
         Valorcero = " $000.00"
     End Function
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs)
-
-        Dim fila As DataRow
-
-        fila = _TablaRemisiones.Rows(i)
-        fila("Saldo") = 0
-        grdRemision.DataSource = _TablaRemisiones
-
-    End Sub
-
-    Private Sub grdRemision_DoubleClick(sender As Object, e As EventArgs) Handles grdRemision.DoubleClick
-
-    End Sub
-
-    Private Sub grdRemision_Click(sender As Object, e As EventArgs) Handles grdRemision.Click
-
-    End Sub
-
-    Private Sub grdRemision_KeyPress(sender As Object, e As KeyPressEventArgs) Handles grdRemision.KeyPress
-
-    End Sub
-
     Private Sub grdRemision_CurrentCellChanged(sender As Object, e As EventArgs) Handles grdRemision.CurrentCellChanged
         i = grdRemision.CurrentRowIndex
     End Sub
