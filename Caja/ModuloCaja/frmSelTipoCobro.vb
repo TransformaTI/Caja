@@ -21,7 +21,7 @@ Public Class frmSelTipoCobro
     Friend WithEvents tbAplicAnticipo As TabPage
     Friend WithEvents tbEfectivo As TabPage
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents TxtNumeroDecimal1 As SigaMetClasses.Controles.txtNumeroDecimal
+    Friend WithEvents TxtImporteEfectivo As SigaMetClasses.Controles.txtNumeroDecimal
     Friend WithEvents LabelBase8 As ControlesBase.LabelBase
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents LabelBase11 As ControlesBase.LabelBase
@@ -232,7 +232,7 @@ Public Class frmSelTipoCobro
         Me.tbEfectivo = New System.Windows.Forms.TabPage()
         Me.BotonBase1 = New ControlesBase.BotonBase()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.TxtNumeroDecimal1 = New SigaMetClasses.Controles.txtNumeroDecimal()
+        Me.TxtImporteEfectivo = New SigaMetClasses.Controles.txtNumeroDecimal()
         Me.LabelBase8 = New ControlesBase.LabelBase()
         Me.tbValesDespensa = New System.Windows.Forms.TabPage()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
@@ -316,6 +316,9 @@ Public Class frmSelTipoCobro
         Me.btn_AnticipoAceptar = New ControlesBase.BotonBase()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.dgvSaldoAnticipo = New System.Windows.Forms.DataGridView()
+        Me.año = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.folio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MontoSaldo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LabelBase32 = New ControlesBase.LabelBase()
         Me.TextObservacionesAnticipo = New System.Windows.Forms.TextBox()
         Me.TxtMontoAnticipo = New SigaMetClasses.Controles.txtNumeroDecimal()
@@ -343,9 +346,6 @@ Public Class frmSelTipoCobro
         Me.TxtNombreDacioPago = New SigaMetClasses.Controles.txtNumeroDecimal()
         Me.LabelBase24 = New ControlesBase.LabelBase()
         Me.imgLista = New System.Windows.Forms.ImageList(Me.components)
-        Me.año = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.folio = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.MontoSaldo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tabTipoCobro.SuspendLayout()
         Me.tbEfectivo.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -409,7 +409,7 @@ Public Class frmSelTipoCobro
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.TxtNumeroDecimal1)
+        Me.GroupBox1.Controls.Add(Me.TxtImporteEfectivo)
         Me.GroupBox1.Controls.Add(Me.LabelBase8)
         Me.GroupBox1.Location = New System.Drawing.Point(62, 139)
         Me.GroupBox1.Name = "GroupBox1"
@@ -418,12 +418,12 @@ Public Class frmSelTipoCobro
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos del efectivo"
         '
-        'TxtNumeroDecimal1
+        'TxtImporteEfectivo
         '
-        Me.TxtNumeroDecimal1.Location = New System.Drawing.Point(146, 16)
-        Me.TxtNumeroDecimal1.Name = "TxtNumeroDecimal1"
-        Me.TxtNumeroDecimal1.Size = New System.Drawing.Size(120, 21)
-        Me.TxtNumeroDecimal1.TabIndex = 0
+        Me.TxtImporteEfectivo.Location = New System.Drawing.Point(146, 16)
+        Me.TxtImporteEfectivo.Name = "TxtImporteEfectivo"
+        Me.TxtImporteEfectivo.Size = New System.Drawing.Size(120, 21)
+        Me.TxtImporteEfectivo.TabIndex = 0
         '
         'LabelBase8
         '
@@ -1208,7 +1208,7 @@ Public Class frmSelTipoCobro
         Me.tbAplicAnticipo.Location = New System.Drawing.Point(4, 4)
         Me.tbAplicAnticipo.Name = "tbAplicAnticipo"
         Me.tbAplicAnticipo.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbAplicAnticipo.Size = New System.Drawing.Size(603, 325)
+        Me.tbAplicAnticipo.Size = New System.Drawing.Size(603, 307)
         Me.tbAplicAnticipo.TabIndex = 5
         Me.tbAplicAnticipo.Text = "Aplicación Anticipo"
         '
@@ -1256,6 +1256,27 @@ Public Class frmSelTipoCobro
         Me.dgvSaldoAnticipo.ReadOnly = True
         Me.dgvSaldoAnticipo.Size = New System.Drawing.Size(313, 126)
         Me.dgvSaldoAnticipo.TabIndex = 54
+        '
+        'año
+        '
+        Me.año.DataPropertyName = "AñoMovimiento"
+        Me.año.HeaderText = "Año"
+        Me.año.Name = "año"
+        Me.año.ReadOnly = True
+        '
+        'folio
+        '
+        Me.folio.DataPropertyName = "FolioMovimiento"
+        Me.folio.HeaderText = "Folio"
+        Me.folio.Name = "folio"
+        Me.folio.ReadOnly = True
+        '
+        'MontoSaldo
+        '
+        Me.MontoSaldo.DataPropertyName = "MontoSaldo"
+        Me.MontoSaldo.HeaderText = "Saldo"
+        Me.MontoSaldo.Name = "MontoSaldo"
+        Me.MontoSaldo.ReadOnly = True
         '
         'LabelBase32
         '
@@ -1502,27 +1523,6 @@ Public Class frmSelTipoCobro
         Me.imgLista.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit
         Me.imgLista.ImageSize = New System.Drawing.Size(16, 16)
         Me.imgLista.TransparentColor = System.Drawing.Color.Transparent
-        '
-        'año
-        '
-        Me.año.DataPropertyName = "AñoMovimiento"
-        Me.año.HeaderText = "Año"
-        Me.año.Name = "año"
-        Me.año.ReadOnly = True
-        '
-        'folio
-        '
-        Me.folio.DataPropertyName = "FolioMovimiento"
-        Me.folio.HeaderText = "Folio"
-        Me.folio.Name = "folio"
-        Me.folio.ReadOnly = True
-        '
-        'MontoSaldo
-        '
-        Me.MontoSaldo.DataPropertyName = "MontoSaldo"
-        Me.MontoSaldo.HeaderText = "Saldo"
-        Me.MontoSaldo.Name = "MontoSaldo"
-        Me.MontoSaldo.ReadOnly = True
         '
         'frmSelTipoCobro
         '
@@ -1866,11 +1866,13 @@ Public Class frmSelTipoCobro
     End Sub
 
     Private Sub BotonBase1_Click(sender As Object, e As EventArgs) Handles BotonBase1.Click
-        If TxtNumeroDecimal1.Text.Trim <> "" Then
+        If TxtImporteEfectivo.Text.Trim <> "" Then
             AltaPagoEfectivo()
-            TxtNumeroDecimal1.Clear()
             Remisiones()
+            TxtImporteEfectivo.Clear()
             DialogResult = DialogResult.OK
+        Else
+            MessageBox.Show("Se necesita de el campo importe")
         End If
     End Sub
 
@@ -1910,21 +1912,8 @@ Public Class frmSelTipoCobro
             .AñoCobro = CShort(DateTime.Now.Year)
             .Cobro = 7
             .Impuesto = 10
-            .Importe = CDec(TxtNumeroDecimal1.Text)
+            .Importe = CDec(TxtImporteEfectivo.Text)
             .Total = 200 + .Impuesto
-
-            If .Total < .Importe Then
-                If MessageBox.Show("Se generará un saldo a favor ¿está de acuerdo?", "Captura cobros",
-                        MessageBoxButtons.YesNo, MessageBoxIcon.Question) _
-                        = DialogResult.Yes Then
-                    .SaldoAFavor = True
-                Else
-                    MessageBox.Show("Pago efectivo ¡cancelado!")
-                    Exit Sub
-                End If
-            End If
-
-
             .Referencia = "NULL" ' puede ser vacio
             .Banco = CShort("0") 'puede ser null
             .FAlta = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
@@ -1952,7 +1941,7 @@ Public Class frmSelTipoCobro
             .TPV = False
         End With
         _listaCobros.Add(insertaCobro)
-        MessageBox.Show("Pago con efectivo registrado")
+
     End Sub
 
     Public Sub AltaCheque()
@@ -2006,7 +1995,7 @@ Public Class frmSelTipoCobro
         _listaCobros.Add(insertaCobro)
 
         MessageBox.Show("Pago con cheque registrado")
-        TxtNumeroDecimal1.Clear()
+        TxtImporteEfectivo.Clear()
     End Sub
 
     Public Sub AltaTransferencia()
@@ -2063,7 +2052,7 @@ Public Class frmSelTipoCobro
         _listaCobros.Add(insertaCobro)
 
         MessageBox.Show("Pago por transferencia registrado")
-        TxtNumeroDecimal1.Clear()
+        TxtImporteEfectivo.Clear()
     End Sub
 
     Private Sub BotonBase2_Click(sender As Object, e As EventArgs) Handles BotonBase2.Click
@@ -2281,7 +2270,9 @@ Public Class frmSelTipoCobro
     End Sub
 
     Public Sub Remisiones()
-        Dim frmRemisiones As New frmRemisiones
+        Dim Total As Decimal
+        Total = CDec(TxtImporteEfectivo.Text)
+        Dim frmRemisiones As New frmRemisiones(Total)
         If frmRemisiones.ShowDialog() = DialogResult.OK Then
             Cursor = Cursors.WaitCursor
             Cursor = Cursors.Default
@@ -2476,7 +2467,7 @@ Public Class frmSelTipoCobro
     End Sub
 
 
-    Private Sub TxtNumeroDecimal1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtNumeroDecimal1.KeyPress
+    Private Sub TxtNumeroDecimal1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtImporteEfectivo.KeyPress
         '97 - 122 = Ascii MINÚSCULAS
         '65 - 90  = Ascii MAYÚSCULAS
         '48 - 57  = Ascii NÚMEROS
