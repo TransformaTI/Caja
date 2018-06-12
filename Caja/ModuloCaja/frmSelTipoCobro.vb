@@ -140,6 +140,16 @@ Public Class frmSelTipoCobro
         End Set
     End Property
 
+    Public Property ObtenerRemisiones() As DataTable
+        Get
+            Return _TablaRemisiones
+        End Get
+        Set(value As DataTable)
+            _TablaRemisiones = value
+        End Set
+
+    End Property
+
     Public Sub New(ByVal intConsecutivo As Integer,
           Optional ByVal CapturaDetalle As Boolean = True, Optional ByVal DetalleCobro As Integer = 0)
 
