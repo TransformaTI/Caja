@@ -89,6 +89,7 @@ Public Class frmSelTipoCobro
     Private DetalleCobro As SigaMetClasses.sCobro
     Private TipoCobroliquidacion As Integer
     Private _TablaRemisiones As DataTable
+    Private Total As Decimal
 
     Enum FormaPago
         Efectivo = 0
@@ -1600,9 +1601,11 @@ Public Class frmSelTipoCobro
         If CapturaEfectivoVales = False Then
             If TxtMontoVales.Text <> "" And IsNumeric(TxtMontoVales.Text) Then
                 If _CapturaDetalle = True Then
+                    Total = CDec(TxtMontoVales.Text)
                     AltaVales()
-                    LimpiarVales()
                     Remisiones()
+                    LimpiarVales()
+                    Total = 0
                 End If
                 DialogResult = DialogResult.OK
 
@@ -1620,9 +1623,11 @@ Public Class frmSelTipoCobro
                     Dim frmCaptura As New frmCapCobranzaDoc()
                     frmCaptura.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.TarjetaCredito
                     frmCaptura.ImporteCobro = CType(txtImporteTC.Text, Decimal)
+                    Total = CDec(txtImporteTC.Text)
                     AltaTarjeta()
-                    LimpiarTarjeta()
                     Remisiones()
+                    LimpiarTarjeta()
+                    Total = 0
                     DialogResult = DialogResult.OK
                 End If
             Else
@@ -1637,9 +1642,11 @@ Public Class frmSelTipoCobro
     Private Sub btnAceptarChequeFicha_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAceptarChequeFicha.Click
         If ValidaCapturaChequeFicha() Then
             If _CapturaDetalle = True Then
+                Total = CDec(txtImporteDocumento.Text)
                 AltaCheque()
-                LimpiarCheque()
                 Remisiones()
+                LimpiarCheque()
+                Total = 0
                 DialogResult = DialogResult.OK
             End If
         End If
@@ -1878,9 +1885,11 @@ Public Class frmSelTipoCobro
 
     Private Sub BotonBase1_Click(sender As Object, e As EventArgs) Handles BotonBase1.Click
         If TxtImporteEfectivo.Text.Trim <> "" Then
+            Total = CDec(TxtImporteEfectivo.Text)
             AltaPagoEfectivo()
             Remisiones()
             TxtImporteEfectivo.Clear()
+            Total = 0
             DialogResult = DialogResult.OK
         Else
             MessageBox.Show("Se necesita de el campo importe")
@@ -1978,16 +1987,6 @@ Public Class frmSelTipoCobro
             .Importe = CDec(txtImporteDocumento.Text)
             .Total = 100 + .Impuesto
             'datos hardcord
-            If .Total < .Importe Then
-                If MessageBox.Show("Se generará un saldo a favor ¿está de acuerdo?", "Captura cobros",
-                        MessageBoxButtons.YesNo, MessageBoxIcon.Question) _
-                        = DialogResult.Yes Then
-                    .SaldoAFavor = True
-                Else
-                    MessageBox.Show("Pago cheque ¡cancelado!")
-                    Exit Sub
-                End If
-            End If
             .Referencia = "NULL" ' puede ser vacio
             .FDevolucion = Date.MinValue
             .Saldo = 10
@@ -2006,8 +2005,6 @@ Public Class frmSelTipoCobro
         End With
         _listaCobros.Add(insertaCobro)
 
-        MessageBox.Show("Pago con cheque registrado")
-        TxtImporteEfectivo.Clear()
     End Sub
 
     Public Sub AltaTransferencia()
@@ -2033,17 +2030,6 @@ Public Class frmSelTipoCobro
             .Impuesto = 10
             .Total = 100 + .Impuesto
             .Importe = CDec(TxtImporteTransferencia.Text)
-            If .Total < .Importe Then
-                If MessageBox.Show("Se generará un saldo a favor ¿está de acuerdo?", "Captura cobros",
-                        MessageBoxButtons.YesNo, MessageBoxIcon.Question) _
-                        = DialogResult.Yes Then
-                    .SaldoAFavor = True
-                Else
-                    MessageBox.Show("Pago Transferencia ¡cancelado!")
-                    .SaldoAFavor = False
-                    Exit Sub
-                End If
-            End If
             .Referencia = "NULL" ' puede ser vacio
             .NumeroCheque = "NULL" ' puede ser vacio
             .FDevolucion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
@@ -2062,16 +2048,15 @@ Public Class frmSelTipoCobro
             .TPV = False
         End With
         _listaCobros.Add(insertaCobro)
-
-        MessageBox.Show("Pago por transferencia registrado")
-        TxtImporteEfectivo.Clear()
     End Sub
 
     Private Sub BotonBase2_Click(sender As Object, e As EventArgs) Handles BotonBase2.Click
         If TxtImporteTransferencia.Text <> "" And ComboBancoTransferencia.Text <> "" Then
+            Total = CDec(TxtImporteTransferencia.Text)
             AltaTransferencia()
-            LimpiarTransferencia()
             Remisiones()
+            LimpiarTransferencia()
+            Total = 0
             DialogResult = DialogResult.OK
         End If
 
@@ -2100,16 +2085,6 @@ Public Class frmSelTipoCobro
             .Impuesto = 10
             .Total = 100 + .Impuesto
             .Importe = CDec(txtImporteTC.Text)
-            If .Total < .Importe Then
-                If MessageBox.Show("Se generará un saldo a favor ¿está de acuerdo?", "Captura cobros",
-                        MessageBoxButtons.YesNo, MessageBoxIcon.Question) _
-                        = DialogResult.Yes Then
-                    .SaldoAFavor = True
-                Else
-                    MessageBox.Show("Pago tarjeta ¡cancelado!")
-                    Exit Sub
-                End If
-            End If
             .Referencia = "NULL" ' puede ser vacio
             .NumeroCheque = "NULL" ' puede ser vacio
             .FDevolucion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
@@ -2128,8 +2103,6 @@ Public Class frmSelTipoCobro
         End With
 
         _listaCobros.Add(insertaCobro)
-
-        MessageBox.Show("Pago con tarjeta registrado")
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
@@ -2188,8 +2161,6 @@ Public Class frmSelTipoCobro
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
     End Sub
-
-
 
     Private Sub BtnBuscarClienteVales_Click(sender As Object, e As EventArgs) Handles BtnBuscarClienteVales.Click
         Dim lParametro As New SigaMetClasses.cConfig(16, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario)
@@ -2282,13 +2253,9 @@ Public Class frmSelTipoCobro
     End Sub
 
     Public Sub Remisiones()
-        Dim Total As Decimal
-        Total = CDec(TxtImporteEfectivo.Text)
         Dim frmRemisiones As New frmRemisiones(Total)
         frmRemisiones.ObtenerRemisiones = _TablaRemisiones
         If frmRemisiones.ShowDialog() = DialogResult.OK Then
-
-
             Cursor = Cursors.WaitCursor
             Cursor = Cursors.Default
         Else
@@ -2319,16 +2286,6 @@ Public Class frmSelTipoCobro
             .Impuesto = 10
             .Total = 100 + .Impuesto
             .Importe = CDec(TxtMontoVales.Text)
-            If .Total < .Importe Then
-                If MessageBox.Show("Se generará un saldo a favor ¿está de acuerdo?", "Captura cobros",
-                        MessageBoxButtons.YesNo, MessageBoxIcon.Question) _
-                        = DialogResult.Yes Then
-                    .SaldoAFavor = True
-                Else
-                    MessageBox.Show("Pago tarjeta ¡cancelado!")
-                    Exit Sub
-                End If
-            End If
             .Referencia = "NULL" ' puede ser vacio
             .NumeroCheque = "NULL" ' puede ser vacio
             .FDevolucion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
@@ -2368,16 +2325,6 @@ Public Class frmSelTipoCobro
             .Impuesto = 10
             .Total = Convert.ToDecimal(TxtMontoAnticipo.Text.Trim) + .Impuesto
             .Importe = CDec(TxtMontoAnticipo.Text)
-            If .Total < .Importe Then
-                If MessageBox.Show("Se generará un saldo a favor ¿está de acuerdo?", "Captura cobros",
-                        MessageBoxButtons.YesNo, MessageBoxIcon.Question) _
-                        = DialogResult.Yes Then
-                    .SaldoAFavor = True
-                Else
-                    MessageBox.Show("Pago tarjeta ¡cancelado!")
-                    Exit Sub
-                End If
-            End If
             .Referencia = "NULL" ' puede ser vacio
             .NumeroCheque = "NULL" ' puede ser vacio
             .FDevolucion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
@@ -2399,7 +2346,6 @@ Public Class frmSelTipoCobro
 
 
     Private Sub btn_AnticipoAceptar_Click(sender As Object, e As EventArgs) Handles btn_AnticipoAceptar.Click
-
         Dim visibleSelectedRowCount As Boolean = False
         Dim Año As String = ""
         Dim Folio As String = ""
@@ -2419,7 +2365,7 @@ Public Class frmSelTipoCobro
             If Saldo >= Convert.ToDecimal(TxtMontoAnticipo.Text) Then
 
                 AltaAnticipo()
-
+                Total = CDec(TxtMontoAnticipo.Text)
                 Dim listaDebito As New List(Of DebitoAnticipo)
                 Dim nuevodebitoanticipo As New DebitoAnticipo
                 nuevodebitoanticipo.folio = Folio
@@ -2429,6 +2375,7 @@ Public Class frmSelTipoCobro
                 _ListaDebitoAnticipos.Add(nuevodebitoanticipo)
                 Remisiones()
                 LimpiarAnticipo()
+                Total = 0
                 DialogResult = DialogResult.OK
             Else
                 MessageBox.Show("El monto a debitar debe ser menor o igual que el saldo del anticipo elegido, verifique.", Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
