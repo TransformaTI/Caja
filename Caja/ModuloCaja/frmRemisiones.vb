@@ -6,10 +6,14 @@
     Private _FilaSaldo As Integer
     Public AceptarAbono As Boolean
 
-    Public ReadOnly Property ObtenerRemisiones() As DataTable
+    Public Property ObtenerRemisiones() As DataTable
         Get
             Return _TablaRemisiones
         End Get
+        Set(value As DataTable)
+            _TablaRemisiones = value
+        End Set
+
     End Property
 
     Public Sub New(Total As Decimal)
@@ -28,15 +32,9 @@
     Private Sub frmRemisiones_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'grdRemision.AutoGenerateColumns = False
         Try
-
-            Dim cargarRemisiones As New SigaMetClasses.LiquidacionPortatil
-            'DetalleGrid = cargarRemisiones.cargarRemisionesPortatilALiquidar(_Folio, _NDocumento)
-            _TablaRemisiones = cargarRemisiones.cargarRemisionesPortatilALiquidar(119151, 90632)
             grdRemision.DataSource = _TablaRemisiones
-
             lbl_Total.Text = "$" + CType(_Total, String)
             lbl_saldo.Text = "$" + CType(_Total, String)
-
         Catch ex As Exception
             MessageBox.Show(ex.Message + "Error al cargar los datos")
         End Try

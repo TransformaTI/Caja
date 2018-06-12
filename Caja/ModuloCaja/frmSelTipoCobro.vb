@@ -88,6 +88,7 @@ Public Class frmSelTipoCobro
     Friend WithEvents BotonBuscarClienteApAnticipo As Button
     Private DetalleCobro As SigaMetClasses.sCobro
     Private TipoCobroliquidacion As Integer
+    Private _TablaRemisiones As DataTable
 
     Enum FormaPago
         Efectivo = 0
@@ -110,6 +111,16 @@ Public Class frmSelTipoCobro
         Set(ByVal value As Boolean)
             _MostrarDacion = value
         End Set
+    End Property
+
+    Public Property ObtenerRemisiones() As DataTable
+        Get
+            Return _TablaRemisiones
+        End Get
+        Set(value As DataTable)
+            _TablaRemisiones = value
+        End Set
+
     End Property
 
     Private _listaCobros As New List(Of SigaMetClasses.CobroDetalladoDatos)
@@ -1874,6 +1885,7 @@ Public Class frmSelTipoCobro
         Else
             MessageBox.Show("Se necesita de el campo importe")
         End If
+
     End Sub
 
     Public Sub SeleccionarTipocobro()
@@ -2273,9 +2285,15 @@ Public Class frmSelTipoCobro
         Dim Total As Decimal
         Total = CDec(TxtImporteEfectivo.Text)
         Dim frmRemisiones As New frmRemisiones(Total)
+        frmRemisiones.ObtenerRemisiones = _TablaRemisiones
         If frmRemisiones.ShowDialog() = DialogResult.OK Then
+
+
             Cursor = Cursors.WaitCursor
             Cursor = Cursors.Default
+        Else
+            _TablaRemisiones = frmRemisiones.ObtenerRemisiones
+            Close()
         End If
     End Sub
 
