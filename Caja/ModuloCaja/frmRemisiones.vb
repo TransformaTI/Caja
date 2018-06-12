@@ -1,40 +1,36 @@
 ﻿Public Class frmRemisiones
     Private i As Integer
-    Private _Total As Decimal
-    Private _Saldo As Decimal
-    Private _TablaRemisiones As DataTable
-    Private _FilaSaldo As Integer
-    Public AceptarAbono As Boolean
-
-    Public Property ObtenerRemisiones() As DataTable
-        Get
-            Return _TablaRemisiones
-        End Get
-        Set(value As DataTable)
-            _TablaRemisiones = value
-        End Set
-
-    End Property
-
-    Public Sub New(Total As Decimal)
-
-        ' This call is required by the designer.
-        InitializeComponent()
-        _Total = Total
-        _Saldo = _Total
-        ' Add any initialization after the InitializeComponent() call.
-
-    End Sub
-
-    Public Sub New()
-    End Sub
 
     Private Sub frmRemisiones_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'grdRemision.AutoGenerateColumns = False
         Try
-            grdRemision.DataSource = _TablaRemisiones
-            lbl_Total.Text = "$" + CType(_Total, String)
-            lbl_saldo.Text = "$" + CType(_Total, String)
+            Dim DetalleGrid As DataTable
+            Dim cargarRemisiones As New SigaMetClasses.LiquidacionPortatil
+            'DetalleGrid = cargarRemisiones.cargarRemisionesPortatilALiquidar(_Folio, _NDocumento)
+            DetalleGrid = cargarRemisiones.cargarRemisionesPortatilALiquidar(119151, 90632)
+            'grdRemision.DataSource = DetalleGrid
+            'grdRemision.Columns(0).Width = 70
+            'grdRemision.Columns(1).DataPropertyName = "Serie"
+            'grdRemision.Columns(1).Width = 80
+            'grdRemision.Columns(2).DataPropertyName = "Remision"
+            'grdRemision.Columns(2).Width = 80
+            'grdRemision.Columns(3).DataPropertyName = "Cliente"
+            'grdRemision.Columns(3).Width = 80
+            'grdRemision.Columns(4).DataPropertyName = "Nombre"
+            'grdRemision.Columns(4).Width = 150
+            'grdRemision.Columns(5).DataPropertyName = "Kilos"
+            'grdRemision.Columns(5).Width = 80
+            'grdRemision.Columns(6).DataPropertyName = "Descuento"
+            'grdRemision.Columns(6).Width = 80
+            'grdRemision.Columns(7).DataPropertyName = "Importe"
+            'grdRemision.Columns(7).Width = 80
+            'grdRemision.Columns(8).DataPropertyName = "Saldo"
+            'grdRemision.Columns(8).Width = 80
+            'grdRemision.Columns(9).DataPropertyName = "FormaPago"
+            'grdRemision.Columns(9).HeaderText = "Forma Pago"
+            'grdRemision.Columns(9).Width = 150
+            grdRemision.DataSource = DetalleGrid
+
         Catch ex As Exception
             MessageBox.Show(ex.Message + "Error al cargar los datos")
         End Try
@@ -42,75 +38,43 @@
     End Sub
 
     Private Sub btn_Aceptar_Click(sender As Object, e As EventArgs) Handles btn_Aceptar.Click
-        Dim SaldoAbonado As Decimal
-        SaldoAbonado = CDec(grdRemision.Item(i, 7))
-        If SaldoAbonado > 0 Then
-            If _Saldo > 0 Then
-                Try
-                    If grdRemision.VisibleRowCount > 0 Then
-                        Dim table As New DataTable
-                        Dim fila As DataRow
+        Try
+            If grdRemision.VisibleRowCount > 0 Then
+                Dim table As New DataTable
 
+                ' Declare DataColumn and DataRow variables.
+                Dim column As DataColumn
+                Dim row As DataRow
 
+                ' Create new DataColumn, set DataType, ColumnName 
+                ' and add to DataTable.    
+                column = New DataColumn
+                column.DataType = System.Type.GetType("System.String")
+                column.ColumnName = "Serie"
+                table.Columns.Add(column)
 
+                ' Create second column.
+                column = New DataColumn
+                column.DataType = Type.GetType("System.String")
+                column.ColumnName = "Remisión"
+                table.Columns.Add(column)
 
-
-                        ' Declare DataColumn and DataRow variables.
-                        Dim column As DataColumn
-                        Dim row As DataRow
-
-                        ' Create new DataColumn, set DataType, ColumnName 
-                        ' and add to DataTable.    
-                        column = New DataColumn
-                        column.DataType = System.Type.GetType("System.String")
-                        column.ColumnName = "Serie"
-                        table.Columns.Add(column)
-
-                        ' Create second column.
-                        column = New DataColumn
-                        column.DataType = Type.GetType("System.String")
-                        column.ColumnName = "Remisión"
-                        table.Columns.Add(column)
-
-                        column = New DataColumn
-                        column.DataType = Type.GetType("System.String")
-                        column.ColumnName = "Importe abonado"
-                        table.Columns.Add(column)
-                        ' Create new DataRow objects and add to DataTable.    
-                        row = table.NewRow
-                        row("Serie") = grdRemision.Item(i, 0)
-                        row("Remisión") = grdRemision.Item(i, 1)
-                        If _Saldo > CDec(grdRemision.Item(i, 7)) Then
-                            row("Importe abonado") = grdRemision.Item(i, 7)
-                        Else
-                            row("Importe abonado") = CDec(grdRemision.Item(i, 7)) - _Saldo
-                        End If
-                        table.Rows.Add(row)
-                        ' Set to DataGrid.DataSource property to the table.
-                        grdAbonos.DataSource = table
-
-                        i = grdRemision.CurrentRowIndex
-                        ' lbl_saldo.Text = CType(_Total - CType(Val(grdRemision.Item(i, 7)), Decimal), String)
-                        '  lbl_Total.Text = "$" + CType(Val(grdRemision.Item(i, 6)), String)
-                        lbl_importeDocumento.Text = "$" + CType(Val(grdRemision.Item(i, 6)), String)
-                        lblSaloMovimiento.Text = "$" + CType(Val(grdRemision.Item(i, 7)), String)
-                        If _Total > CDec(grdRemision.Item(i, 7)) Then
-                            lblImporteAbobo.Text = "$" + CType((grdRemision.Item(i, 7)), String)
-                        ElseIf _Total < CDec(grdRemision.Item(i, 7)) Then
-                            lblImporteAbobo.Text = "$" + CType(CDec(grdRemision.Item(i, 7)) - _Total, String)
-                        End If
-                        _FilaSaldo = i
-                        AceptarAbono = True
-                    End If
-                Catch ex As Exception
-                    MessageBox.Show(ex.Message)
-                End Try
-            Else
-                MessageBox.Show("saldo insuficiente")
+                column = New DataColumn
+                column.DataType = Type.GetType("System.String")
+                column.ColumnName = "Importe abonado"
+                table.Columns.Add(column)
+                ' Create new DataRow objects and add to DataTable.    
+                row = table.NewRow
+                row("Serie") = grdRemision.Item(i, 0)
+                row("Remisión") = grdRemision.Item(i, 1)
+                row("Importe abonado") = grdRemision.Item(i, 5)
+                table.Rows.Add(row)
+                ' Set to DataGrid.DataSource property to the table.
+                grdAbonos.DataSource = table
             End If
-        Else
-            MessageBox.Show("Ya no se permite hacer un abono, el saldo ya es de cero")
-        End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
     End Sub
 
     Private Sub Btn_Borrar_Click(sender As Object, e As EventArgs) Handles Btn_Borrar.Click
@@ -121,46 +85,13 @@
     End Sub
 
     Private Sub grdRemision_MouseClick(sender As Object, e As MouseEventArgs) Handles grdRemision.MouseClick
-
+        i = grdRemision.CurrentRowIndex
+        lbl_saldo.Text = "$" + CType(Val(grdRemision.Item(i, 7)), String)
+        lbl_Total.Text = "$" + CType(Val(grdRemision.Item(i, 6)), String)
     End Sub
 
     Private Sub btn_cancelar_Click(sender As Object, e As EventArgs) Handles btn_cancelar.Click
         Close()
 
-    End Sub
-
-    Private Sub btn_aceptarAbonos_Click(sender As Object, e As EventArgs) Handles btn_aceptarAbonos.Click
-        Dim fila As DataRow
-        fila = _TablaRemisiones.Rows(_FilaSaldo)
-        If AceptarAbono = True Then
-            If _Saldo > 0 Then
-                _Saldo = _Saldo - CDec(grdRemision.Item(i, 7))
-                If _Saldo < 0 Then
-                    fila("Saldo") = _Saldo * -1
-                Else
-                    fila("Saldo") = 0
-                    grdRemision.DataSource = _TablaRemisiones
-                End If
-                If _Saldo < 0 Then
-                    lblImporteAbobo.Text = CType(_Saldo * -1, String)
-                    lbl_saldo.Text = "0"
-                Else
-                    lblImporteAbobo.Text = Valorcero()
-                    lbl_saldo.Text = _Saldo.ToString
-                End If
-                lbl_importeDocumento.Text = Valorcero()
-                lblSaloMovimiento.Text = Valorcero()
-            Else
-                MessageBox.Show("Saldo insuficiente, No se puede hacer otro abono ")
-            End If
-            AceptarAbono = False
-        End If
-
-    End Sub
-    Function Valorcero() As String
-        Valorcero = " $000.00"
-    End Function
-    Private Sub grdRemision_CurrentCellChanged(sender As Object, e As EventArgs) Handles grdRemision.CurrentCellChanged
-        i = grdRemision.CurrentRowIndex
     End Sub
 End Class
