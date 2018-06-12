@@ -50,11 +50,6 @@
                     If grdRemision.VisibleRowCount > 0 Then
                         Dim table As New DataTable
                         Dim fila As DataRow
-
-
-
-
-
                         ' Declare DataColumn and DataRow variables.
                         Dim column As DataColumn
                         Dim row As DataRow
@@ -94,7 +89,7 @@
                         '  lbl_Total.Text = "$" + CType(Val(grdRemision.Item(i, 6)), String)
                         lbl_importeDocumento.Text = "$" + CType(Val(grdRemision.Item(i, 6)), String)
                         lblSaloMovimiento.Text = "$" + CType(Val(grdRemision.Item(i, 7)), String)
-                        If _Total > CDec(grdRemision.Item(i, 7)) Then
+                        If _Total >= CDec(grdRemision.Item(i, 7)) Then
                             lblImporteAbobo.Text = "$" + CType((grdRemision.Item(i, 7)), String)
                         ElseIf _Total < CDec(grdRemision.Item(i, 7)) Then
                             lblImporteAbobo.Text = "$" + CType(CDec(grdRemision.Item(i, 7)) - _Total, String)
@@ -132,8 +127,8 @@
     Private Sub btn_aceptarAbonos_Click(sender As Object, e As EventArgs) Handles btn_aceptarAbonos.Click
         Dim fila As DataRow
         fila = _TablaRemisiones.Rows(_FilaSaldo)
-        If AceptarAbono = True Then
-            If _Saldo > 0 Then
+        If _Saldo > 0 Then
+            If AceptarAbono = True Then
                 _Saldo = _Saldo - CDec(grdRemision.Item(i, 7))
                 If _Saldo < 0 Then
                     fila("Saldo") = _Saldo * -1
@@ -150,11 +145,14 @@
                 End If
                 lbl_importeDocumento.Text = Valorcero()
                 lblSaloMovimiento.Text = Valorcero()
-            Else
-                MessageBox.Show("Saldo insuficiente, No se puede hacer otro abono ")
+
             End If
             AceptarAbono = False
+        Else
+            MessageBox.Show("Saldo insuficiente, No se puede hacer otro abono ")
+            Close()
         End If
+
 
     End Sub
     Function Valorcero() As String
