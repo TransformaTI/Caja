@@ -88,6 +88,7 @@ Public Class frmSelTipoCobro
     Friend WithEvents BotonBuscarClienteApAnticipo As Button
     Private DetalleCobro As SigaMetClasses.sCobro
     Private TipoCobroliquidacion As Integer
+    Private _TablaRemisiones As DataTable
     Private Total As Decimal
 
     Enum FormaPago
