@@ -88,6 +88,7 @@ Public Class frmSelTipoCobro
     Friend WithEvents BotonBuscarClienteApAnticipo As Button
     Private DetalleCobro As SigaMetClasses.sCobro
     Private TipoCobroliquidacion As Integer
+    Private Total As Decimal
 
     Enum FormaPago
         Efectivo = 0
@@ -2418,7 +2419,7 @@ Public Class frmSelTipoCobro
                 If Saldo >= Convert.ToDecimal(TxtMontoAnticipo.Text) Then
 
                     AltaAnticipo()
-
+                    Total = CDec(TxtMontoAnticipo.Text)
                     Dim listaDebito As New List(Of DebitoAnticipo)
                     Dim nuevodebitoanticipo As New DebitoAnticipo
                     nuevodebitoanticipo.folio = Folio
@@ -2431,6 +2432,7 @@ Public Class frmSelTipoCobro
 
                     Remisiones()
                     LimpiarAnticipo()
+                    Total = 0
                     DialogResult = DialogResult.OK
                 Else
                     MessageBox.Show("El monto a debitar debe ser menor o igual que el saldo del anticipo elegido, verifique.", Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
