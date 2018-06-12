@@ -2283,10 +2283,14 @@ Public Class frmSelTipoCobro
     End Sub
 
     Public Sub Remisiones()
-        Dim frmRemisiones As New frmRemisiones
+        Dim frmRemisiones As New frmRemisiones(Total)
+        frmRemisiones.ObtenerRemisiones = _TablaRemisiones
         If frmRemisiones.ShowDialog() = DialogResult.OK Then
             Cursor = Cursors.WaitCursor
             Cursor = Cursors.Default
+        Else
+            _TablaRemisiones = frmRemisiones.ObtenerRemisiones
+            Close()
         End If
     End Sub
 
