@@ -571,7 +571,7 @@ Public Class frmCapCobranza
 
     Private Sub ValidarInformacionCaptura()
         Dim oConfig As SigaMetClasses.cConfig = New SigaMetClasses.cConfig(16, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario)
-        Dim URLGateway As String = CType(oConfig.Parametros.Item("URLGateway"), String)
+        Dim URLGateway As String = "" ' CType(oConfig.Parametros.Item("URLGateway"), String)
         oConfig.Dispose()
 
         If _cEfectuarValidacion Is Nothing Then

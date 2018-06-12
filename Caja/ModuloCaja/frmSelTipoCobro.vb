@@ -2396,45 +2396,93 @@ Public Class frmSelTipoCobro
         Dim Año As String = ""
         Dim Folio As String = ""
         Dim Saldo As Decimal = 0
-        Dim Col As Integer = Me.dgvSaldoAnticipo.CurrentCell.ColumnIndex
+        Dim Col As Integer = 0
 
-        For Each fila As DataGridViewRow In Me.dgvSaldoAnticipo.Rows
-            If fila.Selected Then
-                Año = Convert.ToString(fila.Cells(0).Value)
-                Folio = Convert.ToString(fila.Cells(1).Value)
-                Saldo = Convert.ToDecimal(fila.Cells(2).Value)
-                visibleSelectedRowCount = True
-            End If
-        Next
-
-        If visibleSelectedRowCount = True And TxtMontoAnticipo.Text.Trim <> "" Then
-            If Saldo >= Convert.ToDecimal(TxtMontoAnticipo.Text) Then
-
-                AltaAnticipo()
-
-                Dim listaDebito As New List(Of DebitoAnticipo)
-                Dim nuevodebitoanticipo As New DebitoAnticipo
-                nuevodebitoanticipo.folio = Folio
-                nuevodebitoanticipo.anio = Año
-                nuevodebitoanticipo.montodebitado = Convert.ToDecimal(TxtMontoAnticipo.Text)
-                listaDebito.Add(nuevodebitoanticipo)
-                _ListaDebitoAnticipos.Add(nuevodebitoanticipo)
-                Remisiones()
-                LimpiarAnticipo()
-                DialogResult = DialogResult.OK
+        Try
+            If Me.dgvSaldoAnticipo.Rows.Count > 0 Then
+                Col = Me.dgvSaldoAnticipo.CurrentCell.ColumnIndex
             Else
-                MessageBox.Show("El monto a debitar debe ser menor o igual que el saldo del anticipo elegido, verifique.", Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                Throw New Exception("El cliente no tiene anticipos, la operación solicitada no es válida.")
             End If
-        Else
-            If TxtMontoAnticipo.Text.Trim = "" Then
-                TxtMontoAnticipo.Text = "0"
-                MessageBox.Show("Por favor ingrese un monto para el pago", Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+
+            For Each fila As DataGridViewRow In Me.dgvSaldoAnticipo.Rows
+                If fila.Selected Then
+                    Año = Convert.ToString(fila.Cells(0).Value)
+                    Folio = Convert.ToString(fila.Cells(1).Value)
+                    Saldo = Convert.ToDecimal(fila.Cells(2).Value)
+                    visibleSelectedRowCount = True
+                End If
+            Next
+
+            If visibleSelectedRowCount = True And TxtMontoAnticipo.Text.Trim <> "" Then
+                If Saldo >= Convert.ToDecimal(TxtMontoAnticipo.Text) Then
+
+                    AltaAnticipo()
+
+                    Dim listaDebito As New List(Of DebitoAnticipo)
+                    Dim nuevodebitoanticipo As New DebitoAnticipo
+                    nuevodebitoanticipo.folio = Folio
+                    nuevodebitoanticipo.anio = Año
+                    nuevodebitoanticipo.montodebitado = Convert.ToDecimal(TxtMontoAnticipo.Text)
+                    listaDebito.Add(nuevodebitoanticipo)
+                    _ListaDebitoAnticipos.Add(nuevodebitoanticipo)
+
+                    ActualizarSaldoAnticipo(DirectCast(dgvSaldoAnticipo.DataSource, DataTable), AgruparDebitoAnticipo(_ListaDebitoAnticipos))
+
+                    Remisiones()
+                    LimpiarAnticipo()
+                    DialogResult = DialogResult.OK
+                Else
+                    MessageBox.Show("El monto a debitar debe ser menor o igual que el saldo del anticipo elegido, verifique.", Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                End If
+            Else
+                If TxtMontoAnticipo.Text.Trim = "" Then
+                    TxtMontoAnticipo.Text = "0"
+                    MessageBox.Show("Por favor ingrese un monto para el pago", Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                End If
+                If visibleSelectedRowCount = False Or TxtMontoAnticipo.Text = "" Then
+                    MessageBox.Show("Debe seleccionar un anticipo y escribir el monto, verifique.", Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                End If
             End If
-            If visibleSelectedRowCount = False Or TxtMontoAnticipo.Text = "" Then
-                MessageBox.Show("Debe seleccionar un anticipo y escribir el monto, verifique.", Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            End If
-        End If
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
+
+    Private Function AgruparDebitoAnticipo(Anticipos As List(Of DebitoAnticipo)) As List(Of DebitoAnticipo)
+        Dim Agrupados As New List(Of DebitoAnticipo)
+
+        Dim Agrupado As List(Of DebitoAnticipo) = (From anticipo In Anticipos
+                                                   Group anticipo By keys = New With {Key anticipo.anio, Key anticipo.folio}
+                       Into Group
+                                                   Select New DebitoAnticipo With {.anio = keys.anio, .folio = keys.folio,
+                                        .montodebitado = Group.Sum(Function(x) x.montodebitado)}).Take(200).ToList()
+
+
+        Return Agrupado
+
+    End Function
+
+    Private Sub ActualizarSaldoAnticipo(dtAnticipos As DataTable, Agrupados As List(Of DebitoAnticipo))
+
+        If dtAnticipos IsNot Nothing And dtAnticipos.Rows.Count > 0 Then
+            For Each agrupado As DebitoAnticipo In Agrupados
+                For Each row As DataRow In dtAnticipos.Rows
+                    If row("AñoMovimiento").ToString = agrupado.anio.ToString And row("FolioMovimiento").ToString = agrupado.folio.ToString Then
+                        row("MontoSaldo") = Convert.ToDecimal(row("MontoSaldo")) - agrupado.montodebitado
+                    End If
+                Next
+            Next
+        Else
+            Throw New Exception("El cliente no tiene anticipos, la operación solicitada no es válida.")
+        End If
+
+    End Sub
+
+
+
+
 
     Public Sub LimpiarVales()
         txtClienteVales.Clear()
