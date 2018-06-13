@@ -2232,10 +2232,6 @@ Public Class frmSelTipoCobro
             ''  TxtSaldoAnticipo.DataBindings.Add("Text", dt, "Saldo")
 
         End If
-
-
-
-
     End Sub
 
 
@@ -2419,8 +2415,6 @@ Public Class frmSelTipoCobro
                        Into Group
                                                    Select New DebitoAnticipo With {.anio = keys.anio, .folio = keys.folio,
                                         .montodebitado = Group.Sum(Function(x) x.montodebitado)}).Take(200).ToList()
-
-
         Return Agrupado
 
     End Function
@@ -2440,11 +2434,6 @@ Public Class frmSelTipoCobro
         End If
 
     End Sub
-
-
-
-
-
     Public Sub LimpiarVales()
         txtClienteVales.Clear()
         LabelNombreVales.Text = ""
@@ -2606,7 +2595,6 @@ Public Class frmSelTipoCobro
         '97 - 122 = Ascii MINÚSCULAS
         '65 - 90  = Ascii MAYÚSCULAS
         '48 - 57  = Ascii NÚMEROS
-
         If Asc(e.KeyChar) <> 8 Then
             If Asc(e.KeyChar) < 46 Or Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
                 e.Handled = True
@@ -2619,7 +2607,6 @@ Public Class frmSelTipoCobro
         '97 - 122 = Ascii MINÚSCULAS
         '65 - 90  = Ascii MAYÚSCULAS
         '48 - 57  = Ascii NÚMEROS
-
         If Asc(e.KeyChar) <> 8 Then
             If Asc(e.KeyChar) < 46 Or Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
                 e.Handled = True
@@ -2635,7 +2622,6 @@ Public Class frmSelTipoCobro
         '97 - 122 = Ascii MINÚSCULAS
         '65 - 90  = Ascii MAYÚSCULAS
         '48 - 57  = Ascii NÚMEROS
-
         If Asc(e.KeyChar) <> 8 Then
             If Asc(e.KeyChar) < 46 Or Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
                 e.Handled = True

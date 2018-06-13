@@ -139,6 +139,8 @@ Public Class frmRemisiones
         _Saldo = _Total
         lbl_saldo.Text = "$" + CType(_Total, String)
         grdRemision.DataSource = _TablaRemisiones
+        Close()
+
     End Sub
 
     Private Sub btn_aceptarAbonos_Click(sender As Object, e As EventArgs) Handles btn_aceptarAbonos.Click
