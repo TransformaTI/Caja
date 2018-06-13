@@ -2496,11 +2496,10 @@ Public Class frmSelTipoCobro
                 e.Handled = True
             End If
         End If
-        If (Char.IsPunctuation(e.KeyChar)) Then
-
+        If e.KeyChar = "." Then
             e.Handled = False
-
         End If
+
     End Sub
 
     Private Sub txtClienteVales_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtClienteVales.KeyPress
@@ -2526,10 +2525,9 @@ Public Class frmSelTipoCobro
                 e.Handled = True
             End If
         End If
-        If (Char.IsPunctuation(e.KeyChar)) Then
 
+        If e.KeyChar = "." Then
             e.Handled = False
-
         End If
     End Sub
 
@@ -2556,10 +2554,9 @@ Public Class frmSelTipoCobro
                 e.Handled = True
             End If
         End If
-        If (Char.IsPunctuation(e.KeyChar)) Then
 
+        If e.KeyChar = "." Then
             e.Handled = False
-
         End If
     End Sub
 
@@ -2599,10 +2596,9 @@ Public Class frmSelTipoCobro
                 e.Handled = True
             End If
         End If
-        If (Char.IsPunctuation(e.KeyChar)) Then
 
+        If e.KeyChar = "." Then
             e.Handled = False
-
         End If
     End Sub
 
@@ -2629,10 +2625,9 @@ Public Class frmSelTipoCobro
                 e.Handled = True
             End If
         End If
-        If (Char.IsPunctuation(e.KeyChar)) Then
 
+        If e.KeyChar = "." Then
             e.Handled = False
-
         End If
     End Sub
 
@@ -2646,10 +2641,8 @@ Public Class frmSelTipoCobro
                 e.Handled = True
             End If
         End If
-        If (Char.IsPunctuation(e.KeyChar)) Then
-
+        If e.KeyChar = "." Then
             e.Handled = False
-
         End If
     End Sub
 
