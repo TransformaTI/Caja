@@ -1,10 +1,14 @@
-﻿Public Class frmRemisiones
+﻿Imports System.Collections.Generic
+
+Public Class frmRemisiones
     Private i As Integer
     Private _Total As Decimal
     Private _Saldo As Decimal
     Private _TablaRemisiones As DataTable
     Private _FilaSaldo As Integer
     Public AceptarAbono As Boolean
+    Dim Cancelar As New List(Of String)
+
 
     Public Property ObtenerRemisiones() As DataTable
         Get
@@ -32,7 +36,12 @@
     Private Sub frmRemisiones_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'grdRemision.AutoGenerateColumns = False
         Try
+
             grdRemision.DataSource = _TablaRemisiones
+            Dim row As DataRow
+            For Each row In _TablaRemisiones.Rows
+                Cancelar.Add(CType(row("Saldo"), String))
+            Next
             lbl_Total.Text = "$" + CType(_Total, String)
             lbl_saldo.Text = "$" + CType(_Total, String)
         Catch ex As Exception
@@ -120,8 +129,16 @@
     End Sub
 
     Private Sub btn_cancelar_Click(sender As Object, e As EventArgs) Handles btn_cancelar.Click
-        Close()
-
+        If (Cancelar IsNot Nothing) Then
+            Dim Contar As Integer = 0
+            For Each item As String In Cancelar
+                _TablaRemisiones.Rows(Contar)("Saldo") = item
+                Contar = Contar + 1
+            Next
+        End If
+        _Saldo = _Total
+        lbl_saldo.Text = "$" + CType(_Total, String)
+        grdRemision.DataSource = _TablaRemisiones
     End Sub
 
     Private Sub btn_aceptarAbonos_Click(sender As Object, e As EventArgs) Handles btn_aceptarAbonos.Click
