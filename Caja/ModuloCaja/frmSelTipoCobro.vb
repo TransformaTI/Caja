@@ -2407,21 +2407,19 @@ Public Class frmSelTipoCobro
         End Try
     End Sub
 
-    Private Sub ActualizarSaldoAnticipo(dtAnticipos As DataTable, Agrupados As List(Of DebitoAnticipo))
+    Private Function AgruparDebitoAnticipo(Anticipos As List(Of DebitoAnticipo)) As List(Of DebitoAnticipo)
+        Dim Agrupados As New List(Of DebitoAnticipo)
 
-        If dtAnticipos IsNot Nothing And dtAnticipos.Rows.Count > 0 Then
-            For Each agrupado As DebitoAnticipo In Agrupados
-                For Each row As DataRow In dtAnticipos.Rows
-                    If row("AñoMovimiento").ToString = agrupado.anio.ToString And row("FolioMovimiento").ToString = agrupado.folio.ToString Then
-                        row("MontoSaldo") = Convert.ToDecimal(row("MontoSaldo")) - agrupado.montodebitado
-                    End If
-                Next
-            Next
-        Else
-            Throw New Exception("El cliente no tiene anticipos, la operación solicitada no es válida.")
-        End If
+        Dim Agrupado As List(Of DebitoAnticipo) = (From anticipo In Anticipos
+                                                   Group anticipo By keys = New With {Key anticipo.anio, Key anticipo.folio}
+                       Into Group
+                                                   Select New DebitoAnticipo With {.anio = keys.anio, .folio = keys.folio,
+                                        .montodebitado = Group.Sum(Function(x) x.montodebitado)}).Take(200).ToList()
 
-    End Sub
+
+        Return Agrupado
+
+    End Function
 
     Private Sub ActualizarSaldoAnticipo(dtAnticipos As DataTable, Agrupados As List(Of DebitoAnticipo))
 
