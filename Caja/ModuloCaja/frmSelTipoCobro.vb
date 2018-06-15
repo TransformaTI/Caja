@@ -90,6 +90,7 @@ Public Class frmSelTipoCobro
     Private TipoCobroliquidacion As Integer
     Private _TablaRemisiones As DataTable
     Private Total As Decimal
+    Private _FolioCobro As Integer
 
     Enum FormaPago
         Efectivo = 0
@@ -151,12 +152,13 @@ Public Class frmSelTipoCobro
     End Property
 
     Public Sub New(ByVal intConsecutivo As Integer,
-          Optional ByVal CapturaDetalle As Boolean = True, Optional ByVal DetalleCobro As Integer = 0)
+          Optional ByVal CapturaDetalle As Boolean = True, Optional ByVal DetalleCobro As Integer = 0,
+     Optional ByVal Folio As Integer = 0)
 
         MyBase.New()
         InitializeComponent()
         Consecutivo = intConsecutivo
-
+        _FolioCobro = Folio
         If CapturaEfectivoVales = True Then
             btnAceptarVales1.Enabled = False
         End If
@@ -1710,7 +1712,6 @@ Public Class frmSelTipoCobro
         If Not _MostrarDacion Then
             tabTipoCobro.TabPages.Remove(tbDacionPagos)
         End If
-
         ComboBanco.CargaDatos(True)
         ComboProveedor.CargaDatos()
         ComboTipoVale.CargaDatos()
@@ -1920,32 +1921,30 @@ Public Class frmSelTipoCobro
 
     Public Sub AltaPagoEfectivo()
         Dim insertaCobro As New SigaMetClasses.CobroDetalladoDatos()
-
         With insertaCobro
-
             .SaldoAFavor = False
             .AñoCobro = CShort(DateTime.Now.Year)
-            .Cobro = 7
-            .Impuesto = 10
+            .Cobro = 0
+            .Impuesto = GLOBAL_IVA
             .Importe = CDec(TxtNumeroDecimal1.Text)
-            .Total = 200 + .Impuesto
+            .Total = .Importe + ((.Impuesto / 100) * .Importe)
             .Referencia = "NULL" ' puede ser vacio
             .Banco = CShort("0") 'puede ser null
             .FAlta = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
             .Status = "EMITIDO"
-            .TipoCobro = 5
+            .TipoCobro = CByte(SigaMetClasses.Enumeradores.enumTipoCobro.Efectivo)     '5
             .NumeroCheque = "NULL" ' puede ser vacio
-            .FCheque = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+            .FCheque = Date.MinValue
             .NumeroCuenta = "NULL"
             .Observaciones = "NULL"
-            .FDevolucion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+            .FDevolucion = Date.MinValue
             .RazonDevCheque = Nothing
-            .Cliente = 0
-            .Saldo = 10
+            .Cliente = 0 ' este dato se debeb de obtener depues de las remisiones
+            .Saldo = 10 ' igual este dato
             .Usuario = GLOBAL_IDUsuario
             .FActualizacion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
-            .Folio = 0
-            .FDeposito = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+            .Folio = _FolioCobro
+            .FDeposito = Date.MinValue
             .FolioAtt = 0
             .AñoAtt = CShort("0")
             .NumeroCuentaDestino = "NULL"
@@ -1969,24 +1968,24 @@ Public Class frmSelTipoCobro
             .Banco = CShort(ComboBanco.SelectedValue)
             .FAlta = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
             .Status = "EMITIDO"
-            .TipoCobro = 3 ' el tipo cobro para che que es el numero 3
-            .NumeroCheque = txtNumeroCuenta.Text
+            .TipoCobro = CByte(SigaMetClasses.Enumeradores.enumTipoCobro.Cheque)  ' el tipo cobro para che que es el numero 3
+            .NumeroCheque = txtDocumento.Text
             .FCheque = dtpFechaCheque.Value
             .NumeroCuenta = txtNumeroCuenta.Text
             .Observaciones = txtObservaciones.Text
             .Cliente = CInt(txtClienteCheque.Text)
             .RazonDevCheque = Nothing
             .Usuario = GLOBAL_IDUsuario
-            .Impuesto = 10
+            .Impuesto = GLOBAL_IVA
             .Importe = CDec(txtImporteDocumento.Text)
-            .Total = 100 + .Impuesto
+            .Total = .Importe + ((.Impuesto / 100) * .Importe)
             'datos hardcord
 
             .Referencia = "NULL" ' puede ser vacio
             .FDevolucion = Date.MinValue
             .Saldo = 10
             .FActualizacion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
-            .Folio = 0
+            .Folio = _FolioCobro
             .FDeposito = Date.MinValue
             .FolioAtt = 0
             .AñoAtt = CShort("0")
@@ -2014,7 +2013,7 @@ Public Class frmSelTipoCobro
             'Datos reales
 
             .Cliente = CInt(TxtClienteTransferencia.Text)
-            .FCheque = CDate(DTPFechaTransferencia.Text)
+            .FCheque = Date.MinValue
             .NumeroCuenta = TxtNumeroCuentaTransferencia.Text
             .Banco = CShort(ComboBancoTransferencia.SelectedValue)
             .Observaciones = txtbObservacionesTranferencias.Text
@@ -2024,18 +2023,17 @@ Public Class frmSelTipoCobro
             .Usuario = GLOBAL_IDUsuario
 
             'empieza valores hardcode
-            .Impuesto = 10
-            .Total = 100 + .Impuesto
+            .Impuesto = GLOBAL_IVA
             .Importe = CDec(TxtImporteTransferencia.Text)
-
+            .Total = .Importe + ((.Impuesto / 100) * .Importe)
             .Referencia = "NULL" ' puede ser vacio
             .NumeroCheque = "NULL" ' puede ser vacio
-            .FDevolucion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+            .FDevolucion = Date.MinValue
             .RazonDevCheque = Nothing
             .Saldo = 10
             .FActualizacion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
-            .Folio = 0
-            .FDeposito = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+            .Folio = _FolioCobro
+            .FDeposito = Date.MinValue
             .FolioAtt = 0
             .AñoAtt = CShort("0")
             .NumeroCuentaDestino = "NULL"
@@ -2069,28 +2067,27 @@ Public Class frmSelTipoCobro
             .AñoCobro = CShort(DateTime.Now.Year)
             .Cobro = 0
             .Cliente = CInt(txtClienteTC.Text)
-            .FCheque = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
-            .NumeroCuenta = "NULL"
+            .FCheque = Date.MinValue
+            .NumeroCuenta = lblTarjetaCredito.Text
             .Banco = CShort(lblBanco.Text)
             .Observaciones = "NULL"
-            .TipoCobro = 6
+            .TipoCobro = CByte(SigaMetClasses.Enumeradores.enumTipoCobro.TarjetaDebito)
             'credito = 6 en tipocobro
             ' debito =19 en tipo de cobro
             .FAlta = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
             .Status = "EMITIDO"
             .Usuario = GLOBAL_IDUsuario
             'empieza valores hardcode
-            .Impuesto = 10
-            .Total = 100 + .Impuesto
+            .Impuesto = GLOBAL_IVA
             .Importe = CDec(txtImporteTC.Text)
-
+            .Total = .Importe + ((.Impuesto / 100) * .Importe)
             .Referencia = "NULL" ' puede ser vacio
             .NumeroCheque = "NULL" ' puede ser vacio
-            .FDevolucion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+            .FDevolucion = Date.MinValue
             .RazonDevCheque = Nothing
             .Saldo = 10
             .FActualizacion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
-            .Folio = 0
+            .Folio = _FolioCobro
             .FDeposito = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
             .FolioAtt = 0
             .AñoAtt = CShort("0")
@@ -2270,12 +2267,12 @@ Public Class frmSelTipoCobro
         Dim insertaCobro As New SigaMetClasses.CobroDetalladoDatos()
 
         With insertaCobro
-            .TPV = True
+            .TPV = False
             .SaldoAFavor = False
             .AñoCobro = CShort(DateTime.Now.Year)
             .Cobro = 0
             .Cliente = CInt(txtClienteVales.Text)
-            .FCheque = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+            .FCheque = CDate(FechaDocumentoVales.Text)
             .NumeroCuenta = "NULL"
             .Banco = CShort(ComboProveedor.SelectedValue)
             .Observaciones = TextObservacionesVales.Text
@@ -2283,17 +2280,17 @@ Public Class frmSelTipoCobro
             .FAlta = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
             .Status = "EMITIDO"
             .Usuario = GLOBAL_IDUsuario
-            .Impuesto = 10
-            .Total = 100 + .Impuesto
+            .Impuesto = GLOBAL_IVA
             .Importe = CDec(TxtMontoVales.Text)
+            .Total = .Importe + ((.Impuesto / 100) * .Importe)
             .Referencia = "NULL" ' puede ser vacio
             .NumeroCheque = "NULL" ' puede ser vacio
-            .FDevolucion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+            .FDevolucion = Date.MinValue
             .RazonDevCheque = Nothing
-            .Saldo = 10
-            .FActualizacion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
-            .Folio = 0
-            .FDeposito = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+            .Saldo = 10 ' el saldo se regresa conforme termine las remisiones
+            .FActualizacion = Date.MinValue
+            .Folio = _FolioCobro
+            .FDeposito = Date.MinValue
             .FolioAtt = 0
             .AñoAtt = CShort("0")
             .NumeroCuentaDestino = "NULL"
@@ -2322,10 +2319,9 @@ Public Class frmSelTipoCobro
             .FAlta = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
             .Status = "EMITIDO"
             .Usuario = GLOBAL_IDUsuario
-            .Impuesto = 10
-            .Total = Convert.ToDecimal(TxtMontoAnticipo.Text.Trim) + .Impuesto
+            .Impuesto = GLOBAL_IVA
             .Importe = CDec(TxtMontoAnticipo.Text)
-
+            .Total = .Importe + ((.Impuesto / 100) * .Importe)
             .Referencia = "NULL" ' puede ser vacio
             .NumeroCheque = "NULL" ' puede ser vacio
             .FDevolucion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))

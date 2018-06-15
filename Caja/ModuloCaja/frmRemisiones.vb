@@ -129,18 +129,21 @@ Public Class frmRemisiones
     End Sub
 
     Private Sub btn_cancelar_Click(sender As Object, e As EventArgs) Handles btn_cancelar.Click
-        If (Cancelar IsNot Nothing) Then
-            Dim Contar As Integer = 0
-            For Each item As String In Cancelar
-                _TablaRemisiones.Rows(Contar)("Saldo") = item
-                Contar = Contar + 1
-            Next
+        If _Saldo <= 0 Then
+            Close()
+
         End If
-        _Saldo = _Total
+        If (Cancelar IsNot Nothing) Then
+                Dim Contar As Integer = 0
+                For Each item As String In Cancelar
+                    _TablaRemisiones.Rows(Contar)("Saldo") = item
+                    Contar = Contar + 1
+                Next
+            End If
+
         lbl_saldo.Text = "$" + CType(_Total, String)
         grdRemision.DataSource = _TablaRemisiones
-        Close()
-
+        _Saldo = _Total
     End Sub
 
     Private Sub btn_aceptarAbonos_Click(sender As Object, e As EventArgs) Handles btn_aceptarAbonos.Click
@@ -179,5 +182,16 @@ Public Class frmRemisiones
     End Function
     Private Sub grdRemision_CurrentCellChanged(sender As Object, e As EventArgs) Handles grdRemision.CurrentCellChanged
         i = grdRemision.CurrentRowIndex
+    End Sub
+
+    Private Sub frmRemisiones_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+
+
+    End Sub
+    Private Sub frmRemisiones_FormClosed(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles MyBase.Closing
+        If _Saldo > 0 Then
+            MessageBox.Show("No puede salir hasta tener saldo en 0 saldo: $" + _Saldo.ToString)
+            e.Cancel = True
+        End If
     End Sub
 End Class
