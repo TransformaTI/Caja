@@ -92,6 +92,7 @@ Public Class frmSelTipoCobro
     Private Total As Decimal
     Private _FolioCobro As Integer
 
+
     Enum FormaPago
         Efectivo = 0
         ValesDespensa = 1
@@ -1231,7 +1232,7 @@ Public Class frmSelTipoCobro
         Me.btn_AnticipoAceptar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btn_AnticipoAceptar.Image = CType(resources.GetObject("btn_AnticipoAceptar.Image"), System.Drawing.Image)
         Me.btn_AnticipoAceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_AnticipoAceptar.Location = New System.Drawing.Point(485, 135)
+        Me.btn_AnticipoAceptar.Location = New System.Drawing.Point(494, 135)
         Me.btn_AnticipoAceptar.Name = "btn_AnticipoAceptar"
         Me.btn_AnticipoAceptar.Size = New System.Drawing.Size(80, 24)
         Me.btn_AnticipoAceptar.TabIndex = 55
@@ -1253,7 +1254,7 @@ Public Class frmSelTipoCobro
         Me.GroupBox5.Controls.Add(Me.BotonBuscarClienteApAnticipo)
         Me.GroupBox5.Location = New System.Drawing.Point(56, 32)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(423, 287)
+        Me.GroupBox5.Size = New System.Drawing.Size(432, 287)
         Me.GroupBox5.TabIndex = 32
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Datos de los vales de Despensa"
@@ -1268,7 +1269,8 @@ Public Class frmSelTipoCobro
         Me.dgvSaldoAnticipo.Location = New System.Drawing.Point(104, 91)
         Me.dgvSaldoAnticipo.Name = "dgvSaldoAnticipo"
         Me.dgvSaldoAnticipo.ReadOnly = True
-        Me.dgvSaldoAnticipo.Size = New System.Drawing.Size(313, 126)
+        Me.dgvSaldoAnticipo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvSaldoAnticipo.Size = New System.Drawing.Size(322, 126)
         Me.dgvSaldoAnticipo.TabIndex = 54
         '
         'LabelBase32
@@ -1285,7 +1287,7 @@ Public Class frmSelTipoCobro
         Me.TextObservacionesAnticipo.Location = New System.Drawing.Point(104, 250)
         Me.TextObservacionesAnticipo.Multiline = True
         Me.TextObservacionesAnticipo.Name = "TextObservacionesAnticipo"
-        Me.TextObservacionesAnticipo.Size = New System.Drawing.Size(313, 21)
+        Me.TextObservacionesAnticipo.Size = New System.Drawing.Size(322, 21)
         Me.TextObservacionesAnticipo.TabIndex = 52
         '
         'TxtMontoAnticipo
@@ -1335,7 +1337,7 @@ Public Class frmSelTipoCobro
         Me.LabelNombreApAntic.Enabled = False
         Me.LabelNombreApAntic.Location = New System.Drawing.Point(104, 56)
         Me.LabelNombreApAntic.Name = "LabelNombreApAntic"
-        Me.LabelNombreApAntic.Size = New System.Drawing.Size(313, 32)
+        Me.LabelNombreApAntic.Size = New System.Drawing.Size(322, 32)
         Me.LabelNombreApAntic.TabIndex = 41
         Me.LabelNombreApAntic.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
@@ -2201,7 +2203,6 @@ Public Class frmSelTipoCobro
         BuscarAnticipos(CType(TxtClienteAplicAntic.Text, Integer), "0", 0, 0)
 
 
-
         'Dim oResult As List(Of DebitoAnticipo) = _ListaDebitoAnticipos.GroupBy(Function(v) New With {v.anio, v.folio}).ToList(Of DebitoAnticipo)
 
 
@@ -2218,15 +2219,13 @@ Public Class frmSelTipoCobro
         If dt.Rows.Count = 0 Then
             MessageBox.Show(" El Cliente " + Cliente.ToString() + " no dispone de anticipos.")
         Else
+
+            ActualizarSaldoAnticipo(dt, DebitoAnticipos)
+            EliminaSaldosCeros(dt)
+
             dgvSaldoAnticipo.AutoGenerateColumns = False
             dgvSaldoAnticipo.DataSource = dt
             dgvSaldoAnticipo.AutoGenerateColumns = False
-            'For Each row As DataRow In dt.Rows
-            '    TextoSaldo = TextoSaldo + row.Item("Saldo").ToString() + Environment.NewLine
-            'Next row
-
-            'TxtSaldoAnticipo.Text = TextoSaldo
-            ''  TxtSaldoAnticipo.DataBindings.Add("Text", dt, "Saldo")
 
         End If
     End Sub
@@ -2432,6 +2431,14 @@ Public Class frmSelTipoCobro
         End If
 
     End Sub
+    Private Sub EliminaSaldosCeros(dtAnticipos As DataTable)
+        For Each row As DataRow In dtAnticipos.Rows
+            If Convert.ToDecimal(row("MontoSaldo")) = 0 Then
+                row.Delete()
+            End If
+        Next
+    End Sub
+
     Public Sub LimpiarVales()
         txtClienteVales.Clear()
         LabelNombreVales.Text = ""
@@ -2665,6 +2672,14 @@ Public Class frmSelTipoCobro
                 Saldo = Convert.ToString(fila.Cells(2).Value)
             End If
         Next
+    End Sub
+
+    Private Sub tbAplicAnticipo_Click(sender As Object, e As EventArgs) Handles tbAplicAnticipo.Click
+
+    End Sub
+
+    Private Sub frmSelTipoCobro_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+
     End Sub
 End Class
 
