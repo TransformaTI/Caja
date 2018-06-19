@@ -6,6 +6,7 @@ Public Class frmRemisiones
     Private _Total As Decimal
     Private _Saldo As Decimal
     Private _TablaRemisiones As DataTable
+    Private _TablaRemisionesInicial As DataTable
     Private _FilaSaldo As Integer
     Public AceptarAbono As Boolean
     Dim Cancelar As New List(Of String)
@@ -56,6 +57,8 @@ Public Class frmRemisiones
             For Each row In _TablaRemisiones.Rows
                 Cancelar.Add(CType(row("Saldo"), String))
             Next
+
+            _TablaRemisionesInicial = _TablaRemisiones
             lbl_Total.Text = "$" + CType(_Total, String)
             lbl_saldo.Text = "$" + CType(_Total, String)
             ' Create new DataColumn, set DataType, ColumnName 
@@ -108,6 +111,9 @@ Public Class frmRemisiones
 
     Private Sub btn_Aceptar_Click(sender As Object, e As EventArgs) Handles btn_Aceptar.Click
         Dim SaldoAbonado As Decimal
+
+
+        i = grdRemision.CurrentRowIndex
         SaldoAbonado = CDec(grdRemision.Item(i, 7))
         If SaldoAbonado > 0 Then
             If _Saldo > 0 Then
@@ -243,24 +249,70 @@ Public Class frmRemisiones
         Dim MontoDevuelto As Decimal
         Dim MontoTotal As Decimal
 
+
+
         ' Display column 1 of the found row.
-        If Not (foundRow Is Nothing) Then
-            MontoRemision = Convert.ToDecimal(foundRow(7))
-            MontoDevuelto = Convert.ToDecimal(grdAbonos.Item(FilaAbono, 2))
-            MontoTotal = MontoRemision + MontoDevuelto
-            foundRow(7) = MontoTotal
-            table.Rows(FilaAbono).Delete()
+        'If Not (foundRow Is Nothing) Then
+        '    MontoRemision = Convert.ToDecimal(foundRow(7))
+        '    MontoDevuelto = Convert.ToDecimal(grdAbonos.Item(FilaAbono, 2))
+        '    MontoTotal = MontoRemision + MontoDevuelto
+        '    foundRow(7) = MontoTotal
+        '    table.Rows(FilaAbono).Delete()
 
+        'SerieSeleccionada = grdAbonos.Item
 
-            'grdRemision.Item(0, 7) = grdAbonos.Item(FilaAbono, 2)
-            'MessageBox.Show(foundRow(0).ToString() + "    " + foundRow(7).ToString())
-            'table.Rows(FilaAbono).Delete()
+        'grdRemision.Item(0, 7) = grdAbonos.Item(FilaAbono, 2)
+        'MessageBox.Show(foundRow(0).ToString() + "    " + foundRow(7).ToString())
+        'table.Rows(FilaAbono).Delete()
 
-        End If
+        'End If
         'MessageBox.Show(CType(grdAbonos.Item(FilaAbono, 0), String))
         'MessageBox.Show(CType(grdAbonos.Item(FilaAbono, 1), String))
 
+        'If table.Rows.Count > 0 Then
+        '    For i = 0 To table.Rows.Count - 1
+        '        table.Rows(0).Delete()
+        '    Next
+        'End If
 
+        'grdAbonos.DataSource = table
+
+        'grdAbonos.CurrentRowIndex
+
+
+
+        'If (Cancelar IsNot Nothing) Then
+        '    Dim Contar As Integer = 0
+        '    For Each item As String In Cancelar
+        '        For Each row 
+        '        _TablaRemisiones.Rows(Contar)("Saldo") = item
+        '        Contar = Contar + 1
+        '    Next
+        'End If
+
+        For Each abono As DataRow In table.Rows
+            If (table.Rows.IndexOf(abono) = grdAbonos.CurrentRowIndex) Then
+                MessageBox.Show("encontrado")
+                For Each Remision As DataRow In _TablaRemisionesInicial.Rows
+                    If (Remision("Serie").ToString() = abono("Serie").ToString() And Remision("Remision").ToString() = abono("Remisión").ToString()) Then
+
+                        abono.Delete()
+                        _TablaRemisiones.Rows(_TablaRemisionesInicial.Rows.IndexOf(Remision))("Saldo") = Cancelar(_TablaRemisionesInicial.Rows.IndexOf(Remision))
+                        MessageBox.Show("serie encontrada")
+                        GoTo Finalize
+                    End If
+                Next
+
+                ' _TablaRemisiones.Rows(_TablaRemisiones.Rows.IndexOf(Remision))("Saldo") = item
+            End If
+
+
+        Next
+
+Finalize:
+        grdRemision.DataSource = _TablaRemisiones
+        grdAbonos.DataSource = table
+        '_Saldo = _Total
 
 
 
