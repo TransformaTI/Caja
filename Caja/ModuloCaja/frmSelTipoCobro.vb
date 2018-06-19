@@ -1655,9 +1655,6 @@ Public Class frmSelTipoCobro
     End Sub
 
 #End Region
-
-
-
     Private Function ValidaCapturaChequeFicha() As Boolean
         'Con esta función valido que se estén capturando todos los datos necesarios
         'del cheque ó de la ficha de depósito.
@@ -1890,8 +1887,10 @@ Public Class frmSelTipoCobro
             Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaPagoEfectivo()
             _AceptaSaldo = False
             Remisiones(cobro, _AceptaSaldo)
+
             Total = 0
             DialogResult = DialogResult.OK
+
         End If
     End Sub
 
@@ -1935,7 +1934,7 @@ Public Class frmSelTipoCobro
             .Banco = CShort("0") 'puede ser null
             .FAlta = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
             .Status = "EMITIDO"
-            .TipoCobro = CByte(SigaMetClasses.Enumeradores.enumTipoCobro.Efectivo)     '5
+            .TipoCobro = 5
             .NumeroCheque = "NULL" ' puede ser vacio
             .FCheque = Date.MinValue
             .NumeroCuenta = "NULL"
@@ -1971,7 +1970,7 @@ Public Class frmSelTipoCobro
             .Banco = CShort(ComboBanco.SelectedValue)
             .FAlta = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
             .Status = "EMITIDO"
-            .TipoCobro = CByte(SigaMetClasses.Enumeradores.enumTipoCobro.Cheque)  ' el tipo cobro para che que es el numero 3
+            .TipoCobro = 3 ' el tipo cobro para che que es el numero 3
             .NumeroCheque = txtDocumento.Text
             .FCheque = dtpFechaCheque.Value
             .NumeroCuenta = txtNumeroCuenta.Text
@@ -2073,13 +2072,10 @@ Public Class frmSelTipoCobro
             .NumeroCuenta = lblTarjetaCredito.Text
             .Banco = CShort(lblBanco.Text)
             .Observaciones = "NULL"
-            .TipoCobro = CByte(SigaMetClasses.Enumeradores.enumTipoCobro.TarjetaDebito)
-            'credito = 6 en tipocobro
-            ' debito =19 en tipo de cobro
+            .TipoCobro = 6
             .FAlta = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
             .Status = "EMITIDO"
             .Usuario = GLOBAL_IDUsuario
-            'empieza valores hardcode
             .Impuesto = GLOBAL_IVA
             .Importe = CDec(txtImporteTC.Text)
             .Total = .Importe + ((.Impuesto / 100) * .Importe)
