@@ -31,3 +31,14 @@ C:\Users\lenav_000\Documents\Caja\Caja\CatalogoBase\obj\Debug\CatalogoBase.dll
 C:\Users\lenav_000\Documents\Caja\Caja\CatalogoBase\obj\Debug\CatalogoBase.xml
 C:\Users\lenav_000\Documents\Caja\Caja\CatalogoBase\obj\Debug\CatalogoBase.pdb
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\CatalogoBase\obj\Debug\CatalogoBase.vbprojAssemblyReference.cache
+C:\Users\Diego\Documents\Caja\Caja\CatalogoBase\bin\CatalogoBase.dll
+C:\Users\Diego\Documents\Caja\Caja\CatalogoBase\bin\CatalogoBase.pdb
+C:\Users\Diego\Documents\Caja\Caja\CatalogoBase\bin\CatalogoBase.xml
+C:\Users\Diego\Documents\Caja\Caja\CatalogoBase\obj\Debug\CatalogoBase.vbprojAssemblyReference.cache
+C:\Users\Diego\Documents\Caja\Caja\CatalogoBase\obj\Debug\CatalogoBase.frmCatalogo.resources
+C:\Users\Diego\Documents\Caja\Caja\CatalogoBase\obj\Debug\CatalogoBase.vbproj.GenerateResource.cache
+C:\Users\Diego\Documents\Caja\Caja\CatalogoBase\obj\Debug\CatalogoBase.vbproj.CoreCompileInputs.cache
+C:\Users\Diego\Documents\Caja\Caja\CatalogoBase\obj\Debug\CatalogoBase.vbproj.CopyComplete
+C:\Users\Diego\Documents\Caja\Caja\CatalogoBase\obj\Debug\CatalogoBase.dll
+C:\Users\Diego\Documents\Caja\Caja\CatalogoBase\obj\Debug\CatalogoBase.xml
+C:\Users\Diego\Documents\Caja\Caja\CatalogoBase\obj\Debug\CatalogoBase.pdb

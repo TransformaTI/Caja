@@ -32,3 +32,15 @@ C:\Users\lenav_000\Documents\Caja\Caja\ControlDeValesPromocionales\obj\Debug\Con
 C:\Users\lenav_000\Documents\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.csproj.CopyComplete
 C:\Users\lenav_000\Documents\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.dll
 C:\Users\lenav_000\Documents\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.pdb
+C:\Users\Diego\Documents\Caja\Caja\ControlDeValesPromocionales\bin\Debug\ControlDeValesPromocionales.dll
+C:\Users\Diego\Documents\Caja\Caja\ControlDeValesPromocionales\bin\Debug\ControlDeValesPromocionales.pdb
+C:\Users\Diego\Documents\Caja\Caja\ControlDeValesPromocionales\bin\Debug\stdole.dll
+C:\Users\Diego\Documents\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.csprojAssemblyReference.cache
+C:\Users\Diego\Documents\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.frmCapturaPagosConVale.resources
+C:\Users\Diego\Documents\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.RegistroValeCredito.resources
+C:\Users\Diego\Documents\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.ValePromocional.resources
+C:\Users\Diego\Documents\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.csproj.GenerateResource.cache
+C:\Users\Diego\Documents\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.csproj.CoreCompileInputs.cache
+C:\Users\Diego\Documents\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.csproj.CopyComplete
+C:\Users\Diego\Documents\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.dll
+C:\Users\Diego\Documents\Caja\Caja\ControlDeValesPromocionales\obj\Debug\ControlDeValesPromocionales.pdb

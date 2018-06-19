@@ -220,18 +220,18 @@ Public Class frmRemisiones
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BtnBorrarUnAbono.Click
         For Each abono As DataRow In table.Rows
             If (table.Rows.IndexOf(abono) = grdAbonos.CurrentRowIndex) Then
-                MessageBox.Show("encontrado")
+
                 For Each Remision As DataRow In _TablaRemisionesInicial.Rows
                     If (Remision("Serie").ToString() = abono("Serie").ToString() And Remision("Remision").ToString() = abono("Remisión").ToString()) Then
-
+                        _Saldo = Convert.ToDecimal(lbl_saldo.Text.Replace("$", "")) + Convert.ToDecimal(abono("importe abonado").ToString().Replace("$", ""))
+                        lbl_saldo.Text = "$" + _Saldo.ToString()
                         abono.Delete()
                         _TablaRemisiones.Rows(_TablaRemisionesInicial.Rows.IndexOf(Remision))("Saldo") = Cancelar(_TablaRemisionesInicial.Rows.IndexOf(Remision))
-                        MessageBox.Show("serie encontrada")
+
                         GoTo Finalize
                     End If
                 Next
 
-                ' _TablaRemisiones.Rows(_TablaRemisiones.Rows.IndexOf(Remision))("Saldo") = item
             End If
 
 

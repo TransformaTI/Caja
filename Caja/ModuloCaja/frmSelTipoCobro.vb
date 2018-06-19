@@ -1887,6 +1887,7 @@ Public Class frmSelTipoCobro
             Total = CDec(TxtNumeroDecimal1.Text)
             Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaPagoEfectivo()
             Remisiones(cobro)
+
             Total = 0
             DialogResult = DialogResult.OK
         End If
@@ -2244,6 +2245,7 @@ Public Class frmSelTipoCobro
         Dim frmRemisiones As New frmRemisiones(Total)
         frmRemisiones.ObtenerRemisiones = _TablaRemisiones
         frmRemisiones.UltimoCobro = UltimoCobro
+
         If frmRemisiones.ShowDialog() = DialogResult.OK Then
             Cursor = Cursors.WaitCursor
             Cursor = Cursors.Default
