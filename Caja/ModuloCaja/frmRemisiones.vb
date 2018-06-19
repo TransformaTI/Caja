@@ -15,6 +15,8 @@ Public Class frmRemisiones
     Dim row As DataRow
     Private _UltimoCobro As SigaMetClasses.CobroDetalladoDatos
     Private _TablaRemisionesInicial As DataTable
+    Private _SumImportesSaldo As Decimal
+    Private _AceptaSaldo As Boolean
 
     Public Property UltimoCobro() As SigaMetClasses.CobroDetalladoDatos
         Get
@@ -32,17 +34,23 @@ Public Class frmRemisiones
         Set(value As DataTable)
             _TablaRemisiones = value
         End Set
+    End Property
 
+    Public Property AceptaSaldo() As Boolean
+        Get
+            Return _AceptaSaldo
+        End Get
+        Set(ByVal value As Boolean)
+            _AceptaSaldo = value
+        End Set
     End Property
 
     Public Sub New(Total As Decimal)
-
         ' This call is required by the designer.
         InitializeComponent()
         _Total = Total
         _Saldo = _Total
         ' Add any initialization after the InitializeComponent() call.
-
     End Sub
 
     Public Sub New()
@@ -57,9 +65,7 @@ Public Class frmRemisiones
             For Each row In _TablaRemisiones.Rows
                 Cancelar.Add(CType(row("Saldo"), String))
             Next
-
             _TablaRemisionesInicial = _TablaRemisiones
-
             lbl_Total.Text = "$" + CType(_Total, String)
             lbl_saldo.Text = "$" + CType(_Total, String)
             ' Create new DataColumn, set DataType, ColumnName 
@@ -70,21 +76,16 @@ Public Class frmRemisiones
             column.ColumnName = "Serie"
             table.Columns.Add(column)
             keys(0) = column
-
-            ' Create second column.
             column = New DataColumn
             column.DataType = Type.GetType("System.String")
             column.ColumnName = "Remisión"
             table.Columns.Add(column)
             keys(1) = column
-
             column = New DataColumn
             column.DataType = Type.GetType("System.String")
             column.ColumnName = "Importe abonado"
             table.Columns.Add(column)
-
             table.PrimaryKey = keys
-
             Dim keysRemiesiones(2) As DataColumn
             keysRemiesiones(0) = _TablaRemisiones.Columns(0)
             keysRemiesiones(1) = _TablaRemisiones.Columns(1)
@@ -120,7 +121,8 @@ Public Class frmRemisiones
 
                     If _Saldo > 0 Then
                         If _Saldo >= CDec(grdRemision.Item(i, 7)) Then
-                            _Saldo = _Saldo - CDec(grdRemision.Item(i, 7))
+                            _SumImportesSaldo += CDec(grdRemision.Item(i, 7))
+                            _Saldo = _Total - _SumImportesSaldo
                             fila("Saldo") = 0
                         Else
                             fila("Saldo") = CDec(grdRemision.Item(i, 7)) - _Saldo
@@ -165,11 +167,11 @@ Public Class frmRemisiones
 
         lbl_saldo.Text = "$" + CType(_Total, String)
         grdRemision.DataSource = _TablaRemisiones
+        _SumImportesSaldo = 0
         _Saldo = _Total
     End Sub
 
     Private Sub grdRemision_MouseClick(sender As Object, e As MouseEventArgs) Handles grdRemision.MouseClick
-        i = grdRemision.CurrentRowIndex
         lbl_importeDocumento.Text = "$" + CType(Val(grdRemision.Item(i, 6)), String)
         lblSaloMovimiento.Text = "$" + CType(Val(grdRemision.Item(i, 7)), String)
         If _Saldo >= CDec(grdRemision.Item(i, 7)) Then
@@ -181,6 +183,12 @@ Public Class frmRemisiones
     End Sub
 
     Private Sub btn_cancelar_Click(sender As Object, e As EventArgs) Handles btn_cancelar.Click
+        If table.Rows.Count > 0 Then
+            For i = 0 To table.Rows.Count - 1
+                table.Rows(0).Delete()
+            Next
+        End If
+        grdAbonos.DataSource = table
         If (Cancelar IsNot Nothing) Then
             Dim Contar As Integer = 0
             For Each item As String In Cancelar
@@ -191,16 +199,31 @@ Public Class frmRemisiones
 
         lbl_saldo.Text = "$" + CType(_Total, String)
         grdRemision.DataSource = _TablaRemisiones
-        _Saldo = _Total
+        _SumImportesSaldo = 0
+        _Saldo = 0
+        Close()
+
     End Sub
 
     Private Sub btn_aceptarAbonos_Click(sender As Object, e As EventArgs) Handles btn_aceptarAbonos.Click
-        If _Saldo > 0 Then
-            MessageBox.Show("No se puede aceptar abonos el saldo debe de ser de $0.00 pesos, El saldo actual es de  " + _Saldo.ToString)
-        ElseIf _Saldo = 0 Then
-            MessageBox.Show("¡Captura de remisiones concluida!")
-            Close()
+        If _AceptaSaldo = False Then
+            If _Saldo > 0 Then
+                MessageBox.Show("No se puede aceptar abonos el saldo debe de ser de $0.00 pesos, El saldo actual es de  " + _Saldo.ToString)
+            ElseIf _Saldo = 0 Then
+                MessageBox.Show("¡Captura de remisiones concluida!")
+                Close()
+            End If
+        Else
+            If MessageBox.Show("¿Desea generar saldo a favor?", "",
+          MessageBoxButtons.YesNo, MessageBoxIcon.Question) _
+          = DialogResult.Yes Then
+                Close()
+            End If
+
         End If
+
+
+
     End Sub
     Function Valorcero() As String
         Valorcero = " $000.00"
@@ -211,32 +234,33 @@ Public Class frmRemisiones
 
 
     Private Sub frmRemisiones_FormClosed(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles MyBase.Closing
-        If _Saldo > 0 Then
-            MessageBox.Show("No puede salir hasta tener saldo en 0 saldo: $" + _Saldo.ToString)
-            e.Cancel = True
+        If _AceptaSaldo = False Then
+            If _Saldo > 0 Then
+                MessageBox.Show("No puede salir hasta tener saldo en 0 saldo: $" + _Saldo.ToString)
+                e.Cancel = True
+            End If
         End If
+
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BtnBorrarUnAbono.Click
         For Each abono As DataRow In table.Rows
             If (table.Rows.IndexOf(abono) = grdAbonos.CurrentRowIndex) Then
-                MessageBox.Show("encontrado")
+
                 For Each Remision As DataRow In _TablaRemisionesInicial.Rows
                     If (Remision("Serie").ToString() = abono("Serie").ToString() And Remision("Remision").ToString() = abono("Remisión").ToString()) Then
-
+                        _Saldo = Convert.ToDecimal(lbl_saldo.Text.Replace("$", "")) + Convert.ToDecimal(abono("importe abonado").ToString().Replace("$", ""))
+                        lbl_saldo.Text = "$" + _Saldo.ToString()
                         abono.Delete()
                         _TablaRemisiones.Rows(_TablaRemisionesInicial.Rows.IndexOf(Remision))("Saldo") = Cancelar(_TablaRemisionesInicial.Rows.IndexOf(Remision))
-                        MessageBox.Show("serie encontrada")
+
                         GoTo Finalize
                     End If
                 Next
 
-                ' _TablaRemisiones.Rows(_TablaRemisiones.Rows.IndexOf(Remision))("Saldo") = item
             End If
 
-
         Next
-
 Finalize:
         grdRemision.DataSource = _TablaRemisiones
         grdAbonos.DataSource = table

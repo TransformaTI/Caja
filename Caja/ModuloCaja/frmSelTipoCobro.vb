@@ -4,8 +4,6 @@ Imports System.Collections.Generic
 Imports System.Data.SqlClient
 Imports System.Linq
 
-
-
 Public Class frmSelTipoCobro
     Inherits System.Windows.Forms.Form
     Private Titulo As String = "Captura de cobranza"
@@ -91,6 +89,7 @@ Public Class frmSelTipoCobro
     Private _TablaRemisiones As DataTable
     Private Total As Decimal
     Private _FolioCobro As Integer
+    Private _AceptaSaldo As Boolean
 
 
     Enum FormaPago
@@ -1607,7 +1606,8 @@ Public Class frmSelTipoCobro
                 If _CapturaDetalle = True Then
                     Total = CDec(TxtMontoVales.Text)
                     Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaVales()
-                    Remisiones(cobro)
+                    _AceptaSaldo = True
+                    Remisiones(cobro, _AceptaSaldo)
                     Total = 0
                 End If
                 DialogResult = DialogResult.OK
@@ -1628,7 +1628,8 @@ Public Class frmSelTipoCobro
                     frmCaptura.ImporteCobro = CType(txtImporteTC.Text, Decimal)
                     Total = CDec(txtImporteTC.Text)
                     Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaTarjeta()
-                    Remisiones(cobro)
+                    _AceptaSaldo = True
+                    Remisiones(cobro, _AceptaSaldo)
                     DialogResult = DialogResult.OK
                 End If
             Else
@@ -1645,7 +1646,8 @@ Public Class frmSelTipoCobro
             If _CapturaDetalle = True Then
                 Total = CDec(txtImporteDocumento.Text)
                 Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaCheque()
-                Remisiones(cobro)
+                _AceptaSaldo = True
+                Remisiones(cobro, _AceptaSaldo)
                 Total = 0
                 DialogResult = DialogResult.OK
             End If
@@ -1886,7 +1888,8 @@ Public Class frmSelTipoCobro
         If TxtNumeroDecimal1.Text.Trim <> "" Then
             Total = CDec(TxtNumeroDecimal1.Text)
             Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaPagoEfectivo()
-            Remisiones(cobro)
+            _AceptaSaldo = False
+            Remisiones(cobro, _AceptaSaldo)
             Total = 0
             DialogResult = DialogResult.OK
         End If
@@ -2050,7 +2053,8 @@ Public Class frmSelTipoCobro
         If TxtImporteTransferencia.Text <> "" And ComboBancoTransferencia.Text <> "" Then
             Total = CDec(TxtImporteTransferencia.Text)
             Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaTransferencia()
-            Remisiones(cobro)
+            _AceptaSaldo = True
+            Remisiones(cobro, _AceptaSaldo)
             DialogResult = DialogResult.OK
         End If
 
@@ -2240,17 +2244,18 @@ Public Class frmSelTipoCobro
         BuscarAnticipos(CType(TxtClienteAplicAntic.Text, Integer), "0", 0, 0)
     End Sub
 
-    Public Sub Remisiones(UltimoCobro As SigaMetClasses.CobroDetalladoDatos)
+    Public Sub Remisiones(UltimoCobro As SigaMetClasses.CobroDetalladoDatos, AceptaSaldo As Boolean)
         Dim frmRemisiones As New frmRemisiones(Total)
         frmRemisiones.ObtenerRemisiones = _TablaRemisiones
         frmRemisiones.UltimoCobro = UltimoCobro
+        frmRemisiones.AceptaSaldo = AceptaSaldo
         If frmRemisiones.ShowDialog() = DialogResult.OK Then
             Cursor = Cursors.WaitCursor
             Cursor = Cursors.Default
+            MessageBox.Show("ok")
         Else
-
             _TablaRemisiones = frmRemisiones.ObtenerRemisiones
-            Close()
+
         End If
     End Sub
 
@@ -2338,7 +2343,6 @@ Public Class frmSelTipoCobro
 
 
     Private Sub btn_AnticipoAceptar_Click(sender As Object, e As EventArgs) Handles btn_AnticipoAceptar.Click
-
         Dim visibleSelectedRowCount As Boolean = False
         Dim Año As String = ""
         Dim Folio As String = ""
@@ -2365,7 +2369,6 @@ Public Class frmSelTipoCobro
                 If Saldo >= Convert.ToDecimal(TxtMontoAnticipo.Text) Then
                     Total = CDec(TxtMontoAnticipo.Text)
                     Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaAnticipo()
-
                     Dim listaDebito As New List(Of DebitoAnticipo)
                     Dim nuevodebitoanticipo As New DebitoAnticipo
                     nuevodebitoanticipo.folio = Folio
@@ -2374,7 +2377,8 @@ Public Class frmSelTipoCobro
                     listaDebito.Add(nuevodebitoanticipo)
                     _ListaDebitoAnticipos.Add(nuevodebitoanticipo)
                     ActualizarSaldoAnticipo(DirectCast(dgvSaldoAnticipo.DataSource, DataTable), AgruparDebitoAnticipo(_ListaDebitoAnticipos))
-                    Remisiones(cobro)
+                    _AceptaSaldo = True
+                    Remisiones(cobro, _AceptaSaldo)
                     LimpiarAnticipo()
                     Total = 0
                     DialogResult = DialogResult.OK
