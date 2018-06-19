@@ -14,6 +14,7 @@ Public Class frmRemisiones
     Dim column As DataColumn
     Dim row As DataRow
     Private _UltimoCobro As SigaMetClasses.CobroDetalladoDatos
+    Private _TablaRemisionesInicial As DataTable
 
     Public Property UltimoCobro() As SigaMetClasses.CobroDetalladoDatos
         Get
@@ -56,6 +57,9 @@ Public Class frmRemisiones
             For Each row In _TablaRemisiones.Rows
                 Cancelar.Add(CType(row("Saldo"), String))
             Next
+
+            _TablaRemisionesInicial = _TablaRemisiones
+
             lbl_Total.Text = "$" + CType(_Total, String)
             lbl_saldo.Text = "$" + CType(_Total, String)
             ' Create new DataColumn, set DataType, ColumnName 
@@ -82,21 +86,8 @@ Public Class frmRemisiones
             table.PrimaryKey = keys
 
             Dim keysRemiesiones(2) As DataColumn
-            'Dim columnRemisiones As DataColumn
-            'columnRemisiones = New DataColumn
-            'columnRemisiones.DataType = System.Type.GetType("System.String")
-            'columnRemisiones.ColumnName = "Serie"
-
-
-
             keysRemiesiones(0) = _TablaRemisiones.Columns(0)
-
-            'columnRemisiones = New DataColumn
-            'columnRemisiones.DataType = Type.GetType("System.String")
-            'columnRemisiones.ColumnName = "Remisión"
-
             keysRemiesiones(1) = _TablaRemisiones.Columns(1)
-
             _TablaRemisiones.PrimaryKey = keysRemiesiones
             grdRemision.DataSource = Nothing
             grdRemision.DataSource = _TablaRemisiones
@@ -204,7 +195,12 @@ Public Class frmRemisiones
     End Sub
 
     Private Sub btn_aceptarAbonos_Click(sender As Object, e As EventArgs) Handles btn_aceptarAbonos.Click
-
+        If _Saldo > 0 Then
+            MessageBox.Show("No se puede aceptar abonos el saldo debe de ser de $0.00 pesos, El saldo actual es de  " + _Saldo.ToString)
+        ElseIf _Saldo = 0 Then
+            MessageBox.Show("¡Captura de remisiones concluida!")
+            Close()
+        End If
     End Sub
     Function Valorcero() As String
         Valorcero = " $000.00"
@@ -222,42 +218,32 @@ Public Class frmRemisiones
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BtnBorrarUnAbono.Click
-        Dim findTheseVals(1) As Object
-        ' Set the values of the keys to find.
-        findTheseVals(0) = grdRemision.Item(FilaAbono, 0)
-        findTheseVals(1) = grdRemision.Item(FilaAbono, 1)
-        Dim foundRow As DataRow = _TablaRemisiones.Rows.Find(findTheseVals)
-        Dim MontoRemision As Decimal
-        Dim MontoDevuelto As Decimal
-        Dim MontoTotal As Decimal
+        For Each abono As DataRow In table.Rows
+            If (table.Rows.IndexOf(abono) = grdAbonos.CurrentRowIndex) Then
+                MessageBox.Show("encontrado")
+                For Each Remision As DataRow In _TablaRemisionesInicial.Rows
+                    If (Remision("Serie").ToString() = abono("Serie").ToString() And Remision("Remision").ToString() = abono("Remisión").ToString()) Then
 
-        ' Display column 1 of the found row.
-        If Not (foundRow Is Nothing) Then
-            MontoRemision = Convert.ToDecimal(foundRow(7))
-            MontoDevuelto = Convert.ToDecimal(grdAbonos.Item(FilaAbono, 2))
-            MontoTotal = MontoRemision + MontoDevuelto
-            foundRow(7) = MontoTotal
-            table.Rows(FilaAbono).Delete()
+                        abono.Delete()
+                        _TablaRemisiones.Rows(_TablaRemisionesInicial.Rows.IndexOf(Remision))("Saldo") = Cancelar(_TablaRemisionesInicial.Rows.IndexOf(Remision))
+                        MessageBox.Show("serie encontrada")
+                        GoTo Finalize
+                    End If
+                Next
 
-
-            'grdRemision.Item(0, 7) = grdAbonos.Item(FilaAbono, 2)
-            'MessageBox.Show(foundRow(0).ToString() + "    " + foundRow(7).ToString())
-            'table.Rows(FilaAbono).Delete()
-
-        End If
-        'MessageBox.Show(CType(grdAbonos.Item(FilaAbono, 0), String))
-        'MessageBox.Show(CType(grdAbonos.Item(FilaAbono, 1), String))
+                ' _TablaRemisiones.Rows(_TablaRemisiones.Rows.IndexOf(Remision))("Saldo") = item
+            End If
 
 
+        Next
 
-
-
+Finalize:
+        grdRemision.DataSource = _TablaRemisiones
+        grdAbonos.DataSource = table
 
     End Sub
 
     Private Sub grdAbonos_CurrentCellChanged(sender As Object, e As EventArgs) Handles grdAbonos.CurrentCellChanged
         FilaAbono = grdAbonos.CurrentRowIndex
-
-
     End Sub
 End Class
