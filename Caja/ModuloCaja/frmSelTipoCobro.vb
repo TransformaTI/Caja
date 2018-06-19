@@ -5,7 +5,6 @@ Imports System.Data.SqlClient
 Imports System.Linq
 
 
-
 Public Class frmSelTipoCobro
     Inherits System.Windows.Forms.Form
     Private Titulo As String = "Captura de cobranza"
