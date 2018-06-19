@@ -37,9 +37,9 @@ Partial Class frmRemisiones
         Me.btn_aceptarAbonos = New System.Windows.Forms.Button()
         Me.btn_cancelar = New System.Windows.Forms.Button()
         Me.grdAbonos = New System.Windows.Forms.DataGrid()
-        Me.Btn_Borrar = New System.Windows.Forms.Button()
+        Me.Btn_BorrarTodo = New System.Windows.Forms.Button()
         Me.grdRemision = New System.Windows.Forms.DataGrid()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.BtnBorrarUnAbono = New System.Windows.Forms.Button()
         CType(Me.grdAbonos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grdRemision, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -189,14 +189,14 @@ Partial Class frmRemisiones
         Me.grdAbonos.Size = New System.Drawing.Size(293, 93)
         Me.grdAbonos.TabIndex = 44
         '
-        'Btn_Borrar
+        'Btn_BorrarTodo
         '
-        Me.Btn_Borrar.Location = New System.Drawing.Point(749, 230)
-        Me.Btn_Borrar.Name = "Btn_Borrar"
-        Me.Btn_Borrar.Size = New System.Drawing.Size(75, 23)
-        Me.Btn_Borrar.TabIndex = 45
-        Me.Btn_Borrar.Text = "Borrar"
-        Me.Btn_Borrar.UseVisualStyleBackColor = True
+        Me.Btn_BorrarTodo.Location = New System.Drawing.Point(749, 230)
+        Me.Btn_BorrarTodo.Name = "Btn_BorrarTodo"
+        Me.Btn_BorrarTodo.Size = New System.Drawing.Size(99, 23)
+        Me.Btn_BorrarTodo.TabIndex = 45
+        Me.Btn_BorrarTodo.Text = "Borrar todo"
+        Me.Btn_BorrarTodo.UseVisualStyleBackColor = True
         '
         'grdRemision
         '
@@ -217,14 +217,14 @@ Partial Class frmRemisiones
         Me.grdRemision.Size = New System.Drawing.Size(798, 156)
         Me.grdRemision.TabIndex = 46
         '
-        'Button1
+        'BtnBorrarUnAbono
         '
-        Me.Button1.Location = New System.Drawing.Point(607, 387)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 47
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.BtnBorrarUnAbono.Location = New System.Drawing.Point(749, 270)
+        Me.BtnBorrarUnAbono.Name = "BtnBorrarUnAbono"
+        Me.BtnBorrarUnAbono.Size = New System.Drawing.Size(99, 23)
+        Me.BtnBorrarUnAbono.TabIndex = 47
+        Me.BtnBorrarUnAbono.Text = "Borrar un abono"
+        Me.BtnBorrarUnAbono.UseVisualStyleBackColor = True
         '
         'frmRemisiones
         '
@@ -232,9 +232,9 @@ Partial Class frmRemisiones
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ClientSize = New System.Drawing.Size(860, 441)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.BtnBorrarUnAbono)
         Me.Controls.Add(Me.grdRemision)
-        Me.Controls.Add(Me.Btn_Borrar)
+        Me.Controls.Add(Me.Btn_BorrarTodo)
         Me.Controls.Add(Me.grdAbonos)
         Me.Controls.Add(Me.btn_cancelar)
         Me.Controls.Add(Me.btn_aceptarAbonos)
@@ -276,7 +276,7 @@ Partial Class frmRemisiones
     Friend WithEvents btn_aceptarAbonos As Button
     Friend WithEvents btn_cancelar As Button
     Friend WithEvents grdAbonos As DataGrid
-    Friend WithEvents Btn_Borrar As Button
+    Friend WithEvents Btn_BorrarTodo As Button
     Friend WithEvents grdRemision As DataGrid
-    Friend WithEvents Button1 As Button
+    Friend WithEvents BtnBorrarUnAbono As Button
 End Class

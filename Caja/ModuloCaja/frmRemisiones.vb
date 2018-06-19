@@ -112,28 +112,39 @@ Public Class frmRemisiones
         If SaldoAbonado > 0 Then
             If _Saldo > 0 Then
                 Try
-                    If grdRemision.VisibleRowCount > 0 Then
-                        ' Create new DataRow objects and add to DataTable.    
-                        row = table.NewRow
-                        row("Serie") = grdRemision.Item(i, 0)
-                        row("Remisión") = grdRemision.Item(i, 1)
-                        row("Importe abonado") = grdRemision.Item(i, 7)
-                        table.Rows.Add(row)
-                        ' Set to DataGrid.DataSource property to the table.
-                        grdAbonos.DataSource = table
+                    row = table.NewRow
+                    row("Serie") = grdRemision.Item(i, 0)
+                    row("Remisión") = grdRemision.Item(i, 1)
 
-                        i = grdRemision.CurrentRowIndex
-                        ' lbl_saldo.Text = CType(_Total - CType(Val(grdRemision.Item(i, 7)), Decimal), String)
-                        '  lbl_Total.Text = "$" + CType(Val(grdRemision.Item(i, 6)), String)
-                        lbl_importeDocumento.Text = "$" + CType(Val(grdRemision.Item(i, 6)), String)
-                        lblSaloMovimiento.Text = "$" + CType(Val(grdRemision.Item(i, 7)), String)
-                        If _Total >= CDec(grdRemision.Item(i, 7)) Then
-                            lblImporteAbobo.Text = "$" + CType((grdRemision.Item(i, 7)), String)
-                        ElseIf _Total < CDec(grdRemision.Item(i, 7)) Then
-                            lblImporteAbobo.Text = "$" + CType(CDec(grdRemision.Item(i, 7)) - _Total, String)
+                    If _Saldo >= CDec(grdRemision.Item(i, 7)) Then
+                        row("Importe abonado") = grdRemision.Item(i, 7)
+                    Else
+                        row("Importe abonado") = _Saldo.ToString
+                    End If
+
+                    table.Rows.Add(row)
+                    grdAbonos.DataSource = table
+                    Dim fila As DataRow
+                    fila = _TablaRemisiones.Rows(_FilaSaldo)
+
+                    If _Saldo > 0 Then
+                        If _Saldo >= CDec(grdRemision.Item(i, 7)) Then
+                            _Saldo = _Saldo - CDec(grdRemision.Item(i, 7))
+                            fila("Saldo") = 0
+                        Else
+                            fila("Saldo") = CDec(grdRemision.Item(i, 7)) - _Saldo
+                            _Saldo = 0
                         End If
-                        _FilaSaldo = i
-                        AceptarAbono = True
+
+                        grdRemision.DataSource = _TablaRemisiones
+                        If _Saldo < 0 Then
+                            lbl_saldo.Text = Valorcero()
+                        Else
+                            lbl_saldo.Text = "$" + _Saldo.ToString
+                        End If
+                        lbl_importeDocumento.Text = Valorcero()
+                        lblSaloMovimiento.Text = Valorcero()
+                        lblImporteAbobo.Text = Valorcero()
                     End If
                 Catch ex As Exception
                     MessageBox.Show(ex.Message)
@@ -146,7 +157,7 @@ Public Class frmRemisiones
         End If
     End Sub
 
-    Private Sub Btn_Borrar_Click(sender As Object, e As EventArgs) Handles Btn_Borrar.Click
+    Private Sub Btn_Borrar_Click(sender As Object, e As EventArgs) Handles Btn_BorrarTodo.Click
         If table.Rows.Count > 0 Then
             For i = 0 To table.Rows.Count - 1
                 table.Rows(0).Delete()
@@ -167,7 +178,15 @@ Public Class frmRemisiones
     End Sub
 
     Private Sub grdRemision_MouseClick(sender As Object, e As MouseEventArgs) Handles grdRemision.MouseClick
-
+        i = grdRemision.CurrentRowIndex
+        lbl_importeDocumento.Text = "$" + CType(Val(grdRemision.Item(i, 6)), String)
+        lblSaloMovimiento.Text = "$" + CType(Val(grdRemision.Item(i, 7)), String)
+        If _Saldo >= CDec(grdRemision.Item(i, 7)) Then
+            lblImporteAbobo.Text = "$" + CType((grdRemision.Item(i, 7)), String)
+        Else
+            lblImporteAbobo.Text = "$" + _Saldo.ToString
+        End If
+        _FilaSaldo = i
     End Sub
 
     Private Sub btn_cancelar_Click(sender As Object, e As EventArgs) Handles btn_cancelar.Click
@@ -185,38 +204,7 @@ Public Class frmRemisiones
     End Sub
 
     Private Sub btn_aceptarAbonos_Click(sender As Object, e As EventArgs) Handles btn_aceptarAbonos.Click
-        Dim fila As DataRow
-        fila = _TablaRemisiones.Rows(_FilaSaldo)
-        If _Saldo > 0 Then
-            If AceptarAbono = True Then
 
-                _Saldo = _Saldo - CDec(grdRemision.Item(i, 7))
-                If _Saldo < 0 Then
-                    fila("Saldo") = _Saldo * -1
-                Else
-                    fila("Saldo") = 0
-                    grdRemision.DataSource = _TablaRemisiones
-                End If
-                If _Saldo < 0 Then
-                    lblImporteAbobo.Text = CType(_Saldo * -1, String)
-                    lbl_saldo.Text = "0"
-                Else
-                    lblImporteAbobo.Text = Valorcero()
-                    lbl_saldo.Text = _Saldo.ToString
-                End If
-                lbl_importeDocumento.Text = Valorcero()
-                lblSaloMovimiento.Text = Valorcero()
-
-            End If
-            AceptarAbono = False
-        Else
-            MessageBox.Show("Saldo insuficiente, No se puede hacer otro abono ")
-            If MessageBox.Show("¿Desea salir?", "",
-         MessageBoxButtons.YesNo, MessageBoxIcon.Question) _
-         = DialogResult.Yes Then
-                Close()
-            End If
-        End If
     End Sub
     Function Valorcero() As String
         Valorcero = " $000.00"
@@ -233,7 +221,7 @@ Public Class frmRemisiones
         End If
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BtnBorrarUnAbono.Click
         Dim findTheseVals(1) As Object
         ' Set the values of the keys to find.
         findTheseVals(0) = grdRemision.Item(FilaAbono, 0)
