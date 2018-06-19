@@ -115,6 +115,7 @@ Public Class frmPrincipal
     Friend WithEvents tbbAsignacionFolios As System.Windows.Forms.ToolBarButton
     Friend WithEvents mnuCambioFMovimiento As System.Windows.Forms.MenuItem
     Friend WithEvents mniModificacion As System.Windows.Forms.MenuItem
+    Friend WithEvents MenuItem8 As MenuItem
     Friend WithEvents mnuCostoGas As System.Windows.Forms.MenuItem
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
@@ -180,6 +181,7 @@ Public Class frmPrincipal
         Me.tbbAsignacionFolios = New System.Windows.Forms.ToolBarButton()
         Me.tbbCancelacionFolios = New System.Windows.Forms.ToolBarButton()
         Me.imgLista = New System.Windows.Forms.ImageList(Me.components)
+        Me.MenuItem8 = New System.Windows.Forms.MenuItem()
         CType(Me.sbpUsuario, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.sbpNombreUsuario, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.sbpCaja, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -356,7 +358,7 @@ Public Class frmPrincipal
         'mnuCatalogos
         '
         Me.mnuCatalogos.Index = 2
-        Me.mnuCatalogos.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnuCatBanco, Me.mnuCatRazonDevCheque, Me.mnuCatTipoMovCaja, Me.mnuCatCaja, Me.mnuCatDenom, Me.mnuTarjetaCredito})
+        Me.mnuCatalogos.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnuCatBanco, Me.mnuCatRazonDevCheque, Me.mnuCatTipoMovCaja, Me.mnuCatCaja, Me.mnuCatDenom, Me.mnuTarjetaCredito, Me.MenuItem8})
         Me.mnuCatalogos.Text = "&Catálogos"
         '
         'mnuCatBanco
@@ -509,7 +511,7 @@ Public Class frmPrincipal
         Me.tbbConsultaCobLiq.Name = "tbbConsultaCobLiq"
         Me.tbbConsultaCobLiq.Tag = "ConsultaCobLiq"
         Me.tbbConsultaCobLiq.Text = "Cobranzas y liquidaciones"
-        Me.tbbConsultaCobLiq.ToolTipText = "Consulta la lista de cobranzas capturadas y las liquidaciones recibidas en la caj" & _
+        Me.tbbConsultaCobLiq.ToolTipText = "Consulta la lista de cobranzas capturadas y las liquidaciones recibidas en la caj" &
     "a"
         '
         'tbbConsultaOperador
@@ -567,6 +569,11 @@ Public Class frmPrincipal
         Me.imgLista.Images.SetKeyName(7, "")
         Me.imgLista.Images.SetKeyName(8, "")
         Me.imgLista.Images.SetKeyName(9, "")
+        '
+        'MenuItem8
+        '
+        Me.MenuItem8.Index = 6
+        Me.MenuItem8.Text = "Tipo Concepto"
         '
         'frmPrincipal
         '
@@ -891,7 +898,7 @@ Public Class frmPrincipal
         End If
 
         'Ruta alterna de reportes 20/03/2008                
-        Dim frmConRep As New ReporteDinamico.frmListaReporte(3, Main.GLOBAL_RutaReportes, _Servidor, _BaseDatos, Main.GLOBAL_IDUsuario, _
+        Dim frmConRep As New ReporteDinamico.frmListaReporte(3, Main.GLOBAL_RutaReportes, _Servidor, _BaseDatos, Main.GLOBAL_IDUsuario,
                 GLOBAL_Connection, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario, GLOBAL_SeguridadReportes)
         '*****
 
@@ -1000,11 +1007,11 @@ Public Class frmPrincipal
             Dim frmCorteCaja As New frmCorteCajaAlta(Main.GLOBAL_CajaUsuario, Main.FechaOperacion, Main.ConsecutivoInicioDeSesion)
             frmCorteCaja.ShowDialog()
         Else
-            If MessageBox.Show("El corte de caja de este día ya fue capturado." & Chr(13) & _
+            If MessageBox.Show("El corte de caja de este día ya fue capturado." & Chr(13) &
                                "¿Desea modificarlo?", "Corte de caja", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
                 Dim oCorte As New SigaMetClasses.CorteCaja()
                 Dim frmCorteCaja As New frmCorteCajaAlta(Main.GLOBAL_CajaUsuario, Main.FechaOperacion, Main.ConsecutivoInicioDeSesion, oCorte.ConsultaAplicacion(Main.GLOBAL_CajaUsuario, Main.FechaOperacion))
-                frmcortecaja.ShowDialog()
+                frmCorteCaja.ShowDialog()
             End If
 
         End If
@@ -1042,7 +1049,7 @@ Public Class frmPrincipal
             Try
                 frmCapturaGLP = New CapturaCostoGLP.frmCosto(SigaMetClasses.DataLayer.Conexion, Main.GLOBAL_IDUsuario)
             Catch ex As Exception
-                MessageBox.Show("Ha ocurrido un error:" & vbCrLf & ex.Message, _
+                MessageBox.Show("Ha ocurrido un error:" & vbCrLf & ex.Message,
                     Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
             Finally
@@ -1050,5 +1057,13 @@ Public Class frmPrincipal
             End Try
             frmCapturaGLP.ShowDialog()
         End If
+    End Sub
+
+    Private Sub MenuItem8_Click(sender As Object, e As EventArgs) Handles MenuItem8.Click
+        Dim frmCatTipoConcepto As frmCatTipoConcepto = New frmCatTipoConcepto()
+        With frmCatTipoConcepto
+            .MdiParent = Me
+            .Show()
+        End With
     End Sub
 End Class

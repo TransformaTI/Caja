@@ -196,7 +196,7 @@
     </Reference>
     <Reference Include="SigaMetClasses, Version=2.0.0.2, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Librerias\SigaMetClasses\bin\SigaMetClasses.dll</HintPath>
+      <HintPath>bin\SigaMetClasses.dll</HintPath>
     </Reference>
     <Reference Include="SIGAMETSecurity, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -255,6 +255,9 @@
     <Compile Include="frmCambio.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmCapTipoConcepto.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmCapBanco.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -274,6 +277,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmCapTipoMovCaja.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCatTipoConcepto.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmCatBanco.vb">
@@ -358,10 +364,14 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Settings.vb" />
+    <Compile Include="TipoConcepto.vb" />
     <Compile Include="TransformadorCRM.vb" />
     <Content Include="ModuloCaja.ico" />
     <EmbeddedResource Include="frmCambio.resx">
       <DependentUpon>frmCambio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCapTipoConcepto.resx">
+      <DependentUpon>frmCapTipoConcepto.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCapBanco.resx">
       <DependentUpon>frmCapBanco.vb</DependentUpon>
@@ -383,6 +393,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCapTipoMovCaja.resx">
       <DependentUpon>frmCapTipoMovCaja.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCatTipoConcepto.resx">
+      <DependentUpon>frmCatTipoConcepto.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCatBanco.resx">
       <DependentUpon>frmCatBanco.vb</DependentUpon>

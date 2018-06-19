@@ -91,7 +91,7 @@ Public Class frmSelTipoCobro
     Private Total As Decimal
     Private _FolioCobro As Integer
     Private _TipoLiquidacion As String
-
+    Private _SoloEfectivo As Boolean = False
 
 
     Enum FormaPago
@@ -153,6 +153,7 @@ Public Class frmSelTipoCobro
 
     End Property
 
+
     Public Property TipoLiquidacion() As String
         Get
             Return _TipoLiquidacion
@@ -162,9 +163,19 @@ Public Class frmSelTipoCobro
         End Set
     End Property
 
+
+    Public Property SoloEfectivo As Boolean
+        Get
+            Return _SoloEfectivo
+        End Get
+        Set(value As Boolean)
+            _SoloEfectivo = value
+    End Set
+    End Property
+
     Public Sub New(ByVal intConsecutivo As Integer,
           Optional ByVal CapturaDetalle As Boolean = True, Optional ByVal DetalleCobro As Integer = 0,
-     Optional ByVal Folio As Integer = 0)
+     Optional ByVal Folio As Integer = 0, Optional ByVal aSoloEfectivo As Boolean = False)
 
         MyBase.New()
         InitializeComponent()
@@ -179,6 +190,8 @@ Public Class frmSelTipoCobro
         End If
         _CapturaDetalle = CapturaDetalle
         TipoCobroliquidacion = DetalleCobro
+        Me.SoloEfectivo = aSoloEfectivo
+
     End Sub
 
 #Region " Windows Form Designer generated code "
@@ -1757,6 +1770,14 @@ Public Class frmSelTipoCobro
         SeleccionarTipocobro()
         AddHandler txtImporteTC.KeyDown, AddressOf ManejaFlechas
 
+        If SoloEfectivo Then
+            tabTipoCobro.TabPages.Remove(tbValesDespensa)
+            tabTipoCobro.TabPages.Remove(tbTarjetaCredito)
+            tabTipoCobro.TabPages.Remove(tbChequeFicha)
+            tabTipoCobro.TabPages.Remove(tbDacionPagos)
+            tabTipoCobro.TabPages.Remove(tbTransferencias)
+            tabTipoCobro.TabPages.Remove(tbAplicAnticipo)
+        End If
 
     End Sub
 
