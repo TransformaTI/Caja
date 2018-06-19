@@ -5,7 +5,6 @@ Imports System.Data.SqlClient
 Imports System.Linq
 
 
-
 Public Class frmSelTipoCobro
     Inherits System.Windows.Forms.Form
     Private Titulo As String = "Captura de cobranza"
@@ -91,6 +90,8 @@ Public Class frmSelTipoCobro
     Private _TablaRemisiones As DataTable
     Private Total As Decimal
     Private _FolioCobro As Integer
+    Private _TipoLiquidacion As String
+
 
 
     Enum FormaPago
@@ -121,6 +122,7 @@ Public Class frmSelTipoCobro
     Friend WithEvents folio As DataGridViewTextBoxColumn
 
     Friend WithEvents MontoSaldo As DataGridViewTextBoxColumn
+    Friend WithEvents dgvCargoTarjeta As DataGridView
 
     Public Property Cobros() As List(Of SigaMetClasses.CobroDetalladoDatos)
         Get
@@ -149,6 +151,15 @@ Public Class frmSelTipoCobro
             _TablaRemisiones = value
         End Set
 
+    End Property
+
+    Public Property TipoLiquidacion() As String
+        Get
+            Return _TipoLiquidacion
+        End Get
+        Set(ByVal value As String)
+            _TipoLiquidacion = value
+        End Set
     End Property
 
     Public Sub New(ByVal intConsecutivo As Integer,
@@ -267,8 +278,9 @@ Public Class frmSelTipoCobro
         Me.BtnBuscarClienteVales = New System.Windows.Forms.Button()
         Me.btnAceptarVales1 = New ControlesBase.BotonBase()
         Me.tbTarjetaCredito = New System.Windows.Forms.TabPage()
-        Me.btnAceptarTarjetaCredito = New ControlesBase.BotonBase()
         Me.grpTarjetaCredito = New System.Windows.Forms.GroupBox()
+        Me.dgvCargoTarjeta = New System.Windows.Forms.DataGridView()
+        Me.btnAceptarTarjetaCredito = New ControlesBase.BotonBase()
         Me.txtImporteTC = New SigaMetClasses.Controles.txtNumeroDecimal()
         Me.txtClienteTC = New SigaMetClasses.Controles.txtNumeroEntero()
         Me.lblBanco = New System.Windows.Forms.Label()
@@ -330,6 +342,9 @@ Public Class frmSelTipoCobro
         Me.btn_AnticipoAceptar = New ControlesBase.BotonBase()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.dgvSaldoAnticipo = New System.Windows.Forms.DataGridView()
+        Me.año = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.folio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MontoSaldo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LabelBase32 = New ControlesBase.LabelBase()
         Me.TextObservacionesAnticipo = New System.Windows.Forms.TextBox()
         Me.TxtMontoAnticipo = New SigaMetClasses.Controles.txtNumeroDecimal()
@@ -357,9 +372,6 @@ Public Class frmSelTipoCobro
         Me.TxtNombreDacioPago = New SigaMetClasses.Controles.txtNumeroDecimal()
         Me.LabelBase24 = New ControlesBase.LabelBase()
         Me.imgLista = New System.Windows.Forms.ImageList(Me.components)
-        Me.año = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.folio = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.MontoSaldo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tabTipoCobro.SuspendLayout()
         Me.tbEfectivo.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -367,6 +379,7 @@ Public Class frmSelTipoCobro
         Me.GroupBox4.SuspendLayout()
         Me.tbTarjetaCredito.SuspendLayout()
         Me.grpTarjetaCredito.SuspendLayout()
+        CType(Me.dgvCargoTarjeta, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tbChequeFicha.SuspendLayout()
         Me.grpChequeFicha.SuspendLayout()
         Me.tbTransferencias.SuspendLayout()
@@ -633,29 +646,18 @@ Public Class frmSelTipoCobro
         '
         'tbTarjetaCredito
         '
-        Me.tbTarjetaCredito.Controls.Add(Me.btnAceptarTarjetaCredito)
         Me.tbTarjetaCredito.Controls.Add(Me.grpTarjetaCredito)
         Me.tbTarjetaCredito.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbTarjetaCredito.Location = New System.Drawing.Point(4, 4)
         Me.tbTarjetaCredito.Name = "tbTarjetaCredito"
-        Me.tbTarjetaCredito.Size = New System.Drawing.Size(603, 307)
+        Me.tbTarjetaCredito.Size = New System.Drawing.Size(603, 325)
         Me.tbTarjetaCredito.TabIndex = 0
         Me.tbTarjetaCredito.Text = "Tarjeta "
         '
-        'btnAceptarTarjetaCredito
-        '
-        Me.btnAceptarTarjetaCredito.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnAceptarTarjetaCredito.Image = CType(resources.GetObject("btnAceptarTarjetaCredito.Image"), System.Drawing.Image)
-        Me.btnAceptarTarjetaCredito.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAceptarTarjetaCredito.Location = New System.Drawing.Point(505, 150)
-        Me.btnAceptarTarjetaCredito.Name = "btnAceptarTarjetaCredito"
-        Me.btnAceptarTarjetaCredito.Size = New System.Drawing.Size(80, 24)
-        Me.btnAceptarTarjetaCredito.TabIndex = 3
-        Me.btnAceptarTarjetaCredito.Text = "&Aceptar"
-        Me.btnAceptarTarjetaCredito.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
         'grpTarjetaCredito
         '
+        Me.grpTarjetaCredito.Controls.Add(Me.dgvCargoTarjeta)
+        Me.grpTarjetaCredito.Controls.Add(Me.btnAceptarTarjetaCredito)
         Me.grpTarjetaCredito.Controls.Add(Me.txtImporteTC)
         Me.grpTarjetaCredito.Controls.Add(Me.txtClienteTC)
         Me.grpTarjetaCredito.Controls.Add(Me.lblBanco)
@@ -674,12 +676,36 @@ Public Class frmSelTipoCobro
         Me.grpTarjetaCredito.Controls.Add(Me.Label20)
         Me.grpTarjetaCredito.Controls.Add(Me.lblTitularTC)
         Me.grpTarjetaCredito.Controls.Add(Me.btnBuscarClienteTC)
-        Me.grpTarjetaCredito.Location = New System.Drawing.Point(48, 36)
+        Me.grpTarjetaCredito.Location = New System.Drawing.Point(8, 8)
         Me.grpTarjetaCredito.Name = "grpTarjetaCredito"
-        Me.grpTarjetaCredito.Size = New System.Drawing.Size(372, 253)
+        Me.grpTarjetaCredito.Size = New System.Drawing.Size(592, 281)
         Me.grpTarjetaCredito.TabIndex = 30
         Me.grpTarjetaCredito.TabStop = False
         Me.grpTarjetaCredito.Text = "Datos de la tarjeta de crédito o débito"
+        '
+        'dgvCargoTarjeta
+        '
+        Me.dgvCargoTarjeta.AllowUserToAddRows = False
+        Me.dgvCargoTarjeta.AllowUserToDeleteRows = False
+        Me.dgvCargoTarjeta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvCargoTarjeta.Location = New System.Drawing.Point(323, 34)
+        Me.dgvCargoTarjeta.Name = "dgvCargoTarjeta"
+        Me.dgvCargoTarjeta.ReadOnly = True
+        Me.dgvCargoTarjeta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvCargoTarjeta.Size = New System.Drawing.Size(253, 233)
+        Me.dgvCargoTarjeta.TabIndex = 55
+        '
+        'btnAceptarTarjetaCredito
+        '
+        Me.btnAceptarTarjetaCredito.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnAceptarTarjetaCredito.Image = CType(resources.GetObject("btnAceptarTarjetaCredito.Image"), System.Drawing.Image)
+        Me.btnAceptarTarjetaCredito.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnAceptarTarjetaCredito.Location = New System.Drawing.Point(184, 243)
+        Me.btnAceptarTarjetaCredito.Name = "btnAceptarTarjetaCredito"
+        Me.btnAceptarTarjetaCredito.Size = New System.Drawing.Size(80, 24)
+        Me.btnAceptarTarjetaCredito.TabIndex = 3
+        Me.btnAceptarTarjetaCredito.Text = "&Aceptar"
+        Me.btnAceptarTarjetaCredito.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtImporteTC
         '
@@ -1222,7 +1248,7 @@ Public Class frmSelTipoCobro
         Me.tbAplicAnticipo.Location = New System.Drawing.Point(4, 4)
         Me.tbAplicAnticipo.Name = "tbAplicAnticipo"
         Me.tbAplicAnticipo.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbAplicAnticipo.Size = New System.Drawing.Size(603, 325)
+        Me.tbAplicAnticipo.Size = New System.Drawing.Size(603, 307)
         Me.tbAplicAnticipo.TabIndex = 5
         Me.tbAplicAnticipo.Text = "Aplicación Anticipo"
         '
@@ -1271,6 +1297,27 @@ Public Class frmSelTipoCobro
         Me.dgvSaldoAnticipo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvSaldoAnticipo.Size = New System.Drawing.Size(322, 126)
         Me.dgvSaldoAnticipo.TabIndex = 54
+        '
+        'año
+        '
+        Me.año.DataPropertyName = "AñoMovimiento"
+        Me.año.HeaderText = "Año"
+        Me.año.Name = "año"
+        Me.año.ReadOnly = True
+        '
+        'folio
+        '
+        Me.folio.DataPropertyName = "FolioMovimiento"
+        Me.folio.HeaderText = "Folio"
+        Me.folio.Name = "folio"
+        Me.folio.ReadOnly = True
+        '
+        'MontoSaldo
+        '
+        Me.MontoSaldo.DataPropertyName = "MontoSaldo"
+        Me.MontoSaldo.HeaderText = "Saldo"
+        Me.MontoSaldo.Name = "MontoSaldo"
+        Me.MontoSaldo.ReadOnly = True
         '
         'LabelBase32
         '
@@ -1518,27 +1565,6 @@ Public Class frmSelTipoCobro
         Me.imgLista.ImageSize = New System.Drawing.Size(16, 16)
         Me.imgLista.TransparentColor = System.Drawing.Color.Transparent
         '
-        'año
-        '
-        Me.año.DataPropertyName = "AñoMovimiento"
-        Me.año.HeaderText = "Año"
-        Me.año.Name = "año"
-        Me.año.ReadOnly = True
-        '
-        'folio
-        '
-        Me.folio.DataPropertyName = "FolioMovimiento"
-        Me.folio.HeaderText = "Folio"
-        Me.folio.Name = "folio"
-        Me.folio.ReadOnly = True
-        '
-        'MontoSaldo
-        '
-        Me.MontoSaldo.DataPropertyName = "MontoSaldo"
-        Me.MontoSaldo.HeaderText = "Saldo"
-        Me.MontoSaldo.Name = "MontoSaldo"
-        Me.MontoSaldo.ReadOnly = True
-        '
         'frmSelTipoCobro
         '
         Me.AcceptButton = Me.btnAceptarVales1
@@ -1562,6 +1588,7 @@ Public Class frmSelTipoCobro
         Me.tbTarjetaCredito.ResumeLayout(False)
         Me.grpTarjetaCredito.ResumeLayout(False)
         Me.grpTarjetaCredito.PerformLayout()
+        CType(Me.dgvCargoTarjeta, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tbChequeFicha.ResumeLayout(False)
         Me.grpChequeFicha.ResumeLayout(False)
         Me.grpChequeFicha.PerformLayout()
@@ -1712,6 +1739,12 @@ Public Class frmSelTipoCobro
         If Not _MostrarDacion Then
             tabTipoCobro.TabPages.Remove(tbDacionPagos)
         End If
+
+        If TipoLiquidacion = "LiqPortatil" Then
+            dgvCargoTarjeta.Visible = False
+
+        End If
+
         ComboBanco.CargaDatos(True)
         ComboProveedor.CargaDatos()
         ComboTipoVale.CargaDatos()
@@ -1723,6 +1756,8 @@ Public Class frmSelTipoCobro
         End If
         SeleccionarTipocobro()
         AddHandler txtImporteTC.KeyDown, AddressOf ManejaFlechas
+
+
     End Sub
 
     Private Sub txtClienteTC_Enter(ByVal sender As System.Object, ByVal e As System.EventArgs)
@@ -1790,6 +1825,19 @@ Public Class frmSelTipoCobro
         End Try
     End Sub
 
+    Private Sub ConsultaCargosTarjeta()
+        Dim oTC As New SigaMetClasses.cTarjetaCredito()
+        Dim ds As New DataSet
+        Try
+            ds.Tables.Add(oTC.ConsultaPagosConTarjeta(Convert.ToUInt16(txtClienteTC.Text), 0, 0))
+
+            dgvCargoTarjeta.DataSource = ds.Tables(0)
+
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Sub
+
     Private Sub btnBuscarClienteTC_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarClienteTC.Click
         Dim lParametro As New SigaMetClasses.cConfig(16, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario)
         Dim lURLGateway As String = ""
@@ -1812,6 +1860,11 @@ Public Class frmSelTipoCobro
                 txtImporteTC.Focus()
             End If
         End If
+
+        If TipoLiquidacion = "Estacionario" Then
+            ConsultaCargosTarjeta()
+        End If
+
     End Sub
 
     Private Sub ManejaFlechas(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles dtpFechaCheque.KeyDown, MyBase.KeyDown
@@ -2411,12 +2464,13 @@ Public Class frmSelTipoCobro
     End Function
 
     Private Sub ActualizarSaldoAnticipo(dtAnticipos As DataTable, Agrupados As List(Of DebitoAnticipo))
-
         If dtAnticipos IsNot Nothing And dtAnticipos.Rows.Count > 0 Then
             For Each agrupado As DebitoAnticipo In Agrupados
                 For Each row As DataRow In dtAnticipos.Rows
-                    If row("AñoMovimiento").ToString = agrupado.anio.ToString And row("FolioMovimiento").ToString = agrupado.folio.ToString Then
-                        row("MontoSaldo") = Convert.ToDecimal(row("MontoSaldo")) - agrupado.montodebitado
+                    If Not row.RowState.ToString().Contains("Deleted") Then
+                        If row("AñoMovimiento").ToString = agrupado.anio.ToString And row("FolioMovimiento").ToString = agrupado.folio.ToString Then
+                            row("MontoSaldo") = Convert.ToDecimal(row("MontoSaldo")) - agrupado.montodebitado
+                        End If
                     End If
                 Next
             Next
@@ -2673,6 +2727,18 @@ Public Class frmSelTipoCobro
     End Sub
 
     Private Sub frmSelTipoCobro_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+
+    End Sub
+
+    Private Sub tbTarjetaCredito_Click(sender As Object, e As EventArgs) Handles tbTarjetaCredito.Click
+
+    End Sub
+
+    Private Sub dgvCargoTarjeta_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvCargoTarjeta.CellContentClick
+
+    End Sub
+
+    Private Sub grpTarjetaCredito_Enter(sender As Object, e As EventArgs) Handles grpTarjetaCredito.Enter
 
     End Sub
 End Class
