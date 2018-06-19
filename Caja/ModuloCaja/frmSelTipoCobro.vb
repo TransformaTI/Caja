@@ -686,7 +686,6 @@ Public Class frmSelTipoCobro
         Me.dgvCargoTarjeta.AllowUserToAddRows = False
         Me.dgvCargoTarjeta.AllowUserToDeleteRows = False
         Me.dgvCargoTarjeta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvCargoTarjeta.DataMember = "añomovimiento"
         Me.dgvCargoTarjeta.Location = New System.Drawing.Point(323, 34)
         Me.dgvCargoTarjeta.Name = "dgvCargoTarjeta"
         Me.dgvCargoTarjeta.ReadOnly = True
@@ -1827,21 +1826,12 @@ Public Class frmSelTipoCobro
 
     Private Sub ConsultaCargosTarjeta()
         Dim oTC As New SigaMetClasses.cTarjetaCredito()
+        Dim ds As New DataSet
         Try
+            ds.Tables.Add(oTC.ConsultaPagosConTarjeta(Convert.ToUInt16(txtClienteTC.Text), 0, 0))
 
-            ' dgvCargoTarjeta.AutoGenerateColumns = False
-            dgvCargoTarjeta.DataSource = oTC.ConsultaPagosConTarjeta(Convert.ToUInt16(txtClienteTC.Text), 0, 0)
-            'dgvCargoTarjeta.AutoGenerateColumns = False
-            'For Each Col As DataGridViewColumn In GrdPagosConTarjeta.Columns
-            '    Col.Visible = False
-            'Next
+            dgvCargoTarjeta.DataSource = ds.Tables(0)
 
-            'GrdPagosConTarjeta.Columns("TipoDeCobro").Visible = True
-            'GrdPagosConTarjeta.Columns("Tarjeta").Visible = True
-            'GrdPagosConTarjeta.Columns("Banco").Visible = True
-            'GrdPagosConTarjeta.Columns("Autorizacion").Visible = True
-            'GrdPagosConTarjeta.Columns("Importe").Visible = True
-            'GrdPagosConTarjeta.Columns("Observacion").Visible = True
         Catch ex As Exception
             Throw ex
         End Try
@@ -1870,7 +1860,9 @@ Public Class frmSelTipoCobro
             End If
         End If
 
-        ConsultaCargosTarjeta()
+        If TipoLiquidacion = "Estacionario" Then
+            ConsultaCargosTarjeta()
+        End If
 
     End Sub
 
