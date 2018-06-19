@@ -39,6 +39,7 @@ Partial Class frmRemisiones
         Me.grdAbonos = New System.Windows.Forms.DataGrid()
         Me.Btn_Borrar = New System.Windows.Forms.Button()
         Me.grdRemision = New System.Windows.Forms.DataGrid()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.grdAbonos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grdRemision, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -216,12 +217,22 @@ Partial Class frmRemisiones
         Me.grdRemision.Size = New System.Drawing.Size(798, 156)
         Me.grdRemision.TabIndex = 46
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(607, 387)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 47
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'frmRemisiones
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ClientSize = New System.Drawing.Size(860, 441)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.grdRemision)
         Me.Controls.Add(Me.Btn_Borrar)
         Me.Controls.Add(Me.grdAbonos)
@@ -267,4 +278,5 @@ Partial Class frmRemisiones
     Friend WithEvents grdAbonos As DataGrid
     Friend WithEvents Btn_Borrar As Button
     Friend WithEvents grdRemision As DataGrid
+    Friend WithEvents Button1 As Button
 End Class
