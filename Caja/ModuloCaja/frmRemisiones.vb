@@ -70,8 +70,6 @@ Public Class frmRemisiones
     Private Sub frmRemisiones_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'grdRemision.AutoGenerateColumns = False
         Try
-            Dim PRUEBA As SigaMetClasses.CobroDetalladoDatos = _UltimoCobro
-
             Dim row As DataRow
             For Each row In _TablaRemisiones.Rows
                 Cancelar.Add(CType(row("Saldo"), String))
@@ -229,6 +227,12 @@ Public Class frmRemisiones
             If MessageBox.Show("¿Desea generar saldo a favor?", "",
           MessageBoxButtons.YesNo, MessageBoxIcon.Question) _
           = DialogResult.Yes Then
+                Dim InsertCobro As SigaMetClasses.CobroDetalladoDatos = _UltimoCobro
+                InsertCobro.SaldoAFavor = True
+                InsertCobro.Saldo = _Saldo
+                InsertCobro.StatusSaldoAFavor = "ACTIVO"
+                _UltimoCobro = InsertCobro
+
                 Close()
             End If
 

@@ -2090,7 +2090,7 @@ Public Class frmSelTipoCobro
         Dim insertaCobro As New SigaMetClasses.CobroDetalladoDatos()
 
         With insertaCobro
-            .SaldoAFavor = False
+            ' .SaldoAFavor = False
             .AñoCobro = CShort(DateTime.Now.Year)
             .Cobro = 0
             'Datos reales
@@ -2107,12 +2107,11 @@ Public Class frmSelTipoCobro
             .Total = CDec(TxtImporteTransferencia.Text)
             .Importe = .Total / CDec(1 + (GLOBAL_IVA / 100))
             .Impuesto = .Total - .Importe
-
             .Referencia = "NULL" ' puede ser vacio
             .NumeroCheque = "NULL" ' puede ser vacio
             .FDevolucion = Date.MinValue
             .RazonDevCheque = Nothing
-            .Saldo = 10
+            ' .Saldo = 0
             .FActualizacion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
             .Folio = _FolioCobro
             .FDeposito = Date.MinValue
@@ -2121,7 +2120,7 @@ Public Class frmSelTipoCobro
             .NumeroCuentaDestino = "NULL"
             .BancoOrigen = CShort("0")
             .StatusSaldoAFavor = "NULL"
-            .AñoCobroOrigen = CShort("0")
+            .AñoCobroOrigen = CShort(_FechaCargo.Year)
             .CobroOrigen = 0
             .TPV = False
         End With
