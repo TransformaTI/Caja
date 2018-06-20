@@ -6,7 +6,8 @@ Public Class frmCapCobranza
     Private decImporteTotalCobros As Decimal
     Private _FMovimiento As Date
     Private _TipoCaptura As enumTipoCaptura
-    Friend WithEvents cboTipoConcepto As SigaMetClasses.Combos.ComboTipoMovimientoCaja
+    Friend WithEvents cboTipoConcepto As ComboBox
+    Friend WithEvents lblTipoConcepto As Label
     Private _TipoMovimientoCaja As Short
 
     Public Enum enumTipoCaptura
@@ -109,7 +110,8 @@ Public Class frmCapCobranza
         Me.lblClienteNombre = New System.Windows.Forms.Label()
         Me.txtObservaciones = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.cboTipoConcepto = New SigaMetClasses.Combos.ComboTipoMovimientoCaja()
+        Me.cboTipoConcepto = New System.Windows.Forms.ComboBox()
+        Me.lblTipoConcepto = New System.Windows.Forms.Label()
         CType(Me.Documentos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ImporteTotal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -121,7 +123,7 @@ Public Class frmCapCobranza
         Me.lstCobro.BackColor = System.Drawing.Color.LightGoldenrodYellow
         Me.lstCobro.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstCobro.ItemHeight = 14
-        Me.lstCobro.Location = New System.Drawing.Point(8, 216)
+        Me.lstCobro.Location = New System.Drawing.Point(8, 239)
         Me.lstCobro.Name = "lstCobro"
         Me.lstCobro.Size = New System.Drawing.Size(728, 60)
         Me.lstCobro.TabIndex = 0
@@ -133,9 +135,9 @@ Public Class frmCapCobranza
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lstPedido.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstPedido.ItemHeight = 14
-        Me.lstPedido.Location = New System.Drawing.Point(8, 296)
+        Me.lstPedido.Location = New System.Drawing.Point(8, 324)
         Me.lstPedido.Name = "lstPedido"
-        Me.lstPedido.Size = New System.Drawing.Size(728, 200)
+        Me.lstPedido.Size = New System.Drawing.Size(728, 214)
         Me.lstPedido.TabIndex = 1
         '
         'btnCancelar
@@ -167,7 +169,7 @@ Public Class frmCapCobranza
         '
         Me.btnAgregar.Image = CType(resources.GetObject("btnAgregar.Image"), System.Drawing.Image)
         Me.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAgregar.Location = New System.Drawing.Point(8, 184)
+        Me.btnAgregar.Location = New System.Drawing.Point(8, 210)
         Me.btnAgregar.Name = "btnAgregar"
         Me.btnAgregar.Size = New System.Drawing.Size(112, 24)
         Me.btnAgregar.TabIndex = 0
@@ -176,7 +178,7 @@ Public Class frmCapCobranza
         '
         'stbEstatus
         '
-        Me.stbEstatus.Location = New System.Drawing.Point(0, 503)
+        Me.stbEstatus.Location = New System.Drawing.Point(0, 552)
         Me.stbEstatus.Name = "stbEstatus"
         Me.stbEstatus.Panels.AddRange(New System.Windows.Forms.StatusBarPanel() {Me.Documentos, Me.ImporteTotal})
         Me.stbEstatus.ShowPanels = True
@@ -265,7 +267,7 @@ Public Class frmCapCobranza
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(8, 280)
+        Me.Label4.Location = New System.Drawing.Point(8, 305)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(229, 13)
         Me.Label4.TabIndex = 17
@@ -338,18 +340,30 @@ Public Class frmCapCobranza
         '
         'cboTipoConcepto
         '
-        Me.cboTipoConcepto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboTipoConcepto.Location = New System.Drawing.Point(136, 189)
+        Me.cboTipoConcepto.FormattingEnabled = True
+        Me.cboTipoConcepto.Location = New System.Drawing.Point(136, 187)
         Me.cboTipoConcepto.Name = "cboTipoConcepto"
         Me.cboTipoConcepto.Size = New System.Drawing.Size(352, 21)
         Me.cboTipoConcepto.TabIndex = 26
-        Me.cboTipoConcepto.Visible = False
+        '
+        'lblTipoConcepto
+        '
+        Me.lblTipoConcepto.AutoSize = True
+        Me.lblTipoConcepto.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTipoConcepto.Location = New System.Drawing.Point(11, 190)
+        Me.lblTipoConcepto.Name = "lblTipoConcepto"
+        Me.lblTipoConcepto.Size = New System.Drawing.Size(95, 13)
+        Me.lblTipoConcepto.TabIndex = 27
+        Me.lblTipoConcepto.Text = "Ttipo Concepto:"
+        Me.lblTipoConcepto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lblTipoConcepto.Visible = False
         '
         'frmCapCobranza
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 14)
         Me.CancelButton = Me.btnCancelar
-        Me.ClientSize = New System.Drawing.Size(744, 525)
+        Me.ClientSize = New System.Drawing.Size(744, 574)
+        Me.Controls.Add(Me.lblTipoConcepto)
         Me.Controls.Add(Me.cboTipoConcepto)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.lblNombreRequerido)
@@ -651,18 +665,17 @@ Public Class frmCapCobranza
     Private Sub HabiltaComboTipoConcepto()
         If Me.ComboTipoMovCaja.TipoMovimientoCaja = 43 Then
             Me.cboTipoConcepto.Visible = True
+
         Else
             Me.cboTipoConcepto.Visible = False
         End If
+        lblTipoConcepto.Visible = Me.cboTipoConcepto.Visible
     End Sub
 
     Private Sub txtCliente_MouseCaptureChanged(sender As Object, e As EventArgs) Handles txtCliente.MouseCaptureChanged
 
     End Sub
 
-    Private Sub cboTipoConcepto_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboTipoConcepto.SelectedIndexChanged
-
-    End Sub
 End Class
 
 #Region "Estructuras"

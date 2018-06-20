@@ -111,7 +111,7 @@ Public Class MetodoDatos
                 'Dim celula As New Celula(Convert.ToInt32(reader(0).ToString()), reader(1).ToString())
                 Dim tipoConcepto As New TipoConcepto()
 
-                tipoConcepto.TipoConceptoPro = Convert.ToInt32(reader(0).ToString())
+                tipoConcepto.TipoConcepto = Convert.ToInt32(reader(0).ToString())
                 tipoConcepto.Descripcion = reader(1).ToString()
                 tipoConcepto.Tipomovimientocaja = Convert.ToInt32(reader(2).ToString())
                 tipoConcepto.Cuentacontable = reader(3).ToString()
@@ -185,7 +185,7 @@ Public Class MetodoDatos
                 'Dim celula As New Celula(Convert.ToInt32(reader(0).ToString()), reader(1).ToString())
 
 
-                TipoConcepto.TipoConceptoPro = Convert.ToInt32(reader(0).ToString())
+                tipoConcepto.TipoConcepto = Convert.ToInt32(reader(0).ToString())
                 tipoConcepto.Descripcion = reader(1).ToString()
                 tipoConcepto.Tipomovimientocaja = Convert.ToInt32(reader(2).ToString())
                 tipoConcepto.Cuentacontable = reader(3).ToString()

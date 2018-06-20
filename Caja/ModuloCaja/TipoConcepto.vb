@@ -7,7 +7,7 @@
     Dim _usuarioalta As String
     Dim _falta As String
 
-    Public Property TipoConceptoPro As Integer
+    Public Property TipoConcepto As Integer
         Get
             Return _tipoConcepto
         End Get

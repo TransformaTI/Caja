@@ -175,7 +175,7 @@ Public Class frmCatTipoConcepto
         Dim Col4 As New DataGridTextBoxColumn()
         With Col4
             .HeaderText = "Estatus"
-            .MappingName = "status"
+            .MappingName = "Estatus"
             .Width = 70
         End With
         Dim Col5 As New DataGridTextBoxColumn()
