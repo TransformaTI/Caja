@@ -71,11 +71,13 @@
     End Property
 
     Public Sub Alta()
-
+        Dim metodoDatos As MetodoDatos = New MetodoDatos()
+        metodoDatos.GuardaTipoConcepto(Me.Descripcion, Me.Tipomovimientocaja, Me.Cuentacontable, Me.Status, Me.Usuarioalta, DateTime.Parse(Me.Falta))
     End Sub
 
     Public Sub Modifica()
-
+        Dim metodoDatos As MetodoDatos = New MetodoDatos()
+        metodoDatos.ModificaTipoConcepto(Me.TipoConcepto, Me.Descripcion, Me.Tipomovimientocaja, Me.Cuentacontable, Me.Status)
     End Sub
 
 

@@ -340,6 +340,7 @@ Public Class frmCapCobranza
         '
         'cboTipoConcepto
         '
+        Me.cboTipoConcepto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboTipoConcepto.FormattingEnabled = True
         Me.cboTipoConcepto.Location = New System.Drawing.Point(136, 187)
         Me.cboTipoConcepto.Name = "cboTipoConcepto"

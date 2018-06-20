@@ -2,6 +2,12 @@ Imports CatalogoBase.frmCatalogo.enumTipoAccion
 Public Class frmCapTipoConcepto
     Inherits System.Windows.Forms.Form
     Public TipoAccion As CatalogoBase.frmCatalogo.enumTipoAccion
+    Friend WithEvents lblEstatus As Label
+    Friend WithEvents comboEstatus As ComboBox
+    Dim _IdTipoConcepto As Integer
+    Friend WithEvents ComboTipoMovCaja As ComboBox
+    Dim esModificacion As Boolean
+    Dim TipoConcepto As TipoConcepto = Nothing
 
 #Region " Windows Form Designer generated code "
 
@@ -37,7 +43,6 @@ Public Class frmCapTipoConcepto
     Friend WithEvents lblDescripcion As System.Windows.Forms.Label
     Friend WithEvents txtCuenta As System.Windows.Forms.TextBox
     Friend WithEvents lblTipoMovCaja As Label
-    Friend WithEvents ComboTipoMovCaja As SigaMetClasses.Combos.ComboTipoMovimientoCaja
     Friend WithEvents lblCuentaContable As System.Windows.Forms.Label
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCapTipoConcepto))
@@ -48,7 +53,9 @@ Public Class frmCapTipoConcepto
         Me.btnCancelar = New ControlesBase.BotonBase()
         Me.btnAceptar = New ControlesBase.BotonBase()
         Me.lblTipoMovCaja = New System.Windows.Forms.Label()
-        Me.ComboTipoMovCaja = New SigaMetClasses.Combos.ComboTipoMovimientoCaja()
+        Me.lblEstatus = New System.Windows.Forms.Label()
+        Me.comboEstatus = New System.Windows.Forms.ComboBox()
+        Me.ComboTipoMovCaja = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'txtDescripcion
@@ -110,25 +117,49 @@ Public Class frmCapTipoConcepto
         'lblTipoMovCaja
         '
         Me.lblTipoMovCaja.AutoSize = True
-        Me.lblTipoMovCaja.Location = New System.Drawing.Point(42, 71)
+        Me.lblTipoMovCaja.Location = New System.Drawing.Point(49, 71)
         Me.lblTipoMovCaja.Name = "lblTipoMovCaja"
         Me.lblTipoMovCaja.Size = New System.Drawing.Size(83, 13)
         Me.lblTipoMovCaja.TabIndex = 6
         Me.lblTipoMovCaja.Text = "Tipo Mov. Caja:"
         '
+        'lblEstatus
+        '
+        Me.lblEstatus.AutoSize = True
+        Me.lblEstatus.Location = New System.Drawing.Point(86, 98)
+        Me.lblEstatus.Name = "lblEstatus"
+        Me.lblEstatus.Size = New System.Drawing.Size(47, 13)
+        Me.lblEstatus.TabIndex = 21
+        Me.lblEstatus.Text = "Estatus:"
+        Me.lblEstatus.Visible = False
+        '
+        'comboEstatus
+        '
+        Me.comboEstatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.comboEstatus.FormattingEnabled = True
+        Me.comboEstatus.Items.AddRange(New Object() {"ACTIVO", "INACTIVO"})
+        Me.comboEstatus.Location = New System.Drawing.Point(144, 95)
+        Me.comboEstatus.Name = "comboEstatus"
+        Me.comboEstatus.Size = New System.Drawing.Size(350, 21)
+        Me.comboEstatus.TabIndex = 22
+        Me.comboEstatus.Visible = False
+        '
         'ComboTipoMovCaja
         '
         Me.ComboTipoMovCaja.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboTipoMovCaja.Location = New System.Drawing.Point(142, 68)
+        Me.ComboTipoMovCaja.FormattingEnabled = True
+        Me.ComboTipoMovCaja.Location = New System.Drawing.Point(144, 70)
         Me.ComboTipoMovCaja.Name = "ComboTipoMovCaja"
-        Me.ComboTipoMovCaja.Size = New System.Drawing.Size(352, 21)
-        Me.ComboTipoMovCaja.TabIndex = 20
+        Me.ComboTipoMovCaja.Size = New System.Drawing.Size(350, 21)
+        Me.ComboTipoMovCaja.TabIndex = 23
         '
         'frmCapTipoConcepto
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 14)
-        Me.ClientSize = New System.Drawing.Size(661, 113)
+        Me.ClientSize = New System.Drawing.Size(661, 133)
         Me.Controls.Add(Me.ComboTipoMovCaja)
+        Me.Controls.Add(Me.comboEstatus)
+        Me.Controls.Add(Me.lblEstatus)
         Me.Controls.Add(Me.lblTipoMovCaja)
         Me.Controls.Add(Me.btnCancelar)
         Me.Controls.Add(Me.btnAceptar)
@@ -153,32 +184,56 @@ Public Class frmCapTipoConcepto
     End Sub
 
     Private Sub btnAceptar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAceptar.Click
-        Dim objTipoConcepto As TipoConcepto = New TipoConcepto()
+
         Try
             If TipoAccion = Agregar Then
+                Dim objTipoConcepto As TipoConcepto = New TipoConcepto()
+                objTipoConcepto.Descripcion = Me.txtDescripcion.Text
+                objTipoConcepto.Tipomovimientocaja = Convert.ToInt32(Me.ComboTipoMovCaja.SelectedValue)
+                objTipoConcepto.Cuentacontable = Me.txtCuenta.Text
+                objTipoConcepto.Usuarioalta = GLOBAL_IDUsuario
+                objTipoConcepto.Status = "ACTIVO"
+                objTipoConcepto.Falta = DateTime.Now().ToString("dd-MM-yyyy")
                 objTipoConcepto.Alta()
             End If
             If TipoAccion = Modificar Then
+                Dim objTipoConcepto As TipoConcepto = New TipoConcepto()
+                objTipoConcepto.TipoConcepto = _IdTipoConcepto
+                objTipoConcepto.Descripcion = Me.txtDescripcion.Text
+                objTipoConcepto.Tipomovimientocaja = Convert.ToInt32(Me.ComboTipoMovCaja.SelectedValue)
+                objTipoConcepto.Cuentacontable = Me.txtCuenta.Text
+                objTipoConcepto.Usuarioalta = GLOBAL_IDUsuario
+                objTipoConcepto.Status = Me.comboEstatus.Text
+                objTipoConcepto.Falta = DateTime.Now().ToString("dd-MM-yyyy")
                 objTipoConcepto.Modifica()
             End If
             DialogResult = DialogResult.OK
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Tipo concepto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show(ex.Message, "Tipo Concepto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         Finally
-            objTipoConcepto = Nothing
+
             Me.Close()
         End Try
     End Sub
 
     Public Sub FillData(ByVal IdTipoConcepto As Integer)
+        _IdTipoConcepto = IdTipoConcepto
         Dim m_metodos As New MetodoDatos
-        Dim TipoConcepto As TipoConcepto = m_metodos.CargaTipoConcepto(IdTipoConcepto)
+        TipoConcepto = m_metodos.CargaTipoConcepto(IdTipoConcepto)
         txtDescripcion.Text = TipoConcepto.Descripcion
         txtCuenta.Text = TipoConcepto.Cuentacontable
-        ComboTipoMovCaja.SelectedValue = TipoConcepto.Tipomovimientocaja
+        Me.lblEstatus.Visible = True
+        Me.comboEstatus.Visible = True
+        Me.comboEstatus.Text = TipoConcepto.Status
     End Sub
 
     Private Sub frmCapTipoConcepto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ComboTipoMovCaja.CargaDatosNotasIngreso()
+        Dim m_metodos As New MetodoDatos
+        ComboTipoMovCaja.DataSource = m_metodos.ConsultaTipoMovCaja()
+        ComboTipoMovCaja.ValueMember = "TipoMovimientoCaja"
+        ComboTipoMovCaja.DisplayMember = "Descripcion"
+        If Not IsNothing(TipoConcepto) Then
+            Me.ComboTipoMovCaja.SelectedValue = TipoConcepto.Tipomovimientocaja
+        End If
     End Sub
 End Class
