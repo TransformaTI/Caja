@@ -26,3 +26,12 @@ C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\FULLSoporte\ActualizacionC
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\FULLSoporte\ActualizacionCobranza\obj\Debug\ActualizacionCobranza.csproj.CopyComplete
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\FULLSoporte\ActualizacionCobranza\obj\Debug\ActualizacionCobranza.dll
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\FULLSoporte\ActualizacionCobranza\obj\Debug\ActualizacionCobranza.pdb
+C:\Users\Diego\Documents\Caja\Caja\FULLSoporte\ActualizacionCobranza\bin\Debug\ActualizacionCobranza.dll
+C:\Users\Diego\Documents\Caja\Caja\FULLSoporte\ActualizacionCobranza\bin\Debug\ActualizacionCobranza.pdb
+C:\Users\Diego\Documents\Caja\Caja\FULLSoporte\ActualizacionCobranza\obj\Debug\ActualizacionCobranza.ActualizacionCobranza.resources
+C:\Users\Diego\Documents\Caja\Caja\FULLSoporte\ActualizacionCobranza\obj\Debug\ActualizacionCobranza.csproj.GenerateResource.cache
+C:\Users\Diego\Documents\Caja\Caja\FULLSoporte\ActualizacionCobranza\obj\Debug\ActualizacionCobranza.csproj.CoreCompileInputs.cache
+C:\Users\Diego\Documents\Caja\Caja\FULLSoporte\ActualizacionCobranza\obj\Debug\ActualizacionCobranza.csproj.CopyComplete
+C:\Users\Diego\Documents\Caja\Caja\FULLSoporte\ActualizacionCobranza\obj\Debug\ActualizacionCobranza.dll
+C:\Users\Diego\Documents\Caja\Caja\FULLSoporte\ActualizacionCobranza\obj\Debug\ActualizacionCobranza.pdb
+C:\Users\Diego\Documents\Caja\Caja\FULLSoporte\ActualizacionCobranza\obj\Debug\ActualizacionCobranza.csprojAssemblyReference.cache

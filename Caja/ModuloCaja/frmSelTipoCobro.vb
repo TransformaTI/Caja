@@ -20,7 +20,7 @@ Public Class frmSelTipoCobro
     Friend WithEvents tbAplicAnticipo As TabPage
     Friend WithEvents tbEfectivo As TabPage
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents TxtNumeroDecimal1 As SigaMetClasses.Controles.txtNumeroDecimal
+    Friend WithEvents Txt_totalEfectivo As SigaMetClasses.Controles.txtNumeroDecimal
     Friend WithEvents LabelBase8 As ControlesBase.LabelBase
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents LabelBase11 As ControlesBase.LabelBase
@@ -54,7 +54,7 @@ Public Class frmSelTipoCobro
     Friend WithEvents LabelBase23 As ControlesBase.LabelBase
     Friend WithEvents TxtNombreDacioPago As SigaMetClasses.Controles.txtNumeroDecimal
     Friend WithEvents LabelBase24 As ControlesBase.LabelBase
-    Friend WithEvents BotonBase1 As ControlesBase.BotonBase
+    Friend WithEvents btnEfectivo As ControlesBase.BotonBase
     Friend WithEvents BotonBase2 As ControlesBase.BotonBase
     Friend WithEvents BotonBase3 As ControlesBase.BotonBase
     Friend WithEvents GroupBox4 As GroupBox
@@ -93,8 +93,8 @@ Public Class frmSelTipoCobro
     Private _TipoLiquidacion As String
     Private _SoloEfectivo As Boolean = False
     Private _AceptaSaldo As Boolean
-
-
+    Private _Remisiones As Boolean
+    Private _FechaCargo As Date
 
     Enum FormaPago
         Efectivo = 0
@@ -135,6 +135,15 @@ Public Class frmSelTipoCobro
         End Set
     End Property
 
+    Public Property fecha() As Date
+        Get
+            Return _FechaCargo
+        End Get
+        Set(value As Date)
+            _FechaCargo = value
+        End Set
+    End Property
+
     Private _ListaDebitoAnticipos As New List(Of DebitoAnticipo)
     Public Property DebitoAnticipos() As List(Of DebitoAnticipo)
         Get
@@ -172,7 +181,7 @@ Public Class frmSelTipoCobro
         End Get
         Set(value As Boolean)
             _SoloEfectivo = value
-    End Set
+        End Set
     End Property
 
     Public Sub New(ByVal intConsecutivo As Integer,
@@ -270,9 +279,9 @@ Public Class frmSelTipoCobro
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSelTipoCobro))
         Me.tabTipoCobro = New System.Windows.Forms.TabControl()
         Me.tbEfectivo = New System.Windows.Forms.TabPage()
-        Me.BotonBase1 = New ControlesBase.BotonBase()
+        Me.btnEfectivo = New ControlesBase.BotonBase()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.TxtNumeroDecimal1 = New SigaMetClasses.Controles.txtNumeroDecimal()
+        Me.Txt_totalEfectivo = New SigaMetClasses.Controles.txtNumeroDecimal()
         Me.LabelBase8 = New ControlesBase.LabelBase()
         Me.tbValesDespensa = New System.Windows.Forms.TabPage()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
@@ -429,7 +438,7 @@ Public Class frmSelTipoCobro
         'tbEfectivo
         '
         Me.tbEfectivo.BackColor = System.Drawing.SystemColors.Control
-        Me.tbEfectivo.Controls.Add(Me.BotonBase1)
+        Me.tbEfectivo.Controls.Add(Me.btnEfectivo)
         Me.tbEfectivo.Controls.Add(Me.GroupBox1)
         Me.tbEfectivo.Location = New System.Drawing.Point(4, 4)
         Me.tbEfectivo.Name = "tbEfectivo"
@@ -437,21 +446,21 @@ Public Class frmSelTipoCobro
         Me.tbEfectivo.TabIndex = 6
         Me.tbEfectivo.Text = "Efectivo"
         '
-        'BotonBase1
+        'btnEfectivo
         '
-        Me.BotonBase1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BotonBase1.Image = CType(resources.GetObject("BotonBase1.Image"), System.Drawing.Image)
-        Me.BotonBase1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BotonBase1.Location = New System.Drawing.Point(515, 152)
-        Me.BotonBase1.Name = "BotonBase1"
-        Me.BotonBase1.Size = New System.Drawing.Size(80, 24)
-        Me.BotonBase1.TabIndex = 34
-        Me.BotonBase1.Text = "&Aceptar"
-        Me.BotonBase1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnEfectivo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnEfectivo.Image = CType(resources.GetObject("btnEfectivo.Image"), System.Drawing.Image)
+        Me.btnEfectivo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnEfectivo.Location = New System.Drawing.Point(515, 152)
+        Me.btnEfectivo.Name = "btnEfectivo"
+        Me.btnEfectivo.Size = New System.Drawing.Size(80, 24)
+        Me.btnEfectivo.TabIndex = 34
+        Me.btnEfectivo.Text = "&Aceptar"
+        Me.btnEfectivo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.TxtNumeroDecimal1)
+        Me.GroupBox1.Controls.Add(Me.Txt_totalEfectivo)
         Me.GroupBox1.Controls.Add(Me.LabelBase8)
         Me.GroupBox1.Location = New System.Drawing.Point(62, 139)
         Me.GroupBox1.Name = "GroupBox1"
@@ -460,12 +469,12 @@ Public Class frmSelTipoCobro
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos del efectivo"
         '
-        'TxtNumeroDecimal1
+        'Txt_totalEfectivo
         '
-        Me.TxtNumeroDecimal1.Location = New System.Drawing.Point(146, 16)
-        Me.TxtNumeroDecimal1.Name = "TxtNumeroDecimal1"
-        Me.TxtNumeroDecimal1.Size = New System.Drawing.Size(120, 21)
-        Me.TxtNumeroDecimal1.TabIndex = 0
+        Me.Txt_totalEfectivo.Location = New System.Drawing.Point(146, 16)
+        Me.Txt_totalEfectivo.Name = "Txt_totalEfectivo"
+        Me.Txt_totalEfectivo.Size = New System.Drawing.Size(120, 21)
+        Me.Txt_totalEfectivo.TabIndex = 0
         '
         'LabelBase8
         '
@@ -1754,7 +1763,6 @@ Public Class frmSelTipoCobro
         If Not _MostrarDacion Then
             tabTipoCobro.TabPages.Remove(tbDacionPagos)
         End If
-
         If TipoLiquidacion = "LiqPortatil" Then
             dgvCargoTarjeta.Visible = False
 
@@ -1958,9 +1966,10 @@ Public Class frmSelTipoCobro
 
     End Sub
 
-    Private Sub BotonBase1_Click(sender As Object, e As EventArgs) Handles BotonBase1.Click
-        If TxtNumeroDecimal1.Text.Trim <> "" Then
-            Total = CDec(TxtNumeroDecimal1.Text)
+
+    Private Sub btnEfectivo_Click(sender As Object, e As EventArgs) Handles btnEfectivo.Click
+        If Txt_totalEfectivo.Text.Trim <> "" Then
+            Total = CDec(Txt_totalEfectivo.Text)
             Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaPagoEfectivo()
             _AceptaSaldo = False
             Remisiones(cobro, _AceptaSaldo)
@@ -2002,9 +2011,9 @@ Public Class frmSelTipoCobro
             .SaldoAFavor = False
             .AñoCobro = CShort(DateTime.Now.Year)
             .Cobro = 0
-            .Impuesto = GLOBAL_IVA
-            .Importe = CDec(TxtNumeroDecimal1.Text)
-            .Total = .Importe + ((.Impuesto / 100) * .Importe)
+            .Total = CDec(Txt_totalEfectivo.Text)
+            .Importe = .Total / CDec(1 + (GLOBAL_IVA / 100))
+            .Impuesto = .Total - .Importe
             .Referencia = "NULL" ' puede ser vacio
             .Banco = CShort("0") 'puede ser null
             .FAlta = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
@@ -2022,8 +2031,8 @@ Public Class frmSelTipoCobro
             .FActualizacion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
             .Folio = _FolioCobro
             .FDeposito = Date.MinValue
-            .FolioAtt = 0
-            .AñoAtt = CShort("0")
+            .FolioAtt = _FolioCobro
+            .AñoAtt = CShort(_FechaCargo.Year)
             .NumeroCuentaDestino = "NULL"
             .BancoOrigen = CShort("0")
             .StatusSaldoAFavor = "NULL"
@@ -2053,19 +2062,18 @@ Public Class frmSelTipoCobro
             .Cliente = CInt(txtClienteCheque.Text)
             .RazonDevCheque = Nothing
             .Usuario = GLOBAL_IDUsuario
-            .Impuesto = GLOBAL_IVA
-            .Importe = CDec(txtImporteDocumento.Text)
-            .Total = .Importe + ((.Impuesto / 100) * .Importe)
+            .Total = CDec(txtImporteDocumento.Text)
+            .Importe = .Total / CDec(1 + (GLOBAL_IVA / 100))
+            .Impuesto = .Total - .Importe
             'datos hardcord
-
             .Referencia = "NULL" ' puede ser vacio
             .FDevolucion = Date.MinValue
             .Saldo = 10
             .FActualizacion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
             .Folio = _FolioCobro
             .FDeposito = Date.MinValue
-            .FolioAtt = 0
-            .AñoAtt = CShort("0")
+            .FolioAtt = _FolioCobro
+            .AñoAtt = CShort(_FechaCargo.Year)
             .NumeroCuentaDestino = "NULL"
             .BancoOrigen = CShort("0") 'cual es banco origen
             .StatusSaldoAFavor = "NULL"
@@ -2083,11 +2091,10 @@ Public Class frmSelTipoCobro
         Dim insertaCobro As New SigaMetClasses.CobroDetalladoDatos()
 
         With insertaCobro
-            .SaldoAFavor = False
+            ' .SaldoAFavor = False
             .AñoCobro = CShort(DateTime.Now.Year)
             .Cobro = 0
             'Datos reales
-
             .Cliente = CInt(TxtClienteTransferencia.Text)
             .FCheque = Date.MinValue
             .NumeroCuenta = TxtNumeroCuentaTransferencia.Text
@@ -2097,25 +2104,24 @@ Public Class frmSelTipoCobro
             .FAlta = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
             .Status = "EMITIDO"
             .Usuario = GLOBAL_IDUsuario
-
             'empieza valores hardcode
-            .Impuesto = GLOBAL_IVA
-            .Importe = CDec(TxtImporteTransferencia.Text)
-            .Total = .Importe + ((.Impuesto / 100) * .Importe)
+            .Total = CDec(TxtImporteTransferencia.Text)
+            .Importe = .Total / CDec(1 + (GLOBAL_IVA / 100))
+            .Impuesto = .Total - .Importe
             .Referencia = "NULL" ' puede ser vacio
             .NumeroCheque = "NULL" ' puede ser vacio
             .FDevolucion = Date.MinValue
             .RazonDevCheque = Nothing
-            .Saldo = 10
+            ' .Saldo = 0
             .FActualizacion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
             .Folio = _FolioCobro
             .FDeposito = Date.MinValue
-            .FolioAtt = 0
-            .AñoAtt = CShort("0")
+            .FolioAtt = _FolioCobro
+            .AñoAtt = CShort(_FechaCargo.Year)
             .NumeroCuentaDestino = "NULL"
             .BancoOrigen = CShort("0")
             .StatusSaldoAFavor = "NULL"
-            .AñoCobroOrigen = CShort("0")
+            .AñoCobroOrigen = CShort(_FechaCargo.Year)
             .CobroOrigen = 0
             .TPV = False
         End With
@@ -2151,9 +2157,9 @@ Public Class frmSelTipoCobro
             .FAlta = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
             .Status = "EMITIDO"
             .Usuario = GLOBAL_IDUsuario
-            .Impuesto = GLOBAL_IVA
-            .Importe = CDec(txtImporteTC.Text)
-            .Total = .Importe + ((.Impuesto / 100) * .Importe)
+            .Total = CDec(txtImporteTC.Text)
+            .Importe = .Total / CDec(1 + (GLOBAL_IVA / 100))
+            .Impuesto = .Total - .Importe
             .Referencia = "NULL" ' puede ser vacio
             .NumeroCheque = "NULL" ' puede ser vacio
             .FDevolucion = Date.MinValue
@@ -2162,8 +2168,8 @@ Public Class frmSelTipoCobro
             .FActualizacion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
             .Folio = _FolioCobro
             .FDeposito = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
-            .FolioAtt = 0
-            .AñoAtt = CShort("0")
+            .FolioAtt = _FolioCobro
+            .AñoAtt = CShort(_FechaCargo.Year)
             .NumeroCuentaDestino = "NULL"
             .BancoOrigen = CShort("0")
             .StatusSaldoAFavor = "NULL"
@@ -2331,7 +2337,11 @@ Public Class frmSelTipoCobro
             Dim cancelar As Boolean = frmRemisiones.CancelarFormaPago
             If cancelar = False Then
                 _listaCobros.Add(insertaCobro)
+            Else
+                _Remisiones = True
             End If
+
+
         End If
     End Sub
 
@@ -2354,9 +2364,9 @@ Public Class frmSelTipoCobro
             .FAlta = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
             .Status = "EMITIDO"
             .Usuario = GLOBAL_IDUsuario
-            .Impuesto = GLOBAL_IVA
-            .Importe = CDec(TxtMontoVales.Text)
-            .Total = .Importe + ((.Impuesto / 100) * .Importe)
+            .Total = CDec(TxtMontoVales.Text)
+            .Importe = .Total / CDec(1 + (GLOBAL_IVA / 100))
+            .Impuesto = .Total - .Importe
             .Referencia = "NULL" ' puede ser vacio
             .NumeroCheque = "NULL" ' puede ser vacio
             .FDevolucion = Date.MinValue
@@ -2365,8 +2375,8 @@ Public Class frmSelTipoCobro
             .FActualizacion = Date.MinValue
             .Folio = _FolioCobro
             .FDeposito = Date.MinValue
-            .FolioAtt = 0
-            .AñoAtt = CShort("0")
+            .FolioAtt = _FolioCobro
+            .AñoAtt = CShort(_FechaCargo.Year)
             .NumeroCuentaDestino = "NULL"
             .BancoOrigen = CShort("0")
             .StatusSaldoAFavor = "NULL"
@@ -2393,9 +2403,9 @@ Public Class frmSelTipoCobro
             .FAlta = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
             .Status = "EMITIDO"
             .Usuario = GLOBAL_IDUsuario
-            .Impuesto = GLOBAL_IVA
-            .Importe = CDec(TxtMontoAnticipo.Text)
-            .Total = .Importe + ((.Impuesto / 100) * .Importe)
+            .Total = CDec(TxtMontoAnticipo.Text)
+            .Importe = .Total / CDec(1 + (GLOBAL_IVA / 100))
+            .Impuesto = .Total - .Importe
             .Referencia = "NULL" ' puede ser vacio
             .NumeroCheque = "NULL" ' puede ser vacio
             .FDevolucion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
@@ -2404,8 +2414,8 @@ Public Class frmSelTipoCobro
             .FActualizacion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
             .Folio = 0
             .FDeposito = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
-            .FolioAtt = 0
-            .AñoAtt = CShort("0")
+            .FolioAtt = _FolioCobro
+            .AñoAtt = CShort(_FechaCargo.Year)
             .NumeroCuentaDestino = "NULL"
             .BancoOrigen = CShort("0")
             .StatusSaldoAFavor = "NULL"
@@ -2555,7 +2565,7 @@ Public Class frmSelTipoCobro
     End Sub
 
 
-    Private Sub TxtNumeroDecimal1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtNumeroDecimal1.KeyPress
+    Private Sub TxtNumeroDecimal1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Txt_totalEfectivo.KeyPress
         '97 - 122 = Ascii MINÚSCULAS
         '65 - 90  = Ascii MAYÚSCULAS
         '48 - 57  = Ascii NÚMEROS
@@ -2754,6 +2764,10 @@ Public Class frmSelTipoCobro
     End Sub
 
     Private Sub frmSelTipoCobro_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        If (_Remisiones = True) Then
+            e.Cancel = True
+            _Remisiones = False
+        End If
 
     End Sub
 
