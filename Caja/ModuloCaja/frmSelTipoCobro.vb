@@ -93,6 +93,7 @@ Public Class frmSelTipoCobro
     Private _TipoLiquidacion As String
     Private _SoloEfectivo As Boolean = False
     Private _AceptaSaldo As Boolean
+    Private _Remisiones As Boolean
 
 
 
@@ -1960,6 +1961,7 @@ Public Class frmSelTipoCobro
 
     Private Sub BotonBase1_Click(sender As Object, e As EventArgs) Handles BotonBase1.Click
         If TxtNumeroDecimal1.Text.Trim <> "" Then
+
             Total = CDec(TxtNumeroDecimal1.Text)
             Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaPagoEfectivo()
             _AceptaSaldo = False
@@ -2331,7 +2333,11 @@ Public Class frmSelTipoCobro
             Dim cancelar As Boolean = frmRemisiones.CancelarFormaPago
             If cancelar = False Then
                 _listaCobros.Add(insertaCobro)
+            Else
+                _Remisiones = True
             End If
+
+
         End If
     End Sub
 
@@ -2754,6 +2760,10 @@ Public Class frmSelTipoCobro
     End Sub
 
     Private Sub frmSelTipoCobro_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        If (_Remisiones = True) Then
+            e.Cancel = True
+            _Remisiones = False
+        End If
 
     End Sub
 
