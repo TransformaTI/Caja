@@ -177,13 +177,15 @@ Public Class MetodoDatos
             End If
             cmd.CommandTimeout = GLOBAL_TiempoEspera
             cmd.CommandType = CommandType.StoredProcedure
-            cmd.CommandText = "spConsultaTipoConcepto"
+            cmd.CommandText = "spConsultaTipoConceptoPorId"
             cmd.Connection = GLOBAL_Connection
+            With cmd
+                .CommandType = CommandType.StoredProcedure
+                .Parameters.Add(New SqlParameter("@TipoConcepto", SqlDbType.Int)).Value = IdTipoConcepto
+            End With
             Dim reader As SqlDataReader
             reader = cmd.ExecuteReader()
             While (reader.Read)
-                'Dim celula As New Celula(Convert.ToInt32(reader(0).ToString()), reader(1).ToString())
-
 
                 tipoConcepto.TipoConcepto = Convert.ToInt32(reader(0).ToString())
                 tipoConcepto.Descripcion = reader(1).ToString()
@@ -207,4 +209,120 @@ Public Class MetodoDatos
 
         Return tipoConcepto
     End Function
+
+    Public Function GuardaTipoConcepto(
+                                       ByVal Descripcion As String,
+                                       ByVal TipoMovimientoCaja As Integer,
+                                       ByVal CuentaContable As String,
+                                       ByVal Estatus As String,
+                                       ByVal UsuarioAlta As String,
+                                       ByVal Falta As DateTime) As Boolean
+        Dim result As Boolean = False
+        Dim cmd As New SqlCommand()
+        Try
+            If GLOBAL_Connection.State = ConnectionState.Closed Then
+                GLOBAL_Connection.Open()
+            End If
+            cmd.CommandTimeout = GLOBAL_TiempoEspera
+            cmd.CommandType = CommandType.StoredProcedure
+            cmd.CommandText = "spAltaTipoConcepto"
+            cmd.Connection = GLOBAL_Connection
+            With cmd
+                .CommandType = CommandType.StoredProcedure
+                .Parameters.Add(New SqlParameter("@Descripcion", SqlDbType.VarChar, 100)).Value = Descripcion
+                .Parameters.Add(New SqlParameter("@TipoMovimientoCaja", SqlDbType.TinyInt)).Value = TipoMovimientoCaja
+                .Parameters.Add(New SqlParameter("@CuentaContable", SqlDbType.VarChar, 30)).Value = CuentaContable
+                .Parameters.Add(New SqlParameter("@Estatus", SqlDbType.VarChar, 30)).Value = Estatus
+                .Parameters.Add(New SqlParameter("@UsuarioAlta", SqlDbType.VarChar, 10)).Value = UsuarioAlta
+                .Parameters.Add(New SqlParameter("@Falta", SqlDbType.DateTime)).Value = Falta
+
+            End With
+            cmd.ExecuteNonQuery()
+            result = True
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            If GLOBAL_Connection.State = ConnectionState.Open Then
+                GLOBAL_Connection.Close()
+            End If
+        End Try
+        Return result
+    End Function
+
+    Public Function ModificaTipoConcepto(ByVal IdTipoConcepto As Integer,
+                                       ByVal Descripcion As String,
+                                       ByVal TipoMovimientoCaja As Integer,
+                                       ByVal CuentaContable As String,
+                                         ByVal Estatus As String) As Boolean
+
+
+        Dim result As Boolean = False
+        Dim cmd As New SqlCommand()
+        Try
+            If GLOBAL_Connection.State = ConnectionState.Closed Then
+                GLOBAL_Connection.Open()
+            End If
+            cmd.CommandTimeout = GLOBAL_TiempoEspera
+            cmd.CommandType = CommandType.StoredProcedure
+            cmd.CommandText = "spModificaTipoConcepto"
+            cmd.Connection = GLOBAL_Connection
+            With cmd
+                .CommandType = CommandType.StoredProcedure
+                .Parameters.Add(New SqlParameter("@IdTipoConcepto", SqlDbType.Int)).Value = IdTipoConcepto
+                .Parameters.Add(New SqlParameter("@Descripcion", SqlDbType.VarChar, 100)).Value = Descripcion
+                .Parameters.Add(New SqlParameter("@TipoMovimientoCaja", SqlDbType.TinyInt)).Value = TipoMovimientoCaja
+                .Parameters.Add(New SqlParameter("@CuentaContable", SqlDbType.VarChar, 30)).Value = CuentaContable
+                .Parameters.Add(New SqlParameter("@Estatus", SqlDbType.VarChar, 30)).Value = Estatus
+
+            End With
+            cmd.ExecuteNonQuery()
+            result = True
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            If GLOBAL_Connection.State = ConnectionState.Open Then
+                GLOBAL_Connection.Close()
+            End If
+        End Try
+        Return result
+
+
+    End Function
+
+    Public Function ConsultaTipoMovCaja() As DataTable
+        Dim cmd As New SqlCommand()
+        Dim ds As New DataSet()
+
+        Try
+
+            If GLOBAL_Connection.State = ConnectionState.Closed Then
+                GLOBAL_Connection.Open()
+            End If
+            cmd.CommandTimeout = GLOBAL_TiempoEspera
+            cmd.CommandType = CommandType.StoredProcedure
+            cmd.CommandText = "spConsultaCatalogoTipoMovimientoCaja"
+            cmd.Connection = GLOBAL_Connection
+            With cmd
+                .CommandType = CommandType.StoredProcedure
+                .Parameters.Add(New SqlParameter("@NotaIngreso", SqlDbType.Bit)).Value = 1
+            End With
+            Dim da As New SqlDataAdapter(cmd)
+
+            da.Fill(ds, "TipoMovimientoCaja")
+        Catch ex As Exception
+            Throw ex
+        Finally
+            If GLOBAL_Connection.State = ConnectionState.Open Then
+                GLOBAL_Connection.Close()
+            End If
+        End Try
+
+        If ds.Tables("TipoMovimientoCaja").Rows.Count > 0 Then
+            Return ds.Tables("TipoMovimientoCaja")
+        Else
+            Return Nothing
+        End If
+
+    End Function
+
 End Class
