@@ -139,7 +139,6 @@ C:\Users\lenav_000\Documents\Caja\Caja\ModuloCaja\bin\SigaMetClasses.pdb
 C:\Users\lenav_000\Documents\Caja\Caja\ModuloCaja\bin\SigaMetClasses.xml
 C:\Users\lenav_000\Documents\Caja\Caja\ModuloCaja\bin\ModuloCaja.dll.config
 C:\Users\lenav_000\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbproj.CopyComplete
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\SigaMetClasses.dll
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\LiquidacionPortatil.dll
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.exe.config
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.dll
@@ -203,3 +202,6 @@ C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\Modul
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.exe
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.exe
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbprojAssemblyReference.cache
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCapTipoConcepto.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCatTipoConcepto.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\SigaMetClasses.dll
