@@ -1887,10 +1887,8 @@ Public Class frmSelTipoCobro
             Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaPagoEfectivo()
             _AceptaSaldo = False
             Remisiones(cobro, _AceptaSaldo)
-
             Total = 0
             DialogResult = DialogResult.OK
-
         End If
     End Sub
 
@@ -1956,7 +1954,7 @@ Public Class frmSelTipoCobro
             .CobroOrigen = 0
             .TPV = False
         End With
-        _listaCobros.Add(insertaCobro)
+        ' _listaCobros.Add(insertaCobro)
         Return insertaCobro
     End Function
 
@@ -1999,7 +1997,7 @@ Public Class frmSelTipoCobro
             .TPV = False
 
         End With
-        _listaCobros.Add(insertaCobro)
+        '_listaCobros.Add(insertaCobro)
         Return insertaCobro
 
     End Function
@@ -2044,7 +2042,7 @@ Public Class frmSelTipoCobro
             .CobroOrigen = 0
             .TPV = False
         End With
-        _listaCobros.Add(insertaCobro)
+        ' _listaCobros.Add(insertaCobro)
         Return insertaCobro
     End Function
 
@@ -2096,7 +2094,7 @@ Public Class frmSelTipoCobro
             .CobroOrigen = 0
         End With
 
-        _listaCobros.Add(insertaCobro)
+        ' _listaCobros.Add(insertaCobro)
         Return insertaCobro
 
     End Function
@@ -2242,16 +2240,21 @@ Public Class frmSelTipoCobro
 
     Public Sub Remisiones(UltimoCobro As SigaMetClasses.CobroDetalladoDatos, AceptaSaldo As Boolean)
         Dim frmRemisiones As New frmRemisiones(Total)
+        Dim insertaCobro As New SigaMetClasses.CobroDetalladoDatos()
+
         frmRemisiones.ObtenerRemisiones = _TablaRemisiones
         frmRemisiones.UltimoCobro = UltimoCobro
         frmRemisiones.AceptaSaldo = AceptaSaldo
         If frmRemisiones.ShowDialog() = DialogResult.OK Then
             Cursor = Cursors.WaitCursor
             Cursor = Cursors.Default
-            MessageBox.Show("ok")
         Else
             _TablaRemisiones = frmRemisiones.ObtenerRemisiones
-
+            insertaCobro = frmRemisiones.UltimoCobro
+            Dim cancelar As Boolean = frmRemisiones.CancelarFormaPago
+            If cancelar = False Then
+                _listaCobros.Add(insertaCobro)
+            End If
         End If
     End Sub
 
@@ -2332,7 +2335,7 @@ Public Class frmSelTipoCobro
             .AñoCobroOrigen = CShort("0")
             .CobroOrigen = 0
         End With
-        _listaCobros.Add(insertaCobro)
+
         Return insertaCobro
 
     End Function

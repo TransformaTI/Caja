@@ -17,6 +17,7 @@ Public Class frmRemisiones
     Private _TablaRemisionesInicial As DataTable
     Private _SumImportesSaldo As Decimal
     Private _AceptaSaldo As Boolean
+    Private _CancelPago As Boolean
 
     Public Property UltimoCobro() As SigaMetClasses.CobroDetalladoDatos
         Get
@@ -44,6 +45,16 @@ Public Class frmRemisiones
             _AceptaSaldo = value
         End Set
     End Property
+
+    Public Property CancelarFormaPago() As Boolean
+        Get
+            Return _CancelPago
+        End Get
+        Set(value As Boolean)
+            _CancelPago = value
+        End Set
+    End Property
+
 
     Public Sub New(Total As Decimal)
         ' This call is required by the designer.
@@ -201,6 +212,7 @@ Public Class frmRemisiones
         grdRemision.DataSource = _TablaRemisiones
         _SumImportesSaldo = 0
         _Saldo = 0
+        _CancelPago = True
         Close()
 
     End Sub
@@ -264,7 +276,7 @@ Public Class frmRemisiones
 Finalize:
         grdRemision.DataSource = _TablaRemisiones
         grdAbonos.DataSource = table
-
+        _SumImportesSaldo = 0
     End Sub
 
     Private Sub grdAbonos_CurrentCellChanged(sender As Object, e As EventArgs) Handles grdAbonos.CurrentCellChanged
