@@ -68,6 +68,7 @@ Public Class frmCapTipoConcepto
         'txtCuenta
         '
         Me.txtCuenta.Location = New System.Drawing.Point(142, 43)
+        Me.txtCuenta.MaxLength = 16
         Me.txtCuenta.Name = "txtCuenta"
         Me.txtCuenta.Size = New System.Drawing.Size(352, 21)
         Me.txtCuenta.TabIndex = 1
@@ -235,5 +236,12 @@ Public Class frmCapTipoConcepto
         If Not IsNothing(TipoConcepto) Then
             Me.ComboTipoMovCaja.SelectedValue = TipoConcepto.Tipomovimientocaja
         End If
+    End Sub
+
+    Private Sub txtCuenta_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCuenta.KeyPress
+        If Not IsNumeric(e.KeyChar) And Not e.KeyChar = ChrW(Keys.Back) Then
+            e.Handled = True
+        End If
+
     End Sub
 End Class

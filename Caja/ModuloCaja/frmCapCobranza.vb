@@ -666,7 +666,9 @@ Public Class frmCapCobranza
     Private Sub HabiltaComboTipoConcepto()
         If Me.ComboTipoMovCaja.TipoMovimientoCaja = 43 Then
             Me.cboTipoConcepto.Visible = True
-
+            If Me.cboTipoConcepto.Items.Count = 0 Then
+                MessageBox.Show("No existe tipo de cocepto, registre en el catalogo un tipo de concepto", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
         Else
             Me.cboTipoConcepto.Visible = False
         End If
