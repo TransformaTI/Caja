@@ -19,6 +19,8 @@ Public Class frmRemisiones
     Private _AceptaSaldo As Boolean
     Private _CancelPago As Boolean
 
+
+
     Public Property UltimoCobro() As SigaMetClasses.CobroDetalladoDatos
         Get
             Return _UltimoCobro

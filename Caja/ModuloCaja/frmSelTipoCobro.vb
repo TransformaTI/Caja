@@ -95,6 +95,7 @@ Public Class frmSelTipoCobro
     Private _AceptaSaldo As Boolean
     Private _Remisiones As Boolean
     Private _FechaCargo As Date
+    Private _TotalCobros As Integer
 
     Enum FormaPago
         Efectivo = 0
@@ -110,6 +111,15 @@ Public Class frmSelTipoCobro
     Friend WithEvents btn_AnticipoAceptar As ControlesBase.BotonBase
     Friend WithEvents dgvSaldoAnticipo As DataGridView
 
+
+    Public Property TotalCobros() As Integer
+        Get
+            Return _TotalCobros
+        End Get
+        Set(ByVal value As Integer)
+            _TotalCobros = value
+        End Set
+    End Property
     Public Property MostrarDacion() As Boolean
         Get
             Return _MostrarDacion
@@ -1970,7 +1980,7 @@ Public Class frmSelTipoCobro
     Private Sub btnEfectivo_Click(sender As Object, e As EventArgs) Handles btnEfectivo.Click
         If Txt_totalEfectivo.Text.Trim <> "" Then
             Total = CDec(Txt_totalEfectivo.Text)
-            Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaPagoEfectivo()
+            Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaPagoEfectivo(TotalCobros)
             _AceptaSaldo = False
             Remisiones(cobro, _AceptaSaldo)
             Total = 0
@@ -2005,9 +2015,10 @@ Public Class frmSelTipoCobro
         End If
     End Sub
 
-    Public Function AltaPagoEfectivo() As SigaMetClasses.CobroDetalladoDatos
+    Public Function AltaPagoEfectivo(PagoNum As Integer) As SigaMetClasses.CobroDetalladoDatos
         Dim insertaCobro As New SigaMetClasses.CobroDetalladoDatos()
         With insertaCobro
+            .Pago = PagoNum + 1
             .SaldoAFavor = False
             .AñoCobro = CShort(DateTime.Now.Year)
             .Cobro = 0
