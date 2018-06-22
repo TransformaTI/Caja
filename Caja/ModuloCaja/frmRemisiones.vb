@@ -18,6 +18,28 @@ Public Class frmRemisiones
     Private _SumImportesSaldo As Decimal
     Private _AceptaSaldo As Boolean
     Private _CancelPago As Boolean
+    Dim oCobroRemision As SigaMetClasses.CobroRemisiones
+    Private _ListaCobroRemisiones As New List(Of SigaMetClasses.CobroRemisiones)
+
+    Private _Pago As Integer
+    Public Property Pago() As Integer
+        Get
+            Return _Pago
+        End Get
+        Set(ByVal value As Integer)
+            _Pago = value
+        End Set
+    End Property
+
+
+    Public Property CobroRemisiones() As List(Of SigaMetClasses.CobroRemisiones)
+        Get
+            Return _ListaCobroRemisiones
+        End Get
+        Set(ByVal value As List(Of SigaMetClasses.CobroRemisiones))
+            _ListaCobroRemisiones = value
+        End Set
+    End Property
 
 
 
@@ -238,7 +260,27 @@ Public Class frmRemisiones
                 Close()
             End If
 
+
+
+
         End If
+
+
+        For Each row As DataRow In table.Rows
+            oCobroRemision = New SigaMetClasses.CobroRemisiones
+            oCobroRemision.Pago = Pago
+            oCobroRemision.Remision = row("Remisión").ToString()
+            oCobroRemision.Serie = row("Serie").ToString()
+            oCobroRemision.MontoAbonado = Convert.ToDecimal(row("importe abonado").ToString())
+            ' _ListaCobroRemisiones.Add(oCobroRemision)
+            CobroRemisiones.Add(oCobroRemision)
+
+        Next
+
+        '  CobroRemisiones = _ListaCobroRemisiones
+
+
+
 
 
 
