@@ -206,6 +206,17 @@ Public Class frmCatTipoConcepto
     Private Sub frmCatBanco_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
         CargaLista()
         AplicaFormato()
+        tbrBarra.Buttons(1).Visible = False
+        tbrBarra.Buttons(3).Visible = False
+        tbrBarra.Buttons(4).Visible = False
+        tbrBarra.Buttons(5).Visible = False
+        tbrBarra.Buttons(6).Visible = False
+        tbrBarra.Buttons(7).Visible = False
+        tbrBarra.Buttons(8).Visible = False
+        tbrBarra.Buttons(10).Visible = False
+
+
+
     End Sub
 
     Private Overloads Sub tbrBarra_ButtonClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.ToolBarButtonClickEventArgs) Handles tbrBarra.ButtonClick
