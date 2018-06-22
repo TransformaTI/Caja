@@ -96,6 +96,7 @@ Public Class frmSelTipoCobro
     Private _Remisiones As Boolean
     Private _FechaCargo As Date
     Private _TotalCobros As Integer
+    Private _ListaCobroRemisiones As List(Of SigaMetClasses.CobroRemisiones)
 
     Enum FormaPago
         Efectivo = 0
@@ -111,6 +112,17 @@ Public Class frmSelTipoCobro
     Friend WithEvents btn_AnticipoAceptar As ControlesBase.BotonBase
     Friend WithEvents dgvSaldoAnticipo As DataGridView
 
+    Private Pago As Integer
+
+
+    Public Property CobroRemisiones() As List(Of SigaMetClasses.CobroRemisiones)
+        Get
+            Return _ListaCobroRemisiones
+        End Get
+        Set(ByVal value As List(Of SigaMetClasses.CobroRemisiones))
+            _ListaCobroRemisiones = value
+        End Set
+    End Property
 
     Public Property TotalCobros() As Integer
         Get
@@ -1975,12 +1987,12 @@ Public Class frmSelTipoCobro
         End If
 
     End Sub
-
-
     Private Sub btnEfectivo_Click(sender As Object, e As EventArgs) Handles btnEfectivo.Click
         If Txt_totalEfectivo.Text.Trim <> "" Then
             Total = CDec(Txt_totalEfectivo.Text)
-            Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaPagoEfectivo(TotalCobros)
+            Pago = TotalCobros + 1
+            Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaPagoEfectivo(Pago)
+
             _AceptaSaldo = False
             Remisiones(cobro, _AceptaSaldo)
             Total = 0
@@ -2018,7 +2030,7 @@ Public Class frmSelTipoCobro
     Public Function AltaPagoEfectivo(PagoNum As Integer) As SigaMetClasses.CobroDetalladoDatos
         Dim insertaCobro As New SigaMetClasses.CobroDetalladoDatos()
         With insertaCobro
-            .Pago = PagoNum + 1
+            .Pago = PagoNum
             .SaldoAFavor = False
             .AñoCobro = CShort(DateTime.Now.Year)
             .Cobro = 0
@@ -2339,11 +2351,14 @@ Public Class frmSelTipoCobro
         frmRemisiones.ObtenerRemisiones = _TablaRemisiones
         frmRemisiones.UltimoCobro = UltimoCobro
         frmRemisiones.AceptaSaldo = AceptaSaldo
+        frmRemisiones.Pago = Pago
+
         If frmRemisiones.ShowDialog() = DialogResult.OK Then
             Cursor = Cursors.WaitCursor
             Cursor = Cursors.Default
         Else
             _TablaRemisiones = frmRemisiones.ObtenerRemisiones
+            CobroRemisiones = frmRemisiones.CobroRemisiones
             insertaCobro = frmRemisiones.UltimoCobro
             Dim cancelar As Boolean = frmRemisiones.CancelarFormaPago
             If cancelar = False Then
