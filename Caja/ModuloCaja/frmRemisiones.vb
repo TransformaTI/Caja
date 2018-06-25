@@ -272,18 +272,8 @@ Public Class frmRemisiones
             oCobroRemision.Remision = row("Remisión").ToString()
             oCobroRemision.Serie = row("Serie").ToString()
             oCobroRemision.MontoAbonado = Convert.ToDecimal(row("importe abonado").ToString())
-            ' _ListaCobroRemisiones.Add(oCobroRemision)
             CobroRemisiones.Add(oCobroRemision)
-
         Next
-
-        '  CobroRemisiones = _ListaCobroRemisiones
-
-
-
-
-
-
     End Sub
     Function Valorcero() As String
         Valorcero = " $000.00"

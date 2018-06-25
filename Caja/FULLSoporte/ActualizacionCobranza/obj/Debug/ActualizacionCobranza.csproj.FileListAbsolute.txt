@@ -34,4 +34,3 @@ C:\Users\Diego\Documents\Caja\Caja\FULLSoporte\ActualizacionCobranza\obj\Debug\A
 C:\Users\Diego\Documents\Caja\Caja\FULLSoporte\ActualizacionCobranza\obj\Debug\ActualizacionCobranza.csproj.CopyComplete
 C:\Users\Diego\Documents\Caja\Caja\FULLSoporte\ActualizacionCobranza\obj\Debug\ActualizacionCobranza.dll
 C:\Users\Diego\Documents\Caja\Caja\FULLSoporte\ActualizacionCobranza\obj\Debug\ActualizacionCobranza.pdb
-C:\Users\Diego\Documents\Caja\Caja\FULLSoporte\ActualizacionCobranza\obj\Debug\ActualizacionCobranza.csprojAssemblyReference.cache
