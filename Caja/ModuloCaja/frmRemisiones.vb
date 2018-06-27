@@ -79,6 +79,16 @@ Public Class frmRemisiones
         End Set
     End Property
 
+    Private _PagoEfectivoDefault As Boolean
+    Public Property PagoEfectivoDefault() As Boolean
+        Get
+            Return _PagoEfectivoDefault
+        End Get
+        Set(ByVal value As Boolean)
+            _PagoEfectivoDefault = value
+        End Set
+    End Property
+
 
     Public Sub New(Total As Decimal)
         ' This call is required by the designer.
@@ -125,14 +135,30 @@ Public Class frmRemisiones
             _TablaRemisiones.PrimaryKey = keysRemiesiones
             grdRemision.DataSource = Nothing
             grdRemision.DataSource = _TablaRemisiones
+
+
+            If PagoEfectivoDefault = True Then
+                btn_Aceptar.Enabled = False
+                AplicaPagoEfectivoDefault()
+            Else
+                btn_Aceptar.Enabled = True
+            End If
+
+
+
+
         Catch ex As Exception
             MessageBox.Show(ex.Message + "Error al cargar los datos")
         End Try
+
+
+
 
     End Sub
 
     Private Sub btn_Aceptar_Click(sender As Object, e As EventArgs) Handles btn_Aceptar.Click
         Dim SaldoAbonado As Decimal
+
         SaldoAbonado = CDec(grdRemision.Item(i, 7))
         If SaldoAbonado > 0 Then
             If _Saldo > 0 Then
@@ -265,16 +291,94 @@ Public Class frmRemisiones
 
         End If
 
+        If _Saldo = 0 Then
+            For Each row As DataRow In table.Rows
+                oCobroRemision = New SigaMetClasses.CobroRemisiones
+                oCobroRemision.Pago = Pago
+                oCobroRemision.Remision = row("Remisión").ToString()
+                oCobroRemision.Serie = row("Serie").ToString()
+                oCobroRemision.MontoAbonado = Convert.ToDecimal(row("importe abonado").ToString())
+                CobroRemisiones.Add(oCobroRemision)
+            Next
 
-        For Each row As DataRow In table.Rows
-            oCobroRemision = New SigaMetClasses.CobroRemisiones
-            oCobroRemision.Pago = Pago
-            oCobroRemision.Remision = row("Remisión").ToString()
-            oCobroRemision.Serie = row("Serie").ToString()
-            oCobroRemision.MontoAbonado = Convert.ToDecimal(row("importe abonado").ToString())
-            CobroRemisiones.Add(oCobroRemision)
-        Next
+        End If
     End Sub
+    Private Sub AplicaPagoEfectivoDefault()
+        Dim i As Integer
+        Dim SaldoAbonado As Decimal
+        Dim TotalRemisiones As Decimal
+
+
+        TotalRemisiones = Convert.ToDecimal(_TablaRemisiones.Compute("SUM(saldo)", String.Empty))
+
+
+        If (_Saldo >= TotalRemisiones) Then
+
+            For Each row As DataRow In _TablaRemisiones.Rows
+                i = _TablaRemisiones.Rows.IndexOf(row)
+                _FilaSaldo = _TablaRemisiones.Rows.IndexOf(row)
+
+                SaldoAbonado = CDec(grdRemision.Item(i, 7))
+                If SaldoAbonado > 0 Then
+                    If _Saldo > 0 Then
+                        Try
+                            row = table.NewRow
+                            row("Serie") = grdRemision.Item(i, 0)
+                            row("Remisión") = grdRemision.Item(i, 1)
+
+                            If _Saldo >= CDec(grdRemision.Item(i, 7)) Then
+                                row("Importe abonado") = grdRemision.Item(i, 7)
+                            Else
+                                row("Importe abonado") = _Saldo.ToString
+                            End If
+
+                            table.Rows.Add(row)
+                            grdAbonos.DataSource = table
+                            Dim fila As DataRow
+                            fila = _TablaRemisiones.Rows(_FilaSaldo)
+
+                            If _Saldo > 0 Then
+                                If _Saldo >= CDec(grdRemision.Item(i, 7)) Then
+                                    _SumImportesSaldo += CDec(grdRemision.Item(i, 7))
+                                    _Saldo = _Total - _SumImportesSaldo
+                                    fila("Saldo") = 0
+                                Else
+                                    fila("Saldo") = CDec(grdRemision.Item(i, 7)) - _Saldo
+                                    _Saldo = 0
+                                End If
+
+                                grdRemision.DataSource = _TablaRemisiones
+                                If _Saldo < 0 Then
+                                    lbl_saldo.Text = Valorcero()
+                                Else
+                                    lbl_saldo.Text = "$" + _Saldo.ToString
+                                End If
+                                lbl_importeDocumento.Text = Valorcero()
+                                lblSaloMovimiento.Text = Valorcero()
+                                lblImporteAbobo.Text = Valorcero()
+                            End If
+                        Catch ex As Exception
+                            MessageBox.Show(ex.Message)
+                        End Try
+                    Else
+                        MessageBox.Show("saldo insuficiente")
+                    End If
+                Else
+                    MessageBox.Show("Ya no se permite hacer un abono, el saldo ya es de cero")
+                End If
+
+            Next
+
+
+
+        Else
+            MessageBox.Show("saldo insuficiente")
+
+        End If
+
+
+    End Sub
+
     Function Valorcero() As String
         Valorcero = " $000.00"
     End Function

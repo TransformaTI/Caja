@@ -98,6 +98,7 @@ Public Class frmSelTipoCobro
     Private _TotalCobros As Integer
     Private _ListaCobroRemisiones As List(Of SigaMetClasses.CobroRemisiones)
 
+
     Enum FormaPago
         Efectivo = 0
         ValesDespensa = 1
@@ -203,6 +204,16 @@ Public Class frmSelTipoCobro
         End Get
         Set(value As Boolean)
             _SoloEfectivo = value
+        End Set
+    End Property
+
+    Private _PagoEfectivoDefault As Boolean
+    Public Property PagoEfectivoDefault() As Boolean
+        Get
+            Return _PagoEfectivoDefault
+        End Get
+        Set(ByVal value As Boolean)
+            _PagoEfectivoDefault = value
         End Set
     End Property
 
@@ -471,7 +482,6 @@ Public Class frmSelTipoCobro
         'btnEfectivo
         '
         Me.btnEfectivo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnEfectivo.Image = CType(resources.GetObject("btnEfectivo.Image"), System.Drawing.Image)
         Me.btnEfectivo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnEfectivo.Location = New System.Drawing.Point(515, 152)
         Me.btnEfectivo.Name = "btnEfectivo"
@@ -696,7 +706,7 @@ Public Class frmSelTipoCobro
         Me.tbTarjetaCredito.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbTarjetaCredito.Location = New System.Drawing.Point(4, 4)
         Me.tbTarjetaCredito.Name = "tbTarjetaCredito"
-        Me.tbTarjetaCredito.Size = New System.Drawing.Size(603, 325)
+        Me.tbTarjetaCredito.Size = New System.Drawing.Size(603, 307)
         Me.tbTarjetaCredito.TabIndex = 0
         Me.tbTarjetaCredito.Text = "Tarjeta "
         '
@@ -1681,7 +1691,7 @@ Public Class frmSelTipoCobro
                     Total = CDec(TxtMontoVales.Text)
                     Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaVales()
                     _AceptaSaldo = True
-                    Remisiones(cobro, _AceptaSaldo)
+                    Remisiones(cobro, _AceptaSaldo, PagoEfectivoDefault)
                     Total = 0
                 End If
                 DialogResult = DialogResult.OK
@@ -1703,7 +1713,7 @@ Public Class frmSelTipoCobro
                     Total = CDec(txtImporteTC.Text)
                     Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaTarjeta()
                     _AceptaSaldo = True
-                    Remisiones(cobro, _AceptaSaldo)
+                    Remisiones(cobro, _AceptaSaldo, PagoEfectivoDefault)
                     DialogResult = DialogResult.OK
                 End If
             Else
@@ -1721,7 +1731,7 @@ Public Class frmSelTipoCobro
                 Total = CDec(txtImporteDocumento.Text)
                 Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaCheque()
                 _AceptaSaldo = True
-                Remisiones(cobro, _AceptaSaldo)
+                Remisiones(cobro, _AceptaSaldo, PagoEfectivoDefault)
                 Total = 0
                 DialogResult = DialogResult.OK
             End If
@@ -1994,7 +2004,7 @@ Public Class frmSelTipoCobro
             Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaPagoEfectivo(Pago)
 
             _AceptaSaldo = False
-            Remisiones(cobro, _AceptaSaldo)
+            Remisiones(cobro, _AceptaSaldo, PagoEfectivoDefault)
             Total = 0
             DialogResult = DialogResult.OK
         End If
@@ -2062,6 +2072,7 @@ Public Class frmSelTipoCobro
             .AñoCobroOrigen = CShort("0")
             .CobroOrigen = 0
             .TPV = False
+            .DscTipoCobro = "Efectivo"
         End With
         ' _listaCobros.Add(insertaCobro)
         Return insertaCobro
@@ -2157,7 +2168,7 @@ Public Class frmSelTipoCobro
             Total = CDec(TxtImporteTransferencia.Text)
             Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaTransferencia()
             _AceptaSaldo = True
-            Remisiones(cobro, _AceptaSaldo)
+            Remisiones(cobro, _AceptaSaldo, PagoEfectivoDefault)
             DialogResult = DialogResult.OK
         End If
 
@@ -2344,7 +2355,7 @@ Public Class frmSelTipoCobro
         BuscarAnticipos(CType(TxtClienteAplicAntic.Text, Integer), "0", 0, 0)
     End Sub
 
-    Public Sub Remisiones(UltimoCobro As SigaMetClasses.CobroDetalladoDatos, AceptaSaldo As Boolean)
+    Public Sub Remisiones(UltimoCobro As SigaMetClasses.CobroDetalladoDatos, AceptaSaldo As Boolean, PagoEfectivoDefault As Boolean)
         Dim frmRemisiones As New frmRemisiones(Total)
         Dim insertaCobro As New SigaMetClasses.CobroDetalladoDatos()
 
@@ -2352,6 +2363,7 @@ Public Class frmSelTipoCobro
         frmRemisiones.UltimoCobro = UltimoCobro
         frmRemisiones.AceptaSaldo = AceptaSaldo
         frmRemisiones.Pago = Pago
+        frmRemisiones.PagoEfectivoDefault = PagoEfectivoDefault
 
         If frmRemisiones.ShowDialog() = DialogResult.OK Then
             Cursor = Cursors.WaitCursor
@@ -2490,7 +2502,7 @@ Public Class frmSelTipoCobro
                     _ListaDebitoAnticipos.Add(nuevodebitoanticipo)
                     ActualizarSaldoAnticipo(DirectCast(dgvSaldoAnticipo.DataSource, DataTable), AgruparDebitoAnticipo(_ListaDebitoAnticipos))
                     _AceptaSaldo = True
-                    Remisiones(cobro, _AceptaSaldo)
+                    Remisiones(cobro, _AceptaSaldo, PagoEfectivoDefault)
                     LimpiarAnticipo()
                     Total = 0
                     DialogResult = DialogResult.OK
@@ -2806,6 +2818,10 @@ Public Class frmSelTipoCobro
     End Sub
 
     Private Sub grpTarjetaCredito_Enter(sender As Object, e As EventArgs) Handles grpTarjetaCredito.Enter
+
+    End Sub
+
+    Private Sub tbEfectivo_Click(sender As Object, e As EventArgs) Handles tbEfectivo.Click
 
     End Sub
 End Class
