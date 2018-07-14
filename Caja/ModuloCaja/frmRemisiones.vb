@@ -95,36 +95,40 @@ Public Class frmRemisiones
         'grdRemision.AutoGenerateColumns = False
         Try
             Dim row As DataRow
-            For Each row In _TablaRemisiones.Rows
-                Cancelar.Add(CType(row("Saldo"), String))
-            Next
-            _TablaRemisionesInicial = _TablaRemisiones
-            lbl_Total.Text = "$" + CType(_Total, String)
-            lbl_saldo.Text = "$" + CType(_Total, String)
-            ' Create new DataColumn, set DataType, ColumnName 
-            ' and add to DataTable.    
-            Dim keys(2) As DataColumn
-            column = New DataColumn
-            column.DataType = System.Type.GetType("System.String")
-            column.ColumnName = "Serie"
-            table.Columns.Add(column)
-            keys(0) = column
-            column = New DataColumn
-            column.DataType = Type.GetType("System.String")
-            column.ColumnName = "Remisión"
-            table.Columns.Add(column)
-            keys(1) = column
-            column = New DataColumn
-            column.DataType = Type.GetType("System.String")
-            column.ColumnName = "Importe abonado"
-            table.Columns.Add(column)
-            table.PrimaryKey = keys
-            Dim keysRemiesiones(2) As DataColumn
-            keysRemiesiones(0) = _TablaRemisiones.Columns(0)
-            keysRemiesiones(1) = _TablaRemisiones.Columns(1)
-            _TablaRemisiones.PrimaryKey = keysRemiesiones
-            grdRemision.DataSource = Nothing
-            grdRemision.DataSource = _TablaRemisiones
+            If _TablaRemisiones IsNot Nothing Then
+                For Each row In _TablaRemisiones.Rows
+                    Cancelar.Add(CType(row("Saldo"), String))
+                Next
+                _TablaRemisionesInicial = _TablaRemisiones
+                lbl_Total.Text = "$" + CType(_Total, String)
+                lbl_saldo.Text = "$" + CType(_Total, String)
+                ' Create new DataColumn, set DataType, ColumnName 
+                ' and add to DataTable.    
+                Dim keys(2) As DataColumn
+                column = New DataColumn
+                column.DataType = System.Type.GetType("System.String")
+                column.ColumnName = "Serie"
+                table.Columns.Add(column)
+                keys(0) = column
+                column = New DataColumn
+                column.DataType = Type.GetType("System.String")
+                column.ColumnName = "Remisión"
+                table.Columns.Add(column)
+                keys(1) = column
+                column = New DataColumn
+                column.DataType = Type.GetType("System.String")
+                column.ColumnName = "Importe abonado"
+                table.Columns.Add(column)
+                table.PrimaryKey = keys
+                Dim keysRemiesiones(2) As DataColumn
+                keysRemiesiones(0) = _TablaRemisiones.Columns(0)
+                keysRemiesiones(1) = _TablaRemisiones.Columns(1)
+                _TablaRemisiones.PrimaryKey = keysRemiesiones
+                grdRemision.DataSource = Nothing
+                grdRemision.DataSource = _TablaRemisiones
+            Else
+                MessageBox.Show("La tabla remisiones esta vacia")
+            End If
         Catch ex As Exception
             MessageBox.Show(ex.Message + "Error al cargar los datos")
         End Try
@@ -132,54 +136,56 @@ Public Class frmRemisiones
     End Sub
 
     Private Sub btn_Aceptar_Click(sender As Object, e As EventArgs) Handles btn_Aceptar.Click
-        Dim SaldoAbonado As Decimal
-        SaldoAbonado = CDec(grdRemision.Item(i, 7))
-        If SaldoAbonado > 0 Then
-            If _Saldo > 0 Then
-                Try
-                    row = table.NewRow
-                    row("Serie") = grdRemision.Item(i, 0)
-                    row("Remisión") = grdRemision.Item(i, 1)
+        If grdRemision.VisibleRowCount > 0 Then
+            Dim SaldoAbonado As Decimal
+            SaldoAbonado = CDec(grdRemision.Item(i, 7))
+            If SaldoAbonado > 0 Then
+                If _Saldo > 0 Then
+                    Try
+                        row = table.NewRow
+                        row("Serie") = grdRemision.Item(i, 0)
+                        row("Remisión") = grdRemision.Item(i, 1)
 
-                    If _Saldo >= CDec(grdRemision.Item(i, 7)) Then
-                        row("Importe abonado") = grdRemision.Item(i, 7)
-                    Else
-                        row("Importe abonado") = _Saldo.ToString
-                    End If
-
-                    table.Rows.Add(row)
-                    grdAbonos.DataSource = table
-                    Dim fila As DataRow
-                    fila = _TablaRemisiones.Rows(_FilaSaldo)
-
-                    If _Saldo > 0 Then
                         If _Saldo >= CDec(grdRemision.Item(i, 7)) Then
-                            _SumImportesSaldo += CDec(grdRemision.Item(i, 7))
-                            _Saldo = _Total - _SumImportesSaldo
-                            fila("Saldo") = 0
+                            row("Importe abonado") = grdRemision.Item(i, 7)
                         Else
-                            fila("Saldo") = CDec(grdRemision.Item(i, 7)) - _Saldo
-                            _Saldo = 0
+                            row("Importe abonado") = _Saldo.ToString
                         End If
 
-                        grdRemision.DataSource = _TablaRemisiones
-                        If _Saldo < 0 Then
-                            lbl_saldo.Text = Valorcero()
-                        Else
-                            lbl_saldo.Text = "$" + _Saldo.ToString
+                        table.Rows.Add(row)
+                        grdAbonos.DataSource = table
+                        Dim fila As DataRow
+                        fila = _TablaRemisiones.Rows(_FilaSaldo)
+
+                        If _Saldo > 0 Then
+                            If _Saldo >= CDec(grdRemision.Item(i, 7)) Then
+                                _SumImportesSaldo += CDec(grdRemision.Item(i, 7))
+                                _Saldo = _Total - _SumImportesSaldo
+                                fila("Saldo") = 0
+                            Else
+                                fila("Saldo") = CDec(grdRemision.Item(i, 7)) - _Saldo
+                                _Saldo = 0
+                            End If
+
+                            grdRemision.DataSource = _TablaRemisiones
+                            If _Saldo < 0 Then
+                                lbl_saldo.Text = Valorcero()
+                            Else
+                                lbl_saldo.Text = "$" + _Saldo.ToString
+                            End If
+                            lbl_importeDocumento.Text = Valorcero()
+                            lblSaloMovimiento.Text = Valorcero()
+                            lblImporteAbobo.Text = Valorcero()
                         End If
-                        lbl_importeDocumento.Text = Valorcero()
-                        lblSaloMovimiento.Text = Valorcero()
-                        lblImporteAbobo.Text = Valorcero()
-                    End If
-                Catch ex As Exception
-                    MessageBox.Show(ex.Message)
-                End Try
+                    Catch ex As Exception
+                        MessageBox.Show(ex.Message)
+                    End Try
+                Else
+                    MessageBox.Show("saldo insuficiente")
+                End If
             Else
-                MessageBox.Show("saldo insuficiente")
+                MessageBox.Show("Ya no se permite hacer un abono, el saldo ya es de cero")
             End If
-        Else
-            MessageBox.Show("Ya no se permite hacer un abono, el saldo ya es de cero")
         End If
     End Sub
 
