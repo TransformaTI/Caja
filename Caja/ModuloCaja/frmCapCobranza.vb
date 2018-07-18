@@ -406,19 +406,20 @@ Public Class frmCapCobranza
         Consecutivo += 1
         Dim frmSelTipoCobro As frmSelTipoCobro
         Dim soloEfectivo As Boolean = False
-
+        Dim Movimientos As Boolean
+        Movimientos = True
         If ComboTipoMovCaja.TipoMovimientoCaja = 43 Then
             soloEfectivo = True
         End If
-
         If _TipoMovimientoCaja = 15 Then
             frmSelTipoCobro = New frmSelTipoCobro(Consecutivo, aSoloEfectivo:=soloEfectivo)
         Else
             frmSelTipoCobro = New frmSelTipoCobro(Consecutivo, False, aSoloEfectivo:=soloEfectivo)
         End If
+        frmSelTipoCobro.Movimiento = Movimientos
         If frmSelTipoCobro.ShowDialog() = DialogResult.OK Then
             ListaCobros.Add(frmSelTipoCobro.Cobro)
-            lstCobro.Items.Add(frmSelTipoCobro.Cobro)
+            lstCobro.Items.Add(frmSelTipoCobro.Cobro )
             decImporteTotalCobros += frmSelTipoCobro.ImporteTotalCobro
             stbEstatus.Panels(0).Text = lstCobro.Items.Count.ToString & " cobro(s)"
             stbEstatus.Panels(1).Text = decImporteTotalCobros.ToString("C")
