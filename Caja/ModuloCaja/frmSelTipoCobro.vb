@@ -1907,9 +1907,9 @@ Public Class frmSelTipoCobro
 
     Private Sub btnBuscarClienteTC_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarClienteTC.Click
         Dim lParametro As New SigaMetClasses.cConfig(16, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario)
-        Dim lURLGateway As String = CType(lParametro.Parametros.Item("URLGateway"), String)
+        Dim lURLGateway As String = ""
+        'CType(lParametro.Parametros.Item("URLGateway"), String)
         lParametro.Dispose()
-
 
         If txtClienteTC.Text <> "" And IsNumeric(txtClienteTC.Text) Then
             LimpiaInfoTarjetaCredito()
@@ -1974,7 +1974,8 @@ Public Class frmSelTipoCobro
     Private Sub btnBuscarCliente_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarCliente.Click
 
         Dim lParametro As New SigaMetClasses.cConfig(16, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario)
-        Dim lURLGateway As String = CType(lParametro.Parametros.Item("URLGateway"), String)
+        Dim lURLGateway As String = ""
+        'CType(lParametro.Parametros.Item("URLGateway"), String)
 
         lParametro.Dispose()
 
@@ -2282,7 +2283,8 @@ Public Class frmSelTipoCobro
 
     Private Sub BtnBuscarClienteVales_Click(sender As Object, e As EventArgs) Handles BtnBuscarClienteVales.Click
         Dim lParametro As New SigaMetClasses.cConfig(16, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario)
-        Dim lURLGateway As String = CType(lParametro.Parametros.Item("URLGateway"), String)
+        Dim lURLGateway As String = ""
+        'CType(lParametro.Parametros.Item("URLGateway"), String)
         lParametro.Dispose()
 
         If Trim(txtClienteVales.Text) <> "" Then
@@ -2302,7 +2304,8 @@ Public Class frmSelTipoCobro
 
     Private Sub BotonBuscarClienteApAnticipo_Click(sender As Object, e As EventArgs) Handles BotonBuscarClienteApAnticipo.Click
         Dim lParametro As New SigaMetClasses.cConfig(16, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario)
-        Dim lURLGateway As String = CType(lParametro.Parametros.Item("URLGateway"), String)
+        Dim lURLGateway As String = ""
+        'CType(lParametro.Parametros.Item("URLGateway"), String)
         lParametro.Dispose()
 
         If Trim(txtClienteVales.Text) <> "" Then
