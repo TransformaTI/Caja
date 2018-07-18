@@ -97,6 +97,8 @@ Public Class frmSelTipoCobro
     Private _FechaCargo As Date
     Private _TotalCobros As Integer
     Private _ListaCobroRemisiones As List(Of SigaMetClasses.CobroRemisiones)
+    Private _Movimiento As Boolean
+    Private _Cobro As SigaMetClasses.CobroDetalladoDatos
 
     Enum FormaPago
         Efectivo = 0
@@ -123,6 +125,8 @@ Public Class frmSelTipoCobro
             _ListaCobroRemisiones = value
         End Set
     End Property
+
+
 
     Public Property TotalCobros() As Integer
         Get
@@ -154,6 +158,15 @@ Public Class frmSelTipoCobro
         End Get
         Set(ByVal value As List(Of SigaMetClasses.CobroDetalladoDatos))
             _listaCobros = value
+        End Set
+    End Property
+
+    Public Property Cobroreturn() As SigaMetClasses.CobroDetalladoDatos
+        Get
+            Return _Cobro
+        End Get
+        Set(ByVal value As SigaMetClasses.CobroDetalladoDatos)
+            _Cobro = value
         End Set
     End Property
 
@@ -203,6 +216,15 @@ Public Class frmSelTipoCobro
         End Get
         Set(value As Boolean)
             _SoloEfectivo = value
+        End Set
+    End Property
+
+    Public Property Movimiento() As Boolean
+        Get
+            Return _Movimiento
+        End Get
+        Set(value As Boolean)
+            _Movimiento = value
         End Set
     End Property
 
@@ -1992,12 +2014,15 @@ Public Class frmSelTipoCobro
             Total = CDec(Txt_totalEfectivo.Text)
             Pago = TotalCobros + 1
             Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaPagoEfectivo(Pago)
-
             _AceptaSaldo = False
-            Remisiones(cobro, _AceptaSaldo)
+            If _Movimiento = True Then
+                _Cobro = cobro
+            Else
+                Remisiones(cobro, _AceptaSaldo)
+            End If
             Total = 0
-            DialogResult = DialogResult.OK
-        End If
+                DialogResult = DialogResult.OK
+            End If
     End Sub
 
     Public Sub SeleccionarTipocobro()
@@ -2347,12 +2372,10 @@ Public Class frmSelTipoCobro
     Public Sub Remisiones(UltimoCobro As SigaMetClasses.CobroDetalladoDatos, AceptaSaldo As Boolean)
         Dim frmRemisiones As New frmRemisiones(Total)
         Dim insertaCobro As New SigaMetClasses.CobroDetalladoDatos()
-
         frmRemisiones.ObtenerRemisiones = _TablaRemisiones
         frmRemisiones.UltimoCobro = UltimoCobro
         frmRemisiones.AceptaSaldo = AceptaSaldo
         frmRemisiones.Pago = Pago
-
         If frmRemisiones.ShowDialog() = DialogResult.OK Then
             Cursor = Cursors.WaitCursor
             Cursor = Cursors.Default
@@ -2592,10 +2615,6 @@ Public Class frmSelTipoCobro
 
 
     Private Sub TxtNumeroDecimal1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Txt_totalEfectivo.KeyPress
-        '97 - 122 = Ascii MINÚSCULAS
-        '65 - 90  = Ascii MAYÚSCULAS
-        '48 - 57  = Ascii NÚMEROS
-
         If Asc(e.KeyChar) <> 8 Then
             If Asc(e.KeyChar) < 46 Or Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
                 e.Handled = True
@@ -2604,7 +2623,10 @@ Public Class frmSelTipoCobro
         If e.KeyChar = "." Then
             e.Handled = False
         End If
+        If Asc(e.KeyChar) = 13 Then
+            btnEfectivo.PerformClick()
 
+        End If
     End Sub
 
     Private Sub txtClienteVales_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtClienteVales.KeyPress

@@ -406,16 +406,17 @@ Public Class frmCapCobranza
         Consecutivo += 1
         Dim frmSelTipoCobro As frmSelTipoCobro
         Dim soloEfectivo As Boolean = False
-
+        Dim Movimientos As Boolean
+        Movimientos = True
         If ComboTipoMovCaja.TipoMovimientoCaja = 43 Then
             soloEfectivo = True
         End If
-
         If _TipoMovimientoCaja = 15 Then
             frmSelTipoCobro = New frmSelTipoCobro(Consecutivo, aSoloEfectivo:=soloEfectivo)
         Else
             frmSelTipoCobro = New frmSelTipoCobro(Consecutivo, False, aSoloEfectivo:=soloEfectivo)
         End If
+        frmSelTipoCobro.Movimiento = Movimientos
         If frmSelTipoCobro.ShowDialog() = DialogResult.OK Then
             Dim CobroRecuperado As SigaMetClasses.CobroDetalladoDatos
             Dim TipoCobroOriginal As New SigaMetClasses.sCobro()
