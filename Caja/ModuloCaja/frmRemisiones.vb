@@ -95,36 +95,38 @@ Public Class frmRemisiones
         'grdRemision.AutoGenerateColumns = False
         Try
             Dim row As DataRow
-            For Each row In _TablaRemisiones.Rows
-                Cancelar.Add(CType(row("Saldo"), String))
-            Next
-            _TablaRemisionesInicial = _TablaRemisiones
-            lbl_Total.Text = "$" + CType(_Total, String)
-            lbl_saldo.Text = "$" + CType(_Total, String)
-            ' Create new DataColumn, set DataType, ColumnName 
-            ' and add to DataTable.    
-            Dim keys(2) As DataColumn
-            column = New DataColumn
-            column.DataType = System.Type.GetType("System.String")
-            column.ColumnName = "Serie"
-            table.Columns.Add(column)
-            keys(0) = column
-            column = New DataColumn
-            column.DataType = Type.GetType("System.String")
-            column.ColumnName = "Remisión"
-            table.Columns.Add(column)
-            keys(1) = column
-            column = New DataColumn
-            column.DataType = Type.GetType("System.String")
-            column.ColumnName = "Importe abonado"
-            table.Columns.Add(column)
-            table.PrimaryKey = keys
-            Dim keysRemiesiones(2) As DataColumn
-            keysRemiesiones(0) = _TablaRemisiones.Columns(0)
-            keysRemiesiones(1) = _TablaRemisiones.Columns(1)
-            _TablaRemisiones.PrimaryKey = keysRemiesiones
-            grdRemision.DataSource = Nothing
-            grdRemision.DataSource = _TablaRemisiones
+            If Not _TablaRemisiones Is Nothing Then
+                For Each row In _TablaRemisiones.Rows
+                    Cancelar.Add(CType(row("Saldo"), String))
+                Next
+                _TablaRemisionesInicial = _TablaRemisiones
+                lbl_Total.Text = "$" + CType(_Total, String)
+                lbl_saldo.Text = "$" + CType(_Total, String)
+                ' Create new DataColumn, set DataType, ColumnName 
+                ' and add to DataTable.    
+                Dim keys(2) As DataColumn
+                column = New DataColumn
+                column.DataType = System.Type.GetType("System.String")
+                column.ColumnName = "Serie"
+                table.Columns.Add(column)
+                keys(0) = column
+                column = New DataColumn
+                column.DataType = Type.GetType("System.String")
+                column.ColumnName = "Remisión"
+                table.Columns.Add(column)
+                keys(1) = column
+                column = New DataColumn
+                column.DataType = Type.GetType("System.String")
+                column.ColumnName = "Importe abonado"
+                table.Columns.Add(column)
+                table.PrimaryKey = keys
+                Dim keysRemiesiones(2) As DataColumn
+                keysRemiesiones(0) = _TablaRemisiones.Columns(0)
+                keysRemiesiones(1) = _TablaRemisiones.Columns(1)
+                _TablaRemisiones.PrimaryKey = keysRemiesiones
+                grdRemision.DataSource = Nothing
+                grdRemision.DataSource = _TablaRemisiones
+            End If
         Catch ex As Exception
             MessageBox.Show(ex.Message + "Error al cargar los datos")
         End Try
@@ -205,14 +207,20 @@ Public Class frmRemisiones
     End Sub
 
     Private Sub grdRemision_MouseClick(sender As Object, e As MouseEventArgs) Handles grdRemision.MouseClick
-        lbl_importeDocumento.Text = "$" + CType(Val(grdRemision.Item(i, 6)), String)
-        lblSaloMovimiento.Text = "$" + CType(Val(grdRemision.Item(i, 7)), String)
-        If _Saldo >= CDec(grdRemision.Item(i, 7)) Then
-            lblImporteAbobo.Text = "$" + CType((grdRemision.Item(i, 7)), String)
-        Else
-            lblImporteAbobo.Text = "$" + _Saldo.ToString
-        End If
-        _FilaSaldo = i
+        Try
+            If Not grdRemision.DataSource Is Nothing Then
+                lbl_importeDocumento.Text = "$" + CType(Val(grdRemision.Item(i, 6)), String)
+                lblSaloMovimiento.Text = "$" + CType(Val(grdRemision.Item(i, 7)), String)
+                If _Saldo >= CDec(grdRemision.Item(i, 7)) Then
+                    lblImporteAbobo.Text = "$" + CType((grdRemision.Item(i, 7)), String)
+                Else
+                    lblImporteAbobo.Text = "$" + _Saldo.ToString
+                End If
+                _FilaSaldo = i
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
     End Sub
 
     Private Sub btn_cancelar_Click(sender As Object, e As EventArgs) Handles btn_cancelar.Click
