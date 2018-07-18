@@ -417,8 +417,32 @@ Public Class frmCapCobranza
             frmSelTipoCobro = New frmSelTipoCobro(Consecutivo, False, aSoloEfectivo:=soloEfectivo)
         End If
         If frmSelTipoCobro.ShowDialog() = DialogResult.OK Then
-            ListaCobros.Add(frmSelTipoCobro.Cobro)
-            lstCobro.Items.Add(frmSelTipoCobro.Cobro)
+            Dim CobroRecuperado As SigaMetClasses.CobroDetalladoDatos
+            Dim TipoCobroOriginal As New SigaMetClasses.sCobro()
+
+            If (frmSelTipoCobro.Cobros.Count > 0) Then
+                CobroRecuperado = frmSelTipoCobro.Cobros(0)
+                TipoCobroOriginal.Consecutivo = Consecutivo
+                TipoCobroOriginal.AnoCobro = CobroRecuperado.AñoCobro
+                TipoCobroOriginal.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.Cheque
+                TipoCobroOriginal.Total = CobroRecuperado.Total
+                TipoCobroOriginal.Saldo = CobroRecuperado.Saldo
+                TipoCobroOriginal.NoCheque = CobroRecuperado.NumeroCheque
+                TipoCobroOriginal.FechaCheque = CobroRecuperado.FCheque
+                TipoCobroOriginal.NoCuenta = CobroRecuperado.NumeroCuenta
+                TipoCobroOriginal.Cliente = CobroRecuperado.Cliente
+                TipoCobroOriginal.Banco = CobroRecuperado.Banco
+                TipoCobroOriginal.Observaciones = CobroRecuperado.Observaciones
+                TipoCobroOriginal.Referencia = CobroRecuperado.Referencia
+                'TipoCobroOriginal.ListaPedidos = CobroRecuperado.Pedidos
+
+            Else
+
+            End If
+
+
+            ListaCobros.Add(TipoCobroOriginal)
+            lstCobro.Items.Add(TipoCobroOriginal)
             decImporteTotalCobros += frmSelTipoCobro.ImporteTotalCobro
             stbEstatus.Panels(0).Text = lstCobro.Items.Count.ToString & " cobro(s)"
             stbEstatus.Panels(1).Text = decImporteTotalCobros.ToString("C")
