@@ -25,6 +25,7 @@ Public Class CorteCaja
     Private drLeer As SqlDataReader
 
     Private Total As Decimal
+    Private TotalSAF As Decimal
     Private TotalCredito As Decimal
     Private TotalAplicaciones As Decimal
     Private GastoCobranza As Decimal
@@ -41,6 +42,7 @@ Public Class CorteCaja
     Private strUsuarioConsulta As String
     Private strStatus As String
     Friend WithEvents grdeReciboCaja As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents lblIngresosSAF As Label
     Public blnAdministrador As Boolean
 
 #Region " Código generado por el Diseñador de Windows Forms "
@@ -249,96 +251,96 @@ Public Class CorteCaja
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CorteCaja))
-        Dim ColumnFilterInfo1 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo2 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo3 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo4 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo5 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo6 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo7 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo8 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo9 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo10 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo11 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo12 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo13 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo14 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo15 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo16 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo17 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo18 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo19 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo20 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo21 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo22 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo23 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo24 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo25 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo26 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo27 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo28 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo29 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo30 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo31 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo32 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo33 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo34 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo35 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo36 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo37 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo38 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo39 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo40 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo41 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo42 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo43 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo44 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo45 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo46 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo47 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo48 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo49 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo50 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo51 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo52 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo53 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo54 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo55 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo56 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo57 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo58 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo59 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo60 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo61 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo62 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo63 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo64 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo65 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo66 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo67 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo68 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo69 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo70 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo71 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo72 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo73 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo74 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo75 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo76 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo77 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo78 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo79 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo80 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo81 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo82 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo83 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo84 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo85 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo86 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo87 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo88 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo89 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
-        Dim ColumnFilterInfo90 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo102 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo103 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo104 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo105 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo106 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo107 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo91 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo92 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo93 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo94 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo95 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo96 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo97 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo98 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo99 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo100 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo101 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo108 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo109 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo110 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo111 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo112 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo113 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo114 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo115 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo116 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo117 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo118 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo119 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo120 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo121 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo122 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo123 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo124 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo125 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo126 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo127 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo128 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo129 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo130 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo131 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo132 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo133 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo134 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo135 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo136 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo137 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo138 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo139 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo140 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo141 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo142 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo143 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo144 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo145 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo146 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo147 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo148 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo149 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo150 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo151 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo152 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo153 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo154 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo155 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo156 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo157 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo158 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo159 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo160 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo161 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo162 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo163 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo164 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo165 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo166 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo167 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo168 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo169 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo170 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo171 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo172 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo173 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo174 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo175 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo176 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo177 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo178 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo179 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
+        Dim ColumnFilterInfo180 As DevExpress.XtraGrid.Columns.ColumnFilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.tlbCorteCaja = New System.Windows.Forms.ToolBar()
         Me.btnAgrergar = New System.Windows.Forms.ToolBarButton()
@@ -404,6 +406,7 @@ Public Class CorteCaja
         Me.lblDiferencia = New System.Windows.Forms.Label()
         Me.lblAplicaciones = New System.Windows.Forms.Label()
         Me.pnlServicios = New System.Windows.Forms.Panel()
+        Me.lblIngresosSAF = New System.Windows.Forms.Label()
         Me.lblPosFechAnt = New System.Windows.Forms.Label()
         Me.lblServiciosTecnicos = New System.Windows.Forms.Label()
         Me.grdServiciosTecnicos = New DevExpress.XtraGrid.GridControl()
@@ -580,7 +583,7 @@ Public Class CorteCaja
         Me.tlbCorteCaja.Location = New System.Drawing.Point(0, 0)
         Me.tlbCorteCaja.Name = "tlbCorteCaja"
         Me.tlbCorteCaja.ShowToolTips = True
-        Me.tlbCorteCaja.Size = New System.Drawing.Size(1028, 43)
+        Me.tlbCorteCaja.Size = New System.Drawing.Size(1175, 43)
         Me.tlbCorteCaja.TabIndex = 22
         '
         'btnAgrergar
@@ -722,7 +725,7 @@ Public Class CorteCaja
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 43)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1028, 36)
+        Me.Panel1.Size = New System.Drawing.Size(1175, 36)
         Me.Panel1.TabIndex = 24
         '
         'txtEmpresa
@@ -788,7 +791,7 @@ Public Class CorteCaja
         Me.lblFolioCorte.Dock = System.Windows.Forms.DockStyle.Right
         Me.lblFolioCorte.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblFolioCorte.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.lblFolioCorte.Location = New System.Drawing.Point(832, 0)
+        Me.lblFolioCorte.Location = New System.Drawing.Point(979, 0)
         Me.lblFolioCorte.Name = "lblFolioCorte"
         Me.lblFolioCorte.Size = New System.Drawing.Size(192, 32)
         Me.lblFolioCorte.TabIndex = 31
@@ -816,7 +819,7 @@ Public Class CorteCaja
         Me.Label3.Location = New System.Drawing.Point(0, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label3.Size = New System.Drawing.Size(1028, 21)
+        Me.Label3.Size = New System.Drawing.Size(1175, 21)
         Me.Label3.TabIndex = 26
         Me.Label3.Text = "I N G R E S O S     "
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -831,7 +834,7 @@ Public Class CorteCaja
         Me.pnlGeneral.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlGeneral.Location = New System.Drawing.Point(0, 79)
         Me.pnlGeneral.Name = "pnlGeneral"
-        Me.pnlGeneral.Size = New System.Drawing.Size(1028, 567)
+        Me.pnlGeneral.Size = New System.Drawing.Size(1175, 567)
         Me.pnlGeneral.TabIndex = 25
         '
         'pnlGastos
@@ -842,7 +845,7 @@ Public Class CorteCaja
         Me.pnlGastos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlGastos.Location = New System.Drawing.Point(0, 232)
         Me.pnlGastos.Name = "pnlGastos"
-        Me.pnlGastos.Size = New System.Drawing.Size(1028, 271)
+        Me.pnlGastos.Size = New System.Drawing.Size(1175, 271)
         Me.pnlGastos.TabIndex = 58
         '
         'pnlAplicaciones
@@ -857,7 +860,7 @@ Public Class CorteCaja
         Me.pnlAplicaciones.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlAplicaciones.Location = New System.Drawing.Point(0, 0)
         Me.pnlAplicaciones.Name = "pnlAplicaciones"
-        Me.pnlAplicaciones.Size = New System.Drawing.Size(1024, 267)
+        Me.pnlAplicaciones.Size = New System.Drawing.Size(1171, 267)
         Me.pnlAplicaciones.TabIndex = 30
         '
         'pnlVentaCredito
@@ -868,7 +871,7 @@ Public Class CorteCaja
         Me.pnlVentaCredito.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlVentaCredito.Location = New System.Drawing.Point(683, 21)
         Me.pnlVentaCredito.Name = "pnlVentaCredito"
-        Me.pnlVentaCredito.Size = New System.Drawing.Size(341, 246)
+        Me.pnlVentaCredito.Size = New System.Drawing.Size(488, 246)
         Me.pnlVentaCredito.TabIndex = 7
         '
         'grdVentaCredito
@@ -878,7 +881,7 @@ Public Class CorteCaja
         Me.grdVentaCredito.Location = New System.Drawing.Point(0, 24)
         Me.grdVentaCredito.MainView = Me.vwVentaCredito
         Me.grdVentaCredito.Name = "grdVentaCredito"
-        Me.grdVentaCredito.Size = New System.Drawing.Size(341, 222)
+        Me.grdVentaCredito.Size = New System.Drawing.Size(488, 222)
         Me.grdVentaCredito.TabIndex = 36
         Me.grdVentaCredito.Text = "GridControl2"
         '
@@ -916,7 +919,7 @@ Public Class CorteCaja
         '
         Me.GridColumn64.Caption = "Concepto"
         Me.GridColumn64.FieldName = "Concepto"
-        Me.GridColumn64.FilterInfo = ColumnFilterInfo1
+        Me.GridColumn64.FilterInfo = ColumnFilterInfo102
         Me.GridColumn64.Name = "GridColumn64"
         Me.GridColumn64.VisibleIndex = 0
         Me.GridColumn64.Width = 150
@@ -925,7 +928,7 @@ Public Class CorteCaja
         '
         Me.grdcTotalVentaCredito.Caption = "Total"
         Me.grdcTotalVentaCredito.FieldName = "Total"
-        Me.grdcTotalVentaCredito.FilterInfo = ColumnFilterInfo2
+        Me.grdcTotalVentaCredito.FilterInfo = ColumnFilterInfo103
         Me.grdcTotalVentaCredito.FormatString = "$#,#.00"
         Me.grdcTotalVentaCredito.FormatType = DevExpress.XtraGrid.Columns.FormatTypeEnum.Numeric
         Me.grdcTotalVentaCredito.Name = "grdcTotalVentaCredito"
@@ -943,7 +946,7 @@ Public Class CorteCaja
         Me.Label11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Label11.Location = New System.Drawing.Point(0, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(341, 24)
+        Me.Label11.Size = New System.Drawing.Size(488, 24)
         Me.Label11.TabIndex = 1
         Me.Label11.Text = "DOCUMENTOS"
         Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1013,7 +1016,7 @@ Public Class CorteCaja
         '
         Me.GridColumn62.Caption = "Concepto"
         Me.GridColumn62.FieldName = "Concepto"
-        Me.GridColumn62.FilterInfo = ColumnFilterInfo3
+        Me.GridColumn62.FilterInfo = ColumnFilterInfo104
         Me.GridColumn62.Name = "GridColumn62"
         Me.GridColumn62.VisibleIndex = 0
         Me.GridColumn62.Width = 150
@@ -1022,7 +1025,7 @@ Public Class CorteCaja
         '
         Me.grdcTotalConceptoGastos.Caption = "Total"
         Me.grdcTotalConceptoGastos.FieldName = "Total"
-        Me.grdcTotalConceptoGastos.FilterInfo = ColumnFilterInfo4
+        Me.grdcTotalConceptoGastos.FilterInfo = ColumnFilterInfo105
         Me.grdcTotalConceptoGastos.FormatString = "$#,#.00"
         Me.grdcTotalConceptoGastos.FormatType = DevExpress.XtraGrid.Columns.FormatTypeEnum.Numeric
         Me.grdcTotalConceptoGastos.Name = "grdcTotalConceptoGastos"
@@ -1108,7 +1111,7 @@ Public Class CorteCaja
         '
         Me.grdcFichaDeposito.Caption = "Ficha de depósito"
         Me.grdcFichaDeposito.FieldName = "Tipo"
-        Me.grdcFichaDeposito.FilterInfo = ColumnFilterInfo5
+        Me.grdcFichaDeposito.FilterInfo = ColumnFilterInfo106
         Me.grdcFichaDeposito.Name = "grdcFichaDeposito"
         Me.grdcFichaDeposito.VisibleIndex = 0
         Me.grdcFichaDeposito.Width = 150
@@ -1117,7 +1120,7 @@ Public Class CorteCaja
         '
         Me.grdcTotal.Caption = "Total"
         Me.grdcTotal.FieldName = "Total"
-        Me.grdcTotal.FilterInfo = ColumnFilterInfo6
+        Me.grdcTotal.FilterInfo = ColumnFilterInfo107
         Me.grdcTotal.FormatString = "$#,#.00"
         Me.grdcTotal.FormatType = DevExpress.XtraGrid.Columns.FormatTypeEnum.Numeric
         Me.grdcTotal.Name = "grdcTotal"
@@ -1149,7 +1152,7 @@ Public Class CorteCaja
         Me.Label4.ForeColor = System.Drawing.Color.DarkBlue
         Me.Label4.Location = New System.Drawing.Point(0, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(1024, 21)
+        Me.Label4.Size = New System.Drawing.Size(1171, 21)
         Me.Label4.TabIndex = 2
         Me.Label4.Text = "A P L I C A C I O N E S"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1161,7 +1164,7 @@ Public Class CorteCaja
         Me.pnlConceptosGasto.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlConceptosGasto.Location = New System.Drawing.Point(0, 0)
         Me.pnlConceptosGasto.Name = "pnlConceptosGasto"
-        Me.pnlConceptosGasto.Size = New System.Drawing.Size(1024, 267)
+        Me.pnlConceptosGasto.Size = New System.Drawing.Size(1171, 267)
         Me.pnlConceptosGasto.TabIndex = 31
         Me.pnlConceptosGasto.Visible = False
         '
@@ -1173,7 +1176,7 @@ Public Class CorteCaja
         Me.pnlAplicacion.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.pnlAplicacion.Location = New System.Drawing.Point(0, 503)
         Me.pnlAplicacion.Name = "pnlAplicacion"
-        Me.pnlAplicacion.Size = New System.Drawing.Size(1028, 64)
+        Me.pnlAplicacion.Size = New System.Drawing.Size(1175, 64)
         Me.pnlAplicacion.TabIndex = 57
         '
         'lblDiferencia
@@ -1185,7 +1188,7 @@ Public Class CorteCaja
         Me.lblDiferencia.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.lblDiferencia.Location = New System.Drawing.Point(0, 32)
         Me.lblDiferencia.Name = "lblDiferencia"
-        Me.lblDiferencia.Size = New System.Drawing.Size(1028, 32)
+        Me.lblDiferencia.Size = New System.Drawing.Size(1175, 32)
         Me.lblDiferencia.TabIndex = 56
         Me.lblDiferencia.Text = "Diferencia"
         Me.lblDiferencia.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -1199,13 +1202,14 @@ Public Class CorteCaja
         Me.lblAplicaciones.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.lblAplicaciones.Location = New System.Drawing.Point(0, 0)
         Me.lblAplicaciones.Name = "lblAplicaciones"
-        Me.lblAplicaciones.Size = New System.Drawing.Size(1028, 32)
+        Me.lblAplicaciones.Size = New System.Drawing.Size(1175, 32)
         Me.lblAplicaciones.TabIndex = 55
         Me.lblAplicaciones.Text = "Aplicaciones"
         Me.lblAplicaciones.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'pnlServicios
         '
+        Me.pnlServicios.Controls.Add(Me.lblIngresosSAF)
         Me.pnlServicios.Controls.Add(Me.lblPosFechAnt)
         Me.pnlServicios.Controls.Add(Me.lblServiciosTecnicos)
         Me.pnlServicios.Controls.Add(Me.grdServiciosTecnicos)
@@ -1214,8 +1218,21 @@ Public Class CorteCaja
         Me.pnlServicios.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlServicios.Location = New System.Drawing.Point(0, 128)
         Me.pnlServicios.Name = "pnlServicios"
-        Me.pnlServicios.Size = New System.Drawing.Size(1028, 104)
+        Me.pnlServicios.Size = New System.Drawing.Size(1175, 104)
         Me.pnlServicios.TabIndex = 30
+        '
+        'lblIngresosSAF
+        '
+        Me.lblIngresosSAF.AutoSize = True
+        Me.lblIngresosSAF.BackColor = System.Drawing.Color.CornflowerBlue
+        Me.lblIngresosSAF.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblIngresosSAF.ForeColor = System.Drawing.Color.DarkBlue
+        Me.lblIngresosSAF.Location = New System.Drawing.Point(528, 1)
+        Me.lblIngresosSAF.Name = "lblIngresosSAF"
+        Me.lblIngresosSAF.Size = New System.Drawing.Size(246, 19)
+        Me.lblIngresosSAF.TabIndex = 61
+        Me.lblIngresosSAF.Text = "INGRESOS (SALDO A FAVOR)"
+        Me.lblIngresosSAF.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblPosFechAnt
         '
@@ -1223,7 +1240,7 @@ Public Class CorteCaja
         Me.lblPosFechAnt.BackColor = System.Drawing.Color.CornflowerBlue
         Me.lblPosFechAnt.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPosFechAnt.ForeColor = System.Drawing.Color.DarkBlue
-        Me.lblPosFechAnt.Location = New System.Drawing.Point(664, 2)
+        Me.lblPosFechAnt.Location = New System.Drawing.Point(932, 1)
         Me.lblPosFechAnt.Name = "lblPosFechAnt"
         Me.lblPosFechAnt.Size = New System.Drawing.Size(231, 19)
         Me.lblPosFechAnt.TabIndex = 60
@@ -1250,7 +1267,7 @@ Public Class CorteCaja
         Me.grdServiciosTecnicos.Location = New System.Drawing.Point(0, 24)
         Me.grdServiciosTecnicos.MainView = Me.GridView10
         Me.grdServiciosTecnicos.Name = "grdServiciosTecnicos"
-        Me.grdServiciosTecnicos.Size = New System.Drawing.Size(1028, 56)
+        Me.grdServiciosTecnicos.Size = New System.Drawing.Size(1175, 56)
         Me.grdServiciosTecnicos.TabIndex = 32
         Me.grdServiciosTecnicos.Text = "GridControl5"
         '
@@ -1278,7 +1295,7 @@ Public Class CorteCaja
         '
         Me.GridColumn84.Caption = "GridColumn84"
         Me.GridColumn84.FieldName = "Descripcion"
-        Me.GridColumn84.FilterInfo = ColumnFilterInfo7
+        Me.GridColumn84.FilterInfo = ColumnFilterInfo91
         Me.GridColumn84.Name = "GridColumn84"
         Me.GridColumn84.VisibleIndex = 0
         '
@@ -1286,7 +1303,7 @@ Public Class CorteCaja
         '
         Me.GridColumn75.Caption = "GridColumn75"
         Me.GridColumn75.FieldName = "VentasContado"
-        Me.GridColumn75.FilterInfo = ColumnFilterInfo8
+        Me.GridColumn75.FilterInfo = ColumnFilterInfo92
         Me.GridColumn75.FormatString = "$#,#.00"
         Me.GridColumn75.FormatType = DevExpress.XtraGrid.Columns.FormatTypeEnum.Numeric
         Me.GridColumn75.Name = "GridColumn75"
@@ -1298,7 +1315,7 @@ Public Class CorteCaja
         '
         Me.GridColumn66.Caption = "GridColumn66"
         Me.GridColumn66.FieldName = "ChequesPV"
-        Me.GridColumn66.FilterInfo = ColumnFilterInfo9
+        Me.GridColumn66.FilterInfo = ColumnFilterInfo93
         Me.GridColumn66.FormatString = "$#,#.00"
         Me.GridColumn66.FormatType = DevExpress.XtraGrid.Columns.FormatTypeEnum.Numeric
         Me.GridColumn66.Name = "GridColumn66"
@@ -1310,7 +1327,7 @@ Public Class CorteCaja
         '
         Me.GridColumn76.Caption = "GridColumn76"
         Me.GridColumn76.FieldName = "VentasCredito"
-        Me.GridColumn76.FilterInfo = ColumnFilterInfo10
+        Me.GridColumn76.FilterInfo = ColumnFilterInfo94
         Me.GridColumn76.FormatString = "$#,#.00"
         Me.GridColumn76.FormatType = DevExpress.XtraGrid.Columns.FormatTypeEnum.Numeric
         Me.GridColumn76.Name = "GridColumn76"
@@ -1322,7 +1339,7 @@ Public Class CorteCaja
         '
         Me.GridColumn77.Caption = "GridColumn77"
         Me.GridColumn77.FieldName = "TarjetaCredito"
-        Me.GridColumn77.FilterInfo = ColumnFilterInfo11
+        Me.GridColumn77.FilterInfo = ColumnFilterInfo95
         Me.GridColumn77.FormatString = "$#,#.00"
         Me.GridColumn77.FormatType = DevExpress.XtraGrid.Columns.FormatTypeEnum.Numeric
         Me.GridColumn77.Name = "GridColumn77"
@@ -1334,7 +1351,7 @@ Public Class CorteCaja
         '
         Me.GridColumn63.Caption = "GridColumn63"
         Me.GridColumn63.FieldName = "TarjetaAT"
-        Me.GridColumn63.FilterInfo = ColumnFilterInfo12
+        Me.GridColumn63.FilterInfo = ColumnFilterInfo96
         Me.GridColumn63.FormatString = "$#,#.00"
         Me.GridColumn63.FormatType = DevExpress.XtraGrid.Columns.FormatTypeEnum.Numeric
         Me.GridColumn63.Name = "GridColumn63"
@@ -1346,7 +1363,7 @@ Public Class CorteCaja
         '
         Me.GridColumn78.Caption = "PARCIAL1"
         Me.GridColumn78.FieldName = "Parcial1"
-        Me.GridColumn78.FilterInfo = ColumnFilterInfo13
+        Me.GridColumn78.FilterInfo = ColumnFilterInfo97
         Me.GridColumn78.FormatString = "$#,#.00"
         Me.GridColumn78.FormatType = DevExpress.XtraGrid.Columns.FormatTypeEnum.Numeric
         Me.GridColumn78.Name = "GridColumn78"
@@ -1358,7 +1375,7 @@ Public Class CorteCaja
         '
         Me.GridColumn79.Caption = "GridColumn79"
         Me.GridColumn79.FieldName = "Cobranza"
-        Me.GridColumn79.FilterInfo = ColumnFilterInfo14
+        Me.GridColumn79.FilterInfo = ColumnFilterInfo98
         Me.GridColumn79.FormatString = "$#,#.00"
         Me.GridColumn79.FormatType = DevExpress.XtraGrid.Columns.FormatTypeEnum.Numeric
         Me.GridColumn79.Name = "GridColumn79"
@@ -1370,7 +1387,7 @@ Public Class CorteCaja
         '
         Me.GridColumn80.Caption = "GridColumn80"
         Me.GridColumn80.FieldName = "NotaIngreso"
-        Me.GridColumn80.FilterInfo = ColumnFilterInfo15
+        Me.GridColumn80.FilterInfo = ColumnFilterInfo99
         Me.GridColumn80.FormatString = "$#,#.00"
         Me.GridColumn80.FormatType = DevExpress.XtraGrid.Columns.FormatTypeEnum.Numeric
         Me.GridColumn80.Name = "GridColumn80"
@@ -1382,7 +1399,7 @@ Public Class CorteCaja
         '
         Me.GridColumn81.Caption = "GridColumn81"
         Me.GridColumn81.FieldName = "ChequesDev"
-        Me.GridColumn81.FilterInfo = ColumnFilterInfo16
+        Me.GridColumn81.FilterInfo = ColumnFilterInfo100
         Me.GridColumn81.FormatString = "$#,#.00"
         Me.GridColumn81.FormatType = DevExpress.XtraGrid.Columns.FormatTypeEnum.Numeric
         Me.GridColumn81.Name = "GridColumn81"
@@ -1394,7 +1411,7 @@ Public Class CorteCaja
         '
         Me.GridColumn82.Caption = "PARCIAL2"
         Me.GridColumn82.FieldName = "Parcial2"
-        Me.GridColumn82.FilterInfo = ColumnFilterInfo17
+        Me.GridColumn82.FilterInfo = ColumnFilterInfo101
         Me.GridColumn82.FormatString = "$#,#.00"
         Me.GridColumn82.FormatType = DevExpress.XtraGrid.Columns.FormatTypeEnum.Numeric
         Me.GridColumn82.Name = "GridColumn82"
@@ -1411,7 +1428,7 @@ Public Class CorteCaja
         Me.lblIngresos.Location = New System.Drawing.Point(0, 80)
         Me.lblIngresos.Name = "lblIngresos"
         Me.lblIngresos.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.lblIngresos.Size = New System.Drawing.Size(1028, 24)
+        Me.lblIngresos.Size = New System.Drawing.Size(1175, 24)
         Me.lblIngresos.TabIndex = 31
         Me.lblIngresos.Text = "Ingresos"
         Me.lblIngresos.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -1425,7 +1442,7 @@ Public Class CorteCaja
         Me.Label10.Location = New System.Drawing.Point(0, 0)
         Me.Label10.Name = "Label10"
         Me.Label10.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label10.Size = New System.Drawing.Size(1028, 24)
+        Me.Label10.Size = New System.Drawing.Size(1175, 24)
         Me.Label10.TabIndex = 27
         Me.Label10.Text = "Servicios Técnicos"
         Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1437,7 +1454,7 @@ Public Class CorteCaja
         Me.pnlIngresos.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlIngresos.Location = New System.Drawing.Point(0, 0)
         Me.pnlIngresos.Name = "pnlIngresos"
-        Me.pnlIngresos.Size = New System.Drawing.Size(1028, 128)
+        Me.pnlIngresos.Size = New System.Drawing.Size(1175, 128)
         Me.pnlIngresos.TabIndex = 27
         '
         'grdIngresos
@@ -1449,7 +1466,7 @@ Public Class CorteCaja
         Me.grdIngresos.Location = New System.Drawing.Point(0, 21)
         Me.grdIngresos.MainView = Me.GridView8
         Me.grdIngresos.Name = "grdIngresos"
-        Me.grdIngresos.Size = New System.Drawing.Size(1028, 107)
+        Me.grdIngresos.Size = New System.Drawing.Size(1175, 107)
         Me.grdIngresos.TabIndex = 30
         Me.grdIngresos.Text = "GridControl2"
         '
@@ -1479,7 +1496,7 @@ Public Class CorteCaja
         '
         Me.grdcDescripcion.Caption = "Descripción"
         Me.grdcDescripcion.FieldName = "Descripcion"
-        Me.grdcDescripcion.FilterInfo = ColumnFilterInfo18
+        Me.grdcDescripcion.FilterInfo = ColumnFilterInfo108
         Me.grdcDescripcion.Name = "grdcDescripcion"
         Me.grdcDescripcion.VisibleIndex = 0
         '
@@ -1487,7 +1504,7 @@ Public Class CorteCaja
         '
         Me.grdcVentaContado.Caption = "V. Contado"
         Me.grdcVentaContado.FieldName = "VentasContado"
-        Me.grdcVentaContado.FilterInfo = ColumnFilterInfo19
+        Me.grdcVentaContado.FilterInfo = ColumnFilterInfo109
         Me.grdcVentaContado.FormatString = "$#,#.00"
         Me.grdcVentaContado.FormatType = DevExpress.XtraGrid.Columns.FormatTypeEnum.Numeric
         Me.grdcVentaContado.Name = "grdcVentaContado"
@@ -1499,7 +1516,7 @@ Public Class CorteCaja
         '
         Me.GridColumn65.Caption = "Cheques Posf.V"
         Me.GridColumn65.FieldName = "ChequesPV"
-        Me.GridColumn65.FilterInfo = ColumnFilterInfo20
+        Me.GridColumn65.FilterInfo = ColumnFilterInfo110
         Me.GridColumn65.FormatString = "$#,#.00"
         Me.GridColumn65.FormatType = DevExpress.XtraGrid.Columns.FormatTypeEnum.Numeric
         Me.GridColumn65.Name = "GridColumn65"
@@ -1511,7 +1528,7 @@ Public Class CorteCaja
         '
         Me.grdcVentaCredito.Caption = "V. Crédito"
         Me.grdcVentaCredito.FieldName = "VentasCredito"
-        Me.grdcVentaCredito.FilterInfo = ColumnFilterInfo21
+        Me.grdcVentaCredito.FilterInfo = ColumnFilterInfo111
         Me.grdcVentaCredito.FormatString = "$#,#.00"
         Me.grdcVentaCredito.FormatType = DevExpress.XtraGrid.Columns.FormatTypeEnum.Numeric
         Me.grdcVentaCredito.Name = "grdcVentaCredito"
@@ -1523,7 +1540,7 @@ Public Class CorteCaja
         '
         Me.grdcTarjetaCredito.Caption = "T. Crédito"
         Me.grdcTarjetaCredito.FieldName = "TarjetaCredito"
-        Me.grdcTarjetaCredito.FilterInfo = ColumnFilterInfo22
+        Me.grdcTarjetaCredito.FilterInfo = ColumnFilterInfo112
         Me.grdcTarjetaCredito.FormatString = "$#,#.00"
         Me.grdcTarjetaCredito.FormatType = DevExpress.XtraGrid.Columns.FormatTypeEnum.Numeric
         Me.grdcTarjetaCredito.Name = "grdcTarjetaCredito"
@@ -1535,7 +1552,7 @@ Public Class CorteCaja
         '
         Me.grdcTarjetaAT.Caption = "Tarjeta AT"
         Me.grdcTarjetaAT.FieldName = "TarjetaAT"
-        Me.grdcTarjetaAT.FilterInfo = ColumnFilterInfo23
+        Me.grdcTarjetaAT.FilterInfo = ColumnFilterInfo113
         Me.grdcTarjetaAT.FormatString = "$#,#.00"
         Me.grdcTarjetaAT.FormatType = DevExpress.XtraGrid.Columns.FormatTypeEnum.Numeric
         Me.grdcTarjetaAT.Name = "grdcTarjetaAT"
@@ -1547,7 +1564,7 @@ Public Class CorteCaja
         '
         Me.grdcParcial1.Caption = "Edificios"
         Me.grdcParcial1.FieldName = "Edificios"
-        Me.grdcParcial1.FilterInfo = ColumnFilterInfo24
+        Me.grdcParcial1.FilterInfo = ColumnFilterInfo114
         Me.grdcParcial1.FormatString = "$#,#.00"
         Me.grdcParcial1.FormatType = DevExpress.XtraGrid.Columns.FormatTypeEnum.Numeric
         Me.grdcParcial1.Name = "grdcParcial1"
@@ -1560,7 +1577,7 @@ Public Class CorteCaja
         '
         Me.grdcCobranza.Caption = "Cobranzas"
         Me.grdcCobranza.FieldName = "Cobranza"
-        Me.grdcCobranza.FilterInfo = ColumnFilterInfo25
+        Me.grdcCobranza.FilterInfo = ColumnFilterInfo115
         Me.grdcCobranza.FormatString = "$#,#.00"
         Me.grdcCobranza.FormatType = DevExpress.XtraGrid.Columns.FormatTypeEnum.Numeric
         Me.grdcCobranza.Name = "grdcCobranza"
@@ -1572,7 +1589,7 @@ Public Class CorteCaja
         '
         Me.grdcNotaIngreso.Caption = "N. Ingreso"
         Me.grdcNotaIngreso.FieldName = "NotaIngreso"
-        Me.grdcNotaIngreso.FilterInfo = ColumnFilterInfo26
+        Me.grdcNotaIngreso.FilterInfo = ColumnFilterInfo116
         Me.grdcNotaIngreso.FormatString = "$#,#.00"
         Me.grdcNotaIngreso.FormatType = DevExpress.XtraGrid.Columns.FormatTypeEnum.Numeric
         Me.grdcNotaIngreso.Name = "grdcNotaIngreso"
@@ -1584,7 +1601,7 @@ Public Class CorteCaja
         '
         Me.grdeReciboCaja.Caption = "Recibo de caja"
         Me.grdeReciboCaja.FieldName = "ValeCaja"
-        Me.grdeReciboCaja.FilterInfo = ColumnFilterInfo27
+        Me.grdeReciboCaja.FilterInfo = ColumnFilterInfo117
         Me.grdeReciboCaja.FormatString = "$#,#.00"
         Me.grdeReciboCaja.FormatType = DevExpress.XtraGrid.Columns.FormatTypeEnum.Numeric
         Me.grdeReciboCaja.Name = "grdeReciboCaja"
@@ -1597,7 +1614,7 @@ Public Class CorteCaja
         '
         Me.grdcChequesDev.Caption = "Cheques dev."
         Me.grdcChequesDev.FieldName = "ChequesDev"
-        Me.grdcChequesDev.FilterInfo = ColumnFilterInfo28
+        Me.grdcChequesDev.FilterInfo = ColumnFilterInfo118
         Me.grdcChequesDev.FormatString = "$#,#.00"
         Me.grdcChequesDev.FormatType = DevExpress.XtraGrid.Columns.FormatTypeEnum.Numeric
         Me.grdcChequesDev.Name = "grdcChequesDev"
@@ -1609,7 +1626,7 @@ Public Class CorteCaja
         '
         Me.grdcParcial2.Caption = "PARCIAL "
         Me.grdcParcial2.FieldName = "Parcial2"
-        Me.grdcParcial2.FilterInfo = ColumnFilterInfo29
+        Me.grdcParcial2.FilterInfo = ColumnFilterInfo119
         Me.grdcParcial2.FormatString = "$#,#.00"
         Me.grdcParcial2.FormatType = DevExpress.XtraGrid.Columns.FormatTypeEnum.Numeric
         Me.grdcParcial2.Name = "grdcParcial2"
@@ -1620,7 +1637,7 @@ Public Class CorteCaja
         'GridColumn17
         '
         Me.GridColumn17.Caption = "T. Crédito"
-        Me.GridColumn17.FilterInfo = ColumnFilterInfo30
+        Me.GridColumn17.FilterInfo = ColumnFilterInfo120
         Me.GridColumn17.Name = "GridColumn17"
         Me.GridColumn17.VisibleIndex = 3
         '
@@ -1628,7 +1645,7 @@ Public Class CorteCaja
         '
         Me.GridColumn7.Caption = "Crédito"
         Me.GridColumn7.FieldName = "VentasCredito"
-        Me.GridColumn7.FilterInfo = ColumnFilterInfo31
+        Me.GridColumn7.FilterInfo = ColumnFilterInfo121
         Me.GridColumn7.Name = "GridColumn7"
         Me.GridColumn7.VisibleIndex = 2
         '
@@ -1636,7 +1653,7 @@ Public Class CorteCaja
         '
         Me.GridColumn6.Caption = "Contado"
         Me.GridColumn6.FieldName = "VentasContado"
-        Me.GridColumn6.FilterInfo = ColumnFilterInfo32
+        Me.GridColumn6.FilterInfo = ColumnFilterInfo122
         Me.GridColumn6.Name = "GridColumn6"
         Me.GridColumn6.VisibleIndex = 1
         '
@@ -1644,7 +1661,7 @@ Public Class CorteCaja
         '
         Me.GridColumn5.Caption = "Descripción"
         Me.GridColumn5.FieldName = "Descripcion"
-        Me.GridColumn5.FilterInfo = ColumnFilterInfo33
+        Me.GridColumn5.FilterInfo = ColumnFilterInfo123
         Me.GridColumn5.Name = "GridColumn5"
         Me.GridColumn5.VisibleIndex = 0
         '
@@ -1672,14 +1689,14 @@ Public Class CorteCaja
         '
         Me.GridColumn13.Caption = "Contado"
         Me.GridColumn13.FieldName = "VentasContado"
-        Me.GridColumn13.FilterInfo = ColumnFilterInfo34
+        Me.GridColumn13.FilterInfo = ColumnFilterInfo124
         Me.GridColumn13.Name = "GridColumn13"
         Me.GridColumn13.VisibleIndex = 1
         '
         'GridColumn18
         '
         Me.GridColumn18.Caption = "T. Crédito"
-        Me.GridColumn18.FilterInfo = ColumnFilterInfo35
+        Me.GridColumn18.FilterInfo = ColumnFilterInfo125
         Me.GridColumn18.Name = "GridColumn18"
         Me.GridColumn18.VisibleIndex = 3
         '
@@ -1687,7 +1704,7 @@ Public Class CorteCaja
         '
         Me.GridColumn12.Caption = "Descripción"
         Me.GridColumn12.FieldName = "Descripcion"
-        Me.GridColumn12.FilterInfo = ColumnFilterInfo36
+        Me.GridColumn12.FilterInfo = ColumnFilterInfo126
         Me.GridColumn12.Name = "GridColumn12"
         Me.GridColumn12.VisibleIndex = 0
         '
@@ -1695,7 +1712,7 @@ Public Class CorteCaja
         '
         Me.GridColumn14.Caption = "Crédito"
         Me.GridColumn14.FieldName = "VentasCredito"
-        Me.GridColumn14.FilterInfo = ColumnFilterInfo37
+        Me.GridColumn14.FilterInfo = ColumnFilterInfo127
         Me.GridColumn14.Name = "GridColumn14"
         Me.GridColumn14.VisibleIndex = 2
         '
@@ -1703,7 +1720,7 @@ Public Class CorteCaja
         '
         Me.GridColumn16.Caption = "Importe"
         Me.GridColumn16.FieldName = "VentaContado"
-        Me.GridColumn16.FilterInfo = ColumnFilterInfo38
+        Me.GridColumn16.FilterInfo = ColumnFilterInfo128
         Me.GridColumn16.Name = "GridColumn16"
         Me.GridColumn16.VisibleIndex = 1
         '
@@ -1711,7 +1728,7 @@ Public Class CorteCaja
         '
         Me.GridColumn15.Caption = "Descripción"
         Me.GridColumn15.FieldName = "Descripcion"
-        Me.GridColumn15.FilterInfo = ColumnFilterInfo39
+        Me.GridColumn15.FilterInfo = ColumnFilterInfo129
         Me.GridColumn15.Name = "GridColumn15"
         Me.GridColumn15.VisibleIndex = 0
         '
@@ -1743,42 +1760,42 @@ Public Class CorteCaja
         'GridColumn20
         '
         Me.GridColumn20.Caption = "PARCIAL  (2)"
-        Me.GridColumn20.FilterInfo = ColumnFilterInfo40
+        Me.GridColumn20.FilterInfo = ColumnFilterInfo130
         Me.GridColumn20.Name = "GridColumn20"
         Me.GridColumn20.VisibleIndex = 8
         '
         'GridColumn10
         '
         Me.GridColumn10.Caption = "E. Negativas"
-        Me.GridColumn10.FilterInfo = ColumnFilterInfo41
+        Me.GridColumn10.FilterInfo = ColumnFilterInfo131
         Me.GridColumn10.Name = "GridColumn10"
         Me.GridColumn10.VisibleIndex = 7
         '
         'GridColumn9
         '
         Me.GridColumn9.Caption = "N. Ingreso"
-        Me.GridColumn9.FilterInfo = ColumnFilterInfo42
+        Me.GridColumn9.FilterInfo = ColumnFilterInfo132
         Me.GridColumn9.Name = "GridColumn9"
         Me.GridColumn9.VisibleIndex = 6
         '
         'GridColumn8
         '
         Me.GridColumn8.Caption = "Cobranzas"
-        Me.GridColumn8.FilterInfo = ColumnFilterInfo43
+        Me.GridColumn8.FilterInfo = ColumnFilterInfo133
         Me.GridColumn8.Name = "GridColumn8"
         Me.GridColumn8.VisibleIndex = 5
         '
         'GridColumn19
         '
         Me.GridColumn19.Caption = "PARCIAL  (1)"
-        Me.GridColumn19.FilterInfo = ColumnFilterInfo44
+        Me.GridColumn19.FilterInfo = ColumnFilterInfo134
         Me.GridColumn19.Name = "GridColumn19"
         Me.GridColumn19.VisibleIndex = 4
         '
         'GridColumn4
         '
         Me.GridColumn4.Caption = "T. Crédito"
-        Me.GridColumn4.FilterInfo = ColumnFilterInfo45
+        Me.GridColumn4.FilterInfo = ColumnFilterInfo135
         Me.GridColumn4.Name = "GridColumn4"
         Me.GridColumn4.VisibleIndex = 3
         '
@@ -1786,7 +1803,7 @@ Public Class CorteCaja
         '
         Me.GridColumn2.Caption = "Crédito"
         Me.GridColumn2.FieldName = "VentasCredito"
-        Me.GridColumn2.FilterInfo = ColumnFilterInfo46
+        Me.GridColumn2.FilterInfo = ColumnFilterInfo136
         Me.GridColumn2.Name = "GridColumn2"
         Me.GridColumn2.VisibleIndex = 2
         '
@@ -1794,7 +1811,7 @@ Public Class CorteCaja
         '
         Me.GridColumn1.Caption = "Contado"
         Me.GridColumn1.FieldName = "VentasContado"
-        Me.GridColumn1.FilterInfo = ColumnFilterInfo47
+        Me.GridColumn1.FilterInfo = ColumnFilterInfo137
         Me.GridColumn1.Name = "GridColumn1"
         Me.GridColumn1.VisibleIndex = 1
         '
@@ -1802,63 +1819,63 @@ Public Class CorteCaja
         '
         Me.GridColumn3.Caption = "Descripción"
         Me.GridColumn3.FieldName = "Descripcion"
-        Me.GridColumn3.FilterInfo = ColumnFilterInfo48
+        Me.GridColumn3.FilterInfo = ColumnFilterInfo138
         Me.GridColumn3.Name = "GridColumn3"
         Me.GridColumn3.VisibleIndex = 0
         '
         'GridColumn28
         '
         Me.GridColumn28.Caption = "GridColumn28"
-        Me.GridColumn28.FilterInfo = ColumnFilterInfo49
+        Me.GridColumn28.FilterInfo = ColumnFilterInfo139
         Me.GridColumn28.Name = "GridColumn28"
         Me.GridColumn28.VisibleIndex = 7
         '
         'GridColumn27
         '
         Me.GridColumn27.Caption = "GridColumn27"
-        Me.GridColumn27.FilterInfo = ColumnFilterInfo50
+        Me.GridColumn27.FilterInfo = ColumnFilterInfo140
         Me.GridColumn27.Name = "GridColumn27"
         Me.GridColumn27.VisibleIndex = 6
         '
         'GridColumn26
         '
         Me.GridColumn26.Caption = "GridColumn26"
-        Me.GridColumn26.FilterInfo = ColumnFilterInfo51
+        Me.GridColumn26.FilterInfo = ColumnFilterInfo141
         Me.GridColumn26.Name = "GridColumn26"
         Me.GridColumn26.VisibleIndex = 5
         '
         'GridColumn25
         '
         Me.GridColumn25.Caption = "GridColumn25"
-        Me.GridColumn25.FilterInfo = ColumnFilterInfo52
+        Me.GridColumn25.FilterInfo = ColumnFilterInfo142
         Me.GridColumn25.Name = "GridColumn25"
         Me.GridColumn25.VisibleIndex = 4
         '
         'GridColumn24
         '
         Me.GridColumn24.Caption = "GridColumn24"
-        Me.GridColumn24.FilterInfo = ColumnFilterInfo53
+        Me.GridColumn24.FilterInfo = ColumnFilterInfo143
         Me.GridColumn24.Name = "GridColumn24"
         Me.GridColumn24.VisibleIndex = 3
         '
         'GridColumn23
         '
         Me.GridColumn23.Caption = "GridColumn23"
-        Me.GridColumn23.FilterInfo = ColumnFilterInfo54
+        Me.GridColumn23.FilterInfo = ColumnFilterInfo144
         Me.GridColumn23.Name = "GridColumn23"
         Me.GridColumn23.VisibleIndex = 2
         '
         'GridColumn22
         '
         Me.GridColumn22.Caption = "GridColumn22"
-        Me.GridColumn22.FilterInfo = ColumnFilterInfo55
+        Me.GridColumn22.FilterInfo = ColumnFilterInfo145
         Me.GridColumn22.Name = "GridColumn22"
         Me.GridColumn22.VisibleIndex = 1
         '
         'GridColumn21
         '
         Me.GridColumn21.Caption = "GridColumn21"
-        Me.GridColumn21.FilterInfo = ColumnFilterInfo56
+        Me.GridColumn21.FilterInfo = ColumnFilterInfo146
         Me.GridColumn21.Name = "GridColumn21"
         Me.GridColumn21.VisibleIndex = 0
         '
@@ -1929,28 +1946,28 @@ Public Class CorteCaja
         'GridColumn36
         '
         Me.GridColumn36.Caption = "PARCIAL  (2)"
-        Me.GridColumn36.FilterInfo = ColumnFilterInfo57
+        Me.GridColumn36.FilterInfo = ColumnFilterInfo147
         Me.GridColumn36.Name = "GridColumn36"
         Me.GridColumn36.VisibleIndex = 8
         '
         'GridColumn35
         '
         Me.GridColumn35.Caption = "E. Negativas"
-        Me.GridColumn35.FilterInfo = ColumnFilterInfo58
+        Me.GridColumn35.FilterInfo = ColumnFilterInfo148
         Me.GridColumn35.Name = "GridColumn35"
         Me.GridColumn35.VisibleIndex = 7
         '
         'GridColumn33
         '
         Me.GridColumn33.Caption = "Cobranzas"
-        Me.GridColumn33.FilterInfo = ColumnFilterInfo59
+        Me.GridColumn33.FilterInfo = ColumnFilterInfo149
         Me.GridColumn33.Name = "GridColumn33"
         Me.GridColumn33.VisibleIndex = 5
         '
         'GridColumn32
         '
         Me.GridColumn32.Caption = "PARCIAL  (1)"
-        Me.GridColumn32.FilterInfo = ColumnFilterInfo60
+        Me.GridColumn32.FilterInfo = ColumnFilterInfo150
         Me.GridColumn32.Name = "GridColumn32"
         Me.GridColumn32.VisibleIndex = 4
         '
@@ -1958,7 +1975,7 @@ Public Class CorteCaja
         '
         Me.GridColumn30.Caption = "Crédito"
         Me.GridColumn30.FieldName = "VentasCredito"
-        Me.GridColumn30.FilterInfo = ColumnFilterInfo61
+        Me.GridColumn30.FilterInfo = ColumnFilterInfo151
         Me.GridColumn30.Name = "GridColumn30"
         Me.GridColumn30.VisibleIndex = 2
         '
@@ -1966,56 +1983,56 @@ Public Class CorteCaja
         '
         Me.GridColumn29.Caption = "Contado"
         Me.GridColumn29.FieldName = "VentasContado"
-        Me.GridColumn29.FilterInfo = ColumnFilterInfo62
+        Me.GridColumn29.FilterInfo = ColumnFilterInfo152
         Me.GridColumn29.Name = "GridColumn29"
         Me.GridColumn29.VisibleIndex = 1
         '
         'GridColumn34
         '
         Me.GridColumn34.Caption = "N. Ingreso"
-        Me.GridColumn34.FilterInfo = ColumnFilterInfo63
+        Me.GridColumn34.FilterInfo = ColumnFilterInfo153
         Me.GridColumn34.Name = "GridColumn34"
         Me.GridColumn34.VisibleIndex = 6
         '
         'GridColumn31
         '
         Me.GridColumn31.Caption = "T. Crédito"
-        Me.GridColumn31.FilterInfo = ColumnFilterInfo64
+        Me.GridColumn31.FilterInfo = ColumnFilterInfo154
         Me.GridColumn31.Name = "GridColumn31"
         Me.GridColumn31.VisibleIndex = 3
         '
         'GridColumn40
         '
         Me.GridColumn40.Caption = "GridColumn24"
-        Me.GridColumn40.FilterInfo = ColumnFilterInfo65
+        Me.GridColumn40.FilterInfo = ColumnFilterInfo155
         Me.GridColumn40.Name = "GridColumn40"
         Me.GridColumn40.VisibleIndex = 0
         '
         'GridColumn41
         '
         Me.GridColumn41.Caption = "GridColumn25"
-        Me.GridColumn41.FilterInfo = ColumnFilterInfo66
+        Me.GridColumn41.FilterInfo = ColumnFilterInfo156
         Me.GridColumn41.Name = "GridColumn41"
         Me.GridColumn41.VisibleIndex = 1
         '
         'GridColumn42
         '
         Me.GridColumn42.Caption = "GridColumn26"
-        Me.GridColumn42.FilterInfo = ColumnFilterInfo67
+        Me.GridColumn42.FilterInfo = ColumnFilterInfo157
         Me.GridColumn42.Name = "GridColumn42"
         Me.GridColumn42.VisibleIndex = 2
         '
         'GridColumn43
         '
         Me.GridColumn43.Caption = "GridColumn27"
-        Me.GridColumn43.FilterInfo = ColumnFilterInfo68
+        Me.GridColumn43.FilterInfo = ColumnFilterInfo158
         Me.GridColumn43.Name = "GridColumn43"
         Me.GridColumn43.VisibleIndex = 3
         '
         'GridColumn44
         '
         Me.GridColumn44.Caption = "GridColumn28"
-        Me.GridColumn44.FilterInfo = ColumnFilterInfo69
+        Me.GridColumn44.FilterInfo = ColumnFilterInfo159
         Me.GridColumn44.Name = "GridColumn44"
         Me.GridColumn44.VisibleIndex = 4
         '
@@ -2023,7 +2040,7 @@ Public Class CorteCaja
         '
         Me.GridColumn11.Caption = "Descripción"
         Me.GridColumn11.FieldName = "Descripcion"
-        Me.GridColumn11.FilterInfo = ColumnFilterInfo70
+        Me.GridColumn11.FilterInfo = ColumnFilterInfo160
         Me.GridColumn11.Name = "GridColumn11"
         Me.GridColumn11.VisibleIndex = 0
         '
@@ -2039,17 +2056,17 @@ Public Class CorteCaja
         '
         'GridColumn39
         '
-        Me.GridColumn39.FilterInfo = ColumnFilterInfo71
+        Me.GridColumn39.FilterInfo = ColumnFilterInfo161
         Me.GridColumn39.Name = "GridColumn39"
         '
         'GridColumn38
         '
-        Me.GridColumn38.FilterInfo = ColumnFilterInfo72
+        Me.GridColumn38.FilterInfo = ColumnFilterInfo162
         Me.GridColumn38.Name = "GridColumn38"
         '
         'GridColumn37
         '
-        Me.GridColumn37.FilterInfo = ColumnFilterInfo73
+        Me.GridColumn37.FilterInfo = ColumnFilterInfo163
         Me.GridColumn37.Name = "GridColumn37"
         '
         'Panel12
@@ -2080,14 +2097,14 @@ Public Class CorteCaja
         'GridColumn54
         '
         Me.GridColumn54.Caption = "GridColumn21"
-        Me.GridColumn54.FilterInfo = ColumnFilterInfo74
+        Me.GridColumn54.FilterInfo = ColumnFilterInfo164
         Me.GridColumn54.Name = "GridColumn54"
         Me.GridColumn54.VisibleIndex = 0
         '
         'GridColumn55
         '
         Me.GridColumn55.Caption = "GridColumn22"
-        Me.GridColumn55.FilterInfo = ColumnFilterInfo75
+        Me.GridColumn55.FilterInfo = ColumnFilterInfo165
         Me.GridColumn55.Name = "GridColumn55"
         Me.GridColumn55.VisibleIndex = 1
         '
@@ -2095,7 +2112,7 @@ Public Class CorteCaja
         '
         Me.GridColumn45.Caption = "Descripción"
         Me.GridColumn45.FieldName = "Descripcion"
-        Me.GridColumn45.FilterInfo = ColumnFilterInfo76
+        Me.GridColumn45.FilterInfo = ColumnFilterInfo166
         Me.GridColumn45.Name = "GridColumn45"
         Me.GridColumn45.VisibleIndex = 0
         '
@@ -2103,7 +2120,7 @@ Public Class CorteCaja
         '
         Me.GridColumn46.Caption = "Contado"
         Me.GridColumn46.FieldName = "VentasContado"
-        Me.GridColumn46.FilterInfo = ColumnFilterInfo77
+        Me.GridColumn46.FilterInfo = ColumnFilterInfo167
         Me.GridColumn46.Name = "GridColumn46"
         Me.GridColumn46.VisibleIndex = 1
         '
@@ -2111,76 +2128,76 @@ Public Class CorteCaja
         '
         Me.GridColumn47.Caption = "Crédito"
         Me.GridColumn47.FieldName = "VentasCredito"
-        Me.GridColumn47.FilterInfo = ColumnFilterInfo78
+        Me.GridColumn47.FilterInfo = ColumnFilterInfo168
         Me.GridColumn47.Name = "GridColumn47"
         Me.GridColumn47.VisibleIndex = 2
         '
         'GridColumn48
         '
         Me.GridColumn48.Caption = "T. Crédito"
-        Me.GridColumn48.FilterInfo = ColumnFilterInfo79
+        Me.GridColumn48.FilterInfo = ColumnFilterInfo169
         Me.GridColumn48.Name = "GridColumn48"
         Me.GridColumn48.VisibleIndex = 3
         '
         'GridColumn51
         '
         Me.GridColumn51.Caption = "N. Ingreso"
-        Me.GridColumn51.FilterInfo = ColumnFilterInfo80
+        Me.GridColumn51.FilterInfo = ColumnFilterInfo170
         Me.GridColumn51.Name = "GridColumn51"
         Me.GridColumn51.VisibleIndex = 6
         '
         'GridColumn50
         '
         Me.GridColumn50.Caption = "Cobranzas"
-        Me.GridColumn50.FilterInfo = ColumnFilterInfo81
+        Me.GridColumn50.FilterInfo = ColumnFilterInfo171
         Me.GridColumn50.Name = "GridColumn50"
         Me.GridColumn50.VisibleIndex = 5
         '
         'GridColumn53
         '
         Me.GridColumn53.Caption = "PARCIAL  (2)"
-        Me.GridColumn53.FilterInfo = ColumnFilterInfo82
+        Me.GridColumn53.FilterInfo = ColumnFilterInfo172
         Me.GridColumn53.Name = "GridColumn53"
         Me.GridColumn53.VisibleIndex = 8
         '
         'GridColumn52
         '
-        Me.GridColumn52.FilterInfo = ColumnFilterInfo83
+        Me.GridColumn52.FilterInfo = ColumnFilterInfo173
         Me.GridColumn52.Name = "GridColumn52"
         '
         'GridColumn49
         '
-        Me.GridColumn49.FilterInfo = ColumnFilterInfo84
+        Me.GridColumn49.FilterInfo = ColumnFilterInfo174
         Me.GridColumn49.Name = "GridColumn49"
         '
         'GridColumn57
         '
-        Me.GridColumn57.FilterInfo = ColumnFilterInfo85
+        Me.GridColumn57.FilterInfo = ColumnFilterInfo175
         Me.GridColumn57.Name = "GridColumn57"
         '
         'GridColumn56
         '
-        Me.GridColumn56.FilterInfo = ColumnFilterInfo86
+        Me.GridColumn56.FilterInfo = ColumnFilterInfo176
         Me.GridColumn56.Name = "GridColumn56"
         '
         'GridColumn59
         '
-        Me.GridColumn59.FilterInfo = ColumnFilterInfo87
+        Me.GridColumn59.FilterInfo = ColumnFilterInfo177
         Me.GridColumn59.Name = "GridColumn59"
         '
         'GridColumn58
         '
-        Me.GridColumn58.FilterInfo = ColumnFilterInfo88
+        Me.GridColumn58.FilterInfo = ColumnFilterInfo178
         Me.GridColumn58.Name = "GridColumn58"
         '
         'GridColumn60
         '
-        Me.GridColumn60.FilterInfo = ColumnFilterInfo89
+        Me.GridColumn60.FilterInfo = ColumnFilterInfo179
         Me.GridColumn60.Name = "GridColumn60"
         '
         'GridColumn61
         '
-        Me.GridColumn61.FilterInfo = ColumnFilterInfo90
+        Me.GridColumn61.FilterInfo = ColumnFilterInfo180
         Me.GridColumn61.Name = "GridColumn61"
         '
         'lblCaja
@@ -2215,7 +2232,7 @@ Public Class CorteCaja
         'CorteCaja
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
-        Me.ClientSize = New System.Drawing.Size(1028, 646)
+        Me.ClientSize = New System.Drawing.Size(1175, 646)
         Me.Controls.Add(Me.cmbCaja)
         Me.Controls.Add(Me.lblCajaCmb)
         Me.Controls.Add(Me.lblCaja)
@@ -2480,8 +2497,10 @@ Public Class CorteCaja
             dtServiciosTecnicos.DefaultView.RowFilter = "Grupo = 1"
 
             Total = CType(dtIngresos.Rows(0).Item("Total"), Decimal)
+            TotalSAF = CType(dtIngresos.Rows(0).Item("MontoSaldoAplicado"), Decimal)
             lblIngresos.Text = "Total Ingresos :     " + Total.ToString("C")
             lblServiciosTecnicos.Text = "SALDO A FAVOR GENERADO = " & CType(dtIngresos.Rows(0).Item("MontoSaldoGenerado"), Decimal).ToString("c")
+            lblIngresosSAF.Text = "INGRESOS (SALDO A FAVOR) = " + TotalSAF.ToString("C")
             grdIngresos.DataSource = dtIngresos
             grdServiciosTecnicos.DataSource = dtServiciosTecnicos
             Me.pnlGeneral.Visible = True
@@ -2824,5 +2843,6 @@ Public Class CorteCaja
             VGN_TipoCorte = 0
         End Try
     End Sub
+
 End Class
 
