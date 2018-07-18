@@ -421,11 +421,27 @@ Public Class frmCapCobranza
             Dim CobroRecuperado As SigaMetClasses.CobroDetalladoDatos
             Dim TipoCobroOriginal As New SigaMetClasses.sCobro()
 
-            If (frmSelTipoCobro.Cobros.Count > 0) Then
+            If (Not frmSelTipoCobro.Cobros Is Nothing And frmSelTipoCobro.Cobros.Count > 0) Then
                 CobroRecuperado = frmSelTipoCobro.Cobros(0)
                 TipoCobroOriginal.Consecutivo = Consecutivo
                 TipoCobroOriginal.AnoCobro = CobroRecuperado.AñoCobro
-                TipoCobroOriginal.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.Cheque
+                Select Case CobroRecuperado.TipoCobro
+                    Case 2
+                        TipoCobroOriginal.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.Vales
+                    Case 5
+                        TipoCobroOriginal.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.Efectivo
+                    Case 6
+                        TipoCobroOriginal.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.TarjetaCredito
+                    Case 3
+                        TipoCobroOriginal.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.Cheque
+                    Case 10
+                        TipoCobroOriginal.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.Transferencia
+                    Case 30
+                        TipoCobroOriginal.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.AplicacionAnticipo
+                    Case 50
+                        TipoCobroOriginal.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.DacionEnPago
+                End Select
+
                 TipoCobroOriginal.Total = CobroRecuperado.Total
                 TipoCobroOriginal.Saldo = CobroRecuperado.Saldo
                 TipoCobroOriginal.NoCheque = CobroRecuperado.NumeroCheque

@@ -161,15 +161,6 @@ Public Class frmSelTipoCobro
         End Set
     End Property
 
-    Public Property Cobroreturn() As SigaMetClasses.CobroDetalladoDatos
-        Get
-            Return _Cobro
-        End Get
-        Set(ByVal value As SigaMetClasses.CobroDetalladoDatos)
-            _Cobro = value
-        End Set
-    End Property
-
     Public Property fecha() As Date
         Get
             Return _FechaCargo
@@ -1699,17 +1690,18 @@ Public Class frmSelTipoCobro
         If CapturaEfectivoVales = False Then
 
             If TxtMontoVales.Text <> "" And IsNumeric(TxtMontoVales.Text) Then
-                If _CapturaDetalle = True Then
-                    Total = CDec(TxtMontoVales.Text)
+
+                Total = CDec(TxtMontoVales.Text)
                     Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaVales()
-                    _AceptaSaldo = True
+                _AceptaSaldo = True
+                If _CapturaDetalle = True Then
                     Remisiones(cobro, _AceptaSaldo)
-                    Total = 0
                 End If
+                Total = 0
                 DialogResult = DialogResult.OK
 
-            End If
-        Else
+                End If
+            Else
             MessageBox.Show("Ya capturó efectivo o vales")
         End If
     End Sub
@@ -1718,16 +1710,16 @@ Public Class frmSelTipoCobro
     Private Sub btnAceptarTarjetaCredito_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAceptarTarjetaCredito.Click
         If lblClienteNombre.Text <> "" Then
             If txtImporteTC.Text <> "" And IsNumeric(txtImporteTC.Text) Then
-                If _CapturaDetalle = True Then
-                    Dim frmCaptura As New frmCapCobranzaDoc()
-                    frmCaptura.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.TarjetaCredito
+                Dim frmCaptura As New frmCapCobranzaDoc()
+                frmCaptura.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.TarjetaCredito
                     frmCaptura.ImporteCobro = CType(txtImporteTC.Text, Decimal)
                     Total = CDec(txtImporteTC.Text)
                     Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaTarjeta()
-                    _AceptaSaldo = True
+                _AceptaSaldo = True
+                If _CapturaDetalle = True Then
                     Remisiones(cobro, _AceptaSaldo)
-                    DialogResult = DialogResult.OK
                 End If
+                DialogResult = DialogResult.OK
             Else
                 MessageBox.Show("Debe teclear el importe del cobro.", Titulo, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End If
@@ -1739,14 +1731,15 @@ Public Class frmSelTipoCobro
     'CHEQUE Y FICHA DE DEPOSITO
     Private Sub btnAceptarChequeFicha_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAceptarChequeFicha.Click
         If ValidaCapturaChequeFicha() Then
+
+            Total = CDec(txtImporteDocumento.Text)
+            Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaCheque()
+            _AceptaSaldo = True
             If _CapturaDetalle = True Then
-                Total = CDec(txtImporteDocumento.Text)
-                Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaCheque()
-                _AceptaSaldo = True
                 Remisiones(cobro, _AceptaSaldo)
-                Total = 0
-                DialogResult = DialogResult.OK
             End If
+            Total = 0
+            DialogResult = DialogResult.OK
         End If
     End Sub
 
@@ -2088,7 +2081,7 @@ Public Class frmSelTipoCobro
             .CobroOrigen = 0
             .TPV = False
         End With
-        ' _listaCobros.Add(insertaCobro)
+        _listaCobros.Add(insertaCobro)
         Return insertaCobro
     End Function
 
@@ -2130,7 +2123,7 @@ Public Class frmSelTipoCobro
             .TPV = False
 
         End With
-        '_listaCobros.Add(insertaCobro)
+        _listaCobros.Add(insertaCobro)
         Return insertaCobro
 
     End Function
@@ -2173,7 +2166,7 @@ Public Class frmSelTipoCobro
             .CobroOrigen = 0
             .TPV = False
         End With
-        ' _listaCobros.Add(insertaCobro)
+        _listaCobros.Add(insertaCobro)
         Return insertaCobro
     End Function
 
@@ -2182,9 +2175,13 @@ Public Class frmSelTipoCobro
             Total = CDec(TxtImporteTransferencia.Text)
             Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaTransferencia()
             _AceptaSaldo = True
-            Remisiones(cobro, _AceptaSaldo)
+
+            If _CapturaDetalle = True Then
+                Remisiones(cobro, _AceptaSaldo)
+            End If
+
             DialogResult = DialogResult.OK
-        End If
+            End If
 
     End Sub
 
@@ -2225,7 +2222,7 @@ Public Class frmSelTipoCobro
             .CobroOrigen = 0
         End With
 
-        ' _listaCobros.Add(insertaCobro)
+        _listaCobros.Add(insertaCobro)
         Return insertaCobro
 
     End Function
@@ -2471,7 +2468,7 @@ Public Class frmSelTipoCobro
             .AñoCobroOrigen = CShort("0")
             .CobroOrigen = 0
         End With
-
+        _listaCobros.Add(insertaCobro)
         Return insertaCobro
 
     End Function
@@ -2513,12 +2510,15 @@ Public Class frmSelTipoCobro
                     _ListaDebitoAnticipos.Add(nuevodebitoanticipo)
                     ActualizarSaldoAnticipo(DirectCast(dgvSaldoAnticipo.DataSource, DataTable), AgruparDebitoAnticipo(_ListaDebitoAnticipos))
                     _AceptaSaldo = True
-                    Remisiones(cobro, _AceptaSaldo)
+                    If _CapturaDetalle = True Then
+                        Remisiones(cobro, _AceptaSaldo)
+                    End If
+
                     LimpiarAnticipo()
-                    Total = 0
-                    DialogResult = DialogResult.OK
-                Else
-                    MessageBox.Show("El monto a debitar debe ser menor o igual que el saldo del anticipo elegido, verifique.", Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                        Total = 0
+                        DialogResult = DialogResult.OK
+                    Else
+                        MessageBox.Show("El monto a debitar debe ser menor o igual que el saldo del anticipo elegido, verifique.", Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 End If
             Else
                 If TxtMontoAnticipo.Text.Trim = "" Then
