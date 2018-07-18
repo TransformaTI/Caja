@@ -905,7 +905,6 @@ Public Class CorteCaja
         Me.vwVentaCredito.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn64, Me.grdcTotalVentaCredito})
         Me.vwVentaCredito.DefaultEdit = Me.RepositoryItemTextEdit4
         Me.vwVentaCredito.Name = "vwVentaCredito"
-        Me.vwVentaCredito.VertScrollTipFieldName = Nothing
         Me.vwVentaCredito.ViewOptions = CType(((((((DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.ShowColumns Or DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.ShowFooter) _
             Or DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.ShowHorzLines) _
             Or DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.ShowIndicator) _
@@ -1002,6 +1001,7 @@ Public Class CorteCaja
         Me.vwAplicaciones.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn62, Me.grdcTotalConceptoGastos})
         Me.vwAplicaciones.DefaultEdit = Me.RepositoryItemTextEdit5
         Me.vwAplicaciones.Name = "vwAplicaciones"
+        Me.vwAplicaciones.VertScrollTipFieldName = Nothing
         Me.vwAplicaciones.ViewOptions = CType(((((((DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.ShowColumns Or DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.ShowFooter) _
             Or DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.ShowHorzLines) _
             Or DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.ShowIndicator) _
@@ -1097,7 +1097,6 @@ Public Class CorteCaja
         Me.vwFichasDeposito.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.grdcFichaDeposito, Me.grdcTotal})
         Me.vwFichasDeposito.DefaultEdit = Me.RepositoryItemTextEdit8
         Me.vwFichasDeposito.Name = "vwFichasDeposito"
-        Me.vwFichasDeposito.VertScrollTipFieldName = Nothing
         Me.vwFichasDeposito.ViewOptions = CType(((((((DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.ShowColumns Or DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.ShowFooter) _
             Or DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.ShowHorzLines) _
             Or DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.ShowIndicator) _
@@ -1268,7 +1267,6 @@ Public Class CorteCaja
         Me.GridView10.DefaultEdit = Me.RepositoryItemTextEdit2
         Me.GridView10.GroupSummary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridSummaryItem(DevExpress.XtraGrid.SummaryItemType.Sum, "VentasContado", Me.GridColumn75, "#,#.00")})
         Me.GridView10.Name = "GridView10"
-        Me.GridView10.VertScrollTipFieldName = Nothing
         Me.GridView10.ViewOptions = CType(((((((DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.AutoWidth Or DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.ShowFooter) _
             Or DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.ShowHorzLines) _
             Or DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.ShowIndicator) _
@@ -1468,6 +1466,7 @@ Public Class CorteCaja
         Me.GridView8.DefaultEdit = Me.RepositoryItemTextEdit3
         Me.GridView8.GroupSummary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridSummaryItem(DevExpress.XtraGrid.SummaryItemType.Sum, "VentasContado", Me.grdcVentaContado, "{0:c}"), New DevExpress.XtraGrid.GridSummaryItem(DevExpress.XtraGrid.SummaryItemType.Sum, "VentasCredito", Me.grdcVentaCredito, "{0:c}"), New DevExpress.XtraGrid.GridSummaryItem(DevExpress.XtraGrid.SummaryItemType.Sum, "TarjetaCredito", Me.grdcTarjetaCredito, "{0:c}"), New DevExpress.XtraGrid.GridSummaryItem(DevExpress.XtraGrid.SummaryItemType.Sum, "Parcial1", Me.grdcParcial1, "{0:c}"), New DevExpress.XtraGrid.GridSummaryItem(DevExpress.XtraGrid.SummaryItemType.Sum, "Cobranza", Me.grdcCobranza, "{0:c}"), New DevExpress.XtraGrid.GridSummaryItem(DevExpress.XtraGrid.SummaryItemType.Sum, "NotaIngreso", Me.grdcNotaIngreso, "{0:c}"), New DevExpress.XtraGrid.GridSummaryItem(DevExpress.XtraGrid.SummaryItemType.Sum, "ChequesDev", Me.grdcChequesDev, "{0:c}"), New DevExpress.XtraGrid.GridSummaryItem(DevExpress.XtraGrid.SummaryItemType.Sum, "Parcial2", Me.grdcParcial2, "{0:c}"), New DevExpress.XtraGrid.GridSummaryItem(DevExpress.XtraGrid.SummaryItemType.Sum, "ReciboCaja", Me.grdeReciboCaja, "{0:c}")})
         Me.GridView8.Name = "GridView8"
+        Me.GridView8.VertScrollTipFieldName = Nothing
         Me.GridView8.ViewOptions = CType((((((((DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.AutoWidth Or DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.ShowColumns) _
             Or DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.ShowFooter) _
             Or DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.ShowHorzLines) _
@@ -1584,12 +1583,13 @@ Public Class CorteCaja
         'grdeReciboCaja
         '
         Me.grdeReciboCaja.Caption = "Recibo de caja"
-        Me.grdeReciboCaja.FieldName = "ReciboCaja"
+        Me.grdeReciboCaja.FieldName = "ValeCaja"
         Me.grdeReciboCaja.FilterInfo = ColumnFilterInfo27
         Me.grdeReciboCaja.FormatString = "$#,#.00"
         Me.grdeReciboCaja.FormatType = DevExpress.XtraGrid.Columns.FormatTypeEnum.Numeric
         Me.grdeReciboCaja.Name = "grdeReciboCaja"
         Me.grdeReciboCaja.SummaryItem.DisplayFormat = "{0:c}"
+        Me.grdeReciboCaja.SummaryItem.FieldName = "ReciboCaja"
         Me.grdeReciboCaja.SummaryItem.SummaryType = DevExpress.XtraGrid.SummaryItemType.Sum
         Me.grdeReciboCaja.VisibleIndex = 9
         '
@@ -1660,6 +1660,7 @@ Public Class CorteCaja
         Me.GridView5.BorderStyle = DevExpress.XtraGrid.Views.Grid.ViewBorderStyle.Flat
         Me.GridView5.GroupPanelText = "I N G R E S O S             (GAS L.P.)"
         Me.GridView5.Name = "GridView5"
+        Me.GridView5.VertScrollTipFieldName = Nothing
         Me.GridView5.ViewOptions = CType(((((((DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.AutoWidth Or DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.ShowColumns) _
             Or DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.ShowHorzLines) _
             Or DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.ShowIndicator) _
@@ -1726,11 +1727,11 @@ Public Class CorteCaja
         Me.GridView3.BorderStyle = DevExpress.XtraGrid.Views.Grid.ViewBorderStyle.Flat
         Me.GridView3.GroupPanelText = "A P L I C A C I O N E S   (Fichas de depósito)"
         Me.GridView3.Name = "GridView3"
-        Me.GridView3.VertScrollTipFieldName = Nothing
         '
         'GridView2
         '
         Me.GridView2.Name = "GridView2"
+        Me.GridView2.VertScrollTipFieldName = Nothing
         Me.GridView2.ViewOptions = CType((((((((DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.AutoWidth Or DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.ShowColumns) _
             Or DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.ShowFilterPanel) _
             Or DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.ShowHorzLines) _
@@ -1864,6 +1865,7 @@ Public Class CorteCaja
         'GridView6
         '
         Me.GridView6.Name = "GridView6"
+        Me.GridView6.VertScrollTipFieldName = Nothing
         Me.GridView6.ViewOptions = CType((((((DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.AutoWidth Or DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.ShowHorzLines) _
             Or DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.ShowIndicator) _
             Or DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.ShowVertLines) _
@@ -1882,7 +1884,6 @@ Public Class CorteCaja
         Me.GridView1.BorderStyle = DevExpress.XtraGrid.Views.Grid.ViewBorderStyle.Flat
         Me.GridView1.GroupPanelText = "I N G R E S O S             (GAS L.P.)"
         Me.GridView1.Name = "GridView1"
-        Me.GridView1.VertScrollTipFieldName = Nothing
         Me.GridView1.ViewOptions = CType(((((((DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.AutoWidth Or DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.ShowColumns) _
             Or DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.ShowHorzLines) _
             Or DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.ShowIndicator) _
@@ -1924,7 +1925,6 @@ Public Class CorteCaja
         '
         Me.GridView11.DefaultEdit = Me.RepositoryItemTextEdit6
         Me.GridView11.Name = "GridView11"
-        Me.GridView11.VertScrollTipFieldName = Nothing
         '
         'GridColumn36
         '
@@ -2031,7 +2031,6 @@ Public Class CorteCaja
         '
         Me.GridView9.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn40, Me.GridColumn41, Me.GridColumn42, Me.GridColumn43, Me.GridColumn44})
         Me.GridView9.Name = "GridView9"
-        Me.GridView9.VertScrollTipFieldName = Nothing
         Me.GridView9.ViewOptions = CType((((((DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.AutoWidth Or DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.ShowHorzLines) _
             Or DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.ShowIndicator) _
             Or DevExpress.XtraGrid.Views.Grid.ViewOptionsFlags.ShowVertLines) _
@@ -2077,7 +2076,6 @@ Public Class CorteCaja
         '
         Me.GridView12.DefaultEdit = Me.RepositoryItemTextEdit7
         Me.GridView12.Name = "GridView12"
-        Me.GridView12.VertScrollTipFieldName = Nothing
         '
         'GridColumn54
         '
