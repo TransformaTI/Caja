@@ -484,7 +484,6 @@ Public Class frmSelTipoCobro
         'btnEfectivo
         '
         Me.btnEfectivo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnEfectivo.Image = CType(resources.GetObject("btnEfectivo.Image"), System.Drawing.Image)
         Me.btnEfectivo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnEfectivo.Location = New System.Drawing.Point(515, 152)
         Me.btnEfectivo.Name = "btnEfectivo"
@@ -528,7 +527,7 @@ Public Class frmSelTipoCobro
         Me.tbValesDespensa.ImageIndex = 0
         Me.tbValesDespensa.Location = New System.Drawing.Point(4, 4)
         Me.tbValesDespensa.Name = "tbValesDespensa"
-        Me.tbValesDespensa.Size = New System.Drawing.Size(603, 307)
+        Me.tbValesDespensa.Size = New System.Drawing.Size(603, 325)
         Me.tbValesDespensa.TabIndex = 3
         Me.tbValesDespensa.Text = "Vales Despensa"
         '
@@ -931,7 +930,7 @@ Public Class frmSelTipoCobro
         Me.tbChequeFicha.Controls.Add(Me.grpChequeFicha)
         Me.tbChequeFicha.Location = New System.Drawing.Point(4, 4)
         Me.tbChequeFicha.Name = "tbChequeFicha"
-        Me.tbChequeFicha.Size = New System.Drawing.Size(603, 307)
+        Me.tbChequeFicha.Size = New System.Drawing.Size(603, 325)
         Me.tbChequeFicha.TabIndex = 2
         Me.tbChequeFicha.Text = "Cheque / Ficha de deposito"
         '
@@ -1114,7 +1113,7 @@ Public Class frmSelTipoCobro
         Me.tbTransferencias.Location = New System.Drawing.Point(4, 4)
         Me.tbTransferencias.Name = "tbTransferencias"
         Me.tbTransferencias.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbTransferencias.Size = New System.Drawing.Size(603, 307)
+        Me.tbTransferencias.Size = New System.Drawing.Size(603, 325)
         Me.tbTransferencias.TabIndex = 4
         Me.tbTransferencias.Text = "Transferencias"
         '
@@ -1307,7 +1306,7 @@ Public Class frmSelTipoCobro
         Me.tbAplicAnticipo.Location = New System.Drawing.Point(4, 4)
         Me.tbAplicAnticipo.Name = "tbAplicAnticipo"
         Me.tbAplicAnticipo.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbAplicAnticipo.Size = New System.Drawing.Size(603, 307)
+        Me.tbAplicAnticipo.Size = New System.Drawing.Size(603, 325)
         Me.tbAplicAnticipo.TabIndex = 5
         Me.tbAplicAnticipo.Text = "Aplicación Anticipo"
         '
@@ -1471,7 +1470,7 @@ Public Class frmSelTipoCobro
         Me.tbDacionPagos.Location = New System.Drawing.Point(4, 4)
         Me.tbDacionPagos.Name = "tbDacionPagos"
         Me.tbDacionPagos.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbDacionPagos.Size = New System.Drawing.Size(603, 307)
+        Me.tbDacionPagos.Size = New System.Drawing.Size(603, 325)
         Me.tbDacionPagos.TabIndex = 7
         Me.tbDacionPagos.Text = "Dación de Pagos"
         '
@@ -1692,7 +1691,7 @@ Public Class frmSelTipoCobro
             If TxtMontoVales.Text <> "" And IsNumeric(TxtMontoVales.Text) Then
 
                 Total = CDec(TxtMontoVales.Text)
-                    Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaVales()
+                Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaVales()
                 _AceptaSaldo = True
                 If _CapturaDetalle = True Then
                     Remisiones(cobro, _AceptaSaldo)
@@ -1700,8 +1699,8 @@ Public Class frmSelTipoCobro
                 Total = 0
                 DialogResult = DialogResult.OK
 
-                End If
-            Else
+            End If
+        Else
             MessageBox.Show("Ya capturó efectivo o vales")
         End If
     End Sub
@@ -1712,9 +1711,9 @@ Public Class frmSelTipoCobro
             If txtImporteTC.Text <> "" And IsNumeric(txtImporteTC.Text) Then
                 Dim frmCaptura As New frmCapCobranzaDoc()
                 frmCaptura.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.TarjetaCredito
-                    frmCaptura.ImporteCobro = CType(txtImporteTC.Text, Decimal)
-                    Total = CDec(txtImporteTC.Text)
-                    Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaTarjeta()
+                frmCaptura.ImporteCobro = CType(txtImporteTC.Text, Decimal)
+                Total = CDec(txtImporteTC.Text)
+                Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaTarjeta()
                 _AceptaSaldo = True
                 If _CapturaDetalle = True Then
                     Remisiones(cobro, _AceptaSaldo)
@@ -1908,8 +1907,7 @@ Public Class frmSelTipoCobro
 
     Private Sub btnBuscarClienteTC_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarClienteTC.Click
         Dim lParametro As New SigaMetClasses.cConfig(16, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario)
-        Dim lURLGateway As String = ""
-        'Dim lURLGateway As String = CType(lParametro.Parametros.Item("URLGateway"), String)
+        Dim lURLGateway As String = CType(lParametro.Parametros.Item("URLGateway"), String)
         lParametro.Dispose()
 
 
@@ -1976,8 +1974,8 @@ Public Class frmSelTipoCobro
     Private Sub btnBuscarCliente_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarCliente.Click
 
         Dim lParametro As New SigaMetClasses.cConfig(16, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario)
-        'Dim lURLGateway As String = CType(lParametro.Parametros.Item("URLGateway"), String)
-        Dim lURLGateway As String = ""
+        Dim lURLGateway As String = CType(lParametro.Parametros.Item("URLGateway"), String)
+
         lParametro.Dispose()
 
         If Trim(txtClienteCheque.Text) <> "" Then
@@ -2014,8 +2012,8 @@ Public Class frmSelTipoCobro
                 Remisiones(cobro, _AceptaSaldo)
             End If
             Total = 0
-                DialogResult = DialogResult.OK
-            End If
+            DialogResult = DialogResult.OK
+        End If
     End Sub
 
     Public Sub SeleccionarTipocobro()
@@ -2181,7 +2179,7 @@ Public Class frmSelTipoCobro
             End If
 
             DialogResult = DialogResult.OK
-            End If
+        End If
 
     End Sub
 
@@ -2292,6 +2290,7 @@ Public Class frmSelTipoCobro
             If String.IsNullOrEmpty(lURLGateway) Then
                 frmConCliente = New SigaMetClasses.frmConsultaCliente(CType(txtClienteVales.Text, Integer))
             Else
+
                 frmConCliente = New SigaMetClasses.frmConsultaCliente(CType(txtClienteVales.Text, Integer), lURLGateway)
             End If
 
@@ -2303,8 +2302,7 @@ Public Class frmSelTipoCobro
 
     Private Sub BotonBuscarClienteApAnticipo_Click(sender As Object, e As EventArgs) Handles BotonBuscarClienteApAnticipo.Click
         Dim lParametro As New SigaMetClasses.cConfig(16, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario)
-        Dim lURLGateway As String = ""
-        '= CType(lParametro.Parametros.Item("URLGateway"), String)
+        Dim lURLGateway As String = CType(lParametro.Parametros.Item("URLGateway"), String)
         lParametro.Dispose()
 
         If Trim(txtClienteVales.Text) <> "" Then
@@ -2515,10 +2513,10 @@ Public Class frmSelTipoCobro
                     End If
 
                     LimpiarAnticipo()
-                        Total = 0
-                        DialogResult = DialogResult.OK
-                    Else
-                        MessageBox.Show("El monto a debitar debe ser menor o igual que el saldo del anticipo elegido, verifique.", Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    Total = 0
+                    DialogResult = DialogResult.OK
+                Else
+                    MessageBox.Show("El monto a debitar debe ser menor o igual que el saldo del anticipo elegido, verifique.", Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 End If
             Else
                 If TxtMontoAnticipo.Text.Trim = "" Then
@@ -2828,6 +2826,10 @@ Public Class frmSelTipoCobro
     End Sub
 
     Private Sub grpTarjetaCredito_Enter(sender As Object, e As EventArgs) Handles grpTarjetaCredito.Enter
+
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
 
     End Sub
 End Class
