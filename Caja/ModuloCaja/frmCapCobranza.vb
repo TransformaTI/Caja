@@ -530,9 +530,10 @@ Public Class frmCapCobranza
     End Sub
 
     Private Sub btnAceptar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAceptar.Click
-        If Not ValidacionInformacionComplementariaCierre() Then
-            Exit Sub
-        End If
+        ' RM 19_07_2018, Se comenta validación, la captura del cliente debe ser opcional
+        'If Not ValidacionInformacionComplementariaCierre() Then
+        '    Exit Sub
+        'End If
 
         If ComboTipoMovCaja.TipoMovimientoCaja <= 0 Then
             MessageBox.Show("Debe seleccionar el tipo de movimiento de esta captura.", Titulo, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
