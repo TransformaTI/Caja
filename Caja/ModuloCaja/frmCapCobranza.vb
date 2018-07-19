@@ -578,6 +578,13 @@ Public Class frmCapCobranza
                     _Cliente = 0
                 End If
 
+                decImporteTotalCobros = 0
+                If ListaCobros IsNot Nothing AndAlso ListaCobros.Count > 0 Then
+                    For index As Integer = 0 To ListaCobros.Count - 1
+                        decImporteTotalCobros += CType(ListaCobros.Item(index), SigaMetClasses.sCobro).Total
+                    Next index
+                End If
+
                 Dim i As Integer = oMov.Alta(Main.GLOBAL_CajaUsuario,
                                 FechaOperacion,
                                 ConsecutivoInicioDeSesion,

@@ -11,7 +11,7 @@ Public Class frmSelTipoCobro
 
     Private Consecutivo As Integer
     Public Cobro As SigaMetClasses.sCobro
-    Public ImporteTotalCobro As Decimal = 0
+    Private _ImporteTotalCobro As Decimal = 0
     Private _TipoCobro As SigaMetClasses.Enumeradores.enumTipoCobro
     Private _CapturaDetalle As Boolean = True
     Private FormadePago As FormaPago
@@ -217,6 +217,15 @@ Public Class frmSelTipoCobro
         Set(value As Boolean)
             _Movimiento = value
         End Set
+    End Property
+
+    Public ReadOnly Property ImporteTotalCobro As Decimal
+        Get
+            Return _ImporteTotalCobro
+        End Get
+        'Set(value As Decimal)
+        '    _ImporteTotalCobro = value
+        'End Set
     End Property
 
     Public Sub New(ByVal intConsecutivo As Integer,
@@ -1696,6 +1705,7 @@ Public Class frmSelTipoCobro
                 If _CapturaDetalle = True Then
                     Remisiones(cobro, _AceptaSaldo)
                 End If
+                _ImporteTotalCobro = Total
                 Total = 0
                 DialogResult = DialogResult.OK
 
@@ -1718,6 +1728,7 @@ Public Class frmSelTipoCobro
                 If _CapturaDetalle = True Then
                     Remisiones(cobro, _AceptaSaldo)
                 End If
+                _ImporteTotalCobro = Total
                 DialogResult = DialogResult.OK
             Else
                 MessageBox.Show("Debe teclear el importe del cobro.", Titulo, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -1737,6 +1748,7 @@ Public Class frmSelTipoCobro
             If _CapturaDetalle = True Then
                 Remisiones(cobro, _AceptaSaldo)
             End If
+            _ImporteTotalCobro = Total
             Total = 0
             DialogResult = DialogResult.OK
         End If
@@ -2012,6 +2024,7 @@ Public Class frmSelTipoCobro
             Else
                 Remisiones(cobro, _AceptaSaldo)
             End If
+            _ImporteTotalCobro = Total
             Total = 0
             DialogResult = DialogResult.OK
         End If
@@ -2178,7 +2191,7 @@ Public Class frmSelTipoCobro
             If _CapturaDetalle = True Then
                 Remisiones(cobro, _AceptaSaldo)
             End If
-
+            _ImporteTotalCobro = Total
             DialogResult = DialogResult.OK
         End If
 
@@ -2516,6 +2529,7 @@ Public Class frmSelTipoCobro
                     End If
 
                     LimpiarAnticipo()
+                    _ImporteTotalCobro = Total
                     Total = 0
                     DialogResult = DialogResult.OK
                 Else
