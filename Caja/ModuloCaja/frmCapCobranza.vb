@@ -564,7 +564,8 @@ Public Class frmCapCobranza
                 End If
 
                 'Captura de notas de ingreso que piden código de empleado
-                Dim _idEmpleado As Integer = GLOBAL_IDEmpleado
+                'Dim _idEmpleado As Integer = GLOBAL_IDEmpleado
+                Dim _idEmpleado As Integer = cboEmpleado.SelectedIndex
                 'Verificar que se haya generado el objeto de validación
                 'Verificar que el campo de validación sea EMPLEADO
                 If Not _cEfectuarValidacion Is Nothing AndAlso
