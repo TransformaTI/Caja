@@ -8,6 +8,7 @@ Public Class frmCapCobranza
     Private _TipoCaptura As enumTipoCaptura
     Friend WithEvents cboTipoConcepto As ComboBox
     Friend WithEvents lblTipoConcepto As Label
+    Friend WithEvents cboEmpleado As SigaMetClasses.Combos.ComboEmpleado
     Private _TipoMovimientoCaja As Short
 
     Public Enum enumTipoCaptura
@@ -70,7 +71,6 @@ Public Class frmCapCobranza
     Friend WithEvents stbEstatus As System.Windows.Forms.StatusBar
     Friend WithEvents Documentos As System.Windows.Forms.StatusBarPanel
     Friend WithEvents ImporteTotal As System.Windows.Forms.StatusBarPanel
-    Friend WithEvents lblNombreEmpleado As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
@@ -96,7 +96,6 @@ Public Class frmCapCobranza
         Me.stbEstatus = New System.Windows.Forms.StatusBar()
         Me.Documentos = New System.Windows.Forms.StatusBarPanel()
         Me.ImporteTotal = New System.Windows.Forms.StatusBarPanel()
-        Me.lblNombreEmpleado = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.dtpFOperacion = New System.Windows.Forms.DateTimePicker()
@@ -112,6 +111,7 @@ Public Class frmCapCobranza
         Me.Label5 = New System.Windows.Forms.Label()
         Me.cboTipoConcepto = New System.Windows.Forms.ComboBox()
         Me.lblTipoConcepto = New System.Windows.Forms.Label()
+        Me.cboEmpleado = New SigaMetClasses.Combos.ComboEmpleado()
         CType(Me.Documentos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ImporteTotal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -200,16 +200,6 @@ Public Class frmCapCobranza
         Me.ImporteTotal.Name = "ImporteTotal"
         Me.ImporteTotal.Text = "$0.00"
         Me.ImporteTotal.Width = 363
-        '
-        'lblNombreEmpleado
-        '
-        Me.lblNombreEmpleado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblNombreEmpleado.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombreEmpleado.Location = New System.Drawing.Point(136, 16)
-        Me.lblNombreEmpleado.Name = "lblNombreEmpleado"
-        Me.lblNombreEmpleado.Size = New System.Drawing.Size(352, 21)
-        Me.lblNombreEmpleado.TabIndex = 11
-        Me.lblNombreEmpleado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label2
         '
@@ -361,11 +351,21 @@ Public Class frmCapCobranza
         Me.lblTipoConcepto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.lblTipoConcepto.Visible = False
         '
+        'cboEmpleado
+        '
+        Me.cboEmpleado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboEmpleado.ForeColor = System.Drawing.Color.MediumBlue
+        Me.cboEmpleado.Location = New System.Drawing.Point(136, 16)
+        Me.cboEmpleado.Name = "cboEmpleado"
+        Me.cboEmpleado.Size = New System.Drawing.Size(352, 21)
+        Me.cboEmpleado.TabIndex = 1
+        '
         'frmCapCobranza
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 14)
         Me.CancelButton = Me.btnCancelar
         Me.ClientSize = New System.Drawing.Size(744, 639)
+        Me.Controls.Add(Me.cboEmpleado)
         Me.Controls.Add(Me.lblTipoConcepto)
         Me.Controls.Add(Me.cboTipoConcepto)
         Me.Controls.Add(Me.Label5)
@@ -381,7 +381,6 @@ Public Class frmCapCobranza
         Me.Controls.Add(Me.ComboTipoMovCaja)
         Me.Controls.Add(Me.ComboRuta)
         Me.Controls.Add(Me.dtpFOperacion)
-        Me.Controls.Add(Me.lblNombreEmpleado)
         Me.Controls.Add(Me.stbEstatus)
         Me.Controls.Add(Me.btnAgregar)
         Me.Controls.Add(Me.btnCancelar)
@@ -493,7 +492,8 @@ Public Class frmCapCobranza
             Cursor = Cursors.Default
         End Try
 
-        lblNombreEmpleado.Text = GLOBAL_EmpleadoNombre
+        'lblNombreEmpleado.Text = GLOBAL_EmpleadoNombre
+        cboEmpleado.CargaDatos()
         lstCobro.DisplayMember = "InformacionCompleta"
         lstPedido.DisplayMember = "InformacionCompleta"
         HabiltaComboTipoConcepto()
