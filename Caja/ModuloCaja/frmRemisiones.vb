@@ -256,25 +256,29 @@ Public Class frmRemisiones
                 Close()
             End If
         Else
-            If MessageBox.Show("¿Desea generar saldo a favor?", "",
+            If _Saldo > 0 Then
+                If MessageBox.Show("¿Desea generar saldo a favor?", "",
           MessageBoxButtons.YesNo, MessageBoxIcon.Question) _
           = DialogResult.Yes Then
-                Dim InsertCobro As SigaMetClasses.CobroDetalladoDatos = _UltimoCobro
-                InsertCobro.SaldoAFavor = True
-                InsertCobro.Saldo = _Saldo
-                InsertCobro.StatusSaldoAFavor = "ACTIVO"
-                _UltimoCobro = InsertCobro
+                    Dim InsertCobro As SigaMetClasses.CobroDetalladoDatos = _UltimoCobro
+                    InsertCobro.SaldoAFavor = True
+                    InsertCobro.Saldo = _Saldo
+                    InsertCobro.StatusSaldoAFavor = "ACTIVO"
+                    _UltimoCobro = InsertCobro
 
+                    Close()
+                End If
+            Else
                 Close()
             End If
 
 
 
 
-        End If
+            End If
 
 
-        For Each row As DataRow In table.Rows
+            For Each row As DataRow In table.Rows
             oCobroRemision = New SigaMetClasses.CobroRemisiones
             oCobroRemision.Pago = Pago
             oCobroRemision.Remision = row("Remisión").ToString()
