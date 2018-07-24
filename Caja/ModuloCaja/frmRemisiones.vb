@@ -265,10 +265,11 @@ Public Class frmRemisiones
                     InsertCobro.Saldo = _Saldo
                     InsertCobro.StatusSaldoAFavor = "ACTIVO"
                     _UltimoCobro = InsertCobro
-
+                    MessageBox.Show("¡Captura de remisiones concluida!")
                     Close()
                 End If
             Else
+                MessageBox.Show("¡Captura de remisiones concluida!")
                 Close()
             End If
 
