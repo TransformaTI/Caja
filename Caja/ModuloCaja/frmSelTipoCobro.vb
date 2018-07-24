@@ -2093,7 +2093,7 @@ Public Class frmSelTipoCobro
             .CobroOrigen = 0
             .TPV = False
         End With
-        _listaCobros.Add(insertaCobro)
+        '_listaCobros.Add(insertaCobro)
         Return insertaCobro
     End Function
 
@@ -2135,7 +2135,7 @@ Public Class frmSelTipoCobro
             .TPV = False
 
         End With
-        _listaCobros.Add(insertaCobro)
+        '_listaCobros.Add(insertaCobro)
         Return insertaCobro
 
     End Function
@@ -2178,7 +2178,7 @@ Public Class frmSelTipoCobro
             .CobroOrigen = 0
             .TPV = False
         End With
-        _listaCobros.Add(insertaCobro)
+        '_listaCobros.Add(insertaCobro)
         Return insertaCobro
     End Function
 
@@ -2234,7 +2234,7 @@ Public Class frmSelTipoCobro
             .CobroOrigen = 0
         End With
 
-        _listaCobros.Add(insertaCobro)
+        '_listaCobros.Add(insertaCobro)
         Return insertaCobro
 
     End Function
@@ -2443,7 +2443,7 @@ Public Class frmSelTipoCobro
             .AñoCobroOrigen = CShort("0")
             .CobroOrigen = 0
         End With
-        _listaCobros.Add(insertaCobro)
+        '_listaCobros.Add(insertaCobro)
         Return insertaCobro
     End Function
 
@@ -2482,7 +2482,7 @@ Public Class frmSelTipoCobro
             .AñoCobroOrigen = CShort("0")
             .CobroOrigen = 0
         End With
-        _listaCobros.Add(insertaCobro)
+        '_listaCobros.Add(insertaCobro)
         Return insertaCobro
 
     End Function
