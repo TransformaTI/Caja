@@ -1700,7 +1700,9 @@ Public Class frmSelTipoCobro
             If TxtMontoVales.Text <> "" And IsNumeric(TxtMontoVales.Text) Then
 
                 Total = CDec(TxtMontoVales.Text)
-                Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaVales()
+
+                Pago = TotalCobros + 1
+                Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaVales(Pago)
                 _AceptaSaldo = True
                 If _CapturaDetalle = True Then
                     Remisiones(cobro, _AceptaSaldo)
@@ -1723,7 +1725,9 @@ Public Class frmSelTipoCobro
                 frmCaptura.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.TarjetaCredito
                 frmCaptura.ImporteCobro = CType(txtImporteTC.Text, Decimal)
                 Total = CDec(txtImporteTC.Text)
-                Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaTarjeta()
+
+                Pago = TotalCobros + 1
+                Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaTarjeta(Pago)
                 _AceptaSaldo = True
                 If _CapturaDetalle = True Then
                     Remisiones(cobro, _AceptaSaldo)
@@ -1743,7 +1747,9 @@ Public Class frmSelTipoCobro
         If ValidaCapturaChequeFicha() Then
 
             Total = CDec(txtImporteDocumento.Text)
-            Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaCheque()
+
+            Pago = TotalCobros + 1
+            Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaCheque(Pago)
             _AceptaSaldo = True
             If _CapturaDetalle = True Then
                 Remisiones(cobro, _AceptaSaldo)
@@ -2097,10 +2103,12 @@ Public Class frmSelTipoCobro
         Return insertaCobro
     End Function
 
-    Public Function AltaCheque() As SigaMetClasses.CobroDetalladoDatos
+    'Public Function AltaCheque() As SigaMetClasses.CobroDetalladoDatos
+    Public Function AltaCheque(Pago As Integer) As SigaMetClasses.CobroDetalladoDatos
         Dim insertaCobro As New SigaMetClasses.CobroDetalladoDatos()
 
         With insertaCobro
+            .Pago = Pago
             .SaldoAFavor = False
             .Cobro = 0
             .AñoCobro = CShort(DateTime.Now.Year)
@@ -2140,10 +2148,11 @@ Public Class frmSelTipoCobro
 
     End Function
 
-    Public Function AltaTransferencia() As SigaMetClasses.CobroDetalladoDatos
+    Public Function AltaTransferencia(Pago As Integer) As SigaMetClasses.CobroDetalladoDatos
         Dim insertaCobro As New SigaMetClasses.CobroDetalladoDatos()
 
         With insertaCobro
+            .Pago = Pago
             ' .SaldoAFavor = False
             .AñoCobro = CShort(DateTime.Now.Year)
             .Cobro = 0
@@ -2185,7 +2194,9 @@ Public Class frmSelTipoCobro
     Private Sub BotonBase2_Click(sender As Object, e As EventArgs) Handles BotonBase2.Click
         If TxtImporteTransferencia.Text <> "" And ComboBancoTransferencia.Text <> "" Then
             Total = CDec(TxtImporteTransferencia.Text)
-            Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaTransferencia()
+
+            Pago = TotalCobros + 1
+            Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaTransferencia(Pago)
             _AceptaSaldo = True
 
             If _CapturaDetalle = True Then
@@ -2197,10 +2208,11 @@ Public Class frmSelTipoCobro
 
     End Sub
 
-    Public Function AltaTarjeta() As SigaMetClasses.CobroDetalladoDatos
+    Public Function AltaTarjeta(Pago As Integer) As SigaMetClasses.CobroDetalladoDatos
         Dim insertaCobro As New SigaMetClasses.CobroDetalladoDatos()
 
         With insertaCobro
+            .Pago = Pago
             .TPV = True
             .SaldoAFavor = False
             .AñoCobro = CShort(DateTime.Now.Year)
@@ -2407,10 +2419,11 @@ Public Class frmSelTipoCobro
 
 
 
-    Public Function AltaVales() As SigaMetClasses.CobroDetalladoDatos
+    Public Function AltaVales(Pago As Integer) As SigaMetClasses.CobroDetalladoDatos
         Dim insertaCobro As New SigaMetClasses.CobroDetalladoDatos()
 
         With insertaCobro
+            .Pago = Pago
             .TPV = False
             .SaldoAFavor = False
             .AñoCobro = CShort(DateTime.Now.Year)
@@ -2447,9 +2460,10 @@ Public Class frmSelTipoCobro
         Return insertaCobro
     End Function
 
-    Public Function AltaAnticipo() As SigaMetClasses.CobroDetalladoDatos
+    Public Function AltaAnticipo(Pago As Integer) As SigaMetClasses.CobroDetalladoDatos
         Dim insertaCobro As New SigaMetClasses.CobroDetalladoDatos()
         With insertaCobro
+            .Pago = Pago
             .TPV = True
             .SaldoAFavor = False
             .AñoCobro = CShort(DateTime.Now.Year)
@@ -2514,7 +2528,9 @@ Public Class frmSelTipoCobro
             If visibleSelectedRowCount = True And TxtMontoAnticipo.Text.Trim <> "" Then
                 If Saldo >= Convert.ToDecimal(TxtMontoAnticipo.Text) Then
                     Total = CDec(TxtMontoAnticipo.Text)
-                    Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaAnticipo()
+
+                    Pago = TotalCobros + 1
+                    Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaAnticipo(Pago)
                     Dim listaDebito As New List(Of DebitoAnticipo)
                     Dim nuevodebitoanticipo As New DebitoAnticipo
                     nuevodebitoanticipo.folio = Folio
