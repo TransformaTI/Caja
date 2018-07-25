@@ -2,7 +2,15 @@
 Public Class TransformadorCRM
     Public Function ConsultaChequesCRM(lDataTable As DataTable) As DataTable
         Dim lParametro As New SigaMetClasses.cConfig(16, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario)
-        Dim lURLGateway As String = CType(lParametro.Parametros.Item("URLGateway"), String)
+        Dim lURLGateway As String
+        Try
+            lURLGateway = CType(lParametro.Parametros.Item("URLGateway"), String)
+        Catch SAEX As System.ArgumentException
+            lURLGateway = ""
+        Catch ex As Exception
+            Throw ex
+        End Try
+
         lParametro.Dispose()
         If Not String.IsNullOrEmpty(lURLGateway) Then
             Dim lSolicitud As RTGMGateway.SolicitudGateway = New SolicitudGateway()
