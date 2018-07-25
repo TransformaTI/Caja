@@ -2077,7 +2077,8 @@ Public Class frmSelTipoCobro
             .Banco = CShort("0") 'puede ser null
             .FAlta = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
             .Status = "EMITIDO"
-            .TipoCobro = 5
+            .TipoCobro = CByte(SigaMetClasses.Enumeradores.enumTipoCobro.EfectivoVales)
+            .DscTipoCobro = "Efectivo"
             .NumeroCheque = "NULL" ' puede ser vacio
             .FCheque = Date.MinValue
             .NumeroCuenta = "NULL"
@@ -2115,7 +2116,8 @@ Public Class frmSelTipoCobro
             .Banco = CShort(ComboBanco.SelectedValue)
             .FAlta = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
             .Status = "EMITIDO"
-            .TipoCobro = 3 ' el tipo cobro para che que es el numero 3
+            .TipoCobro = CByte(SigaMetClasses.Enumeradores.enumTipoCobro.Cheque)
+            .DscTipoCobro = "Cheque"
             .NumeroCheque = txtDocumento.Text
             .FCheque = dtpFechaCheque.Value
             .NumeroCuenta = txtNumeroCuenta.Text
@@ -2162,7 +2164,8 @@ Public Class frmSelTipoCobro
             .NumeroCuenta = TxtNumeroCuentaTransferencia.Text
             .Banco = CShort(ComboBancoTransferencia.SelectedValue)
             .Observaciones = txtbObservacionesTranferencias.Text
-            .TipoCobro = 10
+            .TipoCobro = CByte(SigaMetClasses.Enumeradores.enumTipoCobro.Transferencia)
+            .DscTipoCobro = "Transferencia"
             .FAlta = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
             .Status = "EMITIDO"
             .Usuario = GLOBAL_IDUsuario
@@ -2222,7 +2225,8 @@ Public Class frmSelTipoCobro
             .NumeroCuenta = lblTarjetaCredito.Text
             .Banco = CShort(lblBanco.Text)
             .Observaciones = "NULL"
-            .TipoCobro = 6
+            .TipoCobro = CByte(SigaMetClasses.Enumeradores.enumTipoCobro.TarjetaCredito)
+            .DscTipoCobro = "Tarjeta"
             .FAlta = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
             .Status = "EMITIDO"
             .Usuario = GLOBAL_IDUsuario
@@ -2434,6 +2438,7 @@ Public Class frmSelTipoCobro
             .Banco = CShort(ComboProveedor.SelectedValue)
             .Observaciones = TextObservacionesVales.Text
             .TipoCobro = CByte(SigaMetClasses.Enumeradores.enumTipoCobro.Vales)
+            .DscTipoCobro = "Vale"
             .FAlta = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
             .Status = "EMITIDO"
             .Usuario = GLOBAL_IDUsuario
@@ -2473,7 +2478,8 @@ Public Class frmSelTipoCobro
             .NumeroCuenta = "NULL"
             .Banco = CShort(ComboProveedor.SelectedValue)
             .Observaciones = TextObservacionesAnticipo.Text
-            .TipoCobro = 30
+            .TipoCobro = CByte(SigaMetClasses.Enumeradores.enumTipoCobro.AplicacionAnticipo)
+            .DscTipoCobro = "Aplicación de anticipo"
             .FAlta = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
             .Status = "EMITIDO"
             .Usuario = GLOBAL_IDUsuario
