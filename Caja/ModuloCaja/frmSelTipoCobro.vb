@@ -151,6 +151,8 @@ Public Class frmSelTipoCobro
 
     Friend WithEvents MontoSaldo As DataGridViewTextBoxColumn
     Friend WithEvents dgvCargoTarjeta As DataGridView
+    Friend WithEvents txtBancoTC As SigaMetClasses.Controles.txtNumeroEntero
+    Friend WithEvents txtTarjetaCredito As SigaMetClasses.Controles.txtNumeroEntero
 
     Public Property Cobros() As List(Of SigaMetClasses.CobroDetalladoDatos)
         Get
@@ -293,7 +295,6 @@ Public Class frmSelTipoCobro
     Friend WithEvents LabelBase3 As ControlesBase.LabelBase
     Friend WithEvents btnAceptarTarjetaCredito As ControlesBase.BotonBase
     Friend WithEvents Label21 As ControlesBase.LabelBase
-    Friend WithEvents lblTarjetaCredito As System.Windows.Forms.Label
     Friend WithEvents lblTitularTC As System.Windows.Forms.Label
     Friend WithEvents lblTipoTarjetaCredito As System.Windows.Forms.Label
     Friend WithEvents LabelBase4 As ControlesBase.LabelBase
@@ -304,7 +305,6 @@ Public Class frmSelTipoCobro
     Friend WithEvents lblBancoNombre As System.Windows.Forms.Label
     Friend WithEvents LabelBase7 As ControlesBase.LabelBase
     Friend WithEvents lblClienteNombre As System.Windows.Forms.Label
-    Friend WithEvents lblBanco As System.Windows.Forms.Label
     Friend WithEvents ComboBanco As SigaMetClasses.Combos.ComboBanco
     Friend WithEvents txtObservaciones As System.Windows.Forms.TextBox
     Friend WithEvents txtNumeroCuenta As SigaMetClasses.Controles.txtNumeroEntero
@@ -347,11 +347,13 @@ Public Class frmSelTipoCobro
         Me.btnAceptarVales1 = New ControlesBase.BotonBase()
         Me.tbTarjetaCredito = New System.Windows.Forms.TabPage()
         Me.grpTarjetaCredito = New System.Windows.Forms.GroupBox()
+        Me.lblBancoNombre = New System.Windows.Forms.Label()
+        Me.txtTarjetaCredito = New SigaMetClasses.Controles.txtNumeroEntero()
+        Me.txtBancoTC = New SigaMetClasses.Controles.txtNumeroEntero()
         Me.dgvCargoTarjeta = New System.Windows.Forms.DataGridView()
         Me.btnAceptarTarjetaCredito = New ControlesBase.BotonBase()
         Me.txtImporteTC = New SigaMetClasses.Controles.txtNumeroDecimal()
         Me.txtClienteTC = New SigaMetClasses.Controles.txtNumeroEntero()
-        Me.lblBanco = New System.Windows.Forms.Label()
         Me.LabelBase7 = New ControlesBase.LabelBase()
         Me.lblClienteNombre = New System.Windows.Forms.Label()
         Me.LabelBase6 = New ControlesBase.LabelBase()
@@ -359,9 +361,7 @@ Public Class frmSelTipoCobro
         Me.LabelBase5 = New ControlesBase.LabelBase()
         Me.lblTipoTarjetaCredito = New System.Windows.Forms.Label()
         Me.LabelBase4 = New ControlesBase.LabelBase()
-        Me.lblBancoNombre = New System.Windows.Forms.Label()
         Me.LabelBase3 = New ControlesBase.LabelBase()
-        Me.lblTarjetaCredito = New System.Windows.Forms.Label()
         Me.LabelBase2 = New ControlesBase.LabelBase()
         Me.LabelBase1 = New ControlesBase.LabelBase()
         Me.Label20 = New ControlesBase.LabelBase()
@@ -536,7 +536,7 @@ Public Class frmSelTipoCobro
         Me.tbValesDespensa.ImageIndex = 0
         Me.tbValesDespensa.Location = New System.Drawing.Point(4, 4)
         Me.tbValesDespensa.Name = "tbValesDespensa"
-        Me.tbValesDespensa.Size = New System.Drawing.Size(603, 325)
+        Me.tbValesDespensa.Size = New System.Drawing.Size(603, 307)
         Me.tbValesDespensa.TabIndex = 3
         Me.tbValesDespensa.Text = "Vales Despensa"
         '
@@ -723,11 +723,13 @@ Public Class frmSelTipoCobro
         '
         'grpTarjetaCredito
         '
+        Me.grpTarjetaCredito.Controls.Add(Me.lblBancoNombre)
+        Me.grpTarjetaCredito.Controls.Add(Me.txtTarjetaCredito)
+        Me.grpTarjetaCredito.Controls.Add(Me.txtBancoTC)
         Me.grpTarjetaCredito.Controls.Add(Me.dgvCargoTarjeta)
         Me.grpTarjetaCredito.Controls.Add(Me.btnAceptarTarjetaCredito)
         Me.grpTarjetaCredito.Controls.Add(Me.txtImporteTC)
         Me.grpTarjetaCredito.Controls.Add(Me.txtClienteTC)
-        Me.grpTarjetaCredito.Controls.Add(Me.lblBanco)
         Me.grpTarjetaCredito.Controls.Add(Me.LabelBase7)
         Me.grpTarjetaCredito.Controls.Add(Me.lblClienteNombre)
         Me.grpTarjetaCredito.Controls.Add(Me.LabelBase6)
@@ -735,9 +737,7 @@ Public Class frmSelTipoCobro
         Me.grpTarjetaCredito.Controls.Add(Me.LabelBase5)
         Me.grpTarjetaCredito.Controls.Add(Me.lblTipoTarjetaCredito)
         Me.grpTarjetaCredito.Controls.Add(Me.LabelBase4)
-        Me.grpTarjetaCredito.Controls.Add(Me.lblBancoNombre)
         Me.grpTarjetaCredito.Controls.Add(Me.LabelBase3)
-        Me.grpTarjetaCredito.Controls.Add(Me.lblTarjetaCredito)
         Me.grpTarjetaCredito.Controls.Add(Me.LabelBase2)
         Me.grpTarjetaCredito.Controls.Add(Me.LabelBase1)
         Me.grpTarjetaCredito.Controls.Add(Me.Label20)
@@ -749,6 +749,32 @@ Public Class frmSelTipoCobro
         Me.grpTarjetaCredito.TabIndex = 30
         Me.grpTarjetaCredito.TabStop = False
         Me.grpTarjetaCredito.Text = "Datos de la tarjeta de crédito o débito"
+        '
+        'lblBancoNombre
+        '
+        Me.lblBancoNombre.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.lblBancoNombre.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.lblBancoNombre.Location = New System.Drawing.Point(139, 144)
+        Me.lblBancoNombre.Name = "lblBancoNombre"
+        Me.lblBancoNombre.Size = New System.Drawing.Size(125, 21)
+        Me.lblBancoNombre.TabIndex = 34
+        Me.lblBancoNombre.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'txtTarjetaCredito
+        '
+        Me.txtTarjetaCredito.Location = New System.Drawing.Point(104, 120)
+        Me.txtTarjetaCredito.MaxLength = 20
+        Me.txtTarjetaCredito.Name = "txtTarjetaCredito"
+        Me.txtTarjetaCredito.Size = New System.Drawing.Size(160, 21)
+        Me.txtTarjetaCredito.TabIndex = 2
+        '
+        'txtBancoTC
+        '
+        Me.txtBancoTC.Location = New System.Drawing.Point(104, 144)
+        Me.txtBancoTC.MaxLength = 3
+        Me.txtBancoTC.Name = "txtBancoTC"
+        Me.txtBancoTC.Size = New System.Drawing.Size(31, 21)
+        Me.txtBancoTC.TabIndex = 3
         '
         'dgvCargoTarjeta
         '
@@ -770,7 +796,7 @@ Public Class frmSelTipoCobro
         Me.btnAceptarTarjetaCredito.Location = New System.Drawing.Point(184, 243)
         Me.btnAceptarTarjetaCredito.Name = "btnAceptarTarjetaCredito"
         Me.btnAceptarTarjetaCredito.Size = New System.Drawing.Size(80, 24)
-        Me.btnAceptarTarjetaCredito.TabIndex = 3
+        Me.btnAceptarTarjetaCredito.TabIndex = 5
         Me.btnAceptarTarjetaCredito.Text = "&Aceptar"
         Me.btnAceptarTarjetaCredito.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
@@ -779,7 +805,7 @@ Public Class frmSelTipoCobro
         Me.txtImporteTC.Location = New System.Drawing.Point(104, 216)
         Me.txtImporteTC.Name = "txtImporteTC"
         Me.txtImporteTC.Size = New System.Drawing.Size(160, 21)
-        Me.txtImporteTC.TabIndex = 2
+        Me.txtImporteTC.TabIndex = 4
         '
         'txtClienteTC
         '
@@ -787,16 +813,6 @@ Public Class frmSelTipoCobro
         Me.txtClienteTC.Name = "txtClienteTC"
         Me.txtClienteTC.Size = New System.Drawing.Size(160, 21)
         Me.txtClienteTC.TabIndex = 0
-        '
-        'lblBanco
-        '
-        Me.lblBanco.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblBanco.Location = New System.Drawing.Point(104, 144)
-        Me.lblBanco.Name = "lblBanco"
-        Me.lblBanco.Size = New System.Drawing.Size(44, 21)
-        Me.lblBanco.TabIndex = 42
-        Me.lblBanco.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.lblBanco.Visible = False
         '
         'LabelBase7
         '
@@ -861,16 +877,6 @@ Public Class frmSelTipoCobro
         Me.LabelBase4.TabIndex = 35
         Me.LabelBase4.Text = "Tipo de tarjeta:"
         '
-        'lblBancoNombre
-        '
-        Me.lblBancoNombre.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblBancoNombre.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.lblBancoNombre.Location = New System.Drawing.Point(104, 144)
-        Me.lblBancoNombre.Name = "lblBancoNombre"
-        Me.lblBancoNombre.Size = New System.Drawing.Size(160, 21)
-        Me.lblBancoNombre.TabIndex = 34
-        Me.lblBancoNombre.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
         'LabelBase3
         '
         Me.LabelBase3.AutoSize = True
@@ -879,15 +885,6 @@ Public Class frmSelTipoCobro
         Me.LabelBase3.Size = New System.Drawing.Size(40, 13)
         Me.LabelBase3.TabIndex = 33
         Me.LabelBase3.Text = "Banco:"
-        '
-        'lblTarjetaCredito
-        '
-        Me.lblTarjetaCredito.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblTarjetaCredito.Location = New System.Drawing.Point(104, 120)
-        Me.lblTarjetaCredito.Name = "lblTarjetaCredito"
-        Me.lblTarjetaCredito.Size = New System.Drawing.Size(160, 21)
-        Me.lblTarjetaCredito.TabIndex = 32
-        Me.lblTarjetaCredito.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'LabelBase2
         '
@@ -939,7 +936,7 @@ Public Class frmSelTipoCobro
         Me.tbChequeFicha.Controls.Add(Me.grpChequeFicha)
         Me.tbChequeFicha.Location = New System.Drawing.Point(4, 4)
         Me.tbChequeFicha.Name = "tbChequeFicha"
-        Me.tbChequeFicha.Size = New System.Drawing.Size(603, 325)
+        Me.tbChequeFicha.Size = New System.Drawing.Size(603, 307)
         Me.tbChequeFicha.TabIndex = 2
         Me.tbChequeFicha.Text = "Cheque / Ficha de deposito"
         '
@@ -1122,7 +1119,7 @@ Public Class frmSelTipoCobro
         Me.tbTransferencias.Location = New System.Drawing.Point(4, 4)
         Me.tbTransferencias.Name = "tbTransferencias"
         Me.tbTransferencias.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbTransferencias.Size = New System.Drawing.Size(603, 325)
+        Me.tbTransferencias.Size = New System.Drawing.Size(603, 307)
         Me.tbTransferencias.TabIndex = 4
         Me.tbTransferencias.Text = "Transferencias"
         '
@@ -1315,7 +1312,7 @@ Public Class frmSelTipoCobro
         Me.tbAplicAnticipo.Location = New System.Drawing.Point(4, 4)
         Me.tbAplicAnticipo.Name = "tbAplicAnticipo"
         Me.tbAplicAnticipo.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbAplicAnticipo.Size = New System.Drawing.Size(603, 325)
+        Me.tbAplicAnticipo.Size = New System.Drawing.Size(603, 307)
         Me.tbAplicAnticipo.TabIndex = 5
         Me.tbAplicAnticipo.Text = "Aplicación Anticipo"
         '
@@ -1479,7 +1476,7 @@ Public Class frmSelTipoCobro
         Me.tbDacionPagos.Location = New System.Drawing.Point(4, 4)
         Me.tbDacionPagos.Name = "tbDacionPagos"
         Me.tbDacionPagos.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbDacionPagos.Size = New System.Drawing.Size(603, 325)
+        Me.tbDacionPagos.Size = New System.Drawing.Size(603, 307)
         Me.tbDacionPagos.TabIndex = 7
         Me.tbDacionPagos.Text = "Dación de Pagos"
         '
@@ -1719,7 +1716,8 @@ Public Class frmSelTipoCobro
 
     'TARJETA DE CREDITO
     Private Sub btnAceptarTarjetaCredito_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAceptarTarjetaCredito.Click
-        If lblClienteNombre.Text <> "" Then
+        'If lblClienteNombre.Text <> "" Then
+        If txtClienteTC.Text <> "" AndAlso txtTarjetaCredito.Text <> "" AndAlso txtBancoTC.Text <> "" Then
             If txtImporteTC.Text <> "" And IsNumeric(txtImporteTC.Text) Then
                 Dim frmCaptura As New frmCapCobranzaDoc()
                 frmCaptura.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.TarjetaCredito
@@ -1738,7 +1736,7 @@ Public Class frmSelTipoCobro
                 MessageBox.Show("Debe teclear el importe del cobro.", Titulo, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             End If
         Else
-            MessageBox.Show("Debe teclear el número de cliente.", Titulo, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show("Capture todos los datos para continuar.", Titulo, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
     End Sub
 
@@ -1856,7 +1854,9 @@ Public Class frmSelTipoCobro
     Private Sub LimpiaInfoTarjetaCredito()
         lblClienteNombre.Text = ""
         lblTitularTC.Text = ""
-        lblTarjetaCredito.Text = ""
+        'lblTarjetaCredito.Text = ""
+        txtTarjetaCredito.Text = ""
+        txtBancoTC.Text = ""
         lblBancoNombre.Text = ""
         lblTipoTarjetaCredito.Text = ""
         lblVigenciaTC.Text = ""
@@ -1869,8 +1869,10 @@ Public Class frmSelTipoCobro
         Do While dr.Read
             lblClienteNombre.Text = CType(dr("ClienteNombre"), String)
             lblTitularTC.Text = CType(dr("Titular"), String)
-            lblTarjetaCredito.Text = CType(dr("TarjetaCredito"), String)
-            lblBanco.Text = CType(dr("Banco"), String)
+            'lblTarjetaCredito.Text = CType(dr("TarjetaCredito"), String)
+            txtTarjetaCredito.Text = CType(dr("TarjetaCredito"), String).Trim
+            'lblBanco.Text = CType(dr("Banco"), String)
+            txtBancoTC.Text = CType(dr("Banco"), String)
             lblBancoNombre.Text = CType(dr("BancoNombre"), String)
             lblTipoTarjetaCredito.Text = CType(dr("TipoTarjetaCreditoDescripcion"), String)
             lblVigenciaTC.Text = CType(dr("MesVigencia"), String) & " / " & CType(dr("AñoVigencia"), String)
@@ -1891,8 +1893,10 @@ Public Class frmSelTipoCobro
             Do While dr.Read
                 'lblClienteNombre.Text = CType(dr("ClienteNombre"), String)
                 lblTitularTC.Text = CType(dr("Titular"), String)
-                lblTarjetaCredito.Text = CType(dr("TarjetaCredito"), String)
-                lblBanco.Text = CType(dr("Banco"), String)
+                'lblTarjetaCredito.Text = CType(dr("TarjetaCredito"), String)
+                'lblBanco.Text = CType(dr("Banco"), String)
+                txtTarjetaCredito.Text = CType(dr("TarjetaCredito"), String).Trim
+                txtBancoTC.Text = CType(dr("Banco"), String)
                 lblBancoNombre.Text = CType(dr("BancoNombre"), String)
                 lblTipoTarjetaCredito.Text = CType(dr("TipoTarjetaCreditoDescripcion"), String)
                 lblVigenciaTC.Text = CType(dr("MesVigencia"), String) & " / " & CType(dr("AñoVigencia"), String)
@@ -1938,7 +1942,8 @@ Public Class frmSelTipoCobro
                 ConsultaTarjetaCredito(CType(txtClienteTC.Text, Integer), lURLGateway)
             End If
 
-            If lblTarjetaCredito.Text = "" Then
+            'If lblTarjetaCredito.Text = "" Then
+            If txtTarjetaCredito.Text.Trim = "" Then
                 MessageBox.Show("No existen tarjetas de crédito del cliente especificado.", Titulo, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Else
                 txtImporteTC.Focus()
@@ -2222,8 +2227,10 @@ Public Class frmSelTipoCobro
             .Cobro = 0
             .Cliente = CInt(txtClienteTC.Text)
             .FCheque = Date.MinValue
-            .NumeroCuenta = lblTarjetaCredito.Text
-            .Banco = CShort(lblBanco.Text)
+            '.NumeroCuenta = lblTarjetaCredito.Text
+            '.Banco = CShort(lblBanco.Text)
+            .NumeroCuenta = txtTarjetaCredito.Text
+            .Banco = CShort(txtBancoTC.Text)
             .Observaciones = "NULL"
             .TipoCobro = CByte(SigaMetClasses.Enumeradores.enumTipoCobro.TarjetaCredito)
             .DscTipoCobro = "Tarjeta"
@@ -2270,7 +2277,9 @@ Public Class frmSelTipoCobro
         txtClienteTC.Clear()
         lblClienteNombre.Text = ""
         lblTitularTC.Text = ""
-        lblTarjetaCredito.Text = ""
+        'lblTarjetaCredito.Text = ""
+        txtTarjetaCredito.Text = ""
+        txtBancoTC.Text = ""
         lblBancoNombre.Text = ""
         lblTipoTarjetaCredito.Text = ""
         lblVigenciaTC.Text = ""
