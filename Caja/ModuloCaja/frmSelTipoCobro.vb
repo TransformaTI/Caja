@@ -107,6 +107,8 @@ Public Class frmSelTipoCobro
     Private _ListaCobroRemisiones As List(Of SigaMetClasses.CobroRemisiones)
     Private _Movimiento As Boolean
     Private _Cobro As SigaMetClasses.CobroDetalladoDatos
+    Private _MostrarDacion As Boolean
+    Private Pago As Integer
 
     Enum FormaPago
         Efectivo = 0
@@ -118,11 +120,6 @@ Public Class frmSelTipoCobro
         Transferencia = 6
     End Enum
 
-    Private _MostrarDacion As Boolean
-
-    Private Pago As Integer
-
-
     Public Property CobroRemisiones() As List(Of SigaMetClasses.CobroRemisiones)
         Get
             Return _ListaCobroRemisiones
@@ -131,8 +128,6 @@ Public Class frmSelTipoCobro
             _ListaCobroRemisiones = value
         End Set
     End Property
-
-
 
     Public Property TotalCobros() As Integer
         Get
@@ -1701,6 +1696,9 @@ Public Class frmSelTipoCobro
                 _AceptaSaldo = True
                 If _CapturaDetalle = True Then
                     Remisiones(cobro, _AceptaSaldo)
+                Else
+                    _listaCobros.Clear()
+                    _listaCobros.Add(cobro)
                 End If
                 _ImporteTotalCobro = Total
                 Total = 0
@@ -1727,6 +1725,9 @@ Public Class frmSelTipoCobro
                 _AceptaSaldo = True
                 If _CapturaDetalle = True Then
                     Remisiones(cobro, _AceptaSaldo)
+                Else
+                    _listaCobros.Clear()
+                    _listaCobros.Add(cobro)
                 End If
                 _ImporteTotalCobro = Total
                 DialogResult = DialogResult.OK
@@ -1749,6 +1750,9 @@ Public Class frmSelTipoCobro
             _AceptaSaldo = True
             If _CapturaDetalle = True Then
                 Remisiones(cobro, _AceptaSaldo)
+            Else
+                _listaCobros.Clear()
+                _listaCobros.Add(cobro)
             End If
             _ImporteTotalCobro = Total
             Total = 0
@@ -2029,7 +2033,9 @@ Public Class frmSelTipoCobro
             Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaPagoEfectivo(Pago)
             _AceptaSaldo = False
             If _Movimiento = True Then
-                _Cobro = cobro
+                '_Cobro = cobro
+                _listaCobros.Clear()
+                _listaCobros.Add(cobro)
             Else
                 Remisiones(cobro, _AceptaSaldo)
             End If
@@ -2207,6 +2213,9 @@ Public Class frmSelTipoCobro
 
             If _CapturaDetalle = True Then
                 Remisiones(cobro, _AceptaSaldo)
+            Else
+                _listaCobros.Clear()
+                _listaCobros.Add(cobro)
             End If
             _ImporteTotalCobro = Total
             DialogResult = DialogResult.OK
@@ -2555,6 +2564,9 @@ Public Class frmSelTipoCobro
                     _AceptaSaldo = True
                     If _CapturaDetalle = True Then
                         Remisiones(cobro, _AceptaSaldo)
+                    Else
+                        _listaCobros.Clear()
+                        _listaCobros.Add(cobro)
                     End If
 
                     LimpiarAnticipo()
