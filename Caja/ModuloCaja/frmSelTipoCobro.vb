@@ -85,6 +85,14 @@ Public Class frmSelTipoCobro
     Friend WithEvents LabelNombreApAntic As Label
     Friend WithEvents LabelBase36 As ControlesBase.LabelBase
     Friend WithEvents BotonBuscarClienteApAnticipo As Button
+    Friend WithEvents btn_AnticipoAceptar As ControlesBase.BotonBase
+    Friend WithEvents dgvSaldoAnticipo As DataGridView
+    Friend WithEvents año As DataGridViewTextBoxColumn
+    Friend WithEvents folio As DataGridViewTextBoxColumn
+    Friend WithEvents MontoSaldo As DataGridViewTextBoxColumn
+    Friend WithEvents dgvCargoTarjeta As DataGridView
+    Friend WithEvents txtBancoTC As SigaMetClasses.Controles.txtNumeroEntero
+    Friend WithEvents txtTarjetaCredito As SigaMetClasses.Controles.txtNumeroEntero
     Private DetalleCobro As SigaMetClasses.sCobro
     Private TipoCobroliquidacion As Integer
     Private _TablaRemisiones As DataTable
@@ -111,8 +119,6 @@ Public Class frmSelTipoCobro
     End Enum
 
     Private _MostrarDacion As Boolean
-    Friend WithEvents btn_AnticipoAceptar As ControlesBase.BotonBase
-    Friend WithEvents dgvSaldoAnticipo As DataGridView
 
     Private Pago As Integer
 
@@ -145,14 +151,6 @@ Public Class frmSelTipoCobro
         End Set
     End Property
     Private _listaCobros As New List(Of SigaMetClasses.CobroDetalladoDatos)
-    Friend WithEvents año As DataGridViewTextBoxColumn
-
-    Friend WithEvents folio As DataGridViewTextBoxColumn
-
-    Friend WithEvents MontoSaldo As DataGridViewTextBoxColumn
-    Friend WithEvents dgvCargoTarjeta As DataGridView
-    Friend WithEvents txtBancoTC As SigaMetClasses.Controles.txtNumeroEntero
-    Friend WithEvents txtTarjetaCredito As SigaMetClasses.Controles.txtNumeroEntero
 
     Public Property Cobros() As List(Of SigaMetClasses.CobroDetalladoDatos)
         Get
