@@ -2035,7 +2035,7 @@ Public Class frmSelTipoCobro
             If _Movimiento = True Then
                 '_Cobro = cobro
                 _listaCobros.Clear()
-                _listaCobros.Add(cobro)
+                ' _listaCobros.Add(cobro)
             Else
                 Remisiones(cobro, _AceptaSaldo)
             End If
