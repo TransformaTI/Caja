@@ -104,7 +104,8 @@ Public Class frmRemisiones
                 lbl_saldo.Text = "$" + CType(_Total, String)
                 ' Create new DataColumn, set DataType, ColumnName 
                 ' and add to DataTable.    
-                Dim keys(2) As DataColumn
+                'Dim keys(2) As DataColumn
+                Dim keys(3) As DataColumn
                 column = New DataColumn
                 column.DataType = System.Type.GetType("System.String")
                 column.ColumnName = "Serie"
@@ -115,6 +116,14 @@ Public Class frmRemisiones
                 column.ColumnName = "Remisión"
                 table.Columns.Add(column)
                 keys(1) = column
+
+                ' Se agrega la columna y llame producto RM_30_07_2018
+                column = New DataColumn
+                column.DataType = System.Type.GetType("System.String")
+                column.ColumnName = "Producto"
+                table.Columns.Add(column)
+                keys(2) = column
+
                 column = New DataColumn
                 column.DataType = Type.GetType("System.String")
                 column.ColumnName = "Importe abonado"
@@ -142,6 +151,7 @@ Public Class frmRemisiones
                     row = table.NewRow
                     row("Serie") = grdRemision.Item(i, 0)
                     row("Remisión") = grdRemision.Item(i, 1)
+                    row("Producto") = grdRemision.Item(i, 11)
 
                     If _Saldo >= CDec(grdRemision.Item(i, 7)) Then
                         row("Importe abonado") = grdRemision.Item(i, 7)
@@ -165,7 +175,7 @@ Public Class frmRemisiones
                         End If
 
                         grdRemision.DataSource = _TablaRemisiones
-                        If _Saldo < 0 Then
+                        If _Saldo <= 0 Then
                             lbl_saldo.Text = Valorcero()
                         Else
                             lbl_saldo.Text = "$" + _Saldo.ToString
@@ -208,19 +218,24 @@ Public Class frmRemisiones
 
     Private Sub grdRemision_MouseClick(sender As Object, e As MouseEventArgs) Handles grdRemision.MouseClick
         Try
-            If Not grdRemision.DataSource Is Nothing Then
-                lbl_importeDocumento.Text = "$" + CType(Val(grdRemision.Item(i, 6)), String)
-                lblSaloMovimiento.Text = "$" + CType(Val(grdRemision.Item(i, 7)), String)
-                If _Saldo >= CDec(grdRemision.Item(i, 7)) Then
-                    lblImporteAbobo.Text = "$" + CType((grdRemision.Item(i, 7)), String)
-                Else
-                    lblImporteAbobo.Text = "$" + _Saldo.ToString
-                End If
-                _FilaSaldo = i
-            End If
+            ActualizarEtiquetas()
+
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            MessageBox.Show("Error: " & ex.Message, Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
+    End Sub
+
+    Private Sub ActualizarEtiquetas()
+        If Not grdRemision.DataSource Is Nothing Then
+            lbl_importeDocumento.Text = "$" + CType(Val(grdRemision.Item(i, 6)), String)
+            lblSaloMovimiento.Text = "$" + CType(Val(grdRemision.Item(i, 7)), String)
+            If _Saldo >= CDec(grdRemision.Item(i, 7)) Then
+                lblImporteAbobo.Text = "$" + CType((grdRemision.Item(i, 7)), String)
+            Else
+                lblImporteAbobo.Text = "$" + _Saldo.ToString
+            End If
+            _FilaSaldo = i
+        End If
     End Sub
 
     Private Sub btn_cancelar_Click(sender As Object, e As EventArgs) Handles btn_cancelar.Click
@@ -291,8 +306,10 @@ Public Class frmRemisiones
     Function Valorcero() As String
         Valorcero = " $000.00"
     End Function
+
     Private Sub grdRemision_CurrentCellChanged(sender As Object, e As EventArgs) Handles grdRemision.CurrentCellChanged
         i = grdRemision.CurrentRowIndex
+        ActualizarEtiquetas()
     End Sub
 
 
@@ -311,7 +328,10 @@ Public Class frmRemisiones
             If (table.Rows.IndexOf(abono) = grdAbonos.CurrentRowIndex) Then
 
                 For Each Remision As DataRow In _TablaRemisionesInicial.Rows
-                    If (Remision("Serie").ToString() = abono("Serie").ToString() And Remision("Remision").ToString() = abono("Remisión").ToString()) Then
+                    If (Remision("Serie").ToString() = abono("Serie").ToString() And
+                        Remision("Remision").ToString() = abono("Remisión").ToString() And
+                        Remision("Producto").ToString() = abono("Producto").ToString()) Then
+
                         _Saldo = Convert.ToDecimal(lbl_saldo.Text.Replace("$", "")) + Convert.ToDecimal(abono("importe abonado").ToString().Replace("$", ""))
                         lbl_saldo.Text = "$" + _Saldo.ToString()
                         abono.Delete()
@@ -320,9 +340,7 @@ Public Class frmRemisiones
                         GoTo Finalize
                     End If
                 Next
-
             End If
-
         Next
 Finalize:
         grdRemision.DataSource = _TablaRemisiones

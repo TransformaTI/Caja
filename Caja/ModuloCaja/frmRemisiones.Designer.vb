@@ -183,10 +183,10 @@ Partial Class frmRemisiones
         Me.grdAbonos.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grdAbonos.HeaderFont = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grdAbonos.HeaderForeColor = System.Drawing.SystemColors.ControlText
-        Me.grdAbonos.Location = New System.Drawing.Point(441, 230)
+        Me.grdAbonos.Location = New System.Drawing.Point(372, 230)
         Me.grdAbonos.Name = "grdAbonos"
         Me.grdAbonos.ReadOnly = True
-        Me.grdAbonos.Size = New System.Drawing.Size(293, 93)
+        Me.grdAbonos.Size = New System.Drawing.Size(362, 93)
         Me.grdAbonos.TabIndex = 44
         '
         'Btn_BorrarTodo
