@@ -139,9 +139,10 @@ Public Class frmRemisiones
                 column.ColumnName = "Importe abonado"
                 table.Columns.Add(column)
                 table.PrimaryKey = keys
-                Dim keysRemiesiones(2) As DataColumn
+                Dim keysRemiesiones(3) As DataColumn
                 keysRemiesiones(0) = _TablaRemisiones.Columns(0)
                 keysRemiesiones(1) = _TablaRemisiones.Columns(1)
+                keysRemiesiones(2) = _TablaRemisiones.Columns("Producto")
                 _TablaRemisiones.PrimaryKey = keysRemiesiones
                 grdRemision.DataSource = Nothing
                 grdRemision.DataSource = _TablaRemisiones
