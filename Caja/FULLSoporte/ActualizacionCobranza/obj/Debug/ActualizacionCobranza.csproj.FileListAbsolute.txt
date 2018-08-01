@@ -34,3 +34,9 @@ C:\Users\Diego\Documents\Caja\Caja\FULLSoporte\ActualizacionCobranza\obj\Debug\A
 C:\Users\Diego\Documents\Caja\Caja\FULLSoporte\ActualizacionCobranza\obj\Debug\ActualizacionCobranza.csproj.CopyComplete
 C:\Users\Diego\Documents\Caja\Caja\FULLSoporte\ActualizacionCobranza\obj\Debug\ActualizacionCobranza.dll
 C:\Users\Diego\Documents\Caja\Caja\FULLSoporte\ActualizacionCobranza\obj\Debug\ActualizacionCobranza.pdb
+C:\Users\Transforma1\Source\Repos\Caja\Caja\FULLSoporte\ActualizacionCobranza\bin\Debug\ActualizacionCobranza.dll
+C:\Users\Transforma1\Source\Repos\Caja\Caja\FULLSoporte\ActualizacionCobranza\bin\Debug\ActualizacionCobranza.pdb
+C:\Users\Transforma1\Source\Repos\Caja\Caja\FULLSoporte\ActualizacionCobranza\obj\Debug\ActualizacionCobranza.ActualizacionCobranza.resources
+C:\Users\Transforma1\Source\Repos\Caja\Caja\FULLSoporte\ActualizacionCobranza\obj\Debug\ActualizacionCobranza.csproj.GenerateResource.Cache
+C:\Users\Transforma1\Source\Repos\Caja\Caja\FULLSoporte\ActualizacionCobranza\obj\Debug\ActualizacionCobranza.dll
+C:\Users\Transforma1\Source\Repos\Caja\Caja\FULLSoporte\ActualizacionCobranza\obj\Debug\ActualizacionCobranza.pdb
