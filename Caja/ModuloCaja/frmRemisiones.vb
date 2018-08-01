@@ -20,6 +20,7 @@ Public Class frmRemisiones
     Private _CancelPago As Boolean
     Dim oCobroRemision As SigaMetClasses.CobroRemisiones
     Private _ListaCobroRemisiones As New List(Of SigaMetClasses.CobroRemisiones)
+    Private _Tipocobro As Integer
 
     Private _Pago As Integer
     Public Property Pago() As Integer
@@ -58,6 +59,15 @@ Public Class frmRemisiones
         End Get
         Set(value As DataTable)
             _TablaRemisiones = value
+        End Set
+    End Property
+
+    Public Property TipoCobro() As Integer
+        Get
+            Return _Tipocobro
+        End Get
+        Set(value As Integer)
+            _Tipocobro = value
         End Set
     End Property
 
@@ -173,7 +183,7 @@ Public Class frmRemisiones
                             fila("Saldo") = CDec(grdRemision.Item(i, 7)) - _Saldo
                             _Saldo = 0
                         End If
-
+                        fila("Tipocobro") = _Tipocobro
                         grdRemision.DataSource = _TablaRemisiones
                         If _Saldo <= 0 Then
                             lbl_saldo.Text = Valorcero()
