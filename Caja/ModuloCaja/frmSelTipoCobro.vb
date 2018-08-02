@@ -2230,68 +2230,75 @@ Public Class frmSelTipoCobro
     End Function
 
     Private Sub BotonBase2_Click(sender As Object, e As EventArgs) Handles BotonBase2.Click
-        If TxtImporteTransferencia.Text <> "" And ComboBancoTransferencia.Text <> "" Then
-            Total = CDec(TxtImporteTransferencia.Text)
+        Try
+            If TxtImporteTransferencia.Text <> "" And ComboBancoTransferencia.Text <> "" Then
+                Total = CDec(TxtImporteTransferencia.Text)
 
-            Pago = TotalCobros + 1
-            TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.Transferencia
-            Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaTransferencia(Pago)
-            _AceptaSaldo = True
+                Pago = TotalCobros + 1
+                TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.Transferencia
+                Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaTransferencia(Pago)
+                _AceptaSaldo = True
 
-            If _CapturaDetalle = True Then
-                Remisiones(cobro, _AceptaSaldo, TipoCobro)
-            Else
-                _listaCobros.Clear()
-                _listaCobros.Add(cobro)
+                If _CapturaDetalle = True Then
+                    Remisiones(cobro, _AceptaSaldo, TipoCobro)
+                Else
+                    _listaCobros.Clear()
+                    _listaCobros.Add(cobro)
+                End If
+                _ImporteTotalCobro = Total
+                DialogResult = DialogResult.OK
             End If
-            _ImporteTotalCobro = Total
-            DialogResult = DialogResult.OK
-        End If
-
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 
     Public Function AltaTarjeta(Pago As Integer) As SigaMetClasses.CobroDetalladoDatos
         Dim insertaCobro As New SigaMetClasses.CobroDetalladoDatos()
+        Try
 
-        With insertaCobro
-            .Pago = Pago
-            .TPV = True
-            .SaldoAFavor = False
-            .AñoCobro = CShort(DateTime.Now.Year)
-            .Cobro = 0
-            .Cliente = CInt(txtClienteTC.Text)
-            .FCheque = Date.MinValue
-            '.NumeroCuenta = lblTarjetaCredito.Text
-            '.Banco = CShort(lblBanco.Text)
-            .NumeroCuenta = txtTarjetaCredito.Text
-            .Banco = CShort(txtBancoTC.Text)
-            .Observaciones = "NULL"
-            .TipoCobro = CByte(SigaMetClasses.Enumeradores.enumTipoCobro.TarjetaCredito)
-            .DscTipoCobro = "Tarjeta"
-            .FAlta = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
-            .Status = "EMITIDO"
-            .Usuario = GLOBAL_IDUsuario
-            .Total = CDec(txtImporteTC.Text)
-            .Importe = .Total / CDec(1 + (GLOBAL_IVA / 100))
-            .Impuesto = .Total - .Importe
-            .Referencia = "NULL" ' puede ser vacio
-            .NumeroCheque = "NULL" ' puede ser vacio
-            .FDevolucion = Date.MinValue
-            .RazonDevCheque = Nothing
-            .Saldo = 10
-            .FActualizacion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
-            .Folio = _FolioCobro
-            .FDeposito = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
-            .FolioAtt = _FolioCobro
-            .AñoAtt = CShort(_FechaCargo.Year)
-            .NumeroCuentaDestino = "NULL"
-            .BancoOrigen = CShort("0")
-            .StatusSaldoAFavor = "NULL"
-            .AñoCobroOrigen = CShort("0")
-            .CobroOrigen = 0
-        End With
+            With insertaCobro
+                .Pago = Pago
+                .TPV = True
+                .SaldoAFavor = False
+                .AñoCobro = CShort(DateTime.Now.Year)
+                .Cobro = 0
+                .Cliente = CInt(txtClienteTC.Text)
+                .FCheque = Date.MinValue
+                '.NumeroCuenta = lblTarjetaCredito.Text
+                '.Banco = CShort(lblBanco.Text)
+                .NumeroCuenta = txtTarjetaCredito.Text
+                .Banco = CShort(cbBancoTC.SelectedValue)
+                .Observaciones = "NULL"
+                .TipoCobro = CByte(SigaMetClasses.Enumeradores.enumTipoCobro.TarjetaCredito)
+                .DscTipoCobro = "Tarjeta"
+                .FAlta = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+                .Status = "EMITIDO"
+                .Usuario = GLOBAL_IDUsuario
+                .Total = CDec(txtImporteTC.Text)
+                .Importe = .Total / CDec(1 + (GLOBAL_IVA / 100))
+                .Impuesto = .Total - .Importe
+                .Referencia = "NULL" ' puede ser vacio
+                .NumeroCheque = "NULL" ' puede ser vacio
+                .FDevolucion = Date.MinValue
+                .RazonDevCheque = Nothing
+                .Saldo = 10
+                .FActualizacion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+                .Folio = _FolioCobro
+                .FDeposito = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
+                .FolioAtt = _FolioCobro
+                .AñoAtt = CShort(_FechaCargo.Year)
+                .NumeroCuentaDestino = "NULL"
+                .BancoOrigen = CShort("0")
+                .StatusSaldoAFavor = "NULL"
+                .AñoCobroOrigen = CShort("0")
+                .CobroOrigen = 0
+            End With
 
-        '_listaCobros.Add(insertaCobro)
+            '_listaCobros.Add(insertaCobro)
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
         Return insertaCobro
 
     End Function
