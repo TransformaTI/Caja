@@ -492,16 +492,16 @@ Public Class frmConsultaPreLiquidacion
             '           " AND Folio = " & _Folio & ") AND PedidoTipoCobro = 5 AND AñoAtt = " & _AnoAtt & ") AND AñoCobro = " & _AnoAtt & " AND TipoCobro = 5"
             strQuery = "EXECUTE spCAConsultaEfectivoValesLiquidacion " & _AnoAtt.ToString & ", " & _Folio.ToString
             cmd.CommandText = strQuery
-            da.Fill(dsPreLiq, "EfectivoVales")
+			da.Fill(dsPreLiq, "EfectivoVales")
 
-            'TARJETAS DE CREDITO
-            'Desactivado porque ocasiona la presencia de cobros que no pertenecen a la liquidacion
-            'strQuery = "set transaction isolation level read uncommitted SELECT * from vwConsultaCobro " & _
-            '           "WHERE cobro in " & _
-            '           "(SELECT distinct cobro from vwconsultapreliqpedido where folio in " & _
-            '           "(SELECT folio from vwConsultaPreLiqPedido where AñoAtt = " & _AnoAtt & _
-            '           " AND Folio = " & _Folio & ") And PedidoTipoCobro = 5) AND AñoCobro = " & _AnoAtt & " AND TipoCobro = 6"
-            strQuery = "EXECUTE spCAConsultaTarjetasCreditoLiquidacion " & _AnoAtt.ToString & ", " & _Folio.ToString
+			'TARJETAS DE CREDITO
+			'Desactivado porque ocasiona la presencia de cobros que no pertenecen a la liquidacion
+			'strQuery = "set transaction isolation level read uncommitted SELECT * from vwConsultaCobro " & _
+			'           "WHERE cobro in " & _
+			'           "(SELECT distinct cobro from vwconsultapreliqpedido where folio in " & _
+			'           "(SELECT folio from vwConsultaPreLiqPedido where AñoAtt = " & _AnoAtt & _
+			'           " AND Folio = " & _Folio & ") And PedidoTipoCobro = 5) AND AñoCobro = " & _AnoAtt & " AND TipoCobro = 6"
+			strQuery = "EXECUTE spCAConsultaTarjetasCreditoLiquidacion " & _AnoAtt.ToString & ", " & _Folio.ToString
             cmd.CommandText = strQuery
             da.Fill(dsPreLiq, "TarjetaCredito")
 
@@ -514,10 +514,14 @@ Public Class frmConsultaPreLiquidacion
             '           " AND Folio = " & _Folio & ") And PedidoTipoCobro = 5) AND AñoCobro = " & _AnoAtt & " AND (TipoCobro = 7 or TipoCobro = 12)"
             strQuery = "EXECUTE spCAConsultaFichasDepositoNotasDeCreditoLiquidacion " & _AnoAtt.ToString & ", " & _Folio.ToString
             cmd.CommandText = strQuery
-            da.Fill(dsPreLiq, "FichaDeposito")
+			da.Fill(dsPreLiq, "FichaDeposito")
 
-            'Pedidos de obsequio y autocarburación
-            strQuery = "EXECUTE spCAConsultaDesgloseObsequios " & _AnoAtt.ToString & ", " & _Folio.ToString
+			strQuery = "EXECUTE spCAConsultaValesLiquidacion " & _AnoAtt.ToString & ", " & _Folio.ToString
+			cmd.CommandText = strQuery
+			da.Fill(dsPreLiq, "Vales")
+
+			'Pedidos de obsequio y autocarburación
+			strQuery = "EXECUTE spCAConsultaDesgloseObsequios " & _AnoAtt.ToString & ", " & _Folio.ToString
             cmd.CommandText = strQuery
             da.Fill(dsPreLiq, "Obsequios")
 

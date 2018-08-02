@@ -88,15 +88,25 @@ Module Main
     'Se usa en la captura de cobranza.
     Public Event IniciandoSesion()
 
-    Public Function SumaColumna(ByVal NombreTabla As DataTable, ByVal NombreColumna As String) As Decimal
-        Dim _row As DataRow, decTotalSuma As Decimal = 0
-        For Each _row In NombreTabla.Rows
-            decTotalSuma += CType(_row(NombreColumna), Decimal)
-        Next
-        Return decTotalSuma
-    End Function
+	Public Function SumaColumna(ByVal NombreTabla As DataTable, ByVal NombreColumna As String) As Decimal
+		Dim _row As DataRow, decTotalSuma As Decimal = 0
+		For Each _row In NombreTabla.Rows
+			decTotalSuma += CType(_row(NombreColumna), Decimal)
+		Next
+		Return decTotalSuma
+	End Function
 
-    Public Sub Main()
+	Public Function SumaColumna(ByVal FormaPago As Integer, ByVal NombreTabla As DataTable, ByVal NombreColumna As String) As Decimal
+		Dim _row As DataRow, decTotalSuma As Decimal = 0
+		For Each _row In NombreTabla.Rows
+			If (CType(_row("TipoCobro"), Integer) = FormaPago) Then
+				decTotalSuma += CType(_row(NombreColumna), Decimal)
+			End If
+		Next
+		Return decTotalSuma
+	End Function
+
+	Public Sub Main()
         Dim frmAcceso As New SigametSeguridad.UI.Acceso(Application.StartupPath & "\Default.Seguridad y Administracion.exe.config", True, 3, _
             New Bitmap(Application.StartupPath & "\ModuloCaja.ico"))
 

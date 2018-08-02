@@ -41,112 +41,112 @@ Public Class frmCapMovimiento
     Friend WithEvents grpCobroDocumentos As System.Windows.Forms.GroupBox
     Friend WithEvents lblPorCobrarEfectivo As System.Windows.Forms.Label
     Friend WithEvents lblPorCobrarVales As System.Windows.Forms.Label
-    Friend WithEvents lblPorCobrarCheques As System.Windows.Forms.Label
-    Friend WithEvents lblTipoOperacion As System.Windows.Forms.Label
-    Friend WithEvents lblImporteCobranza2 As ControlesBase.LabelBase
-    Friend WithEvents Panel1 As System.Windows.Forms.Panel
-    Friend WithEvents btnConsultaDocumentos As ControlesBase.BotonBase
-    Friend WithEvents btnCambio As ControlesBase.BotonBase
-    Friend WithEvents grdCheque As System.Windows.Forms.DataGrid
-    Friend WithEvents lnkConsultaCheques As System.Windows.Forms.LinkLabel
-    Friend WithEvents lblNoTieneCheques As System.Windows.Forms.Label
-    Friend WithEvents lblEmpleado2 As ControlesBase.LabelBase
-    Friend WithEvents lblFechaAlta2 As ControlesBase.LabelBase
-    Friend WithEvents lblFechaAlta As System.Windows.Forms.Label
-    Friend WithEvents lblNoTieneVales As System.Windows.Forms.Label
-    Friend WithEvents lblPorCobrarEfectivoVales As System.Windows.Forms.Label
-    Friend WithEvents LabelBase1 As ControlesBase.LabelBase
-    Friend WithEvents LabelBase3 As ControlesBase.LabelBase
-    Friend WithEvents LabelBase4 As ControlesBase.LabelBase
-    Friend WithEvents LabelBase5 As ControlesBase.LabelBase
-    Friend WithEvents grpCobroTC As System.Windows.Forms.GroupBox
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents lnkConsultaTarjetaCredito As System.Windows.Forms.LinkLabel
-    Friend WithEvents grdTarjetaCredito As System.Windows.Forms.DataGrid
-    Friend WithEvents EstiloCheques As System.Windows.Forms.DataGridTableStyle
-    Friend WithEvents colChNumeroCheque As System.Windows.Forms.DataGridTextBoxColumn
-    Friend WithEvents colChBancoNombre As System.Windows.Forms.DataGridTextBoxColumn
-    Friend WithEvents lblPorCobrarTC As System.Windows.Forms.Label
-    Friend WithEvents LabelBase6 As ControlesBase.LabelBase
-    Friend WithEvents lblNombreEmpleado As System.Windows.Forms.Label
-    Friend WithEvents Label30 As ControlesBase.LabelBase
-    Friend WithEvents lblRuta As System.Windows.Forms.Label
-    Friend WithEvents lblTipoMovimientoCaja As System.Windows.Forms.Label
-    Friend WithEvents lblFOperacion As System.Windows.Forms.Label
-    Friend WithEvents grdFichaDeposito As System.Windows.Forms.DataGrid
-    Friend WithEvents lnkConsultaFichaDeposito As System.Windows.Forms.LinkLabel
-    Friend WithEvents grpCobroFicha As System.Windows.Forms.GroupBox
-    Friend WithEvents lblCambio2 As ControlesBase.LabelBase
-    Friend WithEvents lblImporteTotalCobro As System.Windows.Forms.Label
-    Friend WithEvents lblImporteTotalCobros As ControlesBase.LabelBase
-    Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents EstiloFicha As System.Windows.Forms.DataGridTableStyle
-    Friend WithEvents colTotal As System.Windows.Forms.DataGridTextBoxColumn
-    Friend WithEvents lblPorCobrarFD As System.Windows.Forms.Label
-    Friend WithEvents LabelBase7 As ControlesBase.LabelBase
-    Friend WithEvents LabelBase8 As ControlesBase.LabelBase
-    Friend WithEvents lblImporteMovimiento As System.Windows.Forms.Label
-    Friend WithEvents grdInfoPreLiq As System.Windows.Forms.DataGrid
-    Friend WithEvents InfoPreLiq As System.Windows.Forms.DataGridTableStyle
-    Friend WithEvents colPLRutaDescripcion As System.Windows.Forms.DataGridTextBoxColumn
-    Friend WithEvents colPLCelula As System.Windows.Forms.DataGridTextBoxColumn
-    Friend WithEvents colPLImporteContado As System.Windows.Forms.DataGridTextBoxColumn
-    Friend WithEvents colPLImporteCredito As System.Windows.Forms.DataGridTextBoxColumn
-    Friend WithEvents colPLFolio As System.Windows.Forms.DataGridTextBoxColumn
-    Friend WithEvents grpDatosMovimiento As System.Windows.Forms.GroupBox
-    Friend WithEvents ComboTipoMovimientoCaja As SigaMetClasses.Combos.ComboTipoMovimientoCaja
-    Friend WithEvents colChTotal As System.Windows.Forms.DataGridTextBoxColumn
-    Friend WithEvents LabelBase2 As ControlesBase.LabelBase
-    Friend WithEvents colPLEficiencia As System.Windows.Forms.DataGridTextBoxColumn
-    Friend WithEvents colPLImporteEficiencia As System.Windows.Forms.DataGridTextBoxColumn
-    Friend WithEvents colPLTipoPagoEficienciaDesc As System.Windows.Forms.DataGridTextBoxColumn
-    Friend WithEvents colPLTipoPagoEficiencia As System.Windows.Forms.DataGridTextBoxColumn
-    Friend WithEvents LabelBase9 As ControlesBase.LabelBase
-    Friend WithEvents lblImporteEficiencia As System.Windows.Forms.Label
-    Friend WithEvents chkIncluirEficiencia As System.Windows.Forms.CheckBox
-    Friend WithEvents grpCobroEficiencia As System.Windows.Forms.GroupBox
-    Friend WithEvents lblCambio As System.Windows.Forms.Label
-    Friend WithEvents lblCambioEntregado As System.Windows.Forms.Label
-    Friend WithEvents LabelBase10 As ControlesBase.LabelBase
-    Friend WithEvents lblFaltante As System.Windows.Forms.Label
-    Friend WithEvents LabelBase11 As ControlesBase.LabelBase
-    Friend WithEvents dtpFMovimiento As System.Windows.Forms.DateTimePicker
-    Friend WithEvents LabelBase12 As ControlesBase.LabelBase
-    Friend WithEvents lblPorCobrarEficiencia As System.Windows.Forms.Label
-    Friend WithEvents LabelBase13 As ControlesBase.LabelBase
-    Friend WithEvents lblStatus As System.Windows.Forms.Label
-    Friend WithEvents lblAFavorOperadorCheques As System.Windows.Forms.Label
-    Friend WithEvents colChSaldo As System.Windows.Forms.DataGridTextBoxColumn
-    Friend WithEvents lblNoTieneEfectivo As System.Windows.Forms.Label
-    Friend WithEvents colChTipoCobro As System.Windows.Forms.DataGridTextBoxColumn
-    Friend WithEvents colTipoCobro As System.Windows.Forms.DataGridTextBoxColumn
-    Friend WithEvents colDocumento As System.Windows.Forms.DataGridTextBoxColumn
-    Friend WithEvents lblMovimientoCajaClave As System.Windows.Forms.Label
-    Friend WithEvents Panel2 As System.Windows.Forms.Panel
-    Friend WithEvents LabelBase15 As ControlesBase.LabelBase
-    Friend WithEvents lblRealEfectivoVales As System.Windows.Forms.Label
-    Friend WithEvents lblFMovimiento As System.Windows.Forms.Label
-    Friend WithEvents colSaldo As System.Windows.Forms.DataGridTextBoxColumn
-    Friend WithEvents picAviso As System.Windows.Forms.PictureBox
-    Friend WithEvents ttMensaje As System.Windows.Forms.ToolTip
-    Friend WithEvents PanelMensaje As System.Windows.Forms.Panel
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
-    Friend WithEvents lblPanelMensaje As System.Windows.Forms.Label
-    Friend WithEvents colPLFInicioRuta As System.Windows.Forms.DataGridTextBoxColumn
-    Friend WithEvents lblObservaciones As System.Windows.Forms.Label
-    Friend WithEvents LabelBase16 As ControlesBase.LabelBase
-    Friend WithEvents lblMotivoCancelacion2 As System.Windows.Forms.Label
-    Friend WithEvents lblMotivoCancelacion1 As ControlesBase.LabelBase
-    Friend WithEvents CobroEfectivo As CapturaEfectivo.Efectivo
-    Friend WithEvents lblCaptAFAvor As System.Windows.Forms.Label
-    Friend WithEvents lnkConsultaIVA As System.Windows.Forms.LinkLabel
-    Friend WithEvents LinkLabel1 As System.Windows.Forms.LinkLabel
-    Friend WithEvents LabelBase14 As ControlesBase.LabelBase
-    Friend WithEvents lblAutoCarb As System.Windows.Forms.Label
-    Friend WithEvents LabelNombreEmpresa1 As NombreEmpresa.LabelNombreEmpresa
-    Friend WithEvents RegistroValeCredito1 As ControlDeValesPromocionales.RegistroValeCredito
-    <System.Diagnostics.DebuggerStepThrough()> _
-    Private Sub InitializeComponent()
+	Friend WithEvents lblTotalVales As System.Windows.Forms.Label
+	Friend WithEvents lblTipoOperacion As System.Windows.Forms.Label
+	Friend WithEvents lblImporteCobranza2 As ControlesBase.LabelBase
+	Friend WithEvents Panel1 As System.Windows.Forms.Panel
+	Friend WithEvents btnConsultaDocumentos As ControlesBase.BotonBase
+	Friend WithEvents btnCambio As ControlesBase.BotonBase
+	Friend WithEvents grdCheque As System.Windows.Forms.DataGrid
+	Friend WithEvents lnkConsultaCheques As System.Windows.Forms.LinkLabel
+	Friend WithEvents lblNoTieneCheques As System.Windows.Forms.Label
+	Friend WithEvents lblEmpleado2 As ControlesBase.LabelBase
+	Friend WithEvents lblFechaAlta2 As ControlesBase.LabelBase
+	Friend WithEvents lblFechaAlta As System.Windows.Forms.Label
+	Friend WithEvents lblNoTieneVales As System.Windows.Forms.Label
+	Friend WithEvents lblTotalEfectivo As System.Windows.Forms.Label
+	Friend WithEvents LabelBase1 As ControlesBase.LabelBase
+	Friend WithEvents LabelBase3 As ControlesBase.LabelBase
+	Friend WithEvents LabelBase4 As ControlesBase.LabelBase
+	Friend WithEvents LabelBase5 As ControlesBase.LabelBase
+	Friend WithEvents grpCobroTC As System.Windows.Forms.GroupBox
+	Friend WithEvents Label2 As System.Windows.Forms.Label
+	Friend WithEvents lnkConsultaTarjetaCredito As System.Windows.Forms.LinkLabel
+	Friend WithEvents grdTarjetaCredito As System.Windows.Forms.DataGrid
+	Friend WithEvents EstiloCheques As System.Windows.Forms.DataGridTableStyle
+	Friend WithEvents colChNumeroCheque As System.Windows.Forms.DataGridTextBoxColumn
+	Friend WithEvents colChBancoNombre As System.Windows.Forms.DataGridTextBoxColumn
+	Friend WithEvents lblTotalTarjetaCredito As System.Windows.Forms.Label
+	Friend WithEvents LabelBase6 As ControlesBase.LabelBase
+	Friend WithEvents lblNombreEmpleado As System.Windows.Forms.Label
+	Friend WithEvents Label30 As ControlesBase.LabelBase
+	Friend WithEvents lblRuta As System.Windows.Forms.Label
+	Friend WithEvents lblTipoMovimientoCaja As System.Windows.Forms.Label
+	Friend WithEvents lblFOperacion As System.Windows.Forms.Label
+	Friend WithEvents grdFichaDeposito As System.Windows.Forms.DataGrid
+	Friend WithEvents lnkConsultaFichaDeposito As System.Windows.Forms.LinkLabel
+	Friend WithEvents grpCobroFicha As System.Windows.Forms.GroupBox
+	Friend WithEvents lblCambio2 As ControlesBase.LabelBase
+	Friend WithEvents lblImporteTotalCobro As System.Windows.Forms.Label
+	Friend WithEvents lblImporteTotalCobros As ControlesBase.LabelBase
+	Friend WithEvents Label3 As System.Windows.Forms.Label
+	Friend WithEvents EstiloFicha As System.Windows.Forms.DataGridTableStyle
+	Friend WithEvents colTotal As System.Windows.Forms.DataGridTextBoxColumn
+	Friend WithEvents lblTotalTarjetaDebito As System.Windows.Forms.Label
+	Friend WithEvents LabelBase7 As ControlesBase.LabelBase
+	Friend WithEvents LabelBase8 As ControlesBase.LabelBase
+	Friend WithEvents lblImporteMovimiento As System.Windows.Forms.Label
+	Friend WithEvents grdInfoPreLiq As System.Windows.Forms.DataGrid
+	Friend WithEvents InfoPreLiq As System.Windows.Forms.DataGridTableStyle
+	Friend WithEvents colPLRutaDescripcion As System.Windows.Forms.DataGridTextBoxColumn
+	Friend WithEvents colPLCelula As System.Windows.Forms.DataGridTextBoxColumn
+	Friend WithEvents colPLImporteContado As System.Windows.Forms.DataGridTextBoxColumn
+	Friend WithEvents colPLImporteCredito As System.Windows.Forms.DataGridTextBoxColumn
+	Friend WithEvents colPLFolio As System.Windows.Forms.DataGridTextBoxColumn
+	Friend WithEvents grpDatosMovimiento As System.Windows.Forms.GroupBox
+	Friend WithEvents ComboTipoMovimientoCaja As SigaMetClasses.Combos.ComboTipoMovimientoCaja
+	Friend WithEvents colChTotal As System.Windows.Forms.DataGridTextBoxColumn
+	Friend WithEvents LabelBase2 As ControlesBase.LabelBase
+	Friend WithEvents colPLEficiencia As System.Windows.Forms.DataGridTextBoxColumn
+	Friend WithEvents colPLImporteEficiencia As System.Windows.Forms.DataGridTextBoxColumn
+	Friend WithEvents colPLTipoPagoEficienciaDesc As System.Windows.Forms.DataGridTextBoxColumn
+	Friend WithEvents colPLTipoPagoEficiencia As System.Windows.Forms.DataGridTextBoxColumn
+	Friend WithEvents LabelBase9 As ControlesBase.LabelBase
+	Friend WithEvents lblImporteEficiencia As System.Windows.Forms.Label
+	Friend WithEvents chkIncluirEficiencia As System.Windows.Forms.CheckBox
+	Friend WithEvents grpCobroEficiencia As System.Windows.Forms.GroupBox
+	Friend WithEvents lblCambio As System.Windows.Forms.Label
+	Friend WithEvents lblCambioEntregado As System.Windows.Forms.Label
+	Friend WithEvents LabelBase10 As ControlesBase.LabelBase
+	Friend WithEvents lblFaltante As System.Windows.Forms.Label
+	Friend WithEvents LabelBase11 As ControlesBase.LabelBase
+	Friend WithEvents dtpFMovimiento As System.Windows.Forms.DateTimePicker
+	Friend WithEvents LabelBase12 As ControlesBase.LabelBase
+	Friend WithEvents lblTotalVarios As System.Windows.Forms.Label
+	Friend WithEvents LabelBase13 As ControlesBase.LabelBase
+	Friend WithEvents lblStatus As System.Windows.Forms.Label
+	Friend WithEvents lblAFavorOperadorCheques As System.Windows.Forms.Label
+	Friend WithEvents colChSaldo As System.Windows.Forms.DataGridTextBoxColumn
+	Friend WithEvents lblNoTieneEfectivo As System.Windows.Forms.Label
+	Friend WithEvents colChTipoCobro As System.Windows.Forms.DataGridTextBoxColumn
+	Friend WithEvents colTipoCobro As System.Windows.Forms.DataGridTextBoxColumn
+	Friend WithEvents colDocumento As System.Windows.Forms.DataGridTextBoxColumn
+	Friend WithEvents lblMovimientoCajaClave As System.Windows.Forms.Label
+	Friend WithEvents Panel2 As System.Windows.Forms.Panel
+	Friend WithEvents LabelBase15 As ControlesBase.LabelBase
+	Friend WithEvents lblRealEfectivoVales As System.Windows.Forms.Label
+	Friend WithEvents lblFMovimiento As System.Windows.Forms.Label
+	Friend WithEvents colSaldo As System.Windows.Forms.DataGridTextBoxColumn
+	Friend WithEvents picAviso As System.Windows.Forms.PictureBox
+	Friend WithEvents ttMensaje As System.Windows.Forms.ToolTip
+	Friend WithEvents PanelMensaje As System.Windows.Forms.Panel
+	Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+	Friend WithEvents lblPanelMensaje As System.Windows.Forms.Label
+	Friend WithEvents colPLFInicioRuta As System.Windows.Forms.DataGridTextBoxColumn
+	Friend WithEvents lblObservaciones As System.Windows.Forms.Label
+	Friend WithEvents LabelBase16 As ControlesBase.LabelBase
+	Friend WithEvents lblMotivoCancelacion2 As System.Windows.Forms.Label
+	Friend WithEvents lblMotivoCancelacion1 As ControlesBase.LabelBase
+	Friend WithEvents CobroEfectivo As CapturaEfectivo.Efectivo
+	Friend WithEvents lblCaptAFAvor As System.Windows.Forms.Label
+	Friend WithEvents lnkConsultaIVA As System.Windows.Forms.LinkLabel
+	Friend WithEvents LinkLabel1 As System.Windows.Forms.LinkLabel
+	Friend WithEvents LabelBase14 As ControlesBase.LabelBase
+	Friend WithEvents lblTotalVale As System.Windows.Forms.Label
+	Friend WithEvents LabelNombreEmpresa1 As NombreEmpresa.LabelNombreEmpresa
+	Friend WithEvents RegistroValeCredito1 As ControlDeValesPromocionales.RegistroValeCredito
+	<System.Diagnostics.DebuggerStepThrough()>
+	Private Sub InitializeComponent()
 		Me.components = New System.ComponentModel.Container()
 		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCapMovimiento))
 		Me.btnCancelar = New ControlesBase.BotonBase()
@@ -218,14 +218,14 @@ Public Class frmCapMovimiento
 		Me.lblNoTieneEfectivo = New System.Windows.Forms.Label()
 		Me.grpCobroDocumentos = New System.Windows.Forms.GroupBox()
 		Me.LabelBase14 = New ControlesBase.LabelBase()
-		Me.lblAutoCarb = New System.Windows.Forms.Label()
+		Me.lblTotalVale = New System.Windows.Forms.Label()
 		Me.lblCaptAFAvor = New System.Windows.Forms.Label()
 		Me.LabelBase15 = New ControlesBase.LabelBase()
 		Me.lblRealEfectivoVales = New System.Windows.Forms.Label()
 		Me.lblAFavorOperadorCheques = New System.Windows.Forms.Label()
-		Me.lblPorCobrarEficiencia = New System.Windows.Forms.Label()
+		Me.lblTotalVarios = New System.Windows.Forms.Label()
 		Me.LabelBase12 = New ControlesBase.LabelBase()
-		Me.lblPorCobrarFD = New System.Windows.Forms.Label()
+		Me.lblTotalTarjetaDebito = New System.Windows.Forms.Label()
 		Me.LabelBase7 = New ControlesBase.LabelBase()
 		Me.grpCobroFicha = New System.Windows.Forms.GroupBox()
 		Me.grdFichaDeposito = New System.Windows.Forms.DataGrid()
@@ -236,7 +236,7 @@ Public Class frmCapMovimiento
 		Me.colSaldo = New System.Windows.Forms.DataGridTextBoxColumn()
 		Me.lnkConsultaFichaDeposito = New System.Windows.Forms.LinkLabel()
 		Me.Label3 = New System.Windows.Forms.Label()
-		Me.lblPorCobrarTC = New System.Windows.Forms.Label()
+		Me.lblTotalTarjetaCredito = New System.Windows.Forms.Label()
 		Me.LabelBase6 = New ControlesBase.LabelBase()
 		Me.grpCobroTC = New System.Windows.Forms.GroupBox()
 		Me.grdTarjetaCredito = New System.Windows.Forms.DataGrid()
@@ -252,8 +252,8 @@ Public Class frmCapMovimiento
 		Me.lblCambio2 = New ControlesBase.LabelBase()
 		Me.lblImporteTotalCobro = New System.Windows.Forms.Label()
 		Me.lblImporteTotalCobros = New ControlesBase.LabelBase()
-		Me.lblPorCobrarEfectivoVales = New System.Windows.Forms.Label()
-		Me.lblPorCobrarCheques = New System.Windows.Forms.Label()
+		Me.lblTotalEfectivo = New System.Windows.Forms.Label()
+		Me.lblTotalVales = New System.Windows.Forms.Label()
 		Me.LabelBase5 = New ControlesBase.LabelBase()
 		Me.LabelBase4 = New ControlesBase.LabelBase()
 		Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
@@ -1043,17 +1043,17 @@ Public Class frmCapMovimiento
 		'grpCobroDocumentos
 		'
 		Me.grpCobroDocumentos.Controls.Add(Me.LabelBase14)
-		Me.grpCobroDocumentos.Controls.Add(Me.lblAutoCarb)
+		Me.grpCobroDocumentos.Controls.Add(Me.lblTotalVale)
 		Me.grpCobroDocumentos.Controls.Add(Me.lblCaptAFAvor)
 		Me.grpCobroDocumentos.Controls.Add(Me.LabelBase15)
 		Me.grpCobroDocumentos.Controls.Add(Me.lblRealEfectivoVales)
 		Me.grpCobroDocumentos.Controls.Add(Me.lblAFavorOperadorCheques)
-		Me.grpCobroDocumentos.Controls.Add(Me.lblPorCobrarEficiencia)
+		Me.grpCobroDocumentos.Controls.Add(Me.lblTotalVarios)
 		Me.grpCobroDocumentos.Controls.Add(Me.LabelBase12)
-		Me.grpCobroDocumentos.Controls.Add(Me.lblPorCobrarFD)
+		Me.grpCobroDocumentos.Controls.Add(Me.lblTotalTarjetaDebito)
 		Me.grpCobroDocumentos.Controls.Add(Me.LabelBase7)
 		Me.grpCobroDocumentos.Controls.Add(Me.grpCobroFicha)
-		Me.grpCobroDocumentos.Controls.Add(Me.lblPorCobrarTC)
+		Me.grpCobroDocumentos.Controls.Add(Me.lblTotalTarjetaCredito)
 		Me.grpCobroDocumentos.Controls.Add(Me.LabelBase6)
 		Me.grpCobroDocumentos.Controls.Add(Me.grpCobroTC)
 		Me.grpCobroDocumentos.Controls.Add(Me.btnCambio)
@@ -1061,8 +1061,8 @@ Public Class frmCapMovimiento
 		Me.grpCobroDocumentos.Controls.Add(Me.grpCobroCheque)
 		Me.grpCobroDocumentos.Controls.Add(Me.grpCobroEfectivo)
 		Me.grpCobroDocumentos.Controls.Add(Me.Panel1)
-		Me.grpCobroDocumentos.Controls.Add(Me.lblPorCobrarEfectivoVales)
-		Me.grpCobroDocumentos.Controls.Add(Me.lblPorCobrarCheques)
+		Me.grpCobroDocumentos.Controls.Add(Me.lblTotalEfectivo)
+		Me.grpCobroDocumentos.Controls.Add(Me.lblTotalVales)
 		Me.grpCobroDocumentos.Controls.Add(Me.LabelBase5)
 		Me.grpCobroDocumentos.Controls.Add(Me.LabelBase4)
 		Me.grpCobroDocumentos.Controls.Add(Me.LinkLabel1)
@@ -1077,22 +1077,22 @@ Public Class frmCapMovimiento
 		'LabelBase14
 		'
 		Me.LabelBase14.AutoSize = True
-		Me.LabelBase14.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.LabelBase14.Location = New System.Drawing.Point(8, 603)
+		Me.LabelBase14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.LabelBase14.Location = New System.Drawing.Point(26, 601)
 		Me.LabelBase14.Name = "LabelBase14"
-		Me.LabelBase14.Size = New System.Drawing.Size(60, 15)
+		Me.LabelBase14.Size = New System.Drawing.Size(31, 13)
 		Me.LabelBase14.TabIndex = 67
-		Me.LabelBase14.Text = "Obs./A.carb:"
+		Me.LabelBase14.Text = "Vale:"
 		'
-		'lblAutoCarb
+		'lblTotalVale
 		'
-		Me.lblAutoCarb.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-		Me.lblAutoCarb.ForeColor = System.Drawing.Color.DarkRed
-		Me.lblAutoCarb.Location = New System.Drawing.Point(64, 603)
-		Me.lblAutoCarb.Name = "lblAutoCarb"
-		Me.lblAutoCarb.Size = New System.Drawing.Size(80, 16)
-		Me.lblAutoCarb.TabIndex = 66
-		Me.lblAutoCarb.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		Me.lblTotalVale.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+		Me.lblTotalVale.ForeColor = System.Drawing.SystemColors.ControlText
+		Me.lblTotalVale.Location = New System.Drawing.Point(64, 601)
+		Me.lblTotalVale.Name = "lblTotalVale"
+		Me.lblTotalVale.Size = New System.Drawing.Size(80, 16)
+		Me.lblTotalVale.TabIndex = 66
+		Me.lblTotalVale.TextAlign = System.Drawing.ContentAlignment.MiddleRight
 		'
 		'lblCaptAFAvor
 		'
@@ -1136,43 +1136,45 @@ Public Class frmCapMovimiento
 		Me.lblAFavorOperadorCheques.TabIndex = 61
 		Me.lblAFavorOperadorCheques.TextAlign = System.Drawing.ContentAlignment.MiddleRight
 		'
-		'lblPorCobrarEficiencia
+		'lblTotalVarios
 		'
-		Me.lblPorCobrarEficiencia.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-		Me.lblPorCobrarEficiencia.ForeColor = System.Drawing.SystemColors.ControlText
-		Me.lblPorCobrarEficiencia.Location = New System.Drawing.Point(64, 584)
-		Me.lblPorCobrarEficiencia.Name = "lblPorCobrarEficiencia"
-		Me.lblPorCobrarEficiencia.Size = New System.Drawing.Size(80, 16)
-		Me.lblPorCobrarEficiencia.TabIndex = 59
-		Me.lblPorCobrarEficiencia.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		Me.lblTotalVarios.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+		Me.lblTotalVarios.ForeColor = System.Drawing.SystemColors.ControlText
+		Me.lblTotalVarios.Location = New System.Drawing.Point(64, 584)
+		Me.lblTotalVarios.Name = "lblTotalVarios"
+		Me.lblTotalVarios.Size = New System.Drawing.Size(80, 16)
+		Me.lblTotalVarios.TabIndex = 59
+		Me.lblTotalVarios.TextAlign = System.Drawing.ContentAlignment.MiddleRight
 		'
 		'LabelBase12
 		'
 		Me.LabelBase12.AutoSize = True
-		Me.LabelBase12.Location = New System.Drawing.Point(8, 584)
+		Me.LabelBase12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.LabelBase12.Location = New System.Drawing.Point(18, 584)
 		Me.LabelBase12.Name = "LabelBase12"
-		Me.LabelBase12.Size = New System.Drawing.Size(55, 13)
+		Me.LabelBase12.Size = New System.Drawing.Size(39, 13)
 		Me.LabelBase12.TabIndex = 60
-		Me.LabelBase12.Text = "Eficiencia:"
+		Me.LabelBase12.Text = "Varios:"
 		'
-		'lblPorCobrarFD
+		'lblTotalTarjetaDebito
 		'
-		Me.lblPorCobrarFD.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-		Me.lblPorCobrarFD.ForeColor = System.Drawing.SystemColors.ControlText
-		Me.lblPorCobrarFD.Location = New System.Drawing.Point(64, 568)
-		Me.lblPorCobrarFD.Name = "lblPorCobrarFD"
-		Me.lblPorCobrarFD.Size = New System.Drawing.Size(80, 16)
-		Me.lblPorCobrarFD.TabIndex = 57
-		Me.lblPorCobrarFD.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		Me.lblTotalTarjetaDebito.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+		Me.lblTotalTarjetaDebito.ForeColor = System.Drawing.SystemColors.ControlText
+		Me.lblTotalTarjetaDebito.Location = New System.Drawing.Point(64, 568)
+		Me.lblTotalTarjetaDebito.Name = "lblTotalTarjetaDebito"
+		Me.lblTotalTarjetaDebito.Size = New System.Drawing.Size(80, 16)
+		Me.lblTotalTarjetaDebito.TabIndex = 57
+		Me.lblTotalTarjetaDebito.TextAlign = System.Drawing.ContentAlignment.MiddleRight
 		'
 		'LabelBase7
 		'
 		Me.LabelBase7.AutoSize = True
-		Me.LabelBase7.Location = New System.Drawing.Point(8, 568)
+		Me.LabelBase7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.LabelBase7.Location = New System.Drawing.Point(3, 568)
 		Me.LabelBase7.Name = "LabelBase7"
-		Me.LabelBase7.Size = New System.Drawing.Size(41, 13)
+		Me.LabelBase7.Size = New System.Drawing.Size(54, 13)
 		Me.LabelBase7.TabIndex = 58
-		Me.LabelBase7.Text = "Fichas:"
+		Me.LabelBase7.Text = "T. Débito:"
 		'
 		'grpCobroFicha
 		'
@@ -1264,22 +1266,23 @@ Public Class frmCapMovimiento
 		Me.Label3.Text = "El movimiento no tiene cobros con ficha de depósito"
 		Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
 		'
-		'lblPorCobrarTC
+		'lblTotalTarjetaCredito
 		'
-		Me.lblPorCobrarTC.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-		Me.lblPorCobrarTC.ForeColor = System.Drawing.SystemColors.ControlText
-		Me.lblPorCobrarTC.Location = New System.Drawing.Point(64, 552)
-		Me.lblPorCobrarTC.Name = "lblPorCobrarTC"
-		Me.lblPorCobrarTC.Size = New System.Drawing.Size(80, 16)
-		Me.lblPorCobrarTC.TabIndex = 53
-		Me.lblPorCobrarTC.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		Me.lblTotalTarjetaCredito.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+		Me.lblTotalTarjetaCredito.ForeColor = System.Drawing.SystemColors.ControlText
+		Me.lblTotalTarjetaCredito.Location = New System.Drawing.Point(64, 552)
+		Me.lblTotalTarjetaCredito.Name = "lblTotalTarjetaCredito"
+		Me.lblTotalTarjetaCredito.Size = New System.Drawing.Size(80, 16)
+		Me.lblTotalTarjetaCredito.TabIndex = 53
+		Me.lblTotalTarjetaCredito.TextAlign = System.Drawing.ContentAlignment.MiddleRight
 		'
 		'LabelBase6
 		'
 		Me.LabelBase6.AutoSize = True
-		Me.LabelBase6.Location = New System.Drawing.Point(8, 552)
+		Me.LabelBase6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.LabelBase6.Location = New System.Drawing.Point(4, 552)
 		Me.LabelBase6.Name = "LabelBase6"
-		Me.LabelBase6.Size = New System.Drawing.Size(56, 13)
+		Me.LabelBase6.Size = New System.Drawing.Size(53, 13)
 		Me.LabelBase6.TabIndex = 54
 		Me.LabelBase6.Text = "T.Crédito:"
 		'
@@ -1443,42 +1446,44 @@ Public Class frmCapMovimiento
 		Me.lblImporteTotalCobros.TabIndex = 45
 		Me.lblImporteTotalCobros.Text = "Importe total de cobros:"
 		'
-		'lblPorCobrarEfectivoVales
+		'lblTotalEfectivo
 		'
-		Me.lblPorCobrarEfectivoVales.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-		Me.lblPorCobrarEfectivoVales.ForeColor = System.Drawing.SystemColors.ControlText
-		Me.lblPorCobrarEfectivoVales.Location = New System.Drawing.Point(64, 520)
-		Me.lblPorCobrarEfectivoVales.Name = "lblPorCobrarEfectivoVales"
-		Me.lblPorCobrarEfectivoVales.Size = New System.Drawing.Size(80, 16)
-		Me.lblPorCobrarEfectivoVales.TabIndex = 47
-		Me.lblPorCobrarEfectivoVales.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		Me.lblTotalEfectivo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+		Me.lblTotalEfectivo.ForeColor = System.Drawing.SystemColors.ControlText
+		Me.lblTotalEfectivo.Location = New System.Drawing.Point(64, 520)
+		Me.lblTotalEfectivo.Name = "lblTotalEfectivo"
+		Me.lblTotalEfectivo.Size = New System.Drawing.Size(80, 16)
+		Me.lblTotalEfectivo.TabIndex = 47
+		Me.lblTotalEfectivo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
 		'
-		'lblPorCobrarCheques
+		'lblTotalVales
 		'
-		Me.lblPorCobrarCheques.BackColor = System.Drawing.Color.Gainsboro
-		Me.lblPorCobrarCheques.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-		Me.lblPorCobrarCheques.ForeColor = System.Drawing.SystemColors.ControlText
-		Me.lblPorCobrarCheques.Location = New System.Drawing.Point(64, 536)
-		Me.lblPorCobrarCheques.Name = "lblPorCobrarCheques"
-		Me.lblPorCobrarCheques.Size = New System.Drawing.Size(80, 16)
-		Me.lblPorCobrarCheques.TabIndex = 42
-		Me.lblPorCobrarCheques.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		Me.lblTotalVales.BackColor = System.Drawing.Color.Gainsboro
+		Me.lblTotalVales.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+		Me.lblTotalVales.ForeColor = System.Drawing.SystemColors.ControlText
+		Me.lblTotalVales.Location = New System.Drawing.Point(64, 536)
+		Me.lblTotalVales.Name = "lblTotalVales"
+		Me.lblTotalVales.Size = New System.Drawing.Size(80, 16)
+		Me.lblTotalVales.TabIndex = 42
+		Me.lblTotalVales.TextAlign = System.Drawing.ContentAlignment.MiddleRight
 		'
 		'LabelBase5
 		'
 		Me.LabelBase5.AutoSize = True
+		Me.LabelBase5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.LabelBase5.Location = New System.Drawing.Point(8, 520)
 		Me.LabelBase5.Name = "LabelBase5"
-		Me.LabelBase5.Size = New System.Drawing.Size(50, 13)
+		Me.LabelBase5.Size = New System.Drawing.Size(49, 13)
 		Me.LabelBase5.TabIndex = 51
 		Me.LabelBase5.Text = "Efectivo:"
 		'
 		'LabelBase4
 		'
 		Me.LabelBase4.AutoSize = True
-		Me.LabelBase4.Location = New System.Drawing.Point(8, 536)
+		Me.LabelBase4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.LabelBase4.Location = New System.Drawing.Point(5, 536)
 		Me.LabelBase4.Name = "LabelBase4"
-		Me.LabelBase4.Size = New System.Drawing.Size(53, 13)
+		Me.LabelBase4.Size = New System.Drawing.Size(52, 13)
 		Me.LabelBase4.TabIndex = 50
 		Me.LabelBase4.Text = "Cheques:"
 		'
@@ -1638,907 +1643,936 @@ Public Class frmCapMovimiento
 #Region "Variables"
 
 	Private Titulo As String
-    Private MovimientoCajaClave As String
-    Private TipoOperacion As TipoOperacionMovimientoCaja  'Indica el tipo de operacion que se está realizando.
-    Private bytCaja As Byte
-    Private dtmFOperacion As Date
-    Private bytConsecutivo As Byte
-    Private intFolio As Integer
-    Private shrAnoCobro As Short
-    Private intCobro As Integer
-    Private dtmFAlta As Date
-    Private RutaMovimiento As Short 'Es la ruta a la que le pertenece el movimiento
-    Private AutotanqueTurno_AnoAtt As Short 'Dato del registro en AutotanqueTurno (Liquidacion)
-    Private AutotanqueTurno_Folio As Integer 'Dato del registro en AutotanqueTurno (Liquidacion)
-    Private TipoMovimientoCaja As Byte 'Tipo de movimiento que se está efectuando
-    Private arrCambio As Array 'Arreglo para las denominaciones del cambio desglosado
-    Private decImporteTotalMovimiento As Decimal 'Importe total del movimiento
-    Private decImporteTotalCobros As Decimal 'Importe de la suma total de los cobros
-    Private decImporteCambio As Decimal 'Importe del cambio que se genera del movimiento
-    Private decImporteCambioDesglosado As Decimal
-    Private decImporteRealACobrar As Decimal '20 de feb
-    Private strNombreEmpleado As String 'Nombre del empleado que capturó el movimiento
-    Private blnNotaIngreso As Boolean
+	Private MovimientoCajaClave As String
+	Private TipoOperacion As TipoOperacionMovimientoCaja  'Indica el tipo de operacion que se está realizando.
+	Private bytCaja As Byte
+	Private dtmFOperacion As Date
+	Private bytConsecutivo As Byte
+	Private intFolio As Integer
+	Private shrAnoCobro As Short
+	Private intCobro As Integer
+	Private dtmFAlta As Date
+	Private RutaMovimiento As Short 'Es la ruta a la que le pertenece el movimiento
+	Private AutotanqueTurno_AnoAtt As Short 'Dato del registro en AutotanqueTurno (Liquidacion)
+	Private AutotanqueTurno_Folio As Integer 'Dato del registro en AutotanqueTurno (Liquidacion)
+	Private TipoMovimientoCaja As Byte 'Tipo de movimiento que se está efectuando
+	Private arrCambio As Array 'Arreglo para las denominaciones del cambio desglosado
+	Private decImporteTotalMovimiento As Decimal 'Importe total del movimiento
+	Private decImporteTotalCobros As Decimal 'Importe de la suma total de los cobros
+	Private decImporteCambio As Decimal 'Importe del cambio que se genera del movimiento
+	Private decImporteCambioDesglosado As Decimal
+	Private decImporteRealACobrar As Decimal '20 de feb
+	Private strNombreEmpleado As String 'Nombre del empleado que capturó el movimiento
+	Private blnNotaIngreso As Boolean
 
 
-    Private PorCobrarEfectivo As Decimal = 0
-    Private PorCobrarVales As Decimal = 0
-    Private PorCobrarCheques As Decimal = 0
-    Private AFavorOperadorCheques As Decimal = 0
-    Private PorCobrarEfectivoVales As Decimal = 0
-    Private PorCobrarTarjetaCredito As Decimal = 0
-    Private PorCobrarFichaDeposito As Decimal = 0
+	Private PorCobrarEfectivo As Decimal = 0
+	Private PorCobrarVales As Decimal = 0
+	Private AFavorVales As Decimal = 0
+	Private PorCobrarCheques As Decimal = 0
+	Private AFavorCheques As Decimal = 0
+	Private AFavorOperadorCheques As Decimal = 0
+	Private PorCobrarEfectivoVales As Decimal = 0
+	Private PorCobrarTarjetaCredito As Decimal = 0
+	Private AFavorTarjetaCredito As Decimal = 0
+	Private PorCobrarTarjetaDebito As Decimal = 0
+	Private AFavorTarjetaDebito As Decimal = 0
+	Private PorCobrarFichaDeposito As Decimal = 0
+	Private AfavorFichaDeposito As Decimal = 0
 
-    Private dr As DataRow
+	Private dr As DataRow
 
-    Private dtCobroPedido As MiDataTable
-    Private dtCambio As MiDataTableCambio
-    Private dtDenominacion As DataTable
-    Private dtCobroPedidoLiq As DataTable
-    Private dtCobro As DataTable
-    Private dtTarjetaCreditoLiq As DataTable
-    Private dtEfectivoVales As DataTable
-    Private dtCheques As DataTable
-    Private dtTarjetaCredito As DataTable
-    Private dtFichaDeposito As DataTable
-    Private ImporteEficiencia As Decimal
-    Private Celula As Integer
+	Private dtCobroPedido As MiDataTable
+	Private dtCambio As MiDataTableCambio
+	Private dtDenominacion As DataTable
+	Private dtCobroPedidoLiq As DataTable
+	Private dtCobro As DataTable
+	Private dtTarjetaCreditoLiq As DataTable
+	Private dtEfectivoVales As DataTable
+	Private dtVales As DataTable
+	Private dtCheques As DataTable
+	Private dtTarjetaCredito As DataTable
+	Private dtFichaDeposito As DataTable
+	Private ImporteEficiencia As Decimal
+	Private Celula As Integer
 
-    'para mostrar el importe de obsequios y autocarburaciones
-    Private dtObsequios As DataTable
+	'para mostrar el importe de obsequios y autocarburaciones
+	Private dtObsequios As DataTable
 
-    'Para control de saldos a favor
-    Private saldoAFavor As Decimal = 0
+	'Para control de saldos a favor
+	Private saldoAFavor As Decimal = 0
 
-    'Control de vales promocionales
-    Dim frmConsultaValePromocion As New ControlDeValesPromocionales.frmCapturaPagosConVale()
+	'Control de vales promocionales
+	Dim frmConsultaValePromocion As New ControlDeValesPromocionales.frmCapturaPagosConVale()
 #End Region
 
 #Region "Inicio"
 
-    Public Sub New(ByVal DatosMovimiento As DataSet)
-        '************************
-        'LIQUIDACION A OPERADORES
-        '************************
-
-
-
-
-
-        MyBase.New()
-        InitializeComponent()
-        Titulo = "Liquidación a Operadores"
-        TipoOperacion = TipoOperacionMovimientoCaja.Liquidacion
-
-
-
-
-
-
-
-
-        grdInfoPreLiq.DataSource = DatosMovimiento.Tables("InfoPreLiq")
-
-        Dim _Celula As Byte = CType(DatosMovimiento.Tables("InfoPreLiq").Rows(0).Item("Celula"), Byte)
-
-        dtCobro = DatosMovimiento.Tables("Cobro")
-        dtCobroPedidoLiq = DatosMovimiento.Tables("CobroPedido")
-
-        'Importe total del movimiento
-        decImporteTotalMovimiento = SumaColumna(dtCobroPedidoLiq, "CobroPedidoTotal")
-        lblImporteMovimiento.Text = decImporteTotalMovimiento.ToString("C")
-
-        'Checo si el Importe total del movimiento es válido
-        '18 de noviembre del 2002
-        If decImporteTotalMovimiento <= 0 Then
-            'btnAceptar.Enabled = False
-        End If
-
-        'Valida la aplicación de la promoción
-        RegistroValeCredito1.Visible = GLOBAL_Promocion
-
-        If DatosMovimiento.Tables("EfectivoVales").Rows.Count <= 0 Then
-            CobroEfectivo.Enabled = False
-            Vales.Enabled = False
-
-            If GLOBAL_Promocion Then
-                RegistroValeCredito1.Enabled = False
-            End If
-        Else
-            dtEfectivoVales = DatosMovimiento.Tables("EfectivoVales")
-            PorCobrarEfectivoVales = SumaColumna(dtEfectivoVales, "Total")
-        End If
-
-        If DatosMovimiento.Tables("Cheques").Rows.Count <= 0 Then
-            lnkConsultaCheques.Visible = False
-            grdCheque.Visible = False
-        Else
-            dtCheques = DatosMovimiento.Tables("Cheques")
-
-
-            Dim lTransformadorCRM As New TransformadorCRM()
-            dtCheques = lTransformadorCRM.ConsultaChequesCRM(dtCheques)
-
-            grdCheque.DataSource = dtCheques
-            PorCobrarCheques = SumaColumna(dtCheques, "Total")
-            AFavorOperadorCheques = SumaColumna(dtCheques, "Saldo")
-        End If
-
-        If DatosMovimiento.Tables("TarjetaCredito").Rows.Count <= 0 Then
-            lnkConsultaTarjetaCredito.Visible = False
-            grdTarjetaCredito.Visible = False
-        Else
-            dtTarjetaCreditoLiq = DatosMovimiento.Tables("TarjetaCredito")
-            grdTarjetaCredito.DataSource = dtTarjetaCreditoLiq
-            PorCobrarTarjetaCredito = SumaColumna(dtTarjetaCreditoLiq, "Total")
-            '08 de agosto del 2006
-            AFavorOperadorCheques += SumaColumna(dtTarjetaCreditoLiq, "Saldo")
-        End If
-
-        If DatosMovimiento.Tables("FichaDeposito").Rows.Count <= 0 Then
-            lnkConsultaFichaDeposito.Visible = False
-            grdFichaDeposito.Visible = False
-        Else
-            dtFichaDeposito = DatosMovimiento.Tables("FichaDeposito")
-            grdFichaDeposito.DataSource = dtFichaDeposito
-            PorCobrarFichaDeposito = SumaColumna(dtFichaDeposito, "Total")
-            '20 de marzo del 2003
-            AFavorOperadorCheques += SumaColumna(dtFichaDeposito, "Saldo")
-        End If
-
-        'Parametrización del saldo a favor:
-        If GLOBAL_SaldoAFavor And (Not (dtCheques Is Nothing) _
-            AndAlso dtCheques.Rows.Count > 0) Then
-            saldoAFavor = CType(IIf(dtCheques.Compute("SUM(Saldo)", "SaldoAFavor = 1") Is DBNull.Value, _
-            0, dtCheques.Compute("SUM(Saldo)", "SaldoAFavor = 1")), Decimal)
-        End If
-
-        'Datos de obsequios
-        If DatosMovimiento.Tables("Obsequios").Rows.Count <= 0 Then
-            LinkLabel1.Visible = False
-        Else
-            dtObsequios = DatosMovimiento.Tables("Obsequios")
-        End If
-
-
-        lblTipoOperacion.Text = Titulo
-        lblFOperacion.Text = Main.FechaOperacion.Date.ToShortDateString
-
-        'Datos de la preliquidación en células 
-        'Ult.Mod: 19 de noviembre del 2002
-        If DatosMovimiento.Tables("InfoPreLiq").Rows.Count = 1 Then
-            lblRuta.Text = CType(DatosMovimiento.Tables("InfoPreLiq").Rows(0).Item("RutaDescripcion"), String)
-            Celula = CType(DatosMovimiento.Tables("InfoPreLiq").Rows(0).Item("Celula"), Integer)
-            RutaMovimiento = CType(DatosMovimiento.Tables("InfoPreLiq").Rows(0).Item("Ruta"), Short)
-            AutotanqueTurno_AnoAtt = CType(DatosMovimiento.Tables("InfoPreLiq").Rows(0).Item("AñoAtt"), Short)
-            AutotanqueTurno_Folio = CType(DatosMovimiento.Tables("InfoPreLiq").Rows(0).Item("Folio"), Integer)
-
-            '11 de marzo del 2003
-
-            Dim FInicioRuta As Date = CType(DatosMovimiento.Tables("InfoPreLiq").Rows(0).Item("FInicioRuta"), Date).Date
-
-            '**************************************
-            'Regla de la hora maxima de liquidacion
-            '19 de junio del 2003
-            '**************************************
-
-            If FInicioRuta = Now.Date Then
-                dtpFMovimiento.Value = Now.Date
-            Else
-                If Main.GLOBAL_ReglaHoraLiquidacion = True Then
-                    If Now <= GLOBAL_MaxHoraLiquidacion Then
-                        dtpFMovimiento.Value = FInicioRuta
-                        lblFMovimiento.BackColor = Color.Red
-                        lblFMovimiento.ForeColor = Color.White
-                        picAviso.Visible = True
-                        ttMensaje.Active = True
-                    Else
-                        lblPanelMensaje.Text &= FInicioRuta.ToLongDateString
-                        PanelMensaje.Visible = True
-                        dtpFMovimiento.Value = Now.Date
-                    End If
-                Else
-                    lblPanelMensaje.Text &= FInicioRuta.ToLongDateString
-                    PanelMensaje.Visible = True
-                    dtpFMovimiento.Value = Now.Date
-                End If
-            End If
-
-            lblFMovimiento.Text = dtpFMovimiento.Value.ToLongDateString
-            'Fin
-
-            If CType(DatosMovimiento.Tables("InfoPreliq").Rows(0).Item("ImporteContado"), Decimal) <> decImporteTotalMovimiento Then
-                MessageBox.Show("El movimiento tiene cifras incongruentes entre los documentos y la báscula." & Chr(13) & _
-                                "El movimiento no podra ser dado de alta." & Chr(13) & _
-                                "Reporte este problema al administrador del sistema.", Titulo, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                grpDatosMovimiento.BackColor = Color.Red
-                btnAceptar.Enabled = False
-            End If
-
-
-            If Not IsDBNull(DatosMovimiento.Tables("InfoPreLiq").Rows(0).Item("TipoPagoEficiencia")) Then
-                If CType(DatosMovimiento.Tables("InfoPreLiq").Rows(0).Item("TipoPagoEficiencia"), Byte) = 1 Or _
-                   CType(DatosMovimiento.Tables("InfoPreLiq").Rows(0).Item("TipoPagoEficiencia"), Byte) = 2 Then
-                    ImporteEficiencia = CType(DatosMovimiento.Tables("InfoPreLiq").Rows(0).Item("ImporteEficiencia"), Decimal)
-                End If
-            End If
-        Else
-            btnAceptar.Enabled = False
-        End If
-
-        'Desactivo la opción del cobro de la eficiencia si
-        'la eficiencia de esa ruta es menor o igual a cero
-        If ImporteEficiencia <= 0 Then
-            grpCobroEficiencia.Enabled = False
-        End If
-
-        AsignaValores()
-
-        btnConsultaDocumentos.Visible = True
-        'Modificación del día 03 de junio
-        'Carga el tipo de movimiento correcto para cuando son servicios técnicos
-
-        If _Celula <> 14 Then
-            ComboTipoMovimientoCaja.CargaDatos(2, False)
-        Else
-            ComboTipoMovimientoCaja.CargaDatos(32, False)
-        End If
-
-        ComboTipoMovimientoCaja.SelectedIndex = 0
-        ComboTipoMovimientoCaja.Visible = True
-
-
-        lnkConsultaIVA.Visible = True
-    End Sub
-
-
-    Public Sub New(ByVal Tipo As TipoOperacionMovimientoCaja, _
-                   ByVal DatosMovimiento As DataSet, _
-                   ByVal Caja As Byte, _
-                   ByVal FOperacion As Date, _
-                   ByVal Consecutivo As Byte, _
-                   ByVal Folio As Integer, _
-                   ByVal FAlta As Date)
-
-        MyBase.New()
-        InitializeComponent()
-
-
-        'Pre-cargo los datos que vienen desde la consulta
-
-        TipoOperacion = Tipo
-        dtCobroPedido = CType(DatosMovimiento.Tables("Cobro"), MiDataTable)
-        dtDenominacion = DatosMovimiento.Tables("Denominacion")
-        dtCambio = CType(DatosMovimiento.Tables("Cambio"), MiDataTableCambio)
-        bytCaja = Caja
-        dtmFOperacion = FOperacion
-        bytConsecutivo = Consecutivo
-        intFolio = Folio
-        dtmFAlta = FAlta
-        MovimientoCajaClave = CType(DatosMovimiento.Tables("Cabecera").Rows(0).Item("Clave"), String)
-        decImporteTotalMovimiento = SumaColumna(dtCobroPedido, "CobroPedidoTotal")
-        lblImporteMovimiento.Text = decImporteTotalMovimiento.ToString("C")
-        lblStatus.Text = CType(DatosMovimiento.Tables("Cabecera").Rows(0).Item("MovimientoCajaStatus"), String)
-        If Trim(CType(DatosMovimiento.Tables("Cabecera").Rows(0).Item("MovimientoCajaStatus"), String)) = "CANCELADO" Then
-            lblMotivoCancelacion1.Visible = True
-            lblMotivoCancelacion2.Visible = True
-            lblMotivoCancelacion2.Text = CType(DatosMovimiento.Tables("Cabecera").Rows(0).Item("MotivoCancelacion"), String)
-        End If
-        lblTipoMovimientoCaja.Text = CType(DatosMovimiento.Tables("Cabecera").Rows(0).Item("TipoMovimientoCajaDescripcion"), String)
-        lblFOperacion.Text = CType(DatosMovimiento.Tables("Cabecera").Rows(0).Item("FOperacion"), Date).ToShortDateString
-        blnNotaIngreso = CType(DatosMovimiento.Tables("Cabecera").Rows(0).Item("NotaIngreso"), Boolean)
-
-        '11 de marzo del 2003
-        If Now.Date.Day <= Main.GLOBAL_DiasAjuste Then
-            dtpFMovimiento.Value = CType(DatosMovimiento.Tables("Cabecera").Rows(0).Item("FMovimiento"), Date)
-            lblFMovimiento.BackColor = Color.LemonChiffon
-            lblPanelMensaje.Text = "La cobranza pertenece al día " & dtpFMovimiento.Value.ToLongDateString
-            PanelMensaje.Visible = True
-        Else
-            dtpFMovimiento.Value = Now.Date
-        End If
-        lblFMovimiento.Text = dtpFMovimiento.Value.ToLongDateString
-
-        lblRuta.Text = CType(DatosMovimiento.Tables("Cabecera").Rows(0).Item("RutaDescripcion"), String)
-        lblNombreEmpleado.Text = CType(DatosMovimiento.Tables("Cabecera").Rows(0).Item("Empleado"), String) & " " & _
-                                 CType(DatosMovimiento.Tables("Cabecera").Rows(0).Item("EmpleadoNombre"), String)
-        lblObservaciones.Text = CType(DatosMovimiento.Tables("Cabecera").Rows(0).Item("Observaciones"), String)
-
-        'Fin del pre-cargo
-
-        If dtCobroPedido.Rows.Count > 0 Then
-            dr = dtCobroPedido.Rows(0)
-            shrAnoCobro = CType(dr("AñoCobro"), Short)
-            intCobro = CType(dr("Cobro"), Integer)
-            btnConsultaDocumentos.Visible = True
-        Else
-            btnConsultaDocumentos.Visible = False
-        End If
-
-        'Paso la lista de cheques al grid si tiene cheques relacionados
-        'de lo contrario escondo el grid y el link.
-        If DatosMovimiento.Tables("Cheques").Rows.Count <= 0 Then
-            lnkConsultaCheques.Visible = False
-            grdCheque.Visible = False
-        Else
-            dtCheques = DatosMovimiento.Tables("Cheques")
-            grdCheque.DataSource = dtCheques
-            'PorCobrarCheques = dtCobroPedido.ImporteTotalCheques
-            PorCobrarCheques = SumaColumna(dtCheques, "Total")
-            AFavorOperadorCheques = SumaColumna(dtCheques, "Saldo")
-        End If
-
-        'Paso la lista de cobros con tarjeta de crédito al grid si tiene 
-        'de lo contrario escondo el grid y el link.
-        If DatosMovimiento.Tables("TarjetaCredito").Rows.Count <= 0 Then
-            lnkConsultaTarjetaCredito.Visible = False
-            grdTarjetaCredito.Visible = False
-        Else
-            dtTarjetaCredito = DatosMovimiento.Tables("TarjetaCredito")
-            grdTarjetaCredito.DataSource = dtTarjetaCredito
-            PorCobrarTarjetaCredito = SumaColumna(dtTarjetaCredito, "Total")
-        End If
-
-        If DatosMovimiento.Tables("FichaDeposito").Rows.Count <= 0 Then
-            lnkConsultaFichaDeposito.Visible = False
-            grdFichaDeposito.Visible = False
-        Else
-            dtFichaDeposito = DatosMovimiento.Tables("FichaDeposito")
-            grdFichaDeposito.DataSource = dtFichaDeposito
-            PorCobrarFichaDeposito = SumaColumna(dtFichaDeposito, "Total")
-            'Cambio hecho el 20 de marzo del 2003
-            AFavorOperadorCheques += SumaColumna(dtFichaDeposito, "Saldo")
-        End If
-
-        'Consulta de los datos de los cobros.
-        PorCobrarEfectivo = dtCobroPedido.ImporteTotalEfectivo
-        PorCobrarVales = dtCobroPedido.ImporteTotalVales
-        '27 de junio del 2003
-        If CType(DatosMovimiento.Tables("Cabecera").Rows(0).Item("NotaIngreso"), Boolean) = False Then
-            PorCobrarEfectivoVales = dtCobroPedido.ImporteTotalEfectivoVales
-        Else
-            PorCobrarEfectivoVales = dtCobroPedido.ImporteTotalEfectivoValesNI
-            decImporteTotalMovimiento = CType(DatosMovimiento.Tables("Cabecera").Rows(0).Item("Total"), Decimal)
-            lblImporteMovimiento.Text = decImporteTotalMovimiento.ToString("C")
-        End If
-
-
-        AsignaValores()
-
-        'Deshabilito los controles de cobro que no corresponden con este movimiento.
-        'If PorCobrarCheques <= 0 Then grdCheque.Visible = False
-        If PorCobrarEfectivo <= 0 Then
-            CobroEfectivo.Visible = False
-            lblNoTieneEfectivo.Visible = True
-        End If
-        If PorCobrarVales <= 0 Then
-            Vales.Visible = False
-            lblNoTieneVales.Visible = True
-        End If
-        If PorCobrarEfectivoVales > 0 Then
-            CobroEfectivo.Visible = True
-            Vales.Visible = True
-        End If
-
-        lblMovimientoCajaClave.Text = MovimientoCajaClave
-
-        'CONSULTA
-        If Tipo = TipoOperacionMovimientoCaja.Consulta Then
-            Dim dr As DataRow
-            Titulo = "Consulta de operación"
-            lblTipoOperacion.Text = Titulo
-
-            For Each dr In dtDenominacion.Rows
-                If CType(dr("TipoCobro"), Byte) = 1 Then
-                    Select Case CType(dr("Valor"), Double)
-                        Case Is = 1000 : CobroEfectivo.M1000 = CType(dr("Cantidad"), Short)
-                        Case Is = 500 : CobroEfectivo.M500 = CType(dr("Cantidad"), Short)
-                        Case Is = 200 : CobroEfectivo.M200 = CType(dr("Cantidad"), Short)
-                        Case Is = 100 : CobroEfectivo.M100 = CType(dr("Cantidad"), Short)
-                        Case Is = 50 : CobroEfectivo.M50 = CType(dr("Cantidad"), Short)
-                        Case Is = 20 : CobroEfectivo.M20 = CType(dr("Cantidad"), Short)
-                        Case Is = 10 : CobroEfectivo.M10 = CType(dr("Cantidad"), Short)
-                        Case Is = 5 : CobroEfectivo.M5 = CType(dr("Cantidad"), Short)
-                        Case Is = 2 : CobroEfectivo.M2 = CType(dr("Cantidad"), Short)
-                        Case Is = 1 : CobroEfectivo.M1 = CType(dr("Cantidad"), Short)
-                        Case Is = 0.5 : CobroEfectivo.M50c = CType(dr("Cantidad"), Short)
-                        Case Is = 0.2 : CobroEfectivo.M20c = CType(dr("Cantidad"), Short)
-                        Case Is = 0.1 : CobroEfectivo.M10c = CType(dr("Cantidad"), Short)
-                        Case Is = 0.05 : CobroEfectivo.M5c = CType(dr("Cantidad"), Short)
-                        Case Is = 0 : CobroEfectivo.Morralla = CType(dr("Total"), Decimal)
-                    End Select
-                End If
-                If CType(dr("TipoCobro"), Byte) = 2 Then
-                    Select Case CType(dr("Valor"), Double)
-                        Case Is = 100 : Vales.V100 = CType(dr("Cantidad"), Short)
-                        Case Is = 50 : Vales.V50 = CType(dr("Cantidad"), Short)
-                        Case Is = 35 : Vales.V35 = CType(dr("Cantidad"), Short)
-                        Case Is = 30 : Vales.V30 = CType(dr("Cantidad"), Short)
-                        Case Is = 25 : Vales.V25 = CType(dr("Cantidad"), Short)
-                        Case Is = 20 : Vales.V20 = CType(dr("Cantidad"), Short)
-                        Case Is = 15 : Vales.V15 = CType(dr("Cantidad"), Short)
-                        Case Is = 10 : Vales.V10 = CType(dr("Cantidad"), Short)
-                        Case Is = 5 : Vales.V5 = CType(dr("Cantidad"), Short)
-                        Case Is = 4 : Vales.V4 = CType(dr("Cantidad"), Short)
-                        Case Is = 3 : Vales.V3 = CType(dr("Cantidad"), Short)
-                        Case Is = 2 : Vales.V2 = CType(dr("Cantidad"), Short)
-                        Case Is = 1 : Vales.V1 = CType(dr("Cantidad"), Short)
-                    End Select
-                End If
-                'Consulta de los vales de promoción
-                'If CType(dr("TipoCobro"), Byte) = 16 Then
-                '    Select Case CType(dr("Valor"), Double)
-                '        Case Is = 50
-                '            ControlValesPromocion1.V50 = CType(dr("Cantidad"), Short)
-                '            ControlValesPromocion1.Visible = True
-                '    End Select
-                'End I
-            Next
-
-            CobroEfectivo.CalculaTotalEfectivo()
-            Vales.CalculaTotalVales()
-
-            'ControlValesPromocion1.CalculaTotalVales()
-            frmConsultaValePromocion = New ControlDeValesPromocionales.frmCapturaPagosConVale(Caja, FOperacion, Consecutivo, Folio)
-            RegistroValeCredito1.Total = frmConsultaValePromocion.Total
-
-            CobroEfectivo.Enabled = False
-            Vales.Enabled = False
-
-            'RegistroValeCredito1.Enabled = False
-
-            '24 de marzo del 2003
-            dtpFMovimiento.Value = CType(DatosMovimiento.Tables("Cabecera").Rows(0).Item("FMovimiento"), Date)
-            lblFMovimiento.Text = dtpFMovimiento.Value.ToLongDateString
-            '11-10-2005 control de vales promocionales
-            'lblImporteTotalCobro.Text = (CobroEfectivo.CalculaTotalEfectivo + Vales.CalculaTotalVales + PorCobrarCheques + PorCobrarTarjetaCredito + PorCobrarFichaDeposito).ToString("C")
-            lblImporteTotalCobro.Text = (CobroEfectivo.CalculaTotalEfectivo + Vales.CalculaTotalVales + frmConsultaValePromocion.Total + PorCobrarCheques + PorCobrarTarjetaCredito + PorCobrarFichaDeposito).ToString("C")
-            lblCambio.Text = (CType(lblImporteTotalCobro.Text, Decimal) - decImporteTotalMovimiento).ToString("C")
-            lblCambioEntregado.Text = dtCambio.ImporteTotalCambio.ToString("C")
-            grpCobroEficiencia.Enabled = False
-            dtpFMovimiento.Enabled = False
-            btnAceptar.Enabled = False
-        End If
-
-        'VALIDACION
-        If Tipo = TipoOperacionMovimientoCaja.Validacion Then
-            Titulo = "Validación de captura de cobranza"
-            lblTipoOperacion.Text = Titulo
-            grpLiquidacionConsulta.Enabled = False
-            decImporteTotalCobros = CalculaTotalCobros()
-            lblImporteTotalCobro.Text = decImporteTotalCobros.ToString("C")
-
-            lblCaptAFAvor.Text = "A favor cliente / otros ingresos"
-        End If
-    End Sub
-
-    Private Sub frmCapMovimiento_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'ControlValesPromocion1.Valor = GLOBAL_ValorValePromocional
-
-        If TipoOperacion = TipoOperacionMovimientoCaja.Liquidacion Then
-            lblFechaAlta.Text = Now.ToString
-        Else
-            lblFechaAlta.Text = dtmFAlta.ToString
-        End If
-    End Sub
+	Public Sub New(ByVal DatosMovimiento As DataSet)
+		'************************
+		'LIQUIDACION A OPERADORES
+		'************************
+		MyBase.New()
+		InitializeComponent()
+		Titulo = "Liquidación a Operadores"
+		TipoOperacion = TipoOperacionMovimientoCaja.Liquidacion
+
+		grdInfoPreLiq.DataSource = DatosMovimiento.Tables("InfoPreLiq")
+
+		Dim _Celula As Byte = CType(DatosMovimiento.Tables("InfoPreLiq").Rows(0).Item("Celula"), Byte)
+
+		dtCobro = DatosMovimiento.Tables("Cobro")
+		dtCobroPedidoLiq = DatosMovimiento.Tables("CobroPedido")
+
+		'Importe total del movimiento
+		decImporteTotalMovimiento = SumaColumna(dtCobroPedidoLiq, "CobroPedidoTotal")
+		lblImporteMovimiento.Text = decImporteTotalMovimiento.ToString("C")
+
+		'Checo si el Importe total del movimiento es válido
+		'18 de noviembre del 2002
+		If decImporteTotalMovimiento <= 0 Then
+			'btnAceptar.Enabled = False
+		End If
+
+		'Valida la aplicación de la promoción
+		RegistroValeCredito1.Visible = GLOBAL_Promocion
+
+		If DatosMovimiento.Tables("EfectivoVales").Rows.Count <= 0 Then
+			CobroEfectivo.Enabled = False
+			Vales.Enabled = False
+
+			If GLOBAL_Promocion Then
+				RegistroValeCredito1.Enabled = False
+			End If
+		Else
+			dtEfectivoVales = DatosMovimiento.Tables("EfectivoVales")
+			PorCobrarEfectivoVales = SumaColumna(dtEfectivoVales, "Total")
+		End If
+
+		If DatosMovimiento.Tables("Vales").Rows.Count <= 0 Then
+			CobroEfectivo.Enabled = False
+			Vales.Enabled = False
+
+			If GLOBAL_Promocion Then
+				RegistroValeCredito1.Enabled = False
+			End If
+		Else
+			dtVales = DatosMovimiento.Tables("Vales")
+			PorCobrarVales = SumaColumna(dtVales, "Total")
+			AFavorVales = SumaColumna(dtVales, "Saldo")
+		End If
+
+		If DatosMovimiento.Tables("Cheques").Rows.Count <= 0 Then
+			lnkConsultaCheques.Visible = False
+			grdCheque.Visible = False
+		Else
+			dtCheques = DatosMovimiento.Tables("Cheques")
+
+
+			Dim lTransformadorCRM As New TransformadorCRM()
+			dtCheques = lTransformadorCRM.ConsultaChequesCRM(dtCheques)
+
+			grdCheque.DataSource = dtCheques
+			PorCobrarCheques = SumaColumna(dtCheques, "Total")
+			AFavorCheques = SumaColumna(dtCheques, "Saldo")
+			AFavorOperadorCheques = AFavorCheques
+		End If
+
+		If DatosMovimiento.Tables("TarjetaCredito").Rows.Count <= 0 Then
+			lnkConsultaTarjetaCredito.Visible = False
+			grdTarjetaCredito.Visible = False
+		Else
+			dtTarjetaCreditoLiq = DatosMovimiento.Tables("TarjetaCredito")
+			grdTarjetaCredito.DataSource = dtTarjetaCreditoLiq
+
+			PorCobrarTarjetaCredito = SumaColumna(6, dtTarjetaCreditoLiq, "Total")
+			AFavorTarjetaCredito = SumaColumna(6, dtTarjetaCreditoLiq, "Saldo")
+			AFavorOperadorCheques += AFavorTarjetaCredito
+
+			PorCobrarTarjetaDebito = SumaColumna(19, dtTarjetaCreditoLiq, "Total")
+			AFavorTarjetaDebito = SumaColumna(19, dtTarjetaCreditoLiq, "Saldo")
+			AFavorOperadorCheques += AFavorTarjetaDebito
+		End If
+
+		If DatosMovimiento.Tables("FichaDeposito").Rows.Count <= 0 Then
+			lnkConsultaFichaDeposito.Visible = False
+			grdFichaDeposito.Visible = False
+		Else
+			dtFichaDeposito = DatosMovimiento.Tables("FichaDeposito")
+			grdFichaDeposito.DataSource = dtFichaDeposito
+			PorCobrarFichaDeposito = SumaColumna(dtFichaDeposito, "Total")
+			'20 de marzo del 2003
+			AfavorFichaDeposito = SumaColumna(dtFichaDeposito, "Saldo")
+			AFavorOperadorCheques += AfavorFichaDeposito
+		End If
+
+		'Parametrización del saldo a favor:
+		If GLOBAL_SaldoAFavor And (Not (dtCheques Is Nothing) _
+			AndAlso dtCheques.Rows.Count > 0) Then
+			saldoAFavor = CType(IIf(dtCheques.Compute("SUM(Saldo)", "SaldoAFavor = 1") Is DBNull.Value,
+			0, dtCheques.Compute("SUM(Saldo)", "SaldoAFavor = 1")), Decimal)
+		End If
+
+		'Datos de obsequios
+		If DatosMovimiento.Tables("Obsequios").Rows.Count <= 0 Then
+			LinkLabel1.Visible = False
+		Else
+			dtObsequios = DatosMovimiento.Tables("Obsequios")
+		End If
+
+
+		lblTipoOperacion.Text = Titulo
+		lblFOperacion.Text = Main.FechaOperacion.Date.ToShortDateString
+
+		'Datos de la preliquidación en células 
+		'Ult.Mod: 19 de noviembre del 2002
+		If DatosMovimiento.Tables("InfoPreLiq").Rows.Count = 1 Then
+			lblRuta.Text = CType(DatosMovimiento.Tables("InfoPreLiq").Rows(0).Item("RutaDescripcion"), String)
+			Celula = CType(DatosMovimiento.Tables("InfoPreLiq").Rows(0).Item("Celula"), Integer)
+			RutaMovimiento = CType(DatosMovimiento.Tables("InfoPreLiq").Rows(0).Item("Ruta"), Short)
+			AutotanqueTurno_AnoAtt = CType(DatosMovimiento.Tables("InfoPreLiq").Rows(0).Item("AñoAtt"), Short)
+			AutotanqueTurno_Folio = CType(DatosMovimiento.Tables("InfoPreLiq").Rows(0).Item("Folio"), Integer)
+
+			'11 de marzo del 2003
+
+			Dim FInicioRuta As Date = CType(DatosMovimiento.Tables("InfoPreLiq").Rows(0).Item("FInicioRuta"), Date).Date
+
+			'**************************************
+			'Regla de la hora maxima de liquidacion
+			'19 de junio del 2003
+			'**************************************
+
+			If FInicioRuta = Now.Date Then
+				dtpFMovimiento.Value = Now.Date
+			Else
+				If Main.GLOBAL_ReglaHoraLiquidacion = True Then
+					If Now <= GLOBAL_MaxHoraLiquidacion Then
+						dtpFMovimiento.Value = FInicioRuta
+						lblFMovimiento.BackColor = Color.Red
+						lblFMovimiento.ForeColor = Color.White
+						picAviso.Visible = True
+						ttMensaje.Active = True
+					Else
+						lblPanelMensaje.Text &= FInicioRuta.ToLongDateString
+						PanelMensaje.Visible = True
+						dtpFMovimiento.Value = Now.Date
+					End If
+				Else
+					lblPanelMensaje.Text &= FInicioRuta.ToLongDateString
+					PanelMensaje.Visible = True
+					dtpFMovimiento.Value = Now.Date
+				End If
+			End If
+
+			lblFMovimiento.Text = dtpFMovimiento.Value.ToLongDateString
+			'Fin
+
+			If CType(DatosMovimiento.Tables("InfoPreliq").Rows(0).Item("ImporteContado"), Decimal) <> decImporteTotalMovimiento Then
+				MessageBox.Show("El movimiento tiene cifras incongruentes entre los documentos y la báscula." & Chr(13) &
+								"El movimiento no podra ser dado de alta." & Chr(13) &
+								"Reporte este problema al administrador del sistema.", Titulo, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+				grpDatosMovimiento.BackColor = Color.Red
+				btnAceptar.Enabled = False
+			End If
+
+
+			If Not IsDBNull(DatosMovimiento.Tables("InfoPreLiq").Rows(0).Item("TipoPagoEficiencia")) Then
+				If CType(DatosMovimiento.Tables("InfoPreLiq").Rows(0).Item("TipoPagoEficiencia"), Byte) = 1 Or
+				   CType(DatosMovimiento.Tables("InfoPreLiq").Rows(0).Item("TipoPagoEficiencia"), Byte) = 2 Then
+					ImporteEficiencia = CType(DatosMovimiento.Tables("InfoPreLiq").Rows(0).Item("ImporteEficiencia"), Decimal)
+				End If
+			End If
+		Else
+			btnAceptar.Enabled = False
+		End If
+
+		'Desactivo la opción del cobro de la eficiencia si
+		'la eficiencia de esa ruta es menor o igual a cero
+		If ImporteEficiencia <= 0 Then
+			grpCobroEficiencia.Enabled = False
+		End If
+
+		AsignaValores()
+
+		btnConsultaDocumentos.Visible = True
+		'Modificación del día 03 de junio
+		'Carga el tipo de movimiento correcto para cuando son servicios técnicos
+
+		If _Celula <> 14 Then
+			ComboTipoMovimientoCaja.CargaDatos(2, False)
+		Else
+			ComboTipoMovimientoCaja.CargaDatos(32, False)
+		End If
+
+		ComboTipoMovimientoCaja.SelectedIndex = 0
+		ComboTipoMovimientoCaja.Visible = True
+
+
+		lnkConsultaIVA.Visible = True
+	End Sub
+
+
+	Public Sub New(ByVal Tipo As TipoOperacionMovimientoCaja,
+				   ByVal DatosMovimiento As DataSet,
+				   ByVal Caja As Byte,
+				   ByVal FOperacion As Date,
+				   ByVal Consecutivo As Byte,
+				   ByVal Folio As Integer,
+				   ByVal FAlta As Date)
+
+		MyBase.New()
+		InitializeComponent()
+
+
+		'Pre-cargo los datos que vienen desde la consulta
+
+		TipoOperacion = Tipo
+		dtCobroPedido = CType(DatosMovimiento.Tables("Cobro"), MiDataTable)
+		dtDenominacion = DatosMovimiento.Tables("Denominacion")
+		dtCambio = CType(DatosMovimiento.Tables("Cambio"), MiDataTableCambio)
+		bytCaja = Caja
+		dtmFOperacion = FOperacion
+		bytConsecutivo = Consecutivo
+		intFolio = Folio
+		dtmFAlta = FAlta
+		MovimientoCajaClave = CType(DatosMovimiento.Tables("Cabecera").Rows(0).Item("Clave"), String)
+		decImporteTotalMovimiento = SumaColumna(dtCobroPedido, "CobroPedidoTotal")
+		lblImporteMovimiento.Text = decImporteTotalMovimiento.ToString("C")
+		lblStatus.Text = CType(DatosMovimiento.Tables("Cabecera").Rows(0).Item("MovimientoCajaStatus"), String)
+		If Trim(CType(DatosMovimiento.Tables("Cabecera").Rows(0).Item("MovimientoCajaStatus"), String)) = "CANCELADO" Then
+			lblMotivoCancelacion1.Visible = True
+			lblMotivoCancelacion2.Visible = True
+			lblMotivoCancelacion2.Text = CType(DatosMovimiento.Tables("Cabecera").Rows(0).Item("MotivoCancelacion"), String)
+		End If
+		lblTipoMovimientoCaja.Text = CType(DatosMovimiento.Tables("Cabecera").Rows(0).Item("TipoMovimientoCajaDescripcion"), String)
+		lblFOperacion.Text = CType(DatosMovimiento.Tables("Cabecera").Rows(0).Item("FOperacion"), Date).ToShortDateString
+		blnNotaIngreso = CType(DatosMovimiento.Tables("Cabecera").Rows(0).Item("NotaIngreso"), Boolean)
+
+		'11 de marzo del 2003
+		If Now.Date.Day <= Main.GLOBAL_DiasAjuste Then
+			dtpFMovimiento.Value = CType(DatosMovimiento.Tables("Cabecera").Rows(0).Item("FMovimiento"), Date)
+			lblFMovimiento.BackColor = Color.LemonChiffon
+			lblPanelMensaje.Text = "La cobranza pertenece al día " & dtpFMovimiento.Value.ToLongDateString
+			PanelMensaje.Visible = True
+		Else
+			dtpFMovimiento.Value = Now.Date
+		End If
+		lblFMovimiento.Text = dtpFMovimiento.Value.ToLongDateString
+
+		lblRuta.Text = CType(DatosMovimiento.Tables("Cabecera").Rows(0).Item("RutaDescripcion"), String)
+		lblNombreEmpleado.Text = CType(DatosMovimiento.Tables("Cabecera").Rows(0).Item("Empleado"), String) & " " &
+								 CType(DatosMovimiento.Tables("Cabecera").Rows(0).Item("EmpleadoNombre"), String)
+		lblObservaciones.Text = CType(DatosMovimiento.Tables("Cabecera").Rows(0).Item("Observaciones"), String)
+
+		'Fin del pre-cargo
+
+		If dtCobroPedido.Rows.Count > 0 Then
+			dr = dtCobroPedido.Rows(0)
+			shrAnoCobro = CType(dr("AñoCobro"), Short)
+			intCobro = CType(dr("Cobro"), Integer)
+			btnConsultaDocumentos.Visible = True
+		Else
+			btnConsultaDocumentos.Visible = False
+		End If
+
+		'Paso la lista de cheques al grid si tiene cheques relacionados
+		'de lo contrario escondo el grid y el link.
+		If DatosMovimiento.Tables("Cheques").Rows.Count <= 0 Then
+			lnkConsultaCheques.Visible = False
+			grdCheque.Visible = False
+		Else
+			dtCheques = DatosMovimiento.Tables("Cheques")
+			grdCheque.DataSource = dtCheques
+			'PorCobrarCheques = dtCobroPedido.ImporteTotalCheques
+			PorCobrarCheques = SumaColumna(dtCheques, "Total")
+			AFavorCheques = SumaColumna(dtCheques, "Saldo")
+			AFavorOperadorCheques = AFavorCheques
+		End If
+
+		'Paso la lista de cobros con tarjeta de crédito al grid si tiene 
+		'de lo contrario escondo el grid y el link.
+		If DatosMovimiento.Tables("TarjetaCredito").Rows.Count <= 0 Then
+			lnkConsultaTarjetaCredito.Visible = False
+			grdTarjetaCredito.Visible = False
+		Else
+			dtTarjetaCredito = DatosMovimiento.Tables("TarjetaCredito")
+			grdTarjetaCredito.DataSource = dtTarjetaCredito
+			PorCobrarTarjetaCredito = SumaColumna(6, dtTarjetaCredito, "Total")
+			AFavorTarjetaCredito = SumaColumna(6, dtTarjetaCredito, "Saldo")
+
+			PorCobrarTarjetaDebito = SumaColumna(19, dtTarjetaCredito, "Total")
+			AFavorTarjetaDebito = SumaColumna(19, dtTarjetaCredito, "Saldo")
+		End If
+
+		If DatosMovimiento.Tables("FichaDeposito").Rows.Count <= 0 Then
+			lnkConsultaFichaDeposito.Visible = False
+			grdFichaDeposito.Visible = False
+		Else
+			dtFichaDeposito = DatosMovimiento.Tables("FichaDeposito")
+			grdFichaDeposito.DataSource = dtFichaDeposito
+			PorCobrarFichaDeposito = SumaColumna(dtFichaDeposito, "Total")
+			AFavorFichaDeposito = SumaColumna(dtFichaDeposito, "Saldo")
+			'Cambio hecho el 20 de marzo del 2003
+			AFavorOperadorCheques += AfavorFichaDeposito
+		End If
+
+		'Consulta de los datos de los cobros.
+		PorCobrarEfectivo = dtCobroPedido.ImporteTotalEfectivo
+		PorCobrarVales = dtCobroPedido.ImporteTotalVales
+		'27 de junio del 2003
+		If CType(DatosMovimiento.Tables("Cabecera").Rows(0).Item("NotaIngreso"), Boolean) = False Then
+			PorCobrarEfectivoVales = dtCobroPedido.ImporteTotalEfectivoVales
+		Else
+			PorCobrarEfectivoVales = dtCobroPedido.ImporteTotalEfectivoValesNI
+			decImporteTotalMovimiento = CType(DatosMovimiento.Tables("Cabecera").Rows(0).Item("Total"), Decimal)
+			lblImporteMovimiento.Text = decImporteTotalMovimiento.ToString("C")
+		End If
+
+
+		AsignaValores()
+
+		'Deshabilito los controles de cobro que no corresponden con este movimiento.
+		'If PorCobrarCheques <= 0 Then grdCheque.Visible = False
+		If PorCobrarEfectivo <= 0 Then
+			CobroEfectivo.Visible = False
+			lblNoTieneEfectivo.Visible = True
+		End If
+		If PorCobrarVales <= 0 Then
+			Vales.Visible = False
+			lblNoTieneVales.Visible = True
+		End If
+		If PorCobrarEfectivoVales > 0 Then
+			CobroEfectivo.Visible = True
+			Vales.Visible = True
+		End If
+
+		lblMovimientoCajaClave.Text = MovimientoCajaClave
+
+		'CONSULTA
+		If Tipo = TipoOperacionMovimientoCaja.Consulta Then
+			Dim dr As DataRow
+			Titulo = "Consulta de operación"
+			lblTipoOperacion.Text = Titulo
+
+			For Each dr In dtDenominacion.Rows
+				If CType(dr("TipoCobro"), Byte) = 1 Then
+					Select Case CType(dr("Valor"), Double)
+						Case Is = 1000 : CobroEfectivo.M1000 = CType(dr("Cantidad"), Short)
+						Case Is = 500 : CobroEfectivo.M500 = CType(dr("Cantidad"), Short)
+						Case Is = 200 : CobroEfectivo.M200 = CType(dr("Cantidad"), Short)
+						Case Is = 100 : CobroEfectivo.M100 = CType(dr("Cantidad"), Short)
+						Case Is = 50 : CobroEfectivo.M50 = CType(dr("Cantidad"), Short)
+						Case Is = 20 : CobroEfectivo.M20 = CType(dr("Cantidad"), Short)
+						Case Is = 10 : CobroEfectivo.M10 = CType(dr("Cantidad"), Short)
+						Case Is = 5 : CobroEfectivo.M5 = CType(dr("Cantidad"), Short)
+						Case Is = 2 : CobroEfectivo.M2 = CType(dr("Cantidad"), Short)
+						Case Is = 1 : CobroEfectivo.M1 = CType(dr("Cantidad"), Short)
+						Case Is = 0.5 : CobroEfectivo.M50c = CType(dr("Cantidad"), Short)
+						Case Is = 0.2 : CobroEfectivo.M20c = CType(dr("Cantidad"), Short)
+						Case Is = 0.1 : CobroEfectivo.M10c = CType(dr("Cantidad"), Short)
+						Case Is = 0.05 : CobroEfectivo.M5c = CType(dr("Cantidad"), Short)
+						Case Is = 0 : CobroEfectivo.Morralla = CType(dr("Total"), Decimal)
+					End Select
+				End If
+				If CType(dr("TipoCobro"), Byte) = 2 Then
+					Select Case CType(dr("Valor"), Double)
+						Case Is = 100 : Vales.V100 = CType(dr("Cantidad"), Short)
+						Case Is = 50 : Vales.V50 = CType(dr("Cantidad"), Short)
+						Case Is = 35 : Vales.V35 = CType(dr("Cantidad"), Short)
+						Case Is = 30 : Vales.V30 = CType(dr("Cantidad"), Short)
+						Case Is = 25 : Vales.V25 = CType(dr("Cantidad"), Short)
+						Case Is = 20 : Vales.V20 = CType(dr("Cantidad"), Short)
+						Case Is = 15 : Vales.V15 = CType(dr("Cantidad"), Short)
+						Case Is = 10 : Vales.V10 = CType(dr("Cantidad"), Short)
+						Case Is = 5 : Vales.V5 = CType(dr("Cantidad"), Short)
+						Case Is = 4 : Vales.V4 = CType(dr("Cantidad"), Short)
+						Case Is = 3 : Vales.V3 = CType(dr("Cantidad"), Short)
+						Case Is = 2 : Vales.V2 = CType(dr("Cantidad"), Short)
+						Case Is = 1 : Vales.V1 = CType(dr("Cantidad"), Short)
+					End Select
+				End If
+				'Consulta de los vales de promoción
+				'If CType(dr("TipoCobro"), Byte) = 16 Then
+				'    Select Case CType(dr("Valor"), Double)
+				'        Case Is = 50
+				'            ControlValesPromocion1.V50 = CType(dr("Cantidad"), Short)
+				'            ControlValesPromocion1.Visible = True
+				'    End Select
+				'End I
+			Next
+
+			CobroEfectivo.CalculaTotalEfectivo()
+			Vales.CalculaTotalVales()
+
+			'ControlValesPromocion1.CalculaTotalVales()
+			frmConsultaValePromocion = New ControlDeValesPromocionales.frmCapturaPagosConVale(Caja, FOperacion, Consecutivo, Folio)
+			RegistroValeCredito1.Total = frmConsultaValePromocion.Total
+
+			CobroEfectivo.Enabled = False
+			Vales.Enabled = False
+
+			'RegistroValeCredito1.Enabled = False
+
+			'24 de marzo del 2003
+			dtpFMovimiento.Value = CType(DatosMovimiento.Tables("Cabecera").Rows(0).Item("FMovimiento"), Date)
+			lblFMovimiento.Text = dtpFMovimiento.Value.ToLongDateString
+			'11-10-2005 control de vales promocionales
+			'lblImporteTotalCobro.Text = (CobroEfectivo.CalculaTotalEfectivo + Vales.CalculaTotalVales + PorCobrarCheques + PorCobrarTarjetaCredito + PorCobrarFichaDeposito).ToString("C")
+			lblImporteTotalCobro.Text = (CobroEfectivo.CalculaTotalEfectivo + Vales.CalculaTotalVales + frmConsultaValePromocion.Total + PorCobrarCheques + PorCobrarTarjetaCredito + PorCobrarVales + PorCobrarTarjetaDebito + PorCobrarFichaDeposito).ToString("C")
+			lblCambio.Text = (CType(lblImporteTotalCobro.Text, Decimal) - decImporteTotalMovimiento).ToString("C")
+			lblCambioEntregado.Text = dtCambio.ImporteTotalCambio.ToString("C")
+			grpCobroEficiencia.Enabled = False
+			dtpFMovimiento.Enabled = False
+			btnAceptar.Enabled = False
+		End If
+
+		'VALIDACION
+		If Tipo = TipoOperacionMovimientoCaja.Validacion Then
+			Titulo = "Validación de captura de cobranza"
+			lblTipoOperacion.Text = Titulo
+			grpLiquidacionConsulta.Enabled = False
+			decImporteTotalCobros = CalculaTotalCobros()
+			lblImporteTotalCobro.Text = decImporteTotalCobros.ToString("C")
+
+			lblCaptAFAvor.Text = "A favor cliente / otros ingresos"
+		End If
+	End Sub
+
+	Private Sub frmCapMovimiento_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+		'ControlValesPromocion1.Valor = GLOBAL_ValorValePromocional
+
+		If TipoOperacion = TipoOperacionMovimientoCaja.Liquidacion Then
+			lblFechaAlta.Text = Now.ToString
+		Else
+			lblFechaAlta.Text = dtmFAlta.ToString
+		End If
+	End Sub
 
 #End Region
 
 #Region "Paneles de cobro"
-    Private Sub ManejadorCobros() Handles Vales.TotalActualizado, CobroEfectivo.TotalActualizado
-        decImporteTotalCobros = CalculaTotalCobros()
-        lblImporteTotalCobro.Text = decImporteTotalCobros.ToString("C")
-        'If (decImporteTotalMovimiento - AFavorOperadorCheques) - decImporteTotalCobros >= 0 Then
-        '    lblFaltante.Text = ((decImporteTotalMovimiento - AFavorOperadorCheques) - decImporteTotalCobros).ToString("C")
-        'Else
-        '    lblFaltante.Text = ""
-        'End If
-        '***Integración de cobros con tarjeta de crédito
-        If (decImporteRealACobrar + Me.PorCobrarCheques + Me.PorCobrarFichaDeposito + Me.PorCobrarTarjetaCredito) - decImporteTotalCobros >= 0 Then
-            lblFaltante.Text = ((decImporteRealACobrar + Me.PorCobrarCheques + Me.PorCobrarFichaDeposito + Me.PorCobrarTarjetaCredito) - decImporteTotalCobros).ToString("C")
-        Else
-            lblFaltante.Text = ""
-        End If
+	Private Sub ManejadorCobros() Handles Vales.TotalActualizado, CobroEfectivo.TotalActualizado
+		decImporteTotalCobros = CalculaTotalCobros()
+		lblImporteTotalCobro.Text = decImporteTotalCobros.ToString("C")
+		'If (decImporteTotalMovimiento - AFavorOperadorCheques) - decImporteTotalCobros >= 0 Then
+		'    lblFaltante.Text = ((decImporteTotalMovimiento - AFavorOperadorCheques) - decImporteTotalCobros).ToString("C")
+		'Else
+		'    lblFaltante.Text = ""
+		'End If
+		'***Integración de cobros con tarjeta de crédito
+		If (decImporteRealACobrar + Me.PorCobrarCheques + Me.PorCobrarFichaDeposito + Me.PorCobrarTarjetaCredito + Me.PorCobrarTarjetaDebito) - decImporteTotalCobros >= 0 Then
+			lblFaltante.Text = ((decImporteRealACobrar + Me.PorCobrarCheques + Me.PorCobrarFichaDeposito + Me.PorCobrarTarjetaCredito + Me.PorCobrarTarjetaDebito) - decImporteTotalCobros).ToString("C")
+		Else
+			lblFaltante.Text = ""
+		End If
 
 
-        If TipoOperacion = TipoOperacionMovimientoCaja.Validacion Or TipoOperacion = TipoOperacionMovimientoCaja.Liquidacion Then
-            'Se resta el importe del saldo a favor del cambio
-            decImporteCambio = decImporteTotalCobros - decImporteTotalMovimiento - saldoAFavor
-            If decImporteCambio > 0 Then
-                lblCambio.Text = decImporteCambio.ToString("C")
-            Else
-                lblCambio.Text = ""
-            End If
-        End If
+		If TipoOperacion = TipoOperacionMovimientoCaja.Validacion Or TipoOperacion = TipoOperacionMovimientoCaja.Liquidacion Then
+			'Se resta el importe del saldo a favor del cambio
+			decImporteCambio = decImporteTotalCobros - decImporteTotalMovimiento - saldoAFavor
+			If decImporteCambio > 0 Then
+				lblCambio.Text = decImporteCambio.ToString("C")
+			Else
+				lblCambio.Text = ""
+			End If
+		End If
 
-    End Sub
+	End Sub
 
-    Private Sub ManejaPanelActivo(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles grpCobroVale.Enter, grpCobroVale.Leave, grpCobroCheque.Enter, grpCobroCheque.Leave, grpCobroEfectivo.Enter, grpCobroEfectivo.Leave
-        Select Case ActiveControl.Name
-            Case Is = "CobroEfectivo"
-                grpCobroEfectivo.BackColor = Color.Khaki
-                grpCobroVale.BackColor = Color.FromName("Control")
-            Case Is = "Vales"
-                grpCobroEfectivo.BackColor = Color.FromName("Control")
-                grpCobroVale.BackColor = Color.Khaki
-            Case Else
-                grpCobroEfectivo.BackColor = Color.FromName("Control")
-                grpCobroVale.BackColor = Color.FromName("Control")
-        End Select
-    End Sub
+	Private Sub ManejaPanelActivo(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles grpCobroVale.Enter, grpCobroVale.Leave, grpCobroCheque.Enter, grpCobroCheque.Leave, grpCobroEfectivo.Enter, grpCobroEfectivo.Leave
+		Select Case ActiveControl.Name
+			Case Is = "CobroEfectivo"
+				grpCobroEfectivo.BackColor = Color.Khaki
+				grpCobroVale.BackColor = Color.FromName("Control")
+			Case Is = "Vales"
+				grpCobroEfectivo.BackColor = Color.FromName("Control")
+				grpCobroVale.BackColor = Color.Khaki
+			Case Else
+				grpCobroEfectivo.BackColor = Color.FromName("Control")
+				grpCobroVale.BackColor = Color.FromName("Control")
+		End Select
+	End Sub
 
-    Private Sub frmCapMovimiento_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
-        Select Case e.KeyCode
-            Case Is = Keys.F3
-                CobroEfectivo.ComienzaCaptura()
-            Case Is = Keys.F4
-                Vales.ComienzaCaptura()
-            Case Is = Keys.F10
-                btnAceptar.PerformClick()
-            Case Is = Keys.Escape
-                btnCancelar.PerformClick()
-        End Select
-    End Sub
+	Private Sub frmCapMovimiento_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
+		Select Case e.KeyCode
+			Case Is = Keys.F3
+				CobroEfectivo.ComienzaCaptura()
+			Case Is = Keys.F4
+				Vales.ComienzaCaptura()
+			Case Is = Keys.F10
+				btnAceptar.PerformClick()
+			Case Is = Keys.Escape
+				btnCancelar.PerformClick()
+		End Select
+	End Sub
 
-    Private Sub CobroEfectivo_FlechaDerecha() Handles CobroEfectivo.FlechaDerecha
-        Vales.Focus()
-    End Sub
+	Private Sub CobroEfectivo_FlechaDerecha() Handles CobroEfectivo.FlechaDerecha
+		Vales.Focus()
+	End Sub
 
-    Private Sub Vales_FlechaIzquierda() Handles Vales.FlechaIzquierda
-        CobroEfectivo.Focus()
-    End Sub
+	Private Sub Vales_FlechaIzquierda() Handles Vales.FlechaIzquierda
+		CobroEfectivo.Focus()
+	End Sub
 
-    'Función que regresa el total de lo que se tiene que cobrar
-    Private Function CalculaTotalCobros() As Decimal
-        'Cambio realizado el 20 de febrero
-        If Not GLOBAL_Promocion Then
-            Return CDec(CobroEfectivo.TotalEfectivo + Vales.TotalVales) + PorCobrarTarjetaCredito + PorCobrarFichaDeposito + PorCobrarCheques
-        Else
-            Return CDec(CobroEfectivo.TotalEfectivo + Vales.TotalVales + frmConsultaValePromocion.Total) + PorCobrarTarjetaCredito + PorCobrarFichaDeposito + PorCobrarCheques
-        End If
-    End Function
+	'Función que regresa el total de lo que se tiene que cobrar
+	Private Function CalculaTotalCobros() As Decimal
+		'Cambio realizado el 20 de febrero
+		If Not GLOBAL_Promocion Then
+			Return CDec(CobroEfectivo.TotalEfectivo + Vales.TotalVales) + PorCobrarTarjetaCredito + PorCobrarFichaDeposito + PorCobrarCheques + PorCobrarTarjetaDebito
+		Else
+			Return CDec(CobroEfectivo.TotalEfectivo + Vales.TotalVales + frmConsultaValePromocion.Total) + PorCobrarTarjetaCredito + PorCobrarFichaDeposito + PorCobrarCheques + PorCobrarTarjetaDebito
+		End If
+	End Function
 
 #End Region
 
 #Region "Grabado de datos"
 
-    Private Sub btnAceptar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAceptar.Click
-        If MessageBox.Show(M_ESTAN_CORRECTOS, Titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) = DialogResult.Yes Then
+	Private Sub btnAceptar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAceptar.Click
+		If MessageBox.Show(M_ESTAN_CORRECTOS, Titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) = DialogResult.Yes Then
 
-            Dim arrDenomEfectivo As Array = CobroEfectivo.CalculaDenominaciones
-            Dim arrDenomVales As Array = Vales.CalculaDenominaciones
-            'Dim arrDenomValesPromocion As Array = ControlValesPromocion1.CalculaDenominaciones
+			Dim arrDenomEfectivo As Array = CobroEfectivo.CalculaDenominaciones
+			Dim arrDenomVales As Array = Vales.CalculaDenominaciones
+			'Dim arrDenomValesPromocion As Array = ControlValesPromocion1.CalculaDenominaciones
 
-            Dim arrCheques(0, 2) As Decimal
-            Dim arrTarjetas(0, 2) As Decimal
-            Dim arrFichas(0, 2) As Decimal
-            Dim i As Integer = 0
-            Try
-                'Se arma el arreglo con los cheques
-                If Not dtCheques Is Nothing Then
-                    If dtCheques.Rows.Count > 0 Then
-                        Dim r As DataRow
-                        ReDim arrCheques(dtCheques.Rows.Count - 1, 2)
-                        For Each r In dtCheques.Rows
-                            arrCheques(i, 0) = CType(r("AñoCobro"), Decimal)
-                            arrCheques(i, 1) = CType(r("Cobro"), Decimal)
-                            arrCheques(i, 2) = CType(r("Total"), Decimal)
-                            i += 1
-                        Next
-                    End If
-                End If
+			Dim arrCheques(0, 2) As Decimal
+			Dim arrTarjetas(0, 2) As Decimal
+			Dim arrFichas(0, 2) As Decimal
+			Dim i As Integer = 0
+			Try
+				'Se arma el arreglo con los cheques
+				If Not dtCheques Is Nothing Then
+					If dtCheques.Rows.Count > 0 Then
+						Dim r As DataRow
+						ReDim arrCheques(dtCheques.Rows.Count - 1, 2)
+						For Each r In dtCheques.Rows
+							arrCheques(i, 0) = CType(r("AñoCobro"), Decimal)
+							arrCheques(i, 1) = CType(r("Cobro"), Decimal)
+							arrCheques(i, 2) = CType(r("Total"), Decimal)
+							i += 1
+						Next
+					End If
+				End If
 
-                'Se arma el arreglo con las tarjetas de crédito
-                i = 0
-                If Not dtTarjetaCredito Is Nothing Then
-                    If dtTarjetaCredito.Rows.Count > 0 And PorCobrarTarjetaCredito > 0 Then
-                        Dim r As DataRow
-                        ReDim arrTarjetas(dtTarjetaCredito.Rows.Count - 1, 2)
-                        For Each r In dtTarjetaCredito.Rows
-                            arrTarjetas(i, 0) = CType(r("AñoCobro"), Decimal)
-                            arrTarjetas(i, 1) = CType(r("Cobro"), Decimal)
-                            arrTarjetas(i, 2) = CType(r("Total"), Decimal)
-                            i += 1
-                        Next
-                    End If
-                End If
+				'Se arma el arreglo con las tarjetas de crédito
+				i = 0
+				If Not dtTarjetaCredito Is Nothing Then
+					If dtTarjetaCredito.Rows.Count > 0 And PorCobrarTarjetaCredito > 0 Then
+						Dim r As DataRow
+						ReDim arrTarjetas(dtTarjetaCredito.Rows.Count - 1, 2)
+						For Each r In dtTarjetaCredito.Rows
+							arrTarjetas(i, 0) = CType(r("AñoCobro"), Decimal)
+							arrTarjetas(i, 1) = CType(r("Cobro"), Decimal)
+							arrTarjetas(i, 2) = CType(r("Total"), Decimal)
+							i += 1
+						Next
+					End If
+				End If
 
-                'Se arma el arreglo con las fichas de depósito
-                i = 0
-                If Not dtFichaDeposito Is Nothing Then
-                    If dtFichaDeposito.Rows.Count > 0 And PorCobrarFichaDeposito > 0 Then
-                        Dim r As DataRow
-                        ReDim arrFichas(dtFichaDeposito.Rows.Count - 1, 2)
-                        For Each r In dtFichaDeposito.Rows
-                            arrFichas(i, 0) = CType(r("AñoCobro"), Decimal)
-                            arrFichas(i, 1) = CType(r("Cobro"), Decimal)
-                            arrFichas(i, 2) = CType(r("Total"), Decimal)
-                            i += 1
-                        Next
-                    End If
-                End If
-            Catch ex As Exception
-                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Exit Sub
-            End Try
+				'Se arma el arreglo con las fichas de depósito
+				i = 0
+				If Not dtFichaDeposito Is Nothing Then
+					If dtFichaDeposito.Rows.Count > 0 And PorCobrarFichaDeposito > 0 Then
+						Dim r As DataRow
+						ReDim arrFichas(dtFichaDeposito.Rows.Count - 1, 2)
+						For Each r In dtFichaDeposito.Rows
+							arrFichas(i, 0) = CType(r("AñoCobro"), Decimal)
+							arrFichas(i, 1) = CType(r("Cobro"), Decimal)
+							arrFichas(i, 2) = CType(r("Total"), Decimal)
+							i += 1
+						Next
+					End If
+				End If
+			Catch ex As Exception
+				MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+				Exit Sub
+			End Try
 
-            'Se instancia el objeto que controla la transacción
-            Dim objMov As New SigaMetClasses.TransaccionMovimientoCaja()
-            Try
-                'Verificar si la fecha almacenada en memoria corresponde con la fecha del servidor - JAGD 03032010
-                Dim _fechaServidor As Date = SigaMetClasses.FechaServidor
-                If FechaOperacion.Date <> _fechaServidor.Date Then
-                    'Si las fechas son diferentes, solicitar iniciar sesión nuevamente
-                    MessageBox.Show("La fecha de operación no corresponde con la fecha del servidor." & vbCrLf & _
-                        "Inicie sesión nuevamente por favor", "Error de fecha de operación", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Return
-                End If
+			'Se instancia el objeto que controla la transacción
+			Dim objMov As New SigaMetClasses.TransaccionMovimientoCaja()
+			Try
+				'Verificar si la fecha almacenada en memoria corresponde con la fecha del servidor - JAGD 03032010
+				Dim _fechaServidor As Date = SigaMetClasses.FechaServidor
+				If FechaOperacion.Date <> _fechaServidor.Date Then
+					'Si las fechas son diferentes, solicitar iniciar sesión nuevamente
+					MessageBox.Show("La fecha de operación no corresponde con la fecha del servidor." & vbCrLf &
+						"Inicie sesión nuevamente por favor", "Error de fecha de operación", MessageBoxButtons.OK, MessageBoxIcon.Error)
+					Return
+				End If
 
-                If Main.SesionIniciada = False Then
-                    'Iniciar sesión
-                    Main.IniciarSesion(FechaInicioSesion)
-                End If
+				If Main.SesionIniciada = False Then
+					'Iniciar sesión
+					Main.IniciarSesion(FechaInicioSesion)
+				End If
 
-                If TipoOperacion = TipoOperacionMovimientoCaja.Validacion Then
-                    'Se agregó lo siguiente para validar que los abonos de todos los pedidos incluidos en el movimiento sean menores o iguales al saldo
-                    Dim objValidaSaldo As New ValidaSaldosCaja.DocumentosErroneos(bytCaja, dtmFOperacion, bytConsecutivo, intFolio, _
-                        GLOBAL_Connection)
-                    If Not (objValidaSaldo.CapturaCorrecta) Then
-                        objValidaSaldo.ShowDialog()
+				If TipoOperacion = TipoOperacionMovimientoCaja.Validacion Then
+					'Se agregó lo siguiente para validar que los abonos de todos los pedidos incluidos en el movimiento sean menores o iguales al saldo
+					Dim objValidaSaldo As New ValidaSaldosCaja.DocumentosErroneos(bytCaja, dtmFOperacion, bytConsecutivo, intFolio,
+						GLOBAL_Connection)
+					If Not (objValidaSaldo.CapturaCorrecta) Then
+						objValidaSaldo.ShowDialog()
 
-                        'Mostrar cobros de abonos excedidos
-                        If oSeguridad.TieneAcceso("AUTOMODIFICACION_MOVS") Then
-                            Dim objListadoCobros As New ValidaSaldosCaja.CobrosErroneos(bytCaja, dtmFOperacion, _
-                                bytConsecutivo, intFolio, GLOBAL_IDUsuario, decImporteTotalMovimiento, GLOBAL_Connection)
-                            'si se elije borrar los cobros indicados
-                            If objListadoCobros.ShowDialog() = DialogResult.Yes Then
-                                'salir de la captura
-                                Me.Close()
-                                Exit Sub
-                            End If
-                        End If
-                        Exit Sub
-                    End If
+						'Mostrar cobros de abonos excedidos
+						If oSeguridad.TieneAcceso("AUTOMODIFICACION_MOVS") Then
+							Dim objListadoCobros As New ValidaSaldosCaja.CobrosErroneos(bytCaja, dtmFOperacion,
+								bytConsecutivo, intFolio, GLOBAL_IDUsuario, decImporteTotalMovimiento, GLOBAL_Connection)
+							'si se elije borrar los cobros indicados
+							If objListadoCobros.ShowDialog() = DialogResult.Yes Then
+								'salir de la captura
+								Me.Close()
+								Exit Sub
+							End If
+						End If
+						Exit Sub
+					End If
 
-                    objMov.Valida(bytCaja, dtmFOperacion, bytConsecutivo, intFolio, shrAnoCobro, intCobro, arrDenomEfectivo, arrDenomVales, arrCheques, arrTarjetas, arrFichas, arrCambio, dtCobroPedido, , Not blnNotaIngreso, _
-                     Transferir:=True, CajaDestino:=Main.GLOBAL_CajaUsuario, FOperacionDestino:=Main.FechaOperacion, ConsecutivoDestino:=Main.ConsecutivoInicioDeSesion)
-                    'Try
-                    '    objMov.TransfiereMovimientoCaja(bytCaja, dtmFOperacion, bytConsecutivo, intFolio, Main.GLOBAL_CajaUsuario, Main.FechaOperacion, Main.ConsecutivoInicioDeSesion)
-                    'Catch ex As Exception
-                    '    MessageBox.Show("Ha ocurrido el siguiente error en la transferencia del movimiento de caja: " & ex.Message, Titulo, MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                    'End Try
-                End If
+					objMov.Valida(bytCaja, dtmFOperacion, bytConsecutivo, intFolio, shrAnoCobro, intCobro, arrDenomEfectivo, arrDenomVales, arrCheques, arrTarjetas, arrFichas, arrCambio, dtCobroPedido, , Not blnNotaIngreso,
+					 Transferir:=True, CajaDestino:=Main.GLOBAL_CajaUsuario, FOperacionDestino:=Main.FechaOperacion, ConsecutivoDestino:=Main.ConsecutivoInicioDeSesion)
+					'Try
+					'    objMov.TransfiereMovimientoCaja(bytCaja, dtmFOperacion, bytConsecutivo, intFolio, Main.GLOBAL_CajaUsuario, Main.FechaOperacion, Main.ConsecutivoInicioDeSesion)
+					'Catch ex As Exception
+					'    MessageBox.Show("Ha ocurrido el siguiente error en la transferencia del movimiento de caja: " & ex.Message, Titulo, MessageBoxButtons.OK, MessageBoxIcon.Warning)
+					'End Try
+				End If
 
-                If TipoOperacion = TipoOperacionMovimientoCaja.Liquidacion Then
-                    If ComboTipoMovimientoCaja.TipoMovimientoCaja <= 0 Then
-                        MessageBox.Show("Debe seleccionar el tipo de movimiento de caja para esta liquidación.", Titulo, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                        Exit Sub
-                    Else
-                        'se suma el valor de saldoAFavor en el argumento Total
-                        'arrDenomValesPromocion, _
-                        objMov.AltaLiquidacion(Main.GLOBAL_CajaUsuario, _
-                                    Main.FechaOperacion, _
-                                    Main.ConsecutivoInicioDeSesion, _
-                                    dtpFMovimiento.Value, _
-                                    (Me.decImporteTotalMovimiento + Me.saldoAFavor), _
-                                    Main.GLOBAL_IDUsuario, _
-                                    Main.GLOBAL_IDEmpleado, _
-                                    RutaMovimiento, _
-                                    CType(ComboTipoMovimientoCaja.TipoMovimientoCaja, Byte), _
-                                    dtCobro, _
-                                    AutotanqueTurno_AnoAtt, _
-                                    AutotanqueTurno_Folio, _
-                                    arrDenomEfectivo, _
-                                    arrDenomVales, _
-                                    arrCheques, _
-                                    arrTarjetas, _
-                                    arrFichas, _
-                                    arrCambio, _
-                                    dtCobroPedidoLiq, _
-                                    frmConsultaValePromocion.ListaVales, _
-                                    saldoAFavor)
+				If TipoOperacion = TipoOperacionMovimientoCaja.Liquidacion Then
+					If ComboTipoMovimientoCaja.TipoMovimientoCaja <= 0 Then
+						MessageBox.Show("Debe seleccionar el tipo de movimiento de caja para esta liquidación.", Titulo, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+						Exit Sub
+					Else
+						'se suma el valor de saldoAFavor en el argumento Total
+						'arrDenomValesPromocion, _
+						objMov.AltaLiquidacion(Main.GLOBAL_CajaUsuario,
+									Main.FechaOperacion,
+									Main.ConsecutivoInicioDeSesion,
+									dtpFMovimiento.Value,
+									(Me.decImporteTotalMovimiento + Me.saldoAFavor),
+									Main.GLOBAL_IDUsuario,
+									Main.GLOBAL_IDEmpleado,
+									RutaMovimiento,
+									CType(ComboTipoMovimientoCaja.TipoMovimientoCaja, Byte),
+									dtCobro,
+									AutotanqueTurno_AnoAtt,
+									AutotanqueTurno_Folio,
+									arrDenomEfectivo,
+									arrDenomVales,
+									arrCheques,
+									arrTarjetas,
+									arrFichas,
+									arrCambio,
+									dtCobroPedidoLiq,
+									frmConsultaValePromocion.ListaVales,
+									saldoAFavor)
 
-                        '**********************************
-                        'Tranferencia inmediata de cargos
-                        '05 de Julio del 2004
-                        '**********************************
-                        'Dim cn As New SqlClient.SqlConnection(Main.ConString)
-                        Dim cn As SqlClient.SqlConnection = GLOBAL_Connection
-                        Dim cmd As New SqlClient.SqlCommand("spSTTransfiereCargosCartera", cn)
-                        With cmd
-                            .CommandType = CommandType.StoredProcedure
-                            .CommandTimeout = GLOBAL_TiempoEspera
-                            .Parameters.Clear()
-                            .Parameters.Add("@AñoAtt", SqlDbType.SmallInt).Value = AutotanqueTurno_AnoAtt
-                            .Parameters.Add("@Folio", SqlDbType.Int).Value = AutotanqueTurno_Folio
-                        End With
+						'**********************************
+						'Tranferencia inmediata de cargos
+						'05 de Julio del 2004
+						'**********************************
+						'Dim cn As New SqlClient.SqlConnection(Main.ConString)
+						Dim cn As SqlClient.SqlConnection = GLOBAL_Connection
+						Dim cmd As New SqlClient.SqlCommand("spSTTransfiereCargosCartera", cn)
+						With cmd
+							.CommandType = CommandType.StoredProcedure
+							.CommandTimeout = GLOBAL_TiempoEspera
+							.Parameters.Clear()
+							.Parameters.Add("@AñoAtt", SqlDbType.SmallInt).Value = AutotanqueTurno_AnoAtt
+							.Parameters.Add("@Folio", SqlDbType.Int).Value = AutotanqueTurno_Folio
+						End With
 
-                        Try
-                            If cn.State = ConnectionState.Closed Then
-                                cn.Open()
-                            End If
-                            cmd.ExecuteNonQuery()
+						Try
+							If cn.State = ConnectionState.Closed Then
+								cn.Open()
+							End If
+							cmd.ExecuteNonQuery()
 
-                        Catch ex As Exception
-                            MessageBox.Show("La transferencia de cargos automática no se pudo realizar debido al siguiente error:" & Chr(13) & ex.Message, _
-                            ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+						Catch ex As Exception
+							MessageBox.Show("La transferencia de cargos automática no se pudo realizar debido al siguiente error:" & Chr(13) & ex.Message,
+							ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
 
-                        Finally
-                            If Not cn Is Nothing Then
-                                If cn.State = ConnectionState.Open Then cn.Close()
-                            End If
-                            cmd.Dispose()
-                            'cn.Dispose()
-                        End Try
+						Finally
+							If Not cn Is Nothing Then
+								If cn.State = ConnectionState.Open Then cn.Close()
+							End If
+							cmd.Dispose()
+							'cn.Dispose()
+						End Try
 
-                    End If
-                End If
+					End If
+				End If
 
-                'MessageBox.Show(M_DATOS_OK, Titulo, MessageBoxButtons.OK, MessageBoxIcon.Information)
+				'MessageBox.Show(M_DATOS_OK, Titulo, MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-                'Try
-                '    Cursor = Cursors.WaitCursor
-                '    objMov.InterfaseCyC(Celula, dtpFMovimiento.Value)
-                '    'MessageBox.Show("La interfase de CyC fue ejecutada correctamente.", Titulo, MessageBoxButtons.OK, MessageBoxIcon.Information)
-                'Catch ex As Exception
-                '    MessageBox.Show("La interfasé de CyC no pudo ser ejecutada correctamente debido al siguiente motivo: " & Chr(13) & _
-                '                ex.Message, Titulo, MessageBoxButtons.OK, MessageBoxIcon.Information)
-                'Finally
-                '    Cursor = Cursors.Default
-                'End Try
+				'Try
+				'    Cursor = Cursors.WaitCursor
+				'    objMov.InterfaseCyC(Celula, dtpFMovimiento.Value)
+				'    'MessageBox.Show("La interfase de CyC fue ejecutada correctamente.", Titulo, MessageBoxButtons.OK, MessageBoxIcon.Information)
+				'Catch ex As Exception
+				'    MessageBox.Show("La interfasé de CyC no pudo ser ejecutada correctamente debido al siguiente motivo: " & Chr(13) & _
+				'                ex.Message, Titulo, MessageBoxButtons.OK, MessageBoxIcon.Information)
+				'Finally
+				'    Cursor = Cursors.Default
+				'End Try
 
 
-                DialogResult = DialogResult.OK
-                Me.Close()
-            Catch ex As Exception
+				DialogResult = DialogResult.OK
+				Me.Close()
+			Catch ex As Exception
 
-                MessageBox.Show(ex.Message, Titulo, MessageBoxButtons.OK, MessageBoxIcon.Error)
-                DialogResult = DialogResult.Cancel
-            Finally
-                objMov = Nothing
-            End Try
-        End If
+				MessageBox.Show(ex.Message, Titulo, MessageBoxButtons.OK, MessageBoxIcon.Error)
+				DialogResult = DialogResult.Cancel
+			Finally
+				objMov = Nothing
+			End Try
+		End If
 
-    End Sub
+	End Sub
 
-    'todo: modificar para cargar distintos tipos de movimiento en el parámetro
-    'Private Function MovimientoAutoModifValido() As Boolean
-    '    If = CType(GLOBAL_TipoMovAutoModif, Integer) Then
-    '        Return True
-    '    Else
-    '        Return False
-    '    End If
-    'End Function
+	'todo: modificar para cargar distintos tipos de movimiento en el parámetro
+	'Private Function MovimientoAutoModifValido() As Boolean
+	'    If = CType(GLOBAL_TipoMovAutoModif, Integer) Then
+	'        Return True
+	'    Else
+	'        Return False
+	'    End If
+	'End Function
 
 #End Region
 
 #Region "Manejo del cambio"
-    Private Sub btnCambio_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCambio.Click
-        Dim ofrmCambio As frmCambio
-        If TipoOperacion = TipoOperacionMovimientoCaja.Consulta Then
-            ofrmCambio = New frmCambio(decImporteCambio, TipoOperacionMovimientoCaja.Consulta)
-            Dim dr As DataRow
-            For Each dr In dtCambio.Rows
-                Select Case CType(dr("Denominacion"), Byte)
-                    Case Is = 1 : ofrmCambio.Efectivo.M500 = CType(dr("Cantidad"), Short)
-                    Case Is = 2 : ofrmCambio.Efectivo.M200 = CType(dr("Cantidad"), Short)
-                    Case Is = 3 : ofrmCambio.Efectivo.M100 = CType(dr("Cantidad"), Short)
-                    Case Is = 4 : ofrmCambio.Efectivo.M50 = CType(dr("Cantidad"), Short)
-                    Case Is = 5 : ofrmCambio.Efectivo.M20 = CType(dr("Cantidad"), Short)
-                    Case Is = 6 : ofrmCambio.Efectivo.M10 = CType(dr("Cantidad"), Short)
-                    Case Is = 7 : ofrmCambio.Efectivo.M5 = CType(dr("Cantidad"), Short)
-                    Case Is = 8 : ofrmCambio.Efectivo.M2 = CType(dr("Cantidad"), Short)
-                    Case Is = 9 : ofrmCambio.Efectivo.M1 = CType(dr("Cantidad"), Short)
-                    Case Is = 10 : ofrmCambio.Efectivo.M50c = CType(dr("Cantidad"), Short)
-                    Case Is = 11 : ofrmCambio.Efectivo.M20c = CType(dr("Cantidad"), Short)
-                    Case Is = 12 : ofrmCambio.Efectivo.M10c = CType(dr("Cantidad"), Short)
-                    Case Is = 13 : ofrmCambio.Efectivo.M5c = CType(dr("Cantidad"), Short)
-                    Case Is = 14 : ofrmCambio.Efectivo.Morralla = CType(dr("Cantidad"), Decimal)
-                End Select
-            Next
-            With ofrmCambio
-                .Efectivo.CalculaTotalEfectivo()
-                .Efectivo.Enabled = False
-                .lblCambio.Visible = False
-                .lblCambio2.Visible = False
-                .lblFaltante.Visible = False
-                .lblFaltante2.Visible = False
-                .ShowDialog()
-            End With
+	Private Sub btnCambio_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCambio.Click
+		Dim ofrmCambio As frmCambio
+		If TipoOperacion = TipoOperacionMovimientoCaja.Consulta Then
+			ofrmCambio = New frmCambio(decImporteCambio, TipoOperacionMovimientoCaja.Consulta)
+			Dim dr As DataRow
+			For Each dr In dtCambio.Rows
+				Select Case CType(dr("Denominacion"), Byte)
+					Case Is = 1 : ofrmCambio.Efectivo.M500 = CType(dr("Cantidad"), Short)
+					Case Is = 2 : ofrmCambio.Efectivo.M200 = CType(dr("Cantidad"), Short)
+					Case Is = 3 : ofrmCambio.Efectivo.M100 = CType(dr("Cantidad"), Short)
+					Case Is = 4 : ofrmCambio.Efectivo.M50 = CType(dr("Cantidad"), Short)
+					Case Is = 5 : ofrmCambio.Efectivo.M20 = CType(dr("Cantidad"), Short)
+					Case Is = 6 : ofrmCambio.Efectivo.M10 = CType(dr("Cantidad"), Short)
+					Case Is = 7 : ofrmCambio.Efectivo.M5 = CType(dr("Cantidad"), Short)
+					Case Is = 8 : ofrmCambio.Efectivo.M2 = CType(dr("Cantidad"), Short)
+					Case Is = 9 : ofrmCambio.Efectivo.M1 = CType(dr("Cantidad"), Short)
+					Case Is = 10 : ofrmCambio.Efectivo.M50c = CType(dr("Cantidad"), Short)
+					Case Is = 11 : ofrmCambio.Efectivo.M20c = CType(dr("Cantidad"), Short)
+					Case Is = 12 : ofrmCambio.Efectivo.M10c = CType(dr("Cantidad"), Short)
+					Case Is = 13 : ofrmCambio.Efectivo.M5c = CType(dr("Cantidad"), Short)
+					Case Is = 14 : ofrmCambio.Efectivo.Morralla = CType(dr("Cantidad"), Decimal)
+				End Select
+			Next
+			With ofrmCambio
+				.Efectivo.CalculaTotalEfectivo()
+				.Efectivo.Enabled = False
+				.lblCambio.Visible = False
+				.lblCambio2.Visible = False
+				.lblFaltante.Visible = False
+				.lblFaltante2.Visible = False
+				.ShowDialog()
+			End With
 
-        End If
-        If TipoOperacion = TipoOperacionMovimientoCaja.Validacion Or TipoOperacion = TipoOperacionMovimientoCaja.Liquidacion Then
-            ofrmCambio = New frmCambio(decImporteCambio, TipoOperacionMovimientoCaja.Validacion)
-            ofrmCambio.ShowDialog()
-            arrCambio = ofrmCambio.Efectivo.CalculaDenominaciones
-            decImporteCambioDesglosado = CType(ofrmCambio.Efectivo.CalculaTotalEfectivo, Decimal)
-            lblCambioEntregado.Text = decImporteCambioDesglosado.ToString("C")
-        End If
-    End Sub
+		End If
+		If TipoOperacion = TipoOperacionMovimientoCaja.Validacion Or TipoOperacion = TipoOperacionMovimientoCaja.Liquidacion Then
+			ofrmCambio = New frmCambio(decImporteCambio, TipoOperacionMovimientoCaja.Validacion)
+			ofrmCambio.ShowDialog()
+			arrCambio = ofrmCambio.Efectivo.CalculaDenominaciones
+			decImporteCambioDesglosado = CType(ofrmCambio.Efectivo.CalculaTotalEfectivo, Decimal)
+			lblCambioEntregado.Text = decImporteCambioDesglosado.ToString("C")
+		End If
+	End Sub
 #End Region
 
 #Region "Consulta de cheques,tarjetas de credito y fichas de depósito"
-    Private Sub lnkConsultaCheques_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lnkConsultaCheques.LinkClicked
-        Dim frmListaCheques As New frmChequeTarjetaMovCaja(3)
-        With frmListaCheques
-            .grdConsulta.DataSource = dtCheques
-            .grdConsulta.CaptionText = "Cheques en este movimiento"
-            .grdConsulta.CaptionBackColor = Color.DarkSeaGreen
-            .ShowDialog()
-        End With
-    End Sub
+	Private Sub lnkConsultaCheques_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lnkConsultaCheques.LinkClicked
+		Dim frmListaCheques As New frmChequeTarjetaMovCaja(3)
+		With frmListaCheques
+			.grdConsulta.DataSource = dtCheques
+			.grdConsulta.CaptionText = "Cheques en este movimiento"
+			.grdConsulta.CaptionBackColor = Color.DarkSeaGreen
+			.ShowDialog()
+		End With
+	End Sub
 
-    Private Sub lnkConsultaTarjetaCredito_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lnkConsultaTarjetaCredito.LinkClicked
-        Dim frmListaTarjetaCredito As New frmChequeTarjetaMovCaja(2)
-        With frmListaTarjetaCredito
-            .grdConsulta.DataSource = dtTarjetaCredito
-            .grdConsulta.CaptionText = "Lista de cobros con tarjeta de crédito"
-            .grdConsulta.CaptionBackColor = Color.Brown
-            .ShowDialog()
-        End With
-    End Sub
+	Private Sub lnkConsultaTarjetaCredito_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lnkConsultaTarjetaCredito.LinkClicked
+		Dim frmListaTarjetaCredito As New frmChequeTarjetaMovCaja(2)
+		With frmListaTarjetaCredito
+			.grdConsulta.DataSource = dtTarjetaCredito
+			.grdConsulta.CaptionText = "Lista de cobros con tarjeta de crédito"
+			.grdConsulta.CaptionBackColor = Color.Brown
+			.ShowDialog()
+		End With
+	End Sub
 
-    Private Sub lnkConsultaFichaDeposito_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lnkConsultaFichaDeposito.LinkClicked
-        Dim frmListaFichaDeposito As New frmChequeTarjetaMovCaja(6)
-        With frmListaFichaDeposito
-            .grdConsulta.DataSource = dtFichaDeposito
-            .grdConsulta.CaptionText = "Lista de cobros con notas de crédito, notas de ingreso y fichas de depósito"
-            .grdConsulta.CaptionBackColor = Color.SteelBlue
-            .ShowDialog()
-        End With
-    End Sub
+	Private Sub lnkConsultaFichaDeposito_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lnkConsultaFichaDeposito.LinkClicked
+		Dim frmListaFichaDeposito As New frmChequeTarjetaMovCaja(6)
+		With frmListaFichaDeposito
+			.grdConsulta.DataSource = dtFichaDeposito
+			.grdConsulta.CaptionText = "Lista de cobros con notas de crédito, notas de ingreso y fichas de depósito"
+			.grdConsulta.CaptionBackColor = Color.SteelBlue
+			.ShowDialog()
+		End With
+	End Sub
 #End Region
 
-    Private Sub btnCancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancelar.Click
-        Me.Close()
-    End Sub
+	Private Sub btnCancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancelar.Click
+		Me.Close()
+	End Sub
 
-    Private Sub btnConsultaDocumentos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnConsultaDocumentos.Click
-        'Todo hay que generalizar no manches
-        Dim frmDocumentos As New frmConsultaCobranza()
+	Private Sub btnConsultaDocumentos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnConsultaDocumentos.Click
+		'Todo hay que generalizar no manches
+		Dim frmDocumentos As New frmConsultaCobranza()
 
-        If TipoOperacion = TipoOperacionMovimientoCaja.Consulta Or TipoOperacion = TipoOperacionMovimientoCaja.Validacion Then
-            frmDocumentos.grdCobroPedido.DataSource = dtCobroPedido
-            frmDocumentos.stbEstatus.Panels(0).Text = dtCobroPedido.TotalRegistros.ToString & " documento(s)"
-            frmDocumentos.stbEstatus.Panels(1).Text = "Importe Total: " & dtCobroPedido.ImporteTotalCobros.ToString("C")
-        End If
-        If TipoOperacion = TipoOperacionMovimientoCaja.Liquidacion Then
-            frmDocumentos.grdCobroPedido.DataSource = dtCobroPedidoLiq
-            frmDocumentos.stbEstatus.Panels(0).Text = dtCobroPedidoLiq.Rows.Count.ToString & " documento(s)"
-            frmDocumentos.stbEstatus.Panels(1).Text = SumaColumna(dtCobroPedidoLiq, "CobroPedidoTotal").ToString("C")
-        End If
-        frmDocumentos.ShowDialog()
-    End Sub
+		If TipoOperacion = TipoOperacionMovimientoCaja.Consulta Or TipoOperacion = TipoOperacionMovimientoCaja.Validacion Then
+			frmDocumentos.grdCobroPedido.DataSource = dtCobroPedido
+			frmDocumentos.stbEstatus.Panels(0).Text = dtCobroPedido.TotalRegistros.ToString & " documento(s)"
+			frmDocumentos.stbEstatus.Panels(1).Text = "Importe Total: " & dtCobroPedido.ImporteTotalCobros.ToString("C")
+		End If
+		If TipoOperacion = TipoOperacionMovimientoCaja.Liquidacion Then
+			frmDocumentos.grdCobroPedido.DataSource = dtCobroPedidoLiq
+			frmDocumentos.stbEstatus.Panels(0).Text = dtCobroPedidoLiq.Rows.Count.ToString & " documento(s)"
+			frmDocumentos.stbEstatus.Panels(1).Text = SumaColumna(dtCobroPedidoLiq, "CobroPedidoTotal").ToString("C")
+		End If
+		frmDocumentos.ShowDialog()
+	End Sub
 
-    Private Sub AsignaValores()
-        lblPorCobrarEfectivo.Text = PorCobrarEfectivo.ToString("N")
-        lblPorCobrarVales.Text = PorCobrarVales.ToString("N")
-        lblPorCobrarCheques.Text = PorCobrarCheques.ToString("N")
-        '
-        lblAFavorOperadorCheques.Text = AFavorOperadorCheques.ToString("N")
-        lblPorCobrarEfectivoVales.Text = PorCobrarEfectivoVales.ToString("N")
-        lblPorCobrarTC.Text = PorCobrarTarjetaCredito.ToString("N")
-        lblPorCobrarFD.Text = PorCobrarFichaDeposito.ToString("N")
-        lblImporteEficiencia.Text = ImporteEficiencia.ToString("C")
+	Private Sub AsignaValores()
+		lblPorCobrarEfectivo.Text = PorCobrarEfectivo.ToString("N")
+		lblPorCobrarVales.Text = PorCobrarVales.ToString("N")
+		lblTotalVales.Text = PorCobrarCheques.ToString("N")
+		'
+		lblAFavorOperadorCheques.Text = AFavorOperadorCheques.ToString("N")
+		lblTotalEfectivo.Text = PorCobrarEfectivoVales.ToString("N")
 
-        'Para saldo a favor
-        If GLOBAL_SaldoAFavor Then 'si aplica el saldo a favor no se resta del importe a pagar
-            lblRealEfectivoVales.Text = (PorCobrarEfectivoVales - AFavorOperadorCheques + saldoAFavor).ToString("N")
-            decImporteRealACobrar = (PorCobrarEfectivoVales - AFavorOperadorCheques + saldoAFavor)
-            If saldoAFavor > 0 Then
-                lblCaptAFAvor.Text = "A favor:"
-            End If
-        Else
-            lblRealEfectivoVales.Text = (PorCobrarEfectivoVales - AFavorOperadorCheques).ToString("N")
-            decImporteRealACobrar = (PorCobrarEfectivoVales - AFavorOperadorCheques)
-        End If
+		lblTotalTarjetaCredito.Text = (PorCobrarTarjetaCredito - AFavorTarjetaCredito).ToString("N")
+		lblTotalTarjetaDebito.Text = (PorCobrarTarjetaDebito - AFavorTarjetaDebito).ToString("N")
+
+		lblTotalVarios.Text = (PorCobrarFichaDeposito - AfavorFichaDeposito).ToString("N")
+		lblTotalVale.Text = (PorCobrarVales - AFavorVales).ToString("N")
+
+		lblImporteEficiencia.Text = ImporteEficiencia.ToString("C")
 
 
 
-        '21-07-2005 Para desplegar el importe de autocarburaciones y obsequios
-        If Not IsNothing(dtObsequios) Then
-            lblAutoCarb.Text = CStr(dtObsequios.Compute("SUM(Total)", ""))
-        End If
+
+		'Para saldo a favor
+		If GLOBAL_SaldoAFavor Then 'si aplica el saldo a favor no se resta del importe a pagar
+			lblRealEfectivoVales.Text = (PorCobrarEfectivoVales + PorCobrarVales - AFavorVales).ToString("N")
+			decImporteRealACobrar = (PorCobrarEfectivoVales + PorCobrarVales - AFavorVales)
+			If saldoAFavor > 0 Then
+				lblCaptAFAvor.Text = "A favor:"
+			End If
+		Else
+			lblRealEfectivoVales.Text = (PorCobrarEfectivoVales + PorCobrarVales - AFavorVales).ToString("N")
+			decImporteRealACobrar = (PorCobrarEfectivoVales + PorCobrarVales - AFavorVales)
+		End If
+
+
+
+		'21-07-2005 Para desplegar el importe de autocarburaciones y obsequios
+		If Not IsNothing(dtObsequios) Then
+			lblTotalVale.Text = CStr(dtObsequios.Compute("SUM(Total)", ""))
+		End If
     End Sub
 
     Private Sub chkIncluirEficiencia_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkIncluirEficiencia.CheckedChanged
