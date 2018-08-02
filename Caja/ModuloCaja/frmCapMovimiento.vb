@@ -147,1497 +147,1497 @@ Public Class frmCapMovimiento
     Friend WithEvents RegistroValeCredito1 As ControlDeValesPromocionales.RegistroValeCredito
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCapMovimiento))
-        Me.btnCancelar = New ControlesBase.BotonBase()
-        Me.btnAceptar = New ControlesBase.BotonBase()
-        Me.btnConsultaDocumentos = New ControlesBase.BotonBase()
-        Me.grpLiquidacionConsulta = New System.Windows.Forms.GroupBox()
-        Me.grdInfoPreLiq = New System.Windows.Forms.DataGrid()
-        Me.InfoPreLiq = New System.Windows.Forms.DataGridTableStyle()
-        Me.colPLFolio = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.colPLRutaDescripcion = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.colPLCelula = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.colPLImporteContado = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.colPLImporteCredito = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.colPLEficiencia = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.colPLImporteEficiencia = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.colPLTipoPagoEficiencia = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.colPLTipoPagoEficienciaDesc = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.colPLFInicioRuta = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.LabelBase9 = New ControlesBase.LabelBase()
-        Me.lblImporteEficiencia = New System.Windows.Forms.Label()
-        Me.grpCabecera = New System.Windows.Forms.GroupBox()
-        Me.lblMotivoCancelacion1 = New ControlesBase.LabelBase()
-        Me.lblMotivoCancelacion2 = New System.Windows.Forms.Label()
-        Me.LabelBase16 = New ControlesBase.LabelBase()
-        Me.lblObservaciones = New System.Windows.Forms.Label()
-        Me.picAviso = New System.Windows.Forms.PictureBox()
-        Me.lblFMovimiento = New System.Windows.Forms.Label()
-        Me.lblStatus = New System.Windows.Forms.Label()
-        Me.ComboTipoMovimientoCaja = New SigaMetClasses.Combos.ComboTipoMovimientoCaja()
-        Me.lblFOperacion = New System.Windows.Forms.Label()
-        Me.lblTipoMovimientoCaja = New System.Windows.Forms.Label()
-        Me.lblRuta = New System.Windows.Forms.Label()
-        Me.lblFechaAlta = New System.Windows.Forms.Label()
-        Me.lblNombreEmpleado = New System.Windows.Forms.Label()
-        Me.dtpFMovimiento = New System.Windows.Forms.DateTimePicker()
-        Me.LabelBase13 = New ControlesBase.LabelBase()
-        Me.LabelBase2 = New ControlesBase.LabelBase()
-        Me.LabelBase8 = New ControlesBase.LabelBase()
-        Me.lblEmpleado2 = New ControlesBase.LabelBase()
-        Me.Label30 = New ControlesBase.LabelBase()
-        Me.lblFecha = New ControlesBase.LabelBase()
-        Me.lblFechaAlta2 = New ControlesBase.LabelBase()
-        Me.grpDatosMovimiento = New System.Windows.Forms.GroupBox()
-        Me.lnkConsultaIVA = New System.Windows.Forms.LinkLabel()
-        Me.grpCobroEficiencia = New System.Windows.Forms.GroupBox()
-        Me.chkIncluirEficiencia = New System.Windows.Forms.CheckBox()
-        Me.lblImporteMovimiento = New System.Windows.Forms.Label()
-        Me.lblImporteCobranza2 = New ControlesBase.LabelBase()
-        Me.grpCobroVale = New System.Windows.Forms.GroupBox()
-        Me.RegistroValeCredito1 = New ControlDeValesPromocionales.RegistroValeCredito()
-        Me.Vales = New CapturaEfectivo.Vales()
-        Me.lblNoTieneVales = New System.Windows.Forms.Label()
-        Me.grpCobroCheque = New System.Windows.Forms.GroupBox()
-        Me.lnkConsultaCheques = New System.Windows.Forms.LinkLabel()
-        Me.grdCheque = New System.Windows.Forms.DataGrid()
-        Me.EstiloCheques = New System.Windows.Forms.DataGridTableStyle()
-        Me.colChTipoCobro = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.colChNumeroCheque = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.colChBancoNombre = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.colChTotal = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.colChSaldo = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.lblNoTieneCheques = New System.Windows.Forms.Label()
-        Me.grpCobroEfectivo = New System.Windows.Forms.GroupBox()
-        Me.CobroEfectivo = New CapturaEfectivo.Efectivo()
-        Me.lblPorCobrarVales = New System.Windows.Forms.Label()
-        Me.lblPorCobrarEfectivo = New System.Windows.Forms.Label()
-        Me.LabelBase3 = New ControlesBase.LabelBase()
-        Me.LabelBase1 = New ControlesBase.LabelBase()
-        Me.lblNoTieneEfectivo = New System.Windows.Forms.Label()
-        Me.grpCobroDocumentos = New System.Windows.Forms.GroupBox()
-        Me.LabelBase14 = New ControlesBase.LabelBase()
-        Me.lblAutoCarb = New System.Windows.Forms.Label()
-        Me.lblCaptAFAvor = New System.Windows.Forms.Label()
-        Me.LabelBase15 = New ControlesBase.LabelBase()
-        Me.lblRealEfectivoVales = New System.Windows.Forms.Label()
-        Me.lblAFavorOperadorCheques = New System.Windows.Forms.Label()
-        Me.lblPorCobrarEficiencia = New System.Windows.Forms.Label()
-        Me.LabelBase12 = New ControlesBase.LabelBase()
-        Me.lblPorCobrarFD = New System.Windows.Forms.Label()
-        Me.LabelBase7 = New ControlesBase.LabelBase()
-        Me.grpCobroFicha = New System.Windows.Forms.GroupBox()
-        Me.grdFichaDeposito = New System.Windows.Forms.DataGrid()
-        Me.EstiloFicha = New System.Windows.Forms.DataGridTableStyle()
-        Me.colTipoCobro = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.colDocumento = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.colTotal = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.colSaldo = New System.Windows.Forms.DataGridTextBoxColumn()
-        Me.lnkConsultaFichaDeposito = New System.Windows.Forms.LinkLabel()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.lblPorCobrarTC = New System.Windows.Forms.Label()
-        Me.LabelBase6 = New ControlesBase.LabelBase()
-        Me.grpCobroTC = New System.Windows.Forms.GroupBox()
-        Me.grdTarjetaCredito = New System.Windows.Forms.DataGrid()
-        Me.lnkConsultaTarjetaCredito = New System.Windows.Forms.LinkLabel()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.btnCambio = New ControlesBase.BotonBase()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.LabelBase11 = New ControlesBase.LabelBase()
-        Me.lblFaltante = New System.Windows.Forms.Label()
-        Me.lblCambioEntregado = New System.Windows.Forms.Label()
-        Me.LabelBase10 = New ControlesBase.LabelBase()
-        Me.lblCambio = New System.Windows.Forms.Label()
-        Me.lblCambio2 = New ControlesBase.LabelBase()
-        Me.lblImporteTotalCobro = New System.Windows.Forms.Label()
-        Me.lblImporteTotalCobros = New ControlesBase.LabelBase()
-        Me.lblPorCobrarEfectivoVales = New System.Windows.Forms.Label()
-        Me.lblPorCobrarCheques = New System.Windows.Forms.Label()
-        Me.LabelBase5 = New ControlesBase.LabelBase()
-        Me.LabelBase4 = New ControlesBase.LabelBase()
-        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
-        Me.lblTipoOperacion = New System.Windows.Forms.Label()
-        Me.lblMovimientoCajaClave = New System.Windows.Forms.Label()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.LabelNombreEmpresa1 = New NombreEmpresa.LabelNombreEmpresa()
-        Me.PanelMensaje = New System.Windows.Forms.Panel()
-        Me.lblPanelMensaje = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.ttMensaje = New System.Windows.Forms.ToolTip(Me.components)
-        Me.grpLiquidacionConsulta.SuspendLayout()
-        CType(Me.grdInfoPreLiq, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.grpCabecera.SuspendLayout()
-        CType(Me.picAviso, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.grpDatosMovimiento.SuspendLayout()
-        Me.grpCobroEficiencia.SuspendLayout()
-        Me.grpCobroVale.SuspendLayout()
-        Me.grpCobroCheque.SuspendLayout()
-        CType(Me.grdCheque, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.grpCobroEfectivo.SuspendLayout()
-        Me.grpCobroDocumentos.SuspendLayout()
-        Me.grpCobroFicha.SuspendLayout()
-        CType(Me.grdFichaDeposito, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.grpCobroTC.SuspendLayout()
-        CType(Me.grdTarjetaCredito, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel1.SuspendLayout()
-        Me.Panel2.SuspendLayout()
-        Me.PanelMensaje.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SuspendLayout()
-        '
-        'btnCancelar
-        '
-        Me.btnCancelar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnCancelar.BackColor = System.Drawing.SystemColors.Control
-        Me.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnCancelar.Image = CType(resources.GetObject("btnCancelar.Image"), System.Drawing.Image)
-        Me.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnCancelar.Location = New System.Drawing.Point(912, 40)
-        Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(104, 24)
-        Me.btnCancelar.TabIndex = 5
-        Me.btnCancelar.Text = "&Cancelar (Esc)"
-        Me.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnCancelar.UseVisualStyleBackColor = False
-        '
-        'btnAceptar
-        '
-        Me.btnAceptar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnAceptar.BackColor = System.Drawing.SystemColors.Control
-        Me.btnAceptar.Image = CType(resources.GetObject("btnAceptar.Image"), System.Drawing.Image)
-        Me.btnAceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAceptar.Location = New System.Drawing.Point(912, 8)
-        Me.btnAceptar.Name = "btnAceptar"
-        Me.btnAceptar.Size = New System.Drawing.Size(104, 24)
-        Me.btnAceptar.TabIndex = 4
-        Me.btnAceptar.Text = "&Aceptar (F10)"
-        Me.btnAceptar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnAceptar.UseVisualStyleBackColor = False
-        '
-        'btnConsultaDocumentos
-        '
-        Me.btnConsultaDocumentos.BackColor = System.Drawing.SystemColors.Control
-        Me.btnConsultaDocumentos.Image = CType(resources.GetObject("btnConsultaDocumentos.Image"), System.Drawing.Image)
-        Me.btnConsultaDocumentos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnConsultaDocumentos.Location = New System.Drawing.Point(128, 88)
-        Me.btnConsultaDocumentos.Name = "btnConsultaDocumentos"
-        Me.btnConsultaDocumentos.Size = New System.Drawing.Size(240, 40)
-        Me.btnConsultaDocumentos.TabIndex = 26
-        Me.btnConsultaDocumentos.Text = "Consulta documentos relacionados"
-        Me.btnConsultaDocumentos.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnConsultaDocumentos.UseVisualStyleBackColor = False
-        Me.btnConsultaDocumentos.Visible = False
-        '
-        'grpLiquidacionConsulta
-        '
-        Me.grpLiquidacionConsulta.Controls.Add(Me.grdInfoPreLiq)
-        Me.grpLiquidacionConsulta.Controls.Add(Me.LabelBase9)
-        Me.grpLiquidacionConsulta.Controls.Add(Me.lblImporteEficiencia)
-        Me.grpLiquidacionConsulta.Location = New System.Drawing.Point(8, 528)
-        Me.grpLiquidacionConsulta.Name = "grpLiquidacionConsulta"
-        Me.grpLiquidacionConsulta.Size = New System.Drawing.Size(392, 168)
-        Me.grpLiquidacionConsulta.TabIndex = 35
-        Me.grpLiquidacionConsulta.TabStop = False
-        Me.grpLiquidacionConsulta.Text = "Consulta de la pre-liquidación de la ruta"
-        '
-        'grdInfoPreLiq
-        '
-        Me.grdInfoPreLiq.BackgroundColor = System.Drawing.Color.LemonChiffon
-        Me.grdInfoPreLiq.CaptionBackColor = System.Drawing.Color.WhiteSmoke
-        Me.grdInfoPreLiq.CaptionForeColor = System.Drawing.Color.Red
-        Me.grdInfoPreLiq.CaptionText = "Información de la pre-liquidación"
-        Me.grdInfoPreLiq.DataMember = ""
-        Me.grdInfoPreLiq.ForeColor = System.Drawing.Color.Black
-        Me.grdInfoPreLiq.HeaderForeColor = System.Drawing.SystemColors.ControlText
-        Me.grdInfoPreLiq.Location = New System.Drawing.Point(8, 24)
-        Me.grdInfoPreLiq.Name = "grdInfoPreLiq"
-        Me.grdInfoPreLiq.ReadOnly = True
-        Me.grdInfoPreLiq.RowHeadersVisible = False
-        Me.grdInfoPreLiq.SelectionBackColor = System.Drawing.Color.Red
-        Me.grdInfoPreLiq.Size = New System.Drawing.Size(360, 96)
-        Me.grdInfoPreLiq.TabIndex = 36
-        Me.grdInfoPreLiq.TableStyles.AddRange(New System.Windows.Forms.DataGridTableStyle() {Me.InfoPreLiq})
-        '
-        'InfoPreLiq
-        '
-        Me.InfoPreLiq.DataGrid = Me.grdInfoPreLiq
-        Me.InfoPreLiq.GridColumnStyles.AddRange(New System.Windows.Forms.DataGridColumnStyle() {Me.colPLFolio, Me.colPLRutaDescripcion, Me.colPLCelula, Me.colPLImporteContado, Me.colPLImporteCredito, Me.colPLEficiencia, Me.colPLImporteEficiencia, Me.colPLTipoPagoEficiencia, Me.colPLTipoPagoEficienciaDesc, Me.colPLFInicioRuta})
-        Me.InfoPreLiq.HeaderForeColor = System.Drawing.SystemColors.ControlText
-        Me.InfoPreLiq.MappingName = "InfoPreLiq"
-        Me.InfoPreLiq.RowHeadersVisible = False
-        '
-        'colPLFolio
-        '
-        Me.colPLFolio.Format = ""
-        Me.colPLFolio.FormatInfo = Nothing
-        Me.colPLFolio.HeaderText = "Folio"
-        Me.colPLFolio.MappingName = "Folio"
-        Me.colPLFolio.Width = 50
-        '
-        'colPLRutaDescripcion
-        '
-        Me.colPLRutaDescripcion.Format = ""
-        Me.colPLRutaDescripcion.FormatInfo = Nothing
-        Me.colPLRutaDescripcion.HeaderText = "Ruta"
-        Me.colPLRutaDescripcion.MappingName = "RutaDescripcion"
-        Me.colPLRutaDescripcion.Width = 70
-        '
-        'colPLCelula
-        '
-        Me.colPLCelula.Format = ""
-        Me.colPLCelula.FormatInfo = Nothing
-        Me.colPLCelula.HeaderText = "Célula"
-        Me.colPLCelula.MappingName = "Celula"
-        Me.colPLCelula.Width = 40
-        '
-        'colPLImporteContado
-        '
-        Me.colPLImporteContado.Alignment = System.Windows.Forms.HorizontalAlignment.Right
-        Me.colPLImporteContado.Format = "#,##.00"
-        Me.colPLImporteContado.FormatInfo = Nothing
-        Me.colPLImporteContado.HeaderText = "Contado"
-        Me.colPLImporteContado.MappingName = "ImporteContado"
-        Me.colPLImporteContado.Width = 70
-        '
-        'colPLImporteCredito
-        '
-        Me.colPLImporteCredito.Alignment = System.Windows.Forms.HorizontalAlignment.Right
-        Me.colPLImporteCredito.Format = "#,##.00"
-        Me.colPLImporteCredito.FormatInfo = Nothing
-        Me.colPLImporteCredito.HeaderText = "Crédito"
-        Me.colPLImporteCredito.MappingName = "ImporteCredito"
-        Me.colPLImporteCredito.Width = 70
-        '
-        'colPLEficiencia
-        '
-        Me.colPLEficiencia.Format = ""
-        Me.colPLEficiencia.FormatInfo = Nothing
-        Me.colPLEficiencia.HeaderText = "Eficiencia"
-        Me.colPLEficiencia.MappingName = "Eficiencia"
-        Me.colPLEficiencia.Width = 75
-        '
-        'colPLImporteEficiencia
-        '
-        Me.colPLImporteEficiencia.Alignment = System.Windows.Forms.HorizontalAlignment.Right
-        Me.colPLImporteEficiencia.Format = "#,##.00"
-        Me.colPLImporteEficiencia.FormatInfo = Nothing
-        Me.colPLImporteEficiencia.HeaderText = "Importe eficiencia"
-        Me.colPLImporteEficiencia.MappingName = "ImporteEficiencia"
-        Me.colPLImporteEficiencia.Width = 120
-        '
-        'colPLTipoPagoEficiencia
-        '
-        Me.colPLTipoPagoEficiencia.Format = ""
-        Me.colPLTipoPagoEficiencia.FormatInfo = Nothing
-        Me.colPLTipoPagoEficiencia.MappingName = "TipoPagoEficiencia"
-        Me.colPLTipoPagoEficiencia.Width = 0
-        '
-        'colPLTipoPagoEficienciaDesc
-        '
-        Me.colPLTipoPagoEficienciaDesc.Format = ""
-        Me.colPLTipoPagoEficienciaDesc.FormatInfo = Nothing
-        Me.colPLTipoPagoEficienciaDesc.HeaderText = "Tipo pago ef."
-        Me.colPLTipoPagoEficienciaDesc.MappingName = "TipoPagoEficienciaDesc"
-        Me.colPLTipoPagoEficienciaDesc.Width = 75
-        '
-        'colPLFInicioRuta
-        '
-        Me.colPLFInicioRuta.Format = ""
-        Me.colPLFInicioRuta.FormatInfo = Nothing
-        Me.colPLFInicioRuta.HeaderText = "F.Inicio Ruta"
-        Me.colPLFInicioRuta.MappingName = "FInicioRuta"
-        Me.colPLFInicioRuta.Width = 75
-        '
-        'LabelBase9
-        '
-        Me.LabelBase9.AutoSize = True
-        Me.LabelBase9.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelBase9.ForeColor = System.Drawing.Color.Blue
-        Me.LabelBase9.Location = New System.Drawing.Point(24, 128)
-        Me.LabelBase9.Name = "LabelBase9"
-        Me.LabelBase9.Size = New System.Drawing.Size(190, 18)
-        Me.LabelBase9.TabIndex = 60
-        Me.LabelBase9.Text = "Importe de la eficiencia:"
-        Me.LabelBase9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'lblImporteEficiencia
-        '
-        Me.lblImporteEficiencia.BackColor = System.Drawing.Color.Khaki
-        Me.lblImporteEficiencia.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblImporteEficiencia.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblImporteEficiencia.ForeColor = System.Drawing.Color.Blue
-        Me.lblImporteEficiencia.Location = New System.Drawing.Point(240, 128)
-        Me.lblImporteEficiencia.Name = "lblImporteEficiencia"
-        Me.lblImporteEficiencia.Size = New System.Drawing.Size(128, 24)
-        Me.lblImporteEficiencia.TabIndex = 59
-        Me.lblImporteEficiencia.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'grpCabecera
-        '
-        Me.grpCabecera.BackColor = System.Drawing.Color.Gainsboro
-        Me.grpCabecera.Controls.Add(Me.lblMotivoCancelacion1)
-        Me.grpCabecera.Controls.Add(Me.lblMotivoCancelacion2)
-        Me.grpCabecera.Controls.Add(Me.LabelBase16)
-        Me.grpCabecera.Controls.Add(Me.lblObservaciones)
-        Me.grpCabecera.Controls.Add(Me.picAviso)
-        Me.grpCabecera.Controls.Add(Me.lblFMovimiento)
-        Me.grpCabecera.Controls.Add(Me.lblStatus)
-        Me.grpCabecera.Controls.Add(Me.ComboTipoMovimientoCaja)
-        Me.grpCabecera.Controls.Add(Me.lblFOperacion)
-        Me.grpCabecera.Controls.Add(Me.lblTipoMovimientoCaja)
-        Me.grpCabecera.Controls.Add(Me.lblRuta)
-        Me.grpCabecera.Controls.Add(Me.lblFechaAlta)
-        Me.grpCabecera.Controls.Add(Me.lblNombreEmpleado)
-        Me.grpCabecera.Controls.Add(Me.dtpFMovimiento)
-        Me.grpCabecera.Controls.Add(Me.LabelBase13)
-        Me.grpCabecera.Controls.Add(Me.LabelBase2)
-        Me.grpCabecera.Controls.Add(Me.LabelBase8)
-        Me.grpCabecera.Controls.Add(Me.lblEmpleado2)
-        Me.grpCabecera.Controls.Add(Me.Label30)
-        Me.grpCabecera.Controls.Add(Me.lblFecha)
-        Me.grpCabecera.Controls.Add(Me.lblFechaAlta2)
-        Me.grpCabecera.Location = New System.Drawing.Point(8, 72)
-        Me.grpCabecera.Name = "grpCabecera"
-        Me.grpCabecera.Size = New System.Drawing.Size(392, 296)
-        Me.grpCabecera.TabIndex = 36
-        Me.grpCabecera.TabStop = False
-        Me.grpCabecera.Text = "Datos del movimiento"
-        '
-        'lblMotivoCancelacion1
-        '
-        Me.lblMotivoCancelacion1.AutoSize = True
-        Me.lblMotivoCancelacion1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMotivoCancelacion1.Location = New System.Drawing.Point(16, 259)
-        Me.lblMotivoCancelacion1.Name = "lblMotivoCancelacion1"
-        Me.lblMotivoCancelacion1.Size = New System.Drawing.Size(116, 13)
-        Me.lblMotivoCancelacion1.TabIndex = 47
-        Me.lblMotivoCancelacion1.Text = "Motivo de cancelación:"
-        Me.lblMotivoCancelacion1.Visible = False
-        '
-        'lblMotivoCancelacion2
-        '
-        Me.lblMotivoCancelacion2.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.lblMotivoCancelacion2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblMotivoCancelacion2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMotivoCancelacion2.ForeColor = System.Drawing.Color.Firebrick
-        Me.lblMotivoCancelacion2.Location = New System.Drawing.Point(136, 256)
-        Me.lblMotivoCancelacion2.Name = "lblMotivoCancelacion2"
-        Me.lblMotivoCancelacion2.Size = New System.Drawing.Size(248, 21)
-        Me.lblMotivoCancelacion2.TabIndex = 46
-        Me.lblMotivoCancelacion2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.lblMotivoCancelacion2.Visible = False
-        '
-        'LabelBase16
-        '
-        Me.LabelBase16.AutoSize = True
-        Me.LabelBase16.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelBase16.Location = New System.Drawing.Point(16, 192)
-        Me.LabelBase16.Name = "LabelBase16"
-        Me.LabelBase16.Size = New System.Drawing.Size(82, 13)
-        Me.LabelBase16.TabIndex = 45
-        Me.LabelBase16.Text = "Observaciones:"
-        '
-        'lblObservaciones
-        '
-        Me.lblObservaciones.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblObservaciones.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblObservaciones.ForeColor = System.Drawing.Color.Black
-        Me.lblObservaciones.Location = New System.Drawing.Point(136, 192)
-        Me.lblObservaciones.Name = "lblObservaciones"
-        Me.lblObservaciones.Size = New System.Drawing.Size(248, 56)
-        Me.lblObservaciones.TabIndex = 44
-        '
-        'picAviso
-        '
-        Me.picAviso.BackColor = System.Drawing.Color.Red
-        Me.picAviso.Image = CType(resources.GetObject("picAviso.Image"), System.Drawing.Image)
-        Me.picAviso.Location = New System.Drawing.Point(360, 121)
-        Me.picAviso.Name = "picAviso"
-        Me.picAviso.Size = New System.Drawing.Size(18, 18)
-        Me.picAviso.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picAviso.TabIndex = 0
-        Me.picAviso.TabStop = False
-        Me.picAviso.Visible = False
-        '
-        'lblFMovimiento
-        '
-        Me.lblFMovimiento.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.lblFMovimiento.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblFMovimiento.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFMovimiento.ForeColor = System.Drawing.Color.Blue
-        Me.lblFMovimiento.Location = New System.Drawing.Point(136, 120)
-        Me.lblFMovimiento.Name = "lblFMovimiento"
-        Me.lblFMovimiento.Size = New System.Drawing.Size(248, 21)
-        Me.lblFMovimiento.TabIndex = 43
-        Me.lblFMovimiento.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ttMensaje.SetToolTip(Me.lblFMovimiento, "Se está validando una liquidación de otro día")
-        '
-        'lblStatus
-        '
-        Me.lblStatus.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.lblStatus.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblStatus.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblStatus.ForeColor = System.Drawing.Color.Firebrick
-        Me.lblStatus.Location = New System.Drawing.Point(136, 24)
-        Me.lblStatus.Name = "lblStatus"
-        Me.lblStatus.Size = New System.Drawing.Size(248, 21)
-        Me.lblStatus.TabIndex = 41
-        Me.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'ComboTipoMovimientoCaja
-        '
-        Me.ComboTipoMovimientoCaja.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboTipoMovimientoCaja.Location = New System.Drawing.Point(136, 48)
-        Me.ComboTipoMovimientoCaja.Name = "ComboTipoMovimientoCaja"
-        Me.ComboTipoMovimientoCaja.Size = New System.Drawing.Size(248, 21)
-        Me.ComboTipoMovimientoCaja.TabIndex = 39
-        Me.ComboTipoMovimientoCaja.Visible = False
-        '
-        'lblFOperacion
-        '
-        Me.lblFOperacion.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblFOperacion.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFOperacion.ForeColor = System.Drawing.Color.Black
-        Me.lblFOperacion.Location = New System.Drawing.Point(136, 96)
-        Me.lblFOperacion.Name = "lblFOperacion"
-        Me.lblFOperacion.Size = New System.Drawing.Size(248, 21)
-        Me.lblFOperacion.TabIndex = 37
-        Me.lblFOperacion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'lblTipoMovimientoCaja
-        '
-        Me.lblTipoMovimientoCaja.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblTipoMovimientoCaja.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTipoMovimientoCaja.ForeColor = System.Drawing.Color.Black
-        Me.lblTipoMovimientoCaja.Location = New System.Drawing.Point(136, 48)
-        Me.lblTipoMovimientoCaja.Name = "lblTipoMovimientoCaja"
-        Me.lblTipoMovimientoCaja.Size = New System.Drawing.Size(248, 21)
-        Me.lblTipoMovimientoCaja.TabIndex = 36
-        Me.lblTipoMovimientoCaja.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'lblRuta
-        '
-        Me.lblRuta.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblRuta.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblRuta.ForeColor = System.Drawing.Color.Black
-        Me.lblRuta.Location = New System.Drawing.Point(136, 144)
-        Me.lblRuta.Name = "lblRuta"
-        Me.lblRuta.Size = New System.Drawing.Size(248, 21)
-        Me.lblRuta.TabIndex = 35
-        Me.lblRuta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'lblFechaAlta
-        '
-        Me.lblFechaAlta.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblFechaAlta.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFechaAlta.ForeColor = System.Drawing.Color.Black
-        Me.lblFechaAlta.Location = New System.Drawing.Point(136, 72)
-        Me.lblFechaAlta.Name = "lblFechaAlta"
-        Me.lblFechaAlta.Size = New System.Drawing.Size(248, 21)
-        Me.lblFechaAlta.TabIndex = 34
-        Me.lblFechaAlta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'lblNombreEmpleado
-        '
-        Me.lblNombreEmpleado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblNombreEmpleado.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombreEmpleado.ForeColor = System.Drawing.Color.Black
-        Me.lblNombreEmpleado.Location = New System.Drawing.Point(136, 168)
-        Me.lblNombreEmpleado.Name = "lblNombreEmpleado"
-        Me.lblNombreEmpleado.Size = New System.Drawing.Size(248, 21)
-        Me.lblNombreEmpleado.TabIndex = 33
-        Me.lblNombreEmpleado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'dtpFMovimiento
-        '
-        Me.dtpFMovimiento.Enabled = False
-        Me.dtpFMovimiento.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFMovimiento.Location = New System.Drawing.Point(136, 120)
-        Me.dtpFMovimiento.MaxDate = New Date(2500, 12, 31, 0, 0, 0, 0)
-        Me.dtpFMovimiento.MinDate = New Date(2002, 1, 1, 0, 0, 0, 0)
-        Me.dtpFMovimiento.Name = "dtpFMovimiento"
-        Me.dtpFMovimiento.Size = New System.Drawing.Size(248, 21)
-        Me.dtpFMovimiento.TabIndex = 40
-        Me.dtpFMovimiento.Value = New Date(2002, 11, 29, 0, 0, 0, 0)
-        '
-        'LabelBase13
-        '
-        Me.LabelBase13.AutoSize = True
-        Me.LabelBase13.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelBase13.Location = New System.Drawing.Point(16, 27)
-        Me.LabelBase13.Name = "LabelBase13"
-        Me.LabelBase13.Size = New System.Drawing.Size(121, 13)
-        Me.LabelBase13.TabIndex = 42
-        Me.LabelBase13.Text = "Estatus del movimiento:"
-        '
-        'LabelBase2
-        '
-        Me.LabelBase2.AutoSize = True
-        Me.LabelBase2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelBase2.Location = New System.Drawing.Point(16, 123)
-        Me.LabelBase2.Name = "LabelBase2"
-        Me.LabelBase2.Size = New System.Drawing.Size(112, 13)
-        Me.LabelBase2.TabIndex = 40
-        Me.LabelBase2.Text = "Fecha de movimiento:"
-        '
-        'LabelBase8
-        '
-        Me.LabelBase8.AutoSize = True
-        Me.LabelBase8.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelBase8.Location = New System.Drawing.Point(16, 51)
-        Me.LabelBase8.Name = "LabelBase8"
-        Me.LabelBase8.Size = New System.Drawing.Size(103, 13)
-        Me.LabelBase8.TabIndex = 38
-        Me.LabelBase8.Text = "Tipo de movimiento:"
-        '
-        'lblEmpleado2
-        '
-        Me.lblEmpleado2.AutoSize = True
-        Me.lblEmpleado2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEmpleado2.Location = New System.Drawing.Point(16, 171)
-        Me.lblEmpleado2.Name = "lblEmpleado2"
-        Me.lblEmpleado2.Size = New System.Drawing.Size(57, 13)
-        Me.lblEmpleado2.TabIndex = 32
-        Me.lblEmpleado2.Text = "Empleado:"
-        '
-        'Label30
-        '
-        Me.Label30.AutoSize = True
-        Me.Label30.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label30.Location = New System.Drawing.Point(16, 147)
-        Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(99, 13)
-        Me.Label30.TabIndex = 24
-        Me.Label30.Text = "Ruta pre-liquidada:"
-        '
-        'lblFecha
-        '
-        Me.lblFecha.AutoSize = True
-        Me.lblFecha.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFecha.Location = New System.Drawing.Point(16, 99)
-        Me.lblFecha.Name = "lblFecha"
-        Me.lblFecha.Size = New System.Drawing.Size(105, 13)
-        Me.lblFecha.TabIndex = 23
-        Me.lblFecha.Text = "Fecha de operación:"
-        '
-        'lblFechaAlta2
-        '
-        Me.lblFechaAlta2.AutoSize = True
-        Me.lblFechaAlta2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFechaAlta2.Location = New System.Drawing.Point(16, 75)
-        Me.lblFechaAlta2.Name = "lblFechaAlta2"
-        Me.lblFechaAlta2.Size = New System.Drawing.Size(95, 13)
-        Me.lblFechaAlta2.TabIndex = 28
-        Me.lblFechaAlta2.Text = "Fecha de registro:"
-        '
-        'grpDatosMovimiento
-        '
-        Me.grpDatosMovimiento.Controls.Add(Me.lnkConsultaIVA)
-        Me.grpDatosMovimiento.Controls.Add(Me.grpCobroEficiencia)
-        Me.grpDatosMovimiento.Controls.Add(Me.lblImporteMovimiento)
-        Me.grpDatosMovimiento.Controls.Add(Me.lblImporteCobranza2)
-        Me.grpDatosMovimiento.Controls.Add(Me.btnConsultaDocumentos)
-        Me.grpDatosMovimiento.Location = New System.Drawing.Point(8, 368)
-        Me.grpDatosMovimiento.Name = "grpDatosMovimiento"
-        Me.grpDatosMovimiento.Size = New System.Drawing.Size(392, 160)
-        Me.grpDatosMovimiento.TabIndex = 38
-        Me.grpDatosMovimiento.TabStop = False
-        Me.grpDatosMovimiento.Text = "Datos del movimiento"
-        '
-        'lnkConsultaIVA
-        '
-        Me.lnkConsultaIVA.AutoSize = True
-        Me.lnkConsultaIVA.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lnkConsultaIVA.Location = New System.Drawing.Point(140, 136)
-        Me.lnkConsultaIVA.Name = "lnkConsultaIVA"
-        Me.lnkConsultaIVA.Size = New System.Drawing.Size(220, 13)
-        Me.lnkConsultaIVA.TabIndex = 30
-        Me.lnkConsultaIVA.TabStop = True
-        Me.lnkConsultaIVA.Text = "Consulta de importes por precio e IVA"
-        Me.lnkConsultaIVA.Visible = False
-        '
-        'grpCobroEficiencia
-        '
-        Me.grpCobroEficiencia.Controls.Add(Me.chkIncluirEficiencia)
-        Me.grpCobroEficiencia.Location = New System.Drawing.Point(272, 192)
-        Me.grpCobroEficiencia.Name = "grpCobroEficiencia"
-        Me.grpCobroEficiencia.Size = New System.Drawing.Size(40, 16)
-        Me.grpCobroEficiencia.TabIndex = 29
-        Me.grpCobroEficiencia.TabStop = False
-        Me.grpCobroEficiencia.Text = "Cobro de la eficiencia"
-        Me.grpCobroEficiencia.Visible = False
-        '
-        'chkIncluirEficiencia
-        '
-        Me.chkIncluirEficiencia.Enabled = False
-        Me.chkIncluirEficiencia.Location = New System.Drawing.Point(24, 16)
-        Me.chkIncluirEficiencia.Name = "chkIncluirEficiencia"
-        Me.chkIncluirEficiencia.Size = New System.Drawing.Size(264, 24)
-        Me.chkIncluirEficiencia.TabIndex = 28
-        Me.chkIncluirEficiencia.Text = "Incluir el importe de la eficiencia en el total"
-        '
-        'lblImporteMovimiento
-        '
-        Me.lblImporteMovimiento.BackColor = System.Drawing.Color.Khaki
-        Me.lblImporteMovimiento.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblImporteMovimiento.Font = New System.Drawing.Font("Tahoma", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblImporteMovimiento.ForeColor = System.Drawing.Color.Blue
-        Me.lblImporteMovimiento.Location = New System.Drawing.Point(128, 32)
-        Me.lblImporteMovimiento.Name = "lblImporteMovimiento"
-        Me.lblImporteMovimiento.Size = New System.Drawing.Size(240, 48)
-        Me.lblImporteMovimiento.TabIndex = 27
-        Me.lblImporteMovimiento.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'lblImporteCobranza2
-        '
-        Me.lblImporteCobranza2.AutoSize = True
-        Me.lblImporteCobranza2.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblImporteCobranza2.ForeColor = System.Drawing.Color.Blue
-        Me.lblImporteCobranza2.Location = New System.Drawing.Point(16, 40)
-        Me.lblImporteCobranza2.Name = "lblImporteCobranza2"
-        Me.lblImporteCobranza2.Size = New System.Drawing.Size(106, 25)
-        Me.lblImporteCobranza2.TabIndex = 25
-        Me.lblImporteCobranza2.Text = "Importe:"
-        '
-        'grpCobroVale
-        '
-        Me.grpCobroVale.BackColor = System.Drawing.Color.Gainsboro
-        Me.grpCobroVale.Controls.Add(Me.RegistroValeCredito1)
-        Me.grpCobroVale.Controls.Add(Me.Vales)
-        Me.grpCobroVale.Controls.Add(Me.lblNoTieneVales)
-        Me.grpCobroVale.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grpCobroVale.Location = New System.Drawing.Point(160, 24)
-        Me.grpCobroVale.Name = "grpCobroVale"
-        Me.grpCobroVale.Size = New System.Drawing.Size(152, 464)
-        Me.grpCobroVale.TabIndex = 35
-        Me.grpCobroVale.TabStop = False
-        Me.grpCobroVale.Text = "Vales de despensa (F4)"
-        '
-        'RegistroValeCredito1
-        '
-        Me.RegistroValeCredito1.Location = New System.Drawing.Point(8, 388)
-        Me.RegistroValeCredito1.Name = "RegistroValeCredito1"
-        Me.RegistroValeCredito1.Size = New System.Drawing.Size(136, 68)
-        Me.RegistroValeCredito1.TabIndex = 4
-        '
-        'Vales
-        '
-        Me.Vales.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Vales.Location = New System.Drawing.Point(8, 32)
-        Me.Vales.Name = "Vales"
-        Me.Vales.Size = New System.Drawing.Size(132, 376)
-        Me.Vales.TabIndex = 0
-        Me.Vales.V1 = CType(0, Short)
-        Me.Vales.V10 = CType(0, Short)
-        Me.Vales.V100 = CType(0, Short)
-        Me.Vales.V15 = CType(0, Short)
-        Me.Vales.V2 = CType(0, Short)
-        Me.Vales.V20 = CType(0, Short)
-        Me.Vales.V25 = CType(0, Short)
-        Me.Vales.V3 = CType(0, Short)
-        Me.Vales.V30 = CType(0, Short)
-        Me.Vales.V35 = CType(0, Short)
-        Me.Vales.V4 = CType(0, Short)
-        Me.Vales.V5 = CType(0, Short)
-        Me.Vales.V50 = CType(0, Short)
-        '
-        'lblNoTieneVales
-        '
-        Me.lblNoTieneVales.Location = New System.Drawing.Point(16, 184)
-        Me.lblNoTieneVales.Name = "lblNoTieneVales"
-        Me.lblNoTieneVales.Size = New System.Drawing.Size(128, 56)
-        Me.lblNoTieneVales.TabIndex = 3
-        Me.lblNoTieneVales.Text = "El movimiento no tiene vales relacionados"
-        Me.lblNoTieneVales.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.lblNoTieneVales.Visible = False
-        '
-        'grpCobroCheque
-        '
-        Me.grpCobroCheque.Controls.Add(Me.lnkConsultaCheques)
-        Me.grpCobroCheque.Controls.Add(Me.grdCheque)
-        Me.grpCobroCheque.Controls.Add(Me.lblNoTieneCheques)
-        Me.grpCobroCheque.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grpCobroCheque.Location = New System.Drawing.Point(320, 24)
-        Me.grpCobroCheque.Name = "grpCobroCheque"
-        Me.grpCobroCheque.Size = New System.Drawing.Size(288, 152)
-        Me.grpCobroCheque.TabIndex = 36
-        Me.grpCobroCheque.TabStop = False
-        Me.grpCobroCheque.Text = "Cheque"
-        '
-        'lnkConsultaCheques
-        '
-        Me.lnkConsultaCheques.AutoSize = True
-        Me.lnkConsultaCheques.Location = New System.Drawing.Point(160, 16)
-        Me.lnkConsultaCheques.Name = "lnkConsultaCheques"
-        Me.lnkConsultaCheques.Size = New System.Drawing.Size(123, 13)
-        Me.lnkConsultaCheques.TabIndex = 1
-        Me.lnkConsultaCheques.TabStop = True
-        Me.lnkConsultaCheques.Text = "Ver datos completos"
-        '
-        'grdCheque
-        '
-        Me.grdCheque.BackgroundColor = System.Drawing.Color.Gainsboro
-        Me.grdCheque.CaptionBackColor = System.Drawing.Color.DarkSeaGreen
-        Me.grdCheque.CaptionText = "Cheques en este movimiento"
-        Me.grdCheque.DataMember = ""
-        Me.grdCheque.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grdCheque.HeaderForeColor = System.Drawing.SystemColors.ControlText
-        Me.grdCheque.Location = New System.Drawing.Point(8, 32)
-        Me.grdCheque.Name = "grdCheque"
-        Me.grdCheque.ReadOnly = True
-        Me.grdCheque.Size = New System.Drawing.Size(272, 112)
-        Me.grdCheque.TabIndex = 0
-        Me.grdCheque.TableStyles.AddRange(New System.Windows.Forms.DataGridTableStyle() {Me.EstiloCheques})
-        '
-        'EstiloCheques
-        '
-        Me.EstiloCheques.DataGrid = Me.grdCheque
-        Me.EstiloCheques.GridColumnStyles.AddRange(New System.Windows.Forms.DataGridColumnStyle() {Me.colChTipoCobro, Me.colChNumeroCheque, Me.colChBancoNombre, Me.colChTotal, Me.colChSaldo})
-        Me.EstiloCheques.HeaderForeColor = System.Drawing.SystemColors.ControlText
-        Me.EstiloCheques.MappingName = "Cheques"
-        '
-        'colChTipoCobro
-        '
-        Me.colChTipoCobro.Format = ""
-        Me.colChTipoCobro.FormatInfo = Nothing
-        Me.colChTipoCobro.HeaderText = "Tipo"
-        Me.colChTipoCobro.MappingName = "TipoCobro"
-        Me.colChTipoCobro.Width = 0
-        '
-        'colChNumeroCheque
-        '
-        Me.colChNumeroCheque.Format = ""
-        Me.colChNumeroCheque.FormatInfo = Nothing
-        Me.colChNumeroCheque.HeaderText = "No. Cheque"
-        Me.colChNumeroCheque.MappingName = "NumeroCheque"
-        Me.colChNumeroCheque.Width = 0
-        '
-        'colChBancoNombre
-        '
-        Me.colChBancoNombre.Format = ""
-        Me.colChBancoNombre.FormatInfo = Nothing
-        Me.colChBancoNombre.HeaderText = "Banco"
-        Me.colChBancoNombre.MappingName = "BancoNombre"
-        Me.colChBancoNombre.Width = 60
-        '
-        'colChTotal
-        '
-        Me.colChTotal.Alignment = System.Windows.Forms.HorizontalAlignment.Right
-        Me.colChTotal.Format = "#,##.00"
-        Me.colChTotal.FormatInfo = Nothing
-        Me.colChTotal.HeaderText = "Total"
-        Me.colChTotal.MappingName = "Total"
-        Me.colChTotal.Width = 75
-        '
-        'colChSaldo
-        '
-        Me.colChSaldo.Alignment = System.Windows.Forms.HorizontalAlignment.Right
-        Me.colChSaldo.Format = "#,##.00"
-        Me.colChSaldo.FormatInfo = Nothing
-        Me.colChSaldo.HeaderText = "Saldo"
-        Me.colChSaldo.MappingName = "Saldo"
-        Me.colChSaldo.Width = 75
-        '
-        'lblNoTieneCheques
-        '
-        Me.lblNoTieneCheques.Location = New System.Drawing.Point(80, 56)
-        Me.lblNoTieneCheques.Name = "lblNoTieneCheques"
-        Me.lblNoTieneCheques.Size = New System.Drawing.Size(144, 56)
-        Me.lblNoTieneCheques.TabIndex = 2
-        Me.lblNoTieneCheques.Text = "El movimiento no tiene cheques relacionados"
-        Me.lblNoTieneCheques.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'grpCobroEfectivo
-        '
-        Me.grpCobroEfectivo.BackColor = System.Drawing.Color.Gainsboro
-        Me.grpCobroEfectivo.Controls.Add(Me.CobroEfectivo)
-        Me.grpCobroEfectivo.Controls.Add(Me.lblPorCobrarVales)
-        Me.grpCobroEfectivo.Controls.Add(Me.lblPorCobrarEfectivo)
-        Me.grpCobroEfectivo.Controls.Add(Me.LabelBase3)
-        Me.grpCobroEfectivo.Controls.Add(Me.LabelBase1)
-        Me.grpCobroEfectivo.Controls.Add(Me.lblNoTieneEfectivo)
-        Me.grpCobroEfectivo.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grpCobroEfectivo.Location = New System.Drawing.Point(8, 24)
-        Me.grpCobroEfectivo.Name = "grpCobroEfectivo"
-        Me.grpCobroEfectivo.Size = New System.Drawing.Size(152, 464)
-        Me.grpCobroEfectivo.TabIndex = 34
-        Me.grpCobroEfectivo.TabStop = False
-        Me.grpCobroEfectivo.Text = "Efectivo (F3)"
-        '
-        'CobroEfectivo
-        '
-        Me.CobroEfectivo.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CobroEfectivo.Location = New System.Drawing.Point(8, 32)
-        Me.CobroEfectivo.M1 = CType(0, Short)
-        Me.CobroEfectivo.M10 = CType(0, Short)
-        Me.CobroEfectivo.M100 = CType(0, Short)
-        Me.CobroEfectivo.M1000 = CType(0, Short)
-        Me.CobroEfectivo.M10c = CType(0, Short)
-        Me.CobroEfectivo.M2 = CType(0, Short)
-        Me.CobroEfectivo.M20 = CType(0, Short)
-        Me.CobroEfectivo.M200 = CType(0, Short)
-        Me.CobroEfectivo.M20c = CType(0, Short)
-        Me.CobroEfectivo.M5 = CType(0, Short)
-        Me.CobroEfectivo.M50 = CType(0, Short)
-        Me.CobroEfectivo.M500 = CType(0, Short)
-        Me.CobroEfectivo.M50c = CType(0, Short)
-        Me.CobroEfectivo.M5c = CType(0, Short)
-        Me.CobroEfectivo.Morralla = 0R
-        Me.CobroEfectivo.Name = "CobroEfectivo"
-        Me.CobroEfectivo.Size = New System.Drawing.Size(136, 404)
-        Me.CobroEfectivo.TabIndex = 50
-        '
-        'lblPorCobrarVales
-        '
-        Me.lblPorCobrarVales.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblPorCobrarVales.ForeColor = System.Drawing.Color.MediumBlue
-        Me.lblPorCobrarVales.Location = New System.Drawing.Point(56, 432)
-        Me.lblPorCobrarVales.Name = "lblPorCobrarVales"
-        Me.lblPorCobrarVales.Size = New System.Drawing.Size(88, 16)
-        Me.lblPorCobrarVales.TabIndex = 41
-        Me.lblPorCobrarVales.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.lblPorCobrarVales.Visible = False
-        '
-        'lblPorCobrarEfectivo
-        '
-        Me.lblPorCobrarEfectivo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblPorCobrarEfectivo.ForeColor = System.Drawing.Color.MediumBlue
-        Me.lblPorCobrarEfectivo.Location = New System.Drawing.Point(56, 432)
-        Me.lblPorCobrarEfectivo.Name = "lblPorCobrarEfectivo"
-        Me.lblPorCobrarEfectivo.Size = New System.Drawing.Size(88, 16)
-        Me.lblPorCobrarEfectivo.TabIndex = 40
-        Me.lblPorCobrarEfectivo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.lblPorCobrarEfectivo.Visible = False
-        '
-        'LabelBase3
-        '
-        Me.LabelBase3.AutoSize = True
-        Me.LabelBase3.Location = New System.Drawing.Point(64, 432)
-        Me.LabelBase3.Name = "LabelBase3"
-        Me.LabelBase3.Size = New System.Drawing.Size(40, 13)
-        Me.LabelBase3.TabIndex = 49
-        Me.LabelBase3.Text = "Vales:"
-        Me.LabelBase3.Visible = False
-        '
-        'LabelBase1
-        '
-        Me.LabelBase1.AutoSize = True
-        Me.LabelBase1.Location = New System.Drawing.Point(64, 432)
-        Me.LabelBase1.Name = "LabelBase1"
-        Me.LabelBase1.Size = New System.Drawing.Size(55, 13)
-        Me.LabelBase1.TabIndex = 48
-        Me.LabelBase1.Text = "Efectivo:"
-        Me.LabelBase1.Visible = False
-        '
-        'lblNoTieneEfectivo
-        '
-        Me.lblNoTieneEfectivo.Location = New System.Drawing.Point(16, 184)
-        Me.lblNoTieneEfectivo.Name = "lblNoTieneEfectivo"
-        Me.lblNoTieneEfectivo.Size = New System.Drawing.Size(120, 56)
-        Me.lblNoTieneEfectivo.TabIndex = 34
-        Me.lblNoTieneEfectivo.Text = "El movimiento no tiene efectivo relacionado"
-        Me.lblNoTieneEfectivo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.lblNoTieneEfectivo.Visible = False
-        '
-        'grpCobroDocumentos
-        '
-        Me.grpCobroDocumentos.Controls.Add(Me.LabelBase14)
-        Me.grpCobroDocumentos.Controls.Add(Me.lblAutoCarb)
-        Me.grpCobroDocumentos.Controls.Add(Me.lblCaptAFAvor)
-        Me.grpCobroDocumentos.Controls.Add(Me.LabelBase15)
-        Me.grpCobroDocumentos.Controls.Add(Me.lblRealEfectivoVales)
-        Me.grpCobroDocumentos.Controls.Add(Me.lblAFavorOperadorCheques)
-        Me.grpCobroDocumentos.Controls.Add(Me.lblPorCobrarEficiencia)
-        Me.grpCobroDocumentos.Controls.Add(Me.LabelBase12)
-        Me.grpCobroDocumentos.Controls.Add(Me.lblPorCobrarFD)
-        Me.grpCobroDocumentos.Controls.Add(Me.LabelBase7)
-        Me.grpCobroDocumentos.Controls.Add(Me.grpCobroFicha)
-        Me.grpCobroDocumentos.Controls.Add(Me.lblPorCobrarTC)
-        Me.grpCobroDocumentos.Controls.Add(Me.LabelBase6)
-        Me.grpCobroDocumentos.Controls.Add(Me.grpCobroTC)
-        Me.grpCobroDocumentos.Controls.Add(Me.btnCambio)
-        Me.grpCobroDocumentos.Controls.Add(Me.grpCobroVale)
-        Me.grpCobroDocumentos.Controls.Add(Me.grpCobroCheque)
-        Me.grpCobroDocumentos.Controls.Add(Me.grpCobroEfectivo)
-        Me.grpCobroDocumentos.Controls.Add(Me.Panel1)
-        Me.grpCobroDocumentos.Controls.Add(Me.lblPorCobrarEfectivoVales)
-        Me.grpCobroDocumentos.Controls.Add(Me.lblPorCobrarCheques)
-        Me.grpCobroDocumentos.Controls.Add(Me.LabelBase5)
-        Me.grpCobroDocumentos.Controls.Add(Me.LabelBase4)
-        Me.grpCobroDocumentos.Controls.Add(Me.LinkLabel1)
-        Me.grpCobroDocumentos.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grpCobroDocumentos.Location = New System.Drawing.Point(400, 72)
-        Me.grpCobroDocumentos.Name = "grpCobroDocumentos"
-        Me.grpCobroDocumentos.Size = New System.Drawing.Size(616, 624)
-        Me.grpCobroDocumentos.TabIndex = 34
-        Me.grpCobroDocumentos.TabStop = False
-        Me.grpCobroDocumentos.Text = "Cobro de documentos"
-        '
-        'LabelBase14
-        '
-        Me.LabelBase14.AutoSize = True
-        Me.LabelBase14.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelBase14.Location = New System.Drawing.Point(8, 603)
-        Me.LabelBase14.Name = "LabelBase14"
-        Me.LabelBase14.Size = New System.Drawing.Size(60, 15)
-        Me.LabelBase14.TabIndex = 67
-        Me.LabelBase14.Text = "Obs./A.carb:"
-        '
-        'lblAutoCarb
-        '
-        Me.lblAutoCarb.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblAutoCarb.ForeColor = System.Drawing.Color.DarkRed
-        Me.lblAutoCarb.Location = New System.Drawing.Point(64, 603)
-        Me.lblAutoCarb.Name = "lblAutoCarb"
-        Me.lblAutoCarb.Size = New System.Drawing.Size(80, 16)
-        Me.lblAutoCarb.TabIndex = 66
-        Me.lblAutoCarb.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'lblCaptAFAvor
-        '
-        Me.lblCaptAFAvor.Location = New System.Drawing.Point(148, 492)
-        Me.lblCaptAFAvor.Name = "lblCaptAFAvor"
-        Me.lblCaptAFAvor.Size = New System.Drawing.Size(96, 40)
-        Me.lblCaptAFAvor.TabIndex = 65
-        Me.lblCaptAFAvor.Text = "A favor operador:"
-        Me.lblCaptAFAvor.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        '
-        'LabelBase15
-        '
-        Me.LabelBase15.AutoSize = True
-        Me.LabelBase15.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelBase15.Location = New System.Drawing.Point(186, 568)
-        Me.LabelBase15.Name = "LabelBase15"
-        Me.LabelBase15.Size = New System.Drawing.Size(54, 13)
-        Me.LabelBase15.TabIndex = 64
-        Me.LabelBase15.Text = "Real E.V."
-        '
-        'lblRealEfectivoVales
-        '
-        Me.lblRealEfectivoVales.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.lblRealEfectivoVales.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblRealEfectivoVales.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblRealEfectivoVales.ForeColor = System.Drawing.Color.Blue
-        Me.lblRealEfectivoVales.Location = New System.Drawing.Point(152, 584)
-        Me.lblRealEfectivoVales.Name = "lblRealEfectivoVales"
-        Me.lblRealEfectivoVales.Size = New System.Drawing.Size(88, 16)
-        Me.lblRealEfectivoVales.TabIndex = 63
-        Me.lblRealEfectivoVales.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'lblAFavorOperadorCheques
-        '
-        Me.lblAFavorOperadorCheques.BackColor = System.Drawing.Color.Gainsboro
-        Me.lblAFavorOperadorCheques.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblAFavorOperadorCheques.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.lblAFavorOperadorCheques.Location = New System.Drawing.Point(152, 536)
-        Me.lblAFavorOperadorCheques.Name = "lblAFavorOperadorCheques"
-        Me.lblAFavorOperadorCheques.Size = New System.Drawing.Size(88, 16)
-        Me.lblAFavorOperadorCheques.TabIndex = 61
-        Me.lblAFavorOperadorCheques.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'lblPorCobrarEficiencia
-        '
-        Me.lblPorCobrarEficiencia.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblPorCobrarEficiencia.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.lblPorCobrarEficiencia.Location = New System.Drawing.Point(64, 584)
-        Me.lblPorCobrarEficiencia.Name = "lblPorCobrarEficiencia"
-        Me.lblPorCobrarEficiencia.Size = New System.Drawing.Size(80, 16)
-        Me.lblPorCobrarEficiencia.TabIndex = 59
-        Me.lblPorCobrarEficiencia.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'LabelBase12
-        '
-        Me.LabelBase12.AutoSize = True
-        Me.LabelBase12.Location = New System.Drawing.Point(8, 584)
-        Me.LabelBase12.Name = "LabelBase12"
-        Me.LabelBase12.Size = New System.Drawing.Size(55, 13)
-        Me.LabelBase12.TabIndex = 60
-        Me.LabelBase12.Text = "Eficiencia:"
-        '
-        'lblPorCobrarFD
-        '
-        Me.lblPorCobrarFD.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblPorCobrarFD.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.lblPorCobrarFD.Location = New System.Drawing.Point(64, 568)
-        Me.lblPorCobrarFD.Name = "lblPorCobrarFD"
-        Me.lblPorCobrarFD.Size = New System.Drawing.Size(80, 16)
-        Me.lblPorCobrarFD.TabIndex = 57
-        Me.lblPorCobrarFD.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'LabelBase7
-        '
-        Me.LabelBase7.AutoSize = True
-        Me.LabelBase7.Location = New System.Drawing.Point(8, 568)
-        Me.LabelBase7.Name = "LabelBase7"
-        Me.LabelBase7.Size = New System.Drawing.Size(41, 13)
-        Me.LabelBase7.TabIndex = 58
-        Me.LabelBase7.Text = "Fichas:"
-        '
-        'grpCobroFicha
-        '
-        Me.grpCobroFicha.Controls.Add(Me.grdFichaDeposito)
-        Me.grpCobroFicha.Controls.Add(Me.lnkConsultaFichaDeposito)
-        Me.grpCobroFicha.Controls.Add(Me.Label3)
-        Me.grpCobroFicha.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grpCobroFicha.Location = New System.Drawing.Point(320, 176)
-        Me.grpCobroFicha.Name = "grpCobroFicha"
-        Me.grpCobroFicha.Size = New System.Drawing.Size(288, 160)
-        Me.grpCobroFicha.TabIndex = 56
-        Me.grpCobroFicha.TabStop = False
-        Me.grpCobroFicha.Text = "Notas de crédito, de Ingreso y Fichas de depósito"
-        '
-        'grdFichaDeposito
-        '
-        Me.grdFichaDeposito.BackgroundColor = System.Drawing.Color.Gainsboro
-        Me.grdFichaDeposito.CaptionBackColor = System.Drawing.Color.SteelBlue
-        Me.grdFichaDeposito.CaptionText = "Lista de documentos"
-        Me.grdFichaDeposito.DataMember = ""
-        Me.grdFichaDeposito.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grdFichaDeposito.HeaderForeColor = System.Drawing.SystemColors.ControlText
-        Me.grdFichaDeposito.Location = New System.Drawing.Point(8, 32)
-        Me.grdFichaDeposito.Name = "grdFichaDeposito"
-        Me.grdFichaDeposito.ReadOnly = True
-        Me.grdFichaDeposito.Size = New System.Drawing.Size(272, 120)
-        Me.grdFichaDeposito.TabIndex = 0
-        Me.grdFichaDeposito.TableStyles.AddRange(New System.Windows.Forms.DataGridTableStyle() {Me.EstiloFicha})
-        '
-        'EstiloFicha
-        '
-        Me.EstiloFicha.DataGrid = Me.grdFichaDeposito
-        Me.EstiloFicha.GridColumnStyles.AddRange(New System.Windows.Forms.DataGridColumnStyle() {Me.colTipoCobro, Me.colDocumento, Me.colTotal, Me.colSaldo})
-        Me.EstiloFicha.HeaderForeColor = System.Drawing.SystemColors.ControlText
-        Me.EstiloFicha.MappingName = "FichaDeposito"
-        Me.EstiloFicha.RowHeadersVisible = False
-        '
-        'colTipoCobro
-        '
-        Me.colTipoCobro.Format = ""
-        Me.colTipoCobro.FormatInfo = Nothing
-        Me.colTipoCobro.HeaderText = "Tipo"
-        Me.colTipoCobro.MappingName = "TipoCobroDescripcion"
-        Me.colTipoCobro.Width = 110
-        '
-        'colDocumento
-        '
-        Me.colDocumento.Format = ""
-        Me.colDocumento.FormatInfo = Nothing
-        Me.colDocumento.HeaderText = "Documento"
-        Me.colDocumento.MappingName = "Documento"
-        Me.colDocumento.NullText = ""
-        Me.colDocumento.Width = 0
-        '
-        'colTotal
-        '
-        Me.colTotal.Alignment = System.Windows.Forms.HorizontalAlignment.Right
-        Me.colTotal.Format = "#,##.00"
-        Me.colTotal.FormatInfo = Nothing
-        Me.colTotal.HeaderText = "Total"
-        Me.colTotal.MappingName = "Total"
-        Me.colTotal.Width = 75
-        '
-        'colSaldo
-        '
-        Me.colSaldo.Alignment = System.Windows.Forms.HorizontalAlignment.Right
-        Me.colSaldo.Format = "#,##.00"
-        Me.colSaldo.FormatInfo = Nothing
-        Me.colSaldo.HeaderText = "Saldo"
-        Me.colSaldo.MappingName = "Saldo"
-        Me.colSaldo.Width = 75
-        '
-        'lnkConsultaFichaDeposito
-        '
-        Me.lnkConsultaFichaDeposito.AutoSize = True
-        Me.lnkConsultaFichaDeposito.Location = New System.Drawing.Point(160, 16)
-        Me.lnkConsultaFichaDeposito.Name = "lnkConsultaFichaDeposito"
-        Me.lnkConsultaFichaDeposito.Size = New System.Drawing.Size(123, 13)
-        Me.lnkConsultaFichaDeposito.TabIndex = 4
-        Me.lnkConsultaFichaDeposito.TabStop = True
-        Me.lnkConsultaFichaDeposito.Text = "Ver datos completos"
-        '
-        'Label3
-        '
-        Me.Label3.Location = New System.Drawing.Point(80, 64)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(144, 56)
-        Me.Label3.TabIndex = 5
-        Me.Label3.Text = "El movimiento no tiene cobros con ficha de depósito"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'lblPorCobrarTC
-        '
-        Me.lblPorCobrarTC.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblPorCobrarTC.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.lblPorCobrarTC.Location = New System.Drawing.Point(64, 552)
-        Me.lblPorCobrarTC.Name = "lblPorCobrarTC"
-        Me.lblPorCobrarTC.Size = New System.Drawing.Size(80, 16)
-        Me.lblPorCobrarTC.TabIndex = 53
-        Me.lblPorCobrarTC.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'LabelBase6
-        '
-        Me.LabelBase6.AutoSize = True
-        Me.LabelBase6.Location = New System.Drawing.Point(8, 552)
-        Me.LabelBase6.Name = "LabelBase6"
-        Me.LabelBase6.Size = New System.Drawing.Size(56, 13)
-        Me.LabelBase6.TabIndex = 54
-        Me.LabelBase6.Text = "T.Crédito:"
-        '
-        'grpCobroTC
-        '
-        Me.grpCobroTC.Controls.Add(Me.grdTarjetaCredito)
-        Me.grpCobroTC.Controls.Add(Me.lnkConsultaTarjetaCredito)
-        Me.grpCobroTC.Controls.Add(Me.Label2)
-        Me.grpCobroTC.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grpCobroTC.Location = New System.Drawing.Point(320, 336)
-        Me.grpCobroTC.Name = "grpCobroTC"
-        Me.grpCobroTC.Size = New System.Drawing.Size(288, 152)
-        Me.grpCobroTC.TabIndex = 52
-        Me.grpCobroTC.TabStop = False
-        Me.grpCobroTC.Text = "Tarjeta de crédito"
-        '
-        'grdTarjetaCredito
-        '
-        Me.grdTarjetaCredito.BackgroundColor = System.Drawing.Color.Gainsboro
-        Me.grdTarjetaCredito.CaptionBackColor = System.Drawing.Color.Brown
-        Me.grdTarjetaCredito.CaptionText = "Cobro con tarjeta de crédito"
-        Me.grdTarjetaCredito.DataMember = ""
-        Me.grdTarjetaCredito.HeaderForeColor = System.Drawing.SystemColors.ControlText
-        Me.grdTarjetaCredito.Location = New System.Drawing.Point(8, 32)
-        Me.grdTarjetaCredito.Name = "grdTarjetaCredito"
-        Me.grdTarjetaCredito.ReadOnly = True
-        Me.grdTarjetaCredito.Size = New System.Drawing.Size(272, 112)
-        Me.grdTarjetaCredito.TabIndex = 3
-        '
-        'lnkConsultaTarjetaCredito
-        '
-        Me.lnkConsultaTarjetaCredito.AutoSize = True
-        Me.lnkConsultaTarjetaCredito.Location = New System.Drawing.Point(160, 16)
-        Me.lnkConsultaTarjetaCredito.Name = "lnkConsultaTarjetaCredito"
-        Me.lnkConsultaTarjetaCredito.Size = New System.Drawing.Size(123, 13)
-        Me.lnkConsultaTarjetaCredito.TabIndex = 1
-        Me.lnkConsultaTarjetaCredito.TabStop = True
-        Me.lnkConsultaTarjetaCredito.Text = "Ver datos completos"
-        '
-        'Label2
-        '
-        Me.Label2.Location = New System.Drawing.Point(80, 56)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(144, 56)
-        Me.Label2.TabIndex = 2
-        Me.Label2.Text = "El movimiento no tiene cobros con tarjeta de crédito"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'btnCambio
-        '
-        Me.btnCambio.BackColor = System.Drawing.SystemColors.Control
-        Me.btnCambio.Image = CType(resources.GetObject("btnCambio.Image"), System.Drawing.Image)
-        Me.btnCambio.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnCambio.Location = New System.Drawing.Point(248, 504)
-        Me.btnCambio.Name = "btnCambio"
-        Me.btnCambio.Size = New System.Drawing.Size(56, 112)
-        Me.btnCambio.TabIndex = 46
-        Me.btnCambio.Text = "Cambio"
-        Me.btnCambio.UseVisualStyleBackColor = False
-        '
-        'Panel1
-        '
-        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.Panel1.Controls.Add(Me.LabelBase11)
-        Me.Panel1.Controls.Add(Me.lblFaltante)
-        Me.Panel1.Controls.Add(Me.lblCambioEntregado)
-        Me.Panel1.Controls.Add(Me.LabelBase10)
-        Me.Panel1.Controls.Add(Me.lblCambio)
-        Me.Panel1.Controls.Add(Me.lblCambio2)
-        Me.Panel1.Controls.Add(Me.lblImporteTotalCobro)
-        Me.Panel1.Controls.Add(Me.lblImporteTotalCobros)
-        Me.Panel1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Panel1.Location = New System.Drawing.Point(312, 504)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(296, 112)
-        Me.Panel1.TabIndex = 45
-        '
-        'LabelBase11
-        '
-        Me.LabelBase11.AutoSize = True
-        Me.LabelBase11.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelBase11.Location = New System.Drawing.Point(8, 37)
-        Me.LabelBase11.Name = "LabelBase11"
-        Me.LabelBase11.Size = New System.Drawing.Size(61, 14)
-        Me.LabelBase11.TabIndex = 52
-        Me.LabelBase11.Text = "Faltante:"
-        '
-        'lblFaltante
-        '
-        Me.lblFaltante.BackColor = System.Drawing.Color.Gainsboro
-        Me.lblFaltante.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblFaltante.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFaltante.ForeColor = System.Drawing.Color.Red
-        Me.lblFaltante.Location = New System.Drawing.Point(168, 32)
-        Me.lblFaltante.Name = "lblFaltante"
-        Me.lblFaltante.Size = New System.Drawing.Size(114, 24)
-        Me.lblFaltante.TabIndex = 51
-        Me.lblFaltante.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'lblCambioEntregado
-        '
-        Me.lblCambioEntregado.BackColor = System.Drawing.Color.LemonChiffon
-        Me.lblCambioEntregado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblCambioEntregado.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCambioEntregado.Location = New System.Drawing.Point(168, 80)
-        Me.lblCambioEntregado.Name = "lblCambioEntregado"
-        Me.lblCambioEntregado.Size = New System.Drawing.Size(114, 24)
-        Me.lblCambioEntregado.TabIndex = 50
-        Me.lblCambioEntregado.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'LabelBase10
-        '
-        Me.LabelBase10.AutoSize = True
-        Me.LabelBase10.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelBase10.Location = New System.Drawing.Point(8, 85)
-        Me.LabelBase10.Name = "LabelBase10"
-        Me.LabelBase10.Size = New System.Drawing.Size(124, 14)
-        Me.LabelBase10.TabIndex = 49
-        Me.LabelBase10.Text = "Cambio entregado:"
-        '
-        'lblCambio
-        '
-        Me.lblCambio.BackColor = System.Drawing.Color.Gainsboro
-        Me.lblCambio.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblCambio.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCambio.Location = New System.Drawing.Point(168, 56)
-        Me.lblCambio.Name = "lblCambio"
-        Me.lblCambio.Size = New System.Drawing.Size(114, 24)
-        Me.lblCambio.TabIndex = 48
-        Me.lblCambio.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'lblCambio2
-        '
-        Me.lblCambio2.AutoSize = True
-        Me.lblCambio2.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCambio2.Location = New System.Drawing.Point(8, 61)
-        Me.lblCambio2.Name = "lblCambio2"
-        Me.lblCambio2.Size = New System.Drawing.Size(154, 14)
-        Me.lblCambio2.TabIndex = 47
-        Me.lblCambio2.Text = "Cambio del movimiento:"
-        '
-        'lblImporteTotalCobro
-        '
-        Me.lblImporteTotalCobro.BackColor = System.Drawing.Color.Khaki
-        Me.lblImporteTotalCobro.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblImporteTotalCobro.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblImporteTotalCobro.ForeColor = System.Drawing.Color.Blue
-        Me.lblImporteTotalCobro.Location = New System.Drawing.Point(168, 8)
-        Me.lblImporteTotalCobro.Name = "lblImporteTotalCobro"
-        Me.lblImporteTotalCobro.Size = New System.Drawing.Size(114, 24)
-        Me.lblImporteTotalCobro.TabIndex = 46
-        Me.lblImporteTotalCobro.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'lblImporteTotalCobros
-        '
-        Me.lblImporteTotalCobros.AutoSize = True
-        Me.lblImporteTotalCobros.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblImporteTotalCobros.Location = New System.Drawing.Point(8, 13)
-        Me.lblImporteTotalCobros.Name = "lblImporteTotalCobros"
-        Me.lblImporteTotalCobros.Size = New System.Drawing.Size(159, 14)
-        Me.lblImporteTotalCobros.TabIndex = 45
-        Me.lblImporteTotalCobros.Text = "Importe total de cobros:"
-        '
-        'lblPorCobrarEfectivoVales
-        '
-        Me.lblPorCobrarEfectivoVales.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblPorCobrarEfectivoVales.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.lblPorCobrarEfectivoVales.Location = New System.Drawing.Point(64, 520)
-        Me.lblPorCobrarEfectivoVales.Name = "lblPorCobrarEfectivoVales"
-        Me.lblPorCobrarEfectivoVales.Size = New System.Drawing.Size(80, 16)
-        Me.lblPorCobrarEfectivoVales.TabIndex = 47
-        Me.lblPorCobrarEfectivoVales.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'lblPorCobrarCheques
-        '
-        Me.lblPorCobrarCheques.BackColor = System.Drawing.Color.Gainsboro
-        Me.lblPorCobrarCheques.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblPorCobrarCheques.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.lblPorCobrarCheques.Location = New System.Drawing.Point(64, 536)
-        Me.lblPorCobrarCheques.Name = "lblPorCobrarCheques"
-        Me.lblPorCobrarCheques.Size = New System.Drawing.Size(80, 16)
-        Me.lblPorCobrarCheques.TabIndex = 42
-        Me.lblPorCobrarCheques.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'LabelBase5
-        '
-        Me.LabelBase5.AutoSize = True
-        Me.LabelBase5.Location = New System.Drawing.Point(8, 520)
-        Me.LabelBase5.Name = "LabelBase5"
-        Me.LabelBase5.Size = New System.Drawing.Size(50, 13)
-        Me.LabelBase5.TabIndex = 51
-        Me.LabelBase5.Text = "Efectivo:"
-        '
-        'LabelBase4
-        '
-        Me.LabelBase4.AutoSize = True
-        Me.LabelBase4.Location = New System.Drawing.Point(8, 536)
-        Me.LabelBase4.Name = "LabelBase4"
-        Me.LabelBase4.Size = New System.Drawing.Size(53, 13)
-        Me.LabelBase4.TabIndex = 50
-        Me.LabelBase4.Text = "Cheques:"
-        '
-        'LinkLabel1
-        '
-        Me.LinkLabel1.AutoSize = True
-        Me.LinkLabel1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LinkLabel1.Location = New System.Drawing.Point(152, 604)
-        Me.LinkLabel1.Name = "LinkLabel1"
-        Me.LinkLabel1.Size = New System.Drawing.Size(68, 13)
-        Me.LinkLabel1.TabIndex = 31
-        Me.LinkLabel1.TabStop = True
-        Me.LinkLabel1.Text = "Ver detalle"
-        Me.ttMensaje.SetToolTip(Me.LinkLabel1, "Ver detalle de autocarburación y obsequios")
-        Me.LinkLabel1.Visible = False
-        '
-        'lblTipoOperacion
-        '
-        Me.lblTipoOperacion.AutoSize = True
-        Me.lblTipoOperacion.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.lblTipoOperacion.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTipoOperacion.ForeColor = System.Drawing.Color.Green
-        Me.lblTipoOperacion.Location = New System.Drawing.Point(8, 8)
-        Me.lblTipoOperacion.Name = "lblTipoOperacion"
-        Me.lblTipoOperacion.Size = New System.Drawing.Size(155, 19)
-        Me.lblTipoOperacion.TabIndex = 39
-        Me.lblTipoOperacion.Text = "Tipo de operación"
-        '
-        'lblMovimientoCajaClave
-        '
-        Me.lblMovimientoCajaClave.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.lblMovimientoCajaClave.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMovimientoCajaClave.ForeColor = System.Drawing.Color.DarkGreen
-        Me.lblMovimientoCajaClave.Location = New System.Drawing.Point(16, 32)
-        Me.lblMovimientoCajaClave.Name = "lblMovimientoCajaClave"
-        Me.lblMovimientoCajaClave.Size = New System.Drawing.Size(376, 32)
-        Me.lblMovimientoCajaClave.TabIndex = 40
-        '
-        'Panel2
-        '
-        Me.Panel2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Panel2.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.Panel2.Controls.Add(Me.LabelNombreEmpresa1)
-        Me.Panel2.Controls.Add(Me.PanelMensaje)
-        Me.Panel2.Controls.Add(Me.lblMovimientoCajaClave)
-        Me.Panel2.Controls.Add(Me.lblTipoOperacion)
-        Me.Panel2.Location = New System.Drawing.Point(0, 0)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1040, 72)
-        Me.Panel2.TabIndex = 41
-        '
-        'LabelNombreEmpresa1
-        '
-        Me.LabelNombreEmpresa1.AutoSize = True
-        Me.LabelNombreEmpresa1.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelNombreEmpresa1.Location = New System.Drawing.Point(556, 36)
-        Me.LabelNombreEmpresa1.Name = "LabelNombreEmpresa1"
-        Me.LabelNombreEmpresa1.Size = New System.Drawing.Size(0, 19)
-        Me.LabelNombreEmpresa1.TabIndex = 46
-        Me.LabelNombreEmpresa1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'PanelMensaje
-        '
-        Me.PanelMensaje.Controls.Add(Me.lblPanelMensaje)
-        Me.PanelMensaje.Controls.Add(Me.PictureBox1)
-        Me.PanelMensaje.Location = New System.Drawing.Point(0, 32)
-        Me.PanelMensaje.Name = "PanelMensaje"
-        Me.PanelMensaje.Size = New System.Drawing.Size(480, 32)
-        Me.PanelMensaje.TabIndex = 45
-        Me.PanelMensaje.Visible = False
-        '
-        'lblPanelMensaje
-        '
-        Me.lblPanelMensaje.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.lblPanelMensaje.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPanelMensaje.ForeColor = System.Drawing.Color.Red
-        Me.lblPanelMensaje.Location = New System.Drawing.Point(32, 12)
-        Me.lblPanelMensaje.Name = "lblPanelMensaje"
-        Me.lblPanelMensaje.Size = New System.Drawing.Size(440, 16)
-        Me.lblPanelMensaje.TabIndex = 44
-        Me.lblPanelMensaje.Text = "La liquidación pertenece al día "
-        Me.lblPanelMensaje.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ttMensaje.SetToolTip(Me.lblPanelMensaje, "La liquidación pertenece a otro día.")
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(8, 11)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(18, 18)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 45
-        Me.PictureBox1.TabStop = False
-        '
-        'ttMensaje
-        '
-        Me.ttMensaje.Active = False
-        '
-        'frmCapMovimiento
-        '
-        Me.AutoScaleBaseSize = New System.Drawing.Size(5, 14)
-        Me.BackColor = System.Drawing.Color.Gainsboro
-        Me.CancelButton = Me.btnCancelar
-        Me.ClientSize = New System.Drawing.Size(1024, 701)
-        Me.Controls.Add(Me.grpDatosMovimiento)
-        Me.Controls.Add(Me.grpCabecera)
-        Me.Controls.Add(Me.grpLiquidacionConsulta)
-        Me.Controls.Add(Me.grpCobroDocumentos)
-        Me.Controls.Add(Me.btnCancelar)
-        Me.Controls.Add(Me.btnAceptar)
-        Me.Controls.Add(Me.Panel2)
-        Me.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.KeyPreview = True
-        Me.MinimumSize = New System.Drawing.Size(560, 296)
-        Me.Name = "frmCapMovimiento"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Movimientos de Caja"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
-        Me.grpLiquidacionConsulta.ResumeLayout(False)
-        Me.grpLiquidacionConsulta.PerformLayout()
-        CType(Me.grdInfoPreLiq, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.grpCabecera.ResumeLayout(False)
-        Me.grpCabecera.PerformLayout()
-        CType(Me.picAviso, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.grpDatosMovimiento.ResumeLayout(False)
-        Me.grpDatosMovimiento.PerformLayout()
-        Me.grpCobroEficiencia.ResumeLayout(False)
-        Me.grpCobroVale.ResumeLayout(False)
-        Me.grpCobroCheque.ResumeLayout(False)
-        Me.grpCobroCheque.PerformLayout()
-        CType(Me.grdCheque, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.grpCobroEfectivo.ResumeLayout(False)
-        Me.grpCobroEfectivo.PerformLayout()
-        Me.grpCobroDocumentos.ResumeLayout(False)
-        Me.grpCobroDocumentos.PerformLayout()
-        Me.grpCobroFicha.ResumeLayout(False)
-        Me.grpCobroFicha.PerformLayout()
-        CType(Me.grdFichaDeposito, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.grpCobroTC.ResumeLayout(False)
-        Me.grpCobroTC.PerformLayout()
-        CType(Me.grdTarjetaCredito, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
-        Me.PanelMensaje.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ResumeLayout(False)
+		Me.components = New System.ComponentModel.Container()
+		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCapMovimiento))
+		Me.btnCancelar = New ControlesBase.BotonBase()
+		Me.btnAceptar = New ControlesBase.BotonBase()
+		Me.btnConsultaDocumentos = New ControlesBase.BotonBase()
+		Me.grpLiquidacionConsulta = New System.Windows.Forms.GroupBox()
+		Me.grdInfoPreLiq = New System.Windows.Forms.DataGrid()
+		Me.InfoPreLiq = New System.Windows.Forms.DataGridTableStyle()
+		Me.colPLFolio = New System.Windows.Forms.DataGridTextBoxColumn()
+		Me.colPLRutaDescripcion = New System.Windows.Forms.DataGridTextBoxColumn()
+		Me.colPLCelula = New System.Windows.Forms.DataGridTextBoxColumn()
+		Me.colPLImporteContado = New System.Windows.Forms.DataGridTextBoxColumn()
+		Me.colPLImporteCredito = New System.Windows.Forms.DataGridTextBoxColumn()
+		Me.colPLEficiencia = New System.Windows.Forms.DataGridTextBoxColumn()
+		Me.colPLImporteEficiencia = New System.Windows.Forms.DataGridTextBoxColumn()
+		Me.colPLTipoPagoEficiencia = New System.Windows.Forms.DataGridTextBoxColumn()
+		Me.colPLTipoPagoEficienciaDesc = New System.Windows.Forms.DataGridTextBoxColumn()
+		Me.colPLFInicioRuta = New System.Windows.Forms.DataGridTextBoxColumn()
+		Me.LabelBase9 = New ControlesBase.LabelBase()
+		Me.lblImporteEficiencia = New System.Windows.Forms.Label()
+		Me.grpCabecera = New System.Windows.Forms.GroupBox()
+		Me.lblMotivoCancelacion1 = New ControlesBase.LabelBase()
+		Me.lblMotivoCancelacion2 = New System.Windows.Forms.Label()
+		Me.LabelBase16 = New ControlesBase.LabelBase()
+		Me.lblObservaciones = New System.Windows.Forms.Label()
+		Me.picAviso = New System.Windows.Forms.PictureBox()
+		Me.lblFMovimiento = New System.Windows.Forms.Label()
+		Me.lblStatus = New System.Windows.Forms.Label()
+		Me.ComboTipoMovimientoCaja = New SigaMetClasses.Combos.ComboTipoMovimientoCaja()
+		Me.lblFOperacion = New System.Windows.Forms.Label()
+		Me.lblTipoMovimientoCaja = New System.Windows.Forms.Label()
+		Me.lblRuta = New System.Windows.Forms.Label()
+		Me.lblFechaAlta = New System.Windows.Forms.Label()
+		Me.lblNombreEmpleado = New System.Windows.Forms.Label()
+		Me.dtpFMovimiento = New System.Windows.Forms.DateTimePicker()
+		Me.LabelBase13 = New ControlesBase.LabelBase()
+		Me.LabelBase2 = New ControlesBase.LabelBase()
+		Me.LabelBase8 = New ControlesBase.LabelBase()
+		Me.lblEmpleado2 = New ControlesBase.LabelBase()
+		Me.Label30 = New ControlesBase.LabelBase()
+		Me.lblFecha = New ControlesBase.LabelBase()
+		Me.lblFechaAlta2 = New ControlesBase.LabelBase()
+		Me.grpDatosMovimiento = New System.Windows.Forms.GroupBox()
+		Me.lnkConsultaIVA = New System.Windows.Forms.LinkLabel()
+		Me.grpCobroEficiencia = New System.Windows.Forms.GroupBox()
+		Me.chkIncluirEficiencia = New System.Windows.Forms.CheckBox()
+		Me.lblImporteMovimiento = New System.Windows.Forms.Label()
+		Me.lblImporteCobranza2 = New ControlesBase.LabelBase()
+		Me.grpCobroVale = New System.Windows.Forms.GroupBox()
+		Me.RegistroValeCredito1 = New ControlDeValesPromocionales.RegistroValeCredito()
+		Me.Vales = New CapturaEfectivo.Vales()
+		Me.lblNoTieneVales = New System.Windows.Forms.Label()
+		Me.grpCobroCheque = New System.Windows.Forms.GroupBox()
+		Me.lnkConsultaCheques = New System.Windows.Forms.LinkLabel()
+		Me.grdCheque = New System.Windows.Forms.DataGrid()
+		Me.EstiloCheques = New System.Windows.Forms.DataGridTableStyle()
+		Me.colChTipoCobro = New System.Windows.Forms.DataGridTextBoxColumn()
+		Me.colChNumeroCheque = New System.Windows.Forms.DataGridTextBoxColumn()
+		Me.colChBancoNombre = New System.Windows.Forms.DataGridTextBoxColumn()
+		Me.colChTotal = New System.Windows.Forms.DataGridTextBoxColumn()
+		Me.colChSaldo = New System.Windows.Forms.DataGridTextBoxColumn()
+		Me.lblNoTieneCheques = New System.Windows.Forms.Label()
+		Me.grpCobroEfectivo = New System.Windows.Forms.GroupBox()
+		Me.CobroEfectivo = New CapturaEfectivo.Efectivo()
+		Me.lblPorCobrarVales = New System.Windows.Forms.Label()
+		Me.lblPorCobrarEfectivo = New System.Windows.Forms.Label()
+		Me.LabelBase3 = New ControlesBase.LabelBase()
+		Me.LabelBase1 = New ControlesBase.LabelBase()
+		Me.lblNoTieneEfectivo = New System.Windows.Forms.Label()
+		Me.grpCobroDocumentos = New System.Windows.Forms.GroupBox()
+		Me.LabelBase14 = New ControlesBase.LabelBase()
+		Me.lblAutoCarb = New System.Windows.Forms.Label()
+		Me.lblCaptAFAvor = New System.Windows.Forms.Label()
+		Me.LabelBase15 = New ControlesBase.LabelBase()
+		Me.lblRealEfectivoVales = New System.Windows.Forms.Label()
+		Me.lblAFavorOperadorCheques = New System.Windows.Forms.Label()
+		Me.lblPorCobrarEficiencia = New System.Windows.Forms.Label()
+		Me.LabelBase12 = New ControlesBase.LabelBase()
+		Me.lblPorCobrarFD = New System.Windows.Forms.Label()
+		Me.LabelBase7 = New ControlesBase.LabelBase()
+		Me.grpCobroFicha = New System.Windows.Forms.GroupBox()
+		Me.grdFichaDeposito = New System.Windows.Forms.DataGrid()
+		Me.EstiloFicha = New System.Windows.Forms.DataGridTableStyle()
+		Me.colTipoCobro = New System.Windows.Forms.DataGridTextBoxColumn()
+		Me.colDocumento = New System.Windows.Forms.DataGridTextBoxColumn()
+		Me.colTotal = New System.Windows.Forms.DataGridTextBoxColumn()
+		Me.colSaldo = New System.Windows.Forms.DataGridTextBoxColumn()
+		Me.lnkConsultaFichaDeposito = New System.Windows.Forms.LinkLabel()
+		Me.Label3 = New System.Windows.Forms.Label()
+		Me.lblPorCobrarTC = New System.Windows.Forms.Label()
+		Me.LabelBase6 = New ControlesBase.LabelBase()
+		Me.grpCobroTC = New System.Windows.Forms.GroupBox()
+		Me.grdTarjetaCredito = New System.Windows.Forms.DataGrid()
+		Me.lnkConsultaTarjetaCredito = New System.Windows.Forms.LinkLabel()
+		Me.Label2 = New System.Windows.Forms.Label()
+		Me.btnCambio = New ControlesBase.BotonBase()
+		Me.Panel1 = New System.Windows.Forms.Panel()
+		Me.LabelBase11 = New ControlesBase.LabelBase()
+		Me.lblFaltante = New System.Windows.Forms.Label()
+		Me.lblCambioEntregado = New System.Windows.Forms.Label()
+		Me.LabelBase10 = New ControlesBase.LabelBase()
+		Me.lblCambio = New System.Windows.Forms.Label()
+		Me.lblCambio2 = New ControlesBase.LabelBase()
+		Me.lblImporteTotalCobro = New System.Windows.Forms.Label()
+		Me.lblImporteTotalCobros = New ControlesBase.LabelBase()
+		Me.lblPorCobrarEfectivoVales = New System.Windows.Forms.Label()
+		Me.lblPorCobrarCheques = New System.Windows.Forms.Label()
+		Me.LabelBase5 = New ControlesBase.LabelBase()
+		Me.LabelBase4 = New ControlesBase.LabelBase()
+		Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
+		Me.lblTipoOperacion = New System.Windows.Forms.Label()
+		Me.lblMovimientoCajaClave = New System.Windows.Forms.Label()
+		Me.Panel2 = New System.Windows.Forms.Panel()
+		Me.LabelNombreEmpresa1 = New NombreEmpresa.LabelNombreEmpresa()
+		Me.PanelMensaje = New System.Windows.Forms.Panel()
+		Me.lblPanelMensaje = New System.Windows.Forms.Label()
+		Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+		Me.ttMensaje = New System.Windows.Forms.ToolTip(Me.components)
+		Me.grpLiquidacionConsulta.SuspendLayout()
+		CType(Me.grdInfoPreLiq, System.ComponentModel.ISupportInitialize).BeginInit()
+		Me.grpCabecera.SuspendLayout()
+		CType(Me.picAviso, System.ComponentModel.ISupportInitialize).BeginInit()
+		Me.grpDatosMovimiento.SuspendLayout()
+		Me.grpCobroEficiencia.SuspendLayout()
+		Me.grpCobroVale.SuspendLayout()
+		Me.grpCobroCheque.SuspendLayout()
+		CType(Me.grdCheque, System.ComponentModel.ISupportInitialize).BeginInit()
+		Me.grpCobroEfectivo.SuspendLayout()
+		Me.grpCobroDocumentos.SuspendLayout()
+		Me.grpCobroFicha.SuspendLayout()
+		CType(Me.grdFichaDeposito, System.ComponentModel.ISupportInitialize).BeginInit()
+		Me.grpCobroTC.SuspendLayout()
+		CType(Me.grdTarjetaCredito, System.ComponentModel.ISupportInitialize).BeginInit()
+		Me.Panel1.SuspendLayout()
+		Me.Panel2.SuspendLayout()
+		Me.PanelMensaje.SuspendLayout()
+		CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+		Me.SuspendLayout()
+		'
+		'btnCancelar
+		'
+		Me.btnCancelar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.btnCancelar.BackColor = System.Drawing.SystemColors.Control
+		Me.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel
+		Me.btnCancelar.Image = CType(resources.GetObject("btnCancelar.Image"), System.Drawing.Image)
+		Me.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+		Me.btnCancelar.Location = New System.Drawing.Point(912, 40)
+		Me.btnCancelar.Name = "btnCancelar"
+		Me.btnCancelar.Size = New System.Drawing.Size(104, 24)
+		Me.btnCancelar.TabIndex = 5
+		Me.btnCancelar.Text = "&Cancelar (Esc)"
+		Me.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		Me.btnCancelar.UseVisualStyleBackColor = False
+		'
+		'btnAceptar
+		'
+		Me.btnAceptar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.btnAceptar.BackColor = System.Drawing.SystemColors.Control
+		Me.btnAceptar.Image = CType(resources.GetObject("btnAceptar.Image"), System.Drawing.Image)
+		Me.btnAceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+		Me.btnAceptar.Location = New System.Drawing.Point(912, 8)
+		Me.btnAceptar.Name = "btnAceptar"
+		Me.btnAceptar.Size = New System.Drawing.Size(104, 24)
+		Me.btnAceptar.TabIndex = 4
+		Me.btnAceptar.Text = "&Aceptar (F10)"
+		Me.btnAceptar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		Me.btnAceptar.UseVisualStyleBackColor = False
+		'
+		'btnConsultaDocumentos
+		'
+		Me.btnConsultaDocumentos.BackColor = System.Drawing.SystemColors.Control
+		Me.btnConsultaDocumentos.Image = CType(resources.GetObject("btnConsultaDocumentos.Image"), System.Drawing.Image)
+		Me.btnConsultaDocumentos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+		Me.btnConsultaDocumentos.Location = New System.Drawing.Point(128, 88)
+		Me.btnConsultaDocumentos.Name = "btnConsultaDocumentos"
+		Me.btnConsultaDocumentos.Size = New System.Drawing.Size(240, 40)
+		Me.btnConsultaDocumentos.TabIndex = 26
+		Me.btnConsultaDocumentos.Text = "Consulta documentos relacionados"
+		Me.btnConsultaDocumentos.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		Me.btnConsultaDocumentos.UseVisualStyleBackColor = False
+		Me.btnConsultaDocumentos.Visible = False
+		'
+		'grpLiquidacionConsulta
+		'
+		Me.grpLiquidacionConsulta.Controls.Add(Me.grdInfoPreLiq)
+		Me.grpLiquidacionConsulta.Controls.Add(Me.LabelBase9)
+		Me.grpLiquidacionConsulta.Controls.Add(Me.lblImporteEficiencia)
+		Me.grpLiquidacionConsulta.Location = New System.Drawing.Point(8, 528)
+		Me.grpLiquidacionConsulta.Name = "grpLiquidacionConsulta"
+		Me.grpLiquidacionConsulta.Size = New System.Drawing.Size(392, 168)
+		Me.grpLiquidacionConsulta.TabIndex = 35
+		Me.grpLiquidacionConsulta.TabStop = False
+		Me.grpLiquidacionConsulta.Text = "Consulta de la pre-liquidación de la ruta"
+		'
+		'grdInfoPreLiq
+		'
+		Me.grdInfoPreLiq.BackgroundColor = System.Drawing.Color.LemonChiffon
+		Me.grdInfoPreLiq.CaptionBackColor = System.Drawing.Color.WhiteSmoke
+		Me.grdInfoPreLiq.CaptionForeColor = System.Drawing.Color.Red
+		Me.grdInfoPreLiq.CaptionText = "Información de la pre-liquidación"
+		Me.grdInfoPreLiq.DataMember = ""
+		Me.grdInfoPreLiq.ForeColor = System.Drawing.Color.Black
+		Me.grdInfoPreLiq.HeaderForeColor = System.Drawing.SystemColors.ControlText
+		Me.grdInfoPreLiq.Location = New System.Drawing.Point(8, 24)
+		Me.grdInfoPreLiq.Name = "grdInfoPreLiq"
+		Me.grdInfoPreLiq.ReadOnly = True
+		Me.grdInfoPreLiq.RowHeadersVisible = False
+		Me.grdInfoPreLiq.SelectionBackColor = System.Drawing.Color.Red
+		Me.grdInfoPreLiq.Size = New System.Drawing.Size(360, 96)
+		Me.grdInfoPreLiq.TabIndex = 36
+		Me.grdInfoPreLiq.TableStyles.AddRange(New System.Windows.Forms.DataGridTableStyle() {Me.InfoPreLiq})
+		'
+		'InfoPreLiq
+		'
+		Me.InfoPreLiq.DataGrid = Me.grdInfoPreLiq
+		Me.InfoPreLiq.GridColumnStyles.AddRange(New System.Windows.Forms.DataGridColumnStyle() {Me.colPLFolio, Me.colPLRutaDescripcion, Me.colPLCelula, Me.colPLImporteContado, Me.colPLImporteCredito, Me.colPLEficiencia, Me.colPLImporteEficiencia, Me.colPLTipoPagoEficiencia, Me.colPLTipoPagoEficienciaDesc, Me.colPLFInicioRuta})
+		Me.InfoPreLiq.HeaderForeColor = System.Drawing.SystemColors.ControlText
+		Me.InfoPreLiq.MappingName = "InfoPreLiq"
+		Me.InfoPreLiq.RowHeadersVisible = False
+		'
+		'colPLFolio
+		'
+		Me.colPLFolio.Format = ""
+		Me.colPLFolio.FormatInfo = Nothing
+		Me.colPLFolio.HeaderText = "Folio"
+		Me.colPLFolio.MappingName = "Folio"
+		Me.colPLFolio.Width = 50
+		'
+		'colPLRutaDescripcion
+		'
+		Me.colPLRutaDescripcion.Format = ""
+		Me.colPLRutaDescripcion.FormatInfo = Nothing
+		Me.colPLRutaDescripcion.HeaderText = "Ruta"
+		Me.colPLRutaDescripcion.MappingName = "RutaDescripcion"
+		Me.colPLRutaDescripcion.Width = 70
+		'
+		'colPLCelula
+		'
+		Me.colPLCelula.Format = ""
+		Me.colPLCelula.FormatInfo = Nothing
+		Me.colPLCelula.HeaderText = "Célula"
+		Me.colPLCelula.MappingName = "Celula"
+		Me.colPLCelula.Width = 40
+		'
+		'colPLImporteContado
+		'
+		Me.colPLImporteContado.Alignment = System.Windows.Forms.HorizontalAlignment.Right
+		Me.colPLImporteContado.Format = "#,##.00"
+		Me.colPLImporteContado.FormatInfo = Nothing
+		Me.colPLImporteContado.HeaderText = "Contado"
+		Me.colPLImporteContado.MappingName = "ImporteContado"
+		Me.colPLImporteContado.Width = 70
+		'
+		'colPLImporteCredito
+		'
+		Me.colPLImporteCredito.Alignment = System.Windows.Forms.HorizontalAlignment.Right
+		Me.colPLImporteCredito.Format = "#,##.00"
+		Me.colPLImporteCredito.FormatInfo = Nothing
+		Me.colPLImporteCredito.HeaderText = "Crédito"
+		Me.colPLImporteCredito.MappingName = "ImporteCredito"
+		Me.colPLImporteCredito.Width = 70
+		'
+		'colPLEficiencia
+		'
+		Me.colPLEficiencia.Format = ""
+		Me.colPLEficiencia.FormatInfo = Nothing
+		Me.colPLEficiencia.HeaderText = "Eficiencia"
+		Me.colPLEficiencia.MappingName = "Eficiencia"
+		Me.colPLEficiencia.Width = 75
+		'
+		'colPLImporteEficiencia
+		'
+		Me.colPLImporteEficiencia.Alignment = System.Windows.Forms.HorizontalAlignment.Right
+		Me.colPLImporteEficiencia.Format = "#,##.00"
+		Me.colPLImporteEficiencia.FormatInfo = Nothing
+		Me.colPLImporteEficiencia.HeaderText = "Importe eficiencia"
+		Me.colPLImporteEficiencia.MappingName = "ImporteEficiencia"
+		Me.colPLImporteEficiencia.Width = 120
+		'
+		'colPLTipoPagoEficiencia
+		'
+		Me.colPLTipoPagoEficiencia.Format = ""
+		Me.colPLTipoPagoEficiencia.FormatInfo = Nothing
+		Me.colPLTipoPagoEficiencia.MappingName = "TipoPagoEficiencia"
+		Me.colPLTipoPagoEficiencia.Width = 0
+		'
+		'colPLTipoPagoEficienciaDesc
+		'
+		Me.colPLTipoPagoEficienciaDesc.Format = ""
+		Me.colPLTipoPagoEficienciaDesc.FormatInfo = Nothing
+		Me.colPLTipoPagoEficienciaDesc.HeaderText = "Tipo pago ef."
+		Me.colPLTipoPagoEficienciaDesc.MappingName = "TipoPagoEficienciaDesc"
+		Me.colPLTipoPagoEficienciaDesc.Width = 75
+		'
+		'colPLFInicioRuta
+		'
+		Me.colPLFInicioRuta.Format = ""
+		Me.colPLFInicioRuta.FormatInfo = Nothing
+		Me.colPLFInicioRuta.HeaderText = "F.Inicio Ruta"
+		Me.colPLFInicioRuta.MappingName = "FInicioRuta"
+		Me.colPLFInicioRuta.Width = 75
+		'
+		'LabelBase9
+		'
+		Me.LabelBase9.AutoSize = True
+		Me.LabelBase9.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.LabelBase9.ForeColor = System.Drawing.Color.Blue
+		Me.LabelBase9.Location = New System.Drawing.Point(24, 128)
+		Me.LabelBase9.Name = "LabelBase9"
+		Me.LabelBase9.Size = New System.Drawing.Size(190, 18)
+		Me.LabelBase9.TabIndex = 60
+		Me.LabelBase9.Text = "Importe de la eficiencia:"
+		Me.LabelBase9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+		'
+		'lblImporteEficiencia
+		'
+		Me.lblImporteEficiencia.BackColor = System.Drawing.Color.Khaki
+		Me.lblImporteEficiencia.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+		Me.lblImporteEficiencia.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblImporteEficiencia.ForeColor = System.Drawing.Color.Blue
+		Me.lblImporteEficiencia.Location = New System.Drawing.Point(240, 128)
+		Me.lblImporteEficiencia.Name = "lblImporteEficiencia"
+		Me.lblImporteEficiencia.Size = New System.Drawing.Size(128, 24)
+		Me.lblImporteEficiencia.TabIndex = 59
+		Me.lblImporteEficiencia.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		'
+		'grpCabecera
+		'
+		Me.grpCabecera.BackColor = System.Drawing.Color.Gainsboro
+		Me.grpCabecera.Controls.Add(Me.lblMotivoCancelacion1)
+		Me.grpCabecera.Controls.Add(Me.lblMotivoCancelacion2)
+		Me.grpCabecera.Controls.Add(Me.LabelBase16)
+		Me.grpCabecera.Controls.Add(Me.lblObservaciones)
+		Me.grpCabecera.Controls.Add(Me.picAviso)
+		Me.grpCabecera.Controls.Add(Me.lblFMovimiento)
+		Me.grpCabecera.Controls.Add(Me.lblStatus)
+		Me.grpCabecera.Controls.Add(Me.ComboTipoMovimientoCaja)
+		Me.grpCabecera.Controls.Add(Me.lblFOperacion)
+		Me.grpCabecera.Controls.Add(Me.lblTipoMovimientoCaja)
+		Me.grpCabecera.Controls.Add(Me.lblRuta)
+		Me.grpCabecera.Controls.Add(Me.lblFechaAlta)
+		Me.grpCabecera.Controls.Add(Me.lblNombreEmpleado)
+		Me.grpCabecera.Controls.Add(Me.dtpFMovimiento)
+		Me.grpCabecera.Controls.Add(Me.LabelBase13)
+		Me.grpCabecera.Controls.Add(Me.LabelBase2)
+		Me.grpCabecera.Controls.Add(Me.LabelBase8)
+		Me.grpCabecera.Controls.Add(Me.lblEmpleado2)
+		Me.grpCabecera.Controls.Add(Me.Label30)
+		Me.grpCabecera.Controls.Add(Me.lblFecha)
+		Me.grpCabecera.Controls.Add(Me.lblFechaAlta2)
+		Me.grpCabecera.Location = New System.Drawing.Point(8, 72)
+		Me.grpCabecera.Name = "grpCabecera"
+		Me.grpCabecera.Size = New System.Drawing.Size(392, 296)
+		Me.grpCabecera.TabIndex = 36
+		Me.grpCabecera.TabStop = False
+		Me.grpCabecera.Text = "Datos del movimiento"
+		'
+		'lblMotivoCancelacion1
+		'
+		Me.lblMotivoCancelacion1.AutoSize = True
+		Me.lblMotivoCancelacion1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblMotivoCancelacion1.Location = New System.Drawing.Point(16, 259)
+		Me.lblMotivoCancelacion1.Name = "lblMotivoCancelacion1"
+		Me.lblMotivoCancelacion1.Size = New System.Drawing.Size(116, 13)
+		Me.lblMotivoCancelacion1.TabIndex = 47
+		Me.lblMotivoCancelacion1.Text = "Motivo de cancelación:"
+		Me.lblMotivoCancelacion1.Visible = False
+		'
+		'lblMotivoCancelacion2
+		'
+		Me.lblMotivoCancelacion2.BackColor = System.Drawing.Color.WhiteSmoke
+		Me.lblMotivoCancelacion2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+		Me.lblMotivoCancelacion2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblMotivoCancelacion2.ForeColor = System.Drawing.Color.Firebrick
+		Me.lblMotivoCancelacion2.Location = New System.Drawing.Point(136, 256)
+		Me.lblMotivoCancelacion2.Name = "lblMotivoCancelacion2"
+		Me.lblMotivoCancelacion2.Size = New System.Drawing.Size(248, 21)
+		Me.lblMotivoCancelacion2.TabIndex = 46
+		Me.lblMotivoCancelacion2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+		Me.lblMotivoCancelacion2.Visible = False
+		'
+		'LabelBase16
+		'
+		Me.LabelBase16.AutoSize = True
+		Me.LabelBase16.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.LabelBase16.Location = New System.Drawing.Point(16, 192)
+		Me.LabelBase16.Name = "LabelBase16"
+		Me.LabelBase16.Size = New System.Drawing.Size(82, 13)
+		Me.LabelBase16.TabIndex = 45
+		Me.LabelBase16.Text = "Observaciones:"
+		'
+		'lblObservaciones
+		'
+		Me.lblObservaciones.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+		Me.lblObservaciones.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblObservaciones.ForeColor = System.Drawing.Color.Black
+		Me.lblObservaciones.Location = New System.Drawing.Point(136, 192)
+		Me.lblObservaciones.Name = "lblObservaciones"
+		Me.lblObservaciones.Size = New System.Drawing.Size(248, 56)
+		Me.lblObservaciones.TabIndex = 44
+		'
+		'picAviso
+		'
+		Me.picAviso.BackColor = System.Drawing.Color.Red
+		Me.picAviso.Image = CType(resources.GetObject("picAviso.Image"), System.Drawing.Image)
+		Me.picAviso.Location = New System.Drawing.Point(360, 121)
+		Me.picAviso.Name = "picAviso"
+		Me.picAviso.Size = New System.Drawing.Size(18, 18)
+		Me.picAviso.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+		Me.picAviso.TabIndex = 0
+		Me.picAviso.TabStop = False
+		Me.picAviso.Visible = False
+		'
+		'lblFMovimiento
+		'
+		Me.lblFMovimiento.BackColor = System.Drawing.Color.WhiteSmoke
+		Me.lblFMovimiento.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+		Me.lblFMovimiento.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblFMovimiento.ForeColor = System.Drawing.Color.Blue
+		Me.lblFMovimiento.Location = New System.Drawing.Point(136, 120)
+		Me.lblFMovimiento.Name = "lblFMovimiento"
+		Me.lblFMovimiento.Size = New System.Drawing.Size(248, 21)
+		Me.lblFMovimiento.TabIndex = 43
+		Me.lblFMovimiento.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+		Me.ttMensaje.SetToolTip(Me.lblFMovimiento, "Se está validando una liquidación de otro día")
+		'
+		'lblStatus
+		'
+		Me.lblStatus.BackColor = System.Drawing.Color.WhiteSmoke
+		Me.lblStatus.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+		Me.lblStatus.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblStatus.ForeColor = System.Drawing.Color.Firebrick
+		Me.lblStatus.Location = New System.Drawing.Point(136, 24)
+		Me.lblStatus.Name = "lblStatus"
+		Me.lblStatus.Size = New System.Drawing.Size(248, 21)
+		Me.lblStatus.TabIndex = 41
+		Me.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+		'
+		'ComboTipoMovimientoCaja
+		'
+		Me.ComboTipoMovimientoCaja.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+		Me.ComboTipoMovimientoCaja.Location = New System.Drawing.Point(136, 48)
+		Me.ComboTipoMovimientoCaja.Name = "ComboTipoMovimientoCaja"
+		Me.ComboTipoMovimientoCaja.Size = New System.Drawing.Size(248, 21)
+		Me.ComboTipoMovimientoCaja.TabIndex = 39
+		Me.ComboTipoMovimientoCaja.Visible = False
+		'
+		'lblFOperacion
+		'
+		Me.lblFOperacion.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+		Me.lblFOperacion.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblFOperacion.ForeColor = System.Drawing.Color.Black
+		Me.lblFOperacion.Location = New System.Drawing.Point(136, 96)
+		Me.lblFOperacion.Name = "lblFOperacion"
+		Me.lblFOperacion.Size = New System.Drawing.Size(248, 21)
+		Me.lblFOperacion.TabIndex = 37
+		Me.lblFOperacion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+		'
+		'lblTipoMovimientoCaja
+		'
+		Me.lblTipoMovimientoCaja.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+		Me.lblTipoMovimientoCaja.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblTipoMovimientoCaja.ForeColor = System.Drawing.Color.Black
+		Me.lblTipoMovimientoCaja.Location = New System.Drawing.Point(136, 48)
+		Me.lblTipoMovimientoCaja.Name = "lblTipoMovimientoCaja"
+		Me.lblTipoMovimientoCaja.Size = New System.Drawing.Size(248, 21)
+		Me.lblTipoMovimientoCaja.TabIndex = 36
+		Me.lblTipoMovimientoCaja.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+		'
+		'lblRuta
+		'
+		Me.lblRuta.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+		Me.lblRuta.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblRuta.ForeColor = System.Drawing.Color.Black
+		Me.lblRuta.Location = New System.Drawing.Point(136, 144)
+		Me.lblRuta.Name = "lblRuta"
+		Me.lblRuta.Size = New System.Drawing.Size(248, 21)
+		Me.lblRuta.TabIndex = 35
+		Me.lblRuta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+		'
+		'lblFechaAlta
+		'
+		Me.lblFechaAlta.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+		Me.lblFechaAlta.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblFechaAlta.ForeColor = System.Drawing.Color.Black
+		Me.lblFechaAlta.Location = New System.Drawing.Point(136, 72)
+		Me.lblFechaAlta.Name = "lblFechaAlta"
+		Me.lblFechaAlta.Size = New System.Drawing.Size(248, 21)
+		Me.lblFechaAlta.TabIndex = 34
+		Me.lblFechaAlta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+		'
+		'lblNombreEmpleado
+		'
+		Me.lblNombreEmpleado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+		Me.lblNombreEmpleado.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblNombreEmpleado.ForeColor = System.Drawing.Color.Black
+		Me.lblNombreEmpleado.Location = New System.Drawing.Point(136, 168)
+		Me.lblNombreEmpleado.Name = "lblNombreEmpleado"
+		Me.lblNombreEmpleado.Size = New System.Drawing.Size(248, 21)
+		Me.lblNombreEmpleado.TabIndex = 33
+		Me.lblNombreEmpleado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+		'
+		'dtpFMovimiento
+		'
+		Me.dtpFMovimiento.Enabled = False
+		Me.dtpFMovimiento.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.dtpFMovimiento.Location = New System.Drawing.Point(136, 120)
+		Me.dtpFMovimiento.MaxDate = New Date(2500, 12, 31, 0, 0, 0, 0)
+		Me.dtpFMovimiento.MinDate = New Date(2002, 1, 1, 0, 0, 0, 0)
+		Me.dtpFMovimiento.Name = "dtpFMovimiento"
+		Me.dtpFMovimiento.Size = New System.Drawing.Size(248, 21)
+		Me.dtpFMovimiento.TabIndex = 40
+		Me.dtpFMovimiento.Value = New Date(2002, 11, 29, 0, 0, 0, 0)
+		'
+		'LabelBase13
+		'
+		Me.LabelBase13.AutoSize = True
+		Me.LabelBase13.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.LabelBase13.Location = New System.Drawing.Point(16, 27)
+		Me.LabelBase13.Name = "LabelBase13"
+		Me.LabelBase13.Size = New System.Drawing.Size(121, 13)
+		Me.LabelBase13.TabIndex = 42
+		Me.LabelBase13.Text = "Estatus del movimiento:"
+		'
+		'LabelBase2
+		'
+		Me.LabelBase2.AutoSize = True
+		Me.LabelBase2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.LabelBase2.Location = New System.Drawing.Point(16, 123)
+		Me.LabelBase2.Name = "LabelBase2"
+		Me.LabelBase2.Size = New System.Drawing.Size(112, 13)
+		Me.LabelBase2.TabIndex = 40
+		Me.LabelBase2.Text = "Fecha de movimiento:"
+		'
+		'LabelBase8
+		'
+		Me.LabelBase8.AutoSize = True
+		Me.LabelBase8.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.LabelBase8.Location = New System.Drawing.Point(16, 51)
+		Me.LabelBase8.Name = "LabelBase8"
+		Me.LabelBase8.Size = New System.Drawing.Size(103, 13)
+		Me.LabelBase8.TabIndex = 38
+		Me.LabelBase8.Text = "Tipo de movimiento:"
+		'
+		'lblEmpleado2
+		'
+		Me.lblEmpleado2.AutoSize = True
+		Me.lblEmpleado2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblEmpleado2.Location = New System.Drawing.Point(16, 171)
+		Me.lblEmpleado2.Name = "lblEmpleado2"
+		Me.lblEmpleado2.Size = New System.Drawing.Size(57, 13)
+		Me.lblEmpleado2.TabIndex = 32
+		Me.lblEmpleado2.Text = "Empleado:"
+		'
+		'Label30
+		'
+		Me.Label30.AutoSize = True
+		Me.Label30.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Label30.Location = New System.Drawing.Point(16, 147)
+		Me.Label30.Name = "Label30"
+		Me.Label30.Size = New System.Drawing.Size(99, 13)
+		Me.Label30.TabIndex = 24
+		Me.Label30.Text = "Ruta pre-liquidada:"
+		'
+		'lblFecha
+		'
+		Me.lblFecha.AutoSize = True
+		Me.lblFecha.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblFecha.Location = New System.Drawing.Point(16, 99)
+		Me.lblFecha.Name = "lblFecha"
+		Me.lblFecha.Size = New System.Drawing.Size(105, 13)
+		Me.lblFecha.TabIndex = 23
+		Me.lblFecha.Text = "Fecha de operación:"
+		'
+		'lblFechaAlta2
+		'
+		Me.lblFechaAlta2.AutoSize = True
+		Me.lblFechaAlta2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblFechaAlta2.Location = New System.Drawing.Point(16, 75)
+		Me.lblFechaAlta2.Name = "lblFechaAlta2"
+		Me.lblFechaAlta2.Size = New System.Drawing.Size(95, 13)
+		Me.lblFechaAlta2.TabIndex = 28
+		Me.lblFechaAlta2.Text = "Fecha de registro:"
+		'
+		'grpDatosMovimiento
+		'
+		Me.grpDatosMovimiento.Controls.Add(Me.lnkConsultaIVA)
+		Me.grpDatosMovimiento.Controls.Add(Me.grpCobroEficiencia)
+		Me.grpDatosMovimiento.Controls.Add(Me.lblImporteMovimiento)
+		Me.grpDatosMovimiento.Controls.Add(Me.lblImporteCobranza2)
+		Me.grpDatosMovimiento.Controls.Add(Me.btnConsultaDocumentos)
+		Me.grpDatosMovimiento.Location = New System.Drawing.Point(8, 368)
+		Me.grpDatosMovimiento.Name = "grpDatosMovimiento"
+		Me.grpDatosMovimiento.Size = New System.Drawing.Size(392, 160)
+		Me.grpDatosMovimiento.TabIndex = 38
+		Me.grpDatosMovimiento.TabStop = False
+		Me.grpDatosMovimiento.Text = "Datos del movimiento"
+		'
+		'lnkConsultaIVA
+		'
+		Me.lnkConsultaIVA.AutoSize = True
+		Me.lnkConsultaIVA.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lnkConsultaIVA.Location = New System.Drawing.Point(140, 136)
+		Me.lnkConsultaIVA.Name = "lnkConsultaIVA"
+		Me.lnkConsultaIVA.Size = New System.Drawing.Size(220, 13)
+		Me.lnkConsultaIVA.TabIndex = 30
+		Me.lnkConsultaIVA.TabStop = True
+		Me.lnkConsultaIVA.Text = "Consulta de importes por precio e IVA"
+		Me.lnkConsultaIVA.Visible = False
+		'
+		'grpCobroEficiencia
+		'
+		Me.grpCobroEficiencia.Controls.Add(Me.chkIncluirEficiencia)
+		Me.grpCobroEficiencia.Location = New System.Drawing.Point(272, 192)
+		Me.grpCobroEficiencia.Name = "grpCobroEficiencia"
+		Me.grpCobroEficiencia.Size = New System.Drawing.Size(40, 16)
+		Me.grpCobroEficiencia.TabIndex = 29
+		Me.grpCobroEficiencia.TabStop = False
+		Me.grpCobroEficiencia.Text = "Cobro de la eficiencia"
+		Me.grpCobroEficiencia.Visible = False
+		'
+		'chkIncluirEficiencia
+		'
+		Me.chkIncluirEficiencia.Enabled = False
+		Me.chkIncluirEficiencia.Location = New System.Drawing.Point(24, 16)
+		Me.chkIncluirEficiencia.Name = "chkIncluirEficiencia"
+		Me.chkIncluirEficiencia.Size = New System.Drawing.Size(264, 24)
+		Me.chkIncluirEficiencia.TabIndex = 28
+		Me.chkIncluirEficiencia.Text = "Incluir el importe de la eficiencia en el total"
+		'
+		'lblImporteMovimiento
+		'
+		Me.lblImporteMovimiento.BackColor = System.Drawing.Color.Khaki
+		Me.lblImporteMovimiento.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+		Me.lblImporteMovimiento.Font = New System.Drawing.Font("Tahoma", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblImporteMovimiento.ForeColor = System.Drawing.Color.Blue
+		Me.lblImporteMovimiento.Location = New System.Drawing.Point(128, 32)
+		Me.lblImporteMovimiento.Name = "lblImporteMovimiento"
+		Me.lblImporteMovimiento.Size = New System.Drawing.Size(240, 48)
+		Me.lblImporteMovimiento.TabIndex = 27
+		Me.lblImporteMovimiento.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		'
+		'lblImporteCobranza2
+		'
+		Me.lblImporteCobranza2.AutoSize = True
+		Me.lblImporteCobranza2.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblImporteCobranza2.ForeColor = System.Drawing.Color.Blue
+		Me.lblImporteCobranza2.Location = New System.Drawing.Point(16, 40)
+		Me.lblImporteCobranza2.Name = "lblImporteCobranza2"
+		Me.lblImporteCobranza2.Size = New System.Drawing.Size(106, 25)
+		Me.lblImporteCobranza2.TabIndex = 25
+		Me.lblImporteCobranza2.Text = "Importe:"
+		'
+		'grpCobroVale
+		'
+		Me.grpCobroVale.BackColor = System.Drawing.Color.Gainsboro
+		Me.grpCobroVale.Controls.Add(Me.RegistroValeCredito1)
+		Me.grpCobroVale.Controls.Add(Me.Vales)
+		Me.grpCobroVale.Controls.Add(Me.lblNoTieneVales)
+		Me.grpCobroVale.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.grpCobroVale.Location = New System.Drawing.Point(160, 24)
+		Me.grpCobroVale.Name = "grpCobroVale"
+		Me.grpCobroVale.Size = New System.Drawing.Size(152, 464)
+		Me.grpCobroVale.TabIndex = 35
+		Me.grpCobroVale.TabStop = False
+		Me.grpCobroVale.Text = "Vales de despensa (F4)"
+		'
+		'RegistroValeCredito1
+		'
+		Me.RegistroValeCredito1.Location = New System.Drawing.Point(8, 388)
+		Me.RegistroValeCredito1.Name = "RegistroValeCredito1"
+		Me.RegistroValeCredito1.Size = New System.Drawing.Size(136, 68)
+		Me.RegistroValeCredito1.TabIndex = 4
+		'
+		'Vales
+		'
+		Me.Vales.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Vales.Location = New System.Drawing.Point(8, 32)
+		Me.Vales.Name = "Vales"
+		Me.Vales.Size = New System.Drawing.Size(132, 376)
+		Me.Vales.TabIndex = 0
+		Me.Vales.V1 = CType(0, Short)
+		Me.Vales.V10 = CType(0, Short)
+		Me.Vales.V100 = CType(0, Short)
+		Me.Vales.V15 = CType(0, Short)
+		Me.Vales.V2 = CType(0, Short)
+		Me.Vales.V20 = CType(0, Short)
+		Me.Vales.V25 = CType(0, Short)
+		Me.Vales.V3 = CType(0, Short)
+		Me.Vales.V30 = CType(0, Short)
+		Me.Vales.V35 = CType(0, Short)
+		Me.Vales.V4 = CType(0, Short)
+		Me.Vales.V5 = CType(0, Short)
+		Me.Vales.V50 = CType(0, Short)
+		'
+		'lblNoTieneVales
+		'
+		Me.lblNoTieneVales.Location = New System.Drawing.Point(16, 184)
+		Me.lblNoTieneVales.Name = "lblNoTieneVales"
+		Me.lblNoTieneVales.Size = New System.Drawing.Size(128, 56)
+		Me.lblNoTieneVales.TabIndex = 3
+		Me.lblNoTieneVales.Text = "El movimiento no tiene vales relacionados"
+		Me.lblNoTieneVales.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		Me.lblNoTieneVales.Visible = False
+		'
+		'grpCobroCheque
+		'
+		Me.grpCobroCheque.Controls.Add(Me.lnkConsultaCheques)
+		Me.grpCobroCheque.Controls.Add(Me.grdCheque)
+		Me.grpCobroCheque.Controls.Add(Me.lblNoTieneCheques)
+		Me.grpCobroCheque.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.grpCobroCheque.Location = New System.Drawing.Point(320, 24)
+		Me.grpCobroCheque.Name = "grpCobroCheque"
+		Me.grpCobroCheque.Size = New System.Drawing.Size(288, 152)
+		Me.grpCobroCheque.TabIndex = 36
+		Me.grpCobroCheque.TabStop = False
+		Me.grpCobroCheque.Text = "Cheque"
+		'
+		'lnkConsultaCheques
+		'
+		Me.lnkConsultaCheques.AutoSize = True
+		Me.lnkConsultaCheques.Location = New System.Drawing.Point(160, 16)
+		Me.lnkConsultaCheques.Name = "lnkConsultaCheques"
+		Me.lnkConsultaCheques.Size = New System.Drawing.Size(123, 13)
+		Me.lnkConsultaCheques.TabIndex = 1
+		Me.lnkConsultaCheques.TabStop = True
+		Me.lnkConsultaCheques.Text = "Ver datos completos"
+		'
+		'grdCheque
+		'
+		Me.grdCheque.BackgroundColor = System.Drawing.Color.Gainsboro
+		Me.grdCheque.CaptionBackColor = System.Drawing.Color.DarkSeaGreen
+		Me.grdCheque.CaptionText = "Cheques en este movimiento"
+		Me.grdCheque.DataMember = ""
+		Me.grdCheque.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.grdCheque.HeaderForeColor = System.Drawing.SystemColors.ControlText
+		Me.grdCheque.Location = New System.Drawing.Point(8, 32)
+		Me.grdCheque.Name = "grdCheque"
+		Me.grdCheque.ReadOnly = True
+		Me.grdCheque.Size = New System.Drawing.Size(272, 112)
+		Me.grdCheque.TabIndex = 0
+		Me.grdCheque.TableStyles.AddRange(New System.Windows.Forms.DataGridTableStyle() {Me.EstiloCheques})
+		'
+		'EstiloCheques
+		'
+		Me.EstiloCheques.DataGrid = Me.grdCheque
+		Me.EstiloCheques.GridColumnStyles.AddRange(New System.Windows.Forms.DataGridColumnStyle() {Me.colChTipoCobro, Me.colChNumeroCheque, Me.colChBancoNombre, Me.colChTotal, Me.colChSaldo})
+		Me.EstiloCheques.HeaderForeColor = System.Drawing.SystemColors.ControlText
+		Me.EstiloCheques.MappingName = "Cheques"
+		'
+		'colChTipoCobro
+		'
+		Me.colChTipoCobro.Format = ""
+		Me.colChTipoCobro.FormatInfo = Nothing
+		Me.colChTipoCobro.HeaderText = "Tipo"
+		Me.colChTipoCobro.MappingName = "TipoCobro"
+		Me.colChTipoCobro.Width = 0
+		'
+		'colChNumeroCheque
+		'
+		Me.colChNumeroCheque.Format = ""
+		Me.colChNumeroCheque.FormatInfo = Nothing
+		Me.colChNumeroCheque.HeaderText = "No. Cheque"
+		Me.colChNumeroCheque.MappingName = "NumeroCheque"
+		Me.colChNumeroCheque.Width = 0
+		'
+		'colChBancoNombre
+		'
+		Me.colChBancoNombre.Format = ""
+		Me.colChBancoNombre.FormatInfo = Nothing
+		Me.colChBancoNombre.HeaderText = "Banco"
+		Me.colChBancoNombre.MappingName = "BancoNombre"
+		Me.colChBancoNombre.Width = 60
+		'
+		'colChTotal
+		'
+		Me.colChTotal.Alignment = System.Windows.Forms.HorizontalAlignment.Right
+		Me.colChTotal.Format = "#,##.00"
+		Me.colChTotal.FormatInfo = Nothing
+		Me.colChTotal.HeaderText = "Total"
+		Me.colChTotal.MappingName = "Total"
+		Me.colChTotal.Width = 75
+		'
+		'colChSaldo
+		'
+		Me.colChSaldo.Alignment = System.Windows.Forms.HorizontalAlignment.Right
+		Me.colChSaldo.Format = "#,##.00"
+		Me.colChSaldo.FormatInfo = Nothing
+		Me.colChSaldo.HeaderText = "Saldo"
+		Me.colChSaldo.MappingName = "Saldo"
+		Me.colChSaldo.Width = 75
+		'
+		'lblNoTieneCheques
+		'
+		Me.lblNoTieneCheques.Location = New System.Drawing.Point(80, 56)
+		Me.lblNoTieneCheques.Name = "lblNoTieneCheques"
+		Me.lblNoTieneCheques.Size = New System.Drawing.Size(144, 56)
+		Me.lblNoTieneCheques.TabIndex = 2
+		Me.lblNoTieneCheques.Text = "El movimiento no tiene cheques relacionados"
+		Me.lblNoTieneCheques.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		'
+		'grpCobroEfectivo
+		'
+		Me.grpCobroEfectivo.BackColor = System.Drawing.Color.Gainsboro
+		Me.grpCobroEfectivo.Controls.Add(Me.CobroEfectivo)
+		Me.grpCobroEfectivo.Controls.Add(Me.lblPorCobrarVales)
+		Me.grpCobroEfectivo.Controls.Add(Me.lblPorCobrarEfectivo)
+		Me.grpCobroEfectivo.Controls.Add(Me.LabelBase3)
+		Me.grpCobroEfectivo.Controls.Add(Me.LabelBase1)
+		Me.grpCobroEfectivo.Controls.Add(Me.lblNoTieneEfectivo)
+		Me.grpCobroEfectivo.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.grpCobroEfectivo.Location = New System.Drawing.Point(8, 24)
+		Me.grpCobroEfectivo.Name = "grpCobroEfectivo"
+		Me.grpCobroEfectivo.Size = New System.Drawing.Size(152, 464)
+		Me.grpCobroEfectivo.TabIndex = 34
+		Me.grpCobroEfectivo.TabStop = False
+		Me.grpCobroEfectivo.Text = "Efectivo (F3)"
+		'
+		'CobroEfectivo
+		'
+		Me.CobroEfectivo.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.CobroEfectivo.Location = New System.Drawing.Point(8, 32)
+		Me.CobroEfectivo.M1 = CType(0, Short)
+		Me.CobroEfectivo.M10 = CType(0, Short)
+		Me.CobroEfectivo.M100 = CType(0, Short)
+		Me.CobroEfectivo.M1000 = CType(0, Short)
+		Me.CobroEfectivo.M10c = CType(0, Short)
+		Me.CobroEfectivo.M2 = CType(0, Short)
+		Me.CobroEfectivo.M20 = CType(0, Short)
+		Me.CobroEfectivo.M200 = CType(0, Short)
+		Me.CobroEfectivo.M20c = CType(0, Short)
+		Me.CobroEfectivo.M5 = CType(0, Short)
+		Me.CobroEfectivo.M50 = CType(0, Short)
+		Me.CobroEfectivo.M500 = CType(0, Short)
+		Me.CobroEfectivo.M50c = CType(0, Short)
+		Me.CobroEfectivo.M5c = CType(0, Short)
+		Me.CobroEfectivo.Morralla = 0R
+		Me.CobroEfectivo.Name = "CobroEfectivo"
+		Me.CobroEfectivo.Size = New System.Drawing.Size(136, 404)
+		Me.CobroEfectivo.TabIndex = 50
+		'
+		'lblPorCobrarVales
+		'
+		Me.lblPorCobrarVales.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+		Me.lblPorCobrarVales.ForeColor = System.Drawing.Color.MediumBlue
+		Me.lblPorCobrarVales.Location = New System.Drawing.Point(56, 432)
+		Me.lblPorCobrarVales.Name = "lblPorCobrarVales"
+		Me.lblPorCobrarVales.Size = New System.Drawing.Size(88, 16)
+		Me.lblPorCobrarVales.TabIndex = 41
+		Me.lblPorCobrarVales.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		Me.lblPorCobrarVales.Visible = False
+		'
+		'lblPorCobrarEfectivo
+		'
+		Me.lblPorCobrarEfectivo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+		Me.lblPorCobrarEfectivo.ForeColor = System.Drawing.Color.MediumBlue
+		Me.lblPorCobrarEfectivo.Location = New System.Drawing.Point(56, 432)
+		Me.lblPorCobrarEfectivo.Name = "lblPorCobrarEfectivo"
+		Me.lblPorCobrarEfectivo.Size = New System.Drawing.Size(88, 16)
+		Me.lblPorCobrarEfectivo.TabIndex = 40
+		Me.lblPorCobrarEfectivo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		Me.lblPorCobrarEfectivo.Visible = False
+		'
+		'LabelBase3
+		'
+		Me.LabelBase3.AutoSize = True
+		Me.LabelBase3.Location = New System.Drawing.Point(64, 432)
+		Me.LabelBase3.Name = "LabelBase3"
+		Me.LabelBase3.Size = New System.Drawing.Size(40, 13)
+		Me.LabelBase3.TabIndex = 49
+		Me.LabelBase3.Text = "Vales:"
+		Me.LabelBase3.Visible = False
+		'
+		'LabelBase1
+		'
+		Me.LabelBase1.AutoSize = True
+		Me.LabelBase1.Location = New System.Drawing.Point(64, 432)
+		Me.LabelBase1.Name = "LabelBase1"
+		Me.LabelBase1.Size = New System.Drawing.Size(55, 13)
+		Me.LabelBase1.TabIndex = 48
+		Me.LabelBase1.Text = "Efectivo:"
+		Me.LabelBase1.Visible = False
+		'
+		'lblNoTieneEfectivo
+		'
+		Me.lblNoTieneEfectivo.Location = New System.Drawing.Point(16, 184)
+		Me.lblNoTieneEfectivo.Name = "lblNoTieneEfectivo"
+		Me.lblNoTieneEfectivo.Size = New System.Drawing.Size(120, 56)
+		Me.lblNoTieneEfectivo.TabIndex = 34
+		Me.lblNoTieneEfectivo.Text = "El movimiento no tiene efectivo relacionado"
+		Me.lblNoTieneEfectivo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		Me.lblNoTieneEfectivo.Visible = False
+		'
+		'grpCobroDocumentos
+		'
+		Me.grpCobroDocumentos.Controls.Add(Me.LabelBase14)
+		Me.grpCobroDocumentos.Controls.Add(Me.lblAutoCarb)
+		Me.grpCobroDocumentos.Controls.Add(Me.lblCaptAFAvor)
+		Me.grpCobroDocumentos.Controls.Add(Me.LabelBase15)
+		Me.grpCobroDocumentos.Controls.Add(Me.lblRealEfectivoVales)
+		Me.grpCobroDocumentos.Controls.Add(Me.lblAFavorOperadorCheques)
+		Me.grpCobroDocumentos.Controls.Add(Me.lblPorCobrarEficiencia)
+		Me.grpCobroDocumentos.Controls.Add(Me.LabelBase12)
+		Me.grpCobroDocumentos.Controls.Add(Me.lblPorCobrarFD)
+		Me.grpCobroDocumentos.Controls.Add(Me.LabelBase7)
+		Me.grpCobroDocumentos.Controls.Add(Me.grpCobroFicha)
+		Me.grpCobroDocumentos.Controls.Add(Me.lblPorCobrarTC)
+		Me.grpCobroDocumentos.Controls.Add(Me.LabelBase6)
+		Me.grpCobroDocumentos.Controls.Add(Me.grpCobroTC)
+		Me.grpCobroDocumentos.Controls.Add(Me.btnCambio)
+		Me.grpCobroDocumentos.Controls.Add(Me.grpCobroVale)
+		Me.grpCobroDocumentos.Controls.Add(Me.grpCobroCheque)
+		Me.grpCobroDocumentos.Controls.Add(Me.grpCobroEfectivo)
+		Me.grpCobroDocumentos.Controls.Add(Me.Panel1)
+		Me.grpCobroDocumentos.Controls.Add(Me.lblPorCobrarEfectivoVales)
+		Me.grpCobroDocumentos.Controls.Add(Me.lblPorCobrarCheques)
+		Me.grpCobroDocumentos.Controls.Add(Me.LabelBase5)
+		Me.grpCobroDocumentos.Controls.Add(Me.LabelBase4)
+		Me.grpCobroDocumentos.Controls.Add(Me.LinkLabel1)
+		Me.grpCobroDocumentos.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.grpCobroDocumentos.Location = New System.Drawing.Point(400, 72)
+		Me.grpCobroDocumentos.Name = "grpCobroDocumentos"
+		Me.grpCobroDocumentos.Size = New System.Drawing.Size(616, 624)
+		Me.grpCobroDocumentos.TabIndex = 34
+		Me.grpCobroDocumentos.TabStop = False
+		Me.grpCobroDocumentos.Text = "Cobro de documentos"
+		'
+		'LabelBase14
+		'
+		Me.LabelBase14.AutoSize = True
+		Me.LabelBase14.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.LabelBase14.Location = New System.Drawing.Point(8, 603)
+		Me.LabelBase14.Name = "LabelBase14"
+		Me.LabelBase14.Size = New System.Drawing.Size(60, 15)
+		Me.LabelBase14.TabIndex = 67
+		Me.LabelBase14.Text = "Obs./A.carb:"
+		'
+		'lblAutoCarb
+		'
+		Me.lblAutoCarb.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+		Me.lblAutoCarb.ForeColor = System.Drawing.Color.DarkRed
+		Me.lblAutoCarb.Location = New System.Drawing.Point(64, 603)
+		Me.lblAutoCarb.Name = "lblAutoCarb"
+		Me.lblAutoCarb.Size = New System.Drawing.Size(80, 16)
+		Me.lblAutoCarb.TabIndex = 66
+		Me.lblAutoCarb.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		'
+		'lblCaptAFAvor
+		'
+		Me.lblCaptAFAvor.Location = New System.Drawing.Point(148, 492)
+		Me.lblCaptAFAvor.Name = "lblCaptAFAvor"
+		Me.lblCaptAFAvor.Size = New System.Drawing.Size(96, 40)
+		Me.lblCaptAFAvor.TabIndex = 65
+		Me.lblCaptAFAvor.Text = "A favor operador:"
+		Me.lblCaptAFAvor.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+		'
+		'LabelBase15
+		'
+		Me.LabelBase15.AutoSize = True
+		Me.LabelBase15.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.LabelBase15.Location = New System.Drawing.Point(186, 568)
+		Me.LabelBase15.Name = "LabelBase15"
+		Me.LabelBase15.Size = New System.Drawing.Size(54, 13)
+		Me.LabelBase15.TabIndex = 64
+		Me.LabelBase15.Text = "Real E.V."
+		'
+		'lblRealEfectivoVales
+		'
+		Me.lblRealEfectivoVales.BackColor = System.Drawing.Color.WhiteSmoke
+		Me.lblRealEfectivoVales.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+		Me.lblRealEfectivoVales.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblRealEfectivoVales.ForeColor = System.Drawing.Color.Blue
+		Me.lblRealEfectivoVales.Location = New System.Drawing.Point(152, 584)
+		Me.lblRealEfectivoVales.Name = "lblRealEfectivoVales"
+		Me.lblRealEfectivoVales.Size = New System.Drawing.Size(88, 16)
+		Me.lblRealEfectivoVales.TabIndex = 63
+		Me.lblRealEfectivoVales.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		'
+		'lblAFavorOperadorCheques
+		'
+		Me.lblAFavorOperadorCheques.BackColor = System.Drawing.Color.Gainsboro
+		Me.lblAFavorOperadorCheques.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+		Me.lblAFavorOperadorCheques.ForeColor = System.Drawing.SystemColors.ControlText
+		Me.lblAFavorOperadorCheques.Location = New System.Drawing.Point(152, 536)
+		Me.lblAFavorOperadorCheques.Name = "lblAFavorOperadorCheques"
+		Me.lblAFavorOperadorCheques.Size = New System.Drawing.Size(88, 16)
+		Me.lblAFavorOperadorCheques.TabIndex = 61
+		Me.lblAFavorOperadorCheques.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		'
+		'lblPorCobrarEficiencia
+		'
+		Me.lblPorCobrarEficiencia.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+		Me.lblPorCobrarEficiencia.ForeColor = System.Drawing.SystemColors.ControlText
+		Me.lblPorCobrarEficiencia.Location = New System.Drawing.Point(64, 584)
+		Me.lblPorCobrarEficiencia.Name = "lblPorCobrarEficiencia"
+		Me.lblPorCobrarEficiencia.Size = New System.Drawing.Size(80, 16)
+		Me.lblPorCobrarEficiencia.TabIndex = 59
+		Me.lblPorCobrarEficiencia.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		'
+		'LabelBase12
+		'
+		Me.LabelBase12.AutoSize = True
+		Me.LabelBase12.Location = New System.Drawing.Point(8, 584)
+		Me.LabelBase12.Name = "LabelBase12"
+		Me.LabelBase12.Size = New System.Drawing.Size(55, 13)
+		Me.LabelBase12.TabIndex = 60
+		Me.LabelBase12.Text = "Eficiencia:"
+		'
+		'lblPorCobrarFD
+		'
+		Me.lblPorCobrarFD.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+		Me.lblPorCobrarFD.ForeColor = System.Drawing.SystemColors.ControlText
+		Me.lblPorCobrarFD.Location = New System.Drawing.Point(64, 568)
+		Me.lblPorCobrarFD.Name = "lblPorCobrarFD"
+		Me.lblPorCobrarFD.Size = New System.Drawing.Size(80, 16)
+		Me.lblPorCobrarFD.TabIndex = 57
+		Me.lblPorCobrarFD.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		'
+		'LabelBase7
+		'
+		Me.LabelBase7.AutoSize = True
+		Me.LabelBase7.Location = New System.Drawing.Point(8, 568)
+		Me.LabelBase7.Name = "LabelBase7"
+		Me.LabelBase7.Size = New System.Drawing.Size(41, 13)
+		Me.LabelBase7.TabIndex = 58
+		Me.LabelBase7.Text = "Fichas:"
+		'
+		'grpCobroFicha
+		'
+		Me.grpCobroFicha.Controls.Add(Me.grdFichaDeposito)
+		Me.grpCobroFicha.Controls.Add(Me.lnkConsultaFichaDeposito)
+		Me.grpCobroFicha.Controls.Add(Me.Label3)
+		Me.grpCobroFicha.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.grpCobroFicha.Location = New System.Drawing.Point(320, 176)
+		Me.grpCobroFicha.Name = "grpCobroFicha"
+		Me.grpCobroFicha.Size = New System.Drawing.Size(288, 160)
+		Me.grpCobroFicha.TabIndex = 56
+		Me.grpCobroFicha.TabStop = False
+		Me.grpCobroFicha.Text = "Varios(Transferencias, Aplicación de anticipos, Dación)"
+		'
+		'grdFichaDeposito
+		'
+		Me.grdFichaDeposito.BackgroundColor = System.Drawing.Color.Gainsboro
+		Me.grdFichaDeposito.CaptionBackColor = System.Drawing.Color.SteelBlue
+		Me.grdFichaDeposito.CaptionText = "Lista de documentos"
+		Me.grdFichaDeposito.DataMember = ""
+		Me.grdFichaDeposito.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.grdFichaDeposito.HeaderForeColor = System.Drawing.SystemColors.ControlText
+		Me.grdFichaDeposito.Location = New System.Drawing.Point(8, 32)
+		Me.grdFichaDeposito.Name = "grdFichaDeposito"
+		Me.grdFichaDeposito.ReadOnly = True
+		Me.grdFichaDeposito.Size = New System.Drawing.Size(272, 120)
+		Me.grdFichaDeposito.TabIndex = 0
+		Me.grdFichaDeposito.TableStyles.AddRange(New System.Windows.Forms.DataGridTableStyle() {Me.EstiloFicha})
+		'
+		'EstiloFicha
+		'
+		Me.EstiloFicha.DataGrid = Me.grdFichaDeposito
+		Me.EstiloFicha.GridColumnStyles.AddRange(New System.Windows.Forms.DataGridColumnStyle() {Me.colTipoCobro, Me.colDocumento, Me.colTotal, Me.colSaldo})
+		Me.EstiloFicha.HeaderForeColor = System.Drawing.SystemColors.ControlText
+		Me.EstiloFicha.MappingName = "FichaDeposito"
+		Me.EstiloFicha.RowHeadersVisible = False
+		'
+		'colTipoCobro
+		'
+		Me.colTipoCobro.Format = ""
+		Me.colTipoCobro.FormatInfo = Nothing
+		Me.colTipoCobro.HeaderText = "Tipo"
+		Me.colTipoCobro.MappingName = "TipoCobroDescripcion"
+		Me.colTipoCobro.Width = 110
+		'
+		'colDocumento
+		'
+		Me.colDocumento.Format = ""
+		Me.colDocumento.FormatInfo = Nothing
+		Me.colDocumento.HeaderText = "Documento"
+		Me.colDocumento.MappingName = "Documento"
+		Me.colDocumento.NullText = ""
+		Me.colDocumento.Width = 0
+		'
+		'colTotal
+		'
+		Me.colTotal.Alignment = System.Windows.Forms.HorizontalAlignment.Right
+		Me.colTotal.Format = "#,##.00"
+		Me.colTotal.FormatInfo = Nothing
+		Me.colTotal.HeaderText = "Total"
+		Me.colTotal.MappingName = "Total"
+		Me.colTotal.Width = 75
+		'
+		'colSaldo
+		'
+		Me.colSaldo.Alignment = System.Windows.Forms.HorizontalAlignment.Right
+		Me.colSaldo.Format = "#,##.00"
+		Me.colSaldo.FormatInfo = Nothing
+		Me.colSaldo.HeaderText = "Saldo"
+		Me.colSaldo.MappingName = "Saldo"
+		Me.colSaldo.Width = 75
+		'
+		'lnkConsultaFichaDeposito
+		'
+		Me.lnkConsultaFichaDeposito.AutoSize = True
+		Me.lnkConsultaFichaDeposito.Location = New System.Drawing.Point(160, 16)
+		Me.lnkConsultaFichaDeposito.Name = "lnkConsultaFichaDeposito"
+		Me.lnkConsultaFichaDeposito.Size = New System.Drawing.Size(123, 13)
+		Me.lnkConsultaFichaDeposito.TabIndex = 4
+		Me.lnkConsultaFichaDeposito.TabStop = True
+		Me.lnkConsultaFichaDeposito.Text = "Ver datos completos"
+		'
+		'Label3
+		'
+		Me.Label3.Location = New System.Drawing.Point(80, 64)
+		Me.Label3.Name = "Label3"
+		Me.Label3.Size = New System.Drawing.Size(144, 56)
+		Me.Label3.TabIndex = 5
+		Me.Label3.Text = "El movimiento no tiene cobros con ficha de depósito"
+		Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		'
+		'lblPorCobrarTC
+		'
+		Me.lblPorCobrarTC.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+		Me.lblPorCobrarTC.ForeColor = System.Drawing.SystemColors.ControlText
+		Me.lblPorCobrarTC.Location = New System.Drawing.Point(64, 552)
+		Me.lblPorCobrarTC.Name = "lblPorCobrarTC"
+		Me.lblPorCobrarTC.Size = New System.Drawing.Size(80, 16)
+		Me.lblPorCobrarTC.TabIndex = 53
+		Me.lblPorCobrarTC.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		'
+		'LabelBase6
+		'
+		Me.LabelBase6.AutoSize = True
+		Me.LabelBase6.Location = New System.Drawing.Point(8, 552)
+		Me.LabelBase6.Name = "LabelBase6"
+		Me.LabelBase6.Size = New System.Drawing.Size(56, 13)
+		Me.LabelBase6.TabIndex = 54
+		Me.LabelBase6.Text = "T.Crédito:"
+		'
+		'grpCobroTC
+		'
+		Me.grpCobroTC.Controls.Add(Me.grdTarjetaCredito)
+		Me.grpCobroTC.Controls.Add(Me.lnkConsultaTarjetaCredito)
+		Me.grpCobroTC.Controls.Add(Me.Label2)
+		Me.grpCobroTC.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.grpCobroTC.Location = New System.Drawing.Point(320, 336)
+		Me.grpCobroTC.Name = "grpCobroTC"
+		Me.grpCobroTC.Size = New System.Drawing.Size(288, 152)
+		Me.grpCobroTC.TabIndex = 52
+		Me.grpCobroTC.TabStop = False
+		Me.grpCobroTC.Text = "Tarjeta"
+		'
+		'grdTarjetaCredito
+		'
+		Me.grdTarjetaCredito.BackgroundColor = System.Drawing.Color.Gainsboro
+		Me.grdTarjetaCredito.CaptionBackColor = System.Drawing.Color.Brown
+		Me.grdTarjetaCredito.CaptionText = "Cobro con tarjeta de crédito"
+		Me.grdTarjetaCredito.DataMember = ""
+		Me.grdTarjetaCredito.HeaderForeColor = System.Drawing.SystemColors.ControlText
+		Me.grdTarjetaCredito.Location = New System.Drawing.Point(8, 32)
+		Me.grdTarjetaCredito.Name = "grdTarjetaCredito"
+		Me.grdTarjetaCredito.ReadOnly = True
+		Me.grdTarjetaCredito.Size = New System.Drawing.Size(272, 112)
+		Me.grdTarjetaCredito.TabIndex = 3
+		'
+		'lnkConsultaTarjetaCredito
+		'
+		Me.lnkConsultaTarjetaCredito.AutoSize = True
+		Me.lnkConsultaTarjetaCredito.Location = New System.Drawing.Point(160, 16)
+		Me.lnkConsultaTarjetaCredito.Name = "lnkConsultaTarjetaCredito"
+		Me.lnkConsultaTarjetaCredito.Size = New System.Drawing.Size(123, 13)
+		Me.lnkConsultaTarjetaCredito.TabIndex = 1
+		Me.lnkConsultaTarjetaCredito.TabStop = True
+		Me.lnkConsultaTarjetaCredito.Text = "Ver datos completos"
+		'
+		'Label2
+		'
+		Me.Label2.Location = New System.Drawing.Point(80, 56)
+		Me.Label2.Name = "Label2"
+		Me.Label2.Size = New System.Drawing.Size(144, 56)
+		Me.Label2.TabIndex = 2
+		Me.Label2.Text = "El movimiento no tiene cobros con tarjeta de crédito"
+		Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		'
+		'btnCambio
+		'
+		Me.btnCambio.BackColor = System.Drawing.SystemColors.Control
+		Me.btnCambio.Image = CType(resources.GetObject("btnCambio.Image"), System.Drawing.Image)
+		Me.btnCambio.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+		Me.btnCambio.Location = New System.Drawing.Point(248, 504)
+		Me.btnCambio.Name = "btnCambio"
+		Me.btnCambio.Size = New System.Drawing.Size(56, 112)
+		Me.btnCambio.TabIndex = 46
+		Me.btnCambio.Text = "Cambio"
+		Me.btnCambio.UseVisualStyleBackColor = False
+		'
+		'Panel1
+		'
+		Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+		Me.Panel1.Controls.Add(Me.LabelBase11)
+		Me.Panel1.Controls.Add(Me.lblFaltante)
+		Me.Panel1.Controls.Add(Me.lblCambioEntregado)
+		Me.Panel1.Controls.Add(Me.LabelBase10)
+		Me.Panel1.Controls.Add(Me.lblCambio)
+		Me.Panel1.Controls.Add(Me.lblCambio2)
+		Me.Panel1.Controls.Add(Me.lblImporteTotalCobro)
+		Me.Panel1.Controls.Add(Me.lblImporteTotalCobros)
+		Me.Panel1.ForeColor = System.Drawing.SystemColors.ControlText
+		Me.Panel1.Location = New System.Drawing.Point(312, 504)
+		Me.Panel1.Name = "Panel1"
+		Me.Panel1.Size = New System.Drawing.Size(296, 112)
+		Me.Panel1.TabIndex = 45
+		'
+		'LabelBase11
+		'
+		Me.LabelBase11.AutoSize = True
+		Me.LabelBase11.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.LabelBase11.Location = New System.Drawing.Point(8, 37)
+		Me.LabelBase11.Name = "LabelBase11"
+		Me.LabelBase11.Size = New System.Drawing.Size(61, 14)
+		Me.LabelBase11.TabIndex = 52
+		Me.LabelBase11.Text = "Faltante:"
+		'
+		'lblFaltante
+		'
+		Me.lblFaltante.BackColor = System.Drawing.Color.Gainsboro
+		Me.lblFaltante.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+		Me.lblFaltante.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblFaltante.ForeColor = System.Drawing.Color.Red
+		Me.lblFaltante.Location = New System.Drawing.Point(168, 32)
+		Me.lblFaltante.Name = "lblFaltante"
+		Me.lblFaltante.Size = New System.Drawing.Size(114, 24)
+		Me.lblFaltante.TabIndex = 51
+		Me.lblFaltante.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		'
+		'lblCambioEntregado
+		'
+		Me.lblCambioEntregado.BackColor = System.Drawing.Color.LemonChiffon
+		Me.lblCambioEntregado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+		Me.lblCambioEntregado.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblCambioEntregado.Location = New System.Drawing.Point(168, 80)
+		Me.lblCambioEntregado.Name = "lblCambioEntregado"
+		Me.lblCambioEntregado.Size = New System.Drawing.Size(114, 24)
+		Me.lblCambioEntregado.TabIndex = 50
+		Me.lblCambioEntregado.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		'
+		'LabelBase10
+		'
+		Me.LabelBase10.AutoSize = True
+		Me.LabelBase10.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.LabelBase10.Location = New System.Drawing.Point(8, 85)
+		Me.LabelBase10.Name = "LabelBase10"
+		Me.LabelBase10.Size = New System.Drawing.Size(124, 14)
+		Me.LabelBase10.TabIndex = 49
+		Me.LabelBase10.Text = "Cambio entregado:"
+		'
+		'lblCambio
+		'
+		Me.lblCambio.BackColor = System.Drawing.Color.Gainsboro
+		Me.lblCambio.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+		Me.lblCambio.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblCambio.Location = New System.Drawing.Point(168, 56)
+		Me.lblCambio.Name = "lblCambio"
+		Me.lblCambio.Size = New System.Drawing.Size(114, 24)
+		Me.lblCambio.TabIndex = 48
+		Me.lblCambio.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		'
+		'lblCambio2
+		'
+		Me.lblCambio2.AutoSize = True
+		Me.lblCambio2.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblCambio2.Location = New System.Drawing.Point(8, 61)
+		Me.lblCambio2.Name = "lblCambio2"
+		Me.lblCambio2.Size = New System.Drawing.Size(154, 14)
+		Me.lblCambio2.TabIndex = 47
+		Me.lblCambio2.Text = "Cambio del movimiento:"
+		'
+		'lblImporteTotalCobro
+		'
+		Me.lblImporteTotalCobro.BackColor = System.Drawing.Color.Khaki
+		Me.lblImporteTotalCobro.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+		Me.lblImporteTotalCobro.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblImporteTotalCobro.ForeColor = System.Drawing.Color.Blue
+		Me.lblImporteTotalCobro.Location = New System.Drawing.Point(168, 8)
+		Me.lblImporteTotalCobro.Name = "lblImporteTotalCobro"
+		Me.lblImporteTotalCobro.Size = New System.Drawing.Size(114, 24)
+		Me.lblImporteTotalCobro.TabIndex = 46
+		Me.lblImporteTotalCobro.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		'
+		'lblImporteTotalCobros
+		'
+		Me.lblImporteTotalCobros.AutoSize = True
+		Me.lblImporteTotalCobros.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblImporteTotalCobros.Location = New System.Drawing.Point(8, 13)
+		Me.lblImporteTotalCobros.Name = "lblImporteTotalCobros"
+		Me.lblImporteTotalCobros.Size = New System.Drawing.Size(159, 14)
+		Me.lblImporteTotalCobros.TabIndex = 45
+		Me.lblImporteTotalCobros.Text = "Importe total de cobros:"
+		'
+		'lblPorCobrarEfectivoVales
+		'
+		Me.lblPorCobrarEfectivoVales.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+		Me.lblPorCobrarEfectivoVales.ForeColor = System.Drawing.SystemColors.ControlText
+		Me.lblPorCobrarEfectivoVales.Location = New System.Drawing.Point(64, 520)
+		Me.lblPorCobrarEfectivoVales.Name = "lblPorCobrarEfectivoVales"
+		Me.lblPorCobrarEfectivoVales.Size = New System.Drawing.Size(80, 16)
+		Me.lblPorCobrarEfectivoVales.TabIndex = 47
+		Me.lblPorCobrarEfectivoVales.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		'
+		'lblPorCobrarCheques
+		'
+		Me.lblPorCobrarCheques.BackColor = System.Drawing.Color.Gainsboro
+		Me.lblPorCobrarCheques.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+		Me.lblPorCobrarCheques.ForeColor = System.Drawing.SystemColors.ControlText
+		Me.lblPorCobrarCheques.Location = New System.Drawing.Point(64, 536)
+		Me.lblPorCobrarCheques.Name = "lblPorCobrarCheques"
+		Me.lblPorCobrarCheques.Size = New System.Drawing.Size(80, 16)
+		Me.lblPorCobrarCheques.TabIndex = 42
+		Me.lblPorCobrarCheques.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		'
+		'LabelBase5
+		'
+		Me.LabelBase5.AutoSize = True
+		Me.LabelBase5.Location = New System.Drawing.Point(8, 520)
+		Me.LabelBase5.Name = "LabelBase5"
+		Me.LabelBase5.Size = New System.Drawing.Size(50, 13)
+		Me.LabelBase5.TabIndex = 51
+		Me.LabelBase5.Text = "Efectivo:"
+		'
+		'LabelBase4
+		'
+		Me.LabelBase4.AutoSize = True
+		Me.LabelBase4.Location = New System.Drawing.Point(8, 536)
+		Me.LabelBase4.Name = "LabelBase4"
+		Me.LabelBase4.Size = New System.Drawing.Size(53, 13)
+		Me.LabelBase4.TabIndex = 50
+		Me.LabelBase4.Text = "Cheques:"
+		'
+		'LinkLabel1
+		'
+		Me.LinkLabel1.AutoSize = True
+		Me.LinkLabel1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.LinkLabel1.Location = New System.Drawing.Point(152, 604)
+		Me.LinkLabel1.Name = "LinkLabel1"
+		Me.LinkLabel1.Size = New System.Drawing.Size(68, 13)
+		Me.LinkLabel1.TabIndex = 31
+		Me.LinkLabel1.TabStop = True
+		Me.LinkLabel1.Text = "Ver detalle"
+		Me.ttMensaje.SetToolTip(Me.LinkLabel1, "Ver detalle de autocarburación y obsequios")
+		Me.LinkLabel1.Visible = False
+		'
+		'lblTipoOperacion
+		'
+		Me.lblTipoOperacion.AutoSize = True
+		Me.lblTipoOperacion.BackColor = System.Drawing.Color.WhiteSmoke
+		Me.lblTipoOperacion.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblTipoOperacion.ForeColor = System.Drawing.Color.Green
+		Me.lblTipoOperacion.Location = New System.Drawing.Point(8, 8)
+		Me.lblTipoOperacion.Name = "lblTipoOperacion"
+		Me.lblTipoOperacion.Size = New System.Drawing.Size(155, 19)
+		Me.lblTipoOperacion.TabIndex = 39
+		Me.lblTipoOperacion.Text = "Tipo de operación"
+		'
+		'lblMovimientoCajaClave
+		'
+		Me.lblMovimientoCajaClave.BackColor = System.Drawing.Color.WhiteSmoke
+		Me.lblMovimientoCajaClave.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblMovimientoCajaClave.ForeColor = System.Drawing.Color.DarkGreen
+		Me.lblMovimientoCajaClave.Location = New System.Drawing.Point(16, 32)
+		Me.lblMovimientoCajaClave.Name = "lblMovimientoCajaClave"
+		Me.lblMovimientoCajaClave.Size = New System.Drawing.Size(376, 32)
+		Me.lblMovimientoCajaClave.TabIndex = 40
+		'
+		'Panel2
+		'
+		Me.Panel2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+			Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+		Me.Panel2.BackColor = System.Drawing.Color.WhiteSmoke
+		Me.Panel2.Controls.Add(Me.LabelNombreEmpresa1)
+		Me.Panel2.Controls.Add(Me.PanelMensaje)
+		Me.Panel2.Controls.Add(Me.lblMovimientoCajaClave)
+		Me.Panel2.Controls.Add(Me.lblTipoOperacion)
+		Me.Panel2.Location = New System.Drawing.Point(0, 0)
+		Me.Panel2.Name = "Panel2"
+		Me.Panel2.Size = New System.Drawing.Size(1040, 72)
+		Me.Panel2.TabIndex = 41
+		'
+		'LabelNombreEmpresa1
+		'
+		Me.LabelNombreEmpresa1.AutoSize = True
+		Me.LabelNombreEmpresa1.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.LabelNombreEmpresa1.Location = New System.Drawing.Point(556, 36)
+		Me.LabelNombreEmpresa1.Name = "LabelNombreEmpresa1"
+		Me.LabelNombreEmpresa1.Size = New System.Drawing.Size(0, 19)
+		Me.LabelNombreEmpresa1.TabIndex = 46
+		Me.LabelNombreEmpresa1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+		'
+		'PanelMensaje
+		'
+		Me.PanelMensaje.Controls.Add(Me.lblPanelMensaje)
+		Me.PanelMensaje.Controls.Add(Me.PictureBox1)
+		Me.PanelMensaje.Location = New System.Drawing.Point(0, 32)
+		Me.PanelMensaje.Name = "PanelMensaje"
+		Me.PanelMensaje.Size = New System.Drawing.Size(480, 32)
+		Me.PanelMensaje.TabIndex = 45
+		Me.PanelMensaje.Visible = False
+		'
+		'lblPanelMensaje
+		'
+		Me.lblPanelMensaje.BackColor = System.Drawing.Color.WhiteSmoke
+		Me.lblPanelMensaje.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblPanelMensaje.ForeColor = System.Drawing.Color.Red
+		Me.lblPanelMensaje.Location = New System.Drawing.Point(32, 12)
+		Me.lblPanelMensaje.Name = "lblPanelMensaje"
+		Me.lblPanelMensaje.Size = New System.Drawing.Size(440, 16)
+		Me.lblPanelMensaje.TabIndex = 44
+		Me.lblPanelMensaje.Text = "La liquidación pertenece al día "
+		Me.lblPanelMensaje.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+		Me.ttMensaje.SetToolTip(Me.lblPanelMensaje, "La liquidación pertenece a otro día.")
+		'
+		'PictureBox1
+		'
+		Me.PictureBox1.BackColor = System.Drawing.Color.WhiteSmoke
+		Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+		Me.PictureBox1.Location = New System.Drawing.Point(8, 11)
+		Me.PictureBox1.Name = "PictureBox1"
+		Me.PictureBox1.Size = New System.Drawing.Size(18, 18)
+		Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+		Me.PictureBox1.TabIndex = 45
+		Me.PictureBox1.TabStop = False
+		'
+		'ttMensaje
+		'
+		Me.ttMensaje.Active = False
+		'
+		'frmCapMovimiento
+		'
+		Me.AutoScaleBaseSize = New System.Drawing.Size(5, 14)
+		Me.BackColor = System.Drawing.Color.Gainsboro
+		Me.CancelButton = Me.btnCancelar
+		Me.ClientSize = New System.Drawing.Size(1024, 701)
+		Me.Controls.Add(Me.grpDatosMovimiento)
+		Me.Controls.Add(Me.grpCabecera)
+		Me.Controls.Add(Me.grpLiquidacionConsulta)
+		Me.Controls.Add(Me.grpCobroDocumentos)
+		Me.Controls.Add(Me.btnCancelar)
+		Me.Controls.Add(Me.btnAceptar)
+		Me.Controls.Add(Me.Panel2)
+		Me.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+		Me.KeyPreview = True
+		Me.MinimumSize = New System.Drawing.Size(560, 296)
+		Me.Name = "frmCapMovimiento"
+		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+		Me.Text = "Movimientos de Caja"
+		Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
+		Me.grpLiquidacionConsulta.ResumeLayout(False)
+		Me.grpLiquidacionConsulta.PerformLayout()
+		CType(Me.grdInfoPreLiq, System.ComponentModel.ISupportInitialize).EndInit()
+		Me.grpCabecera.ResumeLayout(False)
+		Me.grpCabecera.PerformLayout()
+		CType(Me.picAviso, System.ComponentModel.ISupportInitialize).EndInit()
+		Me.grpDatosMovimiento.ResumeLayout(False)
+		Me.grpDatosMovimiento.PerformLayout()
+		Me.grpCobroEficiencia.ResumeLayout(False)
+		Me.grpCobroVale.ResumeLayout(False)
+		Me.grpCobroCheque.ResumeLayout(False)
+		Me.grpCobroCheque.PerformLayout()
+		CType(Me.grdCheque, System.ComponentModel.ISupportInitialize).EndInit()
+		Me.grpCobroEfectivo.ResumeLayout(False)
+		Me.grpCobroEfectivo.PerformLayout()
+		Me.grpCobroDocumentos.ResumeLayout(False)
+		Me.grpCobroDocumentos.PerformLayout()
+		Me.grpCobroFicha.ResumeLayout(False)
+		Me.grpCobroFicha.PerformLayout()
+		CType(Me.grdFichaDeposito, System.ComponentModel.ISupportInitialize).EndInit()
+		Me.grpCobroTC.ResumeLayout(False)
+		Me.grpCobroTC.PerformLayout()
+		CType(Me.grdTarjetaCredito, System.ComponentModel.ISupportInitialize).EndInit()
+		Me.Panel1.ResumeLayout(False)
+		Me.Panel1.PerformLayout()
+		Me.Panel2.ResumeLayout(False)
+		Me.Panel2.PerformLayout()
+		Me.PanelMensaje.ResumeLayout(False)
+		CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+		Me.ResumeLayout(False)
 
-    End Sub
+	End Sub
 
 #End Region
 
 #Region "Variables"
 
-    Private Titulo As String
+	Private Titulo As String
     Private MovimientoCajaClave As String
     Private TipoOperacion As TipoOperacionMovimientoCaja  'Indica el tipo de operacion que se está realizando.
     Private bytCaja As Byte
