@@ -98,12 +98,13 @@ Module Main
 
 	Public Function SumaColumna(ByVal FormaPago As Integer, ByVal NombreTabla As DataTable, ByVal NombreColumna As String) As Decimal
 		Dim _row As DataRow, decTotalSuma As Decimal = 0
-		For Each _row In NombreTabla.Rows
-			If (CType(_row("TipoCobro"), Integer) = FormaPago) Then
-				decTotalSuma += CType(_row(NombreColumna), Decimal)
-			End If
-		Next
-		Return decTotalSuma
+        For Each _row In NombreTabla.Rows
+            'ITL DEFECTO 4AGOSTO
+            'If (CType(_row("TipoCobro"), Integer) = FormaPago) Then
+            '	decTotalSuma += CType(_row(NombreColumna), Decimal)
+            'End If
+        Next
+        Return decTotalSuma
 	End Function
 
 	Public Sub Main()
