@@ -100,9 +100,9 @@ Module Main
 		Dim _row As DataRow, decTotalSuma As Decimal = 0
         For Each _row In NombreTabla.Rows
             'ITL DEFECTO 4AGOSTO
-            'If (CType(_row("TipoCobro"), Integer) = FormaPago) Then
-            '	decTotalSuma += CType(_row(NombreColumna), Decimal)
-            'End If
+            If (CType(_row("TipoCobro"), Integer) = FormaPago) Then
+                decTotalSuma += CType(_row(NombreColumna), Decimal)
+            End If
         Next
         Return decTotalSuma
 	End Function
