@@ -2118,7 +2118,8 @@ Public Class frmCapMovimiento
 			lblFMovimiento.Text = dtpFMovimiento.Value.ToLongDateString
 			'11-10-2005 control de vales promocionales
 			'lblImporteTotalCobro.Text = (CobroEfectivo.CalculaTotalEfectivo + Vales.CalculaTotalVales + PorCobrarCheques + PorCobrarTarjetaCredito + PorCobrarFichaDeposito).ToString("C")
-			lblImporteTotalCobro.Text = (CobroEfectivo.CalculaTotalEfectivo + Vales.CalculaTotalVales + frmConsultaValePromocion.Total + PorCobrarCheques + PorCobrarTarjetaCredito + PorCobrarVales + PorCobrarTarjetaDebito + PorCobrarFichaDeposito).ToString("C")
+			lblImporteTotalCobro.Text = (CobroEfectivo.CalculaTotalEfectivo + Vales.CalculaTotalVales + frmConsultaValePromocion.Total +
+				PorCobrarCheques + PorCobrarTarjetaCredito + PorCobrarVales + PorCobrarTarjetaDebito + PorCobrarFichaDeposito - AFavorOperadorCheques).ToString("C")
 			lblCambio.Text = (CType(lblImporteTotalCobro.Text, Decimal) - decImporteTotalMovimiento).ToString("C")
 			lblCambioEntregado.Text = dtCambio.ImporteTotalCambio.ToString("C")
 			grpCobroEficiencia.Enabled = False
@@ -2160,8 +2161,8 @@ Public Class frmCapMovimiento
 		'    lblFaltante.Text = ""
 		'End If
 		'***Integración de cobros con tarjeta de crédito
-		If (decImporteRealACobrar + Me.PorCobrarCheques + Me.PorCobrarFichaDeposito + Me.PorCobrarTarjetaCredito + Me.PorCobrarTarjetaDebito) - decImporteTotalCobros >= 0 Then
-			lblFaltante.Text = ((decImporteRealACobrar + Me.PorCobrarCheques + Me.PorCobrarFichaDeposito + Me.PorCobrarTarjetaCredito + Me.PorCobrarTarjetaDebito) - decImporteTotalCobros).ToString("C")
+		If (decImporteRealACobrar + Me.PorCobrarCheques + Me.PorCobrarFichaDeposito + Me.PorCobrarTarjetaCredito + Me.PorCobrarTarjetaDebito - AFavorOperadorCheques) - decImporteTotalCobros >= 0 Then
+			lblFaltante.Text = ((decImporteRealACobrar + Me.PorCobrarCheques + Me.PorCobrarFichaDeposito + Me.PorCobrarTarjetaCredito + Me.PorCobrarTarjetaDebito - AFavorOperadorCheques) - decImporteTotalCobros).ToString("C")
 		Else
 			lblFaltante.Text = ""
 		End If
@@ -2169,7 +2170,7 @@ Public Class frmCapMovimiento
 
 		If TipoOperacion = TipoOperacionMovimientoCaja.Validacion Or TipoOperacion = TipoOperacionMovimientoCaja.Liquidacion Then
 			'Se resta el importe del saldo a favor del cambio
-			decImporteCambio = decImporteTotalCobros - decImporteTotalMovimiento - saldoAFavor
+			decImporteCambio = decImporteTotalCobros - decImporteTotalMovimiento - AFavorOperadorCheques
 			If decImporteCambio > 0 Then
 				lblCambio.Text = decImporteCambio.ToString("C")
 			Else
@@ -2218,9 +2219,9 @@ Public Class frmCapMovimiento
 	Private Function CalculaTotalCobros() As Decimal
 		'Cambio realizado el 20 de febrero
 		If Not GLOBAL_Promocion Then
-			Return CDec(CobroEfectivo.TotalEfectivo + Vales.TotalVales) + PorCobrarTarjetaCredito + PorCobrarFichaDeposito + PorCobrarCheques + PorCobrarTarjetaDebito
+			Return CDec(CobroEfectivo.TotalEfectivo + Vales.TotalVales) + PorCobrarTarjetaCredito + PorCobrarFichaDeposito + PorCobrarCheques + PorCobrarTarjetaDebito - AFavorOperadorCheques
 		Else
-			Return CDec(CobroEfectivo.TotalEfectivo + Vales.TotalVales + frmConsultaValePromocion.Total) + PorCobrarTarjetaCredito + PorCobrarFichaDeposito + PorCobrarCheques + PorCobrarTarjetaDebito
+			Return CDec(CobroEfectivo.TotalEfectivo + Vales.TotalVales + frmConsultaValePromocion.Total) + PorCobrarTarjetaCredito + PorCobrarFichaDeposito + PorCobrarCheques + PorCobrarTarjetaDebito - AFavorOperadorCheques
 		End If
 	End Function
 
