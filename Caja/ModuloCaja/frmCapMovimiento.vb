@@ -2576,19 +2576,18 @@ Public Class frmCapMovimiento
 		End If
     End Sub
 
-    Private Sub chkIncluirEficiencia_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkIncluirEficiencia.CheckedChanged
-        If chkIncluirEficiencia.Checked = True Then
-            decImporteTotalMovimiento += ImporteEficiencia
-        Else
-            decImporteTotalMovimiento -= ImporteEficiencia
-        End If
+	Private Sub chkIncluirEficiencia_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkIncluirEficiencia.CheckedChanged
+		If chkIncluirEficiencia.Checked = True Then
+			decImporteTotalMovimiento += ImporteEficiencia
+		Else
+			decImporteTotalMovimiento -= ImporteEficiencia
+		End If
 
-        lblImporteMovimiento.Text = decImporteTotalMovimiento.ToString("C")
-        ManejadorCobros()
-    End Sub
+		lblImporteMovimiento.Text = decImporteTotalMovimiento.ToString("C")
+		ManejadorCobros()
+	End Sub
 
-
-    Private Sub lnkConsultaIVA_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lnkConsultaIVA.LinkClicked
+	Private Sub lnkConsultaIVA_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lnkConsultaIVA.LinkClicked
         Try
             Dim consultaIVA As New vistaDeLiquidacionMultiplesIvas.LiquidacionAgrupadaPorPrecioIVA _
                 (GLOBAL_Connection, AutotanqueTurno_AnoAtt, AutotanqueTurno_Folio)
