@@ -492,8 +492,8 @@ Public Class frmSelTipoCobro
         Me.tabTipoCobro.Multiline = True
         Me.tabTipoCobro.Name = "tabTipoCobro"
         Me.tabTipoCobro.SelectedIndex = 0
-        Me.tabTipoCobro.Size = New System.Drawing.Size(611, 323)
-        Me.tabTipoCobro.TabIndex = 0
+        Me.tabTipoCobro.Size = New System.Drawing.Size(611, 363)
+        Me.tabTipoCobro.TabIndex = 56
         '
         'tbEfectivo
         '
@@ -502,7 +502,7 @@ Public Class frmSelTipoCobro
         Me.tbEfectivo.Controls.Add(Me.GroupBox1)
         Me.tbEfectivo.Location = New System.Drawing.Point(4, 4)
         Me.tbEfectivo.Name = "tbEfectivo"
-        Me.tbEfectivo.Size = New System.Drawing.Size(603, 335)
+        Me.tbEfectivo.Size = New System.Drawing.Size(603, 337)
         Me.tbEfectivo.TabIndex = 6
         Me.tbEfectivo.Text = "Efectivo"
         '
@@ -510,10 +510,10 @@ Public Class frmSelTipoCobro
         '
         Me.btnEfectivo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnEfectivo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnEfectivo.Location = New System.Drawing.Point(515, 152)
+        Me.btnEfectivo.Location = New System.Drawing.Point(432, 152)
         Me.btnEfectivo.Name = "btnEfectivo"
         Me.btnEfectivo.Size = New System.Drawing.Size(80, 24)
-        Me.btnEfectivo.TabIndex = 34
+        Me.btnEfectivo.TabIndex = 3
         Me.btnEfectivo.Text = "&Aceptar"
         Me.btnEfectivo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
@@ -524,7 +524,7 @@ Public Class frmSelTipoCobro
         Me.GroupBox1.Location = New System.Drawing.Point(62, 139)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(272, 48)
-        Me.GroupBox1.TabIndex = 33
+        Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos del efectivo"
         '
@@ -552,7 +552,7 @@ Public Class frmSelTipoCobro
         Me.tbValesDespensa.ImageIndex = 0
         Me.tbValesDespensa.Location = New System.Drawing.Point(4, 4)
         Me.tbValesDespensa.Name = "tbValesDespensa"
-        Me.tbValesDespensa.Size = New System.Drawing.Size(603, 297)
+        Me.tbValesDespensa.Size = New System.Drawing.Size(603, 337)
         Me.tbValesDespensa.TabIndex = 3
         Me.tbValesDespensa.Text = "Vales Despensa"
         '
@@ -734,7 +734,7 @@ Public Class frmSelTipoCobro
         Me.tbTarjetaCredito.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbTarjetaCredito.Location = New System.Drawing.Point(4, 4)
         Me.tbTarjetaCredito.Name = "tbTarjetaCredito"
-        Me.tbTarjetaCredito.Size = New System.Drawing.Size(603, 401)
+        Me.tbTarjetaCredito.Size = New System.Drawing.Size(603, 337)
         Me.tbTarjetaCredito.TabIndex = 0
         Me.tbTarjetaCredito.Text = "Tarjeta "
         '
@@ -1005,7 +1005,7 @@ Public Class frmSelTipoCobro
         Me.btnAceptarTarjetaCredito.Location = New System.Drawing.Point(234, 414)
         Me.btnAceptarTarjetaCredito.Name = "btnAceptarTarjetaCredito"
         Me.btnAceptarTarjetaCredito.Size = New System.Drawing.Size(80, 24)
-        Me.btnAceptarTarjetaCredito.TabIndex = 12
+        Me.btnAceptarTarjetaCredito.TabIndex = 31
         Me.btnAceptarTarjetaCredito.Text = "&Aceptar"
         Me.btnAceptarTarjetaCredito.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
@@ -1015,7 +1015,7 @@ Public Class frmSelTipoCobro
         Me.tbChequeFicha.Controls.Add(Me.grpChequeFicha)
         Me.tbChequeFicha.Location = New System.Drawing.Point(4, 4)
         Me.tbChequeFicha.Name = "tbChequeFicha"
-        Me.tbChequeFicha.Size = New System.Drawing.Size(603, 313)
+        Me.tbChequeFicha.Size = New System.Drawing.Size(603, 319)
         Me.tbChequeFicha.TabIndex = 2
         Me.tbChequeFicha.Text = "Cheque / Ficha de deposito"
         '
@@ -1027,7 +1027,7 @@ Public Class frmSelTipoCobro
         Me.btnAceptarChequeFicha.Location = New System.Drawing.Point(505, 150)
         Me.btnAceptarChequeFicha.Name = "btnAceptarChequeFicha"
         Me.btnAceptarChequeFicha.Size = New System.Drawing.Size(80, 24)
-        Me.btnAceptarChequeFicha.TabIndex = 7
+        Me.btnAceptarChequeFicha.TabIndex = 29
         Me.btnAceptarChequeFicha.Text = "&Aceptar"
         Me.btnAceptarChequeFicha.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
@@ -1198,7 +1198,7 @@ Public Class frmSelTipoCobro
         Me.tbTransferencias.Location = New System.Drawing.Point(4, 4)
         Me.tbTransferencias.Name = "tbTransferencias"
         Me.tbTransferencias.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbTransferencias.Size = New System.Drawing.Size(603, 313)
+        Me.tbTransferencias.Size = New System.Drawing.Size(603, 319)
         Me.tbTransferencias.TabIndex = 4
         Me.tbTransferencias.Text = "Transferencias"
         '
@@ -1210,7 +1210,7 @@ Public Class frmSelTipoCobro
         Me.BotonBase2.Location = New System.Drawing.Point(496, 151)
         Me.BotonBase2.Name = "BotonBase2"
         Me.BotonBase2.Size = New System.Drawing.Size(80, 24)
-        Me.BotonBase2.TabIndex = 7
+        Me.BotonBase2.TabIndex = 34
         Me.BotonBase2.Text = "&Aceptar"
         Me.BotonBase2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
@@ -1391,7 +1391,7 @@ Public Class frmSelTipoCobro
         Me.tbAplicAnticipo.Location = New System.Drawing.Point(4, 4)
         Me.tbAplicAnticipo.Name = "tbAplicAnticipo"
         Me.tbAplicAnticipo.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbAplicAnticipo.Size = New System.Drawing.Size(603, 450)
+        Me.tbAplicAnticipo.Size = New System.Drawing.Size(603, 319)
         Me.tbAplicAnticipo.TabIndex = 5
         Me.tbAplicAnticipo.Text = "Aplicación Anticipo"
         '
@@ -1403,7 +1403,7 @@ Public Class frmSelTipoCobro
         Me.btn_AnticipoAceptar.Location = New System.Drawing.Point(494, 135)
         Me.btn_AnticipoAceptar.Name = "btn_AnticipoAceptar"
         Me.btn_AnticipoAceptar.Size = New System.Drawing.Size(80, 24)
-        Me.btn_AnticipoAceptar.TabIndex = 4
+        Me.btn_AnticipoAceptar.TabIndex = 33
         Me.btn_AnticipoAceptar.Text = "&Aceptar"
         Me.btn_AnticipoAceptar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
@@ -1555,7 +1555,7 @@ Public Class frmSelTipoCobro
         Me.tbDacionPagos.Location = New System.Drawing.Point(4, 4)
         Me.tbDacionPagos.Name = "tbDacionPagos"
         Me.tbDacionPagos.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbDacionPagos.Size = New System.Drawing.Size(603, 450)
+        Me.tbDacionPagos.Size = New System.Drawing.Size(603, 319)
         Me.tbDacionPagos.TabIndex = 7
         Me.tbDacionPagos.Text = "Dación de Pagos"
         '
@@ -1712,7 +1712,8 @@ Public Class frmSelTipoCobro
         '
         Me.AcceptButton = Me.btnAceptarVales1
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 14)
-        Me.ClientSize = New System.Drawing.Size(611, 323)
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.ClientSize = New System.Drawing.Size(611, 363)
         Me.Controls.Add(Me.tabTipoCobro)
         Me.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -1897,16 +1898,29 @@ Public Class frmSelTipoCobro
 
     Private Sub tabTipoCobro_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles tabTipoCobro.SelectedIndexChanged
         Select Case tabTipoCobro.SelectedTab.Name
-            Case Is = "tbEfectivoVales"
+            Case Is = "tbValesDespensa"
                 AcceptButton = btnAceptarVales1
-                TxtMontoVales.Focus()
+                txtClienteVales.Focus()
             Case Is = "tbChequeFicha"
                 AcceptButton = btnAceptarChequeFicha
                 txtDocumento.Focus()
             Case Is = "tbTarjetaCredito"
                 AcceptButton = btnAceptarTarjetaCredito
                 txtClienteTC.Focus()
+            Case Is = "tbEfectivo"
+                AcceptButton = btnEfectivo
+                Txt_totalEfectivo.Focus()
+            Case Is = "tbTransferencias"
+                TxtClienteTransferencia.Focus()
+            Case Is = "tbAplicAnticipo"
+                TxtClienteAplicAntic.Focus()
         End Select
+        If tabTipoCobro.SelectedTab.Name = "tbTarjetaCredito" Then
+            Me.Size = New Size(627, 519)
+        Else
+            Me.Size = New Size(627, 401)
+        End If
+
     End Sub
 
     Private Sub frmSelTipoCobro_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -1957,6 +1971,7 @@ Public Class frmSelTipoCobro
             tabTipoCobro.TabPages.Remove(tbTransferencias)
             tabTipoCobro.TabPages.Remove(tbAplicAnticipo)
         End If
+
     End Sub
 
     Private Sub txtClienteTC_Enter(ByVal sender As System.Object, ByVal e As System.EventArgs)
@@ -1995,7 +2010,7 @@ Public Class frmSelTipoCobro
 
             ' lblBancoNombre.Text = CType(dr("BancoNombre"), String)
             '  lblTipoTarjetaCredito.Text = CType(dr("TipoTarjetaCreditoDescripcion"), String)
-           ' lblVigenciaTC.Text = CType(dr("MesVigencia"), String) & " / " & CType(dr("AñoVigencia"), String)
+            ' lblVigenciaTC.Text = CType(dr("MesVigencia"), String) & " / " & CType(dr("AñoVigencia"), String)
         Loop
         dr.Close()
     End Sub
@@ -2187,7 +2202,7 @@ Public Class frmSelTipoCobro
         End If
         If FormadePago.AplicacionAnticipo = TipoCobroliquidacion Then
             tabTipoCobro.SelectedIndex = 5
-
+            Txt_totalEfectivo.Focus()
         End If
         If FormadePago.Efectivo = TipoCobroliquidacion Then
             tabTipoCobro.SelectedIndex = 0
@@ -2524,10 +2539,15 @@ Public Class frmSelTipoCobro
 
 
     Private Sub txtClienteVales_Leave(sender As Object, e As EventArgs) Handles txtClienteVales.Leave
-        Dim oCliente As New SigaMetClasses.cCliente()
-        oCliente.Consulta(CType(txtClienteVales.Text, Integer))
-        LabelNombreVales.Text = oCliente.Nombre
-        oCliente = Nothing
+        Try
+            Dim oCliente As New SigaMetClasses.cCliente()
+            oCliente.Consulta(CType(txtClienteVales.Text, Integer))
+            LabelNombreVales.Text = oCliente.Nombre
+            oCliente = Nothing
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
     End Sub
 
     Private Sub TxtClienteAplicAntic_Leave(sender As Object, e As EventArgs) Handles TxtClienteAplicAntic.Leave
@@ -2784,15 +2804,12 @@ Public Class frmSelTipoCobro
     End Sub
 
     Private Sub TxtClienteAplicAntic_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtClienteAplicAntic.KeyPress
-        '97 - 122 = Ascii MINÚSCULAS
-        '65 - 90  = Ascii MAYÚSCULAS
-        '48 - 57  = Ascii NÚMEROS
-
         If Asc(e.KeyChar) <> 8 Then
             If Asc(e.KeyChar) < 46 Or Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
                 e.Handled = True
             End If
         End If
+
     End Sub
 
     Private Sub BotonBase3_Click(sender As Object, e As EventArgs) Handles BotonBase3.Click
@@ -2811,21 +2828,18 @@ Public Class frmSelTipoCobro
         End If
         If Asc(e.KeyChar) = 13 Then
             btnEfectivo.PerformClick()
-
         End If
     End Sub
 
     Private Sub txtClienteVales_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtClienteVales.KeyPress
-        '97 - 122 = Ascii MINÚSCULAS
-        '65 - 90  = Ascii MAYÚSCULAS
-        '48 - 57  = Ascii NÚMEROS
-
         If Asc(e.KeyChar) <> 8 Then
             If Asc(e.KeyChar) < 46 Or Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
                 e.Handled = True
             End If
         End If
-
+        If Asc(e.KeyChar) = 13 Then
+            TabIndex.GetHashCode()
+        End If
     End Sub
 
     Private Sub TxtMontoVales_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtMontoVales.KeyPress
@@ -2854,6 +2868,12 @@ Public Class frmSelTipoCobro
                 e.Handled = True
             End If
         End If
+
+        If Asc(e.KeyChar) = 13 Then
+            MessageBox.Show("Q")
+        End If
+
+
 
     End Sub
 
@@ -2924,7 +2944,10 @@ Public Class frmSelTipoCobro
                 e.Handled = True
             End If
         End If
+        If Asc(e.KeyChar) = 13 Then
+            MessageBox.Show("Q")
 
+        End If
     End Sub
 
     Private Sub TxtImporteTransferencia_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TxtImporteTransferencia.KeyPress
@@ -3018,6 +3041,30 @@ Public Class frmSelTipoCobro
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+
+    End Sub
+
+    Private Sub TxtClienteAplicAntic_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtClienteAplicAntic.KeyDown
+
+    End Sub
+
+    Private Sub Txt_totalEfectivo_KeyDown(sender As Object, e As KeyEventArgs) Handles Txt_totalEfectivo.KeyDown
+
+    End Sub
+
+    Private Sub TxtClienteTransferencia_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtClienteTransferencia.KeyDown
+
+    End Sub
+
+    Private Sub txtClienteTC_KeyDown(sender As Object, e As KeyEventArgs) Handles txtClienteTC.KeyDown
+
+    End Sub
+
+    Private Sub DateTimePicker1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles DateTimePicker1.KeyPress
+
+    End Sub
+
+    Private Sub FechaDocumentoVales_KeyPress(sender As Object, e As KeyPressEventArgs) Handles FechaDocumentoVales.KeyPress
 
     End Sub
 End Class
