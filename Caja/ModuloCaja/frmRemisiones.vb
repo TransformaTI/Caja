@@ -21,7 +21,6 @@ Public Class frmRemisiones
     Dim oCobroRemision As SigaMetClasses.CobroRemisiones
     Private _ListaCobroRemisiones As New List(Of SigaMetClasses.CobroRemisiones)
     Private _Tipocobro As Integer
-
     Private _Pago As Integer
     Public Property Pago() As Integer
         Get
@@ -31,7 +30,6 @@ Public Class frmRemisiones
             _Pago = value
         End Set
     End Property
-
 
     Public Property CobroRemisiones() As List(Of SigaMetClasses.CobroRemisiones)
         Get
@@ -163,13 +161,11 @@ Public Class frmRemisiones
                     row("Serie") = grdRemision.Item(i, 0)
                     row("Remisión") = grdRemision.Item(i, 1)
                     row("Producto") = grdRemision.Item(i, 11)
-
                     If _Saldo >= CDec(grdRemision.Item(i, 7)) Then
                         row("Importe abonado") = grdRemision.Item(i, 7)
                     Else
                         row("Importe abonado") = _Saldo.ToString
                     End If
-
                     table.Rows.Add(row)
                     grdAbonos.DataSource = table
                     Dim fila As DataRow
@@ -201,6 +197,7 @@ Public Class frmRemisiones
             Else
                 MessageBox.Show("saldo insuficiente")
             End If
+
         Else
             MessageBox.Show("Ya no se permite hacer un abono, el saldo ya es de cero")
         End If
@@ -295,6 +292,7 @@ Public Class frmRemisiones
                     Close()
                 End If
             Else
+
                 MessageBox.Show("¡Captura de remisiones concluida!")
                 Close()
             End If
@@ -311,6 +309,7 @@ Public Class frmRemisiones
             oCobroRemision.Remision = row("Remisión").ToString()
             oCobroRemision.Serie = row("Serie").ToString()
             oCobroRemision.MontoAbonado = Convert.ToDecimal(row("importe abonado").ToString())
+            oCobroRemision.Producto = Convert.ToInt32(row("Producto"))
             CobroRemisiones.Add(oCobroRemision)
         Next
     End Sub
