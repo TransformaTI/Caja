@@ -1739,7 +1739,7 @@ Public Class frmCapMovimiento
 
 		If DatosMovimiento.Tables("EfectivoVales").Rows.Count <= 0 Then
 			CobroEfectivo.Enabled = False
-			Vales.Enabled = False
+
 
 			If GLOBAL_Promocion Then
 				RegistroValeCredito1.Enabled = False
@@ -1750,7 +1750,7 @@ Public Class frmCapMovimiento
 		End If
 
 		If DatosMovimiento.Tables("Vales").Rows.Count <= 0 Then
-			CobroEfectivo.Enabled = False
+
 			Vales.Enabled = False
 
 			If GLOBAL_Promocion Then
