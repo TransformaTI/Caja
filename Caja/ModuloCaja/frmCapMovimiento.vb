@@ -2122,8 +2122,15 @@ Public Class frmCapMovimiento
 			'lblImporteTotalCobro.Text = (CobroEfectivo.CalculaTotalEfectivo + Vales.CalculaTotalVales + PorCobrarCheques + PorCobrarTarjetaCredito + PorCobrarFichaDeposito).ToString("C")
 			lblImporteTotalCobro.Text = (CobroEfectivo.CalculaTotalEfectivo + Vales.CalculaTotalVales + frmConsultaValePromocion.Total +
 				PorCobrarCheques + PorCobrarTarjetaCredito + PorCobrarTarjetaDebito + PorCobrarFichaDeposito - AFavorOperadorCheques).ToString("C")
-			lblCambio.Text = (CType(lblImporteTotalCobro.Text, Decimal) - decImporteTotalMovimiento).ToString("C")
-			lblCambioEntregado.Text = dtCambio.ImporteTotalCambio.ToString("C")
+
+			If decImporteTotalMovimiento > CType(lblImporteTotalCobro.Text, Decimal) Then
+				lblFaltante.Text = (decImporteTotalMovimiento - CType(lblImporteTotalCobro.Text, Decimal)).ToString("C")
+			Else
+				lblFaltante.Text = ""
+
+			End If
+			'lblCambio.Text = (CType(lblImporteTotalCobro.Text, Decimal) - decImporteTotalMovimiento).ToString("C")
+			'lblCambioEntregado.Text = dtCambio.ImporteTotalCambio.ToString("C")
 			grpCobroEficiencia.Enabled = False
 			dtpFMovimiento.Enabled = False
 			btnAceptar.Enabled = False
