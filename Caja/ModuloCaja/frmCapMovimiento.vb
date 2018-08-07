@@ -1999,9 +1999,11 @@ Public Class frmCapMovimiento
 			grdTarjetaCredito.DataSource = dtTarjetaCredito
 			PorCobrarTarjetaCredito = SumaColumna(6, dtTarjetaCredito, "Total")
 			AFavorTarjetaCredito = SumaColumna(6, dtTarjetaCredito, "Saldo")
+			AFavorOperadorCheques += AFavorTarjetaCredito
 
 			PorCobrarTarjetaDebito = SumaColumna(19, dtTarjetaCredito, "Total")
 			AFavorTarjetaDebito = SumaColumna(19, dtTarjetaCredito, "Saldo")
+			AFavorOperadorCheques += AFavorTarjetaDebito
 		End If
 
 		If DatosMovimiento.Tables("FichaDeposito").Rows.Count <= 0 Then
@@ -2119,7 +2121,7 @@ Public Class frmCapMovimiento
 			'11-10-2005 control de vales promocionales
 			'lblImporteTotalCobro.Text = (CobroEfectivo.CalculaTotalEfectivo + Vales.CalculaTotalVales + PorCobrarCheques + PorCobrarTarjetaCredito + PorCobrarFichaDeposito).ToString("C")
 			lblImporteTotalCobro.Text = (CobroEfectivo.CalculaTotalEfectivo + Vales.CalculaTotalVales + frmConsultaValePromocion.Total +
-				PorCobrarCheques + PorCobrarTarjetaCredito + PorCobrarVales + PorCobrarTarjetaDebito + PorCobrarFichaDeposito - AFavorOperadorCheques).ToString("C")
+				PorCobrarCheques + PorCobrarTarjetaCredito + PorCobrarTarjetaDebito + PorCobrarFichaDeposito - AFavorOperadorCheques).ToString("C")
 			lblCambio.Text = (CType(lblImporteTotalCobro.Text, Decimal) - decImporteTotalMovimiento).ToString("C")
 			lblCambioEntregado.Text = dtCambio.ImporteTotalCambio.ToString("C")
 			grpCobroEficiencia.Enabled = False
