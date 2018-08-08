@@ -55,6 +55,8 @@ Public Module Main
     'Habilita la seguridad de reportes
     Public GLOBAL_SeguridadReportes As Boolean
 
+    Public GLOBAL_URLGATEWAY As String
+
 
 
 #Region "Sigamet corporativo"
@@ -212,6 +214,7 @@ Public Module Main
 
             'TODO: Valor de la seguridad de reportes
             GLOBAL_SeguridadReportes = CType(oLogin.Parametros("SeguridadReportes"), Boolean)
+            GLOBAL_URLGATEWAY = CType(oLogin.Parametros("URLGateway"), String)
 
             'Aquí iría la seguridad de Manuel
 
