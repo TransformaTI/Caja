@@ -2494,7 +2494,7 @@ Public Class frmSelTipoCobro
             .Total = CDec(TxtMontoVales.Text)
             .Importe = .Total / CDec(1 + (GLOBAL_IVA / 100))
             .Impuesto = .Total - .Importe
-            .Referencia = "NULL" ' puede ser vacio
+            .Referencia = ComboProveedor.Text  ' puede ser vacio
             .NumeroCheque = "NULL" ' puede ser vacio
             .FDevolucion = Date.MinValue
             .RazonDevCheque = Nothing
@@ -2504,7 +2504,7 @@ Public Class frmSelTipoCobro
             .FDeposito = Date.MinValue
             .FolioAtt = _FolioCobro
             .AñoAtt = CShort(_FechaCargo.Year)
-            .NumeroCuentaDestino = "NULL"
+            .NumeroCuentaDestino = ComboTipoVale.Text
             .BancoOrigen = CShort("0")
             .StatusSaldoAFavor = "NULL"
             .AñoCobroOrigen = CShort("0")
