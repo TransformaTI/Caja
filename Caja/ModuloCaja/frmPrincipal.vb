@@ -702,7 +702,7 @@ Public Class frmPrincipal
     End Sub
 
     Private Sub mnuTarjetaCredito_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnuTarjetaCredito.Click
-        Dim lParametro As New SigaMetClasses.cConfig(16, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario)
+        Dim lParametro As New SigaMetClasses.cConfig(3, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario)
         Dim lURLGateway As String = CType(lParametro.Parametros.Item("URLGateway"), String)
         lParametro.Dispose()
 

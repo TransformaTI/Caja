@@ -14,13 +14,11 @@ Public Class TransformadorCRM
         lParametro.Dispose()
         If Not String.IsNullOrEmpty(lURLGateway) Then
             Dim lSolicitud As RTGMGateway.SolicitudGateway = New SolicitudGateway()
-            Dim lRemoteGateway As RTGMGateway.RTGMGateway = New RTGMGateway.RTGMGateway()
+            Dim lRemoteGateway As RTGMGateway.RTGMGateway = New RTGMGateway.RTGMGateway(3, SigaMetClasses.DataLayer.Conexion.ConnectionString)
             lRemoteGateway.URLServicio = lURLGateway
             For Each row As DataRow In lDataTable.Rows
                 Dim lCliente As Integer
                 lCliente = Convert.ToInt32(row("Cliente"))
-                lSolicitud.Fuente = RTGMCore.Fuente.CRM
-                lSolicitud.Sucursal = GLOBAL_SucursalUsuario
                 lSolicitud.IDCliente = lCliente
                 Dim lDireccionEntrega As RTGMCore.DireccionEntrega = lRemoteGateway.buscarDireccionEntrega(lSolicitud)
                 row("ClienteNombre") = lDireccionEntrega.Nombre

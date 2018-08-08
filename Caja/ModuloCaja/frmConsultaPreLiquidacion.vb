@@ -574,7 +574,10 @@ Public Class frmConsultaPreLiquidacion
     Private Sub lnkConsultar_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) _
     Handles lnkConsultar.LinkClicked
         If _AnoAtt <> 0 And _Folio <> 0 Then
-            Dim oConsultaATT As New SigaMetClasses.ConsultaATT(_AnoAtt, _Folio)
+            Dim oConsultaATT As New SigaMetClasses.ConsultaATT(_AnoAtt, _Folio, Main.ConString)
+            oConsultaATT.GLOBAL_CorporativoUsuario = Main.GLOBAL_CorporativoUsuario
+            oConsultaATT.GLOBAL_SucursalUsuario = Main.GLOBAL_SucursalUsuario
+            oConsultaATT.Modulo = 3
             oConsultaATT.ShowDialog()
         End If
     End Sub

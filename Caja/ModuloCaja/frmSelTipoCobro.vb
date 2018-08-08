@@ -1906,7 +1906,7 @@ Public Class frmSelTipoCobro
 
     Private Sub ConsultaTarjetaCredito(ByVal Cliente As Integer, ByVal URLGateway As String)
         Dim lSolicitud As RTGMGateway.SolicitudGateway = New RTGMGateway.SolicitudGateway()
-        Dim lRemoteGateway As RTGMGateway.RTGMGateway = New RTGMGateway.RTGMGateway()
+        Dim lRemoteGateway As RTGMGateway.RTGMGateway = New RTGMGateway.RTGMGateway(3, SigaMetClasses.DataLayer.Conexion.ConnectionString)
         lRemoteGateway.URLServicio = URLGateway
 
 
@@ -1929,8 +1929,6 @@ Public Class frmSelTipoCobro
                 lblVigenciaTC.Text = CType(dr("MesVigencia"), String) & " / " & CType(dr("AñoVigencia"), String)
             Loop
             If dr.HasRows Then
-                lSolicitud.Fuente = RTGMCore.Fuente.CRM
-                lSolicitud.Sucursal = GLOBAL_SucursalUsuario
                 lSolicitud.IDCliente = Cliente
                 Dim lDireccionEntrega As RTGMCore.DireccionEntrega = lRemoteGateway.buscarDireccionEntrega(lSolicitud)
                 lblClienteNombre.Text = lDireccionEntrega.Nombre
