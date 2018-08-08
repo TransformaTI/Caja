@@ -1906,7 +1906,7 @@ Public Class frmSelTipoCobro
 
     Private Sub ConsultaTarjetaCredito(ByVal Cliente As Integer, ByVal URLGateway As String)
         Dim lSolicitud As RTGMGateway.SolicitudGateway = New RTGMGateway.SolicitudGateway()
-        Dim lRemoteGateway As RTGMGateway.RTGMGateway = New RTGMGateway.RTGMGateway(3, SigaMetClasses.DataLayer.Conexion.ConnectionString)
+        Dim lRemoteGateway As RTGMGateway.RTGMGateway = New RTGMGateway.RTGMGateway(3, Main.ConString)
         lRemoteGateway.URLServicio = URLGateway
 
 
@@ -2032,7 +2032,7 @@ Public Class frmSelTipoCobro
             If String.IsNullOrEmpty(lURLGateway) Then
                 frmConCliente = New SigaMetClasses.frmConsultaCliente(CType(txtClienteCheque.Text, Integer))
             Else
-                frmConCliente = New SigaMetClasses.frmConsultaCliente(CType(txtClienteCheque.Text, Integer), lURLGateway)
+                frmConCliente = New SigaMetClasses.frmConsultaCliente(CType(txtClienteCheque.Text, Integer), lURLGateway, Main.ConString)
             End If
 
             frmConCliente.ShowDialog()
@@ -2368,7 +2368,7 @@ Public Class frmSelTipoCobro
                 frmConCliente = New SigaMetClasses.frmConsultaCliente(CType(txtClienteVales.Text, Integer))
             Else
 
-                frmConCliente = New SigaMetClasses.frmConsultaCliente(CType(txtClienteVales.Text, Integer), lURLGateway)
+                frmConCliente = New SigaMetClasses.frmConsultaCliente(CType(txtClienteVales.Text, Integer), lURLGateway, Main.ConString)
             End If
 
             frmConCliente.ShowDialog()
@@ -2388,7 +2388,7 @@ Public Class frmSelTipoCobro
             If String.IsNullOrEmpty(lURLGateway) Then
                 frmConCliente = New SigaMetClasses.frmConsultaCliente(CType(TxtClienteAplicAntic.Text, Integer))
             Else
-                frmConCliente = New SigaMetClasses.frmConsultaCliente(CType(TxtClienteAplicAntic.Text, Integer), lURLGateway)
+                frmConCliente = New SigaMetClasses.frmConsultaCliente(CType(TxtClienteAplicAntic.Text, Integer), lURLGateway, Main.ConString)
             End If
 
             frmConCliente.ShowDialog()
