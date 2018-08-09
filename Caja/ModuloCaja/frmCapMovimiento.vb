@@ -2495,14 +2495,48 @@ Public Class frmCapMovimiento
 
 #Region "Consulta de cheques,tarjetas de credito y fichas de depósito"
 	Private Sub lnkConsultaCheques_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lnkConsultaCheques.LinkClicked
-		Dim frmListaCheques As New frmChequeTarjetaMovCaja(3)
-		With frmListaCheques
-			.grdConsulta.DataSource = dtCheques
-			.grdConsulta.CaptionText = "Cheques en este movimiento"
-			.grdConsulta.CaptionBackColor = Color.DarkSeaGreen
-			.ShowDialog()
-		End With
-	End Sub
+        Try
+
+            Dim frmListaCheques As New frmChequeTarjetaMovCaja(3)
+            With frmListaCheques
+                If dtCheques.Rows.Count() > 0 Then
+                    For Each dr As DataRow In dtCheques.Rows
+                        If (Not String.IsNullOrEmpty(Main.GLOBAL_URLGATEWAY)) Then
+                            Cursor = Cursors.WaitCursor
+
+                            Dim oGateway As RTGMGateway.RTGMGateway
+                            Dim oSolicitud As RTGMGateway.SolicitudGateway
+                            Dim oDireccionEntrega As RTGMCore.DireccionEntrega
+
+                            oGateway = New RTGMGateway.RTGMGateway(3, Main.ConString)
+                            oSolicitud = New RTGMGateway.SolicitudGateway()
+                            oGateway.GuardarLog = True
+                            oGateway.URLServicio = Main.GLOBAL_URLGATEWAY
+                            oSolicitud.IDCliente = CType(dr("Cliente"), Int32)
+                            oDireccionEntrega = oGateway.buscarDireccionEntrega(oSolicitud)
+
+                            If Not IsNothing(oDireccionEntrega) And IsNothing(oDireccionEntrega.Message) Then
+                                dr("ClienteNombre") = oDireccionEntrega.Nombre
+                            Else
+                                If Not IsNothing(oDireccionEntrega.Message) And oDireccionEntrega.Message.Contains("ERROR") Then
+                                    Throw New Exception(oDireccionEntrega.Message)
+                                End If
+                            End If
+                        End If
+                    Next
+                End If
+                .grdConsulta.DataSource = dtCheques
+                .grdConsulta.CaptionText = "Cheques en este movimiento"
+                .grdConsulta.CaptionBackColor = Color.DarkSeaGreen
+                .ShowDialog()
+            End With
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            Cursor = Cursors.Default
+        End Try
+    End Sub
 
 	Private Sub lnkConsultaTarjetaCredito_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lnkConsultaTarjetaCredito.LinkClicked
 		Dim frmListaTarjetaCredito As New frmChequeTarjetaMovCaja(2)
