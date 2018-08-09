@@ -701,6 +701,8 @@ Public Class frmCapCobranza
                     Return
                 End If
             Else
+                _cEfectuarValidacion.Modulo = 3
+                _cEfectuarValidacion.CadenaConexion = Main.ConString
                 If _cEfectuarValidacion.ValidacionCaptura AndAlso _cEfectuarValidacion.EfectuarValidacion(Convert.ToInt32(txtCliente.Text), URLGateway) Then
                     lblClienteNombre.Text = _cEfectuarValidacion.DescripcionValorValidacion
                     Return
