@@ -2030,8 +2030,7 @@ Public Class frmSelTipoCobro
     Private Sub btnBuscarCliente_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarCliente.Click
 
         Dim lParametro As New SigaMetClasses.cConfig(16, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario)
-        Dim lURLGateway As String = ""
-        'CType(lParametro.Parametros.Item("URLGateway"), String)
+        Dim lURLGateway As String = Main.GLOBAL_URLGATEWAY
 
         lParametro.Dispose()
 
@@ -2042,7 +2041,7 @@ Public Class frmSelTipoCobro
             Else
                 frmConCliente = New SigaMetClasses.frmConsultaCliente(CType(txtClienteCheque.Text, Integer), lURLGateway, Main.ConString)
             End If
-
+            frmConCliente.Modulo = 3
             frmConCliente.ShowDialog()
         End If
 
