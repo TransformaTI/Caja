@@ -1913,6 +1913,7 @@ Public Class frmSelTipoCobro
         Dim oTC As New SigaMetClasses.cTarjetaCredito()
         Dim dr As SqlDataReader
         Try
+            Cursor = Cursors.WaitCursor
             dr = oTC.ConsultaActiva(Cliente)
             Do While dr.Read
                 'lblClienteNombre.Text = CType(dr("ClienteNombre"), String)
@@ -1931,11 +1932,18 @@ Public Class frmSelTipoCobro
             If dr.HasRows Then
                 lSolicitud.IDCliente = Cliente
                 Dim lDireccionEntrega As RTGMCore.DireccionEntrega = lRemoteGateway.buscarDireccionEntrega(lSolicitud)
-                lblClienteNombre.Text = lDireccionEntrega.Nombre
+
+                If Not IsNothing(lDireccionEntrega) And IsNothing(lDireccionEntrega.Message) Then
+                    lblClienteNombre.Text = lDireccionEntrega.Nombre
+                ElseIf lDireccionEntrega.Message.Contains("ERROR") Then
+                    Throw New Exception(lDireccionEntrega.Message)
+                End If
             End If
             dr.Close()
         Catch ex As Exception
-            Throw ex
+            MessageBox.Show(ex.Message, Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            Cursor = Cursors.Default
         End Try
     End Sub
 
@@ -1954,8 +1962,8 @@ Public Class frmSelTipoCobro
 
     Private Sub btnBuscarClienteTC_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarClienteTC.Click
         Dim lParametro As New SigaMetClasses.cConfig(16, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario)
-        Dim lURLGateway As String = ""
-        'CType(lParametro.Parametros.Item("URLGateway"), String)
+        Dim lURLGateway As String = Main.GLOBAL_URLGATEWAY
+
         lParametro.Dispose()
 
         If txtClienteTC.Text <> "" And IsNumeric(txtClienteTC.Text) Then
