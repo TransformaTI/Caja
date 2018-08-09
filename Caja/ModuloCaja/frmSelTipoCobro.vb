@@ -2050,10 +2050,20 @@ Public Class frmSelTipoCobro
 
     Private Sub txtClienteCheque_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtClienteCheque.Leave
         If txtClienteCheque.Text <> "" Then
+            Dim lURLGateway As String = Main.GLOBAL_URLGATEWAY
             Dim oCliente As New SigaMetClasses.cCliente()
-            oCliente.Consulta(CType(txtClienteCheque.Text, Integer))
-            lblNombre.Text = oCliente.Nombre
-            oCliente = Nothing
+            If String.IsNullOrEmpty(lURLGateway) Then
+                oCliente.Consulta(CType(txtClienteCheque.Text, Integer))
+                lblNombre.Text = oCliente.Nombre
+                oCliente = Nothing
+            Else
+                oCliente.Modulo = 3
+                oCliente.CadenaConexion = Main.ConString
+                oCliente.Consulta(CType(txtClienteCheque.Text, Integer), lURLGateway)
+                lblNombre.Text = oCliente.Nombre
+                oCliente = Nothing
+            End If
+
         End If
 
     End Sub
