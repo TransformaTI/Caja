@@ -754,11 +754,11 @@ Public Class frmPrincipal
         With frmConCheques
             .WindowState = FormWindowState.Maximized
             .MdiParent = Me
-            .CargaListaCheques()
             .URLGateway = Main.GLOBAL_URLGATEWAY
             .CadenaConexion = Main.ConString
             .Corporativo = CType(GLOBAL_CorporativoUsuario, Byte)
             .Sucursal = CType(GLOBAL_SucursalUsuario, Byte)
+            .CargaListaCheques()
             .Show()
         End With
         Cursor = Cursors.Default
