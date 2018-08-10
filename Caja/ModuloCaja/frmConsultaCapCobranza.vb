@@ -1018,10 +1018,14 @@ Public Class frmConsultaCapCobranza
 
         'Consulto la lista de cobros con tarjeta de crédito de este movimiento
         cmd.CommandText = "SET transaction isolation level read uncommitted SELECT * FROM vwConsultaDeTarjetaPorMovimientoCaja" & FiltroSeleccion
-        da.Fill(dsDatosMov, "TarjetaCredito")
+		da.Fill(dsDatosMov, "TarjetaCredito")
 
-        'Consulto la lista de denominaciones que tiene este movimiento
-        cmd.CommandText = "SET transaction isolation level read uncommitted SELECT * FROM vwMovimientoCajaEntrada1" & FiltroSeleccion & " AND TipoCobro <> 3"
+		'Consulto la lista de cobros con vales de este movimiento
+		cmd.CommandText = "SET transaction isolation level read uncommitted SELECT * FROM vwConsultaDeValesPorMovimientoCaja" & FiltroSeleccion
+		da.Fill(dsDatosMov, "Vales")
+
+		'Consulto la lista de denominaciones que tiene este movimiento
+		cmd.CommandText = "SET transaction isolation level read uncommitted SELECT * FROM vwMovimientoCajaEntrada1" & FiltroSeleccion & " AND TipoCobro <> 3"
         da.Fill(dsDatosMov, "Denominacion")
 
         'Consulto el cambio que resultó de este movimiento

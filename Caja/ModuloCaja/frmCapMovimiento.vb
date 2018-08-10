@@ -1964,6 +1964,8 @@ Public Class frmCapMovimiento
 								 CType(DatosMovimiento.Tables("Cabecera").Rows(0).Item("EmpleadoNombre"), String)
 		lblObservaciones.Text = CType(DatosMovimiento.Tables("Cabecera").Rows(0).Item("Observaciones"), String)
 
+
+
 		'Fin del pre-cargo
 
 		If dtCobroPedido.Rows.Count > 0 Then
@@ -1974,6 +1976,8 @@ Public Class frmCapMovimiento
 		Else
 			btnConsultaDocumentos.Visible = False
 		End If
+
+		dtVales = DatosMovimiento.Tables("Vales")
 
 		'Paso la lista de cheques al grid si tiene cheques relacionados
 		'de lo contrario escondo el grid y el link.
@@ -2013,7 +2017,7 @@ Public Class frmCapMovimiento
 			dtFichaDeposito = DatosMovimiento.Tables("FichaDeposito")
 			grdFichaDeposito.DataSource = dtFichaDeposito
 			PorCobrarFichaDeposito = SumaColumna(dtFichaDeposito, "Total")
-			AFavorFichaDeposito = SumaColumna(dtFichaDeposito, "Saldo")
+			AfavorFichaDeposito = SumaColumna(dtFichaDeposito, "Saldo")
 			'Cambio hecho el 20 de marzo del 2003
 			AFavorOperadorCheques += AfavorFichaDeposito
 		End If
@@ -2049,6 +2053,9 @@ Public Class frmCapMovimiento
 		End If
 
 		lblMovimientoCajaClave.Text = MovimientoCajaClave
+
+		AutotanqueTurno_AnoAtt = CType(DatosMovimiento.Tables("Cabecera").Rows(0).Item("AñoAtt"), Short)
+		AutotanqueTurno_Folio = CType(DatosMovimiento.Tables("Cabecera").Rows(0).Item("FolioAtt"), Integer)
 
 		'CONSULTA
 		If Tipo = TipoOperacionMovimientoCaja.Consulta Then
@@ -2179,7 +2186,7 @@ Public Class frmCapMovimiento
 
 		If TipoOperacion = TipoOperacionMovimientoCaja.Validacion Or TipoOperacion = TipoOperacionMovimientoCaja.Liquidacion Then
 			'Se resta el importe del saldo a favor del cambio
-			decImporteCambio = decImporteTotalCobros - decImporteTotalMovimiento - AFavorOperadorCheques
+			decImporteCambio = decImporteTotalCobros - decImporteTotalMovimiento
 			If decImporteCambio > 0 Then
 				lblCambio.Text = decImporteCambio.ToString("C")
 			Else
@@ -2495,48 +2502,48 @@ Public Class frmCapMovimiento
 
 #Region "Consulta de cheques,tarjetas de credito y fichas de depósito"
 	Private Sub lnkConsultaCheques_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lnkConsultaCheques.LinkClicked
-        Try
+		Try
 
-            Dim frmListaCheques As New frmChequeTarjetaMovCaja(3)
-            With frmListaCheques
-                If dtCheques.Rows.Count() > 0 Then
-                    For Each dr As DataRow In dtCheques.Rows
-                        If (Not String.IsNullOrEmpty(Main.GLOBAL_URLGATEWAY)) Then
-                            Cursor = Cursors.WaitCursor
+			Dim frmListaCheques As New frmChequeTarjetaMovCaja(3)
+			With frmListaCheques
+				If dtCheques.Rows.Count() > 0 Then
+					For Each dr As DataRow In dtCheques.Rows
+						If (Not String.IsNullOrEmpty(Main.GLOBAL_URLGATEWAY)) Then
+							Cursor = Cursors.WaitCursor
 
-                            Dim oGateway As RTGMGateway.RTGMGateway
-                            Dim oSolicitud As RTGMGateway.SolicitudGateway
-                            Dim oDireccionEntrega As RTGMCore.DireccionEntrega
+							Dim oGateway As RTGMGateway.RTGMGateway
+							Dim oSolicitud As RTGMGateway.SolicitudGateway
+							Dim oDireccionEntrega As RTGMCore.DireccionEntrega
 
-                            oGateway = New RTGMGateway.RTGMGateway(3, Main.ConString)
-                            oSolicitud = New RTGMGateway.SolicitudGateway()
-                            oGateway.GuardarLog = True
-                            oGateway.URLServicio = Main.GLOBAL_URLGATEWAY
-                            oSolicitud.IDCliente = CType(dr("Cliente"), Int32)
-                            oDireccionEntrega = oGateway.buscarDireccionEntrega(oSolicitud)
+							oGateway = New RTGMGateway.RTGMGateway(3, Main.ConString)
+							oSolicitud = New RTGMGateway.SolicitudGateway()
+							oGateway.GuardarLog = True
+							oGateway.URLServicio = Main.GLOBAL_URLGATEWAY
+							oSolicitud.IDCliente = CType(dr("Cliente"), Int32)
+							oDireccionEntrega = oGateway.buscarDireccionEntrega(oSolicitud)
 
-                            If Not IsNothing(oDireccionEntrega) And IsNothing(oDireccionEntrega.Message) Then
-                                dr("ClienteNombre") = oDireccionEntrega.Nombre
-                            Else
-                                If Not IsNothing(oDireccionEntrega.Message) And oDireccionEntrega.Message.Contains("ERROR") Then
-                                    Throw New Exception(oDireccionEntrega.Message)
-                                End If
-                            End If
-                        End If
-                    Next
-                End If
-                .grdConsulta.DataSource = dtCheques
-                .grdConsulta.CaptionText = "Cheques en este movimiento"
-                .grdConsulta.CaptionBackColor = Color.DarkSeaGreen
-                .ShowDialog()
-            End With
+							If Not IsNothing(oDireccionEntrega) And IsNothing(oDireccionEntrega.Message) Then
+								dr("ClienteNombre") = oDireccionEntrega.Nombre
+							Else
+								If Not IsNothing(oDireccionEntrega.Message) And oDireccionEntrega.Message.Contains("ERROR") Then
+									Throw New Exception(oDireccionEntrega.Message)
+								End If
+							End If
+						End If
+					Next
+				End If
+				.grdConsulta.DataSource = dtCheques
+				.grdConsulta.CaptionText = "Cheques en este movimiento"
+				.grdConsulta.CaptionBackColor = Color.DarkSeaGreen
+				.ShowDialog()
+			End With
 
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Error)
-        Finally
-            Cursor = Cursors.Default
-        End Try
-    End Sub
+		Catch ex As Exception
+			MessageBox.Show(ex.Message, Me.Text, MessageBoxButtons.OK, MessageBoxIcon.Error)
+		Finally
+			Cursor = Cursors.Default
+		End Try
+	End Sub
 
 	Private Sub lnkConsultaTarjetaCredito_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lnkConsultaTarjetaCredito.LinkClicked
 		Dim frmListaTarjetaCredito As New frmChequeTarjetaMovCaja(2)
@@ -2617,7 +2624,7 @@ Public Class frmCapMovimiento
 		If Not IsNothing(dtObsequios) Then
 			lblTotalVale.Text = CStr(dtObsequios.Compute("SUM(Total)", ""))
 		End If
-    End Sub
+	End Sub
 
 	Private Sub chkIncluirEficiencia_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkIncluirEficiencia.CheckedChanged
 		If chkIncluirEficiencia.Checked = True Then
@@ -2631,35 +2638,51 @@ Public Class frmCapMovimiento
 	End Sub
 
 	Private Sub lnkConsultaIVA_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lnkConsultaIVA.LinkClicked
-        Try
-            Dim consultaIVA As New vistaDeLiquidacionMultiplesIvas.LiquidacionAgrupadaPorPrecioIVA _
-                (GLOBAL_Connection, AutotanqueTurno_AnoAtt, AutotanqueTurno_Folio)
-        Catch ex As Exception
-        End Try
-    End Sub
+		Try
+			Dim consultaIVA As New vistaDeLiquidacionMultiplesIvas.LiquidacionAgrupadaPorPrecioIVA _
+				(GLOBAL_Connection, AutotanqueTurno_AnoAtt, AutotanqueTurno_Folio)
+		Catch ex As Exception
+		End Try
+	End Sub
 
-    Private Sub lnkDetalleObs_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
-        Dim consultaIVA As New vistaDeLiquidacionMultiplesIvas.DetalleObsequios(AutotanqueTurno_AnoAtt, _
-                              AutotanqueTurno_Folio, dtObsequios)
-    End Sub
+	Private Sub lnkDetalleObs_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
+		Dim consultaIVA As New vistaDeLiquidacionMultiplesIvas.DetalleObsequios(AutotanqueTurno_AnoAtt,
+							  AutotanqueTurno_Folio, dtObsequios)
+	End Sub
 
-    Private Sub Panel2_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Panel2.Paint
-        LabelNombreEmpresa1.CargarNombreEmpresa()
-    End Sub
+	Private Sub Panel2_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Panel2.Paint
+		LabelNombreEmpresa1.CargarNombreEmpresa()
+	End Sub
 
-    Private Sub btnValesPromocion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RegistroValeCredito1.Click
-        If frmConsultaValePromocion Is Nothing Then
-            frmConsultaValePromocion = New ControlDeValesPromocionales.frmCapturaPagosConVale()
-        End If
-        frmConsultaValePromocion.ShowDialog()
+	Private Sub btnValesPromocion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RegistroValeCredito1.Click
+		If frmConsultaValePromocion Is Nothing Then
+			frmConsultaValePromocion = New ControlDeValesPromocionales.frmCapturaPagosConVale()
+		End If
+		frmConsultaValePromocion.ShowDialog()
 
-        If (frmConsultaValePromocion.CaptureEnabled) Then
-            RegistroValeCredito1.Total = frmConsultaValePromocion.Total
-            ManejadorCobros()
-        End If
-    End Sub
+		If (frmConsultaValePromocion.CaptureEnabled) Then
+			RegistroValeCredito1.Total = frmConsultaValePromocion.Total
+			ManejadorCobros()
+		End If
+	End Sub
 
-    Private Sub RegistroValeCredito1_Load(sender As System.Object, e As System.EventArgs) Handles RegistroValeCredito1.Load
+	Private Sub RegistroValeCredito1_Load(sender As System.Object, e As System.EventArgs) Handles RegistroValeCredito1.Load
 
-    End Sub
+	End Sub
+
+	Private Sub LabelBase14_DoubleClick(sender As Object, e As EventArgs) Handles LabelBase14.DoubleClick
+
+	End Sub
+
+	Private Sub LabelBase14_Click(sender As Object, e As EventArgs) Handles LabelBase14.Click
+		If (Not dtVales Is Nothing) Then
+
+			If (dtVales.Rows.Count > 0) Then
+				Dim ventanaVales As New frmMuestraValesPorProveedor()
+				ventanaVales.Año = AutotanqueTurno_AnoAtt
+				ventanaVales.Folio = AutotanqueTurno_Folio
+				ventanaVales.ShowDialog()
+			End If
+		End If
+	End Sub
 End Class
