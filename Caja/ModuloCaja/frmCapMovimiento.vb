@@ -1673,6 +1673,7 @@ Public Class frmCapMovimiento
 	Private AFavorCheques As Decimal = 0
 	Private AFavorOperadorCheques As Decimal = 0
 	Private PorCobrarEfectivoVales As Decimal = 0
+	Private AFavorEfectivoVales As Decimal = 0
 	Private PorCobrarTarjetaCredito As Decimal = 0
 	Private AFavorTarjetaCredito As Decimal = 0
 	Private PorCobrarTarjetaDebito As Decimal = 0
@@ -1736,7 +1737,7 @@ Public Class frmCapMovimiento
 
 		'Valida la aplicación de la promoción
 		RegistroValeCredito1.Visible = GLOBAL_Promocion
-
+		AFavorOperadorCheques = 0
 		If DatosMovimiento.Tables("EfectivoVales").Rows.Count <= 0 Then
 			CobroEfectivo.Enabled = False
 
@@ -1747,6 +1748,8 @@ Public Class frmCapMovimiento
 		Else
 			dtEfectivoVales = DatosMovimiento.Tables("EfectivoVales")
 			PorCobrarEfectivoVales = SumaColumna(dtEfectivoVales, "Total")
+			AFavorEfectivoVales = SumaColumna(dtEfectivoVales, "Saldo")
+			AFavorOperadorCheques += AFavorEfectivoVales
 		End If
 
 		If DatosMovimiento.Tables("Vales").Rows.Count <= 0 Then
@@ -1760,6 +1763,7 @@ Public Class frmCapMovimiento
 			dtVales = DatosMovimiento.Tables("Vales")
 			PorCobrarVales = SumaColumna(dtVales, "Total")
 			AFavorVales = SumaColumna(dtVales, "Saldo")
+			AFavorOperadorCheques += AFavorVales
 		End If
 
 		If DatosMovimiento.Tables("Cheques").Rows.Count <= 0 Then
@@ -1775,7 +1779,7 @@ Public Class frmCapMovimiento
 			grdCheque.DataSource = dtCheques
 			PorCobrarCheques = SumaColumna(dtCheques, "Total")
 			AFavorCheques = SumaColumna(dtCheques, "Saldo")
-			AFavorOperadorCheques = AFavorCheques
+			AFavorOperadorCheques += AFavorCheques
 		End If
 
 		If DatosMovimiento.Tables("TarjetaCredito").Rows.Count <= 0 Then
@@ -1968,6 +1972,8 @@ Public Class frmCapMovimiento
 
 		'Fin del pre-cargo
 
+		AFavorOperadorCheques = 0
+
 		If dtCobroPedido.Rows.Count > 0 Then
 			dr = dtCobroPedido.Rows(0)
 			shrAnoCobro = CType(dr("AñoCobro"), Short)
@@ -1990,7 +1996,7 @@ Public Class frmCapMovimiento
 			'PorCobrarCheques = dtCobroPedido.ImporteTotalCheques
 			PorCobrarCheques = SumaColumna(dtCheques, "Total")
 			AFavorCheques = SumaColumna(dtCheques, "Saldo")
-			AFavorOperadorCheques = AFavorCheques
+			AFavorOperadorCheques += AFavorCheques
 		End If
 
 		'Paso la lista de cobros con tarjeta de crédito al grid si tiene 
