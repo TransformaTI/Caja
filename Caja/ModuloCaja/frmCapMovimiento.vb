@@ -1754,11 +1754,11 @@ Public Class frmCapMovimiento
 
 		If DatosMovimiento.Tables("Vales").Rows.Count <= 0 Then
 
-			Vales.Enabled = False
+			'Vales.Enabled = False
 
-			If GLOBAL_Promocion Then
-				RegistroValeCredito1.Enabled = False
-			End If
+			'If GLOBAL_Promocion Then
+			'	RegistroValeCredito1.Enabled = False
+			'End If
 		Else
 			dtVales = DatosMovimiento.Tables("Vales")
 			PorCobrarVales = SumaColumna(dtVales, "Total")
