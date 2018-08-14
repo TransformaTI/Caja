@@ -2068,13 +2068,14 @@ Public Class frmSelTipoCobro
     End Sub
     Private Sub btnEfectivo_Click(sender As Object, e As EventArgs) Handles btnEfectivo.Click
         If Txt_totalEfectivo.Text.Trim <> "" Then
-            Dim frmCaptura As New frmCapCobranzaDoc()
+            Dim frmCaptura As New FormasPago.frmCapCobranzaDoc()
             frmCaptura.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.TarjetaCredito
 			frmCaptura.ImporteCobro = CType(Txt_totalEfectivo.Text, Decimal)
+            frmCaptura.ShowDialog()
 
 
 
-			Total = CDec(Txt_totalEfectivo.Text)
+            Total = CDec(Txt_totalEfectivo.Text)
             Pago = TotalCobros + 1
             TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.EfectivoVales
             Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaPagoEfectivo(Pago)
