@@ -155,6 +155,10 @@
       <HintPath>bin\CrystalDecisions.Windows.Forms.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="FormasPago, Version=1.0.6800.17030, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\FormasPago\FormasPago\FormasPago\bin\Debug\FormasPago.dll</HintPath>
+    </Reference>
     <Reference Include="LiquidacionPortatil, Version=1.1.0.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\SigametLibrerias\LiquidacionPortatil\bin\LiquidacionPortatil.dll</HintPath>
@@ -188,7 +192,7 @@
     </Reference>
     <Reference Include="RTGMGateway, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\RTGMGateway.dll</HintPath>
+      <HintPath>..\..\..\Gateway\RTGMGateway\bin\Debug\RTGMGateway.dll</HintPath>
     </Reference>
     <Reference Include="SGDAC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -196,7 +200,7 @@
     </Reference>
     <Reference Include="SigaMetClasses, Version=2.0.0.2, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\SigametLibrerias\SigaMetClasses\bin\SigaMetClasses.dll</HintPath>
+      <HintPath>..\..\..\Librerias\SigaMetClasses\bin\SigaMetClasses.dll</HintPath>
     </Reference>
     <Reference Include="SIGAMETSecurity, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -339,6 +343,12 @@
     <Compile Include="frmMovimientos.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmMuestraValesPorProveedor.Designer.vb">
+      <DependentUpon>frmMuestraValesPorProveedor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMuestraValesPorProveedor.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmPreLiquidacionConsulta.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -349,9 +359,6 @@
       <DependentUpon>frmRemisiones.vb</DependentUpon>
     </Compile>
     <Compile Include="frmRemisiones.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmSelTipoCobro.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Main.vb">
@@ -455,6 +462,9 @@
     <EmbeddedResource Include="frmMovimientos.resx">
       <DependentUpon>frmMovimientos.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmMuestraValesPorProveedor.resx">
+      <DependentUpon>frmMuestraValesPorProveedor.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPreLiquidacionConsulta.resx">
       <DependentUpon>frmPreLiquidacionConsulta.vb</DependentUpon>
     </EmbeddedResource>
@@ -463,9 +473,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRemisiones.resx">
       <DependentUpon>frmRemisiones.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmSelTipoCobro.resx">
-      <DependentUpon>frmSelTipoCobro.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.vb</DependentUpon>

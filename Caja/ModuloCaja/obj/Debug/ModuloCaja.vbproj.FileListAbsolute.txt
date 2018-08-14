@@ -139,9 +139,7 @@ C:\Users\lenav_000\Documents\Caja\Caja\ModuloCaja\bin\SigaMetClasses.pdb
 C:\Users\lenav_000\Documents\Caja\Caja\ModuloCaja\bin\SigaMetClasses.xml
 C:\Users\lenav_000\Documents\Caja\Caja\ModuloCaja\bin\ModuloCaja.dll.config
 C:\Users\lenav_000\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbproj.CopyComplete
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\LiquidacionPortatil.dll
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.exe.config
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.dll
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ProgramacionCobranza.dll
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\DocumentosBSR.dll
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\QuejasLibrary.dll
@@ -154,13 +152,10 @@ C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\VbPowerPack
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\RegularValidations.dll
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\stdole.dll
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ContactosDL.dll
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\LiquidacionPortatil.pdb
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\LiquidacionPortatil.xml
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\SigaMetClasses.pdb
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\SigaMetClasses.xml
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.pdb
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.xml
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.dll.config
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbproj.ResolveComReference.cache
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCambio.resources
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCapBanco.resources
@@ -192,7 +187,6 @@ C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\Modul
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmPreLiquidacionConsulta.resources
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmPrincipal.resources
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmRemisiones.resources
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmSelTipoCobro.resources
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.CustomExceptionHandler.resources
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbproj.GenerateResource.cache
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbproj.CoreCompileInputs.cache
@@ -201,10 +195,8 @@ C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\Modul
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.pdb
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.exe
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.exe
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbprojAssemblyReference.cache
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCapTipoConcepto.resources
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCatTipoConcepto.resources
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\SigaMetClasses.dll
 C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\bin\ModuloCaja.exe.config
 C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\bin\ModuloCaja.exe
 C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\bin\ModuloCaja.pdb
@@ -269,3 +261,16 @@ C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\bin\SigaMetClasses.xml
 C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\bin\LiquidacionPortatil.pdb
 C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\bin\LiquidacionPortatil.xml
 C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbprojAssemblyReference.cache
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmMuestraValesPorProveedor.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\FormasPago.dll
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\RTGMGateway.dll
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\SigaMetClasses.dll
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\log4net.dll
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\nunit.framework.dll
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\FormasPago.pdb
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\FormasPago.xml
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\RTGMGateway.pdb
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\RTGMGateway.dll.config
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\log4net.xml
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\nunit.framework.xml
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbprojAssemblyReference.cache

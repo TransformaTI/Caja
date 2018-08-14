@@ -403,7 +403,7 @@ Public Class frmCapCobranza
 
     Private Sub btnAgregar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAgregar.Click
         Consecutivo += 1
-        Dim frmSelTipoCobro As frmSelTipoCobro
+        Dim frmSelTipoCobro As FormasPago.frmSelTipoCobro
         Dim soloEfectivo As Boolean = False
         Dim Movimientos As Boolean
         Movimientos = True
@@ -411,9 +411,9 @@ Public Class frmCapCobranza
             soloEfectivo = True
         End If
         If _TipoMovimientoCaja = 15 Then
-            frmSelTipoCobro = New frmSelTipoCobro(Consecutivo, aSoloEfectivo:=soloEfectivo)
+            frmSelTipoCobro = New FormasPago.frmSelTipoCobro(Consecutivo, aSoloEfectivo:=soloEfectivo)
         Else
-            frmSelTipoCobro = New frmSelTipoCobro(Consecutivo, False, aSoloEfectivo:=soloEfectivo)
+            frmSelTipoCobro = New FormasPago.frmSelTipoCobro(Consecutivo, False, aSoloEfectivo:=soloEfectivo)
         End If
         frmSelTipoCobro.Movimiento = Movimientos
         If frmSelTipoCobro.ShowDialog() = DialogResult.OK Then
