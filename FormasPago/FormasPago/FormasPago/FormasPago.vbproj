@@ -55,11 +55,10 @@
       <HintPath>..\..\..\Caja\ModuloCaja\bin\PortatilClasses.dll</HintPath>
     </Reference>
     <Reference Include="RTGMGateway">
-      <HintPath>..\..\..\..\Gateway\RTGMGateway\bin\Debug\RTGMGateway.dll</HintPath>
+      <HintPath>..\..\..\..\RTGMGateway\RTGMGateway\bin\Debug\RTGMGateway.dll</HintPath>
     </Reference>
-    <Reference Include="SigaMetClasses, Version=2.0.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Librerias\SigaMetClasses\bin\SigaMetClasses.dll</HintPath>
+    <Reference Include="SigaMetClasses">
+      <HintPath>..\..\..\..\SigametLibrerias\SigaMetClasses\bin\SigaMetClasses.dll</HintPath>
     </Reference>
     <Reference Include="SIGAMETSecurity">
       <HintPath>..\..\..\Caja\ModuloCaja\bin\SIGAMETSecurity.dll</HintPath>
@@ -100,6 +99,9 @@
     <Compile Include="frmSelTipoCobro.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmSelTipoCobroPortatil.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Main.vb">
       <SubType>Component</SubType>
     </Compile>
@@ -127,6 +129,7 @@
     <EmbeddedResource Include="frmCapCobranzaDoc.resx" />
     <EmbeddedResource Include="frmRemisiones.resx" />
     <EmbeddedResource Include="frmSelTipoCobro.resx" />
+    <EmbeddedResource Include="frmSelTipoCobroPortatil.resx" />
     <EmbeddedResource Include="Main.resx" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

@@ -5,7 +5,7 @@ Imports System.Data.SqlClient
 Imports System.Linq
 
 
-Public Class frmSelTipoCobro
+Public Class frmSelTipoCobroPortatil
 	Inherits System.Windows.Forms.Form
 	Private Titulo As String = "Captura de cobranza"
 
@@ -315,7 +315,7 @@ Public Class frmSelTipoCobro
 	Friend WithEvents lblNombre As System.Windows.Forms.Label
 	<System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
 		Me.components = New System.ComponentModel.Container()
-		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSelTipoCobro))
+		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSelTipoCobroPortatil))
 		Me.tabTipoCobro = New System.Windows.Forms.TabControl()
         Me.tbEfectivo = New System.Windows.Forms.TabPage()
         Me.btnEfectivo = New ControlesBase.BotonBase()
@@ -2949,39 +2949,5 @@ Public Class frmSelTipoCobro
     End Sub
 End Class
 
-Public Class DebitoAnticipo
-    Public _anio As String
-    Public _folio As String
-    Public _montodebitado As Decimal
-
-    Property anio() As String
-        Get
-            Return _anio
-        End Get
-        Set(ByVal Value As String)
-            _anio = Value
-        End Set
-    End Property
-
-    Property folio() As String
-        Get
-            Return _folio
-        End Get
-        Set(ByVal Value As String)
-            _folio = Value
-        End Set
-    End Property
-
-    Property montodebitado() As Decimal
-        Get
-            Return _montodebitado
-        End Get
-        Set(ByVal Value As Decimal)
-            _montodebitado = Value
-        End Set
-    End Property
-
-
-End Class
 
 
