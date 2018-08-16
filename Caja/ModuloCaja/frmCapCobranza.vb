@@ -411,17 +411,17 @@ Public Class frmCapCobranza
             soloEfectivo = True
         End If
         If _TipoMovimientoCaja = 15 Then
-            frmSelTipoCobro = New FormasPago.frmSelTipoCobro(Consecutivo, aSoloEfectivo:=soloEfectivo)
+            frmSelTipoCobro = New FormasPago.frmSelTipoCobro(Consecutivo, soloEfectivo)
         Else
-            frmSelTipoCobro = New FormasPago.frmSelTipoCobro(Consecutivo, False, aSoloEfectivo:=soloEfectivo)
+            frmSelTipoCobro = New FormasPago.frmSelTipoCobro(Consecutivo, False)
         End If
-        frmSelTipoCobro.Movimiento = Movimientos
+        'frmSelTipoCobro.Movimiento = Movimientos
         If frmSelTipoCobro.ShowDialog() = DialogResult.OK Then
             Dim CobroRecuperado As SigaMetClasses.CobroDetalladoDatos
             Dim TipoCobroOriginal As New SigaMetClasses.sCobro()
 
-            If (Not frmSelTipoCobro.Cobros Is Nothing And frmSelTipoCobro.Cobros.Count > 0) Then
-                CobroRecuperado = frmSelTipoCobro.Cobros(0)
+            If True Then '(Not frmSelTipoCobro.Cobros Is Nothing And frmSelTipoCobro.Cobros.Count > 0) Then
+                'CobroRecuperado = frmSelTipoCobro.Cobros(0)
                 TipoCobroOriginal.Consecutivo = Consecutivo
                 TipoCobroOriginal.AnoCobro = CobroRecuperado.AñoCobro
                 Select Case CobroRecuperado.TipoCobro

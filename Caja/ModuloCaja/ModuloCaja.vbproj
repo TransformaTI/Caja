@@ -155,8 +155,7 @@
       <HintPath>bin\CrystalDecisions.Windows.Forms.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="FormasPago, Version=1.0.6800.17030, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="FormasPago">
       <HintPath>..\..\FormasPago\FormasPago\FormasPago\bin\Debug\FormasPago.dll</HintPath>
     </Reference>
     <Reference Include="LiquidacionPortatil, Version=1.1.0.1, Culture=neutral, processorArchitecture=MSIL">
