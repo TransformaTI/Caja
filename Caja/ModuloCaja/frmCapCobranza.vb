@@ -1,3 +1,5 @@
+Imports System.Collections.Generic
+
 Public Class frmCapCobranza
     Inherits System.Windows.Forms.Form
     Private Titulo As String = "Captura de cobranza"
@@ -24,14 +26,14 @@ Public Class frmCapCobranza
         End Set
     End Property
 
-    Public Sub New(ByVal TipoCaptura As enumTipoCaptura, _
+    Public Sub New(ByVal TipoCaptura As enumTipoCaptura,
           Optional ByVal TipoDeMovimiento As Short = 0)
         MyBase.New()
         InitializeComponent()
         _TipoCaptura = TipoCaptura
         _TipoMovimientoCaja = TipoDeMovimiento
 
-        _validacionComplementaria = _
+        _validacionComplementaria =
             New SigaMetClasses.ValidacionCapturaMovimientoCaja.ValidacionCapturaMovCaja()
     End Sub
 
@@ -383,8 +385,45 @@ Public Class frmCapCobranza
             frmSelTipoCobroPortatil.CadenaConexion = Main.ConString
             frmSelTipoCobroPortatil.Movimiento = True
             If frmSelTipoCobroPortatil.ShowDialog() = DialogResult.OK Then
-                ListaCobros.Add(frmSelTipoCobroPortatil.Cobro)
-                lstCobro.Items.Add(frmSelTipoCobroPortatil.Cobro)
+                Dim ListaCobrosDetalle As List(Of SigaMetClasses.CobroDetalladoDatos) = frmSelTipoCobroPortatil.Cobros
+                Dim CobroSimple As SigaMetClasses.sCobro = New SigaMetClasses.sCobro()
+
+                For Each CDD As SigaMetClasses.CobroDetalladoDatos In ListaCobrosDetalle
+                    CobroSimple.AnoCobro = CDD.AñoCobro
+                    Select Case CDD.TipoCobro
+                        Case 5
+                            CobroSimple.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.EfectivoVales
+                        Case 6
+                            CobroSimple.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.TarjetaCredito
+                        Case 3
+                            CobroSimple.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.Cheque
+                        Case 10
+                            CobroSimple.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.Transferencia
+                        Case 21
+                            CobroSimple.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.AplicacionAnticipo
+                        Case 7
+                            CobroSimple.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.FichaDeposito
+                    End Select
+                    CobroSimple.Total = CDD.Total
+                    CobroSimple.Cliente = CDD.Cliente
+                    CobroSimple.Saldo = CDD.Saldo
+                    CobroSimple.Referencia = CDD.Referencia
+                    CobroSimple.NoCuenta = CDD.NumeroCuenta
+                    CobroSimple.SaldoAFavor = CDD.SaldoAFavor
+                    CobroSimple.AnioCobroOrigen = CDD.AñoCobroOrigen
+                    CobroSimple.Banco = CDD.Banco
+                    CobroSimple.BancoOrigen = CDD.BancoOrigen
+                    CobroSimple.CobroOrigen = CDD.CobroOrigen
+                    CobroSimple.FechaCheque = CDD.FCheque
+                    CobroSimple.NoCheque = CDD.NumeroCheque
+                    CobroSimple.NoCuentaDestino = CDD.NumeroCuentaDestino
+                    CobroSimple.Observaciones = CDD.Observaciones
+                    CobroSimple.Consecutivo = Consecutivo
+
+                    ListaCobros.Add(CobroSimple)
+                Next
+
+                lstCobro.Items.Add(CobroSimple)
                 decImporteTotalCobros += frmSelTipoCobroPortatil.ImporteTotalCobro
                 stbEstatus.Panels(0).Text = lstCobro.Items.Count.ToString & " cobro(s)"
                 stbEstatus.Panels(1).Text = decImporteTotalCobros.ToString("C")
@@ -437,10 +476,10 @@ Public Class frmCapCobranza
     Private Sub lstPedido_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lstPedido.SelectedIndexChanged
         If lstPedido.SelectedIndex <> -1 Then
             Dim strTip As String
-            strTip = "Documento: " & CType(lstPedido.Items(lstPedido.SelectedIndex), SigaMetClasses.sPedido).PedidoReferencia & Chr(13) & _
-                     "Cliente: " & CType(lstPedido.Items(lstPedido.SelectedIndex), SigaMetClasses.sPedido).Cliente.ToString & Chr(13) & _
-                     "Nombre: " & CType(lstPedido.Items(lstPedido.SelectedIndex), SigaMetClasses.sPedido).Nombre & Chr(13) & _
-                     "Importe del documento: " & CType(lstPedido.Items(lstPedido.SelectedIndex), SigaMetClasses.sPedido).Importe.ToString("N") & Chr(13) & _
+            strTip = "Documento: " & CType(lstPedido.Items(lstPedido.SelectedIndex), SigaMetClasses.sPedido).PedidoReferencia & Chr(13) &
+                     "Cliente: " & CType(lstPedido.Items(lstPedido.SelectedIndex), SigaMetClasses.sPedido).Cliente.ToString & Chr(13) &
+                     "Nombre: " & CType(lstPedido.Items(lstPedido.SelectedIndex), SigaMetClasses.sPedido).Nombre & Chr(13) &
+                     "Importe del documento: " & CType(lstPedido.Items(lstPedido.SelectedIndex), SigaMetClasses.sPedido).Importe.ToString("N") & Chr(13) &
                      "Importe del abono: " & CType(lstPedido.Items(lstPedido.SelectedIndex), SigaMetClasses.sPedido).ImporteAbono.ToString("N")
             ttDatosPedido.SetToolTip(lstPedido, strTip)
         End If
@@ -483,8 +522,8 @@ Public Class frmCapCobranza
                 Dim _idEmpleado As Integer = GLOBAL_IDEmpleado
                 'Verificar que se haya generado el objeto de validación
                 'Verificar que el campo de validación sea EMPLEADO
-                If Not _cEfectuarValidacion Is Nothing AndAlso _
-                    _cEfectuarValidacion.ValorParaValidacion.Trim().ToUpper() = "EMPLEADO" AndAlso _
+                If Not _cEfectuarValidacion Is Nothing AndAlso
+                    _cEfectuarValidacion.ValorParaValidacion.Trim().ToUpper() = "EMPLEADO" AndAlso
                     _cEfectuarValidacion.Requerido Then
                     'Si el valor de validación es requerido y el campo a validar es la columna empleado
                     'El valor se guardará en la columna empleado de la tabla MovimientoCaja
@@ -494,19 +533,19 @@ Public Class frmCapCobranza
                     _Cliente = 0
                 End If
 
-                Dim i As Integer = oMov.Alta(Main.GLOBAL_CajaUsuario, _
-                                FechaOperacion, _
-                                ConsecutivoInicioDeSesion, _
-                                _FMovimiento, _
-                                decImporteTotalCobros, _
-                                GLOBAL_IDUsuario, _
-                                _idEmpleado, _
-                                CType(ComboTipoMovCaja.TipoMovimientoCaja, Byte), _
-                                ComboRuta.Ruta, _
-                                _Cliente, _
-                                ListaCobros, _
-                                Main.GLOBAL_IDUsuario, _
-                                Trim(txtObservaciones.Text), _
+                Dim i As Integer = oMov.Alta(Main.GLOBAL_CajaUsuario,
+                                FechaOperacion,
+                                ConsecutivoInicioDeSesion,
+                                _FMovimiento,
+                                decImporteTotalCobros,
+                                GLOBAL_IDUsuario,
+                                _idEmpleado,
+                                CType(ComboTipoMovCaja.TipoMovimientoCaja, Byte),
+                                ComboRuta.Ruta,
+                                _Cliente,
+                                ListaCobros,
+                                Main.GLOBAL_IDUsuario,
+                                Trim(txtObservaciones.Text),
                                 strNuevaClave)
 
                 MessageBox.Show(M_DATOS_OK, Titulo, MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -560,7 +599,7 @@ Public Class frmCapCobranza
 
     Private Sub ValidacionInformacionComplementaria()
         _cEfectuarValidacion = Nothing
-        Dim cValidacion As SigaMetClasses.ValidacionCapturaMovimientoCaja.CMovimientoValidacion = _
+        Dim cValidacion As SigaMetClasses.ValidacionCapturaMovimientoCaja.CMovimientoValidacion =
             _validacionComplementaria.ConsultaValidacion(ComboTipoMovCaja.TipoMovimientoCaja)
 
         If Not cValidacion Is Nothing Then
@@ -575,15 +614,15 @@ Public Class frmCapCobranza
         End If
         If Not _cEfectuarValidacion Is Nothing Then
             If txtCliente.Text.Length > 0 Then
-                If _cEfectuarValidacion.ValidacionCaptura AndAlso _
+                If _cEfectuarValidacion.ValidacionCaptura AndAlso
                 Not _cEfectuarValidacion.EfectuarValidacion(Convert.ToInt32(txtCliente.Text)) Then
-                    MessageBox.Show("Debe proporcionar una clave de " & _cEfectuarValidacion.ValorParaValidacion & " válida.", Me.Name, _
+                    MessageBox.Show("Debe proporcionar una clave de " & _cEfectuarValidacion.ValorParaValidacion & " válida.", Me.Name,
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     Return False
                 End If
             Else
                 If _cEfectuarValidacion.Requerido Then
-                    MessageBox.Show("Debe capturar la clave de " & _cEfectuarValidacion.ValorParaValidacion & ".", Me.Name, _
+                    MessageBox.Show("Debe capturar la clave de " & _cEfectuarValidacion.ValorParaValidacion & ".", Me.Name,
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     Return False
                 End If
@@ -597,7 +636,7 @@ Public Class frmCapCobranza
             ValidacionInformacionComplementaria()
         End If
         If Not _cEfectuarValidacion Is Nothing Then
-            If _cEfectuarValidacion.ValidacionCaptura AndAlso _
+            If _cEfectuarValidacion.ValidacionCaptura AndAlso
                 _cEfectuarValidacion.EfectuarValidacion(Convert.ToInt32(txtCliente.Text)) Then
                 lblClienteNombre.Text = _cEfectuarValidacion.DescripcionValorValidacion
                 Return

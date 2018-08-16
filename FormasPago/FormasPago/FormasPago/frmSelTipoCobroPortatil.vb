@@ -2081,10 +2081,7 @@ Public Class frmSelTipoCobroPortatil
             Dim frmCaptura As New frmCapCobranzaDoc()
             frmCaptura.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.TarjetaCredito
 			frmCaptura.ImporteCobro = CType(Txt_totalEfectivo.Text, Decimal)
-
-
-
-			Total = CDec(Txt_totalEfectivo.Text)
+            Total = CDec(Txt_totalEfectivo.Text)
             Pago = TotalCobros + 1
             TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.EfectivoVales
             Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaPagoEfectivo(Pago)
@@ -2099,12 +2096,11 @@ Public Class frmSelTipoCobroPortatil
                 objCapturaDocs.ImporteCobro = CType(Txt_totalEfectivo.Text, Decimal)
                 If objCapturaDocs.ShowDialog = DialogResult.OK Then
                     With cobro
-                        '.Consecutivo = Consecutivo
-                        '.AnoCobro = CType(Year(Today), Short)
+                        .AñoCobro = CType(Year(Today), Short)
                         .TipoCobro = 5
                         .Total = CType(Txt_totalEfectivo.Text, Decimal)
+                        .Importe = CType(Txt_totalEfectivo.Text, Decimal)
                         '.ListaPedidos = frmCaptura.ListaCobroPedido
-                        'ImporteTotalCobro = .Total
                     End With
                 End If
             Else

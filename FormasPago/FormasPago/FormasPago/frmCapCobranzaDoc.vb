@@ -663,6 +663,9 @@ Public Class frmCapCobranzaDoc
                             If CDec(txtImporteAbono.Text) <= objPedido.Importe Then
                                 If CDec(txtImporteAbono.Text) <= ImporteCobro Then
                                     objPedido.ImporteAbono = CType(txtImporteAbono.Text, Decimal)
+                                    If Not IsNothing(txtPedidoReferencia.Text) Then
+                                        objPedido.PedidoReferencia = txtPedidoReferencia.Text
+                                    End If
                                     AgregaPedido()
                                     LimpiaCaptura()
                                 Else
