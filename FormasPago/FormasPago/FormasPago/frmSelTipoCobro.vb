@@ -21,6 +21,16 @@ Public Class frmSelTipoCobro
         End Set
     End Property
 
+    Private _ClienteEficienciasNegativas As Integer
+    Public Property ClienteEficienciasnegativas() As Integer
+        Get
+            Return _ClienteEficienciasNegativas
+        End Get
+        Set(ByVal value As Integer)
+            _ClienteEficienciasNegativas = value
+        End Set
+    End Property
+
     Public Sub New(ByVal intConsecutivo As Integer, _
           Optional ByVal CapturaDetalle As Boolean = True)
 
@@ -666,6 +676,7 @@ Public Class frmSelTipoCobro
                     frmCaptura.CadenaConexion = _CadenaConexion
                     frmCaptura.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.EfectivoVales
                     frmCaptura.ImporteCobro = CType(txtTotalEfectivoVales.Text, Decimal)
+                    frmCaptura.ClienteEficienciasNegativas = Me.ClienteEficienciasnegativas
 
                     If frmCaptura.ShowDialog = DialogResult.OK Then
                         With Cobro

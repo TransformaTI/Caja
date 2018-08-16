@@ -14,6 +14,15 @@ Public Class frmCapCobranza
         Eficiencia = 3
     End Enum
 
+    Private _ClienteEficienciasNegativas As Integer
+    Public Property ClienteEficienciasNegativas() As Integer
+        Get
+            Return _ClienteEficienciasNegativas
+        End Get
+        Set(ByVal value As Integer)
+            _ClienteEficienciasNegativas = value
+        End Set
+    End Property
 
     Public Sub New(ByVal TipoCaptura As enumTipoCaptura, _
           Optional ByVal TipoDeMovimiento As Short = 0)
@@ -359,6 +368,7 @@ Public Class frmCapCobranza
         If _TipoMovimientoCaja = 15 Then
             Dim frmSelTipoCobro As New FormasPago.frmSelTipoCobro(Consecutivo)
             frmSelTipoCobro.CadenaConexion = Main.ConString
+            frmSelTipoCobro.ClienteEficienciasnegativas = Me.ClienteEficienciasNegativas
             If frmSelTipoCobro.ShowDialog() = DialogResult.OK Then
                 ListaCobros.Add(frmSelTipoCobro.Cobro)
                 lstCobro.Items.Add(frmSelTipoCobro.Cobro)
@@ -370,7 +380,8 @@ Public Class frmCapCobranza
             End If
         Else
             Dim frmSelTipoCobroPortatil As New FormasPago.frmSelTipoCobroPortatil(Consecutivo, False)
-            'frmSelTipoCobroPortatil.CadenaConexion = Main.ConString
+            frmSelTipoCobroPortatil.CadenaConexion = Main.ConString
+            frmSelTipoCobroPortatil.Movimiento = True
             If frmSelTipoCobroPortatil.ShowDialog() = DialogResult.OK Then
                 ListaCobros.Add(frmSelTipoCobroPortatil.Cobro)
                 lstCobro.Items.Add(frmSelTipoCobroPortatil.Cobro)
