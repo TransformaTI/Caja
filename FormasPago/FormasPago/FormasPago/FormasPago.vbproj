@@ -55,10 +55,10 @@
       <HintPath>..\..\..\Caja\ModuloCaja\bin\PortatilClasses.dll</HintPath>
     </Reference>
     <Reference Include="RTGMGateway">
-      <HintPath>..\..\..\..\RTGMGateway\RTGMGateway\bin\Debug\RTGMGateway.dll</HintPath>
+      <HintPath>..\..\..\..\Gateway\RTGMGateway\bin\Debug\RTGMGateway.dll</HintPath>
     </Reference>
     <Reference Include="SigaMetClasses">
-      <HintPath>..\..\..\..\SigametLibrerias\SigaMetClasses\bin\SigaMetClasses.dll</HintPath>
+      <HintPath>..\..\..\..\Librerias\SigaMetClasses\bin\SigaMetClasses.dll</HintPath>
     </Reference>
     <Reference Include="SIGAMETSecurity">
       <HintPath>..\..\..\Caja\ModuloCaja\bin\SIGAMETSecurity.dll</HintPath>
@@ -89,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Celula.vb" />
+    <Compile Include="FormasPagoClasses.vb" />
     <Compile Include="frmCapCobranzaDoc.vb">
       <SubType>Form</SubType>
     </Compile>
