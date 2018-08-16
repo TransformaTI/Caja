@@ -167,8 +167,8 @@ Public Class frmSelTipoCobroPortatil
 		End Set
 	End Property
 
-	Private _ListaDebitoAnticipos As New List(Of DebitoAnticipo)
-	Public Property DebitoAnticipos() As List(Of DebitoAnticipo)
+    Private _ListaDebitoAnticipos As New List(Of DebitoAnticipo)
+    Public Property DebitoAnticipos() As List(Of DebitoAnticipo)
 		Get
 			Return _ListaDebitoAnticipos
 		End Get
