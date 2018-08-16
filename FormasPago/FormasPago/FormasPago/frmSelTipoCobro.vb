@@ -11,6 +11,16 @@ Public Class frmSelTipoCobro
     Private _TipoCobro As SigaMetClasses.Enumeradores.enumTipoCobro
     Private _CapturaDetalle As Boolean = True
 
+    Private _CadenaConexion As String
+    Public Property CadenaConexion() As String
+        Get
+            Return _CadenaConexion
+        End Get
+        Set(ByVal value As String)
+            _CadenaConexion = value
+        End Set
+    End Property
+
     Public Sub New(ByVal intConsecutivo As Integer, _
           Optional ByVal CapturaDetalle As Boolean = True)
 
@@ -652,7 +662,8 @@ Public Class frmSelTipoCobro
         If CapturaEfectivoVales = False Then
             If txtTotalEfectivoVales.Text <> "" And IsNumeric(txtTotalEfectivoVales.Text) Then
                 If _CapturaDetalle = True Then
-                    Dim frmCaptura As New frmCapCobranzaDoc()
+                    Dim frmCaptura As New FormasPago.frmCapCobranzaDoc()
+                    frmCaptura.CadenaConexion = _CadenaConexion
                     frmCaptura.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.EfectivoVales
                     frmCaptura.ImporteCobro = CType(txtTotalEfectivoVales.Text, Decimal)
 

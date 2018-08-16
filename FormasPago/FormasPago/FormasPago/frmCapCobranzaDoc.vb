@@ -42,6 +42,17 @@ Public Class frmCapCobranzaDoc
         End Get
     End Property
 
+    Private _CadenaConexion As String
+    Public Property CadenaConexion() As String
+        Get
+            Return _CadenaConexion
+        End Get
+        Set(ByVal value As String)
+            _CadenaConexion = value
+            ConString = value
+        End Set
+    End Property
+
 #End Region
 
 #Region " Windows Form Designer generated code "

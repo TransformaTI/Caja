@@ -6,9 +6,6 @@ Public Class frmCapCobranza
     Private decImporteTotalCobros As Decimal
     Private _FMovimiento As Date
     Private _TipoCaptura As enumTipoCaptura
-    Friend WithEvents cboTipoConcepto As ComboBox
-    Friend WithEvents lblTipoConcepto As Label
-    Friend WithEvents cboEmpleado As SigaMetClasses.Combos.ComboEmpleado
     Private _TipoMovimientoCaja As Short
 
     Public Enum enumTipoCaptura
@@ -18,14 +15,14 @@ Public Class frmCapCobranza
     End Enum
 
 
-    Public Sub New(ByVal TipoCaptura As enumTipoCaptura,
+    Public Sub New(ByVal TipoCaptura As enumTipoCaptura, _
           Optional ByVal TipoDeMovimiento As Short = 0)
         MyBase.New()
         InitializeComponent()
         _TipoCaptura = TipoCaptura
         _TipoMovimientoCaja = TipoDeMovimiento
 
-        _validacionComplementaria =
+        _validacionComplementaria = _
             New SigaMetClasses.ValidacionCapturaMovimientoCaja.ValidacionCapturaMovCaja()
     End Sub
 
@@ -71,6 +68,7 @@ Public Class frmCapCobranza
     Friend WithEvents stbEstatus As System.Windows.Forms.StatusBar
     Friend WithEvents Documentos As System.Windows.Forms.StatusBarPanel
     Friend WithEvents ImporteTotal As System.Windows.Forms.StatusBarPanel
+    Friend WithEvents lblNombreEmpleado As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
@@ -86,7 +84,7 @@ Public Class frmCapCobranza
     Friend WithEvents lblNombreRequerido As System.Windows.Forms.Label
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCapCobranza))
+        Dim resources As System.Resources.ResourceManager = New System.Resources.ResourceManager(GetType(frmCapCobranza))
         Me.lstCobro = New System.Windows.Forms.ListBox()
         Me.lstPedido = New System.Windows.Forms.ListBox()
         Me.btnCancelar = New ControlesBase.BotonBase()
@@ -96,6 +94,7 @@ Public Class frmCapCobranza
         Me.stbEstatus = New System.Windows.Forms.StatusBar()
         Me.Documentos = New System.Windows.Forms.StatusBarPanel()
         Me.ImporteTotal = New System.Windows.Forms.StatusBarPanel()
+        Me.lblNombreEmpleado = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.dtpFOperacion = New System.Windows.Forms.DateTimePicker()
@@ -109,42 +108,39 @@ Public Class frmCapCobranza
         Me.lblClienteNombre = New System.Windows.Forms.Label()
         Me.txtObservaciones = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.cboTipoConcepto = New System.Windows.Forms.ComboBox()
-        Me.lblTipoConcepto = New System.Windows.Forms.Label()
-        Me.cboEmpleado = New SigaMetClasses.Combos.ComboEmpleado()
         CType(Me.Documentos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ImporteTotal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lstCobro
         '
-        Me.lstCobro.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lstCobro.Anchor = ((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right)
         Me.lstCobro.BackColor = System.Drawing.Color.LightGoldenrodYellow
         Me.lstCobro.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstCobro.ItemHeight = 14
-        Me.lstCobro.Location = New System.Drawing.Point(8, 287)
+        Me.lstCobro.Location = New System.Drawing.Point(8, 216)
         Me.lstCobro.Name = "lstCobro"
         Me.lstCobro.Size = New System.Drawing.Size(728, 60)
         Me.lstCobro.TabIndex = 0
         '
         'lstPedido
         '
-        Me.lstPedido.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lstPedido.Anchor = (((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right)
         Me.lstPedido.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstPedido.ItemHeight = 14
-        Me.lstPedido.Location = New System.Drawing.Point(8, 366)
+        Me.lstPedido.Location = New System.Drawing.Point(8, 296)
         Me.lstPedido.Name = "lstPedido"
-        Me.lstPedido.Size = New System.Drawing.Size(728, 228)
+        Me.lstPedido.Size = New System.Drawing.Size(728, 200)
         Me.lstPedido.TabIndex = 1
         '
         'btnCancelar
         '
-        Me.btnCancelar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnCancelar.Anchor = (System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right)
         Me.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnCancelar.Image = CType(resources.GetObject("btnCancelar.Image"), System.Drawing.Image)
+        Me.btnCancelar.Image = CType(resources.GetObject("btnCancelar.Image"), System.Drawing.Bitmap)
         Me.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnCancelar.Location = New System.Drawing.Point(656, 48)
         Me.btnCancelar.Name = "btnCancelar"
@@ -155,8 +151,8 @@ Public Class frmCapCobranza
         '
         'btnAceptar
         '
-        Me.btnAceptar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnAceptar.Image = CType(resources.GetObject("btnAceptar.Image"), System.Drawing.Image)
+        Me.btnAceptar.Anchor = (System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right)
+        Me.btnAceptar.Image = CType(resources.GetObject("btnAceptar.Image"), System.Drawing.Bitmap)
         Me.btnAceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnAceptar.Location = New System.Drawing.Point(656, 16)
         Me.btnAceptar.Name = "btnAceptar"
@@ -167,9 +163,9 @@ Public Class frmCapCobranza
         '
         'btnAgregar
         '
-        Me.btnAgregar.Image = CType(resources.GetObject("btnAgregar.Image"), System.Drawing.Image)
+        Me.btnAgregar.Image = CType(resources.GetObject("btnAgregar.Image"), System.Drawing.Bitmap)
         Me.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAgregar.Location = New System.Drawing.Point(11, 257)
+        Me.btnAgregar.Location = New System.Drawing.Point(8, 184)
         Me.btnAgregar.Name = "btnAgregar"
         Me.btnAgregar.Size = New System.Drawing.Size(112, 24)
         Me.btnAgregar.TabIndex = 0
@@ -178,7 +174,7 @@ Public Class frmCapCobranza
         '
         'stbEstatus
         '
-        Me.stbEstatus.Location = New System.Drawing.Point(0, 617)
+        Me.stbEstatus.Location = New System.Drawing.Point(0, 503)
         Me.stbEstatus.Name = "stbEstatus"
         Me.stbEstatus.Panels.AddRange(New System.Windows.Forms.StatusBarPanel() {Me.Documentos, Me.ImporteTotal})
         Me.stbEstatus.ShowPanels = True
@@ -189,17 +185,25 @@ Public Class frmCapCobranza
         '
         Me.Documentos.Alignment = System.Windows.Forms.HorizontalAlignment.Center
         Me.Documentos.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Spring
-        Me.Documentos.Name = "Documentos"
         Me.Documentos.Text = "0 cobro(s)"
-        Me.Documentos.Width = 363
+        Me.Documentos.Width = 364
         '
         'ImporteTotal
         '
         Me.ImporteTotal.Alignment = System.Windows.Forms.HorizontalAlignment.Center
         Me.ImporteTotal.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Spring
-        Me.ImporteTotal.Name = "ImporteTotal"
         Me.ImporteTotal.Text = "$0.00"
-        Me.ImporteTotal.Width = 363
+        Me.ImporteTotal.Width = 364
+        '
+        'lblNombreEmpleado
+        '
+        Me.lblNombreEmpleado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.lblNombreEmpleado.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNombreEmpleado.Location = New System.Drawing.Point(136, 16)
+        Me.lblNombreEmpleado.Name = "lblNombreEmpleado"
+        Me.lblNombreEmpleado.Size = New System.Drawing.Size(352, 21)
+        Me.lblNombreEmpleado.TabIndex = 11
+        Me.lblNombreEmpleado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label2
         '
@@ -207,7 +211,7 @@ Public Class frmCapCobranza
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(8, 19)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(65, 13)
+        Me.Label2.Size = New System.Drawing.Size(64, 14)
         Me.Label2.TabIndex = 12
         Me.Label2.Text = "Empleado:"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -218,14 +222,14 @@ Public Class frmCapCobranza
         Me.Label3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(8, 43)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(37, 13)
+        Me.Label3.Size = New System.Drawing.Size(35, 14)
         Me.Label3.TabIndex = 13
         Me.Label3.Text = "Ruta:"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'dtpFOperacion
         '
-        Me.dtpFOperacion.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFOperacion.Format = System.Windows.Forms.DateTimePickerFormat.Short
         Me.dtpFOperacion.Location = New System.Drawing.Point(136, 64)
         Me.dtpFOperacion.MaxDate = New Date(2500, 12, 31, 0, 0, 0, 0)
         Me.dtpFOperacion.MinDate = New Date(2000, 1, 1, 0, 0, 0, 0)
@@ -240,7 +244,7 @@ Public Class frmCapCobranza
         Me.Label1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(8, 67)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(119, 13)
+        Me.Label1.Size = New System.Drawing.Size(118, 14)
         Me.Label1.TabIndex = 15
         Me.Label1.Text = "Fecha de operación:"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -257,9 +261,9 @@ Public Class frmCapCobranza
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(8, 350)
+        Me.Label4.Location = New System.Drawing.Point(8, 280)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(229, 13)
+        Me.Label4.Size = New System.Drawing.Size(238, 14)
         Me.Label4.TabIndex = 17
         Me.Label4.Text = "Lista de documentos relacionados con el cobro"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -278,7 +282,7 @@ Public Class frmCapCobranza
         Me.Label6.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(8, 91)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(122, 13)
+        Me.Label6.Size = New System.Drawing.Size(121, 14)
         Me.Label6.TabIndex = 20
         Me.Label6.Text = "Tipo de movimiento:"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -289,6 +293,7 @@ Public Class frmCapCobranza
         Me.txtCliente.Name = "txtCliente"
         Me.txtCliente.Size = New System.Drawing.Size(352, 21)
         Me.txtCliente.TabIndex = 21
+        Me.txtCliente.Text = ""
         '
         'lblNombreRequerido
         '
@@ -296,7 +301,7 @@ Public Class frmCapCobranza
         Me.lblNombreRequerido.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblNombreRequerido.Location = New System.Drawing.Point(8, 115)
         Me.lblNombreRequerido.Name = "lblNombreRequerido"
-        Me.lblNombreRequerido.Size = New System.Drawing.Size(49, 13)
+        Me.lblNombreRequerido.Size = New System.Drawing.Size(48, 14)
         Me.lblNombreRequerido.TabIndex = 22
         Me.lblNombreRequerido.Text = "Cliente:"
         Me.lblNombreRequerido.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -313,11 +318,10 @@ Public Class frmCapCobranza
         '
         Me.txtObservaciones.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtObservaciones.Location = New System.Drawing.Point(136, 160)
-        Me.txtObservaciones.Multiline = True
         Me.txtObservaciones.Name = "txtObservaciones"
-        Me.txtObservaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.txtObservaciones.Size = New System.Drawing.Size(352, 64)
+        Me.txtObservaciones.Size = New System.Drawing.Size(352, 21)
         Me.txtObservaciones.TabIndex = 24
+        Me.txtObservaciones.Text = ""
         '
         'Label5
         '
@@ -325,68 +329,17 @@ Public Class frmCapCobranza
         Me.Label5.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(8, 163)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(63, 13)
+        Me.Label5.Size = New System.Drawing.Size(62, 14)
         Me.Label5.TabIndex = 25
         Me.Label5.Text = "Concepto:"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'cboTipoConcepto
-        '
-        Me.cboTipoConcepto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboTipoConcepto.FormattingEnabled = True
-        Me.cboTipoConcepto.Location = New System.Drawing.Point(136, 230)
-        Me.cboTipoConcepto.Name = "cboTipoConcepto"
-        Me.cboTipoConcepto.Size = New System.Drawing.Size(352, 21)
-        Me.cboTipoConcepto.TabIndex = 26
-        '
-        'lblTipoConcepto
-        '
-        Me.lblTipoConcepto.AutoSize = True
-        Me.lblTipoConcepto.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTipoConcepto.Location = New System.Drawing.Point(11, 233)
-        Me.lblTipoConcepto.Name = "lblTipoConcepto"
-        Me.lblTipoConcepto.Size = New System.Drawing.Size(95, 13)
-        Me.lblTipoConcepto.TabIndex = 27
-        Me.lblTipoConcepto.Text = "Ttipo Concepto:"
-        Me.lblTipoConcepto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.lblTipoConcepto.Visible = False
-        '
-        'cboEmpleado
-        '
-        Me.cboEmpleado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboEmpleado.ForeColor = System.Drawing.Color.MediumBlue
-        Me.cboEmpleado.Location = New System.Drawing.Point(136, 16)
-        Me.cboEmpleado.Name = "cboEmpleado"
-        Me.cboEmpleado.Size = New System.Drawing.Size(352, 21)
-        Me.cboEmpleado.TabIndex = 1
         '
         'frmCapCobranza
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 14)
         Me.CancelButton = Me.btnCancelar
-        Me.ClientSize = New System.Drawing.Size(744, 639)
-        Me.Controls.Add(Me.cboEmpleado)
-        Me.Controls.Add(Me.lblTipoConcepto)
-        Me.Controls.Add(Me.cboTipoConcepto)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.lblNombreRequerido)
-        Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.txtObservaciones)
-        Me.Controls.Add(Me.lblClienteNombre)
-        Me.Controls.Add(Me.txtCliente)
-        Me.Controls.Add(Me.ComboTipoMovCaja)
-        Me.Controls.Add(Me.ComboRuta)
-        Me.Controls.Add(Me.dtpFOperacion)
-        Me.Controls.Add(Me.stbEstatus)
-        Me.Controls.Add(Me.btnAgregar)
-        Me.Controls.Add(Me.btnCancelar)
-        Me.Controls.Add(Me.btnAceptar)
-        Me.Controls.Add(Me.lstPedido)
-        Me.Controls.Add(Me.lstCobro)
+        Me.ClientSize = New System.Drawing.Size(744, 525)
+        Me.Controls.AddRange(New System.Windows.Forms.Control() {Me.Label5, Me.lblNombreRequerido, Me.Label6, Me.Label4, Me.Label1, Me.Label3, Me.Label2, Me.txtObservaciones, Me.lblClienteNombre, Me.txtCliente, Me.ComboTipoMovCaja, Me.ComboRuta, Me.dtpFOperacion, Me.lblNombreEmpleado, Me.stbEstatus, Me.btnAgregar, Me.btnCancelar, Me.btnAceptar, Me.lstPedido, Me.lstCobro})
         Me.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmCapCobranza"
@@ -395,7 +348,6 @@ Public Class frmCapCobranza
         CType(Me.Documentos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ImporteTotal, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
@@ -403,67 +355,31 @@ Public Class frmCapCobranza
 
     Private Sub btnAgregar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAgregar.Click
         Consecutivo += 1
-        Dim frmSelTipoCobro As FormasPago.frmSelTipoCobro
-        Dim soloEfectivo As Boolean = False
-        Dim Movimientos As Boolean
-        Movimientos = True
-        If ComboTipoMovCaja.TipoMovimientoCaja = 43 Then
-            soloEfectivo = True
-        End If
+        'Dim frmSelTipoCobro As FormasPago.frmSelTipoCobro
         If _TipoMovimientoCaja = 15 Then
-            frmSelTipoCobro = New FormasPago.frmSelTipoCobro(Consecutivo, soloEfectivo)
-        Else
-            frmSelTipoCobro = New FormasPago.frmSelTipoCobro(Consecutivo, False)
-        End If
-        'frmSelTipoCobro.Movimiento = Movimientos
-        If frmSelTipoCobro.ShowDialog() = DialogResult.OK Then
-            Dim CobroRecuperado As SigaMetClasses.CobroDetalladoDatos
-            Dim TipoCobroOriginal As New SigaMetClasses.sCobro()
-
-            If True Then '(Not frmSelTipoCobro.Cobros Is Nothing And frmSelTipoCobro.Cobros.Count > 0) Then
-                'CobroRecuperado = frmSelTipoCobro.Cobros(0)
-                TipoCobroOriginal.Consecutivo = Consecutivo
-                TipoCobroOriginal.AnoCobro = CobroRecuperado.AñoCobro
-                Select Case CobroRecuperado.TipoCobro
-                    Case 2
-                        TipoCobroOriginal.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.Vales
-                    Case 5
-                        TipoCobroOriginal.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.Efectivo
-                    Case 6
-                        TipoCobroOriginal.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.TarjetaCredito
-                    Case 3
-                        TipoCobroOriginal.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.Cheque
-                    Case 10
-                        TipoCobroOriginal.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.Transferencia
-                    Case 30
-                        TipoCobroOriginal.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.AplicacionAnticipo
-                    Case 50
-                        TipoCobroOriginal.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.DacionEnPago
-                End Select
-
-                TipoCobroOriginal.Total = CobroRecuperado.Total
-                TipoCobroOriginal.Saldo = CobroRecuperado.Saldo
-                TipoCobroOriginal.NoCheque = CobroRecuperado.NumeroCheque
-                TipoCobroOriginal.FechaCheque = CobroRecuperado.FCheque
-                TipoCobroOriginal.NoCuenta = CobroRecuperado.NumeroCuenta
-                TipoCobroOriginal.Cliente = CobroRecuperado.Cliente
-                TipoCobroOriginal.Banco = CobroRecuperado.Banco
-                TipoCobroOriginal.Observaciones = CobroRecuperado.Observaciones
-                TipoCobroOriginal.Referencia = CobroRecuperado.Referencia
-                'TipoCobroOriginal.ListaPedidos = CobroRecuperado.Pedidos
-
+            Dim frmSelTipoCobro As New FormasPago.frmSelTipoCobro(Consecutivo)
+            frmSelTipoCobro.CadenaConexion = Main.ConString
+            If frmSelTipoCobro.ShowDialog() = DialogResult.OK Then
+                ListaCobros.Add(frmSelTipoCobro.Cobro)
+                lstCobro.Items.Add(frmSelTipoCobro.Cobro)
+                decImporteTotalCobros += frmSelTipoCobro.ImporteTotalCobro
+                stbEstatus.Panels(0).Text = lstCobro.Items.Count.ToString & " cobro(s)"
+                stbEstatus.Panels(1).Text = decImporteTotalCobros.ToString("C")
             Else
-
+                Consecutivo -= 1
             End If
-
-
-            ListaCobros.Add(TipoCobroOriginal)
-            lstCobro.Items.Add(TipoCobroOriginal)
-            decImporteTotalCobros += frmSelTipoCobro.ImporteTotalCobro
-            stbEstatus.Panels(0).Text = lstCobro.Items.Count.ToString & " cobro(s)"
-            stbEstatus.Panels(1).Text = decImporteTotalCobros.ToString("C")
         Else
-            Consecutivo -= 1
+            Dim frmSelTipoCobroPortatil As New FormasPago.frmSelTipoCobroPortatil(Consecutivo, False)
+            'frmSelTipoCobroPortatil.CadenaConexion = Main.ConString
+            If frmSelTipoCobroPortatil.ShowDialog() = DialogResult.OK Then
+                ListaCobros.Add(frmSelTipoCobroPortatil.Cobro)
+                lstCobro.Items.Add(frmSelTipoCobroPortatil.Cobro)
+                decImporteTotalCobros += frmSelTipoCobroPortatil.ImporteTotalCobro
+                stbEstatus.Panels(0).Text = lstCobro.Items.Count.ToString & " cobro(s)"
+                stbEstatus.Panels(1).Text = decImporteTotalCobros.ToString("C")
+            Else
+                Consecutivo -= 1
+            End If
         End If
 
     End Sub
@@ -492,20 +408,10 @@ Public Class frmCapCobranza
             Cursor = Cursors.Default
         End Try
 
-        'lblNombreEmpleado.Text = GLOBAL_EmpleadoNombre
-        cboEmpleado.CargaDatos()
+        lblNombreEmpleado.Text = GLOBAL_EmpleadoNombre
         lstCobro.DisplayMember = "InformacionCompleta"
         lstPedido.DisplayMember = "InformacionCompleta"
-        HabiltaComboTipoConcepto()
-
-        Dim m_metodos As New MetodoDatos
-        Me.cboTipoConcepto.DataSource = m_metodos.CargaTipoConcepto()
-        Me.cboTipoConcepto.DisplayMember = "Descripcion"
-        Me.cboTipoConcepto.ValueMember = "TipoConcepto"
-
-
     End Sub
-
 
     Private Sub lstCobro_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lstCobro.SelectedIndexChanged
         Dim s As SigaMetClasses.sPedido
@@ -520,20 +426,19 @@ Public Class frmCapCobranza
     Private Sub lstPedido_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lstPedido.SelectedIndexChanged
         If lstPedido.SelectedIndex <> -1 Then
             Dim strTip As String
-            strTip = "Documento: " & CType(lstPedido.Items(lstPedido.SelectedIndex), SigaMetClasses.sPedido).PedidoReferencia & Chr(13) &
-                     "Cliente: " & CType(lstPedido.Items(lstPedido.SelectedIndex), SigaMetClasses.sPedido).Cliente.ToString & Chr(13) &
-                     "Nombre: " & CType(lstPedido.Items(lstPedido.SelectedIndex), SigaMetClasses.sPedido).Nombre & Chr(13) &
-                     "Importe del documento: " & CType(lstPedido.Items(lstPedido.SelectedIndex), SigaMetClasses.sPedido).Importe.ToString("N") & Chr(13) &
+            strTip = "Documento: " & CType(lstPedido.Items(lstPedido.SelectedIndex), SigaMetClasses.sPedido).PedidoReferencia & Chr(13) & _
+                     "Cliente: " & CType(lstPedido.Items(lstPedido.SelectedIndex), SigaMetClasses.sPedido).Cliente.ToString & Chr(13) & _
+                     "Nombre: " & CType(lstPedido.Items(lstPedido.SelectedIndex), SigaMetClasses.sPedido).Nombre & Chr(13) & _
+                     "Importe del documento: " & CType(lstPedido.Items(lstPedido.SelectedIndex), SigaMetClasses.sPedido).Importe.ToString("N") & Chr(13) & _
                      "Importe del abono: " & CType(lstPedido.Items(lstPedido.SelectedIndex), SigaMetClasses.sPedido).ImporteAbono.ToString("N")
             ttDatosPedido.SetToolTip(lstPedido, strTip)
         End If
     End Sub
 
     Private Sub btnAceptar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAceptar.Click
-        ' RM 19_07_2018, Se comenta validación, la captura del cliente debe ser opcional
-        'If Not ValidacionInformacionComplementariaCierre() Then
-        '    Exit Sub
-        'End If
+        If Not ValidacionInformacionComplementariaCierre() Then
+            Exit Sub
+        End If
 
         If ComboTipoMovCaja.TipoMovimientoCaja <= 0 Then
             MessageBox.Show("Debe seleccionar el tipo de movimiento de esta captura.", Titulo, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -564,12 +469,11 @@ Public Class frmCapCobranza
                 End If
 
                 'Captura de notas de ingreso que piden código de empleado
-                'Dim _idEmpleado As Integer = GLOBAL_IDEmpleado
-                Dim _idEmpleado As Integer = cboEmpleado.SelectedIndex
+                Dim _idEmpleado As Integer = GLOBAL_IDEmpleado
                 'Verificar que se haya generado el objeto de validación
                 'Verificar que el campo de validación sea EMPLEADO
-                If Not _cEfectuarValidacion Is Nothing AndAlso
-                    _cEfectuarValidacion.ValorParaValidacion.Trim().ToUpper() = "EMPLEADO" AndAlso
+                If Not _cEfectuarValidacion Is Nothing AndAlso _
+                    _cEfectuarValidacion.ValorParaValidacion.Trim().ToUpper() = "EMPLEADO" AndAlso _
                     _cEfectuarValidacion.Requerido Then
                     'Si el valor de validación es requerido y el campo a validar es la columna empleado
                     'El valor se guardará en la columna empleado de la tabla MovimientoCaja
@@ -579,26 +483,19 @@ Public Class frmCapCobranza
                     _Cliente = 0
                 End If
 
-                decImporteTotalCobros = 0
-                If ListaCobros IsNot Nothing AndAlso ListaCobros.Count > 0 Then
-                    For index As Integer = 0 To ListaCobros.Count - 1
-                        decImporteTotalCobros += CType(ListaCobros.Item(index), SigaMetClasses.sCobro).Total
-                    Next index
-                End If
-
-                Dim i As Integer = oMov.Alta(Main.GLOBAL_CajaUsuario,
-                                FechaOperacion,
-                                ConsecutivoInicioDeSesion,
-                                _FMovimiento,
-                                decImporteTotalCobros,
-                                GLOBAL_IDUsuario,
-                                _idEmpleado,
-                                CType(ComboTipoMovCaja.TipoMovimientoCaja, Byte),
-                                ComboRuta.Ruta,
-                                _Cliente,
-                                ListaCobros,
-                                Main.GLOBAL_IDUsuario,
-                                Trim(txtObservaciones.Text),
+                Dim i As Integer = oMov.Alta(Main.GLOBAL_CajaUsuario, _
+                                FechaOperacion, _
+                                ConsecutivoInicioDeSesion, _
+                                _FMovimiento, _
+                                decImporteTotalCobros, _
+                                GLOBAL_IDUsuario, _
+                                _idEmpleado, _
+                                CType(ComboTipoMovCaja.TipoMovimientoCaja, Byte), _
+                                ComboRuta.Ruta, _
+                                _Cliente, _
+                                ListaCobros, _
+                                Main.GLOBAL_IDUsuario, _
+                                Trim(txtObservaciones.Text), _
                                 strNuevaClave)
 
                 MessageBox.Show(M_DATOS_OK, Titulo, MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -652,7 +549,7 @@ Public Class frmCapCobranza
 
     Private Sub ValidacionInformacionComplementaria()
         _cEfectuarValidacion = Nothing
-        Dim cValidacion As SigaMetClasses.ValidacionCapturaMovimientoCaja.CMovimientoValidacion =
+        Dim cValidacion As SigaMetClasses.ValidacionCapturaMovimientoCaja.CMovimientoValidacion = _
             _validacionComplementaria.ConsultaValidacion(ComboTipoMovCaja.TipoMovimientoCaja)
 
         If Not cValidacion Is Nothing Then
@@ -667,15 +564,15 @@ Public Class frmCapCobranza
         End If
         If Not _cEfectuarValidacion Is Nothing Then
             If txtCliente.Text.Length > 0 Then
-                If _cEfectuarValidacion.ValidacionCaptura AndAlso
+                If _cEfectuarValidacion.ValidacionCaptura AndAlso _
                 Not _cEfectuarValidacion.EfectuarValidacion(Convert.ToInt32(txtCliente.Text)) Then
-                    MessageBox.Show("Debe proporcionar una clave de " & _cEfectuarValidacion.ValorParaValidacion & " válida.", Me.Name,
+                    MessageBox.Show("Debe proporcionar una clave de " & _cEfectuarValidacion.ValorParaValidacion & " válida.", Me.Name, _
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     Return False
                 End If
             Else
                 If _cEfectuarValidacion.Requerido Then
-                    MessageBox.Show("Debe capturar la clave de " & _cEfectuarValidacion.ValorParaValidacion & ".", Me.Name,
+                    MessageBox.Show("Debe capturar la clave de " & _cEfectuarValidacion.ValorParaValidacion & ".", Me.Name, _
                     MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                     Return False
                 End If
@@ -685,28 +582,14 @@ Public Class frmCapCobranza
     End Function
 
     Private Sub ValidarInformacionCaptura()
-        Dim oConfig As SigaMetClasses.cConfig = New SigaMetClasses.cConfig(16, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario)
-        Dim URLGateway As String = Main.GLOBAL_URLGATEWAY
-        oConfig.Dispose()
-
         If _cEfectuarValidacion Is Nothing Then
             ValidacionInformacionComplementaria()
         End If
-
         If Not _cEfectuarValidacion Is Nothing Then
-
-            If String.IsNullOrEmpty(URLGateway) Then
-                If _cEfectuarValidacion.ValidacionCaptura AndAlso _cEfectuarValidacion.EfectuarValidacion(Convert.ToInt32(txtCliente.Text)) Then
-                    lblClienteNombre.Text = _cEfectuarValidacion.DescripcionValorValidacion
-                    Return
-                End If
-            Else
-                _cEfectuarValidacion.Modulo = 3
-                _cEfectuarValidacion.CadenaConexion = Main.ConString
-                If _cEfectuarValidacion.ValidacionCaptura AndAlso _cEfectuarValidacion.EfectuarValidacion(Convert.ToInt32(txtCliente.Text), URLGateway) Then
-                    lblClienteNombre.Text = _cEfectuarValidacion.DescripcionValorValidacion
-                    Return
-                End If
+            If _cEfectuarValidacion.ValidacionCaptura AndAlso _
+                _cEfectuarValidacion.EfectuarValidacion(Convert.ToInt32(txtCliente.Text)) Then
+                lblClienteNombre.Text = _cEfectuarValidacion.DescripcionValorValidacion
+                Return
             End If
         End If
     End Sub
@@ -714,25 +597,8 @@ Public Class frmCapCobranza
     Private Sub ComboTipoMovCaja_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboTipoMovCaja.SelectedIndexChanged
         If ComboTipoMovCaja.TipoMovimientoCaja <> 0 Then
             ValidacionInformacionComplementaria()
-            HabiltaComboTipoConcepto()
         End If
     End Sub
-    Private Sub HabiltaComboTipoConcepto()
-        If Me.ComboTipoMovCaja.TipoMovimientoCaja = 43 Then
-            Me.cboTipoConcepto.Visible = True
-            If Me.cboTipoConcepto.Items.Count = 0 Then
-                MessageBox.Show("No existe tipo de cocepto, registre en el catalogo un tipo de concepto", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            End If
-        Else
-            Me.cboTipoConcepto.Visible = False
-        End If
-        lblTipoConcepto.Visible = Me.cboTipoConcepto.Visible
-    End Sub
-
-    Private Sub txtCliente_MouseCaptureChanged(sender As Object, e As EventArgs) Handles txtCliente.MouseCaptureChanged
-
-    End Sub
-
 End Class
 
 #Region "Estructuras"
