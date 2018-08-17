@@ -159,9 +159,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\FormasPago\FormasPago\FormasPago\bin\Debug\FormasPago.dll</HintPath>
     </Reference>
-    <Reference Include="LiquidacionPortatil, Version=1.1.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\SigametLibrerias\LiquidacionPortatil\bin\LiquidacionPortatil.dll</HintPath>
+    <Reference Include="LiquidacionPortatil">
+      <HintPath>..\..\..\Librerias\LiquidacionPortatil\bin\LiquidacionPortatil.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic">
       <Name>Microsoft.VisualBasic</Name>
