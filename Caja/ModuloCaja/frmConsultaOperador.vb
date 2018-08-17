@@ -289,6 +289,7 @@ Public Class frmConsultaOperador
             Cursor = Cursors.WaitCursor
             ClienteCapturaCobranza = _Cliente
             Dim frmCapCob As New frmCapCobranza(frmCapCobranza.enumTipoCaptura.Eficiencia, 15)
+            frmCapCob.ClienteEficienciasNegativas = _Cliente
             frmCapCob.ShowDialog()
             Cursor = Cursors.Default
         End If

@@ -167,8 +167,8 @@ Public Class frmSelTipoCobroPortatil
 		End Set
 	End Property
 
-	Private _ListaDebitoAnticipos As New List(Of DebitoAnticipo)
-	Public Property DebitoAnticipos() As List(Of DebitoAnticipo)
+    Private _ListaDebitoAnticipos As New List(Of DebitoAnticipo)
+    Public Property DebitoAnticipos() As List(Of DebitoAnticipo)
 		Get
 			Return _ListaDebitoAnticipos
 		End Get
@@ -216,16 +216,26 @@ Public Class frmSelTipoCobroPortatil
 		End Set
 	End Property
 
-	Public ReadOnly Property ImporteTotalCobro As Decimal
-		Get
-			Return _ImporteTotalCobro
-		End Get
-		'Set(value As Decimal)
-		'    _ImporteTotalCobro = value
-		'End Set
-	End Property
+    Public ReadOnly Property ImporteTotalCobro As Decimal
+        Get
+            Return _ImporteTotalCobro
+        End Get
+        'Set(value As Decimal)
+        '    _ImporteTotalCobro = value
+        'End Set
+    End Property
 
-	Public Sub New(ByVal intConsecutivo As Integer,
+    Private _CadenaConexion As String
+    Public Property CadenaConexion() As String
+        Get
+            Return _CadenaConexion
+        End Get
+        Set(ByVal value As String)
+            _CadenaConexion = value
+        End Set
+    End Property
+
+    Public Sub New(ByVal intConsecutivo As Integer,
 		  Optional ByVal CapturaDetalle As Boolean = True, Optional ByVal DetalleCobro As Integer = 0,
 	 Optional ByVal Folio As Integer = 0, Optional ByVal aSoloEfectivo As Boolean = False)
 
@@ -2071,19 +2081,28 @@ Public Class frmSelTipoCobroPortatil
             Dim frmCaptura As New frmCapCobranzaDoc()
             frmCaptura.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.TarjetaCredito
 			frmCaptura.ImporteCobro = CType(Txt_totalEfectivo.Text, Decimal)
-
-
-
-			Total = CDec(Txt_totalEfectivo.Text)
+            Total = CDec(Txt_totalEfectivo.Text)
             Pago = TotalCobros + 1
             TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.EfectivoVales
             Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaPagoEfectivo(Pago)
 
 			_AceptaSaldo = False
-			If _Movimiento = True Then
-                '_Cobro = cobro
+            If _Movimiento = True Then
                 _listaCobros.Clear()
                 _listaCobros.Add(cobro)
+                Dim objCapturaDocs As New frmCapCobranzaDoc()
+                objCapturaDocs.CadenaConexion = _CadenaConexion
+                objCapturaDocs.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.EfectivoVales
+                objCapturaDocs.ImporteCobro = CType(Txt_totalEfectivo.Text, Decimal)
+                If objCapturaDocs.ShowDialog = DialogResult.OK Then
+                    With cobro
+                        .AñoCobro = CType(Year(Today), Short)
+                        .TipoCobro = 5
+                        .Total = CType(Txt_totalEfectivo.Text, Decimal)
+                        .Importe = CType(Txt_totalEfectivo.Text, Decimal)
+                        '.ListaPedidos = frmCaptura.ListaCobroPedido
+                    End With
+                End If
             Else
                 Remisiones(cobro, _AceptaSaldo, TipoCobro)
             End If

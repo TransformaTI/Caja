@@ -42,6 +42,26 @@ Public Class frmCapCobranzaDoc
         End Get
     End Property
 
+    Private _CadenaConexion As String
+    Public Property CadenaConexion() As String
+        Get
+            Return _CadenaConexion
+        End Get
+        Set(ByVal value As String)
+            _CadenaConexion = value
+            ConString = value
+        End Set
+    End Property
+
+    Public Property ClienteEficienciasNegativas() As Integer
+        Get
+            Return _Cliente
+        End Get
+        Set(ByVal value As Integer)
+            _Cliente = value
+        End Set
+    End Property
+
 #End Region
 
 #Region " Windows Form Designer generated code "
@@ -583,6 +603,7 @@ Public Class frmCapCobranzaDoc
 
     Private Sub txtPedidoReferencia_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtPedidoReferencia.KeyDown
         If e.KeyCode = Keys.Enter Then
+            _Cliente = CType(txtCliente.Text.Trim(), Integer)
             Dim i As Integer = BuscaPedido(UCase(Trim(txtPedidoReferencia.Text)))
             If i = -1 Then
                 If ConsultaPedido(UCase(Trim(txtPedidoReferencia.Text))) = True Then
@@ -612,9 +633,11 @@ Public Class frmCapCobranzaDoc
         lblImportePorAplicar.Text = ImporteRestante.ToString("C")
 
         '27 de diciembre del 2002
-        _Cliente = ClienteCapturaCobranza
+        If _Cliente = 0 Then
+            _Cliente = ClienteCapturaCobranza
+        End If
         txtCliente.Text = _Cliente.ToString
-        txtCliente.Enabled = False
+        'txtCliente.Enabled = False
 
     End Sub
 
@@ -640,6 +663,9 @@ Public Class frmCapCobranzaDoc
                             If CDec(txtImporteAbono.Text) <= objPedido.Importe Then
                                 If CDec(txtImporteAbono.Text) <= ImporteCobro Then
                                     objPedido.ImporteAbono = CType(txtImporteAbono.Text, Decimal)
+                                    If Not IsNothing(txtPedidoReferencia.Text) Then
+                                        objPedido.PedidoReferencia = txtPedidoReferencia.Text
+                                    End If
                                     AgregaPedido()
                                     LimpiaCaptura()
                                 Else
