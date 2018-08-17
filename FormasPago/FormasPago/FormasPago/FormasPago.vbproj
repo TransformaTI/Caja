@@ -57,7 +57,8 @@
     <Reference Include="RTGMGateway">
       <HintPath>..\..\..\..\Gateway\RTGMGateway\bin\Debug\RTGMGateway.dll</HintPath>
     </Reference>
-    <Reference Include="SigaMetClasses">
+    <Reference Include="SigaMetClasses, Version=2.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Librerias\SigaMetClasses\bin\SigaMetClasses.dll</HintPath>
     </Reference>
     <Reference Include="SIGAMETSecurity">
