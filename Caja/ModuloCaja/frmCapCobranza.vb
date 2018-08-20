@@ -355,9 +355,9 @@ Public Class frmCapCobranza
         Me.lblTipoConcepto.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTipoConcepto.Location = New System.Drawing.Point(11, 233)
         Me.lblTipoConcepto.Name = "lblTipoConcepto"
-        Me.lblTipoConcepto.Size = New System.Drawing.Size(95, 13)
+        Me.lblTipoConcepto.Size = New System.Drawing.Size(90, 13)
         Me.lblTipoConcepto.TabIndex = 27
-        Me.lblTipoConcepto.Text = "Ttipo Concepto:"
+        Me.lblTipoConcepto.Text = "Tipo Concepto:"
         Me.lblTipoConcepto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.lblTipoConcepto.Visible = False
         '
