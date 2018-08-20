@@ -371,12 +371,14 @@ Public Class frmCapCobranza
             Dim frmSelTipoCobro As New FormasPago.frmSelTipoCobro(Consecutivo)
             frmSelTipoCobro.CadenaConexion = Main.ConString
             frmSelTipoCobro.ClienteEficienciasnegativas = Me.ClienteEficienciasNegativas
+            frmSelTipoCobro.CapturaEfectivoVales = Main.CapturaEfectivoVales
             If frmSelTipoCobro.ShowDialog() = DialogResult.OK Then
                 ListaCobros.Add(frmSelTipoCobro.Cobro)
                 lstCobro.Items.Add(frmSelTipoCobro.Cobro)
                 decImporteTotalCobros += frmSelTipoCobro.ImporteTotalCobro
                 stbEstatus.Panels(0).Text = lstCobro.Items.Count.ToString & " cobro(s)"
                 stbEstatus.Panels(1).Text = decImporteTotalCobros.ToString("C")
+                Main.CapturaEfectivoVales = frmSelTipoCobro.CapturaEfectivoVales
             Else
                 Consecutivo -= 1
             End If
@@ -565,8 +567,8 @@ Public Class frmCapCobranza
                 End If
 
 
-                CapturaEfectivoVales = False
-                CapturaMixtaEfectivoVales = False
+                Main.CapturaEfectivoVales = False
+                Main.CapturaMixtaEfectivoVales = False
                 Me.Close()
             Catch ex As Exception
                 MessageBox.Show(ex.ToString, Titulo, MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -578,12 +580,15 @@ Public Class frmCapCobranza
 
     Private Sub btnCancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancelar.Click
         Me.Close()
+        Main.CapturaEfectivoVales = False
+        Main.CapturaMixtaEfectivoVales = False
+        Main.ClienteCapturaCobranza = 0
     End Sub
 
     Private Sub frmCapCobranza_Closed(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Closed
-        CapturaEfectivoVales = False
-        CapturaMixtaEfectivoVales = False
-        ClienteCapturaCobranza = 0
+        Main.CapturaEfectivoVales = False
+        Main.CapturaMixtaEfectivoVales = False
+        Main.ClienteCapturaCobranza = 0
     End Sub
 
     Private Sub txtCliente_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtCliente.Leave

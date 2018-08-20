@@ -86,7 +86,7 @@ Public Module Main
 
     Public CapturaMixtaEfectivoVales As Boolean = False 'Indica si el cobro que se está capturando es mixto.
     '(Efectivo y vales en el mismo cobro).  Se usa en la captura de cobranza.
-    Public CapturaEfectivoVales As Boolean = False 'Indica si ya se capturo un cobro con efectivo o con vales.
+    Public CapturaEfectivoVales As Boolean = False 'Indica si ya se capturó un cobro con efectivo o con vales.
     'Se usa en la captura de cobranza.
     Public Event IniciandoSesion()
 

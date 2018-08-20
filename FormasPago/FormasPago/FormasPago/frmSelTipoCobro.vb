@@ -31,14 +31,25 @@ Public Class frmSelTipoCobro
         End Set
     End Property
 
+    Public Property CapturaEfectivoVales() As Boolean
+        Get
+            Return Main.CapturaEfectivoVales
+        End Get
+        Set(ByVal value As Boolean)
+            Main.CapturaEfectivoVales = value
+        End Set
+    End Property
+
     Public Sub New(ByVal intConsecutivo As Integer, _
           Optional ByVal CapturaDetalle As Boolean = True)
 
         MyBase.New()
         InitializeComponent()
         Consecutivo = intConsecutivo
-        If CapturaEfectivoVales = True Then
+        If Main.CapturaEfectivoVales = True Then
             btnAceptarEfectivoVales.Enabled = False
+        Else
+            btnAceptarEfectivoVales.Enabled = True
         End If
         If CapturaMixtaEfectivoVales = True Then
             'btnAceptarEfectivo.Enabled = False
@@ -669,7 +680,7 @@ Public Class frmSelTipoCobro
 
     'EFECTIVO Y / O VALES
     Private Sub btnAceptarEfectivoVales_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAceptarEfectivoVales.Click
-        If CapturaEfectivoVales = False Then
+        If Main.CapturaEfectivoVales = False Then
             If txtTotalEfectivoVales.Text <> "" And IsNumeric(txtTotalEfectivoVales.Text) Then
                 If _CapturaDetalle = True Then
                     Dim frmCaptura As New FormasPago.frmCapCobranzaDoc()
@@ -854,9 +865,11 @@ Public Class frmSelTipoCobro
     Private Sub frmSelTipoCobro_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
         ComboBanco.CargaDatos(True)
 
-        If CapturaEfectivoVales = True Then
+        If Main.CapturaEfectivoVales = True Then
             btnAceptarEfectivoVales.Enabled = False
             tabTipoCobro.SelectedTab = tbChequeFicha
+        Else
+            btnAceptarEfectivoVales.Enabled = True
         End If
         AddHandler txtImporteTC.KeyDown, AddressOf ManejaFlechas
     End Sub
