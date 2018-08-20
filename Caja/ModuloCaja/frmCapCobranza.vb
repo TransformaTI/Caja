@@ -386,6 +386,7 @@ Public Class frmCapCobranza
             Dim frmSelTipoCobroPortatil As New FormasPago.frmSelTipoCobroPortatil(Consecutivo, False)
             frmSelTipoCobroPortatil.CadenaConexion = Main.ConString
             frmSelTipoCobroPortatil.Movimiento = True
+            frmSelTipoCobroPortatil.TipoCaptura = _TipoCaptura
             If frmSelTipoCobroPortatil.ShowDialog() = DialogResult.OK Then
                 Dim ListaCobrosDetalle As List(Of SigaMetClasses.CobroDetalladoDatos) = frmSelTipoCobroPortatil.Cobros
                 Dim CobroSimple As SigaMetClasses.sCobro = New SigaMetClasses.sCobro()

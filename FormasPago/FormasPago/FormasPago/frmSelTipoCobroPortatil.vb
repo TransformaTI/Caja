@@ -235,6 +235,16 @@ Public Class frmSelTipoCobroPortatil
         End Set
     End Property
 
+    Private _TipoCaptura As Int32
+    Public Property TipoCaptura() As Int32
+        Get
+            Return _TipoCaptura
+        End Get
+        Set(ByVal value As Int32)
+            _TipoCaptura = value
+        End Set
+    End Property
+
     Public Sub New(ByVal intConsecutivo As Integer,
 		  Optional ByVal CapturaDetalle As Boolean = True, Optional ByVal DetalleCobro As Integer = 0,
 	 Optional ByVal Folio As Integer = 0, Optional ByVal aSoloEfectivo As Boolean = False)
@@ -2087,7 +2097,7 @@ Public Class frmSelTipoCobroPortatil
             Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaPagoEfectivo(Pago)
 
 			_AceptaSaldo = False
-            If _Movimiento = True Then
+            If _Movimiento = True And _TipoCaptura <> 2 Then
                 _listaCobros.Clear()
                 _listaCobros.Add(cobro)
                 Dim objCapturaDocs As New frmCapCobranzaDoc()
@@ -2104,7 +2114,11 @@ Public Class frmSelTipoCobroPortatil
                     End With
                 End If
             Else
-                Remisiones(cobro, _AceptaSaldo, TipoCobro)
+                _listaCobros.Clear()
+                _listaCobros.Add(cobro)
+                If Not _Movimiento Then
+                    Remisiones(cobro, _AceptaSaldo, TipoCobro)
+                End If
             End If
             _ImporteTotalCobro = Total
             Total = 0
