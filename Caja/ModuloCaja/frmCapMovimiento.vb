@@ -41,7 +41,7 @@ Public Class frmCapMovimiento
     Friend WithEvents grpCobroDocumentos As System.Windows.Forms.GroupBox
     Friend WithEvents lblPorCobrarEfectivo As System.Windows.Forms.Label
     Friend WithEvents lblPorCobrarVales As System.Windows.Forms.Label
-	Friend WithEvents lblTotalVales As System.Windows.Forms.Label
+	Friend WithEvents lblTotalCheques As System.Windows.Forms.Label
 	Friend WithEvents lblTipoOperacion As System.Windows.Forms.Label
 	Friend WithEvents lblImporteCobranza2 As ControlesBase.LabelBase
 	Friend WithEvents Panel1 As System.Windows.Forms.Panel
@@ -253,7 +253,7 @@ Public Class frmCapMovimiento
 		Me.lblImporteTotalCobro = New System.Windows.Forms.Label()
 		Me.lblImporteTotalCobros = New ControlesBase.LabelBase()
 		Me.lblTotalEfectivo = New System.Windows.Forms.Label()
-		Me.lblTotalVales = New System.Windows.Forms.Label()
+		Me.lblTotalCheques = New System.Windows.Forms.Label()
 		Me.LabelBase5 = New ControlesBase.LabelBase()
 		Me.LabelBase4 = New ControlesBase.LabelBase()
 		Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
@@ -1062,7 +1062,7 @@ Public Class frmCapMovimiento
 		Me.grpCobroDocumentos.Controls.Add(Me.grpCobroEfectivo)
 		Me.grpCobroDocumentos.Controls.Add(Me.Panel1)
 		Me.grpCobroDocumentos.Controls.Add(Me.lblTotalEfectivo)
-		Me.grpCobroDocumentos.Controls.Add(Me.lblTotalVales)
+		Me.grpCobroDocumentos.Controls.Add(Me.lblTotalCheques)
 		Me.grpCobroDocumentos.Controls.Add(Me.LabelBase5)
 		Me.grpCobroDocumentos.Controls.Add(Me.LabelBase4)
 		Me.grpCobroDocumentos.Controls.Add(Me.LinkLabel1)
@@ -1456,16 +1456,16 @@ Public Class frmCapMovimiento
 		Me.lblTotalEfectivo.TabIndex = 47
 		Me.lblTotalEfectivo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
 		'
-		'lblTotalVales
+		'lblTotalCheques
 		'
-		Me.lblTotalVales.BackColor = System.Drawing.Color.Gainsboro
-		Me.lblTotalVales.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-		Me.lblTotalVales.ForeColor = System.Drawing.SystemColors.ControlText
-		Me.lblTotalVales.Location = New System.Drawing.Point(64, 536)
-		Me.lblTotalVales.Name = "lblTotalVales"
-		Me.lblTotalVales.Size = New System.Drawing.Size(80, 16)
-		Me.lblTotalVales.TabIndex = 42
-		Me.lblTotalVales.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		Me.lblTotalCheques.BackColor = System.Drawing.Color.Gainsboro
+		Me.lblTotalCheques.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+		Me.lblTotalCheques.ForeColor = System.Drawing.SystemColors.ControlText
+		Me.lblTotalCheques.Location = New System.Drawing.Point(64, 536)
+		Me.lblTotalCheques.Name = "lblTotalCheques"
+		Me.lblTotalCheques.Size = New System.Drawing.Size(80, 16)
+		Me.lblTotalCheques.TabIndex = 42
+		Me.lblTotalCheques.TextAlign = System.Drawing.ContentAlignment.MiddleRight
 		'
 		'LabelBase5
 		'
@@ -2596,7 +2596,7 @@ Public Class frmCapMovimiento
 	Private Sub AsignaValores()
 		lblPorCobrarEfectivo.Text = PorCobrarEfectivo.ToString("N")
 		lblPorCobrarVales.Text = PorCobrarVales.ToString("N")
-		lblTotalVales.Text = PorCobrarCheques.ToString("N")
+		lblTotalCheques.Text = (PorCobrarCheques - AFavorCheques).ToString("N")
 		'
 		lblAFavorOperadorCheques.Text = AFavorOperadorCheques.ToString("N")
 		lblTotalEfectivo.Text = PorCobrarEfectivoVales.ToString("N")
@@ -2608,9 +2608,6 @@ Public Class frmCapMovimiento
 		lblTotalVale.Text = (PorCobrarVales - AFavorVales).ToString("N")
 
 		lblImporteEficiencia.Text = ImporteEficiencia.ToString("C")
-
-
-
 
 		'Para saldo a favor
 		If GLOBAL_SaldoAFavor Then 'si aplica el saldo a favor no se resta del importe a pagar
