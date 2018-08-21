@@ -39,3 +39,7 @@ Caja/ModuloCaja/Updater/SIGAMETUpdater.exe.config
 Caja/ModuloCaja/ModuloCaja.vbproj.orig
 Caja/ModuloCaja/CAJA.rar
 .gitattributes
+Caja/ModuloCaja/bin/RTGMGateway.dll.config
+Caja/ModuloCaja/bin/FormasPago.xml
+Caja/ModuloCaja/bin/LiquidacionPortatil.xml
+Caja/ModuloCaja/bin/nunit.framework.xml
