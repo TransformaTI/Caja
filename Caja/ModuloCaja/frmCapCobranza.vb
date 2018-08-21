@@ -402,6 +402,8 @@ Public Class frmCapCobranza
                             CobroSimple.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.Cheque
                         Case 10
                             CobroSimple.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.Transferencia
+                        Case 16
+                            CobroSimple.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.Vales
                         Case 21
                             CobroSimple.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.AplicacionAnticipo
                         Case 7
