@@ -9,8 +9,10 @@ Public Class frmCapCobranza
     Private _FMovimiento As Date
     Private _TipoCaptura As enumTipoCaptura
     Private _TipoMovimientoCaja As Short
-    Friend WithEvents cboTipoConcepto As New ComboBox
-    Friend WithEvents lblTipoConcepto As New Label
+    'Friend WithEvents cboTipoConcepto As ComboBox
+
+    Friend WithEvents lblTipoConcepto As Label
+    Friend WithEvents cboTipoConcepto As ComboBox
 
     Public Enum enumTipoCaptura
         Cobranza = 1
@@ -95,6 +97,8 @@ Public Class frmCapCobranza
     Friend WithEvents txtObservaciones As System.Windows.Forms.TextBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents lblNombreRequerido As System.Windows.Forms.Label
+
+
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCapCobranza))
@@ -121,6 +125,8 @@ Public Class frmCapCobranza
         Me.lblClienteNombre = New System.Windows.Forms.Label()
         Me.txtObservaciones = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.cboTipoConcepto = New System.Windows.Forms.ComboBox()
+        Me.lblTipoConcepto = New System.Windows.Forms.Label()
         CType(Me.Documentos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ImporteTotal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -132,7 +138,7 @@ Public Class frmCapCobranza
         Me.lstCobro.BackColor = System.Drawing.Color.LightGoldenrodYellow
         Me.lstCobro.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstCobro.ItemHeight = 14
-        Me.lstCobro.Location = New System.Drawing.Point(8, 216)
+        Me.lstCobro.Location = New System.Drawing.Point(8, 245)
         Me.lstCobro.Name = "lstCobro"
         Me.lstCobro.Size = New System.Drawing.Size(728, 60)
         Me.lstCobro.TabIndex = 0
@@ -144,9 +150,9 @@ Public Class frmCapCobranza
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lstPedido.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstPedido.ItemHeight = 14
-        Me.lstPedido.Location = New System.Drawing.Point(8, 296)
+        Me.lstPedido.Location = New System.Drawing.Point(8, 324)
         Me.lstPedido.Name = "lstPedido"
-        Me.lstPedido.Size = New System.Drawing.Size(728, 200)
+        Me.lstPedido.Size = New System.Drawing.Size(728, 172)
         Me.lstPedido.TabIndex = 1
         '
         'btnCancelar
@@ -178,7 +184,7 @@ Public Class frmCapCobranza
         '
         Me.btnAgregar.Image = CType(resources.GetObject("btnAgregar.Image"), System.Drawing.Image)
         Me.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAgregar.Location = New System.Drawing.Point(8, 184)
+        Me.btnAgregar.Location = New System.Drawing.Point(8, 215)
         Me.btnAgregar.Name = "btnAgregar"
         Me.btnAgregar.Size = New System.Drawing.Size(112, 24)
         Me.btnAgregar.TabIndex = 0
@@ -276,7 +282,7 @@ Public Class frmCapCobranza
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(8, 280)
+        Me.Label4.Location = New System.Drawing.Point(8, 308)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(229, 13)
         Me.Label4.TabIndex = 17
@@ -347,6 +353,28 @@ Public Class frmCapCobranza
         Me.Label5.Text = "Concepto:"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
+        'cboTipoConcepto
+        '
+        Me.cboTipoConcepto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboTipoConcepto.FormattingEnabled = True
+        Me.cboTipoConcepto.Location = New System.Drawing.Point(136, 184)
+        Me.cboTipoConcepto.Name = "cboTipoConcepto"
+        Me.cboTipoConcepto.Size = New System.Drawing.Size(352, 21)
+        Me.cboTipoConcepto.TabIndex = 28
+        Me.cboTipoConcepto.Visible = False
+        '
+        'lblTipoConcepto
+        '
+        Me.lblTipoConcepto.AutoSize = True
+        Me.lblTipoConcepto.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTipoConcepto.Location = New System.Drawing.Point(8, 187)
+        Me.lblTipoConcepto.Name = "lblTipoConcepto"
+        Me.lblTipoConcepto.Size = New System.Drawing.Size(89, 13)
+        Me.lblTipoConcepto.TabIndex = 27
+        Me.lblTipoConcepto.Text = "Tipo concepto:"
+        Me.lblTipoConcepto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.lblTipoConcepto.Visible = False
+        '
         'frmCapCobranza
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 14)
@@ -372,8 +400,8 @@ Public Class frmCapCobranza
         Me.Controls.Add(Me.btnAceptar)
         Me.Controls.Add(Me.lstPedido)
         Me.Controls.Add(Me.lstCobro)
-        Me.Controls.Add(Me.cboTipoConcepto)
         Me.Controls.Add(Me.lblTipoConcepto)
+        Me.Controls.Add(Me.cboTipoConcepto)
         Me.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmCapCobranza"
@@ -488,6 +516,25 @@ Public Class frmCapCobranza
         lblNombreEmpleado.Text = GLOBAL_EmpleadoNombre
         lstCobro.DisplayMember = "InformacionCompleta"
         lstPedido.DisplayMember = "InformacionCompleta"
+
+        HabiltaComboTipoConcepto()
+
+        Dim m_metodos As New MetodoDatos
+        Me.cboTipoConcepto.DataSource = m_metodos.CargaTipoConcepto()
+        Me.cboTipoConcepto.DisplayMember = "Descripcion"
+        Me.cboTipoConcepto.ValueMember = "TipoConcepto"
+    End Sub
+
+    Private Sub HabiltaComboTipoConcepto()
+        If Me.ComboTipoMovCaja.TipoMovimientoCaja = 43 Then
+            Me.cboTipoConcepto.Visible = True
+            If Me.cboTipoConcepto.Items.Count = 0 Then
+                MessageBox.Show("No existe tipo de cocepto, registre en el catalogo un tipo de concepto", "Mensaje del sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+        Else
+            Me.cboTipoConcepto.Visible = False
+        End If
+        lblTipoConcepto.Visible = Me.cboTipoConcepto.Visible
     End Sub
 
     Private Sub lstCobro_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lstCobro.SelectedIndexChanged
@@ -676,6 +723,10 @@ Public Class frmCapCobranza
 
     Private Sub ComboTipoMovCaja_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboTipoMovCaja.SelectedIndexChanged
         If ComboTipoMovCaja.TipoMovimientoCaja <> 0 Then
+            If ComboTipoMovCaja.TipoMovimientoCaja = 43 Then
+                lblTipoConcepto.Visible = True
+                cboTipoConcepto.Visible = True
+            End If
             ValidacionInformacionComplementaria()
         End If
     End Sub
