@@ -273,12 +273,13 @@ Public Class frmConsultaOperador
         If _Cliente <> 0 Then
             Cursor = Cursors.WaitCursor
             Dim frmConsultaDoc As SigaMetClasses.frmConsultaCliente
-            If String.IsNullOrEmpty(lURLGateway) Then
-                frmConsultaDoc = New SigaMetClasses.frmConsultaCliente(_Cliente, PermiteCapturarNotas:=False)
-            Else
-                frmConsultaDoc = New SigaMetClasses.frmConsultaCliente(_Cliente, URLGateway:=lURLGateway, PermiteCapturarNotas:=False)
-            End If
-            frmConsultaDoc.ShowDialog()
+			If String.IsNullOrEmpty(lURLGateway) Then
+				frmConsultaDoc = New SigaMetClasses.frmConsultaCliente(_Cliente, PermiteCapturarNotas:=False)
+			Else
+				frmConsultaDoc = New SigaMetClasses.frmConsultaCliente(_Cliente, URLGateway:=lURLGateway, PermiteCapturarNotas:=False, CadenaCon:=ConString)
+			End If
+			frmConsultaDoc.Modulo = 3
+			frmConsultaDoc.ShowDialog()
                 Cursor = Cursors.Default
             End If
     End Sub
@@ -288,6 +289,7 @@ Public Class frmConsultaOperador
             Cursor = Cursors.WaitCursor
             ClienteCapturaCobranza = _Cliente
             Dim frmCapCob As New frmCapCobranza(frmCapCobranza.enumTipoCaptura.Eficiencia, 15)
+            frmCapCob.ClienteEficienciasNegativas = _Cliente
             frmCapCob.ShowDialog()
             Cursor = Cursors.Default
         End If

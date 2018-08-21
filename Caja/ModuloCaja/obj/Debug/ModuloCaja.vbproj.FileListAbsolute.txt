@@ -139,10 +139,7 @@ C:\Users\lenav_000\Documents\Caja\Caja\ModuloCaja\bin\SigaMetClasses.pdb
 C:\Users\lenav_000\Documents\Caja\Caja\ModuloCaja\bin\SigaMetClasses.xml
 C:\Users\lenav_000\Documents\Caja\Caja\ModuloCaja\bin\ModuloCaja.dll.config
 C:\Users\lenav_000\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbproj.CopyComplete
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\SigaMetClasses.dll
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\LiquidacionPortatil.dll
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.exe.config
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.dll
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ProgramacionCobranza.dll
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\DocumentosBSR.dll
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\QuejasLibrary.dll
@@ -155,13 +152,10 @@ C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\VbPowerPack
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\RegularValidations.dll
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\stdole.dll
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ContactosDL.dll
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\LiquidacionPortatil.pdb
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\LiquidacionPortatil.xml
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\SigaMetClasses.pdb
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\SigaMetClasses.xml
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.pdb
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.xml
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.dll.config
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbproj.ResolveComReference.cache
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCambio.resources
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCapBanco.resources
@@ -193,7 +187,6 @@ C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\Modul
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmPreLiquidacionConsulta.resources
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmPrincipal.resources
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmRemisiones.resources
-C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmSelTipoCobro.resources
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.CustomExceptionHandler.resources
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbproj.GenerateResource.cache
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbproj.CoreCompileInputs.cache
@@ -202,4 +195,82 @@ C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\Modul
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.pdb
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\ModuloCaja.exe
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.exe
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCapTipoConcepto.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCatTipoConcepto.resources
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\bin\ModuloCaja.exe.config
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\bin\ModuloCaja.exe
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\bin\ModuloCaja.pdb
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\bin\ModuloCaja.xml
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\bin\stdole.dll
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbproj.ResolveComReference.cache
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCambio.resources
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCapTipoConcepto.resources
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCapBanco.resources
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCapCaja.resources
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCapCobranza.resources
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCapCobranzaDoc.resources
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCapMovimiento.resources
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCapRazonDevCheque.resources
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCapTipoMovCaja.resources
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCatTipoConcepto.resources
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCatBanco.resources
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCatCaja.resources
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCatCuentaBan.resources
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCatDenominaciones.resources
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCatRazonDevCheque.resources
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCatTipoMov.resources
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmChequeTarjetaMovCaja.resources
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmConsultaCapCobranza.resources
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmConsultaCobranza.resources
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmConsultaDocumentosMovCaja.resources
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmConsultaOperador.resources
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmConsultaPreLiquidacion.resources
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmConsultaReporte.resources
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCorteCajaAlta.resources
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmCorteCajaTipoAplicacion.resources
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmFiltroReporteEficiencia.resources
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmFiltroReporteMovCaja.resources
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmInfoUsuario.resources
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmMovimientos.resources
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmPreLiquidacionConsulta.resources
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmPrincipal.resources
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmRemisiones.resources
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmSelTipoCobro.resources
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.CustomExceptionHandler.resources
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbproj.GenerateResource.cache
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbproj.CoreCompileInputs.cache
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbproj.CopyComplete
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.exe
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.xml
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.pdb
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\bin\LiquidacionPortatil.dll
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\bin\SigaMetClasses.dll
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\bin\ProgramacionCobranza.dll
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\bin\DocumentosBSR.dll
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\bin\QuejasLibrary.dll
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\bin\ImgCallCenter.dll
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\bin\Contactos.dll
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\bin\AsignacionMultiple.dll
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\bin\SeguimientoCliente.dll
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\bin\ControlesProveedores.dll
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\bin\VbPowerPack2002.dll
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\bin\RegularValidations.dll
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\bin\ContactosDL.dll
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\bin\SigaMetClasses.pdb
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\bin\SigaMetClasses.xml
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\bin\LiquidacionPortatil.pdb
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\bin\LiquidacionPortatil.xml
+C:\Users\Diego\Documents\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbprojAssemblyReference.cache
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.frmMuestraValesPorProveedor.resources
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\FormasPago.dll
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\RTGMGateway.dll
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\SigaMetClasses.dll
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\log4net.dll
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\nunit.framework.dll
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\FormasPago.pdb
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\FormasPago.xml
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\RTGMGateway.pdb
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\RTGMGateway.dll.config
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\log4net.xml
+C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\bin\nunit.framework.xml
 C:\Users\Iván Trujillo\Documents\Proyectos\Caja\Caja\ModuloCaja\obj\Debug\ModuloCaja.vbprojAssemblyReference.cache

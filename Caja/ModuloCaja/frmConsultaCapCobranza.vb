@@ -1018,10 +1018,14 @@ Public Class frmConsultaCapCobranza
 
         'Consulto la lista de cobros con tarjeta de crédito de este movimiento
         cmd.CommandText = "SET transaction isolation level read uncommitted SELECT * FROM vwConsultaDeTarjetaPorMovimientoCaja" & FiltroSeleccion
-        da.Fill(dsDatosMov, "TarjetaCredito")
+		da.Fill(dsDatosMov, "TarjetaCredito")
 
-        'Consulto la lista de denominaciones que tiene este movimiento
-        cmd.CommandText = "SET transaction isolation level read uncommitted SELECT * FROM vwMovimientoCajaEntrada1" & FiltroSeleccion & " AND TipoCobro <> 3"
+		'Consulto la lista de cobros con vales de este movimiento
+		cmd.CommandText = "SET transaction isolation level read uncommitted SELECT * FROM vwConsultaDeValesPorMovimientoCaja" & FiltroSeleccion
+		da.Fill(dsDatosMov, "Vales")
+
+		'Consulto la lista de denominaciones que tiene este movimiento
+		cmd.CommandText = "SET transaction isolation level read uncommitted SELECT * FROM vwMovimientoCajaEntrada1" & FiltroSeleccion & " AND TipoCobro <> 3"
         da.Fill(dsDatosMov, "Denominacion")
 
         'Consulto el cambio que resultó de este movimiento
@@ -1176,21 +1180,21 @@ Public Class frmConsultaCapCobranza
         Cursor = Cursors.Default
     End Sub
     Private Sub CapturaRemision()
-        Cursor = Cursors.WaitCursor
-        If _TipoMovimientoCaja = 2 Then
-            If CType(Grid.Item(Grid.CurrentRowIndex, 20), Short) = 5 Then
-                If _FolioAtt <> 0 And _AñoAtt <> 0 Then
-                    Dim oRemisionManual As New LiquidacionPortatil.frmRemisionManual(_FolioAtt, _AñoAtt, 0, New DataTable, New DataTable, 0)
-                    oRemisionManual.ShowDialog()
-                End If
-            Else
-                MessageBox.Show("La captura de remisiones aplica únicamente para liquidaciones portátil.", Titulo, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-            End If
-        Else
-            MessageBox.Show("El registro seleccionado no es un movimiento de liquidación.", Titulo, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-        End If
-        Cursor = Cursors.Default
-    End Sub
+		'Cursor = Cursors.WaitCursor
+		'If _TipoMovimientoCaja = 2 Then
+		'    If CType(Grid.Item(Grid.CurrentRowIndex, 20), Short) = 5 Then
+		'        If _FolioAtt <> 0 And _AñoAtt <> 0 Then
+		'            Dim oRemisionManual As New LiquidacionPortatil.frmRemisionManual(_FolioAtt, _AñoAtt, 0, New DataTable, New DataTable, 0)
+		'            oRemisionManual.ShowDialog()
+		'        End If
+		'    Else
+		'        MessageBox.Show("La captura de remisiones aplica únicamente para liquidaciones portátil.", Titulo, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+		'    End If
+		'Else
+		'    MessageBox.Show("El registro seleccionado no es un movimiento de liquidación.", Titulo, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+		'End If
+		'Cursor = Cursors.Default
+	End Sub
 
     Private Sub cmbCelula_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles cmbCelula.SelectedIndexChanged
         If cmbCelula.SelectedIndex <> -1 And _ListaCargada Then

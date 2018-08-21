@@ -22,7 +22,7 @@ Imports System.Runtime.InteropServices
 ' You can specify all the values or you can default the Build and Revision Numbers 
 ' by using the '*' as shown below:
 '<Assembly: AssemblyVersion("1.2.5.0")>
-<Assembly: AssemblyVersion("1.3.0.0")>
+<Assembly: AssemblyVersion("1.4.0.0")>
 #Region " Ayuda para la informacion de la forma About. "
 ' This class uses the System.Reflection.Assembly class to
 ' access assembly meta-data

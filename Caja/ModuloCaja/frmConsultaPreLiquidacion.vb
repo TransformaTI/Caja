@@ -441,90 +441,94 @@ Public Class frmConsultaPreLiquidacion
         'Ultima modificación: 12/01/2004 JAGD
         'Las consultas a vistas para los datos de liquidación se incluyeron en procedimientos almacenados
         Cursor = Cursors.WaitCursor
-        'COBROPEDIDO
-        'Dim strQuery As String = "set transaction isolation level read uncommitted " & _
-        '                        "SELECT * FROM vwConsultaPreLiqPedido " & _
-        '                         "WHERE AñoAtt = " & _
-        '                         "AND Folio = " & _Folio.ToString & _
-        '                         " AND PedidoTipoCobro Not In (6,8,9)"
-        Dim strQuery As String = "EXECUTE spCAConsultaCobroPedidoLiquidacion " & _AnoAtt.ToString & ", " & _Folio.ToString
-        dsPreLiq = New DataSet()
-        Dim cmd As New SqlCommand() ', cn As New SqlConnection()
-        Try
-            cmd.CommandTimeout = GLOBAL_TiempoEspera
-            cmd.CommandText = strQuery
-            'cn.ConnectionString = ConString
-            cmd.Connection = GLOBAL_Connection
+		'COBROPEDIDO
+		'Dim strQuery As String = "set transaction isolation level read uncommitted " & _
+		'                        "SELECT * FROM vwConsultaPreLiqPedido " & _
+		'                         "WHERE AñoAtt = " & _
+		'                         "AND Folio = " & _Folio.ToString & _
+		'                         " AND PedidoTipoCobro Not In (6,8,9)"
+		Dim strQuery As String = "EXECUTE spCAConsultaCobroPedidoLiquidacion " & _AnoAtt.ToString & ", " & _Folio.ToString
+		dsPreLiq = New DataSet()
+		Dim cmd As New SqlCommand() ', cn As New SqlConnection()
+		Try
+			cmd.CommandTimeout = GLOBAL_TiempoEspera
+			cmd.CommandText = strQuery
+			'cn.ConnectionString = ConString
+			cmd.Connection = GLOBAL_Connection
 
-            Dim da As New SqlDataAdapter(cmd)
-            da.Fill(dsPreLiq, "CobroPedido")
+			Dim da As New SqlDataAdapter(cmd)
+			da.Fill(dsPreLiq, "CobroPedido")
 
-            'CARGOS
-            'strQuery = "set transaction isolation level read uncommitted SELECT DISTINCT AñoCobro, Cobro FROM vwConsultaPreLiqPedido WHERE AñoAtt = " & _AnoAtt & _
-            '           " AND Folio = " & _Folio
-            strQuery = "EXECUTE spCAConsultaCobroLiquidacion " & _AnoAtt.ToString & ", " & _Folio.ToString
-            cmd.CommandText = strQuery
-            da.Fill(dsPreLiq, "Cobro")
+			'CARGOS
+			'strQuery = "set transaction isolation level read uncommitted SELECT DISTINCT AñoCobro, Cobro FROM vwConsultaPreLiqPedido WHERE AñoAtt = " & _AnoAtt & _
+			'           " AND Folio = " & _Folio
+			strQuery = "EXECUTE spCAConsultaCobroLiquidacion " & _AnoAtt.ToString & ", " & _Folio.ToString
+			cmd.CommandText = strQuery
+			da.Fill(dsPreLiq, "Cobro")
 
-            'strQuery = "set transaction isolation level read uncommitted SELECT * From vwConsultaPreLiqAutotanque where AñoAtt = " & _AnoAtt & _
-            '           " AND Folio = " & _Folio
-            strQuery = "EXECUTE spCAConsultaPreliquidacionAutotanqueLiquidacion " & _AnoAtt.ToString & ", " & _Folio.ToString
-            cmd.CommandText = strQuery
-            da.Fill(dsPreLiq, "InfoPreLiq")
+			'strQuery = "set transaction isolation level read uncommitted SELECT * From vwConsultaPreLiqAutotanque where AñoAtt = " & _AnoAtt & _
+			'           " AND Folio = " & _Folio
+			strQuery = "EXECUTE spCAConsultaPreliquidacionAutotanqueLiquidacion " & _AnoAtt.ToString & ", " & _Folio.ToString
+			cmd.CommandText = strQuery
+			da.Fill(dsPreLiq, "InfoPreLiq")
 
-            'CHEQUES
-            'Desactivado por que ocasiona la presencia de cobros no pertenecientes a la liquidación
-            'strQuery = "set transaction isolation level read uncommitted SELECT * from vwConsultaCobro " & _
-            '           "WHERE cobro in " & _
-            '           "(SELECT distinct cobro from vwconsultapreliqpedido where folio in " & _
-            '           "(SELECT folio from vwConsultaPreLiqPedido where AñoAtt = " & _AnoAtt & _
-            '           " AND Folio = " & _Folio & ") And PedidoTipoCobro = 5) AND AñoCobro = " & _AnoAtt & " AND TipoCobro = 3"
-            strQuery = "EXECUTE spCAConsultaChequesLiquidacion " & _AnoAtt.ToString & ", " & _Folio.ToString
-            cmd.CommandText = strQuery
-            da.Fill(dsPreLiq, "Cheques")
+			'CHEQUES
+			'Desactivado por que ocasiona la presencia de cobros no pertenecientes a la liquidación
+			'strQuery = "set transaction isolation level read uncommitted SELECT * from vwConsultaCobro " & _
+			'           "WHERE cobro in " & _
+			'           "(SELECT distinct cobro from vwconsultapreliqpedido where folio in " & _
+			'           "(SELECT folio from vwConsultaPreLiqPedido where AñoAtt = " & _AnoAtt & _
+			'           " AND Folio = " & _Folio & ") And PedidoTipoCobro = 5) AND AñoCobro = " & _AnoAtt & " AND TipoCobro = 3"
+			strQuery = "EXECUTE spCAConsultaChequesLiquidacion " & _AnoAtt.ToString & ", " & _Folio.ToString
+			cmd.CommandText = strQuery
+			da.Fill(dsPreLiq, "Cheques")
 
-            'EFECTIVO Y VALES
-            'Desactivado porque ocasiona la presencia de cobros que no pertenecen a la liquidacion
-            'strQuery = "set transaction isolation level read uncommitted SELECT * from vwConsultaCobro " & _
-            '           "WHERE cobro in " & _
-            '           "(SELECT distinct cobro from vwconsultapreliqpedido where folio in " & _
-            '           "(SELECT folio from vwConsultaPreLiqPedido where AñoAtt = " & _AnoAtt & _
-            '           " AND Folio = " & _Folio & ") AND PedidoTipoCobro = 5 AND AñoAtt = " & _AnoAtt & ") AND AñoCobro = " & _AnoAtt & " AND TipoCobro = 5"
-            strQuery = "EXECUTE spCAConsultaEfectivoValesLiquidacion " & _AnoAtt.ToString & ", " & _Folio.ToString
-            cmd.CommandText = strQuery
-            da.Fill(dsPreLiq, "EfectivoVales")
+			'EFECTIVO Y VALES
+			'Desactivado porque ocasiona la presencia de cobros que no pertenecen a la liquidacion
+			'strQuery = "set transaction isolation level read uncommitted SELECT * from vwConsultaCobro " & _
+			'           "WHERE cobro in " & _
+			'           "(SELECT distinct cobro from vwconsultapreliqpedido where folio in " & _
+			'           "(SELECT folio from vwConsultaPreLiqPedido where AñoAtt = " & _AnoAtt & _
+			'           " AND Folio = " & _Folio & ") AND PedidoTipoCobro = 5 AND AñoAtt = " & _AnoAtt & ") AND AñoCobro = " & _AnoAtt & " AND TipoCobro = 5"
+			strQuery = "EXECUTE spCAConsultaEfectivoValesLiquidacion " & _AnoAtt.ToString & ", " & _Folio.ToString
+			cmd.CommandText = strQuery
+			da.Fill(dsPreLiq, "EfectivoVales")
 
-            'TARJETAS DE CREDITO
-            'Desactivado porque ocasiona la presencia de cobros que no pertenecen a la liquidacion
-            'strQuery = "set transaction isolation level read uncommitted SELECT * from vwConsultaCobro " & _
-            '           "WHERE cobro in " & _
-            '           "(SELECT distinct cobro from vwconsultapreliqpedido where folio in " & _
-            '           "(SELECT folio from vwConsultaPreLiqPedido where AñoAtt = " & _AnoAtt & _
-            '           " AND Folio = " & _Folio & ") And PedidoTipoCobro = 5) AND AñoCobro = " & _AnoAtt & " AND TipoCobro = 6"
-            strQuery = "EXECUTE spCAConsultaTarjetasCreditoLiquidacion " & _AnoAtt.ToString & ", " & _Folio.ToString
-            cmd.CommandText = strQuery
-            da.Fill(dsPreLiq, "TarjetaCredito")
+			'TARJETAS DE CREDITO
+			'Desactivado porque ocasiona la presencia de cobros que no pertenecen a la liquidacion
+			'strQuery = "set transaction isolation level read uncommitted SELECT * from vwConsultaCobro " & _
+			'           "WHERE cobro in " & _
+			'           "(SELECT distinct cobro from vwconsultapreliqpedido where folio in " & _
+			'           "(SELECT folio from vwConsultaPreLiqPedido where AñoAtt = " & _AnoAtt & _
+			'           " AND Folio = " & _Folio & ") And PedidoTipoCobro = 5) AND AñoCobro = " & _AnoAtt & " AND TipoCobro = 6"
+			strQuery = "EXECUTE spCAConsultaTarjetasCreditoLiquidacion " & _AnoAtt.ToString & ", " & _Folio.ToString
+			cmd.CommandText = strQuery
+			da.Fill(dsPreLiq, "TarjetaCredito")
 
-            'Notas de crédito y fichas de depósito
-            'Desactivado temporalmente
-            'strQuery = "set transaction isolation level read uncommitted SELECT * from vwConsultaCobro " & _
-            '           "WHERE cobro in " & _
-            '           "(SELECT distinct cobro from vwconsultapreliqpedido where folio in " & _
-            '           "(SELECT folio from vwConsultaPreLiqPedido where AñoAtt = " & _AnoAtt & _
-            '           " AND Folio = " & _Folio & ") And PedidoTipoCobro = 5) AND AñoCobro = " & _AnoAtt & " AND (TipoCobro = 7 or TipoCobro = 12)"
-            strQuery = "EXECUTE spCAConsultaFichasDepositoNotasDeCreditoLiquidacion " & _AnoAtt.ToString & ", " & _Folio.ToString
-            cmd.CommandText = strQuery
-            da.Fill(dsPreLiq, "FichaDeposito")
+			'Notas de crédito y fichas de depósito
+			'Desactivado temporalmente
+			'strQuery = "set transaction isolation level read uncommitted SELECT * from vwConsultaCobro " & _
+			'           "WHERE cobro in " & _
+			'           "(SELECT distinct cobro from vwconsultapreliqpedido where folio in " & _
+			'           "(SELECT folio from vwConsultaPreLiqPedido where AñoAtt = " & _AnoAtt & _
+			'           " AND Folio = " & _Folio & ") And PedidoTipoCobro = 5) AND AñoCobro = " & _AnoAtt & " AND (TipoCobro = 7 or TipoCobro = 12)"
+			strQuery = "EXECUTE spCAConsultaFichasDepositoNotasDeCreditoLiquidacion " & _AnoAtt.ToString & ", " & _Folio.ToString
+			cmd.CommandText = strQuery
+			da.Fill(dsPreLiq, "FichaDeposito")
 
-            'Pedidos de obsequio y autocarburación
-            strQuery = "EXECUTE spCAConsultaDesgloseObsequios " & _AnoAtt.ToString & ", " & _Folio.ToString
-            cmd.CommandText = strQuery
-            da.Fill(dsPreLiq, "Obsequios")
+			strQuery = "EXECUTE spCAConsultaValesLiquidacion " & _AnoAtt.ToString & ", " & _Folio.ToString
+			cmd.CommandText = strQuery
+			da.Fill(dsPreLiq, "Vales")
 
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, Titulo, MessageBoxButtons.OK, MessageBoxIcon.Error)
-        Finally
-            Cursor = Cursors.Default
+			'Pedidos de obsequio y autocarburación
+			strQuery = "EXECUTE spCAConsultaDesgloseObsequios " & _AnoAtt.ToString & ", " & _Folio.ToString
+			cmd.CommandText = strQuery
+			da.Fill(dsPreLiq, "Obsequios")
+
+		Catch ex As Exception
+			MessageBox.Show(ex.Message, Titulo, MessageBoxButtons.OK, MessageBoxIcon.Error)
+		Finally
+			Cursor = Cursors.Default
             'Se anexó el cierre de la conexión
             If GLOBAL_Connection.State = ConnectionState.Open Then
                 GLOBAL_Connection.Close()
@@ -570,7 +574,10 @@ Public Class frmConsultaPreLiquidacion
     Private Sub lnkConsultar_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) _
     Handles lnkConsultar.LinkClicked
         If _AnoAtt <> 0 And _Folio <> 0 Then
-            Dim oConsultaATT As New SigaMetClasses.ConsultaATT(_AnoAtt, _Folio)
+            Dim oConsultaATT As New SigaMetClasses.ConsultaATT(_AnoAtt, _Folio, Main.ConString)
+            oConsultaATT.GLOBAL_CorporativoUsuario = Main.GLOBAL_CorporativoUsuario
+            oConsultaATT.GLOBAL_SucursalUsuario = Main.GLOBAL_SucursalUsuario
+            oConsultaATT.Modulo = 3
             oConsultaATT.ShowDialog()
         End If
     End Sub

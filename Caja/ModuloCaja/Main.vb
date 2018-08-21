@@ -1,7 +1,7 @@
 Imports Microsoft.VisualBasic
 Imports System.Data.SqlClient
 
-Module Main
+Public Module Main
 
     Public oSeguridad As SigaMetClasses.cSeguridad
 
@@ -55,6 +55,8 @@ Module Main
     'Habilita la seguridad de reportes
     Public GLOBAL_SeguridadReportes As Boolean
 
+    Public GLOBAL_URLGATEWAY As String
+
 
 
 #Region "Sigamet corporativo"
@@ -96,18 +98,29 @@ Module Main
         Return decTotalSuma
     End Function
 
+    Public Function SumaColumna(ByVal FormaPago As Integer, ByVal NombreTabla As DataTable, ByVal NombreColumna As String) As Decimal
+        Dim _row As DataRow, decTotalSuma As Decimal = 0
+        For Each _row In NombreTabla.Rows
+            'ITL DEFECTO 4AGOSTO
+            If (CType(_row("TipoCobro"), Integer) = FormaPago) Then
+                decTotalSuma += CType(_row(NombreColumna), Decimal)
+            End If
+        Next
+        Return decTotalSuma
+    End Function
+
     Public Sub Main()
-        Dim frmAcceso As New SigametSeguridad.UI.Acceso(Application.StartupPath & "\Default.Seguridad y Administracion.exe.config", True, 3, _
+        Dim frmAcceso As New SigametSeguridad.UI.Acceso(Application.StartupPath & "\Default.Seguridad y Administracion.exe.config", True, 3,
             New Bitmap(Application.StartupPath & "\ModuloCaja.ico"))
 
         If frmAcceso.ShowDialog = DialogResult.OK Then
 
-            Dim oLogin As New SigaMetClasses.Seguridad(3, frmAcceso.CadenaConexion, frmAcceso.Usuario.IdUsuario, _
+            Dim oLogin As New SigaMetClasses.Seguridad(3, frmAcceso.CadenaConexion, frmAcceso.Usuario.IdUsuario,
                 frmAcceso.Usuario.ClaveDesencriptada)
 
             'Liquidación portátil
-            PortatilClasses.Globals.GetInstance.ConfiguraModulo(frmAcceso.Usuario.IdUsuario, frmAcceso.Usuario.ClaveDesencriptada, _
-            frmAcceso.CadenaConexion, frmAcceso.Usuario.Corporativo, _
+            PortatilClasses.Globals.GetInstance.ConfiguraModulo(frmAcceso.Usuario.IdUsuario, frmAcceso.Usuario.ClaveDesencriptada,
+            frmAcceso.CadenaConexion, frmAcceso.Usuario.Corporativo,
             frmAcceso.Usuario.Sucursal)
 
             GLOBAL_Connection = SigaMetClasses.DataLayer.Conexion
@@ -161,7 +174,7 @@ Module Main
             GLOBAL_ReglaHoraLiquidacion = CType(oLogin.Parametros("ReglaHoraLiquidacion"), Boolean)
 
             'GLOBAL_RutaReportes = CType(oLogin.Parametros("RutaReportes"), String)
-            GLOBAL_RutaReportes = CType(SigametSeguridad.Seguridad.Parametros(3, _
+            GLOBAL_RutaReportes = CType(SigametSeguridad.Seguridad.Parametros(3,
                 CType(GLOBAL_CorporativoUsuario, Byte), CType(GLOBAL_SucursalUsuario, Byte)).ValorParametro("RutaReportesW7"), String)
 
             GLOBAL_VersionAutorizada = CType(oLogin.Parametros("VersionAutorizada"), String)
@@ -201,6 +214,7 @@ Module Main
 
             'TODO: Valor de la seguridad de reportes
             GLOBAL_SeguridadReportes = CType(oLogin.Parametros("SeguridadReportes"), Boolean)
+            GLOBAL_URLGATEWAY = CType(oLogin.Parametros("URLGateway"), String)
 
             'Aquí iría la seguridad de Manuel
 
@@ -238,13 +252,13 @@ Module Main
 
         ' The simple dialog that is displayed when this class catches and exception
         Private Function ShowThreadExceptionDialog(ByVal e As Exception) As DialogResult
-            Dim errorMsg As String = "Ha ocurrido un error.  Por favor contacte al administrador del " & _
+            Dim errorMsg As String = "Ha ocurrido un error.  Por favor contacte al administrador del " &
                                      "sistema con la siguiente información:" & vbCrLf & vbCrLf
-            errorMsg &= e.Message & vbCrLf & vbCrLf & "Stack Trace:" & _
+            errorMsg &= e.Message & vbCrLf & vbCrLf & "Stack Trace:" &
                         vbCrLf & e.StackTrace
-            Return MessageBox.Show(errorMsg, _
-                                    "Error en la aplicación", _
-                                    MessageBoxButtons.OK, _
+            Return MessageBox.Show(errorMsg,
+                                    "Error en la aplicación",
+                                    MessageBoxButtons.OK,
                                     MessageBoxIcon.Stop)
         End Function
     End Class
@@ -273,7 +287,7 @@ Module Main
         End Try
     End Sub
 
-    Public Function ExisteCorteCaja(ByVal Caja As Byte, _
+    Public Function ExisteCorteCaja(ByVal Caja As Byte,
                                     ByVal FOperacion As Date) As Boolean
         Dim cmd As New SqlCommand("Select Count(*) From CorteCajaAplicacion WHERE Caja = " & Caja & " AND FOperacion = '" & FOperacion & "'")
         'Dim cn As New SqlConnection(ConString)
