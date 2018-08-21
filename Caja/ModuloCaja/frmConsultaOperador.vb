@@ -276,8 +276,12 @@ Public Class frmConsultaOperador
 			If String.IsNullOrEmpty(lURLGateway) Then
 				frmConsultaDoc = New SigaMetClasses.frmConsultaCliente(_Cliente, PermiteCapturarNotas:=False)
 			Else
-				frmConsultaDoc = New SigaMetClasses.frmConsultaCliente(_Cliente, URLGateway:=lURLGateway, PermiteCapturarNotas:=False, CadenaCon:=ConString)
-			End If
+                frmConsultaDoc = New SigaMetClasses.frmConsultaCliente(_Cliente,
+                                                                       URLGateway:=lURLGateway,
+                                                                       PermiteCapturarNotas:=False,
+                                                                       CadenaCon:=ConString,
+                                                                       Modulo:=GLOBAL_Modulo)
+            End If
 			frmConsultaDoc.Modulo = 3
 			frmConsultaDoc.ShowDialog()
                 Cursor = Cursors.Default
