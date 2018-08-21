@@ -9,8 +9,8 @@ Public Class frmCapCobranza
     Private _FMovimiento As Date
     Private _TipoCaptura As enumTipoCaptura
     Private _TipoMovimientoCaja As Short
-    Friend WithEvents cboTipoConcepto As ComboBox
-    Friend WithEvents lblTipoConcepto As Label
+    Friend WithEvents cboTipoConcepto As New ComboBox
+    Friend WithEvents lblTipoConcepto As New Label
 
     Public Enum enumTipoCaptura
         Cobranza = 1
@@ -97,7 +97,7 @@ Public Class frmCapCobranza
     Friend WithEvents lblNombreRequerido As System.Windows.Forms.Label
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.Resources.ResourceManager = New System.Resources.ResourceManager(GetType(frmCapCobranza))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCapCobranza))
         Me.lstCobro = New System.Windows.Forms.ListBox()
         Me.lstPedido = New System.Windows.Forms.ListBox()
         Me.btnCancelar = New ControlesBase.BotonBase()
@@ -127,8 +127,8 @@ Public Class frmCapCobranza
         '
         'lstCobro
         '
-        Me.lstCobro.Anchor = ((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right)
+        Me.lstCobro.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lstCobro.BackColor = System.Drawing.Color.LightGoldenrodYellow
         Me.lstCobro.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstCobro.ItemHeight = 14
@@ -139,9 +139,9 @@ Public Class frmCapCobranza
         '
         'lstPedido
         '
-        Me.lstPedido.Anchor = (((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right)
+        Me.lstPedido.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lstPedido.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstPedido.ItemHeight = 14
         Me.lstPedido.Location = New System.Drawing.Point(8, 296)
@@ -151,9 +151,9 @@ Public Class frmCapCobranza
         '
         'btnCancelar
         '
-        Me.btnCancelar.Anchor = (System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right)
+        Me.btnCancelar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnCancelar.Image = CType(resources.GetObject("btnCancelar.Image"), System.Drawing.Bitmap)
+        Me.btnCancelar.Image = CType(resources.GetObject("btnCancelar.Image"), System.Drawing.Image)
         Me.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnCancelar.Location = New System.Drawing.Point(656, 48)
         Me.btnCancelar.Name = "btnCancelar"
@@ -164,8 +164,8 @@ Public Class frmCapCobranza
         '
         'btnAceptar
         '
-        Me.btnAceptar.Anchor = (System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right)
-        Me.btnAceptar.Image = CType(resources.GetObject("btnAceptar.Image"), System.Drawing.Bitmap)
+        Me.btnAceptar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnAceptar.Image = CType(resources.GetObject("btnAceptar.Image"), System.Drawing.Image)
         Me.btnAceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnAceptar.Location = New System.Drawing.Point(656, 16)
         Me.btnAceptar.Name = "btnAceptar"
@@ -176,7 +176,7 @@ Public Class frmCapCobranza
         '
         'btnAgregar
         '
-        Me.btnAgregar.Image = CType(resources.GetObject("btnAgregar.Image"), System.Drawing.Bitmap)
+        Me.btnAgregar.Image = CType(resources.GetObject("btnAgregar.Image"), System.Drawing.Image)
         Me.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnAgregar.Location = New System.Drawing.Point(8, 184)
         Me.btnAgregar.Name = "btnAgregar"
@@ -198,15 +198,17 @@ Public Class frmCapCobranza
         '
         Me.Documentos.Alignment = System.Windows.Forms.HorizontalAlignment.Center
         Me.Documentos.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Spring
+        Me.Documentos.Name = "Documentos"
         Me.Documentos.Text = "0 cobro(s)"
-        Me.Documentos.Width = 364
+        Me.Documentos.Width = 363
         '
         'ImporteTotal
         '
         Me.ImporteTotal.Alignment = System.Windows.Forms.HorizontalAlignment.Center
         Me.ImporteTotal.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Spring
+        Me.ImporteTotal.Name = "ImporteTotal"
         Me.ImporteTotal.Text = "$0.00"
-        Me.ImporteTotal.Width = 364
+        Me.ImporteTotal.Width = 363
         '
         'lblNombreEmpleado
         '
@@ -224,7 +226,7 @@ Public Class frmCapCobranza
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(8, 19)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(64, 14)
+        Me.Label2.Size = New System.Drawing.Size(65, 13)
         Me.Label2.TabIndex = 12
         Me.Label2.Text = "Empleado:"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -235,14 +237,14 @@ Public Class frmCapCobranza
         Me.Label3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(8, 43)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(35, 14)
+        Me.Label3.Size = New System.Drawing.Size(37, 13)
         Me.Label3.TabIndex = 13
         Me.Label3.Text = "Ruta:"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'dtpFOperacion
         '
-        Me.dtpFOperacion.Format = System.Windows.Forms.DateTimePickerFormat.Short
+        Me.dtpFOperacion.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpFOperacion.Location = New System.Drawing.Point(136, 64)
         Me.dtpFOperacion.MaxDate = New Date(2500, 12, 31, 0, 0, 0, 0)
         Me.dtpFOperacion.MinDate = New Date(2000, 1, 1, 0, 0, 0, 0)
@@ -257,7 +259,7 @@ Public Class frmCapCobranza
         Me.Label1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(8, 67)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(118, 14)
+        Me.Label1.Size = New System.Drawing.Size(119, 13)
         Me.Label1.TabIndex = 15
         Me.Label1.Text = "Fecha de operación:"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -276,7 +278,7 @@ Public Class frmCapCobranza
         Me.Label4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(8, 280)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(238, 14)
+        Me.Label4.Size = New System.Drawing.Size(229, 13)
         Me.Label4.TabIndex = 17
         Me.Label4.Text = "Lista de documentos relacionados con el cobro"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -295,7 +297,7 @@ Public Class frmCapCobranza
         Me.Label6.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(8, 91)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(121, 14)
+        Me.Label6.Size = New System.Drawing.Size(122, 13)
         Me.Label6.TabIndex = 20
         Me.Label6.Text = "Tipo de movimiento:"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -306,7 +308,6 @@ Public Class frmCapCobranza
         Me.txtCliente.Name = "txtCliente"
         Me.txtCliente.Size = New System.Drawing.Size(352, 21)
         Me.txtCliente.TabIndex = 21
-        Me.txtCliente.Text = ""
         '
         'lblNombreRequerido
         '
@@ -314,7 +315,7 @@ Public Class frmCapCobranza
         Me.lblNombreRequerido.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblNombreRequerido.Location = New System.Drawing.Point(8, 115)
         Me.lblNombreRequerido.Name = "lblNombreRequerido"
-        Me.lblNombreRequerido.Size = New System.Drawing.Size(48, 14)
+        Me.lblNombreRequerido.Size = New System.Drawing.Size(49, 13)
         Me.lblNombreRequerido.TabIndex = 22
         Me.lblNombreRequerido.Text = "Cliente:"
         Me.lblNombreRequerido.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -334,46 +335,45 @@ Public Class frmCapCobranza
         Me.txtObservaciones.Name = "txtObservaciones"
         Me.txtObservaciones.Size = New System.Drawing.Size(352, 21)
         Me.txtObservaciones.TabIndex = 24
-        Me.txtObservaciones.Text = ""
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(8, 163)
+        Me.Label5.Location = New System.Drawing.Point(10, 163)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(62, 14)
+        Me.Label5.Size = New System.Drawing.Size(63, 13)
         Me.Label5.TabIndex = 25
         Me.Label5.Text = "Concepto:"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'cboTipoConcepto
-        '
-        Me.cboTipoConcepto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboTipoConcepto.FormattingEnabled = True
-        Me.cboTipoConcepto.Location = New System.Drawing.Point(136, 230)
-        Me.cboTipoConcepto.Name = "cboTipoConcepto"
-        Me.cboTipoConcepto.Size = New System.Drawing.Size(352, 21)
-        Me.cboTipoConcepto.TabIndex = 26
-        '
-        'lblTipoConcepto
-        '
-        Me.lblTipoConcepto.AutoSize = True
-        Me.lblTipoConcepto.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTipoConcepto.Location = New System.Drawing.Point(11, 233)
-        Me.lblTipoConcepto.Name = "lblTipoConcepto"
-        Me.lblTipoConcepto.Size = New System.Drawing.Size(90, 13)
-        Me.lblTipoConcepto.TabIndex = 27
-        Me.lblTipoConcepto.Text = "Tipo Concepto:"
-        Me.lblTipoConcepto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.lblTipoConcepto.Visible = False
         '
         'frmCapCobranza
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 14)
         Me.CancelButton = Me.btnCancelar
         Me.ClientSize = New System.Drawing.Size(744, 525)
-        Me.Controls.AddRange(New System.Windows.Forms.Control() {Me.Label5, Me.lblNombreRequerido, Me.Label6, Me.Label4, Me.Label1, Me.Label3, Me.Label2, Me.txtObservaciones, Me.lblClienteNombre, Me.txtCliente, Me.ComboTipoMovCaja, Me.ComboRuta, Me.dtpFOperacion, Me.lblNombreEmpleado, Me.stbEstatus, Me.btnAgregar, Me.btnCancelar, Me.btnAceptar, Me.lstPedido, Me.lstCobro})
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.lblNombreRequerido)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.txtObservaciones)
+        Me.Controls.Add(Me.lblClienteNombre)
+        Me.Controls.Add(Me.txtCliente)
+        Me.Controls.Add(Me.ComboTipoMovCaja)
+        Me.Controls.Add(Me.ComboRuta)
+        Me.Controls.Add(Me.dtpFOperacion)
+        Me.Controls.Add(Me.lblNombreEmpleado)
+        Me.Controls.Add(Me.stbEstatus)
+        Me.Controls.Add(Me.btnAgregar)
+        Me.Controls.Add(Me.btnCancelar)
+        Me.Controls.Add(Me.btnAceptar)
+        Me.Controls.Add(Me.lstPedido)
+        Me.Controls.Add(Me.lstCobro)
+        Me.Controls.Add(Me.cboTipoConcepto)
+        Me.Controls.Add(Me.lblTipoConcepto)
         Me.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmCapCobranza"
@@ -382,6 +382,7 @@ Public Class frmCapCobranza
         CType(Me.Documentos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ImporteTotal, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
