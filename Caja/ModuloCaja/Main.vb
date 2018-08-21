@@ -57,6 +57,7 @@ Public Module Main
 
     Public GLOBAL_URLGATEWAY As String
 
+    Public GLOBAL_Modulo As Byte = 3
 
 
 #Region "Sigamet corporativo"
