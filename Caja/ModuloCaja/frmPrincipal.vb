@@ -736,6 +736,10 @@ Public Class frmPrincipal
 
     Private Sub Cheques()
         Dim f As Form
+        Dim lParametro As New SigaMetClasses.cConfig(16, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario)
+        Dim lURLGateway As String = CType(lParametro.Parametros.Item("URLGateway"), String)
+
+
         For Each f In Me.MdiChildren
             If f.Name = "frmConsultaCheques" Then
                 f.Focus()
@@ -744,9 +748,15 @@ Public Class frmPrincipal
         Next
         Cursor = Cursors.WaitCursor
         Dim frmConCheques As New SigaMetClasses.ConsultaCheques(3, Main.GLOBAL_IDUsuario, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario)
+
+
         With frmConCheques
             .WindowState = FormWindowState.Maximized
             .MdiParent = Me
+            .URLGateway = lURLGateway
+            .CadenaConexion = Main.ConString
+            .Corporativo = CType(GLOBAL_CorporativoUsuario, Byte)
+            .Sucursal = CType(GLOBAL_SucursalUsuario, Byte)
             .CargaListaCheques()
             .Show()
         End With
