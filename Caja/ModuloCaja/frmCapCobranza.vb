@@ -10,6 +10,7 @@ Public Class frmCapCobranza
     Private _TipoCaptura As enumTipoCaptura
     Private _TipoMovimientoCaja As Short
 
+
     Public Enum enumTipoCaptura
         Cobranza = 1
         NotaIngreso = 2
