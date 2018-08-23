@@ -546,7 +546,7 @@ Public Class frmSelTipoCobroPortatil
 		Me.tbValesDespensa.ImageIndex = 0
 		Me.tbValesDespensa.Location = New System.Drawing.Point(4, 4)
 		Me.tbValesDespensa.Name = "tbValesDespensa"
-		Me.tbValesDespensa.Size = New System.Drawing.Size(603, 325)
+		Me.tbValesDespensa.Size = New System.Drawing.Size(603, 307)
 		Me.tbValesDespensa.TabIndex = 3
 		Me.tbValesDespensa.Text = "Vales Despensa"
 		'
@@ -957,7 +957,7 @@ Public Class frmSelTipoCobroPortatil
 		Me.tbChequeFicha.Controls.Add(Me.grpChequeFicha)
 		Me.tbChequeFicha.Location = New System.Drawing.Point(4, 4)
 		Me.tbChequeFicha.Name = "tbChequeFicha"
-		Me.tbChequeFicha.Size = New System.Drawing.Size(603, 325)
+		Me.tbChequeFicha.Size = New System.Drawing.Size(603, 307)
 		Me.tbChequeFicha.TabIndex = 2
 		Me.tbChequeFicha.Text = "Cheque / Ficha de deposito"
 		'
@@ -1151,7 +1151,7 @@ Public Class frmSelTipoCobroPortatil
 		Me.tbTransferencias.Location = New System.Drawing.Point(4, 4)
 		Me.tbTransferencias.Name = "tbTransferencias"
 		Me.tbTransferencias.Padding = New System.Windows.Forms.Padding(3)
-		Me.tbTransferencias.Size = New System.Drawing.Size(603, 325)
+		Me.tbTransferencias.Size = New System.Drawing.Size(603, 307)
 		Me.tbTransferencias.TabIndex = 4
 		Me.tbTransferencias.Text = "Transferencias"
 		'
@@ -1345,7 +1345,7 @@ Public Class frmSelTipoCobroPortatil
 		Me.tbAplicAnticipo.Location = New System.Drawing.Point(4, 4)
 		Me.tbAplicAnticipo.Name = "tbAplicAnticipo"
 		Me.tbAplicAnticipo.Padding = New System.Windows.Forms.Padding(3)
-		Me.tbAplicAnticipo.Size = New System.Drawing.Size(603, 325)
+		Me.tbAplicAnticipo.Size = New System.Drawing.Size(603, 307)
 		Me.tbAplicAnticipo.TabIndex = 5
 		Me.tbAplicAnticipo.Text = "Aplicación Anticipo"
 		'
@@ -1509,7 +1509,7 @@ Public Class frmSelTipoCobroPortatil
 		Me.tbDacionPagos.Location = New System.Drawing.Point(4, 4)
 		Me.tbDacionPagos.Name = "tbDacionPagos"
 		Me.tbDacionPagos.Padding = New System.Windows.Forms.Padding(3)
-		Me.tbDacionPagos.Size = New System.Drawing.Size(603, 325)
+		Me.tbDacionPagos.Size = New System.Drawing.Size(603, 307)
 		Me.tbDacionPagos.TabIndex = 7
 		Me.tbDacionPagos.Text = "Dación de Pagos"
 		'
@@ -1752,7 +1752,7 @@ Public Class frmSelTipoCobroPortatil
 	End Sub
 
 	'TARJETA DE CREDITO
-	Private Sub btnAceptarTarjetaCredito_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+	Private Sub btnAceptarTarjetaCredito_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAceptarTarjetaCredito.Click
 		'If lblClienteNombre.Text <> "" Then
 		'If txtClienteTC.Text <> "" AndAlso txtTarjetaCredito.Text <> "" AndAlso txtBancoTC.Text <> "" Then
 		If txtClienteTC.Text <> "" AndAlso txtTarjetaCredito.Text <> "" AndAlso cbBancoTC.Text <> "" Then
@@ -2979,29 +2979,7 @@ Public Class frmSelTipoCobroPortatil
 
 	End Sub
 
-	Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
 
-	End Sub
-
-	Private Sub LabelBase28_Click(sender As Object, e As EventArgs) Handles LabelBase28.Click
-
-	End Sub
-
-	Private Sub LabelBase26_Click(sender As Object, e As EventArgs) Handles LabelBase26.Click
-
-	End Sub
-
-	Private Sub LabelBase31_Click(sender As Object, e As EventArgs) Handles LabelBase31.Click
-
-	End Sub
-
-	Private Sub LabelBase32_Click(sender As Object, e As EventArgs) Handles LabelBase32.Click
-
-	End Sub
-
-	Private Sub LabelBase34_Click(sender As Object, e As EventArgs) Handles LabelBase34.Click
-
-	End Sub
 End Class
 
 
