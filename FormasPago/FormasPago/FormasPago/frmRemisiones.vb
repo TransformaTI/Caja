@@ -193,8 +193,10 @@ Public Class frmRemisiones
                         End If
                         lbl_importeDocumento.Text = Valorcero()
                         lblSaloMovimiento.Text = Valorcero()
-                        lblImporteAbobo.Text = Valorcero()
-                    End If
+						lblImporteAbobo.Text = Valorcero()
+						_UltimoCobro.Serie = grdRemision.Item(i, 0)
+						_UltimoCobro.Remision = grdRemision.Item(i, 1)
+					End If
                 Catch ex As Exception
                     MessageBox.Show(ex.Message)
                 End Try
@@ -362,4 +364,19 @@ Finalize:
     Private Sub grdAbonos_CurrentCellChanged(sender As Object, e As EventArgs) Handles grdAbonos.CurrentCellChanged
         FilaAbono = grdAbonos.CurrentRowIndex
     End Sub
+
+	'Private Sub InitializeComponent()
+	'	Me.SuspendLayout()
+	'	'
+	'	'frmRemisiones
+	'	'
+	'	Me.ClientSize = New System.Drawing.Size(284, 261)
+	'	Me.Name = "frmRemisiones"
+	'	Me.ResumeLayout(False)
+
+	'End Sub
+
+	Private Sub frmRemisiones_Load_1(sender As Object, e As EventArgs) Handles MyBase.Load
+
+	End Sub
 End Class

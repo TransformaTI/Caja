@@ -193,8 +193,10 @@ Public Class frmRemisiones
                         End If
                         lbl_importeDocumento.Text = Valorcero()
                         lblSaloMovimiento.Text = Valorcero()
-                        lblImporteAbobo.Text = Valorcero()
-                    End If
+						lblImporteAbobo.Text = Valorcero()
+						UltimoCobro.Remision = CInt(grdRemision.Item(i, 1))
+						UltimoCobro.Serie = CType(grdRemision.Item(i, 0), String)
+					End If
                 Catch ex As Exception
                     MessageBox.Show(ex.Message)
                 End Try
