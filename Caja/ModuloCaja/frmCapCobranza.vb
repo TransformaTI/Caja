@@ -724,10 +724,12 @@ Public Class frmCapCobranza
                     Return False
                 End If
             Else
-                If _cEfectuarValidacion.Requerido Then
-                    MessageBox.Show("Debe capturar la clave de " & _cEfectuarValidacion.ValorParaValidacion & ".", Me.Name,
-                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                    Return False
+                If ComboTipoMovCaja.TipoMovimientoCaja <> 43 Then
+                    If _cEfectuarValidacion.Requerido Then
+                        MessageBox.Show("Debe capturar la clave de " & _cEfectuarValidacion.ValorParaValidacion & ".", Me.Name,
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                        Return False
+                    End If
                 End If
             End If
         End If
