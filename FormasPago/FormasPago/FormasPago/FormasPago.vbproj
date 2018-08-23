@@ -21,6 +21,7 @@
     <DocumentationFile>FormasPago.xml</DocumentationFile>
     <DefineConstants>_MYFORMS=True</DefineConstants>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -54,7 +55,8 @@
     <Reference Include="PortatilClasses">
       <HintPath>..\..\..\Caja\ModuloCaja\bin\PortatilClasses.dll</HintPath>
     </Reference>
-    <Reference Include="RTGMGateway">
+    <Reference Include="RTGMGateway, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Gateway\RTGMGateway\bin\Debug\RTGMGateway.dll</HintPath>
     </Reference>
     <Reference Include="SigaMetClasses, Version=2.0.0.2, Culture=neutral, processorArchitecture=MSIL">

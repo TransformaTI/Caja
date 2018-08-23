@@ -13,7 +13,7 @@ Public Class frmCapCobranza
 
     Friend WithEvents lblTipoConcepto As Label
     Friend WithEvents cboTipoConcepto As ComboBox
-
+    Friend WithEvents ComboEmpleado As SigaMetClasses.Combos.ComboEmpleado
 
     Public Enum enumTipoCaptura
         Cobranza = 1
@@ -93,6 +93,7 @@ Public Class frmCapCobranza
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents ComboTipoMovCaja As SigaMetClasses.Combos.ComboTipoMovimientoCaja
+
     Friend WithEvents txtCliente As SigaMetClasses.Controles.txtNumeroEntero
     Friend WithEvents lblClienteNombre As System.Windows.Forms.Label
     Friend WithEvents txtObservaciones As System.Windows.Forms.TextBox
@@ -128,6 +129,7 @@ Public Class frmCapCobranza
         Me.Label5 = New System.Windows.Forms.Label()
         Me.cboTipoConcepto = New System.Windows.Forms.ComboBox()
         Me.lblTipoConcepto = New System.Windows.Forms.Label()
+        Me.ComboEmpleado = New SigaMetClasses.Combos.ComboEmpleado()
         CType(Me.Documentos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ImporteTotal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -139,7 +141,7 @@ Public Class frmCapCobranza
         Me.lstCobro.BackColor = System.Drawing.Color.LightGoldenrodYellow
         Me.lstCobro.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstCobro.ItemHeight = 14
-        Me.lstCobro.Location = New System.Drawing.Point(8, 245)
+        Me.lstCobro.Location = New System.Drawing.Point(8, 273)
         Me.lstCobro.Name = "lstCobro"
         Me.lstCobro.Size = New System.Drawing.Size(728, 60)
         Me.lstCobro.TabIndex = 0
@@ -151,9 +153,9 @@ Public Class frmCapCobranza
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lstPedido.Font = New System.Drawing.Font("Courier New", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstPedido.ItemHeight = 14
-        Me.lstPedido.Location = New System.Drawing.Point(8, 324)
+        Me.lstPedido.Location = New System.Drawing.Point(8, 352)
         Me.lstPedido.Name = "lstPedido"
-        Me.lstPedido.Size = New System.Drawing.Size(728, 172)
+        Me.lstPedido.Size = New System.Drawing.Size(728, 144)
         Me.lstPedido.TabIndex = 1
         '
         'btnCancelar
@@ -185,7 +187,7 @@ Public Class frmCapCobranza
         '
         Me.btnAgregar.Image = CType(resources.GetObject("btnAgregar.Image"), System.Drawing.Image)
         Me.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAgregar.Location = New System.Drawing.Point(8, 215)
+        Me.btnAgregar.Location = New System.Drawing.Point(8, 243)
         Me.btnAgregar.Name = "btnAgregar"
         Me.btnAgregar.Size = New System.Drawing.Size(112, 24)
         Me.btnAgregar.TabIndex = 0
@@ -221,7 +223,7 @@ Public Class frmCapCobranza
         '
         Me.lblNombreEmpleado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lblNombreEmpleado.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombreEmpleado.Location = New System.Drawing.Point(136, 16)
+        Me.lblNombreEmpleado.Location = New System.Drawing.Point(136, 15)
         Me.lblNombreEmpleado.Name = "lblNombreEmpleado"
         Me.lblNombreEmpleado.Size = New System.Drawing.Size(352, 21)
         Me.lblNombreEmpleado.TabIndex = 11
@@ -283,7 +285,7 @@ Public Class frmCapCobranza
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(8, 308)
+        Me.Label4.Location = New System.Drawing.Point(5, 336)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(229, 13)
         Me.Label4.TabIndex = 17
@@ -339,8 +341,9 @@ Public Class frmCapCobranza
         '
         Me.txtObservaciones.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtObservaciones.Location = New System.Drawing.Point(136, 160)
+        Me.txtObservaciones.Multiline = True
         Me.txtObservaciones.Name = "txtObservaciones"
-        Me.txtObservaciones.Size = New System.Drawing.Size(352, 21)
+        Me.txtObservaciones.Size = New System.Drawing.Size(596, 51)
         Me.txtObservaciones.TabIndex = 24
         '
         'Label5
@@ -358,7 +361,7 @@ Public Class frmCapCobranza
         '
         Me.cboTipoConcepto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboTipoConcepto.FormattingEnabled = True
-        Me.cboTipoConcepto.Location = New System.Drawing.Point(136, 184)
+        Me.cboTipoConcepto.Location = New System.Drawing.Point(136, 217)
         Me.cboTipoConcepto.Name = "cboTipoConcepto"
         Me.cboTipoConcepto.Size = New System.Drawing.Size(352, 21)
         Me.cboTipoConcepto.TabIndex = 28
@@ -368,7 +371,7 @@ Public Class frmCapCobranza
         '
         Me.lblTipoConcepto.AutoSize = True
         Me.lblTipoConcepto.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTipoConcepto.Location = New System.Drawing.Point(8, 187)
+        Me.lblTipoConcepto.Location = New System.Drawing.Point(8, 220)
         Me.lblTipoConcepto.Name = "lblTipoConcepto"
         Me.lblTipoConcepto.Size = New System.Drawing.Size(89, 13)
         Me.lblTipoConcepto.TabIndex = 27
@@ -376,11 +379,22 @@ Public Class frmCapCobranza
         Me.lblTipoConcepto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.lblTipoConcepto.Visible = False
         '
+        'ComboEmpleado
+        '
+        Me.ComboEmpleado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboEmpleado.FormattingEnabled = True
+        Me.ComboEmpleado.Location = New System.Drawing.Point(136, 15)
+        Me.ComboEmpleado.Name = "ComboEmpleado"
+        Me.ComboEmpleado.Size = New System.Drawing.Size(352, 21)
+        Me.ComboEmpleado.TabIndex = 29
+        Me.ComboEmpleado.Visible = False
+        '
         'frmCapCobranza
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 14)
         Me.CancelButton = Me.btnCancelar
         Me.ClientSize = New System.Drawing.Size(744, 525)
+        Me.Controls.Add(Me.ComboEmpleado)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.lblNombreRequerido)
         Me.Controls.Add(Me.Label6)
@@ -440,6 +454,13 @@ Public Class frmCapCobranza
             frmSelTipoCobroPortatil.CadenaConexion = Main.ConString
             frmSelTipoCobroPortatil.Movimiento = True
             frmSelTipoCobroPortatil.TipoCaptura = _TipoCaptura
+
+            If ComboTipoMovCaja.TipoMovimientoCaja = 43 Then
+                frmSelTipoCobroPortatil.SoloEfectivo = True
+            Else
+                frmSelTipoCobroPortatil.SoloEfectivo = False
+            End If
+
             If frmSelTipoCobroPortatil.ShowDialog() = DialogResult.OK Then
                 Dim ListaCobrosDetalle As List(Of SigaMetClasses.CobroDetalladoDatos) = frmSelTipoCobroPortatil.Cobros
                 Dim CobroSimple As SigaMetClasses.sCobro = New SigaMetClasses.sCobro()
@@ -521,6 +542,8 @@ Public Class frmCapCobranza
         lstPedido.DisplayMember = "InformacionCompleta"
 
         HabiltaComboTipoConcepto()
+
+        ComboEmpleado.CargaDatosCredito(True)
 
         Dim m_metodos As New MetodoDatos
         Me.cboTipoConcepto.DataSource = m_metodos.CargaTipoConcepto()
@@ -725,11 +748,19 @@ Public Class frmCapCobranza
     End Sub
 
     Private Sub ComboTipoMovCaja_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboTipoMovCaja.SelectedIndexChanged
+        Dim boolReciboCaja As Boolean = False
         If ComboTipoMovCaja.TipoMovimientoCaja <> 0 Then
             If ComboTipoMovCaja.TipoMovimientoCaja = 43 Then
-                lblTipoConcepto.Visible = True
-                cboTipoConcepto.Visible = True
+                boolReciboCaja = True
+            Else
+                boolReciboCaja = False
             End If
+
+            lblTipoConcepto.Visible = boolReciboCaja
+            cboTipoConcepto.Visible = boolReciboCaja
+            ComboEmpleado.Visible = boolReciboCaja
+            lblNombreEmpleado.Visible = Not boolReciboCaja
+
             ValidacionInformacionComplementaria()
         End If
     End Sub
