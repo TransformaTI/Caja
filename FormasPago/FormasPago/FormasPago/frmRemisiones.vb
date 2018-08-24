@@ -196,6 +196,7 @@ Public Class frmRemisiones
 						lblImporteAbobo.Text = Valorcero()
 						_UltimoCobro.Serie = grdRemision.Item(i, 0)
 						_UltimoCobro.Remision = grdRemision.Item(i, 1)
+						_UltimoCobro.Producto = grdRemision.Item(i, 11)
 					End If
                 Catch ex As Exception
                     MessageBox.Show(ex.Message)
