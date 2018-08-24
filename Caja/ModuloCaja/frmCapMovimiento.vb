@@ -1772,7 +1772,6 @@ Public Class frmCapMovimiento
 		Else
 			dtCheques = DatosMovimiento.Tables("Cheques")
 
-
 			Dim lTransformadorCRM As New TransformadorCRM()
 			dtCheques = lTransformadorCRM.ConsultaChequesCRM(dtCheques)
 
@@ -2552,9 +2551,11 @@ Public Class frmCapMovimiento
 	End Sub
 
 	Private Sub lnkConsultaTarjetaCredito_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lnkConsultaTarjetaCredito.LinkClicked
+
+
 		Dim frmListaTarjetaCredito As New frmChequeTarjetaMovCaja(2)
 		With frmListaTarjetaCredito
-			.grdConsulta.DataSource = dtTarjetaCredito
+			.grdConsulta.DataSource = grdTarjetaCredito.DataSource
 			.grdConsulta.CaptionText = "Lista de cobros con tarjeta de crédito"
 			.grdConsulta.CaptionBackColor = Color.Brown
 			.ShowDialog()
@@ -2596,29 +2597,29 @@ Public Class frmCapMovimiento
 	Private Sub AsignaValores()
 		lblPorCobrarEfectivo.Text = PorCobrarEfectivo.ToString("N")
 		lblPorCobrarVales.Text = PorCobrarVales.ToString("N")
-		lblTotalCheques.Text = (PorCobrarCheques - AFavorCheques).ToString("N")
+		lblTotalCheques.Text = (PorCobrarCheques).ToString("N")
 		'
 		lblAFavorOperadorCheques.Text = AFavorOperadorCheques.ToString("N")
 		lblTotalEfectivo.Text = PorCobrarEfectivoVales.ToString("N")
 
-		lblTotalTarjetaCredito.Text = (PorCobrarTarjetaCredito - AFavorTarjetaCredito).ToString("N")
-		lblTotalTarjetaDebito.Text = (PorCobrarTarjetaDebito - AFavorTarjetaDebito).ToString("N")
+		lblTotalTarjetaCredito.Text = (PorCobrarTarjetaCredito).ToString("N")
+		lblTotalTarjetaDebito.Text = (PorCobrarTarjetaDebito).ToString("N")
 
-		lblTotalVarios.Text = (PorCobrarFichaDeposito - AfavorFichaDeposito).ToString("N")
-		lblTotalVale.Text = (PorCobrarVales - AFavorVales).ToString("N")
+		lblTotalVarios.Text = (PorCobrarFichaDeposito).ToString("N")
+		lblTotalVale.Text = (PorCobrarVales).ToString("N")
 
 		lblImporteEficiencia.Text = ImporteEficiencia.ToString("C")
 
 		'Para saldo a favor
 		If GLOBAL_SaldoAFavor Then 'si aplica el saldo a favor no se resta del importe a pagar
-			lblRealEfectivoVales.Text = (PorCobrarEfectivoVales + PorCobrarVales - AFavorVales).ToString("N")
-			decImporteRealACobrar = (PorCobrarEfectivoVales + PorCobrarVales - AFavorVales)
+			lblRealEfectivoVales.Text = (PorCobrarEfectivoVales + PorCobrarVales).ToString("N")
+			decImporteRealACobrar = (PorCobrarEfectivoVales + PorCobrarVales)
 			If saldoAFavor > 0 Then
 				lblCaptAFAvor.Text = "A favor:"
 			End If
 		Else
-			lblRealEfectivoVales.Text = (PorCobrarEfectivoVales + PorCobrarVales - AFavorVales).ToString("N")
-			decImporteRealACobrar = (PorCobrarEfectivoVales + PorCobrarVales - AFavorVales)
+			lblRealEfectivoVales.Text = (PorCobrarEfectivoVales + PorCobrarVales).ToString("N")
+			decImporteRealACobrar = (PorCobrarEfectivoVales + PorCobrarVales)
 		End If
 
 
