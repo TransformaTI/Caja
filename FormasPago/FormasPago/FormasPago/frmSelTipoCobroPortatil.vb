@@ -2014,14 +2014,29 @@ Public Class frmSelTipoCobroPortatil
 			'If lblTarjetaCredito.Text = "" Then
 			If txtTarjetaCredito.Text.Trim = "" Then
 				MessageBox.Show("No existen tarjetas de crédito del cliente especificado.", Titulo, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+				AgregaTarjetaManual()
 			Else
 				txtImporteTC.Focus()
+				activatarjetaDatos(False)
 			End If
 		End If
 
 		If TipoLiquidacion = "Estacionario" Then
 			ConsultaCargosTarjeta()
 		End If
+
+	End Sub
+
+	Private Sub AgregaTarjetaManual()
+		Dim oCliente As New SigaMetClasses.cCliente()
+		oCliente.Consulta(CType(txtClienteTC.Text, Integer))
+		lblClienteNombre.Text = oCliente.Nombre
+		oCliente = Nothing
+		activatarjetaDatos(True)
+	End Sub
+
+	Private Sub activatarjetaDatos(ByVal activa As Boolean)
+		txtTarjetaCredito.Enabled = activa
 
 	End Sub
 
