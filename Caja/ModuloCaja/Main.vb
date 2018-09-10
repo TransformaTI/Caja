@@ -119,12 +119,15 @@ Public Module Main
             Dim oLogin As New SigaMetClasses.Seguridad(3, frmAcceso.CadenaConexion, frmAcceso.Usuario.IdUsuario,
                 frmAcceso.Usuario.ClaveDesencriptada)
 
-            'Liquidación portátil
-            PortatilClasses.Globals.GetInstance.ConfiguraModulo(frmAcceso.Usuario.IdUsuario, frmAcceso.Usuario.ClaveDesencriptada,
-            frmAcceso.CadenaConexion, frmAcceso.Usuario.Corporativo,
-            frmAcceso.Usuario.Sucursal)
+			'Liquidación portátil
+			PortatilClasses.Globals.GetInstance.ConfiguraModulo(frmAcceso.Usuario.IdUsuario, frmAcceso.Usuario.ClaveDesencriptada,
+			frmAcceso.CadenaConexion, frmAcceso.Usuario.Corporativo,
+			frmAcceso.Usuario.Sucursal)
 
-            GLOBAL_Connection = SigaMetClasses.DataLayer.Conexion
+			FormasPago.Globals.GetInstance.ConfiguraModulo(frmAcceso.Usuario.IdUsuario, frmAcceso.Usuario.ClaveDesencriptada,
+			frmAcceso.CadenaConexion, frmAcceso.Usuario.Corporativo, frmAcceso.Usuario.Sucursal, 3)
+
+			GLOBAL_Connection = SigaMetClasses.DataLayer.Conexion
 
             FechaOperacion = SigaMetClasses.FechaServidor.Date
 

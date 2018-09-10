@@ -737,7 +737,7 @@ Public Class frmSelTipoCobroPortatil
 		Me.tbTarjetaCredito.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.tbTarjetaCredito.Location = New System.Drawing.Point(4, 4)
 		Me.tbTarjetaCredito.Name = "tbTarjetaCredito"
-		Me.tbTarjetaCredito.Size = New System.Drawing.Size(603, 325)
+		Me.tbTarjetaCredito.Size = New System.Drawing.Size(603, 307)
 		Me.tbTarjetaCredito.TabIndex = 0
 		Me.tbTarjetaCredito.Text = "Tarjeta "
 		'
@@ -1519,7 +1519,7 @@ Public Class frmSelTipoCobroPortatil
 		Me.tbDacionPagos.Location = New System.Drawing.Point(4, 4)
 		Me.tbDacionPagos.Name = "tbDacionPagos"
 		Me.tbDacionPagos.Padding = New System.Windows.Forms.Padding(3)
-		Me.tbDacionPagos.Size = New System.Drawing.Size(603, 307)
+		Me.tbDacionPagos.Size = New System.Drawing.Size(603, 325)
 		Me.tbDacionPagos.TabIndex = 7
 		Me.tbDacionPagos.Text = "Dación de Pagos"
 		'
@@ -1815,6 +1815,10 @@ Public Class frmSelTipoCobroPortatil
 	End Sub
 
 #End Region
+
+
+
+
 	Private Function ValidaCapturaChequeFicha() As Boolean
 		'Con esta función valido que se estén capturando todos los datos necesarios
 		'del cheque ó de la ficha de depósito.
@@ -1897,6 +1901,8 @@ Public Class frmSelTipoCobroPortatil
 			tabTipoCobro.TabPages.Remove(tbTransferencias)
 			tabTipoCobro.TabPages.Remove(tbAplicAnticipo)
 		End If
+
+
 
 	End Sub
 
@@ -2098,23 +2104,49 @@ Public Class frmSelTipoCobroPortatil
 
 	End Sub
 
-	Private Sub txtClienteCheque_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtClienteCheque.Leave
-		If txtClienteCheque.Text <> "" Then
-			Dim lURLGateway As String = Main.GLOBAL_URLGATEWAY
+	Private Function consultaNombreCliente(ByVal claveCliente As String) As String
+		Dim nombreCliente As String = ""
+		If claveCliente <> "" Then
+
 			Dim oCliente As New SigaMetClasses.cCliente()
-			If String.IsNullOrEmpty(lURLGateway) Then
-				oCliente.Consulta(CType(txtClienteCheque.Text, Integer))
-				lblNombre.Text = oCliente.Nombre
-				oCliente = Nothing
+
+			If String.IsNullOrEmpty(Globals.GetInstance._URLGateway) Then
+				oCliente.Consulta(CType(claveCliente, Integer))
+				nombreCliente = oCliente.Nombre
 			Else
-				oCliente.Modulo = 3
-				oCliente.CadenaConexion = Main.ConString
-				oCliente.Consulta(CType(txtClienteCheque.Text, Integer), lURLGateway)
-				lblNombre.Text = oCliente.Nombre
+				oCliente.Modulo = Globals.GetInstance._Modulo
+				oCliente.CadenaConexion = Globals.GetInstance._CadenaConexion
+				oCliente.Consulta(CType(claveCliente, Integer), Globals.GetInstance._URLGateway)
+				nombreCliente = oCliente.Nombre
 				oCliente = Nothing
 			End If
-
+			oCliente = Nothing
 		End If
+
+		Return nombreCliente
+	End Function
+
+	Private Sub txtClienteCheque_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtClienteCheque.Leave
+
+		'If txtClienteCheque.Text <> "" Then
+		'	Dim lURLGateway As String = Globals.GetInstance._URLGateway
+		'	Dim oCliente As New SigaMetClasses.cCliente()
+		'	If String.IsNullOrEmpty(lURLGateway) Then
+		'		oCliente.Consulta(CType(txtClienteCheque.Text, Integer))
+		'		lblNombre.Text = oCliente.Nombre
+		'		oCliente = Nothing
+		'	Else
+		'		oCliente.Modulo = 3
+		'		oCliente.CadenaConexion = Main.ConString
+		'		oCliente.Consulta(CType(txtClienteCheque.Text, Integer), lURLGateway)
+		'		lblNombre.Text = oCliente.Nombre
+		'		oCliente = Nothing
+		'	End If
+
+
+		lblNombre.Text = consultaNombreCliente(txtClienteCheque.Text)
+
+		'End If
 
 	End Sub
 	Private Sub btnEfectivo_Click(sender As Object, e As EventArgs) Handles btnEfectivo.Click
@@ -2128,34 +2160,34 @@ Public Class frmSelTipoCobroPortatil
 			Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaPagoEfectivo(Pago)
 
 			_AceptaSaldo = False
-            If _Movimiento = True And _TipoCaptura <> 2 Then
-                _listaCobros.Clear()
-                _listaCobros.Add(cobro)
-                Dim objCapturaDocs As New frmCapCobranzaDoc()
-                objCapturaDocs.CadenaConexion = _CadenaConexion
-                objCapturaDocs.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.EfectivoVales
-                objCapturaDocs.ImporteCobro = CType(Txt_totalEfectivo.Text, Decimal)
-                If objCapturaDocs.ShowDialog = DialogResult.OK Then
-                    With cobro
-                        .AñoCobro = CType(Year(Today), Short)
-                        .TipoCobro = 5
-                        .Total = CType(Txt_totalEfectivo.Text, Decimal)
-                        .Importe = CType(Txt_totalEfectivo.Text, Decimal)
-                        '.ListaPedidos = frmCaptura.ListaCobroPedido
-                    End With
-                End If
-            Else
-                _listaCobros.Clear()
-                _listaCobros.Add(cobro)
-                If Not _Movimiento Then
-                    Remisiones(cobro, _AceptaSaldo, TipoCobro)
-                End If
-            End If
-            _ImporteTotalCobro = Total
-            Total = 0
-            DialogResult = DialogResult.OK
-        End If
-    End Sub
+			If _Movimiento = True And _TipoCaptura <> 2 Then
+				_listaCobros.Clear()
+				_listaCobros.Add(cobro)
+				Dim objCapturaDocs As New frmCapCobranzaDoc()
+				objCapturaDocs.CadenaConexion = _CadenaConexion
+				objCapturaDocs.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.EfectivoVales
+				objCapturaDocs.ImporteCobro = CType(Txt_totalEfectivo.Text, Decimal)
+				If objCapturaDocs.ShowDialog = DialogResult.OK Then
+					With cobro
+						.AñoCobro = CType(Year(Today), Short)
+						.TipoCobro = 5
+						.Total = CType(Txt_totalEfectivo.Text, Decimal)
+						.Importe = CType(Txt_totalEfectivo.Text, Decimal)
+						'.ListaPedidos = frmCaptura.ListaCobroPedido
+					End With
+				End If
+			Else
+				_listaCobros.Clear()
+				_listaCobros.Add(cobro)
+				If Not _Movimiento Then
+					Remisiones(cobro, _AceptaSaldo, TipoCobro)
+				End If
+			End If
+			_ImporteTotalCobro = Total
+			Total = 0
+			DialogResult = DialogResult.OK
+		End If
+	End Sub
 
 	Public Sub SeleccionarTipocobro()
 
@@ -2207,7 +2239,7 @@ Public Class frmSelTipoCobroPortatil
 			.FDevolucion = Date.MinValue
 			.RazonDevCheque = Nothing
 			.Cliente = 0 ' este dato se debeb de obtener depues de las remisiones
-			.Saldo = 10 ' igual este dato
+			.Saldo = 0 ' igual este dato
 			.Usuario = GLOBAL_IDUsuario
 			.FActualizacion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
 			.Folio = _FolioCobro
@@ -2252,7 +2284,7 @@ Public Class frmSelTipoCobroPortatil
 			'datos hardcord
 			.Referencia = "NULL" ' puede ser vacio
 			.FDevolucion = Date.MinValue
-			.Saldo = 10
+			.Saldo = 0
 			.FActualizacion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
 			.Folio = _FolioCobro
 			.FDeposito = Date.MinValue
@@ -2368,7 +2400,7 @@ Public Class frmSelTipoCobroPortatil
 				.NumeroCheque = "NULL" ' puede ser vacio
 				.FDevolucion = Date.MinValue
 				.RazonDevCheque = Nothing
-				.Saldo = 10
+				.Saldo = 0
 				.FActualizacion = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
 				.Folio = _FolioCobro
 				.FDeposito = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
@@ -2425,17 +2457,17 @@ Public Class frmSelTipoCobroPortatil
 	End Sub
 
 	Private Sub TxtClienteTransferencia_Leave(sender As Object, e As EventArgs) Handles TxtClienteTransferencia.Leave
-		If TxtClienteTransferencia.Text <> "" Then
-			Dim oCliente As New SigaMetClasses.cCliente()
-			oCliente.Consulta(CType(TxtClienteTransferencia.Text, Integer))
-			TxtNombreTransferencia.Text = oCliente.Nombre
-			oCliente = Nothing
-		End If
+		'If TxtClienteTransferencia.Text <> "" Then
+		'	Dim oCliente As New SigaMetClasses.cCliente()
+		'	oCliente.Consulta(CType(TxtClienteTransferencia.Text, Integer))
+		'	TxtNombreTransferencia.Text = oCliente.Nombre
+		'	oCliente = Nothing
+		'End If
+		TxtNombreTransferencia.Text = consultaNombreCliente(TxtClienteTransferencia.Text)
+
+
 	End Sub
 
-	Private Sub TxtClienteTransferencia_TextChanged(sender As Object, e As EventArgs) Handles TxtClienteTransferencia.TextChanged
-
-	End Sub
 
 
 	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -2466,10 +2498,11 @@ Public Class frmSelTipoCobroPortatil
 
 
 	Private Sub BotonBuscarClienteApAnticipo_Click(sender As Object, e As EventArgs) Handles BotonBuscarClienteApAnticipo.Click
-		Dim lParametro As New SigaMetClasses.cConfig(16, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario)
-		Dim lURLGateway As String = ""
-		'CType(lParametro.Parametros.Item("URLGateway"), String)
-		lParametro.Dispose()
+		'Dim lParametro As New SigaMetClasses.cConfig(16, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario)
+		Dim lURLGateway As String = Globals.GetInstance._URLGateway
+
+
+		'lParametro.Dispose()
 
 		If Trim(txtClienteVales.Text) <> "" Then
 			Dim frmConCliente As SigaMetClasses.frmConsultaCliente
@@ -2514,19 +2547,23 @@ Public Class frmSelTipoCobroPortatil
 
 
 	Private Sub txtClienteVales_Leave(sender As Object, e As EventArgs) Handles txtClienteVales.Leave
-		Dim oCliente As New SigaMetClasses.cCliente()
-		oCliente.Consulta(CType(txtClienteVales.Text, Integer))
-		LabelNombreVales.Text = oCliente.Nombre
-		oCliente = Nothing
+		'Dim oCliente As New SigaMetClasses.cCliente()
+		'oCliente.Consulta(CType(txtClienteVales.Text, Integer))
+		'LabelNombreVales.Text = oCliente.Nombre
+		'oCliente = Nothing
+
+		LabelNombreVales.Text = consultaNombreCliente(txtClienteVales.Text)
 	End Sub
 
 	Private Sub TxtClienteAplicAntic_Leave(sender As Object, e As EventArgs) Handles TxtClienteAplicAntic.Leave
-		Dim oCliente As New SigaMetClasses.cCliente()
-		If TxtClienteAplicAntic.Text.Trim.Length <> 0 Then
-			oCliente.Consulta(CType(TxtClienteAplicAntic.Text, Integer))
-			LabelNombreApAntic.Text = oCliente.Nombre
-			oCliente = Nothing
-		End If
+		'Dim oCliente As New SigaMetClasses.cCliente()
+		'If TxtClienteAplicAntic.Text.Trim.Length <> 0 Then
+		'	oCliente.Consulta(CType(TxtClienteAplicAntic.Text, Integer))
+		'	LabelNombreApAntic.Text = oCliente.Nombre
+		'	oCliente = Nothing
+		'End If
+
+		LabelNombreApAntic.Text = consultaNombreCliente(TxtClienteAplicAntic.Text)
 		BuscarAnticipos(CType(TxtClienteAplicAntic.Text, Integer), "0", 0, 0)
 	End Sub
 
@@ -2585,7 +2622,7 @@ Public Class frmSelTipoCobroPortatil
 			.NumeroCheque = "NULL" ' puede ser vacio
 			.FDevolucion = Date.MinValue
 			.RazonDevCheque = Nothing
-			.Saldo = 10 ' el saldo se regresa conforme termine las remisiones
+			.Saldo = 0 ' el saldo se regresa conforme termine las remisiones
 			.FActualizacion = Date.MinValue
 			.Folio = _FolioCobro
 			.FDeposito = Date.MinValue
@@ -2996,16 +3033,10 @@ Public Class frmSelTipoCobroPortatil
 
 	End Sub
 
-	Private Sub tbTarjetaCredito_Click(sender As Object, e As EventArgs) Handles tbTarjetaCredito.Click
 
-	End Sub
 
-	Private Sub dgvCargoTarjeta_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvCargoTarjeta.CellContentClick
-
-	End Sub
-
-	Private Sub grpTarjetaCredito_Enter(sender As Object, e As EventArgs) Handles grpTarjetaCredito.Enter
-
+	Private Sub TxtClienteDacionPago_Leave(sender As Object, e As EventArgs) Handles TxtClienteDacionPago.Leave
+		TxtNombreDacioPago.Text = consultaNombreCliente(TxtClienteDacionPago.Text)
 	End Sub
 
 
