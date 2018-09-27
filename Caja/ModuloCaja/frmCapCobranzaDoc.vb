@@ -663,8 +663,8 @@ Public Class frmCapCobranzaDoc
 
     Private Sub ConsultaDocumentosCliente()
         If txtCliente.Text.Trim <> "" Then
-            Dim frmConCliente As New SigaMetClasses.frmConsultaCliente(CType(txtCliente.Text, Integer), _
-                      PermiteSeleccionarDocumento:=True)
+            Dim frmConCliente As New SigaMetClasses.frmConsultaCliente(CType(txtCliente.Text, Integer),
+                      PermiteSeleccionarDocumento:=True, Nuevo:=0)
             If frmConCliente.ShowDialog() = DialogResult.OK Then
                 txtPedidoReferencia.Text = frmConCliente.PedidoReferenciaSeleccionado
                 txtPedidoReferencia.Focus()

@@ -748,6 +748,7 @@ Public Class frmPrincipal
             .WindowState = FormWindowState.Maximized
             .MdiParent = Me
             .CargaListaCheques()
+            .CadenaConexion = ConString
             .Show()
         End With
         Cursor = Cursors.Default
