@@ -761,6 +761,7 @@ Public Class frmPrincipal
             .Corporativo = CType(GLOBAL_CorporativoUsuario, Byte)
             .Sucursal = CType(GLOBAL_SucursalUsuario, Byte)
             .CargaListaCheques()
+            .CadenaConexion = ConString
             .Show()
         End With
         Cursor = Cursors.Default
