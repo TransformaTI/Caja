@@ -154,60 +154,67 @@ Public Class frmRemisiones
     End Sub
 
     Private Sub btn_Aceptar_Click(sender As Object, e As EventArgs) Handles btn_Aceptar.Click
-        Dim SaldoAbonado As Decimal
-        SaldoAbonado = CDec(grdRemision.Item(i, 7))
-        If SaldoAbonado > 0 Then
-            If _Saldo > 0 Then
-                Try
-                    row = table.NewRow
-                    row("Serie") = grdRemision.Item(i, 0)
-                    row("Remisión") = grdRemision.Item(i, 1)
-                    row("Producto") = grdRemision.Item(i, 11)
+		Dim SaldoAbonado As Decimal
 
-                    If _Saldo >= CDec(grdRemision.Item(i, 7)) Then
-                        row("Importe abonado") = grdRemision.Item(i, 7)
-                    Else
-                        row("Importe abonado") = _Saldo.ToString
-                    End If
 
-                    table.Rows.Add(row)
-                    grdAbonos.DataSource = table
-                    Dim fila As DataRow
-                    fila = _TablaRemisiones.Rows(_FilaSaldo)
+		SaldoAbonado = CDec(grdRemision.Item(i, 7))
 
-                    If _Saldo > 0 Then
-                        If _Saldo >= CDec(grdRemision.Item(i, 7)) Then
-                            _SumImportesSaldo += CDec(grdRemision.Item(i, 7))
-                            _Saldo = _Total - _SumImportesSaldo
-                            fila("Saldo") = 0
-                        Else
-                            fila("Saldo") = CDec(grdRemision.Item(i, 7)) - _Saldo
-                            _Saldo = 0
-                        End If
-                        fila("Tipocobro") = _Tipocobro
-                        grdRemision.DataSource = _TablaRemisiones
-                        If _Saldo <= 0 Then
-                            lbl_saldo.Text = Valorcero()
-                        Else
-                            lbl_saldo.Text = "$" + _Saldo.ToString
-                        End If
-                        lbl_importeDocumento.Text = Valorcero()
-                        lblSaloMovimiento.Text = Valorcero()
-						lblImporteAbobo.Text = Valorcero()
-						_UltimoCobro.Serie = grdRemision.Item(i, 0)
-						_UltimoCobro.Remision = grdRemision.Item(i, 1)
-						_UltimoCobro.Producto = grdRemision.Item(i, 11)
-					End If
-                Catch ex As Exception
-                    MessageBox.Show(ex.Message)
-                End Try
-            Else
-                MessageBox.Show("saldo insuficiente")
-            End If
-        Else
-            MessageBox.Show("Ya no se permite hacer un abono, el saldo ya es de cero")
-        End If
-    End Sub
+		If grdRemision.Item(i, 13).ToString <> "18" Then
+			If SaldoAbonado > 0 Then
+				If _Saldo > 0 Then
+					Try
+						row = table.NewRow
+						row("Serie") = grdRemision.Item(i, 0)
+						row("Remisión") = grdRemision.Item(i, 1)
+						row("Producto") = grdRemision.Item(i, 11)
+
+						If _Saldo >= CDec(grdRemision.Item(i, 7)) Then
+							row("Importe abonado") = grdRemision.Item(i, 7)
+						Else
+							row("Importe abonado") = _Saldo.ToString
+						End If
+
+						table.Rows.Add(row)
+						grdAbonos.DataSource = table
+						Dim fila As DataRow
+						fila = _TablaRemisiones.Rows(_FilaSaldo)
+
+						If _Saldo > 0 Then
+							If _Saldo >= CDec(grdRemision.Item(i, 7)) Then
+								_SumImportesSaldo += CDec(grdRemision.Item(i, 7))
+								_Saldo = _Total - _SumImportesSaldo
+								fila("Saldo") = 0
+							Else
+								fila("Saldo") = CDec(grdRemision.Item(i, 7)) - _Saldo
+								_Saldo = 0
+							End If
+							fila("Tipocobro") = _Tipocobro
+							grdRemision.DataSource = _TablaRemisiones
+							If _Saldo <= 0 Then
+								lbl_saldo.Text = Valorcero()
+							Else
+								lbl_saldo.Text = "$" + _Saldo.ToString
+							End If
+							lbl_importeDocumento.Text = Valorcero()
+							lblSaloMovimiento.Text = Valorcero()
+							lblImporteAbobo.Text = Valorcero()
+							_UltimoCobro.Serie = grdRemision.Item(i, 0)
+							_UltimoCobro.Remision = grdRemision.Item(i, 1)
+							_UltimoCobro.Producto = grdRemision.Item(i, 11)
+						End If
+					Catch ex As Exception
+						MessageBox.Show(ex.Message)
+					End Try
+				Else
+					MessageBox.Show("saldo insuficiente")
+				End If
+			Else
+				MessageBox.Show("Ya no se permite hacer un abono, el saldo ya es de cero")
+			End If
+		Else
+			MessageBox.Show("No se permiten abonos a remisiones con Crédito Portátil")
+		End If
+	End Sub
 
     Private Sub Btn_Borrar_Click(sender As Object, e As EventArgs) Handles Btn_BorrarTodo.Click
         If table.Rows.Count > 0 Then
