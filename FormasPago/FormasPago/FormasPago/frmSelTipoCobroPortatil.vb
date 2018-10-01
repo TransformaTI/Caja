@@ -2094,7 +2094,7 @@ Public Class frmSelTipoCobroPortatil
 		If Trim(txtClienteCheque.Text) <> "" Then
 			Dim frmConCliente As SigaMetClasses.frmConsultaCliente
 			If String.IsNullOrEmpty(lURLGateway) Then
-				frmConCliente = New SigaMetClasses.frmConsultaCliente(CType(txtClienteCheque.Text, Integer))
+				frmConCliente = New SigaMetClasses.frmConsultaCliente(CType(txtClienteCheque.Text, Integer), Nuevo:=0)
 			Else
 				frmConCliente = New SigaMetClasses.frmConsultaCliente(CType(txtClienteCheque.Text, Integer), lURLGateway, Main.ConString)
 			End If
@@ -2485,7 +2485,7 @@ Public Class frmSelTipoCobroPortatil
 		If Trim(txtClienteVales.Text) <> "" Then
 			Dim frmConCliente As SigaMetClasses.frmConsultaCliente
 			If String.IsNullOrEmpty(lURLGateway) Then
-				frmConCliente = New SigaMetClasses.frmConsultaCliente(CType(txtClienteVales.Text, Integer))
+				frmConCliente = New SigaMetClasses.frmConsultaCliente(CType(txtClienteVales.Text, Integer), Nuevo:=0)
 			Else
 
 				frmConCliente = New SigaMetClasses.frmConsultaCliente(CType(txtClienteVales.Text, Integer), lURLGateway, Main.ConString)
@@ -2507,7 +2507,7 @@ Public Class frmSelTipoCobroPortatil
 		If Trim(txtClienteVales.Text) <> "" Then
 			Dim frmConCliente As SigaMetClasses.frmConsultaCliente
 			If String.IsNullOrEmpty(lURLGateway) Then
-				frmConCliente = New SigaMetClasses.frmConsultaCliente(CType(TxtClienteAplicAntic.Text, Integer))
+				frmConCliente = New SigaMetClasses.frmConsultaCliente(CType(TxtClienteAplicAntic.Text, Integer), Nuevo:=0)
 			Else
 				frmConCliente = New SigaMetClasses.frmConsultaCliente(CType(TxtClienteAplicAntic.Text, Integer), lURLGateway, Main.ConString)
 			End If

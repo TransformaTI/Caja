@@ -959,8 +959,8 @@ Public Class frmSelTipoCobro
 
     Private Sub btnBuscarCliente_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarCliente.Click
         If Trim(txtClienteCheque.Text) <> "" Then
-            Dim frmConCliente As New SigaMetClasses.frmConsultaCliente(CType(txtClienteCheque.Text, Integer))
-            frmConCliente.ShowDialog()
+			Dim frmConCliente As New SigaMetClasses.frmConsultaCliente(CType(txtClienteCheque.Text, Integer), Nuevo:=0)
+			frmConCliente.ShowDialog()
         End If
     End Sub
 
