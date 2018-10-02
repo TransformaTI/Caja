@@ -106,6 +106,7 @@
     <Compile Include="frmSelTipoCobroPortatil.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Globals.vb" />
     <Compile Include="Main.vb">
       <SubType>Component</SubType>
     </Compile>
