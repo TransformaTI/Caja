@@ -2435,6 +2435,14 @@ Public Class frmCapMovimiento
 				'    Cursor = Cursors.Default
 				'End Try
 
+				Try
+					Dim objLiquida As New LiquidadorEstacionario.liquidadorEstacionario()
+
+					objLiquida.liquidarRuta(Main.GLOBAL_URLGATEWAY, 0, 0, AutotanqueTurno_AnoAtt, AutotanqueTurno_Folio, 3, ConString)
+				Catch ex As Exception
+					MessageBox.Show("Error al liquidar:" & ex.Message, Titulo, MessageBoxButtons.OK, MessageBoxIcon.Error)
+				End Try
+
 
 				DialogResult = DialogResult.OK
 				Me.Close()

@@ -55,9 +55,10 @@ Public Module Main
     'Habilita la seguridad de reportes
     Public GLOBAL_SeguridadReportes As Boolean
 
-    Public GLOBAL_URLGATEWAY As String
+	Public GLOBAL_URLGATEWAY As String
+	Public GLOBAL_CadenaConexion As String
 
-    Public GLOBAL_Modulo As Byte = 3
+	Public GLOBAL_Modulo As Byte = 3
 
 
 #Region "Sigamet corporativo"
@@ -81,9 +82,11 @@ Public Module Main
     Public M_DATOS_OK As String = SigaMetClasses.M_DATOS_OK
     Public M_DESEA_CONTINUAR As String = SigaMetClasses.M_DESEA_CONTINUAR
 
-    Public ConString As String
+	Public ConString As String
 
-    Public GLOBAL_Connection As SqlConnection
+
+
+	Public GLOBAL_Connection As SqlConnection
 
     Public CapturaMixtaEfectivoVales As Boolean = False 'Indica si el cobro que se está capturando es mixto.
     '(Efectivo y vales en el mismo cobro).  Se usa en la captura de cobranza.
@@ -123,6 +126,9 @@ Public Module Main
 			PortatilClasses.Globals.GetInstance.ConfiguraModulo(frmAcceso.Usuario.IdUsuario, frmAcceso.Usuario.ClaveDesencriptada,
 			frmAcceso.CadenaConexion, frmAcceso.Usuario.Corporativo,
 			frmAcceso.Usuario.Sucursal)
+
+			LiquidacionPortatil.Globals.GetInstance.ConfiguraModulo(frmAcceso.Usuario.IdUsuario, frmAcceso.Usuario.ClaveDesencriptada,
+			frmAcceso.CadenaConexion, frmAcceso.Usuario.Corporativo, frmAcceso.Usuario.Sucursal, 3)
 
 			FormasPago.Globals.GetInstance.ConfiguraModulo(frmAcceso.Usuario.IdUsuario, frmAcceso.Usuario.ClaveDesencriptada,
 			frmAcceso.CadenaConexion, frmAcceso.Usuario.Corporativo, frmAcceso.Usuario.Sucursal, 3)
