@@ -659,8 +659,9 @@ Public Class frmCapCobranza
 
                 If _TipoCaptura = enumTipoCaptura.NotaIngreso Then
                     If MessageBox.Show("¿Desea imprimir la nota: " & strNuevaClave & "?", Titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.Yes Then
-                        Dim frmRep As New frmConsultaReporte(frmConsultaReporte.enumTipoReporte.RepFormatoNotaIngreso, 0, Now, Now, , , , strNuevaClave)
-                        frmRep.ShowDialog()
+						'Dim frmRep As New frmConsultaReporte(frmConsultaReporte.enumTipoReporte.RepFormatoNotaIngreso, 0, Now, Now, , , , strNuevaClave)
+						Dim frmrep As New frmConsultaReporte(frmConsultaReporte.enumTipoReporte.RepMovimientoCajaDetalle, 0, Now.Date, FechaOperacion, Main.GLOBAL_CajaUsuario, i, ConsecutivoInicioDeSesion, strNuevaClave)
+						frmrep.ShowDialog()
                     End If
                 End If
 
