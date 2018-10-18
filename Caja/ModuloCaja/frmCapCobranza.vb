@@ -620,35 +620,48 @@ Public Class frmCapCobranza
 
                 'Captura de notas de ingreso que piden código de empleado
                 Dim _idEmpleado As Integer = GLOBAL_IDEmpleado
-                'Verificar que se haya generado el objeto de validación
-                'Verificar que el campo de validación sea EMPLEADO
-                If Not _cEfectuarValidacion Is Nothing AndAlso
-                    _cEfectuarValidacion.ValorParaValidacion.Trim().ToUpper() = "EMPLEADO" AndAlso
-                    _cEfectuarValidacion.Requerido Then
-                    'Si el valor de validación es requerido y el campo a validar es la columna empleado
-                    'El valor se guardará en la columna empleado de la tabla MovimientoCaja
-                    _idEmpleado = CType(txtCliente.Text, Integer)
-                    'Los registros que solicitan como clave de validación el número del empleado,
-                    'registraran cero como número de cliente 02/03/2010
-                    _Cliente = 0
-                End If
+				'Verificar que se haya generado el objeto de validación
+				'Verificar que el campo de validación sea EMPLEADO
+				If Not _cEfectuarValidacion Is Nothing AndAlso
+					_cEfectuarValidacion.ValorParaValidacion.Trim().ToUpper() = "EMPLEADO" AndAlso
+					_cEfectuarValidacion.Requerido Then
+					'Si el valor de validación es requerido y el campo a validar es la columna empleado
+					'El valor se guardará en la columna empleado de la tabla MovimientoCaja
+					_idEmpleado = CType(txtCliente.Text, Integer)
+					'Los registros que solicitan como clave de validación el número del empleado,
+					'registraran cero como número de cliente 02/03/2010
+					_Cliente = 0
+				End If
 
-                Dim i As Integer = oMov.Alta(Main.GLOBAL_CajaUsuario,
-                                FechaOperacion,
-                                ConsecutivoInicioDeSesion,
-                                _FMovimiento,
-                                decImporteTotalCobros,
-                                GLOBAL_IDUsuario,
-                                _idEmpleado,
-                                CType(ComboTipoMovCaja.TipoMovimientoCaja, Byte),
-                                ComboRuta.Ruta,
-                                _Cliente,
-                                ListaCobros,
-                                Main.GLOBAL_IDUsuario,
-                                Trim(txtObservaciones.Text),
-                                strNuevaClave)
 
-                MessageBox.Show(M_DATOS_OK, Titulo, MessageBoxButtons.OK, MessageBoxIcon.Information)
+				Dim claveTipoConcepto As Integer = 0
+				Dim cuentaContable As String = ""
+
+				If ComboTipoMovCaja.TipoMovimientoCaja = 43 Then
+					Dim objTipoConcepto As New TipoConcepto()
+
+					objTipoConcepto = CType(cboTipoConcepto.SelectedItem, TipoConcepto)
+					claveTipoConcepto = objTipoConcepto.TipoConcepto
+					cuentaContable = objTipoConcepto.Cuentacontable
+				End If
+
+
+				Dim i As Integer = oMov.Alta(Main.GLOBAL_CajaUsuario,
+								FechaOperacion,
+								ConsecutivoInicioDeSesion,
+								_FMovimiento,
+								decImporteTotalCobros,
+								GLOBAL_IDUsuario,
+								_idEmpleado,
+								CType(ComboTipoMovCaja.TipoMovimientoCaja, Byte),
+								ComboRuta.Ruta,
+								_Cliente,
+								ListaCobros,
+								Main.GLOBAL_IDUsuario,
+								Trim(txtObservaciones.Text),
+								strNuevaClave, TipoConcepto:=claveTipoConcepto, CuentaContable:=cuentaContable)
+
+				MessageBox.Show(M_DATOS_OK, Titulo, MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                 If _TipoCaptura = enumTipoCaptura.Eficiencia Then
                     If MessageBox.Show("¿Desea imprimir la eficiencia negativa: " & strNuevaClave & "?", Titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.Yes Then
@@ -659,9 +672,8 @@ Public Class frmCapCobranza
 
                 If _TipoCaptura = enumTipoCaptura.NotaIngreso Then
                     If MessageBox.Show("¿Desea imprimir la nota: " & strNuevaClave & "?", Titulo, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.Yes Then
-						'Dim frmRep As New frmConsultaReporte(frmConsultaReporte.enumTipoReporte.RepFormatoNotaIngreso, 0, Now, Now, , , , strNuevaClave)
-						Dim frmrep As New frmConsultaReporte(frmConsultaReporte.enumTipoReporte.RepMovimientoCajaDetalle, 0, Now.Date, FechaOperacion, Main.GLOBAL_CajaUsuario, i, ConsecutivoInicioDeSesion, strNuevaClave)
-						frmrep.ShowDialog()
+						Dim frmRep As New frmConsultaReporte(frmConsultaReporte.enumTipoReporte.RepFormatoNotaIngreso, 0, Now, Now, , , , strNuevaClave)
+						frmRep.ShowDialog()
                     End If
                 End If
 

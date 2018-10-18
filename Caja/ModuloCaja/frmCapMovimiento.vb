@@ -2255,6 +2255,8 @@ Public Class frmCapMovimiento
 
 			Dim arrDenomEfectivo As Array = CobroEfectivo.CalculaDenominaciones
 			Dim arrDenomVales As Array = Vales.CalculaDenominaciones
+
+
 			'Dim arrDenomValesPromocion As Array = ControlValesPromocion1.CalculaDenominaciones
 
 			Dim arrCheques(0, 2) As Decimal
@@ -2391,6 +2393,9 @@ Public Class frmCapMovimiento
 						'05 de Julio del 2004
 						'**********************************
 						'Dim cn As New SqlClient.SqlConnection(Main.ConString)
+
+
+
 						Dim cn As SqlClient.SqlConnection = GLOBAL_Connection
 						Dim cmd As New SqlClient.SqlCommand("spSTTransfiereCargosCartera", cn)
 						With cmd
@@ -2435,13 +2440,14 @@ Public Class frmCapMovimiento
 				'    Cursor = Cursors.Default
 				'End Try
 
-				Try
-					Dim objLiquida As New LiquidadorEstacionario.liquidadorEstacionario()
-
-					objLiquida.liquidarRuta(Main.GLOBAL_URLGATEWAY, 0, 0, AutotanqueTurno_AnoAtt, AutotanqueTurno_Folio, 3, ConString)
-				Catch ex As Exception
-					MessageBox.Show("Error al liquidar:" & ex.Message, Titulo, MessageBoxButtons.OK, MessageBoxIcon.Error)
-				End Try
+				If (AutotanqueTurno_AnoAtt <> 0 And AutotanqueTurno_Folio <> 0) Then
+					Try
+						Dim objLiquida As New LiquidadorEstacionario.liquidadorEstacionario()
+						objLiquida.liquidarRuta(Main.GLOBAL_URLGATEWAY, 0, 0, AutotanqueTurno_AnoAtt, AutotanqueTurno_Folio, 3, ConString)
+					Catch ex As Exception
+						MessageBox.Show("Error al liquidar:" & ex.Message, Titulo, MessageBoxButtons.OK, MessageBoxIcon.Error)
+					End Try
+				End If
 
 
 				DialogResult = DialogResult.OK
