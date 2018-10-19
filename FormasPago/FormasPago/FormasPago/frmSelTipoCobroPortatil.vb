@@ -2313,7 +2313,7 @@ Public Class frmSelTipoCobroPortatil
 			.Cobro = 0
 			'Datos reales
 			.Cliente = CInt(TxtClienteTransferencia.Text)
-			.FCheque = Date.MinValue
+			.FCheque = DTPFechaTransferencia.Value
 			.NumeroCuenta = TxtNumeroCuentaTransferencia.Text
 			.Banco = CShort(ComboBancoTransferencia.SelectedValue)
 			.Observaciones = txtbObservacionesTranferencias.Text
@@ -2327,7 +2327,7 @@ Public Class frmSelTipoCobroPortatil
 			.Importe = .Total / CDec(1 + (GLOBAL_IVA / 100))
 			.Impuesto = .Total - .Importe
 			.Referencia = "NULL" ' puede ser vacio
-			.NumeroCheque = "NULL" ' puede ser vacio
+			.NumeroCheque = TxtNumeroDocumentoTransferencia.Text ' puede ser vacio
 			.FDevolucion = Date.MinValue
 			.RazonDevCheque = Nothing
 			' .Saldo = 0
@@ -2537,7 +2537,6 @@ Public Class frmSelTipoCobroPortatil
 
 			ActualizarSaldoAnticipo(dt, DebitoAnticipos)
 			EliminaSaldosCeros(dt)
-
 			dgvSaldoAnticipo.AutoGenerateColumns = False
 			dgvSaldoAnticipo.DataSource = dt
 			dgvSaldoAnticipo.AutoGenerateColumns = False
@@ -2638,7 +2637,7 @@ Public Class frmSelTipoCobroPortatil
 		Return insertaCobro
 	End Function
 
-	Public Function AltaAnticipo(Pago As Integer) As SigaMetClasses.CobroDetalladoDatos
+	Public Function AltaAnticipo(Pago As Integer, año As Short, folioMovimiento As Integer) As SigaMetClasses.CobroDetalladoDatos
 		Dim insertaCobro As New SigaMetClasses.CobroDetalladoDatos()
 		With insertaCobro
 			.Pago = Pago
@@ -2674,10 +2673,11 @@ Public Class frmSelTipoCobroPortatil
 			.StatusSaldoAFavor = "NULL"
 			.AñoCobroOrigen = CShort("0")
 			.CobroOrigen = 0
+			.FolioMovimiento = folioMovimiento
+			.AñoMovimiento = año
 		End With
 		'_listaCobros.Add(insertaCobro)
 		Return insertaCobro
-
 	End Function
 
 
@@ -2710,7 +2710,7 @@ Public Class frmSelTipoCobroPortatil
 
 					Pago = TotalCobros + 1
 					TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.AplicacionAnticipo
-					Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaAnticipo(Pago)
+					Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaAnticipo(Pago, CShort(Año), CInt(Folio))
 					Dim listaDebito As New List(Of DebitoAnticipo)
 					Dim nuevodebitoanticipo As New DebitoAnticipo
 					nuevodebitoanticipo.folio = Folio
