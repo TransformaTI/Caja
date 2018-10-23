@@ -2141,8 +2141,8 @@ Public Class frmCapMovimiento
 				lblFaltante.Text = ""
 
 			End If
-			'lblCambio.Text = (CType(lblImporteTotalCobro.Text, Decimal) - decImporteTotalMovimiento).ToString("C")
-			'lblCambioEntregado.Text = dtCambio.ImporteTotalCambio.ToString("C")
+			lblCambio.Text = (CType(lblImporteTotalCobro.Text, Decimal) - decImporteTotalMovimiento).ToString("C")
+			lblCambioEntregado.Text = dtCambio.ImporteTotalCambio.ToString("C")
 			grpCobroEficiencia.Enabled = False
 			dtpFMovimiento.Enabled = False
 			btnAceptar.Enabled = False

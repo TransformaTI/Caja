@@ -176,19 +176,24 @@ Public Class frmRemisiones
 
 						table.Rows.Add(row)
 						grdAbonos.DataSource = table
-						Dim fila As DataRow
-						fila = _TablaRemisiones.Rows(_FilaSaldo)
+						'Dim fila As DataRow
+						'fila = _TablaRemisiones.Rows(_FilaSaldo)
+
+						'fila = _TablaRemisiones.Rows.
 
 						If _Saldo > 0 Then
 							If _Saldo >= CDec(grdRemision.Item(i, 7)) Then
 								_SumImportesSaldo += CDec(grdRemision.Item(i, 7))
 								_Saldo = _Total - _SumImportesSaldo
-								fila("Saldo") = 0
+								'fila("Saldo") = 0
+								grdRemision.Item(i, 7) = 0
 							Else
-								fila("Saldo") = CDec(grdRemision.Item(i, 7)) - _Saldo
+								'fila("Saldo") = CDec(grdRemision.Item(i, 7)) - _Saldo
+								grdRemision.Item(i, 7) = CDec(grdRemision.Item(i, 7)) - _Saldo
 								_Saldo = 0
 							End If
-							fila("Tipocobro") = _Tipocobro
+							'fila("Tipocobro") = _Tipocobro
+							grdRemision.Item(i, 13) = _Tipocobro
 							grdRemision.DataSource = _TablaRemisiones
 							If _Saldo <= 0 Then
 								lbl_saldo.Text = Valorcero()
@@ -329,8 +334,8 @@ Public Class frmRemisiones
     End Function
 
     Private Sub grdRemision_CurrentCellChanged(sender As Object, e As EventArgs) Handles grdRemision.CurrentCellChanged
-        i = grdRemision.CurrentRowIndex
-        ActualizarEtiquetas()
+		i = grdRemision.CurrentRowIndex
+		ActualizarEtiquetas()
     End Sub
 
 

@@ -109,6 +109,7 @@ Public Class frmSelTipoCobroPortatil
 	Private _MostrarDacion As Boolean
 	Private Pago As Integer
 	Private TipoCobro As Integer
+	Private dListadoTipoTarjeta As Dictionary(Of Integer, String)
 
 	Enum FormaPago
 		Efectivo = 0
@@ -318,7 +319,6 @@ Public Class frmSelTipoCobroPortatil
 	Friend WithEvents LabelBase3 As ControlesBase.LabelBase
 	Friend WithEvents Label21 As ControlesBase.LabelBase
 	Friend WithEvents lblTitularTC As System.Windows.Forms.Label
-	Friend WithEvents lblTipoTarjetaCredito As System.Windows.Forms.Label
 	Friend WithEvents LabelBase4 As ControlesBase.LabelBase
 	Friend WithEvents lblVigenciaTC As System.Windows.Forms.Label
 	Friend WithEvents LabelBase5 As ControlesBase.LabelBase
@@ -370,6 +370,7 @@ Public Class frmSelTipoCobroPortatil
 		Me.tbTarjetaCredito = New System.Windows.Forms.TabPage()
 		Me.btnAceptarTarjetaCredito = New ControlesBase.BotonBase()
 		Me.grpTarjetaCredito = New System.Windows.Forms.GroupBox()
+		Me.cboTipoTarjeta = New System.Windows.Forms.ComboBox()
 		Me.cbBancoTC = New SigaMetClasses.Combos.ComboBanco()
 		Me.lblBancoNombre = New System.Windows.Forms.Label()
 		Me.txtTarjetaCredito = New SigaMetClasses.Controles.txtNumeroEntero()
@@ -382,7 +383,6 @@ Public Class frmSelTipoCobroPortatil
 		Me.LabelBase6 = New ControlesBase.LabelBase()
 		Me.lblVigenciaTC = New System.Windows.Forms.Label()
 		Me.LabelBase5 = New ControlesBase.LabelBase()
-		Me.lblTipoTarjetaCredito = New System.Windows.Forms.Label()
 		Me.LabelBase4 = New ControlesBase.LabelBase()
 		Me.LabelBase3 = New ControlesBase.LabelBase()
 		Me.LabelBase2 = New ControlesBase.LabelBase()
@@ -393,6 +393,8 @@ Public Class frmSelTipoCobroPortatil
 		Me.tbChequeFicha = New System.Windows.Forms.TabPage()
 		Me.btnAceptarChequeFicha = New ControlesBase.BotonBase()
 		Me.grpChequeFicha = New System.Windows.Forms.GroupBox()
+		Me.dtpChequeFechaCobro = New System.Windows.Forms.DateTimePicker()
+		Me.lblChequeFechaCobro = New ControlesBase.LabelBase()
 		Me.LabelBase33 = New ControlesBase.LabelBase()
 		Me.lblNombre = New System.Windows.Forms.Label()
 		Me.btnBuscarCliente = New System.Windows.Forms.Button()
@@ -464,9 +466,6 @@ Public Class frmSelTipoCobroPortatil
 		Me.TxtNombreDacioPago = New SigaMetClasses.Controles.txtNumeroDecimal()
 		Me.LabelBase24 = New ControlesBase.LabelBase()
 		Me.imgLista = New System.Windows.Forms.ImageList(Me.components)
-		Me.cboTipoTarjeta = New System.Windows.Forms.ComboBox()
-		Me.dtpChequeFechaCobro = New System.Windows.Forms.DateTimePicker()
-		Me.lblChequeFechaCobro = New ControlesBase.LabelBase()
 		Me.tabTipoCobro.SuspendLayout()
 		Me.tbEfectivo.SuspendLayout()
 		Me.GroupBox1.SuspendLayout()
@@ -564,7 +563,7 @@ Public Class frmSelTipoCobroPortatil
 		Me.tbValesDespensa.ImageIndex = 0
 		Me.tbValesDespensa.Location = New System.Drawing.Point(4, 4)
 		Me.tbValesDespensa.Name = "tbValesDespensa"
-		Me.tbValesDespensa.Size = New System.Drawing.Size(603, 325)
+		Me.tbValesDespensa.Size = New System.Drawing.Size(603, 307)
 		Me.tbValesDespensa.TabIndex = 3
 		Me.tbValesDespensa.Text = "Vales Despensa"
 		'
@@ -757,7 +756,7 @@ Public Class frmSelTipoCobroPortatil
 		Me.btnAceptarTarjetaCredito.Location = New System.Drawing.Point(500, 157)
 		Me.btnAceptarTarjetaCredito.Name = "btnAceptarTarjetaCredito"
 		Me.btnAceptarTarjetaCredito.Size = New System.Drawing.Size(80, 24)
-		Me.btnAceptarTarjetaCredito.TabIndex = 2
+		Me.btnAceptarTarjetaCredito.TabIndex = 6
 		Me.btnAceptarTarjetaCredito.Text = "&Aceptar"
 		Me.btnAceptarTarjetaCredito.TextAlign = System.Drawing.ContentAlignment.MiddleRight
 		'
@@ -776,7 +775,6 @@ Public Class frmSelTipoCobroPortatil
 		Me.grpTarjetaCredito.Controls.Add(Me.LabelBase6)
 		Me.grpTarjetaCredito.Controls.Add(Me.lblVigenciaTC)
 		Me.grpTarjetaCredito.Controls.Add(Me.LabelBase5)
-		Me.grpTarjetaCredito.Controls.Add(Me.lblTipoTarjetaCredito)
 		Me.grpTarjetaCredito.Controls.Add(Me.LabelBase4)
 		Me.grpTarjetaCredito.Controls.Add(Me.LabelBase3)
 		Me.grpTarjetaCredito.Controls.Add(Me.LabelBase2)
@@ -790,6 +788,15 @@ Public Class frmSelTipoCobroPortatil
 		Me.grpTarjetaCredito.TabIndex = 1
 		Me.grpTarjetaCredito.TabStop = False
 		Me.grpTarjetaCredito.Text = "Datos de la tarjeta de crédito o débito"
+		'
+		'cboTipoTarjeta
+		'
+		Me.cboTipoTarjeta.Enabled = False
+		Me.cboTipoTarjeta.FormattingEnabled = True
+		Me.cboTipoTarjeta.Location = New System.Drawing.Point(104, 168)
+		Me.cboTipoTarjeta.Name = "cboTipoTarjeta"
+		Me.cboTipoTarjeta.Size = New System.Drawing.Size(160, 21)
+		Me.cboTipoTarjeta.TabIndex = 4
 		'
 		'cbBancoTC
 		'
@@ -845,7 +852,7 @@ Public Class frmSelTipoCobroPortatil
 		Me.txtImporteTC.Location = New System.Drawing.Point(104, 216)
 		Me.txtImporteTC.Name = "txtImporteTC"
 		Me.txtImporteTC.Size = New System.Drawing.Size(160, 21)
-		Me.txtImporteTC.TabIndex = 4
+		Me.txtImporteTC.TabIndex = 5
 		'
 		'txtClienteTC
 		'
@@ -898,15 +905,6 @@ Public Class frmSelTipoCobroPortatil
 		Me.LabelBase5.Size = New System.Drawing.Size(50, 13)
 		Me.LabelBase5.TabIndex = 37
 		Me.LabelBase5.Text = "Vigencia:"
-		'
-		'lblTipoTarjetaCredito
-		'
-		Me.lblTipoTarjetaCredito.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-		Me.lblTipoTarjetaCredito.Location = New System.Drawing.Point(104, 168)
-		Me.lblTipoTarjetaCredito.Name = "lblTipoTarjetaCredito"
-		Me.lblTipoTarjetaCredito.Size = New System.Drawing.Size(160, 21)
-		Me.lblTipoTarjetaCredito.TabIndex = 36
-		Me.lblTipoTarjetaCredito.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
 		'
 		'LabelBase4
 		'
@@ -1019,6 +1017,23 @@ Public Class frmSelTipoCobroPortatil
 		Me.grpChequeFicha.TabIndex = 1
 		Me.grpChequeFicha.TabStop = False
 		Me.grpChequeFicha.Text = "Datos del cheque"
+		'
+		'dtpChequeFechaCobro
+		'
+		Me.dtpChequeFechaCobro.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+		Me.dtpChequeFechaCobro.Location = New System.Drawing.Point(120, 84)
+		Me.dtpChequeFechaCobro.Name = "dtpChequeFechaCobro"
+		Me.dtpChequeFechaCobro.Size = New System.Drawing.Size(192, 21)
+		Me.dtpChequeFechaCobro.TabIndex = 2
+		'
+		'lblChequeFechaCobro
+		'
+		Me.lblChequeFechaCobro.AutoSize = True
+		Me.lblChequeFechaCobro.Location = New System.Drawing.Point(16, 87)
+		Me.lblChequeFechaCobro.Name = "lblChequeFechaCobro"
+		Me.lblChequeFechaCobro.Size = New System.Drawing.Size(85, 13)
+		Me.lblChequeFechaCobro.TabIndex = 43
+		Me.lblChequeFechaCobro.Text = "Fecha de cobro:"
 		'
 		'LabelBase33
 		'
@@ -1684,32 +1699,6 @@ Public Class frmSelTipoCobroPortatil
 		Me.imgLista.ImageSize = New System.Drawing.Size(16, 16)
 		Me.imgLista.TransparentColor = System.Drawing.Color.Transparent
 		'
-		'cboTipoTarjeta
-		'
-		Me.cboTipoTarjeta.FormattingEnabled = True
-		Me.cboTipoTarjeta.Location = New System.Drawing.Point(269, 171)
-		Me.cboTipoTarjeta.Name = "cboTipoTarjeta"
-		Me.cboTipoTarjeta.Size = New System.Drawing.Size(160, 21)
-		Me.cboTipoTarjeta.TabIndex = 56
-		Me.cboTipoTarjeta.Visible = False
-		'
-		'dtpChequeFechaCobro
-		'
-		Me.dtpChequeFechaCobro.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-		Me.dtpChequeFechaCobro.Location = New System.Drawing.Point(120, 84)
-		Me.dtpChequeFechaCobro.Name = "dtpChequeFechaCobro"
-		Me.dtpChequeFechaCobro.Size = New System.Drawing.Size(192, 21)
-		Me.dtpChequeFechaCobro.TabIndex = 2
-		'
-		'lblChequeFechaCobro
-		'
-		Me.lblChequeFechaCobro.AutoSize = True
-		Me.lblChequeFechaCobro.Location = New System.Drawing.Point(16, 87)
-		Me.lblChequeFechaCobro.Name = "lblChequeFechaCobro"
-		Me.lblChequeFechaCobro.Size = New System.Drawing.Size(85, 13)
-		Me.lblChequeFechaCobro.TabIndex = 43
-		Me.lblChequeFechaCobro.Text = "Fecha de cobro:"
-		'
 		'frmSelTipoCobroPortatil
 		'
 		Me.AutoScaleBaseSize = New System.Drawing.Size(5, 14)
@@ -1802,7 +1791,7 @@ Public Class frmSelTipoCobroPortatil
 	Private Sub btnAceptarTarjetaCredito_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAceptarTarjetaCredito.Click
 		'If lblClienteNombre.Text <> "" Then
 		'If txtClienteTC.Text <> "" AndAlso txtTarjetaCredito.Text <> "" AndAlso txtBancoTC.Text <> "" Then
-		If txtClienteTC.Text <> "" AndAlso txtTarjetaCredito.Text <> "" AndAlso cbBancoTC.Text <> "" Then
+		If txtClienteTC.Text <> "" AndAlso txtTarjetaCredito.Text <> "" AndAlso cbBancoTC.Text <> "" AndAlso cboTipoTarjeta.Text <> "" Then
 			If txtImporteTC.Text <> "" And IsNumeric(txtImporteTC.Text) Then
 				Dim frmCaptura As New frmCapCobranzaDoc()
 				frmCaptura.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.TarjetaCredito
@@ -1810,7 +1799,7 @@ Public Class frmSelTipoCobroPortatil
 				Total = CDec(txtImporteTC.Text)
 
 				Pago = TotalCobros + 1
-				TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.TarjetaCredito
+				TipoCobro = CInt(cboTipoTarjeta.SelectedValue)
 				Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaTarjeta(Pago)
 				_AceptaSaldo = True
 				If _CapturaDetalle = True Then
@@ -1940,6 +1929,15 @@ Public Class frmSelTipoCobroPortatil
 		End If
 
 
+		dListadoTipoTarjeta = SigaMetClasses.Main.consultarTipoTarjeta()
+		If (dListadoTipoTarjeta.Count > 0) Then
+			cboTipoTarjeta.ValueMember = "Key"
+			cboTipoTarjeta.DisplayMember = "Value"
+
+			cboTipoTarjeta.DataSource = New BindingSource(dListadoTipoTarjeta, Nothing)
+		End If
+
+
 
 	End Sub
 
@@ -1959,7 +1957,7 @@ Public Class frmSelTipoCobroPortatil
 		txtBancoTC.Text = ""
 		cbBancoTC.SelectedIndex = 0
 		lblBancoNombre.Text = ""
-		lblTipoTarjetaCredito.Text = ""
+		'lblTipoTarjetaCredito.Text = ""
 		lblVigenciaTC.Text = ""
 	End Sub
 
@@ -1977,7 +1975,7 @@ Public Class frmSelTipoCobroPortatil
 			cbBancoTC.Text = CType(dr("BancoNombre"), String)
 
 			lblBancoNombre.Text = CType(dr("BancoNombre"), String)
-			lblTipoTarjetaCredito.Text = CType(dr("TipoTarjetaCreditoDescripcion"), String)
+			'lblTipoTarjetaCredito.Text = CType(dr("TipoTarjetaCreditoDescripcion"), String)
 			lblVigenciaTC.Text = CType(dr("MesVigencia"), String) & " / " & CType(dr("AñoVigencia"), String)
 		Loop
 		dr.Close()
@@ -2005,7 +2003,7 @@ Public Class frmSelTipoCobroPortatil
 
 				cbBancoTC.Text = CType(dr("BancoNombre"), String)
 
-				lblTipoTarjetaCredito.Text = CType(dr("TipoTarjetaCreditoDescripcion"), String)
+				'lblTipoTarjetaCredito.Text = CType(dr("TipoTarjetaCreditoDescripcion"), String)
 				lblVigenciaTC.Text = CType(dr("MesVigencia"), String) & " / " & CType(dr("AñoVigencia"), String)
 			Loop
 			If dr.HasRows Then
@@ -2060,6 +2058,7 @@ Public Class frmSelTipoCobroPortatil
 				AgregaTarjetaManual()
 			Else
 				txtImporteTC.Focus()
+				cboTipoTarjeta.SelectedIndex = 0
 				activatarjetaDatos(False)
 			End If
 		End If
@@ -2075,11 +2074,14 @@ Public Class frmSelTipoCobroPortatil
 		oCliente.Consulta(CType(txtClienteTC.Text, Integer))
 		lblClienteNombre.Text = oCliente.Nombre
 		oCliente = Nothing
+
+
 		activatarjetaDatos(True)
 	End Sub
 
 	Private Sub activatarjetaDatos(ByVal activa As Boolean)
 		txtTarjetaCredito.Enabled = activa
+		cboTipoTarjeta.Enabled = activa
 
 	End Sub
 
@@ -2424,7 +2426,8 @@ Public Class frmSelTipoCobroPortatil
 				.NumeroCuenta = txtTarjetaCredito.Text
 				.Banco = CShort(cbBancoTC.SelectedValue)
 				.Observaciones = "NULL"
-				.TipoCobro = CByte(SigaMetClasses.Enumeradores.enumTipoCobro.TarjetaCredito)
+				'.TipoCobro = CByte(SigaMetClasses.Enumeradores.enumTipoCobro.TarjetaCredito)
+				.TipoCobro = CByte(cboTipoTarjeta.SelectedValue)
 				.DscTipoCobro = "Tarjeta"
 				.FAlta = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
 				.Status = "EMITIDO"
@@ -2476,7 +2479,7 @@ Public Class frmSelTipoCobroPortatil
 		txtTarjetaCredito.Text = ""
 		txtBancoTC.Text = ""
 		lblBancoNombre.Text = ""
-		lblTipoTarjetaCredito.Text = ""
+		'lblTipoTarjetaCredito.Text = ""
 		lblVigenciaTC.Text = ""
 		txtImporteTC.Clear()
 		cbBancoTC.SelectedIndex = 0
@@ -3076,6 +3079,10 @@ Public Class frmSelTipoCobroPortatil
 	End Sub
 
 	Private Sub txtClienteCheque_TextChanged(sender As Object, e As EventArgs) Handles txtClienteCheque.TextChanged
+
+	End Sub
+
+	Private Sub tbChequeFicha_Click(sender As Object, e As EventArgs) Handles tbChequeFicha.Click
 
 	End Sub
 End Class
