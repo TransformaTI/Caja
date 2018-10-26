@@ -2139,8 +2139,8 @@ Public Class frmCapMovimiento
 				lblFaltante.Text = (decImporteTotalMovimiento - CType(lblImporteTotalCobro.Text, Decimal)).ToString("C")
 			Else
 				lblFaltante.Text = ""
-
 			End If
+
 			lblCambio.Text = (CType(lblImporteTotalCobro.Text, Decimal) - decImporteTotalMovimiento).ToString("C")
 			lblCambioEntregado.Text = dtCambio.ImporteTotalCambio.ToString("C")
 			grpCobroEficiencia.Enabled = False
@@ -2440,7 +2440,7 @@ Public Class frmCapMovimiento
 				'    Cursor = Cursors.Default
 				'End Try
 
-				If (AutotanqueTurno_AnoAtt <> 0 And AutotanqueTurno_Folio <> 0) Then
+				If AutotanqueTurno_AnoAtt <> 0 And AutotanqueTurno_Folio <> 0 And Main.GLOBAL_URLGATEWAY <> "" Then
 					Try
 						Dim objLiquida As New LiquidadorEstacionario.liquidadorEstacionario()
 						objLiquida.liquidarRuta(Main.GLOBAL_URLGATEWAY, 0, 0, AutotanqueTurno_AnoAtt, AutotanqueTurno_Folio, 3, ConString)
