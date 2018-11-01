@@ -1768,7 +1768,7 @@ Public Class frmSelTipoCobroPortatil
 				Total = CDec(TxtMontoVales.Text)
 
 				Pago = TotalCobros + 1
-				TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.Vales
+				TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.ValesCaja
 				Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaVales(Pago)
 				_AceptaSaldo = True
 				If _CapturaDetalle = True Then
@@ -2648,7 +2648,7 @@ Public Class frmSelTipoCobroPortatil
 			.NumeroCuenta = "NULL"
 			.Banco = CShort(ComboProveedor.SelectedValue)
 			.Observaciones = TextObservacionesVales.Text
-			.TipoCobro = CByte(SigaMetClasses.Enumeradores.enumTipoCobro.Vales)
+			.TipoCobro = CByte(SigaMetClasses.Enumeradores.enumTipoCobro.ValesCaja)
 			.DscTipoCobro = "Vale"
 			.FAlta = CDate(DateTime.Now.ToString("dd/MM/yyyy"))
 			.Status = "EMITIDO"
