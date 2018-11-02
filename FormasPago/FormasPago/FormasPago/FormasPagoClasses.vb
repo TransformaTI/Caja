@@ -43,7 +43,7 @@ Public Class Cuenta
 			Dim patron As String
 			patron = cuenta.ConsultarPatron(TipoCobro)
 
-			Dim reg As New Regex(patron
+			Dim reg As New Regex(patron)
 
 			resultado = reg.IsMatch(CuentaOrigen)
 		Catch ex As Exception
