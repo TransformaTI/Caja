@@ -1,5 +1,6 @@
 Option Strict On
 Option Explicit On
+Imports System.Collections
 Imports System.Collections.Generic
 Imports System.Data.SqlClient
 Imports System.Linq
@@ -26,14 +27,14 @@ Public Class frmSelTipoCobroPortatil
 	Friend WithEvents LabelBase11 As ControlesBase.LabelBase
 	Friend WithEvents LabelBase10 As ControlesBase.LabelBase
 	Friend WithEvents TxtNombreTransferencia As SigaMetClasses.Controles.txtNumeroDecimal
-	Friend WithEvents LabelBase9 As ControlesBase.LabelBase
+	Friend WithEvents lblCluie As ControlesBase.LabelBase
 	Friend WithEvents Button1 As Button
 	Friend WithEvents TxtClienteTransferencia As SigaMetClasses.Controles.txtNumeroEntero
 	Friend WithEvents txtbObservacionesTranferencias As TextBox
 	Friend WithEvents TxtImporteTransferencia As SigaMetClasses.Controles.txtNumeroDecimal
-	Friend WithEvents ComboBancoTransferencia As SigaMetClasses.Combos.ComboBanco
-	Friend WithEvents TxtNumeroDocumentoTransferencia As SigaMetClasses.Controles.txtNumeroEntero
-	Friend WithEvents TxtNumeroCuentaTransferencia As SigaMetClasses.Controles.txtNumeroEntero
+	Friend WithEvents ComboBancoDestinoTransferencia As SigaMetClasses.Combos.ComboBanco
+	Friend WithEvents TxtNumeroReferenciaTransferencia As SigaMetClasses.Controles.txtNumeroEntero
+	Friend WithEvents TxtNumeroCuentaTransferenciaOrigen As SigaMetClasses.Controles.txtNumeroEntero
 	Friend WithEvents DTPFechaTransferencia As DateTimePicker
 	Friend WithEvents LabelBase16 As ControlesBase.LabelBase
 	Friend WithEvents LabelBase15 As ControlesBase.LabelBase
@@ -235,6 +236,27 @@ Public Class frmSelTipoCobroPortatil
 	Friend WithEvents dtpChequeFechaCobro As DateTimePicker
 
 	Friend WithEvents lblChequeFechaCobro As ControlesBase.LabelBase
+	Friend WithEvents ComboBancoOrigenTransferencia As SigaMetClasses.Combos.ComboBanco
+
+	Friend WithEvents LabelBase35 As ControlesBase.LabelBase
+	Friend WithEvents cboCuentaDestinoTransferencia As ComboBox
+
+	Friend WithEvents LabelBase37 As ControlesBase.LabelBase
+	Friend WithEvents lblObservacionesTransferencia As ControlesBase.LabelBase
+
+	Friend WithEvents lblImporteDestinoTransferencia As ControlesBase.LabelBase
+
+	Friend WithEvents lblCuentaDestinoTransferencia As ControlesBase.LabelBase
+
+	Friend WithEvents lblBancoDestinoTransferencia As ControlesBase.LabelBase
+
+	Friend WithEvents lblNoReferenciaTransferencia As ControlesBase.LabelBase
+
+	Friend WithEvents lblFechaDocumentoTransferencia As ControlesBase.LabelBase
+
+	Friend WithEvents lblClienteTransferencia As ControlesBase.LabelBase
+	Friend WithEvents lblBancoOrigenTransferencia As ControlesBase.LabelBase
+	Friend WithEvents lblCuentaOrigenTransferencia As ControlesBase.LabelBase
 
 	Public Property CadenaConexion() As String
 		Get
@@ -246,16 +268,16 @@ Public Class frmSelTipoCobroPortatil
 	End Property
 
 	Private _TipoCaptura As Int32
-    Public Property TipoCaptura() As Int32
-        Get
-            Return _TipoCaptura
-        End Get
-        Set(ByVal value As Int32)
-            _TipoCaptura = value
-        End Set
-    End Property
+	Public Property TipoCaptura() As Int32
+		Get
+			Return _TipoCaptura
+		End Get
+		Set(ByVal value As Int32)
+			_TipoCaptura = value
+		End Set
+	End Property
 
-    Public Sub New(ByVal intConsecutivo As Integer,
+	Public Sub New(ByVal intConsecutivo As Integer,
 		  Optional ByVal CapturaDetalle As Boolean = True, Optional ByVal DetalleCobro As Integer = 0,
 	 Optional ByVal Folio As Integer = 0, Optional ByVal aSoloEfectivo As Boolean = False)
 
@@ -347,21 +369,16 @@ Public Class frmSelTipoCobroPortatil
 		Me.tbEfectivo = New System.Windows.Forms.TabPage()
 		Me.btnEfectivo = New ControlesBase.BotonBase()
 		Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-		Me.Txt_totalEfectivo = New SigaMetClasses.Controles.txtNumeroDecimal()
 		Me.LabelBase8 = New ControlesBase.LabelBase()
 		Me.tbValesDespensa = New System.Windows.Forms.TabPage()
 		Me.btnAceptarVales = New ControlesBase.BotonBase()
 		Me.GroupBox4 = New System.Windows.Forms.GroupBox()
 		Me.TextObservacionesVales = New System.Windows.Forms.TextBox()
-		Me.TxtMontoVales = New SigaMetClasses.Controles.txtNumeroDecimal()
 		Me.LabelBase20 = New ControlesBase.LabelBase()
 		Me.LabelBase25 = New ControlesBase.LabelBase()
-		Me.ComboTipoVale = New SigaMetClasses.Combos.ComboValeTipo()
-		Me.ComboProveedor = New SigaMetClasses.Combos.ComboProveedor()
 		Me.LabelBase28 = New ControlesBase.LabelBase()
 		Me.FechaDocumentoVales = New System.Windows.Forms.DateTimePicker()
 		Me.LabelBase29 = New ControlesBase.LabelBase()
-		Me.txtClienteVales = New SigaMetClasses.Controles.txtNumeroEntero()
 		Me.LabelBase19 = New ControlesBase.LabelBase()
 		Me.LabelNombreVales = New System.Windows.Forms.Label()
 		Me.LabelBase27 = New ControlesBase.LabelBase()
@@ -371,13 +388,8 @@ Public Class frmSelTipoCobroPortatil
 		Me.btnAceptarTarjetaCredito = New ControlesBase.BotonBase()
 		Me.grpTarjetaCredito = New System.Windows.Forms.GroupBox()
 		Me.cboTipoTarjeta = New System.Windows.Forms.ComboBox()
-		Me.cbBancoTC = New SigaMetClasses.Combos.ComboBanco()
 		Me.lblBancoNombre = New System.Windows.Forms.Label()
-		Me.txtTarjetaCredito = New SigaMetClasses.Controles.txtNumeroEntero()
-		Me.txtBancoTC = New SigaMetClasses.Controles.txtNumeroEntero()
 		Me.dgvCargoTarjeta = New System.Windows.Forms.DataGridView()
-		Me.txtImporteTC = New SigaMetClasses.Controles.txtNumeroDecimal()
-		Me.txtClienteTC = New SigaMetClasses.Controles.txtNumeroEntero()
 		Me.LabelBase7 = New ControlesBase.LabelBase()
 		Me.lblClienteNombre = New System.Windows.Forms.Label()
 		Me.LabelBase6 = New ControlesBase.LabelBase()
@@ -398,12 +410,7 @@ Public Class frmSelTipoCobroPortatil
 		Me.LabelBase33 = New ControlesBase.LabelBase()
 		Me.lblNombre = New System.Windows.Forms.Label()
 		Me.btnBuscarCliente = New System.Windows.Forms.Button()
-		Me.txtImporteDocumento = New SigaMetClasses.Controles.txtNumeroDecimal()
-		Me.txtClienteCheque = New SigaMetClasses.Controles.txtNumeroEntero()
-		Me.txtNumeroCuenta = New SigaMetClasses.Controles.txtNumeroEntero()
-		Me.txtDocumento = New SigaMetClasses.Controles.txtNumeroEntero()
 		Me.txtObservaciones = New System.Windows.Forms.TextBox()
-		Me.ComboBanco = New SigaMetClasses.Combos.ComboBanco()
 		Me.Label21 = New ControlesBase.LabelBase()
 		Me.lblObservaciones = New ControlesBase.LabelBase()
 		Me.dtpFechaCheque = New System.Windows.Forms.DateTimePicker()
@@ -415,13 +422,18 @@ Public Class frmSelTipoCobroPortatil
 		Me.tbTransferencias = New System.Windows.Forms.TabPage()
 		Me.BotonBase2 = New ControlesBase.BotonBase()
 		Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+		Me.lblObservacionesTransferencia = New ControlesBase.LabelBase()
+		Me.lblImporteDestinoTransferencia = New ControlesBase.LabelBase()
+		Me.lblCuentaDestinoTransferencia = New ControlesBase.LabelBase()
+		Me.lblBancoDestinoTransferencia = New ControlesBase.LabelBase()
+		Me.lblNoReferenciaTransferencia = New ControlesBase.LabelBase()
+		Me.lblFechaDocumentoTransferencia = New ControlesBase.LabelBase()
+		Me.lblClienteTransferencia = New ControlesBase.LabelBase()
+		Me.cboCuentaDestinoTransferencia = New System.Windows.Forms.ComboBox()
+		Me.LabelBase37 = New ControlesBase.LabelBase()
+		Me.LabelBase35 = New ControlesBase.LabelBase()
 		Me.Button1 = New System.Windows.Forms.Button()
-		Me.TxtClienteTransferencia = New SigaMetClasses.Controles.txtNumeroEntero()
 		Me.txtbObservacionesTranferencias = New System.Windows.Forms.TextBox()
-		Me.TxtImporteTransferencia = New SigaMetClasses.Controles.txtNumeroDecimal()
-		Me.ComboBancoTransferencia = New SigaMetClasses.Combos.ComboBanco()
-		Me.TxtNumeroDocumentoTransferencia = New SigaMetClasses.Controles.txtNumeroEntero()
-		Me.TxtNumeroCuentaTransferencia = New SigaMetClasses.Controles.txtNumeroEntero()
 		Me.DTPFechaTransferencia = New System.Windows.Forms.DateTimePicker()
 		Me.LabelBase16 = New ControlesBase.LabelBase()
 		Me.LabelBase15 = New ControlesBase.LabelBase()
@@ -430,8 +442,7 @@ Public Class frmSelTipoCobroPortatil
 		Me.LabelBase12 = New ControlesBase.LabelBase()
 		Me.LabelBase11 = New ControlesBase.LabelBase()
 		Me.LabelBase10 = New ControlesBase.LabelBase()
-		Me.TxtNombreTransferencia = New SigaMetClasses.Controles.txtNumeroDecimal()
-		Me.LabelBase9 = New ControlesBase.LabelBase()
+		Me.lblCluie = New ControlesBase.LabelBase()
 		Me.tbAplicAnticipo = New System.Windows.Forms.TabPage()
 		Me.btn_AnticipoAceptar = New ControlesBase.BotonBase()
 		Me.GroupBox5 = New System.Windows.Forms.GroupBox()
@@ -441,10 +452,8 @@ Public Class frmSelTipoCobroPortatil
 		Me.MontoSaldo = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.LabelBase32 = New ControlesBase.LabelBase()
 		Me.TextObservacionesAnticipo = New System.Windows.Forms.TextBox()
-		Me.TxtMontoAnticipo = New SigaMetClasses.Controles.txtNumeroDecimal()
 		Me.LabelBase26 = New ControlesBase.LabelBase()
 		Me.LabelBase31 = New ControlesBase.LabelBase()
-		Me.TxtClienteAplicAntic = New SigaMetClasses.Controles.txtNumeroEntero()
 		Me.LabelBase34 = New ControlesBase.LabelBase()
 		Me.LabelNombreApAntic = New System.Windows.Forms.Label()
 		Me.LabelBase36 = New ControlesBase.LabelBase()
@@ -454,18 +463,44 @@ Public Class frmSelTipoCobroPortatil
 		Me.GroupBox3 = New System.Windows.Forms.GroupBox()
 		Me.DTPFAplicacion = New System.Windows.Forms.DateTimePicker()
 		Me.Button2 = New System.Windows.Forms.Button()
-		Me.TxtClienteDacionPago = New SigaMetClasses.Controles.txtNumeroEntero()
 		Me.TexObservacionDacionPAGO = New System.Windows.Forms.TextBox()
-		Me.TxtMontoDacionPago = New SigaMetClasses.Controles.txtNumeroDecimal()
 		Me.DTPFechaConvenioDacionPago = New System.Windows.Forms.DateTimePicker()
 		Me.LabelBase17 = New ControlesBase.LabelBase()
 		Me.LabelBase18 = New ControlesBase.LabelBase()
 		Me.LabelBase21 = New ControlesBase.LabelBase()
 		Me.LabelBase22 = New ControlesBase.LabelBase()
 		Me.LabelBase23 = New ControlesBase.LabelBase()
-		Me.TxtNombreDacioPago = New SigaMetClasses.Controles.txtNumeroDecimal()
 		Me.LabelBase24 = New ControlesBase.LabelBase()
 		Me.imgLista = New System.Windows.Forms.ImageList(Me.components)
+		Me.lblBancoOrigenTransferencia = New ControlesBase.LabelBase()
+		Me.Txt_totalEfectivo = New SigaMetClasses.Controles.txtNumeroDecimal()
+		Me.TxtMontoVales = New SigaMetClasses.Controles.txtNumeroDecimal()
+		Me.ComboTipoVale = New SigaMetClasses.Combos.ComboValeTipo()
+		Me.ComboProveedor = New SigaMetClasses.Combos.ComboProveedor()
+		Me.txtClienteVales = New SigaMetClasses.Controles.txtNumeroEntero()
+		Me.cbBancoTC = New SigaMetClasses.Combos.ComboBanco()
+		Me.txtTarjetaCredito = New SigaMetClasses.Controles.txtNumeroEntero()
+		Me.txtBancoTC = New SigaMetClasses.Controles.txtNumeroEntero()
+		Me.txtImporteTC = New SigaMetClasses.Controles.txtNumeroDecimal()
+		Me.txtClienteTC = New SigaMetClasses.Controles.txtNumeroEntero()
+		Me.txtImporteDocumento = New SigaMetClasses.Controles.txtNumeroDecimal()
+		Me.txtClienteCheque = New SigaMetClasses.Controles.txtNumeroEntero()
+		Me.txtNumeroCuenta = New SigaMetClasses.Controles.txtNumeroEntero()
+		Me.txtDocumento = New SigaMetClasses.Controles.txtNumeroEntero()
+		Me.ComboBanco = New SigaMetClasses.Combos.ComboBanco()
+		Me.ComboBancoOrigenTransferencia = New SigaMetClasses.Combos.ComboBanco()
+		Me.TxtClienteTransferencia = New SigaMetClasses.Controles.txtNumeroEntero()
+		Me.TxtImporteTransferencia = New SigaMetClasses.Controles.txtNumeroDecimal()
+		Me.ComboBancoDestinoTransferencia = New SigaMetClasses.Combos.ComboBanco()
+		Me.TxtNumeroReferenciaTransferencia = New SigaMetClasses.Controles.txtNumeroEntero()
+		Me.TxtNumeroCuentaTransferenciaOrigen = New SigaMetClasses.Controles.txtNumeroEntero()
+		Me.TxtNombreTransferencia = New SigaMetClasses.Controles.txtNumeroDecimal()
+		Me.TxtMontoAnticipo = New SigaMetClasses.Controles.txtNumeroDecimal()
+		Me.TxtClienteAplicAntic = New SigaMetClasses.Controles.txtNumeroEntero()
+		Me.TxtClienteDacionPago = New SigaMetClasses.Controles.txtNumeroEntero()
+		Me.TxtMontoDacionPago = New SigaMetClasses.Controles.txtNumeroDecimal()
+		Me.TxtNombreDacioPago = New SigaMetClasses.Controles.txtNumeroDecimal()
+		Me.lblCuentaOrigenTransferencia = New ControlesBase.LabelBase()
 		Me.tabTipoCobro.SuspendLayout()
 		Me.tbEfectivo.SuspendLayout()
 		Me.GroupBox1.SuspendLayout()
@@ -502,7 +537,7 @@ Public Class frmSelTipoCobroPortatil
 		Me.tabTipoCobro.Multiline = True
 		Me.tabTipoCobro.Name = "tabTipoCobro"
 		Me.tabTipoCobro.SelectedIndex = 0
-		Me.tabTipoCobro.Size = New System.Drawing.Size(611, 351)
+		Me.tabTipoCobro.Size = New System.Drawing.Size(611, 394)
 		Me.tabTipoCobro.TabIndex = 0
 		'
 		'tbEfectivo
@@ -512,7 +547,7 @@ Public Class frmSelTipoCobroPortatil
 		Me.tbEfectivo.Controls.Add(Me.GroupBox1)
 		Me.tbEfectivo.Location = New System.Drawing.Point(4, 4)
 		Me.tbEfectivo.Name = "tbEfectivo"
-		Me.tbEfectivo.Size = New System.Drawing.Size(603, 325)
+		Me.tbEfectivo.Size = New System.Drawing.Size(603, 368)
 		Me.tbEfectivo.TabIndex = 6
 		Me.tbEfectivo.Text = "Efectivo"
 		'
@@ -539,13 +574,6 @@ Public Class frmSelTipoCobroPortatil
 		Me.GroupBox1.TabStop = False
 		Me.GroupBox1.Text = "Datos del efectivo"
 		'
-		'Txt_totalEfectivo
-		'
-		Me.Txt_totalEfectivo.Location = New System.Drawing.Point(146, 16)
-		Me.Txt_totalEfectivo.Name = "Txt_totalEfectivo"
-		Me.Txt_totalEfectivo.Size = New System.Drawing.Size(120, 21)
-		Me.Txt_totalEfectivo.TabIndex = 0
-		'
 		'LabelBase8
 		'
 		Me.LabelBase8.AutoSize = True
@@ -563,7 +591,7 @@ Public Class frmSelTipoCobroPortatil
 		Me.tbValesDespensa.ImageIndex = 0
 		Me.tbValesDespensa.Location = New System.Drawing.Point(4, 4)
 		Me.tbValesDespensa.Name = "tbValesDespensa"
-		Me.tbValesDespensa.Size = New System.Drawing.Size(603, 307)
+		Me.tbValesDespensa.Size = New System.Drawing.Size(603, 368)
 		Me.tbValesDespensa.TabIndex = 3
 		Me.tbValesDespensa.Text = "Vales Despensa"
 		'
@@ -611,13 +639,6 @@ Public Class frmSelTipoCobroPortatil
 		Me.TextObservacionesVales.Size = New System.Drawing.Size(192, 48)
 		Me.TextObservacionesVales.TabIndex = 6
 		'
-		'TxtMontoVales
-		'
-		Me.TxtMontoVales.Location = New System.Drawing.Point(121, 171)
-		Me.TxtMontoVales.Name = "TxtMontoVales"
-		Me.TxtMontoVales.Size = New System.Drawing.Size(192, 21)
-		Me.TxtMontoVales.TabIndex = 5
-		'
 		'LabelBase20
 		'
 		Me.LabelBase20.AutoSize = True
@@ -635,30 +656,6 @@ Public Class frmSelTipoCobroPortatil
 		Me.LabelBase25.Size = New System.Drawing.Size(37, 13)
 		Me.LabelBase25.TabIndex = 49
 		Me.LabelBase25.Text = "Monto"
-		'
-		'ComboTipoVale
-		'
-		Me.ComboTipoVale.Descripcion = Nothing
-		Me.ComboTipoVale.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-		Me.ComboTipoVale.DropDownWidth = 200
-		Me.ComboTipoVale.Location = New System.Drawing.Point(121, 144)
-		Me.ComboTipoVale.Name = "ComboTipoVale"
-		Me.ComboTipoVale.Size = New System.Drawing.Size(192, 21)
-		Me.ComboTipoVale.Status = Nothing
-		Me.ComboTipoVale.TabIndex = 4
-		Me.ComboTipoVale.ValeTipo = 0
-		'
-		'ComboProveedor
-		'
-		Me.ComboProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-		Me.ComboProveedor.DropDownWidth = 200
-		Me.ComboProveedor.Location = New System.Drawing.Point(121, 119)
-		Me.ComboProveedor.Name = "ComboProveedor"
-		Me.ComboProveedor.Nombre = Nothing
-		Me.ComboProveedor.Size = New System.Drawing.Size(192, 21)
-		Me.ComboProveedor.Status = Nothing
-		Me.ComboProveedor.TabIndex = 3
-		Me.ComboProveedor.ValeProveedor = 0
 		'
 		'LabelBase28
 		'
@@ -685,13 +682,6 @@ Public Class frmSelTipoCobroPortatil
 		Me.LabelBase29.Size = New System.Drawing.Size(96, 13)
 		Me.LabelBase29.TabIndex = 44
 		Me.LabelBase29.Text = "Fecha documento:"
-		'
-		'txtClienteVales
-		'
-		Me.txtClienteVales.Location = New System.Drawing.Point(121, 32)
-		Me.txtClienteVales.Name = "txtClienteVales"
-		Me.txtClienteVales.Size = New System.Drawing.Size(143, 21)
-		Me.txtClienteVales.TabIndex = 0
 		'
 		'LabelBase19
 		'
@@ -744,7 +734,7 @@ Public Class frmSelTipoCobroPortatil
 		Me.tbTarjetaCredito.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.tbTarjetaCredito.Location = New System.Drawing.Point(4, 4)
 		Me.tbTarjetaCredito.Name = "tbTarjetaCredito"
-		Me.tbTarjetaCredito.Size = New System.Drawing.Size(603, 325)
+		Me.tbTarjetaCredito.Size = New System.Drawing.Size(603, 368)
 		Me.tbTarjetaCredito.TabIndex = 0
 		Me.tbTarjetaCredito.Text = "Tarjeta "
 		'
@@ -798,14 +788,6 @@ Public Class frmSelTipoCobroPortatil
 		Me.cboTipoTarjeta.Size = New System.Drawing.Size(160, 21)
 		Me.cboTipoTarjeta.TabIndex = 4
 		'
-		'cbBancoTC
-		'
-		Me.cbBancoTC.FormattingEnabled = True
-		Me.cbBancoTC.Location = New System.Drawing.Point(104, 144)
-		Me.cbBancoTC.Name = "cbBancoTC"
-		Me.cbBancoTC.Size = New System.Drawing.Size(160, 21)
-		Me.cbBancoTC.TabIndex = 3
-		'
 		'lblBancoNombre
 		'
 		Me.lblBancoNombre.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
@@ -816,23 +798,6 @@ Public Class frmSelTipoCobroPortatil
 		Me.lblBancoNombre.TabIndex = 34
 		Me.lblBancoNombre.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
 		Me.lblBancoNombre.Visible = False
-		'
-		'txtTarjetaCredito
-		'
-		Me.txtTarjetaCredito.Location = New System.Drawing.Point(104, 120)
-		Me.txtTarjetaCredito.MaxLength = 20
-		Me.txtTarjetaCredito.Name = "txtTarjetaCredito"
-		Me.txtTarjetaCredito.Size = New System.Drawing.Size(160, 21)
-		Me.txtTarjetaCredito.TabIndex = 2
-		'
-		'txtBancoTC
-		'
-		Me.txtBancoTC.Location = New System.Drawing.Point(286, 187)
-		Me.txtBancoTC.MaxLength = 3
-		Me.txtBancoTC.Name = "txtBancoTC"
-		Me.txtBancoTC.Size = New System.Drawing.Size(31, 21)
-		Me.txtBancoTC.TabIndex = 3
-		Me.txtBancoTC.Visible = False
 		'
 		'dgvCargoTarjeta
 		'
@@ -846,20 +811,6 @@ Public Class frmSelTipoCobroPortatil
 		Me.dgvCargoTarjeta.Size = New System.Drawing.Size(10, 22)
 		Me.dgvCargoTarjeta.TabIndex = 55
 		Me.dgvCargoTarjeta.Visible = False
-		'
-		'txtImporteTC
-		'
-		Me.txtImporteTC.Location = New System.Drawing.Point(104, 216)
-		Me.txtImporteTC.Name = "txtImporteTC"
-		Me.txtImporteTC.Size = New System.Drawing.Size(160, 21)
-		Me.txtImporteTC.TabIndex = 5
-		'
-		'txtClienteTC
-		'
-		Me.txtClienteTC.Location = New System.Drawing.Point(104, 32)
-		Me.txtClienteTC.Name = "txtClienteTC"
-		Me.txtClienteTC.Size = New System.Drawing.Size(160, 21)
-		Me.txtClienteTC.TabIndex = 0
 		'
 		'LabelBase7
 		'
@@ -974,7 +925,7 @@ Public Class frmSelTipoCobroPortatil
 		Me.tbChequeFicha.Controls.Add(Me.grpChequeFicha)
 		Me.tbChequeFicha.Location = New System.Drawing.Point(4, 4)
 		Me.tbChequeFicha.Name = "tbChequeFicha"
-		Me.tbChequeFicha.Size = New System.Drawing.Size(603, 325)
+		Me.tbChequeFicha.Size = New System.Drawing.Size(603, 368)
 		Me.tbChequeFicha.TabIndex = 2
 		Me.tbChequeFicha.Text = "Cheque / Ficha de deposito"
 		'
@@ -1061,36 +1012,6 @@ Public Class frmSelTipoCobroPortatil
 		Me.btnBuscarCliente.Size = New System.Drawing.Size(26, 21)
 		Me.btnBuscarCliente.TabIndex = 5
 		'
-		'txtImporteDocumento
-		'
-		Me.txtImporteDocumento.Location = New System.Drawing.Point(120, 231)
-		Me.txtImporteDocumento.Name = "txtImporteDocumento"
-		Me.txtImporteDocumento.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal
-		Me.txtImporteDocumento.Size = New System.Drawing.Size(192, 21)
-		Me.txtImporteDocumento.TabIndex = 7
-		'
-		'txtClienteCheque
-		'
-		Me.txtClienteCheque.Location = New System.Drawing.Point(120, 135)
-		Me.txtClienteCheque.Name = "txtClienteCheque"
-		Me.txtClienteCheque.Size = New System.Drawing.Size(160, 21)
-		Me.txtClienteCheque.TabIndex = 4
-		'
-		'txtNumeroCuenta
-		'
-		Me.txtNumeroCuenta.Location = New System.Drawing.Point(120, 111)
-		Me.txtNumeroCuenta.Name = "txtNumeroCuenta"
-		Me.txtNumeroCuenta.Size = New System.Drawing.Size(192, 21)
-		Me.txtNumeroCuenta.TabIndex = 3
-		'
-		'txtDocumento
-		'
-		Me.txtDocumento.Location = New System.Drawing.Point(120, 32)
-		Me.txtDocumento.MaxLength = 7
-		Me.txtDocumento.Name = "txtDocumento"
-		Me.txtDocumento.Size = New System.Drawing.Size(192, 21)
-		Me.txtDocumento.TabIndex = 0
-		'
 		'txtObservaciones
 		'
 		Me.txtObservaciones.Location = New System.Drawing.Point(120, 255)
@@ -1098,15 +1019,6 @@ Public Class frmSelTipoCobroPortatil
 		Me.txtObservaciones.Name = "txtObservaciones"
 		Me.txtObservaciones.Size = New System.Drawing.Size(192, 48)
 		Me.txtObservaciones.TabIndex = 8
-		'
-		'ComboBanco
-		'
-		Me.ComboBanco.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-		Me.ComboBanco.DropDownWidth = 200
-		Me.ComboBanco.Location = New System.Drawing.Point(120, 207)
-		Me.ComboBanco.Name = "ComboBanco"
-		Me.ComboBanco.Size = New System.Drawing.Size(192, 21)
-		Me.ComboBanco.TabIndex = 6
 		'
 		'Label21
 		'
@@ -1187,7 +1099,7 @@ Public Class frmSelTipoCobroPortatil
 		Me.tbTransferencias.Location = New System.Drawing.Point(4, 4)
 		Me.tbTransferencias.Name = "tbTransferencias"
 		Me.tbTransferencias.Padding = New System.Windows.Forms.Padding(3)
-		Me.tbTransferencias.Size = New System.Drawing.Size(603, 307)
+		Me.tbTransferencias.Size = New System.Drawing.Size(603, 368)
 		Me.tbTransferencias.TabIndex = 4
 		Me.tbTransferencias.Text = "Transferencias"
 		'
@@ -1205,13 +1117,26 @@ Public Class frmSelTipoCobroPortatil
 		'
 		'GroupBox2
 		'
+		Me.GroupBox2.Controls.Add(Me.lblCuentaOrigenTransferencia)
+		Me.GroupBox2.Controls.Add(Me.lblBancoOrigenTransferencia)
+		Me.GroupBox2.Controls.Add(Me.lblObservacionesTransferencia)
+		Me.GroupBox2.Controls.Add(Me.lblImporteDestinoTransferencia)
+		Me.GroupBox2.Controls.Add(Me.lblCuentaDestinoTransferencia)
+		Me.GroupBox2.Controls.Add(Me.lblBancoDestinoTransferencia)
+		Me.GroupBox2.Controls.Add(Me.lblNoReferenciaTransferencia)
+		Me.GroupBox2.Controls.Add(Me.lblFechaDocumentoTransferencia)
+		Me.GroupBox2.Controls.Add(Me.lblClienteTransferencia)
+		Me.GroupBox2.Controls.Add(Me.cboCuentaDestinoTransferencia)
+		Me.GroupBox2.Controls.Add(Me.LabelBase37)
+		Me.GroupBox2.Controls.Add(Me.ComboBancoOrigenTransferencia)
+		Me.GroupBox2.Controls.Add(Me.LabelBase35)
 		Me.GroupBox2.Controls.Add(Me.Button1)
 		Me.GroupBox2.Controls.Add(Me.TxtClienteTransferencia)
 		Me.GroupBox2.Controls.Add(Me.txtbObservacionesTranferencias)
 		Me.GroupBox2.Controls.Add(Me.TxtImporteTransferencia)
-		Me.GroupBox2.Controls.Add(Me.ComboBancoTransferencia)
-		Me.GroupBox2.Controls.Add(Me.TxtNumeroDocumentoTransferencia)
-		Me.GroupBox2.Controls.Add(Me.TxtNumeroCuentaTransferencia)
+		Me.GroupBox2.Controls.Add(Me.ComboBancoDestinoTransferencia)
+		Me.GroupBox2.Controls.Add(Me.TxtNumeroReferenciaTransferencia)
+		Me.GroupBox2.Controls.Add(Me.TxtNumeroCuentaTransferenciaOrigen)
 		Me.GroupBox2.Controls.Add(Me.DTPFechaTransferencia)
 		Me.GroupBox2.Controls.Add(Me.LabelBase16)
 		Me.GroupBox2.Controls.Add(Me.LabelBase15)
@@ -1221,80 +1146,139 @@ Public Class frmSelTipoCobroPortatil
 		Me.GroupBox2.Controls.Add(Me.LabelBase11)
 		Me.GroupBox2.Controls.Add(Me.LabelBase10)
 		Me.GroupBox2.Controls.Add(Me.TxtNombreTransferencia)
-		Me.GroupBox2.Controls.Add(Me.LabelBase9)
+		Me.GroupBox2.Controls.Add(Me.lblCluie)
 		Me.GroupBox2.Location = New System.Drawing.Point(60, 8)
 		Me.GroupBox2.Name = "GroupBox2"
-		Me.GroupBox2.Size = New System.Drawing.Size(419, 311)
+		Me.GroupBox2.Size = New System.Drawing.Size(419, 341)
 		Me.GroupBox2.TabIndex = 1
 		Me.GroupBox2.TabStop = False
 		Me.GroupBox2.Text = "Datos de la Transferencia"
 		'
+		'lblObservacionesTransferencia
+		'
+		Me.lblObservacionesTransferencia.AutoSize = True
+		Me.lblObservacionesTransferencia.ForeColor = System.Drawing.Color.Red
+		Me.lblObservacionesTransferencia.Location = New System.Drawing.Point(11, 290)
+		Me.lblObservacionesTransferencia.Name = "lblObservacionesTransferencia"
+		Me.lblObservacionesTransferencia.Size = New System.Drawing.Size(10, 13)
+		Me.lblObservacionesTransferencia.TabIndex = 47
+		Me.lblObservacionesTransferencia.Text = " "
+		'
+		'lblImporteDestinoTransferencia
+		'
+		Me.lblImporteDestinoTransferencia.AutoSize = True
+		Me.lblImporteDestinoTransferencia.ForeColor = System.Drawing.Color.Red
+		Me.lblImporteDestinoTransferencia.Location = New System.Drawing.Point(11, 269)
+		Me.lblImporteDestinoTransferencia.Name = "lblImporteDestinoTransferencia"
+		Me.lblImporteDestinoTransferencia.Size = New System.Drawing.Size(10, 13)
+		Me.lblImporteDestinoTransferencia.TabIndex = 46
+		Me.lblImporteDestinoTransferencia.Text = " "
+		'
+		'lblCuentaDestinoTransferencia
+		'
+		Me.lblCuentaDestinoTransferencia.AutoSize = True
+		Me.lblCuentaDestinoTransferencia.ForeColor = System.Drawing.Color.Red
+		Me.lblCuentaDestinoTransferencia.Location = New System.Drawing.Point(11, 242)
+		Me.lblCuentaDestinoTransferencia.Name = "lblCuentaDestinoTransferencia"
+		Me.lblCuentaDestinoTransferencia.Size = New System.Drawing.Size(10, 13)
+		Me.lblCuentaDestinoTransferencia.TabIndex = 45
+		Me.lblCuentaDestinoTransferencia.Text = " "
+		'
+		'lblBancoDestinoTransferencia
+		'
+		Me.lblBancoDestinoTransferencia.AutoSize = True
+		Me.lblBancoDestinoTransferencia.ForeColor = System.Drawing.Color.Red
+		Me.lblBancoDestinoTransferencia.Location = New System.Drawing.Point(11, 215)
+		Me.lblBancoDestinoTransferencia.Name = "lblBancoDestinoTransferencia"
+		Me.lblBancoDestinoTransferencia.Size = New System.Drawing.Size(10, 13)
+		Me.lblBancoDestinoTransferencia.TabIndex = 44
+		Me.lblBancoDestinoTransferencia.Text = " "
+		'
+		'lblNoReferenciaTransferencia
+		'
+		Me.lblNoReferenciaTransferencia.AutoSize = True
+		Me.lblNoReferenciaTransferencia.ForeColor = System.Drawing.Color.Red
+		Me.lblNoReferenciaTransferencia.Location = New System.Drawing.Point(11, 190)
+		Me.lblNoReferenciaTransferencia.Name = "lblNoReferenciaTransferencia"
+		Me.lblNoReferenciaTransferencia.Size = New System.Drawing.Size(10, 13)
+		Me.lblNoReferenciaTransferencia.TabIndex = 43
+		Me.lblNoReferenciaTransferencia.Text = " "
+		'
+		'lblFechaDocumentoTransferencia
+		'
+		Me.lblFechaDocumentoTransferencia.AutoSize = True
+		Me.lblFechaDocumentoTransferencia.ForeColor = System.Drawing.Color.Red
+		Me.lblFechaDocumentoTransferencia.Location = New System.Drawing.Point(11, 110)
+		Me.lblFechaDocumentoTransferencia.Name = "lblFechaDocumentoTransferencia"
+		Me.lblFechaDocumentoTransferencia.Size = New System.Drawing.Size(10, 13)
+		Me.lblFechaDocumentoTransferencia.TabIndex = 42
+		Me.lblFechaDocumentoTransferencia.Text = " "
+		'
+		'lblClienteTransferencia
+		'
+		Me.lblClienteTransferencia.AutoSize = True
+		Me.lblClienteTransferencia.ForeColor = System.Drawing.Color.Red
+		Me.lblClienteTransferencia.Location = New System.Drawing.Point(11, 24)
+		Me.lblClienteTransferencia.Name = "lblClienteTransferencia"
+		Me.lblClienteTransferencia.Size = New System.Drawing.Size(10, 13)
+		Me.lblClienteTransferencia.TabIndex = 41
+		Me.lblClienteTransferencia.Text = " "
+		'
+		'cboCuentaDestinoTransferencia
+		'
+		Me.cboCuentaDestinoTransferencia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+		Me.cboCuentaDestinoTransferencia.FormattingEnabled = True
+		Me.cboCuentaDestinoTransferencia.Location = New System.Drawing.Point(141, 237)
+		Me.cboCuentaDestinoTransferencia.Name = "cboCuentaDestinoTransferencia"
+		Me.cboCuentaDestinoTransferencia.Size = New System.Drawing.Size(208, 21)
+		Me.cboCuentaDestinoTransferencia.TabIndex = 40
+		'
+		'LabelBase37
+		'
+		Me.LabelBase37.AutoSize = True
+		Me.LabelBase37.Location = New System.Drawing.Point(21, 242)
+		Me.LabelBase37.Name = "LabelBase37"
+		Me.LabelBase37.Size = New System.Drawing.Size(84, 13)
+		Me.LabelBase37.TabIndex = 39
+		Me.LabelBase37.Text = "Cuenta destino:"
+		'
+		'LabelBase35
+		'
+		Me.LabelBase35.AutoSize = True
+		Me.LabelBase35.Location = New System.Drawing.Point(21, 135)
+		Me.LabelBase35.Name = "LabelBase35"
+		Me.LabelBase35.Size = New System.Drawing.Size(73, 13)
+		Me.LabelBase35.TabIndex = 38
+		Me.LabelBase35.Text = "Banco origen:"
+		'
 		'Button1
 		'
 		Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-		Me.Button1.Location = New System.Drawing.Point(302, 33)
+		Me.Button1.Location = New System.Drawing.Point(307, 20)
 		Me.Button1.Name = "Button1"
 		Me.Button1.Size = New System.Drawing.Size(42, 21)
 		Me.Button1.TabIndex = 1
 		'
-		'TxtClienteTransferencia
-		'
-		Me.TxtClienteTransferencia.Location = New System.Drawing.Point(136, 33)
-		Me.TxtClienteTransferencia.Name = "TxtClienteTransferencia"
-		Me.TxtClienteTransferencia.Size = New System.Drawing.Size(160, 21)
-		Me.TxtClienteTransferencia.TabIndex = 0
-		'
 		'txtbObservacionesTranferencias
 		'
-		Me.txtbObservacionesTranferencias.Location = New System.Drawing.Point(136, 244)
+		Me.txtbObservacionesTranferencias.Location = New System.Drawing.Point(141, 287)
 		Me.txtbObservacionesTranferencias.Multiline = True
 		Me.txtbObservacionesTranferencias.Name = "txtbObservacionesTranferencias"
 		Me.txtbObservacionesTranferencias.Size = New System.Drawing.Size(208, 48)
 		Me.txtbObservacionesTranferencias.TabIndex = 7
 		'
-		'TxtImporteTransferencia
-		'
-		Me.TxtImporteTransferencia.Location = New System.Drawing.Point(136, 218)
-		Me.TxtImporteTransferencia.Name = "TxtImporteTransferencia"
-		Me.TxtImporteTransferencia.Size = New System.Drawing.Size(208, 21)
-		Me.TxtImporteTransferencia.TabIndex = 6
-		'
-		'ComboBancoTransferencia
-		'
-		Me.ComboBancoTransferencia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-		Me.ComboBancoTransferencia.DropDownWidth = 200
-		Me.ComboBancoTransferencia.Location = New System.Drawing.Point(136, 192)
-		Me.ComboBancoTransferencia.Name = "ComboBancoTransferencia"
-		Me.ComboBancoTransferencia.Size = New System.Drawing.Size(208, 21)
-		Me.ComboBancoTransferencia.TabIndex = 5
-		'
-		'TxtNumeroDocumentoTransferencia
-		'
-		Me.TxtNumeroDocumentoTransferencia.Location = New System.Drawing.Point(136, 166)
-		Me.TxtNumeroDocumentoTransferencia.MaxLength = 7
-		Me.TxtNumeroDocumentoTransferencia.Name = "TxtNumeroDocumentoTransferencia"
-		Me.TxtNumeroDocumentoTransferencia.Size = New System.Drawing.Size(208, 21)
-		Me.TxtNumeroDocumentoTransferencia.TabIndex = 4
-		'
-		'TxtNumeroCuentaTransferencia
-		'
-		Me.TxtNumeroCuentaTransferencia.Location = New System.Drawing.Point(136, 141)
-		Me.TxtNumeroCuentaTransferencia.Name = "TxtNumeroCuentaTransferencia"
-		Me.TxtNumeroCuentaTransferencia.Size = New System.Drawing.Size(208, 21)
-		Me.TxtNumeroCuentaTransferencia.TabIndex = 3
-		'
 		'DTPFechaTransferencia
 		'
 		Me.DTPFechaTransferencia.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-		Me.DTPFechaTransferencia.Location = New System.Drawing.Point(136, 115)
+		Me.DTPFechaTransferencia.Location = New System.Drawing.Point(141, 102)
 		Me.DTPFechaTransferencia.Name = "DTPFechaTransferencia"
-		Me.DTPFechaTransferencia.Size = New System.Drawing.Size(192, 21)
+		Me.DTPFechaTransferencia.Size = New System.Drawing.Size(208, 21)
 		Me.DTPFechaTransferencia.TabIndex = 2
 		'
 		'LabelBase16
 		'
 		Me.LabelBase16.AutoSize = True
-		Me.LabelBase16.Location = New System.Drawing.Point(16, 246)
+		Me.LabelBase16.Location = New System.Drawing.Point(21, 289)
 		Me.LabelBase16.Name = "LabelBase16"
 		Me.LabelBase16.Size = New System.Drawing.Size(82, 13)
 		Me.LabelBase16.TabIndex = 36
@@ -1303,7 +1287,7 @@ Public Class frmSelTipoCobroPortatil
 		'LabelBase15
 		'
 		Me.LabelBase15.AutoSize = True
-		Me.LabelBase15.Location = New System.Drawing.Point(16, 224)
+		Me.LabelBase15.Location = New System.Drawing.Point(21, 267)
 		Me.LabelBase15.Name = "LabelBase15"
 		Me.LabelBase15.Size = New System.Drawing.Size(49, 13)
 		Me.LabelBase15.TabIndex = 35
@@ -1312,34 +1296,34 @@ Public Class frmSelTipoCobroPortatil
 		'LabelBase14
 		'
 		Me.LabelBase14.AutoSize = True
-		Me.LabelBase14.Location = New System.Drawing.Point(16, 198)
+		Me.LabelBase14.Location = New System.Drawing.Point(21, 215)
 		Me.LabelBase14.Name = "LabelBase14"
-		Me.LabelBase14.Size = New System.Drawing.Size(40, 13)
+		Me.LabelBase14.Size = New System.Drawing.Size(78, 13)
 		Me.LabelBase14.TabIndex = 34
-		Me.LabelBase14.Text = "Banco:"
+		Me.LabelBase14.Text = "Banco destino:"
 		'
 		'LabelBase13
 		'
 		Me.LabelBase13.AutoSize = True
-		Me.LabelBase13.Location = New System.Drawing.Point(16, 174)
+		Me.LabelBase13.Location = New System.Drawing.Point(21, 190)
 		Me.LabelBase13.Name = "LabelBase13"
-		Me.LabelBase13.Size = New System.Drawing.Size(81, 13)
+		Me.LabelBase13.Size = New System.Drawing.Size(79, 13)
 		Me.LabelBase13.TabIndex = 33
-		Me.LabelBase13.Text = "No. Documento"
+		Me.LabelBase13.Text = "No. Referencia"
 		'
 		'LabelBase12
 		'
 		Me.LabelBase12.AutoSize = True
-		Me.LabelBase12.Location = New System.Drawing.Point(16, 149)
+		Me.LabelBase12.Location = New System.Drawing.Point(21, 164)
 		Me.LabelBase12.Name = "LabelBase12"
-		Me.LabelBase12.Size = New System.Drawing.Size(99, 13)
+		Me.LabelBase12.Size = New System.Drawing.Size(79, 13)
 		Me.LabelBase12.TabIndex = 32
-		Me.LabelBase12.Text = "Número de cuenta:"
+		Me.LabelBase12.Text = "Cuenta origen:"
 		'
 		'LabelBase11
 		'
 		Me.LabelBase11.AutoSize = True
-		Me.LabelBase11.Location = New System.Drawing.Point(16, 123)
+		Me.LabelBase11.Location = New System.Drawing.Point(21, 110)
 		Me.LabelBase11.Name = "LabelBase11"
 		Me.LabelBase11.Size = New System.Drawing.Size(96, 13)
 		Me.LabelBase11.TabIndex = 31
@@ -1348,30 +1332,20 @@ Public Class frmSelTipoCobroPortatil
 		'LabelBase10
 		'
 		Me.LabelBase10.AutoSize = True
-		Me.LabelBase10.Location = New System.Drawing.Point(16, 65)
+		Me.LabelBase10.Location = New System.Drawing.Point(21, 52)
 		Me.LabelBase10.Name = "LabelBase10"
 		Me.LabelBase10.Size = New System.Drawing.Size(48, 13)
 		Me.LabelBase10.TabIndex = 30
 		Me.LabelBase10.Text = "Nombre:"
 		'
-		'TxtNombreTransferencia
+		'lblCluie
 		'
-		Me.TxtNombreTransferencia.BackColor = System.Drawing.SystemColors.Control
-		Me.TxtNombreTransferencia.Enabled = False
-		Me.TxtNombreTransferencia.Location = New System.Drawing.Point(136, 57)
-		Me.TxtNombreTransferencia.Multiline = True
-		Me.TxtNombreTransferencia.Name = "TxtNombreTransferencia"
-		Me.TxtNombreTransferencia.Size = New System.Drawing.Size(208, 52)
-		Me.TxtNombreTransferencia.TabIndex = 29
-		'
-		'LabelBase9
-		'
-		Me.LabelBase9.AutoSize = True
-		Me.LabelBase9.Location = New System.Drawing.Point(16, 37)
-		Me.LabelBase9.Name = "LabelBase9"
-		Me.LabelBase9.Size = New System.Drawing.Size(44, 13)
-		Me.LabelBase9.TabIndex = 28
-		Me.LabelBase9.Text = "Cliente:"
+		Me.lblCluie.AutoSize = True
+		Me.lblCluie.Location = New System.Drawing.Point(21, 24)
+		Me.lblCluie.Name = "lblCluie"
+		Me.lblCluie.Size = New System.Drawing.Size(44, 13)
+		Me.lblCluie.TabIndex = 28
+		Me.lblCluie.Text = "Cliente:"
 		'
 		'tbAplicAnticipo
 		'
@@ -1381,7 +1355,7 @@ Public Class frmSelTipoCobroPortatil
 		Me.tbAplicAnticipo.Location = New System.Drawing.Point(4, 4)
 		Me.tbAplicAnticipo.Name = "tbAplicAnticipo"
 		Me.tbAplicAnticipo.Padding = New System.Windows.Forms.Padding(3)
-		Me.tbAplicAnticipo.Size = New System.Drawing.Size(603, 307)
+		Me.tbAplicAnticipo.Size = New System.Drawing.Size(603, 368)
 		Me.tbAplicAnticipo.TabIndex = 5
 		Me.tbAplicAnticipo.Text = "Aplicación Anticipo"
 		'
@@ -1469,13 +1443,6 @@ Public Class frmSelTipoCobroPortatil
 		Me.TextObservacionesAnticipo.Size = New System.Drawing.Size(310, 21)
 		Me.TextObservacionesAnticipo.TabIndex = 4
 		'
-		'TxtMontoAnticipo
-		'
-		Me.TxtMontoAnticipo.Location = New System.Drawing.Point(99, 226)
-		Me.TxtMontoAnticipo.Name = "TxtMontoAnticipo"
-		Me.TxtMontoAnticipo.Size = New System.Drawing.Size(154, 21)
-		Me.TxtMontoAnticipo.TabIndex = 3
-		'
 		'LabelBase26
 		'
 		Me.LabelBase26.AutoSize = True
@@ -1493,13 +1460,6 @@ Public Class frmSelTipoCobroPortatil
 		Me.LabelBase31.Size = New System.Drawing.Size(37, 13)
 		Me.LabelBase31.TabIndex = 49
 		Me.LabelBase31.Text = "Monto"
-		'
-		'TxtClienteAplicAntic
-		'
-		Me.TxtClienteAplicAntic.Location = New System.Drawing.Point(98, 35)
-		Me.TxtClienteAplicAntic.Name = "TxtClienteAplicAntic"
-		Me.TxtClienteAplicAntic.Size = New System.Drawing.Size(154, 21)
-		Me.TxtClienteAplicAntic.TabIndex = 0
 		'
 		'LabelBase34
 		'
@@ -1545,7 +1505,7 @@ Public Class frmSelTipoCobroPortatil
 		Me.tbDacionPagos.Location = New System.Drawing.Point(4, 4)
 		Me.tbDacionPagos.Name = "tbDacionPagos"
 		Me.tbDacionPagos.Padding = New System.Windows.Forms.Padding(3)
-		Me.tbDacionPagos.Size = New System.Drawing.Size(603, 307)
+		Me.tbDacionPagos.Size = New System.Drawing.Size(603, 350)
 		Me.tbDacionPagos.TabIndex = 7
 		Me.tbDacionPagos.Text = "Dación de Pagos"
 		'
@@ -1599,13 +1559,6 @@ Public Class frmSelTipoCobroPortatil
 		Me.Button2.Size = New System.Drawing.Size(48, 21)
 		Me.Button2.TabIndex = 1
 		'
-		'TxtClienteDacionPago
-		'
-		Me.TxtClienteDacionPago.Location = New System.Drawing.Point(143, 36)
-		Me.TxtClienteDacionPago.Name = "TxtClienteDacionPago"
-		Me.TxtClienteDacionPago.Size = New System.Drawing.Size(160, 21)
-		Me.TxtClienteDacionPago.TabIndex = 0
-		'
 		'TexObservacionDacionPAGO
 		'
 		Me.TexObservacionDacionPAGO.Location = New System.Drawing.Point(143, 202)
@@ -1613,13 +1566,6 @@ Public Class frmSelTipoCobroPortatil
 		Me.TexObservacionDacionPAGO.Name = "TexObservacionDacionPAGO"
 		Me.TexObservacionDacionPAGO.Size = New System.Drawing.Size(214, 48)
 		Me.TexObservacionDacionPAGO.TabIndex = 5
-		'
-		'TxtMontoDacionPago
-		'
-		Me.TxtMontoDacionPago.Location = New System.Drawing.Point(143, 175)
-		Me.TxtMontoDacionPago.Name = "TxtMontoDacionPago"
-		Me.TxtMontoDacionPago.Size = New System.Drawing.Size(214, 21)
-		Me.TxtMontoDacionPago.TabIndex = 4
 		'
 		'DTPFechaConvenioDacionPago
 		'
@@ -1674,16 +1620,6 @@ Public Class frmSelTipoCobroPortatil
 		Me.LabelBase23.TabIndex = 30
 		Me.LabelBase23.Text = "Nombre:"
 		'
-		'TxtNombreDacioPago
-		'
-		Me.TxtNombreDacioPago.BackColor = System.Drawing.SystemColors.Control
-		Me.TxtNombreDacioPago.Enabled = False
-		Me.TxtNombreDacioPago.Location = New System.Drawing.Point(143, 63)
-		Me.TxtNombreDacioPago.Multiline = True
-		Me.TxtNombreDacioPago.Name = "TxtNombreDacioPago"
-		Me.TxtNombreDacioPago.Size = New System.Drawing.Size(214, 52)
-		Me.TxtNombreDacioPago.TabIndex = 29
-		'
 		'LabelBase24
 		'
 		Me.LabelBase24.AutoSize = True
@@ -1699,10 +1635,248 @@ Public Class frmSelTipoCobroPortatil
 		Me.imgLista.ImageSize = New System.Drawing.Size(16, 16)
 		Me.imgLista.TransparentColor = System.Drawing.Color.Transparent
 		'
+		'lblBancoOrigenTransferencia
+		'
+		Me.lblBancoOrigenTransferencia.AutoSize = True
+		Me.lblBancoOrigenTransferencia.ForeColor = System.Drawing.Color.Red
+		Me.lblBancoOrigenTransferencia.Location = New System.Drawing.Point(11, 135)
+		Me.lblBancoOrigenTransferencia.Name = "lblBancoOrigenTransferencia"
+		Me.lblBancoOrigenTransferencia.Size = New System.Drawing.Size(10, 13)
+		Me.lblBancoOrigenTransferencia.TabIndex = 48
+		Me.lblBancoOrigenTransferencia.Text = " "
+		'
+		'Txt_totalEfectivo
+		'
+		Me.Txt_totalEfectivo.Location = New System.Drawing.Point(146, 16)
+		Me.Txt_totalEfectivo.Name = "Txt_totalEfectivo"
+		Me.Txt_totalEfectivo.Size = New System.Drawing.Size(120, 21)
+		Me.Txt_totalEfectivo.TabIndex = 0
+		'
+		'TxtMontoVales
+		'
+		Me.TxtMontoVales.Location = New System.Drawing.Point(121, 171)
+		Me.TxtMontoVales.Name = "TxtMontoVales"
+		Me.TxtMontoVales.Size = New System.Drawing.Size(192, 21)
+		Me.TxtMontoVales.TabIndex = 5
+		'
+		'ComboTipoVale
+		'
+		Me.ComboTipoVale.Descripcion = Nothing
+		Me.ComboTipoVale.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+		Me.ComboTipoVale.DropDownWidth = 200
+		Me.ComboTipoVale.Location = New System.Drawing.Point(121, 144)
+		Me.ComboTipoVale.Name = "ComboTipoVale"
+		Me.ComboTipoVale.Size = New System.Drawing.Size(192, 21)
+		Me.ComboTipoVale.Status = Nothing
+		Me.ComboTipoVale.TabIndex = 4
+		Me.ComboTipoVale.ValeTipo = 0
+		'
+		'ComboProveedor
+		'
+		Me.ComboProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+		Me.ComboProveedor.DropDownWidth = 200
+		Me.ComboProveedor.Location = New System.Drawing.Point(121, 119)
+		Me.ComboProveedor.Name = "ComboProveedor"
+		Me.ComboProveedor.Nombre = Nothing
+		Me.ComboProveedor.Size = New System.Drawing.Size(192, 21)
+		Me.ComboProveedor.Status = Nothing
+		Me.ComboProveedor.TabIndex = 3
+		Me.ComboProveedor.ValeProveedor = 0
+		'
+		'txtClienteVales
+		'
+		Me.txtClienteVales.Location = New System.Drawing.Point(121, 32)
+		Me.txtClienteVales.Name = "txtClienteVales"
+		Me.txtClienteVales.Size = New System.Drawing.Size(143, 21)
+		Me.txtClienteVales.TabIndex = 0
+		'
+		'cbBancoTC
+		'
+		Me.cbBancoTC.FormattingEnabled = True
+		Me.cbBancoTC.Location = New System.Drawing.Point(104, 144)
+		Me.cbBancoTC.Name = "cbBancoTC"
+		Me.cbBancoTC.Size = New System.Drawing.Size(160, 21)
+		Me.cbBancoTC.TabIndex = 3
+		'
+		'txtTarjetaCredito
+		'
+		Me.txtTarjetaCredito.Location = New System.Drawing.Point(104, 120)
+		Me.txtTarjetaCredito.MaxLength = 20
+		Me.txtTarjetaCredito.Name = "txtTarjetaCredito"
+		Me.txtTarjetaCredito.Size = New System.Drawing.Size(160, 21)
+		Me.txtTarjetaCredito.TabIndex = 2
+		'
+		'txtBancoTC
+		'
+		Me.txtBancoTC.Location = New System.Drawing.Point(286, 187)
+		Me.txtBancoTC.MaxLength = 3
+		Me.txtBancoTC.Name = "txtBancoTC"
+		Me.txtBancoTC.Size = New System.Drawing.Size(31, 21)
+		Me.txtBancoTC.TabIndex = 3
+		Me.txtBancoTC.Visible = False
+		'
+		'txtImporteTC
+		'
+		Me.txtImporteTC.Location = New System.Drawing.Point(104, 216)
+		Me.txtImporteTC.Name = "txtImporteTC"
+		Me.txtImporteTC.Size = New System.Drawing.Size(160, 21)
+		Me.txtImporteTC.TabIndex = 5
+		'
+		'txtClienteTC
+		'
+		Me.txtClienteTC.Location = New System.Drawing.Point(104, 32)
+		Me.txtClienteTC.Name = "txtClienteTC"
+		Me.txtClienteTC.Size = New System.Drawing.Size(160, 21)
+		Me.txtClienteTC.TabIndex = 0
+		'
+		'txtImporteDocumento
+		'
+		Me.txtImporteDocumento.Location = New System.Drawing.Point(120, 231)
+		Me.txtImporteDocumento.Name = "txtImporteDocumento"
+		Me.txtImporteDocumento.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal
+		Me.txtImporteDocumento.Size = New System.Drawing.Size(192, 21)
+		Me.txtImporteDocumento.TabIndex = 7
+		'
+		'txtClienteCheque
+		'
+		Me.txtClienteCheque.Location = New System.Drawing.Point(120, 135)
+		Me.txtClienteCheque.Name = "txtClienteCheque"
+		Me.txtClienteCheque.Size = New System.Drawing.Size(160, 21)
+		Me.txtClienteCheque.TabIndex = 4
+		'
+		'txtNumeroCuenta
+		'
+		Me.txtNumeroCuenta.Location = New System.Drawing.Point(120, 111)
+		Me.txtNumeroCuenta.Name = "txtNumeroCuenta"
+		Me.txtNumeroCuenta.Size = New System.Drawing.Size(192, 21)
+		Me.txtNumeroCuenta.TabIndex = 3
+		'
+		'txtDocumento
+		'
+		Me.txtDocumento.Location = New System.Drawing.Point(120, 32)
+		Me.txtDocumento.MaxLength = 7
+		Me.txtDocumento.Name = "txtDocumento"
+		Me.txtDocumento.Size = New System.Drawing.Size(192, 21)
+		Me.txtDocumento.TabIndex = 0
+		'
+		'ComboBanco
+		'
+		Me.ComboBanco.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+		Me.ComboBanco.DropDownWidth = 200
+		Me.ComboBanco.Location = New System.Drawing.Point(120, 207)
+		Me.ComboBanco.Name = "ComboBanco"
+		Me.ComboBanco.Size = New System.Drawing.Size(192, 21)
+		Me.ComboBanco.TabIndex = 6
+		'
+		'ComboBancoOrigenTransferencia
+		'
+		Me.ComboBancoOrigenTransferencia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+		Me.ComboBancoOrigenTransferencia.DropDownWidth = 200
+		Me.ComboBancoOrigenTransferencia.Location = New System.Drawing.Point(141, 129)
+		Me.ComboBancoOrigenTransferencia.Name = "ComboBancoOrigenTransferencia"
+		Me.ComboBancoOrigenTransferencia.Size = New System.Drawing.Size(208, 21)
+		Me.ComboBancoOrigenTransferencia.TabIndex = 37
+		'
+		'TxtClienteTransferencia
+		'
+		Me.TxtClienteTransferencia.Location = New System.Drawing.Point(141, 20)
+		Me.TxtClienteTransferencia.Name = "TxtClienteTransferencia"
+		Me.TxtClienteTransferencia.Size = New System.Drawing.Size(160, 21)
+		Me.TxtClienteTransferencia.TabIndex = 0
+		'
+		'TxtImporteTransferencia
+		'
+		Me.TxtImporteTransferencia.Location = New System.Drawing.Point(141, 261)
+		Me.TxtImporteTransferencia.Name = "TxtImporteTransferencia"
+		Me.TxtImporteTransferencia.Size = New System.Drawing.Size(208, 21)
+		Me.TxtImporteTransferencia.TabIndex = 6
+		'
+		'ComboBancoDestinoTransferencia
+		'
+		Me.ComboBancoDestinoTransferencia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+		Me.ComboBancoDestinoTransferencia.DropDownWidth = 200
+		Me.ComboBancoDestinoTransferencia.Location = New System.Drawing.Point(141, 209)
+		Me.ComboBancoDestinoTransferencia.Name = "ComboBancoDestinoTransferencia"
+		Me.ComboBancoDestinoTransferencia.Size = New System.Drawing.Size(208, 21)
+		Me.ComboBancoDestinoTransferencia.TabIndex = 5
+		'
+		'TxtNumeroReferenciaTransferencia
+		'
+		Me.TxtNumeroReferenciaTransferencia.Location = New System.Drawing.Point(141, 182)
+		Me.TxtNumeroReferenciaTransferencia.MaxLength = 7
+		Me.TxtNumeroReferenciaTransferencia.Name = "TxtNumeroReferenciaTransferencia"
+		Me.TxtNumeroReferenciaTransferencia.Size = New System.Drawing.Size(208, 21)
+		Me.TxtNumeroReferenciaTransferencia.TabIndex = 4
+		'
+		'TxtNumeroCuentaTransferenciaOrigen
+		'
+		Me.TxtNumeroCuentaTransferenciaOrigen.Location = New System.Drawing.Point(141, 156)
+		Me.TxtNumeroCuentaTransferenciaOrigen.Name = "TxtNumeroCuentaTransferenciaOrigen"
+		Me.TxtNumeroCuentaTransferenciaOrigen.Size = New System.Drawing.Size(208, 21)
+		Me.TxtNumeroCuentaTransferenciaOrigen.TabIndex = 3
+		'
+		'TxtNombreTransferencia
+		'
+		Me.TxtNombreTransferencia.BackColor = System.Drawing.SystemColors.Control
+		Me.TxtNombreTransferencia.Enabled = False
+		Me.TxtNombreTransferencia.Location = New System.Drawing.Point(141, 44)
+		Me.TxtNombreTransferencia.Multiline = True
+		Me.TxtNombreTransferencia.Name = "TxtNombreTransferencia"
+		Me.TxtNombreTransferencia.Size = New System.Drawing.Size(208, 52)
+		Me.TxtNombreTransferencia.TabIndex = 29
+		'
+		'TxtMontoAnticipo
+		'
+		Me.TxtMontoAnticipo.Location = New System.Drawing.Point(99, 226)
+		Me.TxtMontoAnticipo.Name = "TxtMontoAnticipo"
+		Me.TxtMontoAnticipo.Size = New System.Drawing.Size(154, 21)
+		Me.TxtMontoAnticipo.TabIndex = 3
+		'
+		'TxtClienteAplicAntic
+		'
+		Me.TxtClienteAplicAntic.Location = New System.Drawing.Point(98, 35)
+		Me.TxtClienteAplicAntic.Name = "TxtClienteAplicAntic"
+		Me.TxtClienteAplicAntic.Size = New System.Drawing.Size(154, 21)
+		Me.TxtClienteAplicAntic.TabIndex = 0
+		'
+		'TxtClienteDacionPago
+		'
+		Me.TxtClienteDacionPago.Location = New System.Drawing.Point(143, 36)
+		Me.TxtClienteDacionPago.Name = "TxtClienteDacionPago"
+		Me.TxtClienteDacionPago.Size = New System.Drawing.Size(160, 21)
+		Me.TxtClienteDacionPago.TabIndex = 0
+		'
+		'TxtMontoDacionPago
+		'
+		Me.TxtMontoDacionPago.Location = New System.Drawing.Point(143, 175)
+		Me.TxtMontoDacionPago.Name = "TxtMontoDacionPago"
+		Me.TxtMontoDacionPago.Size = New System.Drawing.Size(214, 21)
+		Me.TxtMontoDacionPago.TabIndex = 4
+		'
+		'TxtNombreDacioPago
+		'
+		Me.TxtNombreDacioPago.BackColor = System.Drawing.SystemColors.Control
+		Me.TxtNombreDacioPago.Enabled = False
+		Me.TxtNombreDacioPago.Location = New System.Drawing.Point(143, 63)
+		Me.TxtNombreDacioPago.Multiline = True
+		Me.TxtNombreDacioPago.Name = "TxtNombreDacioPago"
+		Me.TxtNombreDacioPago.Size = New System.Drawing.Size(214, 52)
+		Me.TxtNombreDacioPago.TabIndex = 29
+		'
+		'lblCuentaOrigenTransferencia
+		'
+		Me.lblCuentaOrigenTransferencia.AutoSize = True
+		Me.lblCuentaOrigenTransferencia.ForeColor = System.Drawing.Color.Red
+		Me.lblCuentaOrigenTransferencia.Location = New System.Drawing.Point(11, 164)
+		Me.lblCuentaOrigenTransferencia.Name = "lblCuentaOrigenTransferencia"
+		Me.lblCuentaOrigenTransferencia.Size = New System.Drawing.Size(10, 13)
+		Me.lblCuentaOrigenTransferencia.TabIndex = 49
+		Me.lblCuentaOrigenTransferencia.Text = " "
+		'
 		'frmSelTipoCobroPortatil
 		'
 		Me.AutoScaleBaseSize = New System.Drawing.Size(5, 14)
-		Me.ClientSize = New System.Drawing.Size(611, 351)
+		Me.ClientSize = New System.Drawing.Size(611, 394)
 		Me.Controls.Add(Me.tabTipoCobro)
 		Me.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -1911,7 +2085,10 @@ Public Class frmSelTipoCobroPortatil
 		ComboTipoVale.CargaDatos()
 		cbBancoTC.CargaDatos()
 
-		ComboBancoTransferencia.CargaDatos(True)
+
+		ComboBancoDestinoTransferencia.CargaDatos(True)
+		ComboBancoOrigenTransferencia.CargaDatos(True)
+
 		If CapturaEfectivoVales = True Then
 			btnAceptarVales.Enabled = False
 			tabTipoCobro.SelectedTab = tbChequeFicha
@@ -2352,8 +2529,8 @@ Public Class frmSelTipoCobroPortatil
 			'Datos reales
 			.Cliente = CInt(TxtClienteTransferencia.Text)
 			.FCheque = DTPFechaTransferencia.Value
-			.NumeroCuenta = TxtNumeroCuentaTransferencia.Text
-			.Banco = CShort(ComboBancoTransferencia.SelectedValue)
+			.NumeroCuenta = cboCuentaDestinoTransferencia.Text
+			.Banco = CShort(ComboBancoDestinoTransferencia.SelectedValue)
 			.Observaciones = txtbObservacionesTranferencias.Text
 			.TipoCobro = CByte(SigaMetClasses.Enumeradores.enumTipoCobro.Transferencia)
 			.DscTipoCobro = "Transferencia"
@@ -2365,7 +2542,7 @@ Public Class frmSelTipoCobroPortatil
 			.Importe = .Total / CDec(1 + (GLOBAL_IVA / 100))
 			.Impuesto = .Total - .Importe
 			.Referencia = "NULL" ' puede ser vacio
-			.NumeroCheque = TxtNumeroDocumentoTransferencia.Text ' puede ser vacio
+			.NumeroCheque = TxtNumeroReferenciaTransferencia.Text ' puede ser vacio
 			.FDevolucion = Date.MinValue
 			.RazonDevCheque = Nothing
 			' .Saldo = 0
@@ -2374,8 +2551,8 @@ Public Class frmSelTipoCobroPortatil
 			.FDeposito = Date.MinValue
 			.FolioAtt = _FolioCobro
 			.AñoAtt = CShort(_FechaCargo.Year)
-			.NumeroCuentaDestino = "NULL"
-			.BancoOrigen = CShort("0")
+			.NumeroCuentaDestino = TxtNumeroCuentaTransferenciaOrigen.Text
+			.BancoOrigen = CShort(ComboBancoOrigenTransferencia.SelectedValue)
 			.StatusSaldoAFavor = "NULL"
 			.AñoCobroOrigen = CShort(_FechaCargo.Year)
 			.CobroOrigen = 0
@@ -2385,9 +2562,79 @@ Public Class frmSelTipoCobroPortatil
 		Return insertaCobro
 	End Function
 
+	Private Function validaDatosTransferencia() As Boolean
+		Dim resultado As Boolean = True
+		Dim mensaje As New List(Of String)
+
+		If TxtClienteTransferencia.Text.Trim() = "" Then
+			resultado = False
+			lblClienteTransferencia.Text = "*"
+		Else
+			lblClienteTransferencia.Text = ""
+		End If
+
+		If TxtNumeroReferenciaTransferencia.Text.Trim() = "" Then
+			resultado = False
+			lblNoReferenciaTransferencia.Text = "*"
+		Else
+			lblNoReferenciaTransferencia.Text = ""
+		End If
+
+		If ComboBancoDestinoTransferencia.Text.Trim() = "" Then
+			resultado = False
+			lblBancoDestinoTransferencia.Text = "*"
+		Else
+			lblBancoDestinoTransferencia.Text = ""
+		End If
+
+		If ComboBancoOrigenTransferencia.Text.Trim() = "" Then
+			resultado = False
+			lblBancoOrigenTransferencia.Text = "*"
+		Else
+			lblBancoOrigenTransferencia.Text = ""
+		End If
+
+		If cboCuentaDestinoTransferencia.Text.Trim() = "" Then
+			resultado = False
+			lblCuentaDestinoTransferencia.Text = "*"
+		Else
+			lblCuentaDestinoTransferencia.Text = ""
+		End If
+
+		If TxtImporteTransferencia.Text.Trim() = "" Then
+			resultado = False
+			lblImporteDestinoTransferencia.Text = "*"
+		Else
+			lblImporteDestinoTransferencia.Text = ""
+		End If
+
+		If ComboBancoDestinoTransferencia.Text.Trim() = "" Or ComboBancoOrigenTransferencia.Text.Trim() = "" Then
+			mensaje.Add("El banco origen y el banco destino son obligatorios, corrija para continuar.")
+		End If
+
+		Dim cuenta As New FormasPago.Cuenta()
+		If Not cuenta.validarExpresionRegular(3, TxtNumeroCuentaTransferenciaOrigen.Text) Then
+			mensaje.Add("La cuenta origen que introdujo no cumple con las disposiciones del SAT, por favor verifique.")
+			resultado = False
+			lblCuentaOrigenTransferencia.Text = "*"
+		Else
+			lblCuentaOrigenTransferencia.Text = ""
+		End If
+
+		If mensaje.Count = 0 And resultado = False Then
+			mensaje.Add("Faltan datos obligatorios")
+		End If
+
+		If resultado = False Then
+			MessageBox.Show(String.Join(Environment.NewLine, mensaje.ToArray()), "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+		End If
+
+		Return resultado
+	End Function
+
 	Private Sub BotonBase2_Click(sender As Object, e As EventArgs) Handles BotonBase2.Click
 		Try
-			If TxtImporteTransferencia.Text <> "" And ComboBancoTransferencia.Text <> "" Then
+			If validaDatosTransferencia() Then
 				Total = CDec(TxtImporteTransferencia.Text)
 
 				Pago = TotalCobros + 1
@@ -2488,9 +2735,9 @@ Public Class frmSelTipoCobroPortatil
 	Public Sub LimpiarTransferencia()
 		TxtClienteTransferencia.Clear()
 		TxtNombreTransferencia.Clear()
-		TxtNumeroCuentaTransferencia.Clear()
-		TxtNumeroDocumentoTransferencia.Clear()
-		ComboBancoTransferencia.SelectedIndex = 0
+		TxtNumeroCuentaTransferenciaOrigen.Clear()
+		TxtNumeroReferenciaTransferencia.Clear()
+		ComboBancoDestinoTransferencia.SelectedIndex = 0
 		TxtImporteTransferencia.Clear()
 		txtbObservacionesTranferencias.Clear()
 	End Sub
@@ -3082,7 +3329,16 @@ Public Class frmSelTipoCobroPortatil
 
 	End Sub
 
-	Private Sub tbChequeFicha_Click(sender As Object, e As EventArgs) Handles tbChequeFicha.Click
+	Private Sub ComboBancoDestinoTransferencia_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBancoDestinoTransferencia.SelectedIndexChanged
+		Dim cuenta As New SigaMetClasses.cCuenta()
+		Dim listado As New List(Of String)
+
+		If (ComboBancoDestinoTransferencia.Text.Trim() <> "") Then
+			listado = cuenta.ConsultarCuentas(0, ComboBancoDestinoTransferencia.Text.Trim())
+		End If
+
+
+		cboCuentaDestinoTransferencia.DataSource = listado
 
 	End Sub
 End Class
