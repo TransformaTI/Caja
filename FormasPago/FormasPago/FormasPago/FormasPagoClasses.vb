@@ -34,28 +34,28 @@ Public Class DebitoAnticipo
 End Class
 
 Public Class Cuenta
-	Public Function validarExpresionRegular(TipoCobro As Integer, CuentaOrigen As String) As Boolean
-		Dim resultado As Boolean = True
+    Public Function validarExpresionRegular(TipoCobro As Integer, CuentaOrigen As String, Optional ByVal CadConexion As String = "") As Boolean
+        Dim resultado As Boolean = True
 
-		Dim cuenta As New SigaMetClasses.cCuenta()
+        Dim cuenta As New SigaMetClasses.cCuenta()
 
-		Try
-			Dim patron As String
-			patron = cuenta.ConsultarPatron(TipoCobro)
+        Try
+            Dim patron As String
+            patron = cuenta.ConsultarPatron(TipoCobro, CadConexion)
 
-			Dim reg As New Regex(patron)
+            Dim reg As New Regex(patron)
 
-			resultado = reg.IsMatch(CuentaOrigen)
-		Catch ex As Exception
-			If ex.Message = "vacio" Then
-				Throw New Exception("Tipo de cobro no tiene patron")
-			Else
-				Throw New Exception(ex.Message)
-			End If
-		End Try
+            resultado = reg.IsMatch(CuentaOrigen)
+        Catch ex As Exception
+            If ex.Message = "vacio" Then
+                Throw New Exception("Tipo de cobro no tiene patron")
+            Else
+                Throw New Exception(ex.Message)
+            End If
+        End Try
 
-		Return resultado
-	End Function
+        Return resultado
+    End Function
 
 
 End Class
