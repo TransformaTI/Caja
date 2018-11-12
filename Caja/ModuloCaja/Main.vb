@@ -224,13 +224,18 @@ Public Module Main
 
             'TODO: Valor de la seguridad de reportes
             GLOBAL_SeguridadReportes = CType(oLogin.Parametros("SeguridadReportes"), Boolean)
-            GLOBAL_URLGATEWAY = CType(oLogin.Parametros("URLGateway"), String)
+			Try
+				GLOBAL_URLGATEWAY = CType(oLogin.Parametros("URLGateway"), String)
+			Catch ex As Exception
+				GLOBAL_URLGATEWAY = ""
+			End Try
 
-            'Aquí iría la seguridad de Manuel
 
-            'Explicitly set apartment state to Single Thread Apartment (STA)
-            'System.Threading.Thread.CurrentThread.ApartmentState = System.Threading.ApartmentState.STA
-            Dim eh As New CustomExceptionHandler()
+			'Aquí iría la seguridad de Manuel
+
+			'Explicitly set apartment state to Single Thread Apartment (STA)
+			'System.Threading.Thread.CurrentThread.ApartmentState = System.Threading.ApartmentState.STA
+			Dim eh As New CustomExceptionHandler()
             AddHandler Application.ThreadException, AddressOf eh.OnThreadException
             Application.Run(New frmPrincipal())
 

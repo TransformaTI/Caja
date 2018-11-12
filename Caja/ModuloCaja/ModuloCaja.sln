@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ModuloCaja", "ModuloCaja.vbproj", "{A3453B7B-8C75-4C28-A2BC-D3F43F6CCD3C}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -20,6 +20,8 @@ EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "LiquidacionPortatil", "..\..\..\Librerias\LiquidacionPortatil\LiquidacionPortatil.vbproj", "{4479E1AE-726A-43D0-802E-05426F5C43DA}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "SigaMetClasses", "..\..\..\Librerias\SigaMetClasses\SigaMetClasses.vbproj", "{982B97F3-89F7-4612-97F0-96C875996FDA}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PortatilClasses", "..\..\..\Librerias\PortatilClasses\PortatilClasses.vbproj", "{94B3938A-7B1C-45CA-BC0C-85BDF76F5F8A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +89,14 @@ Global
 		{982B97F3-89F7-4612-97F0-96C875996FDA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{982B97F3-89F7-4612-97F0-96C875996FDA}.Release|x86.ActiveCfg = Release|Any CPU
 		{982B97F3-89F7-4612-97F0-96C875996FDA}.Release|x86.Build.0 = Release|Any CPU
+		{94B3938A-7B1C-45CA-BC0C-85BDF76F5F8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94B3938A-7B1C-45CA-BC0C-85BDF76F5F8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94B3938A-7B1C-45CA-BC0C-85BDF76F5F8A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{94B3938A-7B1C-45CA-BC0C-85BDF76F5F8A}.Debug|x86.Build.0 = Debug|Any CPU
+		{94B3938A-7B1C-45CA-BC0C-85BDF76F5F8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94B3938A-7B1C-45CA-BC0C-85BDF76F5F8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94B3938A-7B1C-45CA-BC0C-85BDF76F5F8A}.Release|x86.ActiveCfg = Release|Any CPU
+		{94B3938A-7B1C-45CA-BC0C-85BDF76F5F8A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

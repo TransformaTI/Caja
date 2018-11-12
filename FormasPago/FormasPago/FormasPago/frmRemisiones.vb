@@ -206,8 +206,19 @@ Public Class frmRemisiones
 							_UltimoCobro.Serie = grdRemision.Item(i, 0)
 							_UltimoCobro.Remision = grdRemision.Item(i, 1)
 							_UltimoCobro.Producto = grdRemision.Item(i, 11)
+
+							If _Tipocobro = 2 Or _Tipocobro = 16 Then
+								Try
+									_UltimoCobro.FCheque = CType(grdRemision.Item(i, 14), Date)
+									_UltimoCobro.FDeposito = CType(grdRemision.Item(i, 14), Date)
+
+								Catch ex As Exception
+
+								End Try
+							End If
+
 						End If
-					Catch ex As Exception
+                    Catch ex As Exception
 						MessageBox.Show(ex.Message)
 					End Try
 				Else

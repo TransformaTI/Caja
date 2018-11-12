@@ -2891,7 +2891,7 @@ Public Class frmSelTipoCobroPortatil
 			.AñoCobro = CShort(DateTime.Now.Year)
 			.Cobro = 0
 			.Cliente = CInt(txtClienteVales.Text)
-			.FCheque = CDate(FechaDocumentoVales.Text)
+			.FCheque = FechaDocumentoVales.Value
 			.NumeroCuenta = "NULL"
 			.Banco = CShort(ComboProveedor.SelectedValue)
 			.Observaciones = TextObservacionesVales.Text
@@ -2910,7 +2910,7 @@ Public Class frmSelTipoCobroPortatil
 			.Saldo = 0 ' el saldo se regresa conforme termine las remisiones
 			.FActualizacion = Date.MinValue
 			.Folio = _FolioCobro
-			.FDeposito = Date.MinValue
+			.FDeposito = FechaDocumentoVales.Value
 			.FolioAtt = _FolioCobro
 			.AñoAtt = CShort(_FechaCargo.Year)
 			.NumeroCuentaDestino = "NULL"
@@ -2918,6 +2918,7 @@ Public Class frmSelTipoCobroPortatil
 			.StatusSaldoAFavor = "NULL"
 			.AñoCobroOrigen = CShort("0")
 			.CobroOrigen = 0
+			.NumeroCuentaDestino = ComboTipoVale.Text
 		End With
 		'_listaCobros.Add(insertaCobro)
 		Return insertaCobro
