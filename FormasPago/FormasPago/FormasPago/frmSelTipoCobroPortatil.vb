@@ -2072,47 +2072,53 @@ Public Class frmSelTipoCobroPortatil
 	End Sub
 
 	Private Sub frmSelTipoCobro_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
-		If Not _MostrarDacion Then
-			tabTipoCobro.TabPages.Remove(tbDacionPagos)
-		End If
-		If TipoLiquidacion = "LiqPortatil" Then
-			dgvCargoTarjeta.Visible = False
 
-		End If
+		Try
+			If Not _MostrarDacion Then
+				tabTipoCobro.TabPages.Remove(tbDacionPagos)
+			End If
+			If TipoLiquidacion = "LiqPortatil" Then
+				dgvCargoTarjeta.Visible = False
 
-		ComboBanco.CargaDatos(True)
-		ComboProveedor.CargaDatos()
-		ComboTipoVale.CargaDatos()
-		cbBancoTC.CargaDatos()
+			End If
 
-
-		ComboBancoDestinoTransferencia.CargaDatos(True)
-		ComboBancoOrigenTransferencia.CargaDatos(True)
-
-		If CapturaEfectivoVales = True Then
-			btnAceptarVales.Enabled = False
-			tabTipoCobro.SelectedTab = tbChequeFicha
-		End If
-		SeleccionarTipocobro()
-		AddHandler txtImporteTC.KeyDown, AddressOf ManejaFlechas
-
-		If SoloEfectivo Then
-			tabTipoCobro.TabPages.Remove(tbValesDespensa)
-			tabTipoCobro.TabPages.Remove(tbTarjetaCredito)
-			tabTipoCobro.TabPages.Remove(tbChequeFicha)
-			tabTipoCobro.TabPages.Remove(tbDacionPagos)
-			tabTipoCobro.TabPages.Remove(tbTransferencias)
-			tabTipoCobro.TabPages.Remove(tbAplicAnticipo)
-		End If
+			ComboBanco.CargaDatos(True)
+			ComboProveedor.CargaDatos()
+			ComboTipoVale.CargaDatos()
+			cbBancoTC.CargaDatos()
 
 
-		dListadoTipoTarjeta = SigaMetClasses.Main.consultarTipoTarjeta()
-		If (dListadoTipoTarjeta.Count > 0) Then
-			cboTipoTarjeta.ValueMember = "Key"
-			cboTipoTarjeta.DisplayMember = "Value"
+			ComboBancoDestinoTransferencia.CargaDatos(True)
+			ComboBancoOrigenTransferencia.CargaDatos(True)
 
-			cboTipoTarjeta.DataSource = New BindingSource(dListadoTipoTarjeta, Nothing)
-		End If
+			If CapturaEfectivoVales = True Then
+				btnAceptarVales.Enabled = False
+				tabTipoCobro.SelectedTab = tbChequeFicha
+			End If
+			SeleccionarTipocobro()
+			AddHandler txtImporteTC.KeyDown, AddressOf ManejaFlechas
+
+			If SoloEfectivo Then
+				tabTipoCobro.TabPages.Remove(tbValesDespensa)
+				tabTipoCobro.TabPages.Remove(tbTarjetaCredito)
+				tabTipoCobro.TabPages.Remove(tbChequeFicha)
+				tabTipoCobro.TabPages.Remove(tbDacionPagos)
+				tabTipoCobro.TabPages.Remove(tbTransferencias)
+				tabTipoCobro.TabPages.Remove(tbAplicAnticipo)
+			End If
+
+
+			dListadoTipoTarjeta = SigaMetClasses.Main.consultarTipoTarjeta()
+			If (dListadoTipoTarjeta.Count > 0) Then
+				cboTipoTarjeta.ValueMember = "Key"
+				cboTipoTarjeta.DisplayMember = "Value"
+
+				cboTipoTarjeta.DataSource = New BindingSource(dListadoTipoTarjeta, Nothing)
+			End If
+		Catch ex As Exception
+			MessageBox.Show(ex.Message)
+		End Try
+
 
 
 
@@ -3335,7 +3341,7 @@ Public Class frmSelTipoCobroPortatil
 		Dim listado As New List(Of String)
 
 		If (ComboBancoDestinoTransferencia.Text.Trim() <> "") Then
-			listado = cuenta.ConsultarCuentas(0, ComboBancoDestinoTransferencia.Text.Trim())
+			listado = cuenta.ConsultarCuentas(Globals.GetInstance._Corporativo, ComboBancoDestinoTransferencia.Text.Trim())
 		End If
 
 
