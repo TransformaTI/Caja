@@ -13,6 +13,7 @@ Public Class FichaDeposito_ed
     Private VGS_Concepto As String
     Public VGN_Folio As Integer
     Public blnAgregarAlCorte As Boolean
+    Friend WithEvents txtDescripcion As System.Windows.Forms.TextBox
 
     Public EmpreContableOriginal As Boolean = False
 
@@ -70,7 +71,7 @@ Public Class FichaDeposito_ed
     Friend WithEvents txtMonto As System.Windows.Forms.TextBox
     Friend WithEvents lblCaja As System.Windows.Forms.Label
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Dim resources As System.Resources.ResourceManager = New System.Resources.ResourceManager(GetType(FichaDeposito_ed))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FichaDeposito_ed))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtFolio = New DevExpress.XtraEditors.TextEdit()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -94,6 +95,7 @@ Public Class FichaDeposito_ed
         Me.txtMonto = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.lblCaja = New System.Windows.Forms.Label()
+        Me.txtDescripcion = New System.Windows.Forms.TextBox()
         CType(Me.txtFolio, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtFAlta, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.chkAgregar, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -109,7 +111,7 @@ Public Class FichaDeposito_ed
         Me.Label1.ForeColor = System.Drawing.Color.Black
         Me.Label1.Location = New System.Drawing.Point(97, 56)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(38, 15)
+        Me.Label1.Size = New System.Drawing.Size(39, 14)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Folio :"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -120,15 +122,15 @@ Public Class FichaDeposito_ed
         Me.txtFolio.Name = "txtFolio"
         Me.txtFolio.Properties.DisabledForeColor = System.Drawing.Color.Black
         Me.txtFolio.Properties.Enabled = False
-        Me.txtFolio.Properties.Style = New DevExpress.Utils.ViewStyle("ControlStyle", "BaseEdit", New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte)), "", (((((((((DevExpress.Utils.StyleOptions.StyleEnabled Or DevExpress.Utils.StyleOptions.UseBackColor) _
-                        Or DevExpress.Utils.StyleOptions.UseDrawEndEllipsis) _
-                        Or DevExpress.Utils.StyleOptions.UseDrawFocusRect) _
-                        Or DevExpress.Utils.StyleOptions.UseFont) _
-                        Or DevExpress.Utils.StyleOptions.UseForeColor) _
-                        Or DevExpress.Utils.StyleOptions.UseHorzAlignment) _
-                        Or DevExpress.Utils.StyleOptions.UseImage) _
-                        Or DevExpress.Utils.StyleOptions.UseWordWrap) _
-                        Or DevExpress.Utils.StyleOptions.UseVertAlignment), True, False, False, DevExpress.Utils.HorzAlignment.Default, DevExpress.Utils.VertAlignment.Default, Nothing, System.Drawing.SystemColors.Window, System.Drawing.SystemColors.WindowText)
+        Me.txtFolio.Properties.Style = New DevExpress.Utils.ViewStyle("ControlStyle", "BaseEdit", New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte)), "", CType((((((((((DevExpress.Utils.StyleOptions.StyleEnabled Or DevExpress.Utils.StyleOptions.UseBackColor) _
+                Or DevExpress.Utils.StyleOptions.UseDrawEndEllipsis) _
+                Or DevExpress.Utils.StyleOptions.UseDrawFocusRect) _
+                Or DevExpress.Utils.StyleOptions.UseFont) _
+                Or DevExpress.Utils.StyleOptions.UseForeColor) _
+                Or DevExpress.Utils.StyleOptions.UseHorzAlignment) _
+                Or DevExpress.Utils.StyleOptions.UseImage) _
+                Or DevExpress.Utils.StyleOptions.UseWordWrap) _
+                Or DevExpress.Utils.StyleOptions.UseVertAlignment), DevExpress.Utils.StyleOptions), True, False, False, DevExpress.Utils.HorzAlignment.[Default], DevExpress.Utils.VertAlignment.[Default], Nothing, System.Drawing.SystemColors.Window, System.Drawing.SystemColors.WindowText)
         Me.txtFolio.Size = New System.Drawing.Size(128, 27)
         Me.txtFolio.TabIndex = 1
         '
@@ -138,7 +140,7 @@ Public Class FichaDeposito_ed
         Me.Label3.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(58, 202)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(77, 15)
+        Me.Label3.Size = New System.Drawing.Size(78, 14)
         Me.Label3.TabIndex = 3
         Me.Label3.Text = "Fecha Ficha :"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -149,7 +151,7 @@ Public Class FichaDeposito_ed
         Me.Label4.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(66, 114)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(69, 15)
+        Me.Label4.Size = New System.Drawing.Size(70, 14)
         Me.Label4.TabIndex = 4
         Me.Label4.Text = "Tipo Ficha :"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -160,7 +162,7 @@ Public Class FichaDeposito_ed
         Me.Label6.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(66, 144)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(69, 15)
+        Me.Label6.Size = New System.Drawing.Size(72, 14)
         Me.Label6.TabIndex = 6
         Me.Label6.Text = "Fecha Alta :"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -172,15 +174,15 @@ Public Class FichaDeposito_ed
         Me.txtFAlta.Name = "txtFAlta"
         Me.txtFAlta.Properties.DisabledForeColor = System.Drawing.Color.Black
         Me.txtFAlta.Properties.Enabled = False
-        Me.txtFAlta.Properties.Style = New DevExpress.Utils.ViewStyle("ControlStyle", "BaseEdit", New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte)), "", (((((((((DevExpress.Utils.StyleOptions.StyleEnabled Or DevExpress.Utils.StyleOptions.UseBackColor) _
-                        Or DevExpress.Utils.StyleOptions.UseDrawEndEllipsis) _
-                        Or DevExpress.Utils.StyleOptions.UseDrawFocusRect) _
-                        Or DevExpress.Utils.StyleOptions.UseFont) _
-                        Or DevExpress.Utils.StyleOptions.UseForeColor) _
-                        Or DevExpress.Utils.StyleOptions.UseHorzAlignment) _
-                        Or DevExpress.Utils.StyleOptions.UseImage) _
-                        Or DevExpress.Utils.StyleOptions.UseWordWrap) _
-                        Or DevExpress.Utils.StyleOptions.UseVertAlignment), True, False, False, DevExpress.Utils.HorzAlignment.Default, DevExpress.Utils.VertAlignment.Default, Nothing, System.Drawing.SystemColors.Window, System.Drawing.SystemColors.WindowText)
+        Me.txtFAlta.Properties.Style = New DevExpress.Utils.ViewStyle("ControlStyle", "BaseEdit", New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte)), "", CType((((((((((DevExpress.Utils.StyleOptions.StyleEnabled Or DevExpress.Utils.StyleOptions.UseBackColor) _
+                Or DevExpress.Utils.StyleOptions.UseDrawEndEllipsis) _
+                Or DevExpress.Utils.StyleOptions.UseDrawFocusRect) _
+                Or DevExpress.Utils.StyleOptions.UseFont) _
+                Or DevExpress.Utils.StyleOptions.UseForeColor) _
+                Or DevExpress.Utils.StyleOptions.UseHorzAlignment) _
+                Or DevExpress.Utils.StyleOptions.UseImage) _
+                Or DevExpress.Utils.StyleOptions.UseWordWrap) _
+                Or DevExpress.Utils.StyleOptions.UseVertAlignment), DevExpress.Utils.StyleOptions), True, False, False, DevExpress.Utils.HorzAlignment.[Default], DevExpress.Utils.VertAlignment.[Default], Nothing, System.Drawing.SystemColors.Window, System.Drawing.SystemColors.WindowText)
         Me.txtFAlta.Size = New System.Drawing.Size(128, 23)
         Me.txtFAlta.TabIndex = 7
         '
@@ -190,7 +192,7 @@ Public Class FichaDeposito_ed
         Me.Label9.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.Location = New System.Drawing.Point(47, 175)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(88, 15)
+        Me.Label9.Size = New System.Drawing.Size(91, 14)
         Me.Label9.TabIndex = 11
         Me.Label9.Text = "Cuenta Banco :"
         Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -206,7 +208,7 @@ Public Class FichaDeposito_ed
         '
         'btnAceptar
         '
-        Me.btnAceptar.Image = CType(resources.GetObject("btnAceptar.Image"), System.Drawing.Bitmap)
+        Me.btnAceptar.Image = CType(resources.GetObject("btnAceptar.Image"), System.Drawing.Image)
         Me.btnAceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnAceptar.Location = New System.Drawing.Point(511, 24)
         Me.btnAceptar.Name = "btnAceptar"
@@ -218,7 +220,7 @@ Public Class FichaDeposito_ed
         'btnCancelar
         '
         Me.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnCancelar.Image = CType(resources.GetObject("btnCancelar.Image"), System.Drawing.Bitmap)
+        Me.btnCancelar.Image = CType(resources.GetObject("btnCancelar.Image"), System.Drawing.Image)
         Me.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnCancelar.Location = New System.Drawing.Point(511, 61)
         Me.btnCancelar.Name = "btnCancelar"
@@ -245,7 +247,7 @@ Public Class FichaDeposito_ed
         Me.Label8.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.Location = New System.Drawing.Point(31, 232)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(104, 15)
+        Me.Label8.Size = New System.Drawing.Size(106, 14)
         Me.Label8.TabIndex = 16
         Me.Label8.Text = "Fecha Operación :"
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -253,7 +255,7 @@ Public Class FichaDeposito_ed
         'dtFechaFicha
         '
         Me.dtFechaFicha.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtFechaFicha.Format = System.Windows.Forms.DateTimePickerFormat.Short
+        Me.dtFechaFicha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtFechaFicha.Location = New System.Drawing.Point(141, 198)
         Me.dtFechaFicha.Name = "dtFechaFicha"
         Me.dtFechaFicha.Size = New System.Drawing.Size(128, 23)
@@ -263,7 +265,7 @@ Public Class FichaDeposito_ed
         'dtFOperacion
         '
         Me.dtFOperacion.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtFOperacion.Format = System.Windows.Forms.DateTimePickerFormat.Short
+        Me.dtFOperacion.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtFOperacion.Location = New System.Drawing.Point(141, 228)
         Me.dtFOperacion.Name = "dtFOperacion"
         Me.dtFOperacion.Size = New System.Drawing.Size(128, 23)
@@ -277,15 +279,15 @@ Public Class FichaDeposito_ed
         Me.txtTipoFicha.Name = "txtTipoFicha"
         Me.txtTipoFicha.Properties.DisabledForeColor = System.Drawing.Color.Black
         Me.txtTipoFicha.Properties.Enabled = False
-        Me.txtTipoFicha.Properties.Style = New DevExpress.Utils.ViewStyle("ControlStyle", "BaseEdit", New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte)), "", (((((((((DevExpress.Utils.StyleOptions.StyleEnabled Or DevExpress.Utils.StyleOptions.UseBackColor) _
-                        Or DevExpress.Utils.StyleOptions.UseDrawEndEllipsis) _
-                        Or DevExpress.Utils.StyleOptions.UseDrawFocusRect) _
-                        Or DevExpress.Utils.StyleOptions.UseFont) _
-                        Or DevExpress.Utils.StyleOptions.UseForeColor) _
-                        Or DevExpress.Utils.StyleOptions.UseHorzAlignment) _
-                        Or DevExpress.Utils.StyleOptions.UseImage) _
-                        Or DevExpress.Utils.StyleOptions.UseWordWrap) _
-                        Or DevExpress.Utils.StyleOptions.UseVertAlignment), True, False, False, DevExpress.Utils.HorzAlignment.Default, DevExpress.Utils.VertAlignment.Default, Nothing, System.Drawing.SystemColors.Window, System.Drawing.SystemColors.WindowText)
+        Me.txtTipoFicha.Properties.Style = New DevExpress.Utils.ViewStyle("ControlStyle", "BaseEdit", New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte)), "", CType((((((((((DevExpress.Utils.StyleOptions.StyleEnabled Or DevExpress.Utils.StyleOptions.UseBackColor) _
+                Or DevExpress.Utils.StyleOptions.UseDrawEndEllipsis) _
+                Or DevExpress.Utils.StyleOptions.UseDrawFocusRect) _
+                Or DevExpress.Utils.StyleOptions.UseFont) _
+                Or DevExpress.Utils.StyleOptions.UseForeColor) _
+                Or DevExpress.Utils.StyleOptions.UseHorzAlignment) _
+                Or DevExpress.Utils.StyleOptions.UseImage) _
+                Or DevExpress.Utils.StyleOptions.UseWordWrap) _
+                Or DevExpress.Utils.StyleOptions.UseVertAlignment), DevExpress.Utils.StyleOptions), True, False, False, DevExpress.Utils.HorzAlignment.[Default], DevExpress.Utils.VertAlignment.[Default], Nothing, System.Drawing.SystemColors.Window, System.Drawing.SystemColors.WindowText)
         Me.txtTipoFicha.Size = New System.Drawing.Size(320, 23)
         Me.txtTipoFicha.TabIndex = 36
         '
@@ -296,16 +298,16 @@ Public Class FichaDeposito_ed
         Me.txtTipoMovimiento.Name = "txtTipoMovimiento"
         Me.txtTipoMovimiento.Properties.DisabledForeColor = System.Drawing.Color.Black
         Me.txtTipoMovimiento.Properties.Enabled = False
-        Me.txtTipoMovimiento.Properties.Style = New DevExpress.Utils.ViewStyle("ControlStyle", "BaseEdit", New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte)), "", (((((((((DevExpress.Utils.StyleOptions.StyleEnabled Or DevExpress.Utils.StyleOptions.UseBackColor) _
-                        Or DevExpress.Utils.StyleOptions.UseDrawEndEllipsis) _
-                        Or DevExpress.Utils.StyleOptions.UseDrawFocusRect) _
-                        Or DevExpress.Utils.StyleOptions.UseFont) _
-                        Or DevExpress.Utils.StyleOptions.UseForeColor) _
-                        Or DevExpress.Utils.StyleOptions.UseHorzAlignment) _
-                        Or DevExpress.Utils.StyleOptions.UseImage) _
-                        Or DevExpress.Utils.StyleOptions.UseWordWrap) _
-                        Or DevExpress.Utils.StyleOptions.UseVertAlignment), True, True, False, DevExpress.Utils.HorzAlignment.Default, DevExpress.Utils.VertAlignment.Default, Nothing, System.Drawing.SystemColors.Window, System.Drawing.SystemColors.WindowText)
-        Me.txtTipoMovimiento.Size = New System.Drawing.Size(320, 23)
+        Me.txtTipoMovimiento.Properties.Style = New DevExpress.Utils.ViewStyle("ControlStyle", "BaseEdit", New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte)), "", CType((((((((((DevExpress.Utils.StyleOptions.StyleEnabled Or DevExpress.Utils.StyleOptions.UseBackColor) _
+                Or DevExpress.Utils.StyleOptions.UseDrawEndEllipsis) _
+                Or DevExpress.Utils.StyleOptions.UseDrawFocusRect) _
+                Or DevExpress.Utils.StyleOptions.UseFont) _
+                Or DevExpress.Utils.StyleOptions.UseForeColor) _
+                Or DevExpress.Utils.StyleOptions.UseHorzAlignment) _
+                Or DevExpress.Utils.StyleOptions.UseImage) _
+                Or DevExpress.Utils.StyleOptions.UseWordWrap) _
+                Or DevExpress.Utils.StyleOptions.UseVertAlignment), DevExpress.Utils.StyleOptions), True, True, False, DevExpress.Utils.HorzAlignment.[Default], DevExpress.Utils.VertAlignment.[Default], Nothing, System.Drawing.SystemColors.Window, System.Drawing.SystemColors.WindowText)
+        Me.txtTipoMovimiento.Size = New System.Drawing.Size(208, 23)
         Me.txtTipoMovimiento.TabIndex = 38
         '
         'Label7
@@ -314,6 +316,7 @@ Public Class FichaDeposito_ed
         Me.Label7.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.Location = New System.Drawing.Point(34, 85)
         Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(102, 14)
         Me.Label7.TabIndex = 37
         Me.Label7.Text = "Tipo movimiento:"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -326,15 +329,15 @@ Public Class FichaDeposito_ed
         Me.txtMontoPendiente.Properties.DisabledBackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.txtMontoPendiente.Properties.DisabledForeColor = System.Drawing.Color.Brown
         Me.txtMontoPendiente.Properties.Enabled = False
-        Me.txtMontoPendiente.Properties.Style = New DevExpress.Utils.ViewStyle("ControlStyle", "BaseEdit", New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte)), "", (((((((((DevExpress.Utils.StyleOptions.StyleEnabled Or DevExpress.Utils.StyleOptions.UseBackColor) _
-                        Or DevExpress.Utils.StyleOptions.UseDrawEndEllipsis) _
-                        Or DevExpress.Utils.StyleOptions.UseDrawFocusRect) _
-                        Or DevExpress.Utils.StyleOptions.UseFont) _
-                        Or DevExpress.Utils.StyleOptions.UseForeColor) _
-                        Or DevExpress.Utils.StyleOptions.UseHorzAlignment) _
-                        Or DevExpress.Utils.StyleOptions.UseImage) _
-                        Or DevExpress.Utils.StyleOptions.UseWordWrap) _
-                        Or DevExpress.Utils.StyleOptions.UseVertAlignment), True, False, False, DevExpress.Utils.HorzAlignment.Default, DevExpress.Utils.VertAlignment.Default, Nothing, System.Drawing.SystemColors.Window, System.Drawing.SystemColors.WindowText)
+        Me.txtMontoPendiente.Properties.Style = New DevExpress.Utils.ViewStyle("ControlStyle", "BaseEdit", New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte)), "", CType((((((((((DevExpress.Utils.StyleOptions.StyleEnabled Or DevExpress.Utils.StyleOptions.UseBackColor) _
+                Or DevExpress.Utils.StyleOptions.UseDrawEndEllipsis) _
+                Or DevExpress.Utils.StyleOptions.UseDrawFocusRect) _
+                Or DevExpress.Utils.StyleOptions.UseFont) _
+                Or DevExpress.Utils.StyleOptions.UseForeColor) _
+                Or DevExpress.Utils.StyleOptions.UseHorzAlignment) _
+                Or DevExpress.Utils.StyleOptions.UseImage) _
+                Or DevExpress.Utils.StyleOptions.UseWordWrap) _
+                Or DevExpress.Utils.StyleOptions.UseVertAlignment), DevExpress.Utils.StyleOptions), True, False, False, DevExpress.Utils.HorzAlignment.[Default], DevExpress.Utils.VertAlignment.[Default], Nothing, System.Drawing.SystemColors.Window, System.Drawing.SystemColors.WindowText)
         Me.txtMontoPendiente.Size = New System.Drawing.Size(207, 25)
         Me.txtMontoPendiente.TabIndex = 40
         Me.txtMontoPendiente.Text = "0"
@@ -346,7 +349,7 @@ Public Class FichaDeposito_ed
         Me.Label12.ForeColor = System.Drawing.Color.Black
         Me.Label12.Location = New System.Drawing.Point(22, 263)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(113, 15)
+        Me.Label12.Size = New System.Drawing.Size(119, 14)
         Me.Label12.TabIndex = 39
         Me.Label12.Text = "Efectivo pendiente :"
         Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -369,7 +372,7 @@ Public Class FichaDeposito_ed
         Me.Label2.ForeColor = System.Drawing.Color.Blue
         Me.Label2.Location = New System.Drawing.Point(82, 293)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(52, 15)
+        Me.Label2.Size = New System.Drawing.Size(56, 14)
         Me.Label2.TabIndex = 43
         Me.Label2.Text = "Monto :"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -381,10 +384,21 @@ Public Class FichaDeposito_ed
         Me.lblCaja.ForeColor = System.Drawing.Color.Blue
         Me.lblCaja.Location = New System.Drawing.Point(86, 20)
         Me.lblCaja.Name = "lblCaja"
-        Me.lblCaja.Size = New System.Drawing.Size(69, 19)
+        Me.lblCaja.Size = New System.Drawing.Size(68, 18)
         Me.lblCaja.TabIndex = 44
         Me.lblCaja.Text = "Caja :  5"
         Me.lblCaja.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'txtDescripcion
+        '
+        Me.txtDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtDescripcion.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDescripcion.Location = New System.Drawing.Point(354, 81)
+        Me.txtDescripcion.MaxLength = 20
+        Me.txtDescripcion.Name = "txtDescripcion"
+        Me.txtDescripcion.Size = New System.Drawing.Size(107, 23)
+        Me.txtDescripcion.TabIndex = 45
+        Me.txtDescripcion.TabStop = False
         '
         'FichaDeposito_ed
         '
@@ -392,7 +406,28 @@ Public Class FichaDeposito_ed
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 14)
         Me.CancelButton = Me.btnCancelar
         Me.ClientSize = New System.Drawing.Size(626, 360)
-        Me.Controls.AddRange(New System.Windows.Forms.Control() {Me.lblCaja, Me.Label2, Me.txtMonto, Me.txtMontoPendiente, Me.Label12, Me.txtTipoMovimiento, Me.Label7, Me.txtTipoFicha, Me.dtFOperacion, Me.dtFechaFicha, Me.Label8, Me.Label9, Me.Label6, Me.Label4, Me.Label3, Me.Label1, Me.btnAceptar, Me.btnCancelar, Me.cmbCuenta, Me.txtFAlta, Me.txtFolio})
+        Me.Controls.Add(Me.txtDescripcion)
+        Me.Controls.Add(Me.lblCaja)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.txtMonto)
+        Me.Controls.Add(Me.txtMontoPendiente)
+        Me.Controls.Add(Me.Label12)
+        Me.Controls.Add(Me.txtTipoMovimiento)
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.txtTipoFicha)
+        Me.Controls.Add(Me.dtFOperacion)
+        Me.Controls.Add(Me.dtFechaFicha)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.btnAceptar)
+        Me.Controls.Add(Me.btnCancelar)
+        Me.Controls.Add(Me.cmbCuenta)
+        Me.Controls.Add(Me.txtFAlta)
+        Me.Controls.Add(Me.txtFolio)
         Me.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -408,6 +443,7 @@ Public Class FichaDeposito_ed
         CType(Me.txtTipoMovimiento, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtMontoPendiente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -485,7 +521,7 @@ Public Class FichaDeposito_ed
                 .Parameters.Clear()
                 .Parameters.Add("@Total", SqlDbType.Money).Value = CType(txtMonto.Text, Decimal)
                 .Parameters.Add("@FFicha", SqlDbType.Char).Value = CType(dtFechaFicha.Value.ToShortDateString, String)
-                .Parameters.Add("@Descripcion", SqlDbType.Char).Value = CType(VGS_Concepto, String)
+                .Parameters.Add("@Descripcion", SqlDbType.Char).Value = CType(VGS_Concepto, String) & txtDescripcion.Text
                 .Parameters.Add("@Cuenta", SqlDbType.Char).Value = CType(cmbCuenta.SelectedValue, String)
                 .Parameters.Add("@Folio", SqlDbType.Int).Direction = ParameterDirection.Output
                 .ExecuteNonQuery()
@@ -524,4 +560,6 @@ Public Class FichaDeposito_ed
     Private Sub FichaDeposito_ed_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
     End Sub
+
+
 End Class

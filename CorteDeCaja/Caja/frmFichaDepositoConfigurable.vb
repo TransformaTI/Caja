@@ -483,9 +483,9 @@ End Sub
                 Me.Text="Fichas de depósito de EFECTIVO COBRANZA"
                 gbDetalle.Text="Movimientos de cobranza"
                 operacion=Operaciones.Cobranza
-       Else if (_tipoCobro=6)
-                Me.Text="Fichas de depósito de TPV"
-                gbDetalle.Text="Movimientos liquidados"
+            ElseIf (_tipoCobro = 6) Or (_tipoCobro = 19) Then
+                Me.Text = "Fichas de depósito de TPV"
+                gbDetalle.Text = "Movimientos liquidados"
                 operacion = Operaciones.TVP
                 If _tipoFicha > 0 Then
                     chkSeleccionCheque.Visible = True
@@ -502,7 +502,15 @@ End Sub
                     chkSeleccionCheque.Checked = _ChequePorFicha
                     chkSeleccionCheque.Text = "Por Cheque"
                 End If
-
+            ElseIf (_tipoCobro = 10) Then
+                Me.Text = "Transferencias"
+                gbDetalle.Text = "Movimientos liquidados"
+                operacion = Operaciones.Cheque
+                If _tipoFicha > 0 Then
+                    chkSeleccionCheque.Visible = True
+                    chkSeleccionCheque.Checked = _ChequePorFicha
+                    chkSeleccionCheque.Text = "Por Clave"
+                End If
        End if 
 
         'Carga combo cuenta

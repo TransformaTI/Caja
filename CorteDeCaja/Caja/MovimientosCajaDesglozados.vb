@@ -1393,10 +1393,12 @@ End Sub
             
         Dim Configuracion as Short
 
-        If  TipoCobro=6
-            Configuracion=3
-            else if TipoCobro=3
-            Configuracion=4
+        If ((tipoCobro = 6) Or (tipoCobro = 19)) Then
+            Configuracion = 3
+        ElseIf tipoCobro = 3 Then
+            Configuracion = 4
+        ElseIf tipoCobro = 10 Then
+            Configuracion = 7
         End If
 
             Dim frmFichaDepositoConfigurable As frmFichaDepositoConfigurable = New frmFichaDepositoConfigurable()
@@ -1430,10 +1432,12 @@ End Sub
         Else
             If tipoCobro = 7 Then
                 configuracion = 0
-            ElseIf tipoCobro = 6 Then
+            ElseIf ((tipoCobro = 6) Or (tipoCobro = 19)) Then
                 configuracion = 1
             ElseIf tipoCobro = 3 Then
                 configuracion = 2
+            ElseIf tipoCobro = 10 Then
+                configuracion = 6
             End If
         End If
 
@@ -1471,10 +1475,10 @@ End Sub
     Private Sub AgregarFichaCorte(ByVal tipoFicha As Integer, ByVal TipoFichaDescripcion As String, _ 
         ByVal MovimientoCaja As String, ByVal Monto As Decimal, ByVal FFicha As String, ByVal Desgloce As Boolean, Optional ByVal tipoMovimientoCaja As Integer=0, _ 
                              Optional  ByVal tipoCobro As Integer =0 )
-        if ((tipoFicha=7) Or (tipoCobro=6) Or (tipoCobro=3))
+        If ((tipoFicha = 7) Or (tipoCobro = 6) Or (tipoCobro = 3) Or (tipoCobro = 19) Or (tipoCobro = 10)) Then
             'Agrega la ficha al corte
-            AgregarFichaUnitaria(tipoFicha, TipoFichaDescripcion, MovimientoCaja,  CType(FFicha, Date),Desgloce,Monto,tipoMovimientoCaja, tipoCobro)
-            Else
+            AgregarFichaUnitaria(tipoFicha, TipoFichaDescripcion, MovimientoCaja, CType(FFicha, Date), Desgloce, Monto, tipoMovimientoCaja, tipoCobro)
+        Else
             'Agrega la ficha al corte
             AgregarFicha(tipoFicha, TipoFichaDescripcion, MovimientoCaja, Monto, CType(FFicha, Date), Desgloce)
         End If
@@ -1519,6 +1523,7 @@ End Sub
             End If
 
         End If
+        dtMovimientoCaja = Nothing
 
     End Sub
 
@@ -1550,11 +1555,11 @@ End Sub
             Dim tipoCobro As Integer= CType(vwMontoporTipo.GetRow(vwMontoporTipo.FocusedRowHandle).item("TipoCobro").ToString().Trim, integer)
 
 
-            If ((tipoCobro=6) Or (tipoCobro=3))
+            If ((tipoCobro = 6) Or (tipoCobro = 3) Or (tipoCobro = 19) Or (tipoCobro = 10)) Then
                 AgregarFichaAgrupada(0, vwMontoporTipo.GetRow(vwMontoporTipo.FocusedRowHandle).item("Tipo").ToString().Trim, _
                          vwMontoporTipo.GetRow(vwMontoporTipo.FocusedRowHandle).item("Tipo").ToString().Trim,
                          CType(dmModulo.VGS_FOperacion, Date), False, CType(vwMontoporTipo.GetRow(vwMontoporTipo.FocusedRowHandle).item("Total"), Decimal), 0, tipoCobro)
-                else
+            Else
                 AgregarFicha(0, vwMontoporTipo.GetRow(vwMontoporTipo.FocusedRowHandle).item("Tipo").ToString().Trim, _
                          vwMontoporTipo.GetRow(vwMontoporTipo.FocusedRowHandle).item("Tipo").ToString().Trim, _
                          CType(vwMontoporTipo.GetRow(vwMontoporTipo.FocusedRowHandle).item("Total").ToString().Trim, Decimal), _
@@ -1629,7 +1634,7 @@ End Sub
                 End If
 
             End If
-
+            dtMovimientoCaja = Nothing
         Catch err As Exception
             MsgBox(err.Message)
         End Try
@@ -1978,7 +1983,7 @@ End Sub
 
                 '-$CNSM19092017
                 'Agrega la ficha deposito general de las seleccionadas
-                If (tipoCobro = 6) Or (tipoCobro = 3) Then
+                If (tipoCobro = 6) Or (tipoCobro = 3) Or (tipoCobro = 19) Or (tipoCobro = 10) Then
                     AgregarFichaUnitaria(CType(vwFichasDeposito.GetRow(vwFichasDeposito.FocusedRowHandle).Item("TipoFicha").ToString(), Integer), vwFichasDeposito.GetRow(vwFichasDeposito.FocusedRowHandle).Item("Descripcion").ToString(), _
                              vwFichasDeposito.GetRow(vwFichasDeposito.FocusedRowHandle).item("MovimientoCaja").ToString(), _
                              CDate(dtFechaFicha.Value.ToShortDateString), False, CType(vwFichasDeposito.GetRow(CType(VLN_ElementoSeleccionado, Integer)).Item("Total"), Decimal), _
@@ -2065,7 +2070,7 @@ End Sub
                     End If
 
                 Else
-                    If (tipoCobro = 6) Or (tipoCobro = 3) Then
+                    If (tipoCobro = 6) Or (tipoCobro = 3) Or (tipoCobro = 19) Or (tipoCobro = 10) Then
                         'Relaciona el movimiento caja con la ficha deposito
                         If (dtMovimientoCaja IsNot Nothing) Then
 
@@ -2149,7 +2154,7 @@ End Sub
                 '-$CNSM19092017
                 ActualizarAutomaticas()
                 ActualizarAcumulado()
-
+                dtMovimientoCaja = Nothing
             Catch ER As Exception
                 MessageBox.Show("Se genero este error: " + ER.Message, "Menu 2", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
