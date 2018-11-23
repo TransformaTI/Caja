@@ -8,8 +8,9 @@ Public Class ViewReport
     Inherits System.Windows.Forms.Form
     Private AñoCP As Integer
     Private FolioCP As Integer
-    Dim tablaActual As CrystalDecisions.CrystalReports.Engine.Table
-    Dim loginActual As CrystalDecisions.Shared.TableLogOnInfo
+	Dim tablaActual As CrystalDecisions.CrystalReports.Engine.Table
+	Dim _tablaReporte As CrystalDecisions.CrystalReports.Engine.Table
+	Dim loginActual As CrystalDecisions.Shared.TableLogOnInfo
 
     Dim reporte As New ReportDocument()
 
@@ -20,22 +21,49 @@ Public Class ViewReport
 
     Public strFiltro As String
 
-    Public Sub Conexion()
-        For Each tablaActual In reporte.Database.Tables
-            loginActual = tablaActual.LogOnInfo
-            With loginActual.ConnectionInfo
-                .ServerName = dmModulo._Servidor
-                .UserID = dmModulo._Usuario
-                .Password = dmModulo._PassWord
-                .DatabaseName = dmModulo._DB
-            End With
-            tablaActual.ApplyLogOnInfo(loginActual)
-        Next
-    End Sub
+	Public Sub Conexion()
+
+		Dim subreportName As String
+		Dim subreportObject As SubreportObject
+		Dim subreport As New ReportDocument()
+		Dim i As Integer
+		For Each tablaActual In reporte.Database.Tables
+			loginActual = tablaActual.LogOnInfo
+			With loginActual.ConnectionInfo
+				.ServerName = dmModulo._Servidor
+				.UserID = dmModulo._Usuario
+				.Password = dmModulo._PassWord
+				.DatabaseName = dmModulo._DB
+			End With
+			tablaActual.ApplyLogOnInfo(loginActual)
+		Next
+
+
+		For i = 0 To reporte.ReportDefinition.ReportObjects.Count - 1
+			' Obtener ReportObject por nombre y proyectarlo como SubreportObject.
+			If TypeOf (reporte.ReportDefinition.ReportObjects.Item(i)) Is SubreportObject Then
+				SubreportObject = CType(reporte.ReportDefinition.ReportObjects.Item(i), CrystalDecisions.CrystalReports.Engine.SubreportObject)
+				' Obtener el nombre de subinforme.
+				subreportName = SubreportObject.SubreportName
+				' Abrir el subinforme como ReportDocument.
+				subreport = reporte.OpenSubreport(subreportName)
+				For Each _TablaReporte In subreport.Database.Tables
+					loginActual = _tablaReporte.LogOnInfo
+					With loginActual.ConnectionInfo
+						.ServerName = dmModulo._Servidor
+						.UserID = dmModulo._Usuario
+						.Password = dmModulo._PassWord
+						.DatabaseName = dmModulo._DB
+					End With
+					_tablaReporte.ApplyLogOnInfo(loginActual)
+				Next
+			End If
+		Next
+	End Sub
 
 #Region " Windows Form Designer generated code "
 
-    Public Sub New()
+	Public Sub New()
         MyBase.New()
 
         'This call is required by the Windows Form Designer.
