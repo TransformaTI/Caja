@@ -246,8 +246,51 @@ Public Class ViewReport
             crParameterDiscreteValue = New ParameterDiscreteValue()
             crParameterDiscreteValue.Value = TipoCorte
             crParameterValues.Add(crParameterDiscreteValue)
-            crParameterFieldDefinition.ApplyCurrentValues(crParameterValues)
-            crvReportes.ReportSource = reporte
+			crParameterFieldDefinition.ApplyCurrentValues(crParameterValues)
+
+			crParameterFieldDefinition = crParameterFieldDefinitions.Item(6)
+			crParameterValues = crParameterFieldDefinition.CurrentValues
+			crParameterDiscreteValue = New ParameterDiscreteValue()
+			crParameterDiscreteValue.Value = NombreEmpresaContable
+			crParameterValues.Add(crParameterDiscreteValue)
+			crParameterFieldDefinition.ApplyCurrentValues(crParameterValues)
+
+			crParameterFieldDefinition = crParameterFieldDefinitions.Item(7)
+			crParameterValues = crParameterFieldDefinition.CurrentValues
+			crParameterDiscreteValue = New ParameterDiscreteValue()
+			crParameterDiscreteValue.Value = dmModulo._EmpresaContable
+			crParameterValues.Add(crParameterDiscreteValue)
+			crParameterFieldDefinition.ApplyCurrentValues(crParameterValues)
+
+			crParameterFieldDefinition = crParameterFieldDefinitions.Item(8)
+			crParameterValues = crParameterFieldDefinition.CurrentValues
+			crParameterDiscreteValue = New ParameterDiscreteValue()
+			crParameterDiscreteValue.Value = CType(FOperacion, String)
+
+			crParameterValues.Add(crParameterDiscreteValue)
+			crParameterFieldDefinition.ApplyCurrentValues(crParameterValues)
+			crParameterFieldDefinition = crParameterFieldDefinitions.Item(9)
+			crParameterValues = crParameterFieldDefinition.CurrentValues
+			crParameterDiscreteValue = New ParameterDiscreteValue()
+			crParameterDiscreteValue.Value = Caja
+
+			crParameterValues.Add(crParameterDiscreteValue)
+			crParameterFieldDefinition.ApplyCurrentValues(crParameterValues)
+			crParameterFieldDefinition = crParameterFieldDefinitions.Item(10)
+			crParameterValues = crParameterFieldDefinition.CurrentValues
+			crParameterDiscreteValue = New ParameterDiscreteValue()
+			crParameterDiscreteValue.Value = Consecutivo
+
+			crParameterValues.Add(crParameterDiscreteValue)
+			crParameterFieldDefinition.ApplyCurrentValues(crParameterValues)
+			crParameterFieldDefinition = crParameterFieldDefinitions.Item(11)
+			crParameterValues = crParameterFieldDefinition.CurrentValues
+			crParameterDiscreteValue = New ParameterDiscreteValue()
+			crParameterDiscreteValue.Value = TipoCorte
+			crParameterValues.Add(crParameterDiscreteValue)
+			crParameterFieldDefinition.ApplyCurrentValues(crParameterValues)
+
+			crvReportes.ReportSource = reporte
 
         Catch ExReport As LoadSaveReportException
             MessageBox.Show("No se pudo cargar el reporte.", "Reporte", MessageBoxButtons.OK, MessageBoxIcon.Error)
