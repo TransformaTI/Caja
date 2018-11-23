@@ -2408,17 +2408,20 @@ Public Class CorteCaja
 
 	Private Function ExisteCorteCaja() As Boolean
 		Dim dr As SqlDataReader
+		Dim fecha As String
 
 		Try
 			ActiveControl = cmbTipoCorte
+
+			fecha = Format(dtFechaOperacion.DateTime, "yyyy-MM-dd")
 			dmModulo.VGS_FOperacion = dtFechaOperacion.DateTime.ToShortDateString
 			cmdCommand.CommandType = CommandType.StoredProcedure
 			cmdCommand.CommandText = "spSSExisteCorteCaja"
             cmdCommand.Parameters.Clear()
             cmdCommand.Parameters.Add("@EmpresaContable", SqlDbType.Int).Value = dmModulo._EmpresaContable
             cmdCommand.Parameters.Add("@Caja", SqlDbType.Int).Value = VerificaUsuario()
-            cmdCommand.Parameters.Add("@FOperacion", SqlDbType.Char).Value = dmModulo.VGS_FOperacion
-            cmdCommand.Parameters.Add("@TipoCorte", SqlDbType.Int).Value = Me.cmbTipoCorte.SelectedValue
+			cmdCommand.Parameters.Add("@FOperacion", SqlDbType.VarChar, 10).Value = fecha
+			cmdCommand.Parameters.Add("@TipoCorte", SqlDbType.Int).Value = Me.cmbTipoCorte.SelectedValue
             'cmdCommand.Parameters.Add("@Consecutivo", SqlDbType.Int).Direction = ParameterDirection.Output
             'cmdCommand.Parameters.Add("@Status", SqlDbType.Char).Direction = ParameterDirection.Output
             dr = cmdCommand.ExecuteReader
