@@ -2659,8 +2659,9 @@ Public Class CorteCaja
                 End If
             Case "Imprimir"
                 Dim frmImprimeCorteCaja As ViewReport = New ViewReport()
-                frmImprimeCorteCaja.CorteCaja(dmModulo._NombreEmpresaContable, dtFechaOperacion.DateTime.ToShortDateString, VerificaUsuario(), dmModulo.VGN_Consecutivo, dmModulo.VGN_TipoCorte)
-            Case "Consultar"
+				'frmImprimeCorteCaja.CorteCaja(dmModulo._NombreEmpresaContable, dtFechaOperacion.DateTime.ToShortDateString, VerificaUsuario(), dmModulo.VGN_Consecutivo, dmModulo.VGN_TipoCorte)
+				frmImprimeCorteCaja.CorteCaja(dmModulo._NombreEmpresaContable, dtFechaOperacion.DateTime, VerificaUsuario(), dmModulo.VGN_Consecutivo, dmModulo.VGN_TipoCorte)
+			Case "Consultar"
                 ConsultarCorte()
             Case "Actualizar"
                 If Not (ExisteCorteCaja()) Then

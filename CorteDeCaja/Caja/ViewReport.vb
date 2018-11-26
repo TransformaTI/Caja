@@ -222,58 +222,61 @@ Public Class ViewReport
         Me.ShowDialog()
     End Sub
 
-    Public Sub CorteCaja(ByVal NombreEmpresaContable As String, ByVal FOperacion As String, ByVal Caja As Integer, ByVal Consecutivo As Integer, ByVal TipoCorte As Integer)
-        Try
+	Public Sub CorteCaja(ByVal NombreEmpresaContable As String, ByVal FOperacion As DateTime, ByVal Caja As Integer, ByVal Consecutivo As Integer, ByVal TipoCorte As Integer)
+		Try
 
-            reporte.Load(Application.StartupPath + "\Reportes\rptReporteCorteCaja.rpt")
+			reporte.Load(Application.StartupPath + "\Reportes\rptReporteCorteCaja.rpt")
 
-            Conexion()
+			Conexion()
+			Dim fecha1 As String = FOperacion.ToShortDateString
+			Dim fecha2 As String = Format(FOperacion, "yyyy-MM-dd")
 
-            crParameterFieldDefinitions = reporte.DataDefinition.ParameterFields
 
-            '2007-016-EIM-01	
-            'REQ 139
-            'Autor: Fernando Correa
-            crParameterFieldDefinition = crParameterFieldDefinitions.Item("@NombreEmpresaContable")
-            crParameterValues = crParameterFieldDefinition.CurrentValues
-            crParameterDiscreteValue = New ParameterDiscreteValue()
-            crParameterDiscreteValue.Value = NombreEmpresaContable
-            crParameterValues.Add(crParameterDiscreteValue)
-            crParameterFieldDefinition.ApplyCurrentValues(crParameterValues)
+			crParameterFieldDefinitions = reporte.DataDefinition.ParameterFields
 
-            crParameterFieldDefinition = crParameterFieldDefinitions.Item("@EmpresaContable")
-            crParameterValues = crParameterFieldDefinition.CurrentValues
-            crParameterDiscreteValue = New ParameterDiscreteValue()
-            crParameterDiscreteValue.Value = dmModulo._EmpresaContable
-            crParameterValues.Add(crParameterDiscreteValue)
-            crParameterFieldDefinition.ApplyCurrentValues(crParameterValues)
+			'2007-016-EIM-01	
+			'REQ 139
+			'Autor: Fernando Correa
+			crParameterFieldDefinition = crParameterFieldDefinitions.Item("@NombreEmpresaContable")
+			crParameterValues = crParameterFieldDefinition.CurrentValues
+			crParameterDiscreteValue = New ParameterDiscreteValue()
+			crParameterDiscreteValue.Value = NombreEmpresaContable
+			crParameterValues.Add(crParameterDiscreteValue)
+			crParameterFieldDefinition.ApplyCurrentValues(crParameterValues)
 
-            crParameterFieldDefinition = crParameterFieldDefinitions.Item("@FOperacion")
-            crParameterValues = crParameterFieldDefinition.CurrentValues
-            crParameterDiscreteValue = New ParameterDiscreteValue()
-            crParameterDiscreteValue.Value = CType(FOperacion, String)
+			crParameterFieldDefinition = crParameterFieldDefinitions.Item("@EmpresaContable")
+			crParameterValues = crParameterFieldDefinition.CurrentValues
+			crParameterDiscreteValue = New ParameterDiscreteValue()
+			crParameterDiscreteValue.Value = dmModulo._EmpresaContable
+			crParameterValues.Add(crParameterDiscreteValue)
+			crParameterFieldDefinition.ApplyCurrentValues(crParameterValues)
 
-            crParameterValues.Add(crParameterDiscreteValue)
-            crParameterFieldDefinition.ApplyCurrentValues(crParameterValues)
-            crParameterFieldDefinition = crParameterFieldDefinitions.Item("@Caja")
-            crParameterValues = crParameterFieldDefinition.CurrentValues
-            crParameterDiscreteValue = New ParameterDiscreteValue()
-            crParameterDiscreteValue.Value = Caja
+			crParameterFieldDefinition = crParameterFieldDefinitions.Item("@FOperacion")
+			crParameterValues = crParameterFieldDefinition.CurrentValues
+			crParameterDiscreteValue = New ParameterDiscreteValue()
+			crParameterDiscreteValue.Value = CType(fecha1, String)
 
-            crParameterValues.Add(crParameterDiscreteValue)
-            crParameterFieldDefinition.ApplyCurrentValues(crParameterValues)
-            crParameterFieldDefinition = crParameterFieldDefinitions.Item("@Consecutivo")
-            crParameterValues = crParameterFieldDefinition.CurrentValues
-            crParameterDiscreteValue = New ParameterDiscreteValue()
-            crParameterDiscreteValue.Value = Consecutivo
+			crParameterValues.Add(crParameterDiscreteValue)
+			crParameterFieldDefinition.ApplyCurrentValues(crParameterValues)
+			crParameterFieldDefinition = crParameterFieldDefinitions.Item("@Caja")
+			crParameterValues = crParameterFieldDefinition.CurrentValues
+			crParameterDiscreteValue = New ParameterDiscreteValue()
+			crParameterDiscreteValue.Value = Caja
 
-            crParameterValues.Add(crParameterDiscreteValue)
-            crParameterFieldDefinition.ApplyCurrentValues(crParameterValues)
-            crParameterFieldDefinition = crParameterFieldDefinitions.Item("@TipoCorte")
-            crParameterValues = crParameterFieldDefinition.CurrentValues
-            crParameterDiscreteValue = New ParameterDiscreteValue()
-            crParameterDiscreteValue.Value = TipoCorte
-            crParameterValues.Add(crParameterDiscreteValue)
+			crParameterValues.Add(crParameterDiscreteValue)
+			crParameterFieldDefinition.ApplyCurrentValues(crParameterValues)
+			crParameterFieldDefinition = crParameterFieldDefinitions.Item("@Consecutivo")
+			crParameterValues = crParameterFieldDefinition.CurrentValues
+			crParameterDiscreteValue = New ParameterDiscreteValue()
+			crParameterDiscreteValue.Value = Consecutivo
+
+			crParameterValues.Add(crParameterDiscreteValue)
+			crParameterFieldDefinition.ApplyCurrentValues(crParameterValues)
+			crParameterFieldDefinition = crParameterFieldDefinitions.Item("@TipoCorte")
+			crParameterValues = crParameterFieldDefinition.CurrentValues
+			crParameterDiscreteValue = New ParameterDiscreteValue()
+			crParameterDiscreteValue.Value = TipoCorte
+			crParameterValues.Add(crParameterDiscreteValue)
 			crParameterFieldDefinition.ApplyCurrentValues(crParameterValues)
 
 			crParameterFieldDefinition = crParameterFieldDefinitions.Item(6)
@@ -293,7 +296,7 @@ Public Class ViewReport
 			crParameterFieldDefinition = crParameterFieldDefinitions.Item(8)
 			crParameterValues = crParameterFieldDefinition.CurrentValues
 			crParameterDiscreteValue = New ParameterDiscreteValue()
-			crParameterDiscreteValue.Value = CType(FOperacion, String)
+			crParameterDiscreteValue.Value = CType(fecha2, String)
 
 			crParameterValues.Add(crParameterDiscreteValue)
 			crParameterFieldDefinition.ApplyCurrentValues(crParameterValues)
@@ -320,21 +323,21 @@ Public Class ViewReport
 
 			crvReportes.ReportSource = reporte
 
-        Catch ExReport As LoadSaveReportException
-            MessageBox.Show("No se pudo cargar el reporte.", "Reporte", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        Catch Ex As Exception
-            MessageBox.Show("Ha ocurrido el siguiente error: " & Chr(13) & _
-                           Ex.Message, "Error general", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        Finally
-            Cursor = Cursors.Default
-        End Try
-        Me.ShowDialog()
+		Catch ExReport As LoadSaveReportException
+			MessageBox.Show("No se pudo cargar el reporte.", "Reporte", MessageBoxButtons.OK, MessageBoxIcon.Error)
+		Catch Ex As Exception
+			MessageBox.Show("Ha ocurrido el siguiente error: " & Chr(13) &
+						   Ex.Message, "Error general", MessageBoxButtons.OK, MessageBoxIcon.Error)
+		Finally
+			Cursor = Cursors.Default
+		End Try
+		Me.ShowDialog()
 
-    End Sub
+	End Sub
 
-    '2012-01-31	
-    'Autor: Claudia García
-    Public Sub CorteCajaPrestamos(ByVal NombreEmpresaContable As String, ByVal FOperacion As String, ByVal Caja As Integer, ByVal Consecutivo As Integer, ByVal TipoCorte As Integer)
+	'2012-01-31	
+	'Autor: Claudia García
+	Public Sub CorteCajaPrestamos(ByVal NombreEmpresaContable As String, ByVal FOperacion As String, ByVal Caja As Integer, ByVal Consecutivo As Integer, ByVal TipoCorte As Integer)
         Try
 
             reporte.Load(Application.StartupPath + "\Reportes\rptReporteCorteCajaF.rpt")
