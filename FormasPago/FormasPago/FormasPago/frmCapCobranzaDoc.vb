@@ -687,18 +687,19 @@ Public Class frmCapCobranzaDoc
         End If
     End Sub
 
-    Private Sub ConsultaDocumentosCliente()
-        If txtCliente.Text.Trim <> "" Then
-			Dim frmConCliente As New SigaMetClasses.frmConsultaCliente(CType(txtCliente.Text, Integer),
-					  PermiteSeleccionarDocumento:=True, Nuevo:=0)
-			If frmConCliente.ShowDialog() = DialogResult.OK Then
-                txtPedidoReferencia.Text = frmConCliente.PedidoReferenciaSeleccionado
-                txtPedidoReferencia.Focus()
-            End If
-        End If
-    End Sub
+	Private Sub ConsultaDocumentosCliente()
 
-    Private Sub btnBuscarCliente_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarCliente.Click
+		If txtCliente.Text.Trim <> "" Then
+			Dim frmConCliente As New SigaMetClasses.frmConsultaCliente(CType(txtCliente.Text, Integer),
+					  PermiteSeleccionarDocumento:=True, Nuevo:=0, Usuario:=Globals.GetInstance._Usuario.Trim())
+			If frmConCliente.ShowDialog() = DialogResult.OK Then
+				txtPedidoReferencia.Text = frmConCliente.PedidoReferenciaSeleccionado
+				txtPedidoReferencia.Focus()
+			End If
+		End If
+	End Sub
+
+	Private Sub btnBuscarCliente_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarCliente.Click
         ConsultaDocumentosCliente()
     End Sub
 

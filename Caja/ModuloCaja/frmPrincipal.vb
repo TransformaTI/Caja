@@ -748,12 +748,12 @@ Public Class frmPrincipal
         For Each f In Me.MdiChildren
             If f.Name = "frmConsultaCheques" Then
                 f.Focus()
-                Exit Sub
-            End If
+				Exit Sub
+			End If
         Next
         Cursor = Cursors.WaitCursor
-        Dim frmConCheques As New SigaMetClasses.ConsultaCheques(3, Main.GLOBAL_IDUsuario, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario)
-        With frmConCheques
+		Dim frmConCheques As New SigaMetClasses.ConsultaCheques(3, Main.GLOBAL_IDUsuario, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario, GLOBAL_CadenaConexion)
+		With frmConCheques
             .WindowState = FormWindowState.Maximized
             .MdiParent = Me
             .URLGateway = Main.GLOBAL_URLGATEWAY

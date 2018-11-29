@@ -270,18 +270,20 @@ Public Class frmConsultaOperador
         Dim lURLGateway As String = CType(lParametro.Parametros.Item("URLGateway"), String)
         lParametro.Dispose()
 
-        If _Cliente <> 0 Then
+
+
+		If _Cliente <> 0 Then
             Cursor = Cursors.WaitCursor
             Dim frmConsultaDoc As SigaMetClasses.frmConsultaCliente
 			If String.IsNullOrEmpty(lURLGateway) Then
-				frmConsultaDoc = New SigaMetClasses.frmConsultaCliente(_Cliente, PermiteCapturarNotas:=False, Nuevo:=0)
+				frmConsultaDoc = New SigaMetClasses.frmConsultaCliente(_Cliente, PermiteCapturarNotas:=False, Nuevo:=0, Usuario:=GLOBAL_IDUsuario)
 			Else
-                frmConsultaDoc = New SigaMetClasses.frmConsultaCliente(_Cliente,
-                                                                       URLGateway:=lURLGateway,
-                                                                       PermiteCapturarNotas:=False,
-                                                                       CadenaCon:=ConString,
-                                                                       Modulo:=GLOBAL_Modulo)
-            End If
+				frmConsultaDoc = New SigaMetClasses.frmConsultaCliente(_Cliente,
+																	   URLGateway:=lURLGateway,
+																	   PermiteCapturarNotas:=False,
+																	   CadenaCon:=ConString,
+																	   Modulo:=GLOBAL_Modulo, Usuario:=GLOBAL_IDUsuario)
+			End If
 			frmConsultaDoc.Modulo = 3
 			frmConsultaDoc.ShowDialog()
                 Cursor = Cursors.Default
