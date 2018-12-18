@@ -2420,7 +2420,7 @@ Public Class CorteCaja
             cmdCommand.Parameters.Clear()
             cmdCommand.Parameters.Add("@EmpresaContable", SqlDbType.Int).Value = dmModulo._EmpresaContable
             cmdCommand.Parameters.Add("@Caja", SqlDbType.Int).Value = VerificaUsuario()
-			cmdCommand.Parameters.Add("@FOperacion", SqlDbType.VarChar, 10).Value = fecha
+			cmdCommand.Parameters.Add("@FOperacion", SqlDbType.VarChar, 10).Value = dmModulo.VGS_FOperacion
 			cmdCommand.Parameters.Add("@TipoCorte", SqlDbType.Int).Value = Me.cmbTipoCorte.SelectedValue
             'cmdCommand.Parameters.Add("@Consecutivo", SqlDbType.Int).Direction = ParameterDirection.Output
             'cmdCommand.Parameters.Add("@Status", SqlDbType.Char).Direction = ParameterDirection.Output

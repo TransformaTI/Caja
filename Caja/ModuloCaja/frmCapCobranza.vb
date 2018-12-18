@@ -470,14 +470,14 @@ Public Class frmCapCobranza
                     Select Case CDD.TipoCobro
                         Case 5
                             CobroSimple.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.EfectivoVales
-                        Case 6
-                            CobroSimple.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.TarjetaCredito
+						Case 6, 19, 22
+							CobroSimple.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.TarjetaCredito
                         Case 3
                             CobroSimple.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.Cheque
                         Case 10
                             CobroSimple.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.Transferencia
-                        Case 16
-                            CobroSimple.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.Vales
+						Case 16, 2
+							CobroSimple.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.Vales
                         Case 21
                             CobroSimple.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.AplicacionAnticipo
                         Case 7
@@ -497,9 +497,14 @@ Public Class frmCapCobranza
                     CobroSimple.NoCheque = CDD.NumeroCheque
                     CobroSimple.NoCuentaDestino = CDD.NumeroCuentaDestino
                     CobroSimple.Observaciones = CDD.Observaciones
-                    CobroSimple.Consecutivo = Consecutivo
+					CobroSimple.Consecutivo = Consecutivo
+					CobroSimple.Fcobro = CDD.FDeposito
 
-                    ListaCobros.Add(CobroSimple)
+					If CobroSimple.FechaCheque = DateTime.MinValue Then
+						CobroSimple.FechaCheque = DateTime.Now
+					End If
+
+					ListaCobros.Add(CobroSimple)
                 Next
 
                 lstCobro.Items.Add(CobroSimple)
