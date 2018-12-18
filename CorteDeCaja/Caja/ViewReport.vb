@@ -296,7 +296,7 @@ Public Class ViewReport
 			crParameterFieldDefinition = crParameterFieldDefinitions.Item(8)
 			crParameterValues = crParameterFieldDefinition.CurrentValues
 			crParameterDiscreteValue = New ParameterDiscreteValue()
-			crParameterDiscreteValue.Value = CType(fecha2, String)
+			crParameterDiscreteValue.Value = CType(fecha1, String)
 
 			crParameterValues.Add(crParameterDiscreteValue)
 			crParameterFieldDefinition.ApplyCurrentValues(crParameterValues)
