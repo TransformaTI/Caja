@@ -940,7 +940,7 @@ Public Class frmPrincipal
 
         'Cambió la forma de llamar a la liquidación de portátil
         '09-06-2005
-        Dim frmLiquidacionPortatil As New LiquidacionPortatil.frmLiquidacionConsulta(GLOBAL_IDUsuario, GLOBAL_IDEmpleado, CType(GLOBAL_CajaUsuario, Byte), GLOBAL_FactorDensidad, GLOBAL_Servidor, GLOBAL_Database, GLOBAL_Password, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario)
+        Dim frmLiquidacionPortatil As New LiquidacionPortatil.frmLiquidacionConsulta(GLOBAL_IDUsuario, GLOBAL_IDEmpleado, CType(GLOBAL_CajaUsuario, Byte), GLOBAL_FactorDensidad, GLOBAL_Servidor, GLOBAL_Database, GLOBAL_Password, GLOBAL_CorporativoUsuario, GLOBAL_SucursalUsuario, GLOBAL_Modulo, GLOBAL_URLGATEWAY)
         frmLiquidacionPortatil.MdiParent = Me
         frmLiquidacionPortatil.WindowState = FormWindowState.Maximized
         If frmLiquidacionPortatil.Validated Then
