@@ -24,7 +24,5 @@
         Set(ByVal Value As String)
             descripcion = Value
         End Set
-    End Property
-
-    
+    End Property    
 End Class
