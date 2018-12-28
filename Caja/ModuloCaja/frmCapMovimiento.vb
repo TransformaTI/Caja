@@ -2669,7 +2669,13 @@ Public Class frmCapMovimiento
 	End Sub
 
 	Private Sub Panel2_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles Panel2.Paint
-		LabelNombreEmpresa1.CargarNombreEmpresa()
+
+		Try
+			LabelNombreEmpresa1.CargarNombreEmpresa()
+		Catch ex As Exception
+
+		End Try
+
 	End Sub
 
 	Private Sub btnValesPromocion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RegistroValeCredito1.Click

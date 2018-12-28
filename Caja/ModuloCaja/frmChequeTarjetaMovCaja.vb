@@ -395,8 +395,9 @@ Public Class frmChequeTarjetaMovCaja
     Private Sub btnConsultaCliente_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnConsultaCliente.Click
         If Not IsDBNull(grdConsulta.Item(grdConsulta.CurrentRowIndex, ColumnaCliente)) Then
             Dim iCliente As Integer = CType(grdConsulta.Item(grdConsulta.CurrentRowIndex, ColumnaCliente), Integer)
-            Dim frmConCliente As New SigaMetClasses.frmConsultaCliente(iCliente, Main.GLOBAL_URLGATEWAY, Main.ConString)
-            frmConCliente.CadenaConexion = Main.ConString
+			Dim frmConCliente As New SigaMetClasses.frmConsultaCliente(iCliente, Main.GLOBAL_URLGATEWAY, Main.ConString, Usuario:=Main.GLOBAL_IDUsuario)
+
+			frmConCliente.CadenaConexion = Main.ConString
             frmConCliente.Modulo = 3
             frmConCliente.ShowDialog()
         End If

@@ -207,7 +207,7 @@ Public Class frmConsultaCobranza
             Cliente = CType(grdCobroPedido.Item(grdCobroPedido.CurrentRowIndex, 2), Integer)
         End If
         If Cliente > 0 Then
-			Dim frmConCliente As New SigaMetClasses.frmConsultaCliente(Cliente, Nuevo:=0)
+			Dim frmConCliente As New SigaMetClasses.frmConsultaCliente(Cliente, Nuevo:=0, Usuario:=Main.GLOBAL_IDUsuario)
 			frmConCliente.ShowDialog()
         End If
 
