@@ -439,15 +439,15 @@ Public Class frmCapCobranza
             frmSelTipoCobro.CadenaConexion = Main.ConString
             frmSelTipoCobro.ClienteEficienciasnegativas = Me.ClienteEficienciasNegativas
             frmSelTipoCobro.CapturaEfectivoVales = Main.CapturaEfectivoVales
-            If frmSelTipoCobro.ShowDialog() = DialogResult.OK Then
-                ListaCobros.Add(frmSelTipoCobro.Cobro)
-                lstCobro.Items.Add(frmSelTipoCobro.Cobro)
-                decImporteTotalCobros += frmSelTipoCobro.ImporteTotalCobro
-                stbEstatus.Panels(0).Text = lstCobro.Items.Count.ToString & " cobro(s)"
-                stbEstatus.Panels(1).Text = decImporteTotalCobros.ToString("C")
-                Main.CapturaEfectivoVales = frmSelTipoCobro.CapturaEfectivoVales
-            Else
-                Consecutivo -= 1
+			If frmSelTipoCobro.ShowDialog() = DialogResult.OK And frmSelTipoCobro.ImporteTotalCobro > 0 Then
+				ListaCobros.Add(frmSelTipoCobro.Cobro)
+				lstCobro.Items.Add(frmSelTipoCobro.Cobro)
+				decImporteTotalCobros += frmSelTipoCobro.ImporteTotalCobro
+				stbEstatus.Panels(0).Text = lstCobro.Items.Count.ToString & " cobro(s)"
+				stbEstatus.Panels(1).Text = decImporteTotalCobros.ToString("C")
+				Main.CapturaEfectivoVales = frmSelTipoCobro.CapturaEfectivoVales
+			Else
+				Consecutivo -= 1
             End If
         Else
             Dim frmSelTipoCobroPortatil As New FormasPago.frmSelTipoCobroPortatil(Consecutivo, False)
@@ -461,42 +461,42 @@ Public Class frmCapCobranza
                 frmSelTipoCobroPortatil.SoloEfectivo = False
             End If
 
-            If frmSelTipoCobroPortatil.ShowDialog() = DialogResult.OK Then
-                Dim ListaCobrosDetalle As List(Of SigaMetClasses.CobroDetalladoDatos) = frmSelTipoCobroPortatil.Cobros
-                Dim CobroSimple As SigaMetClasses.sCobro = New SigaMetClasses.sCobro()
+			If frmSelTipoCobroPortatil.ShowDialog() = DialogResult.OK And frmSelTipoCobroPortatil.ImporteTotalCobro > 0 Then
+				Dim ListaCobrosDetalle As List(Of SigaMetClasses.CobroDetalladoDatos) = frmSelTipoCobroPortatil.Cobros
+				Dim CobroSimple As SigaMetClasses.sCobro = New SigaMetClasses.sCobro()
 
-                For Each CDD As SigaMetClasses.CobroDetalladoDatos In ListaCobrosDetalle
-                    CobroSimple.AnoCobro = CDD.AñoCobro
-                    Select Case CDD.TipoCobro
-                        Case 5
-                            CobroSimple.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.EfectivoVales
+				For Each CDD As SigaMetClasses.CobroDetalladoDatos In ListaCobrosDetalle
+					CobroSimple.AnoCobro = CDD.AñoCobro
+					Select Case CDD.TipoCobro
+						Case 5
+							CobroSimple.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.EfectivoVales
 						Case 6, 19, 22
 							CobroSimple.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.TarjetaCredito
-                        Case 3
-                            CobroSimple.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.Cheque
-                        Case 10
-                            CobroSimple.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.Transferencia
+						Case 3
+							CobroSimple.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.Cheque
+						Case 10
+							CobroSimple.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.Transferencia
 						Case 16, 2
 							CobroSimple.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.Vales
-                        Case 21
-                            CobroSimple.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.AplicacionAnticipo
-                        Case 7
-                            CobroSimple.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.FichaDeposito
-                    End Select
-                    CobroSimple.Total = CDD.Total
-                    CobroSimple.Cliente = CDD.Cliente
-                    CobroSimple.Saldo = CDD.Saldo
-                    CobroSimple.Referencia = CDD.Referencia
-                    CobroSimple.NoCuenta = CDD.NumeroCuenta
-                    CobroSimple.SaldoAFavor = CDD.SaldoAFavor
-                    CobroSimple.AnioCobroOrigen = CDD.AñoCobroOrigen
-                    CobroSimple.Banco = CDD.Banco
-                    CobroSimple.BancoOrigen = CDD.BancoOrigen
-                    CobroSimple.CobroOrigen = CDD.CobroOrigen
-                    CobroSimple.FechaCheque = CDD.FCheque
-                    CobroSimple.NoCheque = CDD.NumeroCheque
-                    CobroSimple.NoCuentaDestino = CDD.NumeroCuentaDestino
-                    CobroSimple.Observaciones = CDD.Observaciones
+						Case 21
+							CobroSimple.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.AplicacionAnticipo
+						Case 7
+							CobroSimple.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.FichaDeposito
+					End Select
+					CobroSimple.Total = CDD.Total
+					CobroSimple.Cliente = CDD.Cliente
+					CobroSimple.Saldo = CDD.Saldo
+					CobroSimple.Referencia = CDD.Referencia
+					CobroSimple.NoCuenta = CDD.NumeroCuenta
+					CobroSimple.SaldoAFavor = CDD.SaldoAFavor
+					CobroSimple.AnioCobroOrigen = CDD.AñoCobroOrigen
+					CobroSimple.Banco = CDD.Banco
+					CobroSimple.BancoOrigen = CDD.BancoOrigen
+					CobroSimple.CobroOrigen = CDD.CobroOrigen
+					CobroSimple.FechaCheque = CDD.FCheque
+					CobroSimple.NoCheque = CDD.NumeroCheque
+					CobroSimple.NoCuentaDestino = CDD.NumeroCuentaDestino
+					CobroSimple.Observaciones = CDD.Observaciones
 					CobroSimple.Consecutivo = Consecutivo
 					CobroSimple.Fcobro = CDD.FDeposito
 
@@ -505,14 +505,14 @@ Public Class frmCapCobranza
 					End If
 
 					ListaCobros.Add(CobroSimple)
-                Next
+				Next
 
-                lstCobro.Items.Add(CobroSimple)
-                decImporteTotalCobros += frmSelTipoCobroPortatil.ImporteTotalCobro
-                stbEstatus.Panels(0).Text = lstCobro.Items.Count.ToString & " cobro(s)"
-                stbEstatus.Panels(1).Text = decImporteTotalCobros.ToString("C")
-            Else
-                Consecutivo -= 1
+				lstCobro.Items.Add(CobroSimple)
+				decImporteTotalCobros += frmSelTipoCobroPortatil.ImporteTotalCobro
+				stbEstatus.Panels(0).Text = lstCobro.Items.Count.ToString & " cobro(s)"
+				stbEstatus.Panels(1).Text = decImporteTotalCobros.ToString("C")
+			Else
+				Consecutivo -= 1
             End If
         End If
 

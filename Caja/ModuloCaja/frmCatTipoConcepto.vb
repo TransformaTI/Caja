@@ -175,8 +175,8 @@ Public Class frmCatTipoConcepto
         Dim Col4 As New DataGridTextBoxColumn()
         With Col4
             .HeaderText = "Estatus"
-            .MappingName = "Estatus"
-            .Width = 70
+			.MappingName = "Status"
+			.Width = 70
         End With
         Dim Col5 As New DataGridTextBoxColumn()
         With Col5
@@ -190,18 +190,24 @@ Public Class frmCatTipoConcepto
 #End Region
 
     Public Overrides Sub grdDatos_CurrentCellChanged(ByVal sender As Object, ByVal e As System.EventArgs)
-        If ListaDatos.Count > grdDatos.CurrentRowIndex Then
-            MyBase.grdDatos_CurrentCellChanged(sender, e)
-            Id = CType(grdDatos.Item(grdDatos.CurrentRowIndex, 0), String)
-            Dim strUsuario As String = CType(grdDatos.Item(grdDatos.CurrentRowIndex, 2), String)
-            Dim strEstatus As String = CType(grdDatos.Item(grdDatos.CurrentRowIndex, 3), String)
-            Dim strFecha As String = CType(grdDatos.Item(grdDatos.CurrentRowIndex, 4), String)
+		Try
+			If ListaDatos.Count > grdDatos.CurrentRowIndex Then
+				MyBase.grdDatos_CurrentCellChanged(sender, e)
+				Id = CType(grdDatos.Item(grdDatos.CurrentRowIndex, 0), String)
+				Dim strUsuario As String = CType(grdDatos.Item(grdDatos.CurrentRowIndex, 2), String)
+				Dim strEstatus As String = CType(grdDatos.Item(grdDatos.CurrentRowIndex, 3), String)
+				Dim strFecha As String = CType(grdDatos.Item(grdDatos.CurrentRowIndex, 4), String)
 
-            txtUsuario.Text = strUsuario
-            txtFalta.Text = strFecha
-            txtEstatus.Text = strEstatus
-        End If
-    End Sub
+				txtUsuario.Text = strUsuario
+				txtFalta.Text = strFecha
+				txtEstatus.Text = strEstatus
+			End If
+		Catch ex As Exception
+			MessageBox.Show("Error: " & ex.Message)
+		End Try
+
+
+	End Sub
 
     Private Sub frmCatBanco_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
         CargaLista()
