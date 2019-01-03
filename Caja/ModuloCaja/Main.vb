@@ -56,6 +56,8 @@ Public Module Main
     Public GLOBAL_SeguridadReportes As Boolean
 
 	Public GLOBAL_URLGATEWAY As String
+	Public GLOBAL_FuenteCRM As String
+
 	Public GLOBAL_CadenaConexion As String
 
 	Public GLOBAL_Modulo As Byte = 3
@@ -230,6 +232,11 @@ Public Module Main
 				GLOBAL_URLGATEWAY = ""
 			End Try
 
+			Try
+				GLOBAL_FuenteCRM = CType(oLogin.Parametros("FuenteCRM"), String)
+			Catch ex As Exception
+				GLOBAL_FuenteCRM = ""
+			End Try
 
 			'Aquí iría la seguridad de Manuel
 

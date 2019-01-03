@@ -2440,7 +2440,7 @@ Public Class frmCapMovimiento
 				'    Cursor = Cursors.Default
 				'End Try
 
-				If AutotanqueTurno_AnoAtt <> 0 And AutotanqueTurno_Folio <> 0 And Main.GLOBAL_URLGATEWAY <> "" Then
+				If AutotanqueTurno_AnoAtt <> 0 And AutotanqueTurno_Folio <> 0 And Main.GLOBAL_URLGATEWAY <> "" And Main.GLOBAL_FuenteCRM = "CRM" Then
 					Try
 						Dim objLiquida As New LiquidadorEstacionario.liquidadorEstacionario()
 						objLiquida.liquidarRuta(Main.GLOBAL_URLGATEWAY, 0, 0, AutotanqueTurno_AnoAtt, AutotanqueTurno_Folio, 3, ConString)
