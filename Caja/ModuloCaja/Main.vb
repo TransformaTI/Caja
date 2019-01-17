@@ -139,8 +139,8 @@ Public Module Main
 
             FechaOperacion = SigaMetClasses.FechaServidor.Date
 
-
-            GLOBAL_Database = oLogin.BaseDatos
+			GLOBAL_CadenaConexion = frmAcceso.CadenaConexion
+			GLOBAL_Database = oLogin.BaseDatos
             GLOBAL_Servidor = oLogin.Servidor
             GLOBAL_IDUsuario = oLogin.UserID
             GLOBAL_Password = oLogin.Password

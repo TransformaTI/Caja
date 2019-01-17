@@ -5,18 +5,30 @@ Public Class frmMovimientos
 
 #Region " Windows Form Designer generated code "
 
-    Public Sub New()
-        MyBase.New(3, Main.GLOBAL_IDUsuario, Main.GLOBAL_IDEmpleado)
+	Public Sub New()
+		MyBase.New(3, Main.GLOBAL_IDUsuario, Main.GLOBAL_IDEmpleado)
 
-        'This call is required by the Windows Form Designer.
-        InitializeComponent()
+		'This call is required by the Windows Form Designer.
+		InitializeComponent()
 
-        'Add any initialization after the InitializeComponent() call
+		'Add any initialization after the InitializeComponent() call
 
-    End Sub
+	End Sub
 
-    'Form overrides dispose to clean up the component list.
-    Protected Overloads Overrides Sub Dispose(ByVal disposing As Boolean)
+	Public Sub New(ByVal URLGateway As String,
+		  Optional ByVal Modulo As Byte = 0,
+		  Optional ByVal Cadcon As String = "",
+		  Optional ByVal ConsultarPedidosGateway As Boolean = False)
+		MyBase.New(URLGateway, Modulo, Cadcon, ConsultarPedidosGateway)
+
+		'This call is required by the Windows Form Designer.
+		InitializeComponent()
+		'Add any initialization after the InitializeComponent() call
+
+	End Sub
+
+	'Form overrides dispose to clean up the component list.
+	Protected Overloads Overrides Sub Dispose(ByVal disposing As Boolean)
         If disposing Then
             If Not (components Is Nothing) Then
                 components.Dispose()

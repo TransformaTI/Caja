@@ -816,9 +816,12 @@ Public Class frmPrincipal
                 Exit Sub
             End If
         Next
-        Dim frmConMov As New frmMovimientos()
-        frmConMov.MdiParent = Me
-        frmConMov.Show()
+		Dim frmConMov As New frmMovimientos(GLOBAL_URLGATEWAY, GLOBAL_Modulo, GLOBAL_CadenaConexion, True)
+
+		frmConMov.MdiParent = Me
+
+		frmConMov.ModuloUsuario = GLOBAL_IDUsuario
+		frmConMov.Show()
     End Sub
 
     Private Sub MenuItem7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem7.Click
