@@ -155,13 +155,15 @@
       <HintPath>bin\CrystalDecisions.Windows.Forms.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="FormasPago, Version=1.0.6802.35094, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="FormasPago">
       <HintPath>..\..\FormasPago\FormasPago\FormasPago\bin\Debug\FormasPago.dll</HintPath>
     </Reference>
     <Reference Include="LiquidacionPortatil, Version=1.1.0.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Librerias\LiquidacionPortatil\bin\LiquidacionPortatil.dll</HintPath>
+    </Reference>
+    <Reference Include="LiquidadorEstacionario">
+      <HintPath>..\..\..\liquidadorEstacionario\LiquidadorEstacionario\LiquidadorEstacionario\LiquidadorEstacionario\bin\Debug\LiquidadorEstacionario.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic">
       <Name>Microsoft.VisualBasic</Name>
@@ -180,7 +182,7 @@
     </Reference>
     <Reference Include="PortatilClasses, Version=1.7.0.4, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\PortatilClasses.dll</HintPath>
+      <HintPath>..\..\..\Librerias\PortatilClasses\bin\PortatilClasses.dll</HintPath>
     </Reference>
     <Reference Include="ReporteDinamico, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -192,7 +194,7 @@
     </Reference>
     <Reference Include="RTGMGateway, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Gateway\RTGMGateway\bin\Debug\RTGMGateway.dll</HintPath>
+      <HintPath>..\..\..\RTGMGateway\RTGMGateway\bin\Debug\RTGMGateway.dll</HintPath>
     </Reference>
     <Reference Include="SGDAC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
