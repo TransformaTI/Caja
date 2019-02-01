@@ -275,119 +275,139 @@ Public Class frmRemisiones
         End If
     End Sub
 
-    Private Sub btn_cancelar_Click(sender As Object, e As EventArgs) Handles btn_cancelar.Click
-        If table.Rows.Count > 0 Then
-            For i = 0 To table.Rows.Count - 1
-                table.Rows(0).Delete()
-            Next
-        End If
-        grdAbonos.DataSource = table
-        If (Cancelar IsNot Nothing) Then
-            Dim Contar As Integer = 0
-            For Each item As String In Cancelar
-                _TablaRemisiones.Rows(Contar)("Saldo") = item
-                Contar = Contar + 1
-            Next
-        End If
+	Private Sub btn_cancelar_Click(sender As Object, e As EventArgs) Handles btn_cancelar.Click
+		If table.Rows.Count > 0 Then
+			For i = 0 To table.Rows.Count - 1
+				table.Rows(0).Delete()
+			Next
+		End If
+		grdAbonos.DataSource = table
+		If (Cancelar IsNot Nothing) Then
+			Dim Contar As Integer = 0
+			For Each item As String In Cancelar
+				_TablaRemisiones.Rows(Contar)("Saldo") = item
+				Contar = Contar + 1
+			Next
+		End If
 
-        lbl_saldo.Text = "$" + CType(_Total, String)
-        grdRemision.DataSource = _TablaRemisiones
-        _SumImportesSaldo = 0
-        _Saldo = 0
-        _CancelPago = True
-        Close()
+		lbl_saldo.Text = "$" + CType(_Total, String)
+		grdRemision.DataSource = _TablaRemisiones
+		_SumImportesSaldo = 0
+		_Saldo = 0
+		_CancelPago = True
+		Close()
 
-    End Sub
+	End Sub
 
-    Private Sub btn_aceptarAbonos_Click(sender As Object, e As EventArgs) Handles btn_aceptarAbonos.Click
-        If _AceptaSaldo = False Then
-            If _Saldo > 0 Then
-                MessageBox.Show("No se puede aceptar abonos el saldo debe de ser de $0.00 pesos, El saldo actual es de  " + _Saldo.ToString)
-            ElseIf _Saldo = 0 Then
-                MessageBox.Show("¡Captura de remisiones concluida!")
-                Close()
-            End If
-        Else
-            If _Saldo > 0 Then
-                If MessageBox.Show("¿Desea generar saldo a favor?", "",
-          MessageBoxButtons.YesNo, MessageBoxIcon.Question) _
-          = DialogResult.Yes Then
-                    Dim InsertCobro As SigaMetClasses.CobroDetalladoDatos = _UltimoCobro
-                    InsertCobro.SaldoAFavor = True
-                    InsertCobro.Saldo = _Saldo
-                    InsertCobro.StatusSaldoAFavor = "ACTIVO"
-                    _UltimoCobro = InsertCobro
-                    MessageBox.Show("¡Captura de remisiones concluida!")
-                    Close()
-                End If
-            Else
-                MessageBox.Show("¡Captura de remisiones concluida!")
-                Close()
-            End If
+	Private Function validaPagoExcesoTPV() As Boolean
+		Dim resultado As Boolean = True
+		If Globals.GetInstance._ReglaTPVActiva Then
+			If _Saldo > Globals.GetInstance._PagoExcesoTPV Then
+				resultado = False
+			End If
+
+		End If
+
+		If (Not resultado) Then
+
+			MessageBox.Show(Me, "Falta por relacionar " & _Saldo.ToString("N2") & ", y el monto por relacionar supera el monto " & Environment.NewLine &
+								"máximo de pago por exceso para tpbv, favor de relacion más" & Environment.NewLine & "documentos")
+		End If
+
+		Return resultado
+	End Function
+
+	Private Sub btn_aceptarAbonos_Click(sender As Object, e As EventArgs) Handles btn_aceptarAbonos.Click
+		If _AceptaSaldo = False Then
+			If _Saldo > 0 Then
+				MessageBox.Show("No se puede aceptar abonos el saldo debe de ser de $0.00 pesos, El saldo actual es de  " + _Saldo.ToString)
+			ElseIf _Saldo = 0 Then
+				MessageBox.Show("¡Captura de remisiones concluida!")
+				Close()
+			End If
+		Else
+			If _Saldo > 0 Then
+				If validaPagoExcesoTPV() Then
+					If MessageBox.Show("¿Desea generar saldo a favor?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+						Dim InsertCobro As SigaMetClasses.CobroDetalladoDatos = _UltimoCobro
+						InsertCobro.SaldoAFavor = True
+						InsertCobro.Saldo = _Saldo
+						InsertCobro.StatusSaldoAFavor = "ACTIVO"
+						_UltimoCobro = InsertCobro
+						MessageBox.Show("¡Captura de remisiones concluida!")
+						Close()
+					End If
+				Else
+					Return
+				End If
+
+			Else
+				MessageBox.Show("¡Captura de remisiones concluida!")
+				Close()
+			End If
+		End If
 
 
+		For Each row As DataRow In table.Rows
 
+			oCobroRemision = New SigaMetClasses.CobroRemisiones
+			oCobroRemision.Pago = Pago
+			oCobroRemision.Remision = row("Remisión").ToString()
+			oCobroRemision.Serie = row("Serie").ToString()
+			oCobroRemision.MontoAbonado = Convert.ToDecimal(row("importe abonado").ToString())
+			CobroRemisiones.Add(oCobroRemision)
 
-            End If
+		Next
+	End Sub
 
+	Function Valorcero() As String
+		Valorcero = " $000.00"
+	End Function
 
-            For Each row As DataRow In table.Rows
-            oCobroRemision = New SigaMetClasses.CobroRemisiones
-            oCobroRemision.Pago = Pago
-            oCobroRemision.Remision = row("Remisión").ToString()
-            oCobroRemision.Serie = row("Serie").ToString()
-            oCobroRemision.MontoAbonado = Convert.ToDecimal(row("importe abonado").ToString())
-            CobroRemisiones.Add(oCobroRemision)
-        Next
-    End Sub
-    Function Valorcero() As String
-        Valorcero = " $000.00"
-    End Function
-
-    Private Sub grdRemision_CurrentCellChanged(sender As Object, e As EventArgs) Handles grdRemision.CurrentCellChanged
+	Private Sub grdRemision_CurrentCellChanged(sender As Object, e As EventArgs) Handles grdRemision.CurrentCellChanged
 		i = grdRemision.CurrentRowIndex
 		ActualizarEtiquetas()
-    End Sub
+	End Sub
 
 
-    Private Sub frmRemisiones_FormClosed(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles MyBase.Closing
-        If _AceptaSaldo = False Then
-            If _Saldo > 0 Then
-                MessageBox.Show("No puede salir hasta tener saldo en 0 saldo: $" + _Saldo.ToString)
-                e.Cancel = True
-            End If
-        End If
+	Private Sub frmRemisiones_FormClosed(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles MyBase.Closing
+		If _AceptaSaldo = False Then
+			If _Saldo > 0 Then
+				MessageBox.Show("No puede salir hasta tener saldo en 0 saldo: $" + _Saldo.ToString)
+				e.Cancel = True
+			End If
+		End If
 
-    End Sub
+	End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BtnBorrarUnAbono.Click
-        For Each abono As DataRow In table.Rows
-            If (table.Rows.IndexOf(abono) = grdAbonos.CurrentRowIndex) Then
+	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BtnBorrarUnAbono.Click
+		For Each abono As DataRow In table.Rows
+			If (table.Rows.IndexOf(abono) = grdAbonos.CurrentRowIndex) Then
 
-                For Each Remision As DataRow In _TablaRemisionesInicial.Rows
-                    If (Remision("Serie").ToString() = abono("Serie").ToString() And
-                        Remision("Remision").ToString() = abono("Remisión").ToString() And
-                        Remision("Producto").ToString() = abono("Producto").ToString()) Then
+				For Each Remision As DataRow In _TablaRemisionesInicial.Rows
+					If (Remision("Serie").ToString() = abono("Serie").ToString() And
+						Remision("Remision").ToString() = abono("Remisión").ToString() And
+						Remision("Producto").ToString() = abono("Producto").ToString()) Then
 
-                        _Saldo = Convert.ToDecimal(lbl_saldo.Text.Replace("$", "")) + Convert.ToDecimal(abono("importe abonado").ToString().Replace("$", ""))
-                        lbl_saldo.Text = "$" + _Saldo.ToString()
-                        abono.Delete()
-                        _TablaRemisiones.Rows(_TablaRemisionesInicial.Rows.IndexOf(Remision))("Saldo") = Cancelar(_TablaRemisionesInicial.Rows.IndexOf(Remision))
+						_Saldo = Convert.ToDecimal(lbl_saldo.Text.Replace("$", "")) + Convert.ToDecimal(abono("importe abonado").ToString().Replace("$", ""))
+						lbl_saldo.Text = "$" + _Saldo.ToString()
+						abono.Delete()
+						_TablaRemisiones.Rows(_TablaRemisionesInicial.Rows.IndexOf(Remision))("Saldo") = Cancelar(_TablaRemisionesInicial.Rows.IndexOf(Remision))
 
-                        GoTo Finalize
-                    End If
-                Next
-            End If
-        Next
+						GoTo Finalize
+					End If
+				Next
+			End If
+		Next
 Finalize:
-        grdRemision.DataSource = _TablaRemisiones
-        grdAbonos.DataSource = table
-        _SumImportesSaldo = 0
-    End Sub
+		grdRemision.DataSource = _TablaRemisiones
+		grdAbonos.DataSource = table
+		_SumImportesSaldo = 0
+	End Sub
 
-    Private Sub grdAbonos_CurrentCellChanged(sender As Object, e As EventArgs) Handles grdAbonos.CurrentCellChanged
-        FilaAbono = grdAbonos.CurrentRowIndex
-    End Sub
+	Private Sub grdAbonos_CurrentCellChanged(sender As Object, e As EventArgs) Handles grdAbonos.CurrentCellChanged
+		FilaAbono = grdAbonos.CurrentRowIndex
+	End Sub
 
 	'Private Sub InitializeComponent()
 	'	Me.SuspendLayout()
