@@ -31,6 +31,8 @@ Public Class Globals
 	Public _Modulo As Byte
 
 	Public _URLGateway As String
+	Public _PagoExcesoTPV As Decimal
+	Public _ReglaTPVActiva As Boolean
 
 	'Conexión
 	Public cnSigamet As New SqlClient.SqlConnection()
@@ -56,6 +58,17 @@ Public Class Globals
 
 		End Try
 
+		Try
+			_PagoExcesoTPV = CType(lParametro.Parametros.Item("PagoExcesoTPV"), Decimal)
+		Catch
+			_PagoExcesoTPV = 0
+		End Try
+
+		Try
+			_ReglaTPVActiva = CType(lParametro.Parametros.Item("ReglaTPVActiva"), Integer) = 1
+		Catch
+			_ReglaTPVActiva = False
+		End Try
 
 
 	End Sub
