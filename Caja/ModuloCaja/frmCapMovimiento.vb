@@ -144,6 +144,9 @@ Public Class frmCapMovimiento
 	Friend WithEvents LabelBase14 As ControlesBase.LabelBase
 	Friend WithEvents lblTotalVale As System.Windows.Forms.Label
 	Friend WithEvents LabelNombreEmpresa1 As NombreEmpresa.LabelNombreEmpresa
+	Friend WithEvents LabelBase18 As ControlesBase.LabelBase
+	Friend WithEvents lblTotalTarjetaServicios As Label
+	Friend WithEvents LabelBase17 As ControlesBase.LabelBase
 	Friend WithEvents RegistroValeCredito1 As ControlDeValesPromocionales.RegistroValeCredito
 	<System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
@@ -265,6 +268,9 @@ Public Class frmCapMovimiento
 		Me.lblPanelMensaje = New System.Windows.Forms.Label()
 		Me.PictureBox1 = New System.Windows.Forms.PictureBox()
 		Me.ttMensaje = New System.Windows.Forms.ToolTip(Me.components)
+		Me.lblTotalTarjetaServicios = New System.Windows.Forms.Label()
+		Me.LabelBase17 = New ControlesBase.LabelBase()
+		Me.LabelBase18 = New ControlesBase.LabelBase()
 		Me.grpLiquidacionConsulta.SuspendLayout()
 		CType(Me.grdInfoPreLiq, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.grpCabecera.SuspendLayout()
@@ -1042,6 +1048,9 @@ Public Class frmCapMovimiento
 		'
 		'grpCobroDocumentos
 		'
+		Me.grpCobroDocumentos.Controls.Add(Me.LabelBase18)
+		Me.grpCobroDocumentos.Controls.Add(Me.lblTotalTarjetaServicios)
+		Me.grpCobroDocumentos.Controls.Add(Me.LabelBase17)
 		Me.grpCobroDocumentos.Controls.Add(Me.LabelBase14)
 		Me.grpCobroDocumentos.Controls.Add(Me.lblTotalVale)
 		Me.grpCobroDocumentos.Controls.Add(Me.lblCaptAFAvor)
@@ -1078,7 +1087,7 @@ Public Class frmCapMovimiento
 		'
 		Me.LabelBase14.AutoSize = True
 		Me.LabelBase14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.LabelBase14.Location = New System.Drawing.Point(26, 601)
+		Me.LabelBase14.Location = New System.Drawing.Point(31, 601)
 		Me.LabelBase14.Name = "LabelBase14"
 		Me.LabelBase14.Size = New System.Drawing.Size(31, 13)
 		Me.LabelBase14.TabIndex = 67
@@ -1096,7 +1105,7 @@ Public Class frmCapMovimiento
 		'
 		'lblCaptAFAvor
 		'
-		Me.lblCaptAFAvor.Location = New System.Drawing.Point(148, 492)
+		Me.lblCaptAFAvor.Location = New System.Drawing.Point(149, 514)
 		Me.lblCaptAFAvor.Name = "lblCaptAFAvor"
 		Me.lblCaptAFAvor.Size = New System.Drawing.Size(96, 40)
 		Me.lblCaptAFAvor.TabIndex = 65
@@ -1150,7 +1159,7 @@ Public Class frmCapMovimiento
 		'
 		Me.LabelBase12.AutoSize = True
 		Me.LabelBase12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.LabelBase12.Location = New System.Drawing.Point(18, 584)
+		Me.LabelBase12.Location = New System.Drawing.Point(23, 584)
 		Me.LabelBase12.Name = "LabelBase12"
 		Me.LabelBase12.Size = New System.Drawing.Size(39, 13)
 		Me.LabelBase12.TabIndex = 60
@@ -1160,7 +1169,7 @@ Public Class frmCapMovimiento
 		'
 		Me.lblTotalTarjetaDebito.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
 		Me.lblTotalTarjetaDebito.ForeColor = System.Drawing.SystemColors.ControlText
-		Me.lblTotalTarjetaDebito.Location = New System.Drawing.Point(64, 568)
+		Me.lblTotalTarjetaDebito.Location = New System.Drawing.Point(64, 548)
 		Me.lblTotalTarjetaDebito.Name = "lblTotalTarjetaDebito"
 		Me.lblTotalTarjetaDebito.Size = New System.Drawing.Size(80, 16)
 		Me.lblTotalTarjetaDebito.TabIndex = 57
@@ -1170,7 +1179,7 @@ Public Class frmCapMovimiento
 		'
 		Me.LabelBase7.AutoSize = True
 		Me.LabelBase7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.LabelBase7.Location = New System.Drawing.Point(3, 568)
+		Me.LabelBase7.Location = New System.Drawing.Point(9, 548)
 		Me.LabelBase7.Name = "LabelBase7"
 		Me.LabelBase7.Size = New System.Drawing.Size(54, 13)
 		Me.LabelBase7.TabIndex = 58
@@ -1270,7 +1279,7 @@ Public Class frmCapMovimiento
 		'
 		Me.lblTotalTarjetaCredito.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
 		Me.lblTotalTarjetaCredito.ForeColor = System.Drawing.SystemColors.ControlText
-		Me.lblTotalTarjetaCredito.Location = New System.Drawing.Point(64, 552)
+		Me.lblTotalTarjetaCredito.Location = New System.Drawing.Point(64, 531)
 		Me.lblTotalTarjetaCredito.Name = "lblTotalTarjetaCredito"
 		Me.lblTotalTarjetaCredito.Size = New System.Drawing.Size(80, 16)
 		Me.lblTotalTarjetaCredito.TabIndex = 53
@@ -1280,7 +1289,7 @@ Public Class frmCapMovimiento
 		'
 		Me.LabelBase6.AutoSize = True
 		Me.LabelBase6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.LabelBase6.Location = New System.Drawing.Point(4, 552)
+		Me.LabelBase6.Location = New System.Drawing.Point(9, 531)
 		Me.LabelBase6.Name = "LabelBase6"
 		Me.LabelBase6.Size = New System.Drawing.Size(53, 13)
 		Me.LabelBase6.TabIndex = 54
@@ -1450,7 +1459,7 @@ Public Class frmCapMovimiento
 		'
 		Me.lblTotalEfectivo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
 		Me.lblTotalEfectivo.ForeColor = System.Drawing.SystemColors.ControlText
-		Me.lblTotalEfectivo.Location = New System.Drawing.Point(64, 520)
+		Me.lblTotalEfectivo.Location = New System.Drawing.Point(64, 499)
 		Me.lblTotalEfectivo.Name = "lblTotalEfectivo"
 		Me.lblTotalEfectivo.Size = New System.Drawing.Size(80, 16)
 		Me.lblTotalEfectivo.TabIndex = 47
@@ -1461,7 +1470,7 @@ Public Class frmCapMovimiento
 		Me.lblTotalCheques.BackColor = System.Drawing.Color.Gainsboro
 		Me.lblTotalCheques.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
 		Me.lblTotalCheques.ForeColor = System.Drawing.SystemColors.ControlText
-		Me.lblTotalCheques.Location = New System.Drawing.Point(64, 536)
+		Me.lblTotalCheques.Location = New System.Drawing.Point(64, 515)
 		Me.lblTotalCheques.Name = "lblTotalCheques"
 		Me.lblTotalCheques.Size = New System.Drawing.Size(80, 16)
 		Me.lblTotalCheques.TabIndex = 42
@@ -1471,7 +1480,7 @@ Public Class frmCapMovimiento
 		'
 		Me.LabelBase5.AutoSize = True
 		Me.LabelBase5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.LabelBase5.Location = New System.Drawing.Point(8, 520)
+		Me.LabelBase5.Location = New System.Drawing.Point(13, 499)
 		Me.LabelBase5.Name = "LabelBase5"
 		Me.LabelBase5.Size = New System.Drawing.Size(49, 13)
 		Me.LabelBase5.TabIndex = 51
@@ -1481,7 +1490,7 @@ Public Class frmCapMovimiento
 		'
 		Me.LabelBase4.AutoSize = True
 		Me.LabelBase4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.LabelBase4.Location = New System.Drawing.Point(5, 536)
+		Me.LabelBase4.Location = New System.Drawing.Point(10, 515)
 		Me.LabelBase4.Name = "LabelBase4"
 		Me.LabelBase4.Size = New System.Drawing.Size(52, 13)
 		Me.LabelBase4.TabIndex = 50
@@ -1584,6 +1593,36 @@ Public Class frmCapMovimiento
 		'
 		Me.ttMensaje.Active = False
 		'
+		'lblTotalTarjetaServicios
+		'
+		Me.lblTotalTarjetaServicios.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+		Me.lblTotalTarjetaServicios.ForeColor = System.Drawing.SystemColors.ControlText
+		Me.lblTotalTarjetaServicios.Location = New System.Drawing.Point(64, 566)
+		Me.lblTotalTarjetaServicios.Name = "lblTotalTarjetaServicios"
+		Me.lblTotalTarjetaServicios.Size = New System.Drawing.Size(80, 16)
+		Me.lblTotalTarjetaServicios.TabIndex = 70
+		Me.lblTotalTarjetaServicios.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		'
+		'LabelBase17
+		'
+		Me.LabelBase17.AutoSize = True
+		Me.LabelBase17.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.LabelBase17.Location = New System.Drawing.Point(374, 110)
+		Me.LabelBase17.Name = "LabelBase17"
+		Me.LabelBase17.Size = New System.Drawing.Size(66, 13)
+		Me.LabelBase17.TabIndex = 71
+		Me.LabelBase17.Text = "T. Servicios:"
+		'
+		'LabelBase18
+		'
+		Me.LabelBase18.AutoSize = True
+		Me.LabelBase18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.LabelBase18.Location = New System.Drawing.Point(-1, 567)
+		Me.LabelBase18.Name = "LabelBase18"
+		Me.LabelBase18.Size = New System.Drawing.Size(63, 13)
+		Me.LabelBase18.TabIndex = 72
+		Me.LabelBase18.Text = "T.Servicios:"
+		'
 		'frmCapMovimiento
 		'
 		Me.AutoScaleBaseSize = New System.Drawing.Size(5, 14)
@@ -1678,6 +1717,8 @@ Public Class frmCapMovimiento
 	Private AFavorTarjetaCredito As Decimal = 0
 	Private PorCobrarTarjetaDebito As Decimal = 0
 	Private AFavorTarjetaDebito As Decimal = 0
+	Private PorCobrarTarjetaServicios As Decimal = 0
+	Private AFavorTarjetaServicios As Decimal = 0
 	Private PorCobrarFichaDeposito As Decimal = 0
 	Private AfavorFichaDeposito As Decimal = 0
 
@@ -1795,6 +1836,10 @@ Public Class frmCapMovimiento
 			PorCobrarTarjetaDebito = SumaColumna(19, dtTarjetaCreditoLiq, "Total")
 			AFavorTarjetaDebito = SumaColumna(19, dtTarjetaCreditoLiq, "Saldo")
 			AFavorOperadorCheques += AFavorTarjetaDebito
+
+			PorCobrarTarjetaServicios = SumaColumna(22, dtTarjetaCreditoLiq, "Total")
+			AFavorTarjetaServicios = SumaColumna(22, dtTarjetaCreditoLiq, "Saldo")
+			AFavorOperadorCheques += AFavorTarjetaServicios
 		End If
 
 		If DatosMovimiento.Tables("FichaDeposito").Rows.Count <= 0 Then
@@ -2013,6 +2058,10 @@ Public Class frmCapMovimiento
 			PorCobrarTarjetaDebito = SumaColumna(19, dtTarjetaCredito, "Total")
 			AFavorTarjetaDebito = SumaColumna(19, dtTarjetaCredito, "Saldo")
 			AFavorOperadorCheques += AFavorTarjetaDebito
+
+			PorCobrarTarjetaServicios = SumaColumna(22, dtTarjetaCredito, "Total")
+			AFavorTarjetaServicios = SumaColumna(22, dtTarjetaCredito, "Saldo")
+			AFavorOperadorCheques += AFavorTarjetaServicios
 		End If
 
 		If DatosMovimiento.Tables("FichaDeposito").Rows.Count <= 0 Then
@@ -2133,7 +2182,7 @@ Public Class frmCapMovimiento
 			'11-10-2005 control de vales promocionales
 			'lblImporteTotalCobro.Text = (CobroEfectivo.CalculaTotalEfectivo + Vales.CalculaTotalVales + PorCobrarCheques + PorCobrarTarjetaCredito + PorCobrarFichaDeposito).ToString("C")
 			lblImporteTotalCobro.Text = (CobroEfectivo.CalculaTotalEfectivo + Vales.CalculaTotalVales + frmConsultaValePromocion.Total +
-				PorCobrarCheques + PorCobrarTarjetaCredito + PorCobrarTarjetaDebito + PorCobrarFichaDeposito - AFavorOperadorCheques).ToString("C")
+				PorCobrarCheques + PorCobrarTarjetaCredito + PorCobrarTarjetaDebito + PorCobrarTarjetaServicios + PorCobrarFichaDeposito - AFavorOperadorCheques).ToString("C")
 
 			If decImporteTotalMovimiento > CType(lblImporteTotalCobro.Text, Decimal) Then
 				lblFaltante.Text = (decImporteTotalMovimiento - CType(lblImporteTotalCobro.Text, Decimal)).ToString("C")
@@ -2182,8 +2231,8 @@ Public Class frmCapMovimiento
 		'    lblFaltante.Text = ""
 		'End If
 		'***Integración de cobros con tarjeta de crédito
-		If (decImporteRealACobrar + Me.PorCobrarCheques + Me.PorCobrarFichaDeposito + Me.PorCobrarTarjetaCredito + Me.PorCobrarTarjetaDebito - AFavorOperadorCheques) - decImporteTotalCobros >= 0 Then
-			lblFaltante.Text = ((decImporteRealACobrar + Me.PorCobrarCheques + Me.PorCobrarFichaDeposito + Me.PorCobrarTarjetaCredito + Me.PorCobrarTarjetaDebito - AFavorOperadorCheques) - decImporteTotalCobros).ToString("C")
+		If (decImporteRealACobrar + Me.PorCobrarCheques + Me.PorCobrarFichaDeposito + Me.PorCobrarTarjetaCredito + Me.PorCobrarTarjetaDebito + PorCobrarTarjetaServicios - AFavorOperadorCheques) - decImporteTotalCobros >= 0 Then
+			lblFaltante.Text = ((decImporteRealACobrar + Me.PorCobrarCheques + Me.PorCobrarFichaDeposito + Me.PorCobrarTarjetaCredito + Me.PorCobrarTarjetaDebito + PorCobrarTarjetaServicios - AFavorOperadorCheques) - decImporteTotalCobros).ToString("C")
 		Else
 			lblFaltante.Text = ""
 		End If
@@ -2240,9 +2289,9 @@ Public Class frmCapMovimiento
 	Private Function CalculaTotalCobros() As Decimal
 		'Cambio realizado el 20 de febrero
 		If Not GLOBAL_Promocion Then
-			Return CDec(CobroEfectivo.TotalEfectivo + Vales.TotalVales) + PorCobrarTarjetaCredito + PorCobrarFichaDeposito + PorCobrarCheques + PorCobrarTarjetaDebito - AFavorOperadorCheques
+			Return CDec(CobroEfectivo.TotalEfectivo + Vales.TotalVales) + PorCobrarTarjetaCredito + PorCobrarFichaDeposito + PorCobrarCheques + PorCobrarTarjetaDebito + PorCobrarTarjetaServicios - AFavorOperadorCheques
 		Else
-			Return CDec(CobroEfectivo.TotalEfectivo + Vales.TotalVales + frmConsultaValePromocion.Total) + PorCobrarTarjetaCredito + PorCobrarFichaDeposito + PorCobrarCheques + PorCobrarTarjetaDebito - AFavorOperadorCheques
+			Return CDec(CobroEfectivo.TotalEfectivo + Vales.TotalVales + frmConsultaValePromocion.Total) + PorCobrarTarjetaCredito + PorCobrarFichaDeposito + PorCobrarCheques + PorCobrarTarjetaDebito + PorCobrarTarjetaServicios - AFavorOperadorCheques
 		End If
 	End Function
 
@@ -2633,6 +2682,7 @@ Public Class frmCapMovimiento
 
 		lblTotalTarjetaCredito.Text = (PorCobrarTarjetaCredito).ToString("N")
 		lblTotalTarjetaDebito.Text = (PorCobrarTarjetaDebito).ToString("N")
+		lblTotalTarjetaServicios.Text = (PorCobrarTarjetaServicios).ToString("N")
 
 		lblTotalVarios.Text = (PorCobrarFichaDeposito).ToString("N")
 		lblTotalVale.Text = (PorCobrarVales).ToString("N")
