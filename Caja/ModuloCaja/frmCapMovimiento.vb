@@ -146,7 +146,6 @@ Public Class frmCapMovimiento
 	Friend WithEvents LabelNombreEmpresa1 As NombreEmpresa.LabelNombreEmpresa
 	Friend WithEvents LabelBase18 As ControlesBase.LabelBase
 	Friend WithEvents lblTotalTarjetaServicios As Label
-	Friend WithEvents LabelBase17 As ControlesBase.LabelBase
 	Friend WithEvents RegistroValeCredito1 As ControlDeValesPromocionales.RegistroValeCredito
 	<System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
@@ -220,6 +219,8 @@ Public Class frmCapMovimiento
 		Me.LabelBase1 = New ControlesBase.LabelBase()
 		Me.lblNoTieneEfectivo = New System.Windows.Forms.Label()
 		Me.grpCobroDocumentos = New System.Windows.Forms.GroupBox()
+		Me.LabelBase18 = New ControlesBase.LabelBase()
+		Me.lblTotalTarjetaServicios = New System.Windows.Forms.Label()
 		Me.LabelBase14 = New ControlesBase.LabelBase()
 		Me.lblTotalVale = New System.Windows.Forms.Label()
 		Me.lblCaptAFAvor = New System.Windows.Forms.Label()
@@ -268,9 +269,6 @@ Public Class frmCapMovimiento
 		Me.lblPanelMensaje = New System.Windows.Forms.Label()
 		Me.PictureBox1 = New System.Windows.Forms.PictureBox()
 		Me.ttMensaje = New System.Windows.Forms.ToolTip(Me.components)
-		Me.lblTotalTarjetaServicios = New System.Windows.Forms.Label()
-		Me.LabelBase17 = New ControlesBase.LabelBase()
-		Me.LabelBase18 = New ControlesBase.LabelBase()
 		Me.grpLiquidacionConsulta.SuspendLayout()
 		CType(Me.grdInfoPreLiq, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.grpCabecera.SuspendLayout()
@@ -1050,7 +1048,6 @@ Public Class frmCapMovimiento
 		'
 		Me.grpCobroDocumentos.Controls.Add(Me.LabelBase18)
 		Me.grpCobroDocumentos.Controls.Add(Me.lblTotalTarjetaServicios)
-		Me.grpCobroDocumentos.Controls.Add(Me.LabelBase17)
 		Me.grpCobroDocumentos.Controls.Add(Me.LabelBase14)
 		Me.grpCobroDocumentos.Controls.Add(Me.lblTotalVale)
 		Me.grpCobroDocumentos.Controls.Add(Me.lblCaptAFAvor)
@@ -1082,6 +1079,26 @@ Public Class frmCapMovimiento
 		Me.grpCobroDocumentos.TabIndex = 34
 		Me.grpCobroDocumentos.TabStop = False
 		Me.grpCobroDocumentos.Text = "Cobro de documentos"
+		'
+		'LabelBase18
+		'
+		Me.LabelBase18.AutoSize = True
+		Me.LabelBase18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.LabelBase18.Location = New System.Drawing.Point(-1, 567)
+		Me.LabelBase18.Name = "LabelBase18"
+		Me.LabelBase18.Size = New System.Drawing.Size(63, 13)
+		Me.LabelBase18.TabIndex = 72
+		Me.LabelBase18.Text = "T.Servicios:"
+		'
+		'lblTotalTarjetaServicios
+		'
+		Me.lblTotalTarjetaServicios.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+		Me.lblTotalTarjetaServicios.ForeColor = System.Drawing.SystemColors.ControlText
+		Me.lblTotalTarjetaServicios.Location = New System.Drawing.Point(64, 566)
+		Me.lblTotalTarjetaServicios.Name = "lblTotalTarjetaServicios"
+		Me.lblTotalTarjetaServicios.Size = New System.Drawing.Size(80, 16)
+		Me.lblTotalTarjetaServicios.TabIndex = 70
+		Me.lblTotalTarjetaServicios.TextAlign = System.Drawing.ContentAlignment.MiddleRight
 		'
 		'LabelBase14
 		'
@@ -1592,36 +1609,6 @@ Public Class frmCapMovimiento
 		'ttMensaje
 		'
 		Me.ttMensaje.Active = False
-		'
-		'lblTotalTarjetaServicios
-		'
-		Me.lblTotalTarjetaServicios.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-		Me.lblTotalTarjetaServicios.ForeColor = System.Drawing.SystemColors.ControlText
-		Me.lblTotalTarjetaServicios.Location = New System.Drawing.Point(64, 566)
-		Me.lblTotalTarjetaServicios.Name = "lblTotalTarjetaServicios"
-		Me.lblTotalTarjetaServicios.Size = New System.Drawing.Size(80, 16)
-		Me.lblTotalTarjetaServicios.TabIndex = 70
-		Me.lblTotalTarjetaServicios.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-		'
-		'LabelBase17
-		'
-		Me.LabelBase17.AutoSize = True
-		Me.LabelBase17.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.LabelBase17.Location = New System.Drawing.Point(374, 110)
-		Me.LabelBase17.Name = "LabelBase17"
-		Me.LabelBase17.Size = New System.Drawing.Size(66, 13)
-		Me.LabelBase17.TabIndex = 71
-		Me.LabelBase17.Text = "T. Servicios:"
-		'
-		'LabelBase18
-		'
-		Me.LabelBase18.AutoSize = True
-		Me.LabelBase18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.LabelBase18.Location = New System.Drawing.Point(-1, 567)
-		Me.LabelBase18.Name = "LabelBase18"
-		Me.LabelBase18.Size = New System.Drawing.Size(63, 13)
-		Me.LabelBase18.TabIndex = 72
-		Me.LabelBase18.Text = "T.Servicios:"
 		'
 		'frmCapMovimiento
 		'
