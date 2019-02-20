@@ -1122,9 +1122,9 @@ Public Class frmCapMovimiento
 		'
 		'lblCaptAFAvor
 		'
-		Me.lblCaptAFAvor.Location = New System.Drawing.Point(149, 514)
+		Me.lblCaptAFAvor.Location = New System.Drawing.Point(149, 510)
 		Me.lblCaptAFAvor.Name = "lblCaptAFAvor"
-		Me.lblCaptAFAvor.Size = New System.Drawing.Size(96, 40)
+		Me.lblCaptAFAvor.Size = New System.Drawing.Size(96, 22)
 		Me.lblCaptAFAvor.TabIndex = 65
 		Me.lblCaptAFAvor.Text = "A favor operador:"
 		Me.lblCaptAFAvor.TextAlign = System.Drawing.ContentAlignment.BottomCenter
