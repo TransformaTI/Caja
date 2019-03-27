@@ -354,6 +354,7 @@ Public Class frmRemisiones
 			oCobroRemision.Pago = Pago
 			oCobroRemision.Remision = row("Remisión").ToString()
 			oCobroRemision.Serie = row("Serie").ToString()
+			oCobroRemision.Producto = row("Producto").ToString()
 			oCobroRemision.MontoAbonado = Convert.ToDecimal(row("importe abonado").ToString())
 			CobroRemisiones.Add(oCobroRemision)
 
