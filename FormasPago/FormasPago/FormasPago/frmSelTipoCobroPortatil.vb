@@ -111,6 +111,7 @@ Public Class frmSelTipoCobroPortatil
 	Private Pago As Integer
 	Private TipoCobro As Integer
 	Private dListadoTipoTarjeta As Dictionary(Of Integer, String)
+	Private _numeroPago As Integer
 
 	Enum FormaPago
 		Efectivo = 0
@@ -291,6 +292,15 @@ Public Class frmSelTipoCobroPortatil
 		End Get
 		Set(ByVal value As Int32)
 			_TipoCaptura = value
+		End Set
+	End Property
+
+	Public Property NumeroPago As Integer
+		Get
+			Return _numeroPago
+		End Get
+		Set(value As Integer)
+			_numeroPago = value
 		End Set
 	End Property
 
@@ -2061,7 +2071,8 @@ Public Class frmSelTipoCobroPortatil
 
 				Total = CDec(TxtMontoVales.Text)
 
-				Pago = TotalCobros + 1
+				'Pago = TotalCobros + 1
+				Pago = numeroPago
 				TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.ValesCaja
 				Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaVales(Pago)
 				_AceptaSaldo = True
@@ -2120,7 +2131,8 @@ Public Class frmSelTipoCobroPortatil
 			frmCaptura.ImporteCobro = CType(txtImporteTC.Text, Decimal)
 			Total = CDec(txtImporteTC.Text)
 
-			Pago = TotalCobros + 1
+			'Pago = TotalCobros + 1
+			Pago = numeroPago
 			TipoCobro = CInt(cboTipoTarjeta.SelectedValue)
 			Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaTarjeta(Pago)
 			_AceptaSaldo = True
@@ -2141,7 +2153,8 @@ Public Class frmSelTipoCobroPortatil
 
 			Total = CDec(txtImporteDocumento.Text)
 
-			Pago = TotalCobros + 1
+			'Pago = TotalCobros + 1
+			Pago = numeroPago
 			TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.Cheque
 			Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaCheque(Pago)
 			_AceptaSaldo = True
@@ -2268,9 +2281,6 @@ Public Class frmSelTipoCobroPortatil
 				cboAfiliacionTarjeta.DisplayMember = "Value"
 
 			End If
-
-
-
 
 		Catch ex As Exception
 			MessageBox.Show(ex.Message)
@@ -2534,7 +2544,8 @@ Public Class frmSelTipoCobroPortatil
 			frmCaptura.TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.TarjetaCredito
 			frmCaptura.ImporteCobro = CType(Txt_totalEfectivo.Text, Decimal)
 			Total = CDec(Txt_totalEfectivo.Text)
-			Pago = TotalCobros + 1
+			'Pago = TotalCobros + 1
+			Pago = numeroPago
 			TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.EfectivoVales
 			Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaPagoEfectivo(Pago)
 
@@ -2804,7 +2815,8 @@ Public Class frmSelTipoCobroPortatil
 			If validaDatosTransferencia() Then
 				Total = CDec(TxtImporteTransferencia.Text)
 
-				Pago = TotalCobros + 1
+				'Pago = TotalCobros + 1
+				Pago = numeroPago
 				TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.Transferencia
 				Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaTransferencia(Pago)
 				_AceptaSaldo = True
@@ -3162,7 +3174,8 @@ Public Class frmSelTipoCobroPortatil
 				If Saldo >= Convert.ToDecimal(TxtMontoAnticipo.Text) Then
 					Total = CDec(TxtMontoAnticipo.Text)
 
-					Pago = TotalCobros + 1
+					'Pago = TotalCobros + 1
+					Pago = numeroPago
 					TipoCobro = SigaMetClasses.Enumeradores.enumTipoCobro.AplicacionAnticipo
 					Dim cobro As SigaMetClasses.CobroDetalladoDatos = AltaAnticipo(Pago, CShort(Año), CInt(Folio))
 					Dim listaDebito As New List(Of DebitoAnticipo)
