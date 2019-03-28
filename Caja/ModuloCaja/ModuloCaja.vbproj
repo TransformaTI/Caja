@@ -176,9 +176,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\MySql.Data.dll</HintPath>
     </Reference>
-    <Reference Include="nombreempresa, Version=1.0.5604.18811, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="NombreEmpresa, Version=1.0.5604.18811, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\nombreempresa.dll</HintPath>
+      <HintPath>..\..\..\Librerias\NombreEmpresa\bin\Debug\NombreEmpresa.dll</HintPath>
     </Reference>
     <Reference Include="PortatilClasses, Version=1.7.0.4, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
