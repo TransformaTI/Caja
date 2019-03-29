@@ -157,6 +157,8 @@ Public Class frmRemisiones
 		Dim SaldoAbonado As Decimal
 
 
+
+
 		SaldoAbonado = CDec(grdRemision.Item(i, 7))
 
 		If grdRemision.Item(i, 13).ToString <> "18" Then
@@ -218,18 +220,94 @@ Public Class frmRemisiones
 							End If
 
 						End If
-                    Catch ex As Exception
+					Catch ex As Exception
 						MessageBox.Show(ex.Message)
 					End Try
 				Else
 					MessageBox.Show("saldo insuficiente")
+					Return
 				End If
 			Else
 				MessageBox.Show("Ya no se permite hacer un abono, el saldo ya es de cero")
+				Return
 			End If
 		Else
 			MessageBox.Show("No se permiten abonos a remisiones con Crédito Portátil")
+			Return
 		End If
+
+		Dim j As Integer = 0
+
+
+		Try
+			_TablaRemisiones.DefaultView.RowFilter = "Serie ='" & grdRemision.Item(i, 0) & "' and Remision ='" & grdRemision.Item(i, 1) & "' and producto <> '" & grdRemision.Item(i, 11) & "'"
+			MessageBox.Show("Hola")
+			While _Saldo > 0 And j < _TablaRemisiones.DefaultView.Count
+				row = table.NewRow
+				row("Serie") = grdRemision.Item(j, 0)
+				row("Remisión") = grdRemision.Item(j, 1)
+				row("Producto") = grdRemision.Item(j, 11)
+
+				If _Saldo >= CDec(grdRemision.Item(j, 7)) Then
+					row("Importe abonado") = grdRemision.Item(j, 7)
+				Else
+					row("Importe abonado") = _Saldo.ToString
+				End If
+
+				table.Rows.Add(row)
+				grdAbonos.DataSource = table
+				'Dim fila As DataRow
+				'fila = _TablaRemisiones.Rows(_FilaSaldo)
+
+				'fila = _TablaRemisiones.Rows.
+
+				If _Saldo > 0 Then
+					If _Saldo >= CDec(grdRemision.Item(j, 7)) Then
+						_SumImportesSaldo += CDec(grdRemision.Item(j, 7))
+						_Saldo = _Total - _SumImportesSaldo
+						'fila("Saldo") = 0
+						grdRemision.Item(j, 7) = 0
+					Else
+						'fila("Saldo") = CDec(grdRemision.Item(j, 7)) - _Saldo
+						grdRemision.Item(j, 7) = CDec(grdRemision.Item(j, 7)) - _Saldo
+						_Saldo = 0
+					End If
+					'fila("Tipocobro") = _Tipocobro
+					grdRemision.Item(j, 13) = _Tipocobro
+					grdRemision.DataSource = _TablaRemisiones
+					If _Saldo <= 0 Then
+						lbl_saldo.Text = Valorcero()
+					Else
+						lbl_saldo.Text = "$" + _Saldo.ToString
+					End If
+					lbl_importeDocumento.Text = Valorcero()
+					lblSaloMovimiento.Text = Valorcero()
+					lblImporteAbobo.Text = Valorcero()
+					_UltimoCobro.Serie = grdRemision.Item(j, 0)
+					_UltimoCobro.Remision = grdRemision.Item(j, 1)
+					_UltimoCobro.Producto = grdRemision.Item(j, 11)
+
+					If _Tipocobro = 2 Or _Tipocobro = 16 Then
+						Try
+							_UltimoCobro.FCheque = CType(grdRemision.Item(j, 14), Date)
+							_UltimoCobro.FDeposito = CType(grdRemision.Item(j, 14), Date)
+
+						Catch ex As Exception
+
+						End Try
+					End If
+
+				End If
+
+				j = j + 1
+			End While
+
+		Catch ex As Exception
+
+		End Try
+		_TablaRemisiones.DefaultView.RowFilter = ""
+
+
 	End Sub
 
     Private Sub Btn_Borrar_Click(sender As Object, e As EventArgs) Handles Btn_BorrarTodo.Click
