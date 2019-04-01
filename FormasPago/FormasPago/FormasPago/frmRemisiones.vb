@@ -241,7 +241,7 @@ Public Class frmRemisiones
 
 		Try
 			_TablaRemisiones.DefaultView.RowFilter = "Serie ='" & grdRemision.Item(i, 0) & "' and Remision ='" & grdRemision.Item(i, 1) & "' and producto <> '" & grdRemision.Item(i, 11) & "'"
-			MessageBox.Show("Hola")
+
 			While _Saldo > 0 And j < _TablaRemisiones.DefaultView.Count
 				row = table.NewRow
 				row("Serie") = grdRemision.Item(j, 0)
