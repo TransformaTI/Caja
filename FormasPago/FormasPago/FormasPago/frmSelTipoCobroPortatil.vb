@@ -1139,7 +1139,7 @@ Public Class frmSelTipoCobroPortatil
 		Me.tbChequeFicha.Controls.Add(Me.grpChequeFicha)
 		Me.tbChequeFicha.Location = New System.Drawing.Point(4, 4)
 		Me.tbChequeFicha.Name = "tbChequeFicha"
-		Me.tbChequeFicha.Size = New System.Drawing.Size(603, 407)
+		Me.tbChequeFicha.Size = New System.Drawing.Size(603, 425)
 		Me.tbChequeFicha.TabIndex = 2
 		Me.tbChequeFicha.Text = "Cheque / Ficha de deposito"
 		'
@@ -1352,7 +1352,7 @@ Public Class frmSelTipoCobroPortatil
 		Me.tbTransferencias.Location = New System.Drawing.Point(4, 4)
 		Me.tbTransferencias.Name = "tbTransferencias"
 		Me.tbTransferencias.Padding = New System.Windows.Forms.Padding(3)
-		Me.tbTransferencias.Size = New System.Drawing.Size(603, 407)
+		Me.tbTransferencias.Size = New System.Drawing.Size(603, 425)
 		Me.tbTransferencias.TabIndex = 4
 		Me.tbTransferencias.Text = "Transferencias"
 		'
@@ -1504,7 +1504,7 @@ Public Class frmSelTipoCobroPortatil
 		Me.cboCuentaDestinoTransferencia.Location = New System.Drawing.Point(141, 237)
 		Me.cboCuentaDestinoTransferencia.Name = "cboCuentaDestinoTransferencia"
 		Me.cboCuentaDestinoTransferencia.Size = New System.Drawing.Size(208, 21)
-		Me.cboCuentaDestinoTransferencia.TabIndex = 40
+		Me.cboCuentaDestinoTransferencia.TabIndex = 7
 		'
 		'LabelBase37
 		'
@@ -1522,7 +1522,7 @@ Public Class frmSelTipoCobroPortatil
 		Me.ComboBancoOrigenTransferencia.Location = New System.Drawing.Point(141, 129)
 		Me.ComboBancoOrigenTransferencia.Name = "ComboBancoOrigenTransferencia"
 		Me.ComboBancoOrigenTransferencia.Size = New System.Drawing.Size(208, 21)
-		Me.ComboBancoOrigenTransferencia.TabIndex = 37
+		Me.ComboBancoOrigenTransferencia.TabIndex = 3
 		'
 		'LabelBase35
 		'
@@ -1554,14 +1554,14 @@ Public Class frmSelTipoCobroPortatil
 		Me.txtbObservacionesTranferencias.Multiline = True
 		Me.txtbObservacionesTranferencias.Name = "txtbObservacionesTranferencias"
 		Me.txtbObservacionesTranferencias.Size = New System.Drawing.Size(208, 48)
-		Me.txtbObservacionesTranferencias.TabIndex = 7
+		Me.txtbObservacionesTranferencias.TabIndex = 9
 		'
 		'TxtImporteTransferencia
 		'
 		Me.TxtImporteTransferencia.Location = New System.Drawing.Point(141, 261)
 		Me.TxtImporteTransferencia.Name = "TxtImporteTransferencia"
 		Me.TxtImporteTransferencia.Size = New System.Drawing.Size(208, 21)
-		Me.TxtImporteTransferencia.TabIndex = 6
+		Me.TxtImporteTransferencia.TabIndex = 8
 		'
 		'ComboBancoDestinoTransferencia
 		'
@@ -1570,7 +1570,7 @@ Public Class frmSelTipoCobroPortatil
 		Me.ComboBancoDestinoTransferencia.Location = New System.Drawing.Point(141, 209)
 		Me.ComboBancoDestinoTransferencia.Name = "ComboBancoDestinoTransferencia"
 		Me.ComboBancoDestinoTransferencia.Size = New System.Drawing.Size(208, 21)
-		Me.ComboBancoDestinoTransferencia.TabIndex = 5
+		Me.ComboBancoDestinoTransferencia.TabIndex = 6
 		'
 		'TxtNumeroReferenciaTransferencia
 		'
@@ -1578,14 +1578,14 @@ Public Class frmSelTipoCobroPortatil
 		Me.TxtNumeroReferenciaTransferencia.MaxLength = 7
 		Me.TxtNumeroReferenciaTransferencia.Name = "TxtNumeroReferenciaTransferencia"
 		Me.TxtNumeroReferenciaTransferencia.Size = New System.Drawing.Size(208, 21)
-		Me.TxtNumeroReferenciaTransferencia.TabIndex = 4
+		Me.TxtNumeroReferenciaTransferencia.TabIndex = 5
 		'
 		'TxtNumeroCuentaTransferenciaOrigen
 		'
 		Me.TxtNumeroCuentaTransferenciaOrigen.Location = New System.Drawing.Point(141, 156)
 		Me.TxtNumeroCuentaTransferenciaOrigen.Name = "TxtNumeroCuentaTransferenciaOrigen"
 		Me.TxtNumeroCuentaTransferenciaOrigen.Size = New System.Drawing.Size(208, 21)
-		Me.TxtNumeroCuentaTransferenciaOrigen.TabIndex = 3
+		Me.TxtNumeroCuentaTransferenciaOrigen.TabIndex = 4
 		'
 		'DTPFechaTransferencia
 		'
