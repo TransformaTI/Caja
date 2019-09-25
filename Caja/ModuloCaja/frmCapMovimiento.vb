@@ -1902,7 +1902,7 @@ Public Class frmCapMovimiento
 			lblFMovimiento.Text = dtpFMovimiento.Value.ToLongDateString
 			'Fin
 
-			If CType(DatosMovimiento.Tables("InfoPreliq").Rows(0).Item("ImporteContado"), Decimal) <> decImporteTotalMovimiento Then
+			If CType(DatosMovimiento.Tables("InfoPreliq").Rows(0).Item("ImporteContado"), Decimal) <> (decImporteTotalMovimiento - AFavorOperadorCheques) Then
 				MessageBox.Show("El movimiento tiene cifras incongruentes entre los documentos y la báscula." & Chr(13) &
 								"El movimiento no podra ser dado de alta." & Chr(13) &
 								"Reporte este problema al administrador del sistema.", Titulo, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -1999,6 +1999,7 @@ Public Class frmCapMovimiento
 								 CType(DatosMovimiento.Tables("Cabecera").Rows(0).Item("EmpleadoNombre"), String)
 		lblObservaciones.Text = CType(DatosMovimiento.Tables("Cabecera").Rows(0).Item("Observaciones"), String)
 
+		Dim a As New SigaMetClasses.TransaccionMovimientoCaja()
 
 
 		'Fin del pre-cargo
@@ -2163,6 +2164,8 @@ Public Class frmCapMovimiento
 
 			'RegistroValeCredito1.Enabled = False
 
+			Dim efectivoTotal As Decimal = CobroEfectivo.CalculaTotalEfectivo
+			Dim valestotal As Decimal = Vales.CalculaTotalVales
 			'24 de marzo del 2003
 			dtpFMovimiento.Value = CType(DatosMovimiento.Tables("Cabecera").Rows(0).Item("FMovimiento"), Date)
 			lblFMovimiento.Text = dtpFMovimiento.Value.ToLongDateString
@@ -2350,6 +2353,7 @@ Public Class frmCapMovimiento
 
 			'Se instancia el objeto que controla la transacción
 			Dim objMov As New SigaMetClasses.TransaccionMovimientoCaja()
+
 			Try
 				'Verificar si la fecha almacenada en memoria corresponde con la fecha del servidor - JAGD 03032010
 				Dim _fechaServidor As Date = SigaMetClasses.FechaServidor
