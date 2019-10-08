@@ -1900,18 +1900,18 @@ Public Class frmCapMovimiento
 			End If
 
 			lblFMovimiento.Text = dtpFMovimiento.Value.ToLongDateString
-			'Fin
+            'Fin
+            If CType(DatosMovimiento.Tables("InfoPreliq").Rows(0).Item("ImporteContado"), Decimal) <> decImporteTotalMovimiento Then
+                If CType(DatosMovimiento.Tables("InfoPreliq").Rows(0).Item("ImporteContado"), Decimal) <> (decImporteTotalMovimiento - AFavorOperadorCheques) Then
+                    MessageBox.Show("El movimiento tiene cifras incongruentes entre los documentos y la báscula." & Chr(13) &
+                                    "El movimiento no podra ser dado de alta." & Chr(13) &
+                                    "Reporte este problema al administrador del sistema.", Titulo, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                    grpDatosMovimiento.BackColor = Color.Red
+                    btnAceptar.Enabled = False
+                End If
+            End If
 
-			If CType(DatosMovimiento.Tables("InfoPreliq").Rows(0).Item("ImporteContado"), Decimal) <> (decImporteTotalMovimiento - AFavorOperadorCheques) Then
-				MessageBox.Show("El movimiento tiene cifras incongruentes entre los documentos y la báscula." & Chr(13) &
-								"El movimiento no podra ser dado de alta." & Chr(13) &
-								"Reporte este problema al administrador del sistema.", Titulo, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-				grpDatosMovimiento.BackColor = Color.Red
-				btnAceptar.Enabled = False
-			End If
-
-
-			If Not IsDBNull(DatosMovimiento.Tables("InfoPreLiq").Rows(0).Item("TipoPagoEficiencia")) Then
+            If Not IsDBNull(DatosMovimiento.Tables("InfoPreLiq").Rows(0).Item("TipoPagoEficiencia")) Then
 				If CType(DatosMovimiento.Tables("InfoPreLiq").Rows(0).Item("TipoPagoEficiencia"), Byte) = 1 Or
 				   CType(DatosMovimiento.Tables("InfoPreLiq").Rows(0).Item("TipoPagoEficiencia"), Byte) = 2 Then
 					ImporteEficiencia = CType(DatosMovimiento.Tables("InfoPreLiq").Rows(0).Item("ImporteEficiencia"), Decimal)

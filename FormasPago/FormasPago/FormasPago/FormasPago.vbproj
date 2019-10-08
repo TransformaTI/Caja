@@ -52,7 +52,8 @@
     <Reference Include="NombreEmpresa">
       <HintPath>..\..\..\Caja\ModuloCaja\bin\NombreEmpresa.dll</HintPath>
     </Reference>
-    <Reference Include="PortatilClasses">
+    <Reference Include="PortatilClasses, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Librerias\PortatilClasses\bin\PortatilClasses.dll</HintPath>
     </Reference>
     <Reference Include="RTGMGateway">
