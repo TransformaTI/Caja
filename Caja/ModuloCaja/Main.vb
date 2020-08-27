@@ -187,8 +187,7 @@ Public Module Main
 
             'GLOBAL_RutaReportes = CType(oLogin.Parametros("RutaReportes"), String)
             GLOBAL_RutaReportes = CType(SigametSeguridad.Seguridad.Parametros(3,
-                CType(GLOBAL_CorporativoUsuario, Byte), CType(GLOBAL_SucursalUsuario, Byte)).ValorParametro("RutaReportesW7"), String)
-
+                    CType(GLOBAL_CorporativoUsuario, Byte), CType(GLOBAL_SucursalUsuario, Byte)).ValorParametro("RutaReportesW7"), String)
             GLOBAL_VersionAutorizada = CType(oLogin.Parametros("VersionAutorizada"), String)
             GLOBAL_MensajeVersion = CType(oLogin.Parametros("MensajeVersion"), String)
 
@@ -225,8 +224,13 @@ Public Module Main
             GLOBAL_NombreEmpresa = _datosEmpresa.NombreEmpresa
 
             'TODO: Valor de la seguridad de reportes
-            GLOBAL_SeguridadReportes = CType(oLogin.Parametros("SeguridadReportes"), Boolean)
-			Try
+            Try
+                GLOBAL_SeguridadReportes = CType(oLogin.Parametros("SeguridadReportes"), Boolean)
+            Catch ex As Exception
+
+            End Try
+
+            Try
 				GLOBAL_URLGATEWAY = CType(oLogin.Parametros("URLGateway"), String)
 			Catch ex As Exception
 				GLOBAL_URLGATEWAY = ""
