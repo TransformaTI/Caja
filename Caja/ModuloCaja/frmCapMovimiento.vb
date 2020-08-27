@@ -221,6 +221,8 @@ Public Class frmCapMovimiento
         Me.LabelBase1 = New ControlesBase.LabelBase()
         Me.lblNoTieneEfectivo = New System.Windows.Forms.Label()
         Me.grpCobroDocumentos = New System.Windows.Forms.GroupBox()
+        Me.LabelBase17 = New ControlesBase.LabelBase()
+        Me.LblTotalCompensacion = New System.Windows.Forms.Label()
         Me.LabelBase18 = New ControlesBase.LabelBase()
         Me.lblTotalTarjetaServicios = New System.Windows.Forms.Label()
         Me.LabelBase14 = New ControlesBase.LabelBase()
@@ -271,8 +273,6 @@ Public Class frmCapMovimiento
         Me.lblPanelMensaje = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.ttMensaje = New System.Windows.Forms.ToolTip(Me.components)
-        Me.LblTotalCompensacion = New System.Windows.Forms.Label()
-        Me.LabelBase17 = New ControlesBase.LabelBase()
         Me.grpLiquidacionConsulta.SuspendLayout()
         CType(Me.grdInfoPreLiq, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpCabecera.SuspendLayout()
@@ -575,7 +575,7 @@ Public Class frmCapMovimiento
         Me.lblFMovimiento.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lblFMovimiento.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblFMovimiento.ForeColor = System.Drawing.Color.Blue
-        Me.lblFMovimiento.Location = New System.Drawing.Point(136, 120)
+        Me.lblFMovimiento.Location = New System.Drawing.Point(136, 122)
         Me.lblFMovimiento.Name = "lblFMovimiento"
         Me.lblFMovimiento.Size = New System.Drawing.Size(248, 21)
         Me.lblFMovimiento.TabIndex = 43
@@ -1086,6 +1086,26 @@ Public Class frmCapMovimiento
         Me.grpCobroDocumentos.TabIndex = 34
         Me.grpCobroDocumentos.TabStop = False
         Me.grpCobroDocumentos.Text = "Cobro de documentos"
+        '
+        'LabelBase17
+        '
+        Me.LabelBase17.AutoSize = True
+        Me.LabelBase17.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelBase17.Location = New System.Drawing.Point(1, 610)
+        Me.LabelBase17.Name = "LabelBase17"
+        Me.LabelBase17.Size = New System.Drawing.Size(80, 13)
+        Me.LabelBase17.TabIndex = 75
+        Me.LabelBase17.Text = "Compensación:"
+        '
+        'LblTotalCompensacion
+        '
+        Me.LblTotalCompensacion.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.LblTotalCompensacion.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.LblTotalCompensacion.Location = New System.Drawing.Point(88, 610)
+        Me.LblTotalCompensacion.Name = "LblTotalCompensacion"
+        Me.LblTotalCompensacion.Size = New System.Drawing.Size(80, 16)
+        Me.LblTotalCompensacion.TabIndex = 73
+        Me.LblTotalCompensacion.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'LabelBase18
         '
@@ -1616,26 +1636,6 @@ Public Class frmCapMovimiento
         'ttMensaje
         '
         Me.ttMensaje.Active = False
-        '
-        'LblTotalCompensacion
-        '
-        Me.LblTotalCompensacion.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.LblTotalCompensacion.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.LblTotalCompensacion.Location = New System.Drawing.Point(88, 610)
-        Me.LblTotalCompensacion.Name = "LblTotalCompensacion"
-        Me.LblTotalCompensacion.Size = New System.Drawing.Size(80, 16)
-        Me.LblTotalCompensacion.TabIndex = 73
-        Me.LblTotalCompensacion.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'LabelBase17
-        '
-        Me.LabelBase17.AutoSize = True
-        Me.LabelBase17.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelBase17.Location = New System.Drawing.Point(1, 610)
-        Me.LabelBase17.Name = "LabelBase17"
-        Me.LabelBase17.Size = New System.Drawing.Size(80, 13)
-        Me.LabelBase17.TabIndex = 75
-        Me.LabelBase17.Text = "Compensación:"
         '
         'frmCapMovimiento
         '
@@ -2333,10 +2333,48 @@ Public Class frmCapMovimiento
 			Dim arrDenomEfectivo As Array = CobroEfectivo.CalculaDenominaciones
 			Dim arrDenomVales As Array = Vales.CalculaDenominaciones
 
+            Dim _Celula As Integer = SigaMetClasses.ConsultaCelulaRutaSucursal(RutaMovimiento)
 
-			'Dim arrDenomValesPromocion As Array = ControlValesPromocion1.CalculaDenominaciones
 
-			Dim arrCheques(0, 2) As Decimal
+
+            If _Celula = -1 Then
+                MessageBox.Show("Ocurrió un problema al consultar el factor de conversión")
+                Return
+            Else
+                If _Celula = 0 Then
+                    _Celula = Celula
+                End If
+            End If
+
+            Dim _FactorDensidad As Decimal
+
+            _FactorDensidad = SigaMetClasses.ConsultaFactorConversion(_Celula, dtpFMovimiento.Value(), 0)
+
+            If _FactorDensidad = -1 Then
+                MessageBox.Show("Ocurrió un problema al consultar el factor de conversión")
+                Return
+            Else
+                If _FactorDensidad = 0 Then
+                    MessageBox.Show("No existe factor de conversión contable, notifíquelo a sistema")
+                    Return
+                End If
+            End If
+
+            Dim _Resultado As String
+
+            _Resultado = SigaMetClasses.ActualizaKilosPedido(AutotanqueTurno_AnoAtt, AutotanqueTurno_Folio, _FactorDensidad)
+
+            If _Resultado <> "" Then
+                MessageBox.Show("Ocurrió un problema al modificar pedido " + _Resultado)
+                Return
+            End If
+
+
+
+
+            'Dim arrDenomValesPromocion As Array = ControlValesPromocion1.CalculaDenominaciones
+
+            Dim arrCheques(0, 2) As Decimal
 			Dim arrTarjetas(0, 2) As Decimal
 			Dim arrFichas(0, 2) As Decimal
 			Dim i As Integer = 0
